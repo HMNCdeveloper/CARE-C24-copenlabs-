@@ -1,0 +1,927 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{133EC58A-45B8-48F2-99C8-3E1C3DF45337}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HS5</RootNamespace>
+    <AssemblyName>Homoeonic Software 5</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Raul Zavala\Desktop\WebSite\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>HS 5</ProductName>
+    <PublisherName>Homoeonic</PublisherName>
+    <SuiteName>Homoeonic Software</SuiteName>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1B7B990F1341B263F6A84A60FB1D717A020E75C3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Homoeonic Software_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Custom</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Elegantthemes-Beautiful-Flat-Aperture.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Material, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Material.1.9.1\lib\net45\MahApps.Metro.IconPacks.Material.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks.Modern, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.Modern.1.6.0\lib\net45\MahApps.Metro.IconPacks.Modern.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic, Version=1.1.1.21, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.1.1.21, Culture=neutral, PublicKeyToken=7f709c5b713576e1" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Npgsql, Version=8.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.8.0.2\lib\netstandard2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder">
+      <HintPath>..\..\QRCoder-master\QRCoderDemo\bin\Debug\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.8.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.1.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\QRCoder-master\QRCoderDemo\bin\Debug\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.14\lib\net\WpfAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Codigo.xaml.cs">
+      <DependentUpon>Codigo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Machine.xaml.cs">
+      <DependentUpon>Machine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Radionica.cs" />
+    <Compile Include="reporte_ext.cs" />
+    <Page Include="Codigo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Machine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="Machine.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Homoeonic Software_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Abdomen-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\AnteBrazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\AnteBrazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Boca B-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Brazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Brazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cabello-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cadera Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cadera Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cara-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Clavicula Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Clavicula Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Costillas Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Costillas Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cuello Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Cuello Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Dedos Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Dedos Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Dedos Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Dedos Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Esofago-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Estomago-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Falange Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Falanges Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\frente-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Garganta-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Glande-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Hombro Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Hombro Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Mandibula-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Muslo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Muslo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\nariz-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Ojo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Ojo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Ombligo-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Oreja Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Oreja Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pantorrilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pantorrilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Parpado DerB-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Parpado DerW-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Parpado Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pecho-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pene-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pezon Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pezon Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pulgar Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pulgar Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pulgar Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Pulgar Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Rodilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Rodilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Testiculo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Testiculo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Parts\Vegiga-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Color Hombre Back-500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Cuerpo HFront-500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Mujer front-500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Fback-500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Antebrazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Aquiles Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Aquiles Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Cadera Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Cadera Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Codo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Cuello-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Dedos Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Dedos izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Espalda-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Falanges Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\HBFalages Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\HBHombro Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBAnteBrazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBAnus-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBBrazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBBrazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBCabeza-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBCodo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBColumna-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBHombro Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBMuñeca der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBNalga Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBNalga Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBOido der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBOido Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\MBPulgar Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Muñeca Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Muslo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Muslo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pantorrilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pantorrilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pelvis-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Pulgar Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Talon Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Talon Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Tobillo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Tobillo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Trapecio Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Mback\Trapecio Izp-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Abdomen-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\AnteBraxo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\AnteBrazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Aureola Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Aureola Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Boca-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Brazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Brazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cabello-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cadera Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cadera Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cara-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Clavicula Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Clavicula Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Costillas Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Costillas Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cuello Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Cuello Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Dedos Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Dedos Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Dedos Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Dedos Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Esofago-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Estomago-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Falanges Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Falanges Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Frente-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Garganta-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Hombro Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Hombro Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Mandibula-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Muslo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Muslo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Nariz-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Oido Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Oido Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Ojo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Ojo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Ombligo-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pantorrilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pantorrilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Parpado Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Parpado Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pecho Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pecho Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pecho-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pezon Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pezon Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pulganr Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pulgar Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pulgar Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Pulgar Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Rodilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Rodilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Tobillo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Tobillo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Utero-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Vagina-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Ffront\Vejiga-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Ano-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Antebrazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Antebrazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Brazo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Brazo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Cabeza-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Cadera Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Cadera Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Clavicula Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Clavicula Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Codo Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Codo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Columna-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Coxis-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Cuello-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Dedos Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Dedos Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Espalda-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\falanges Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Falanges Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Hombro Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Hombro Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Mano Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Mano Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Muñeca Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Muñeca izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Nalga Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Nalga Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pantorrilla Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pantorrilla Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pie Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pie Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pierna Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pierna Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pulgar Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Pulgar Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Talon Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Talon Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\TAquiles Der-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\TAquiles Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Tobillo Derecho-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Fback\Tobillo Izq-500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abdomen_500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abdomen_5001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bc-anim.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bc-anim-p.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portada_hoja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Elegantthemes-Beautiful-Flat-Aperture.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconohmc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HS5.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
