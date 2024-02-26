@@ -475,7 +475,7 @@ namespace MahAppsExample
                         Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
 
                         //Actualizamos en bd (ID,Fecha Nueva) la fecha nueva
-                        obj2.ModificarFechaTratamiento(Tratamiento_Inactivos.Rows[j][0].ToString(), Fecha_nueva.ToString());
+                        obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
 
                         //Actualizamos en bd nuevo estado
                         obj2.ModificarEstadoTratamiento(Tratamiento_Inactivos.Rows[j][0].ToString());
@@ -4214,7 +4214,9 @@ namespace MahAppsExample
 
                 //Campo seleccionado con el mouse
                 DataRowView paciente_seleccionado = (DataRowView)ListaPacientes.SelectedItem;
-                string id_paciente = paciente_seleccionado[0].ToString();
+                if (paciente_seleccionado != null)
+                {
+                     string id_paciente = paciente_seleccionado[0].ToString();
                 id_paciente_global_modif = id_paciente;
                 //MessageBox.Show(id_paciente);
 
@@ -4353,6 +4355,8 @@ namespace MahAppsExample
                 //Mostrar Listado completo de pacientes
                 CargarListadoCompletoPacientes();
 
+                }
+               
             }
             catch (NullReferenceException)
             {
@@ -5155,7 +5159,7 @@ namespace MahAppsExample
                           rdm.Next(0, 9).ToString();
 
                     //Crear registro de remedio proveniente de diagnostico
-                    obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, id_paciente_nombrecompleto.ToString(), lblPacienteAnalisis_P1.Content.ToString(), id_analisis.ToString(), lblNombre_Anal1.Content.ToString(), DateTime.Now.ToString(), "");
+                    obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, id_paciente_nombrecompleto.ToString(), lblPacienteAnalisis_P1.Content.ToString(), id_analisis.ToString(), lblNombre_Anal1.Content.ToString(), DateTime.Now, "");
 
                     //Ir a remedios y homeopatia
                     CargarListadoRemedios(); //Actualiza el listado de remedios por aquello que se agregarara uno
@@ -6291,7 +6295,7 @@ namespace MahAppsExample
                     string codigo = obj_rem.RandomDigits(num.Next(15));
 
                     //Crear registro de remedio proveniente de diagnostico
-                    obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, "", "", "", "", DateTime.Now.ToString(), codigo);
+                    obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, "", "", "", "", DateTime.Now, codigo);
                     /* }
                      catch(Exception err)
                      {
@@ -7376,7 +7380,7 @@ namespace MahAppsExample
                     string id_remedio_genrand = obj1.Generar_Id();
 
                     //Registra el tratamiento a color como remedio (Color -{nombre del tratamiento}
-                    obj2.Registrar_Remedio_Color(id_remedio_genrand, "Color - " + nombre_tratamiento_color, DateAndTime.Now.ToString());
+                    obj2.Registrar_Remedio_Color(id_remedio_genrand, "Color - " + nombre_tratamiento_color, DateAndTime.Now);
 
                     //Registrar codigo de remedio - campos: idcr,idr,codigo,codigocomplementario,nombrecodigo,idcodigo,potencia,metodo,nivel (METODO OSVALDO)
                     //Codigo del tratamiento general generado a nivel random
@@ -10128,7 +10132,7 @@ namespace MahAppsExample
                             //Registrar analisis con el nombre elegido en bd
                             DataTable pacientes = obj2.Buscar_IdPaciente_Nombre(listadoPacientes.SelectedItem.ToString());
 
-                            obj2.RegistrarAnalisisPaciente_Diag(pacientes.Rows[0][0].ToString(), cmdAnalisisPaciente_Copy.Text, DateTime.Now.ToString(), "4", "0", "0", DateTime.Now.ToString());
+                            obj2.RegistrarAnalisisPaciente_Diag(pacientes.Rows[0][0].ToString(), cmdAnalisisPaciente_Copy.Text, DateTime.Now, 4, 0, 0, DateTime.Now);
 
                             cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
                             A_Diagnosticar(pac);
@@ -10549,7 +10553,7 @@ namespace MahAppsExample
                     // HacerConexion();
                     DataTable pacientes = obj2.Buscar_IdPaciente_Nombre(listadoPacientes.SelectedItem.ToString());
 
-                    obj2.RegistrarReAnalisisPaciente_Diag(pacientes.Rows[0][0].ToString(), comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis", DateTime.Now.ToString(), "4", "0", "1", DateTime.Now.ToString(), id_padre.ToString());
+                    obj2.RegistrarReAnalisisPaciente_Diag(pacientes.Rows[0][0].ToString(), comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis", DateTime.Now, 4, 0, 1, DateTime.Now, id_padre.ToString());
                     // CerrarConexion();
 
 
@@ -11051,7 +11055,7 @@ namespace MahAppsExample
                                         sfecha_hora = fecha_selec + ts;
 
                                         //Registrar nuevo tratamiento sin padre y con estado 1
-                                        obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_hora.ToString(), sfecha_inicio.ToString(), 1);
+                                        obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_hora, sfecha_inicio, 1);
 
                                         //Obtener Id del tratamiento a distancia para guardar su contenido acorde al ID
                                         object id_tratamiento = obj2.Obtener_IDTratamiento(id_paciente.ToString(), nombre_paciente, nombre_tratamiento);
@@ -11163,7 +11167,7 @@ namespace MahAppsExample
                                         fecha_origen.Add(sfecha_inicio);
 
                                         //Creamos la fecha padre
-                                        obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_hora.ToString(), sfecha_inicio.ToString(), 1);
+                                        obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_hora, sfecha_inicio, 1);
 
                                         string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
 
@@ -11195,7 +11199,7 @@ namespace MahAppsExample
                                         for (int s = 1; s <= fechas.Count - 1; s++)
                                         {
                                             //MessageBox.Show(padre);
-                                            obj2.Registrar_TratamientoNuevoSencillo(padre, id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, fechas[s].ToString(), fecha_origen[s].ToString(), 0);
+                                            obj2.Registrar_TratamientoNuevoSencillo(padre, id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, fechas[s], fecha_origen[s], 0);
                                             //MessageBox.Show(fechas[s].ToString());
 
                                             string duracion_formatoreloj_in = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));

@@ -495,12 +495,23 @@ namespace MahAppsExample
         }
 
         //Funcion para registrar analisis del paciente  
-        public void RegistrarAnalisisPaciente_Diag(string id_paciente, string nombre, string fecha, string tipoanalisis,string analizado,string reanalizar,string fechac)
+        public void RegistrarAnalisisPaciente_Diag(string id_paciente, string nombre, DateTime fecha, int tipoanalisis, int analizado, int reanalizar, DateTime fechac)
         {
-            sql = "INSERT INTO rad_analisis(idpaciente,nombre,fecha,tipoanalisis,analizado,reanalizar,fechac) VALUES('" + id_paciente + "',$$" + nombre + "$$,$$" + fecha + "$$,$$" + tipoanalisis + "$$,$$" + analizado + "$$,$$" + reanalizar + "$$,$$" + fechac + "$$)";
+            sql = "INSERT INTO rad_analisis(idpaciente, nombre, fecha, tipoanalisis, analizado, reanalizar, fechac) VALUES(@id_paciente, @nombre, @fecha, @tipoanalisis, @analizado, @reanalizar, @fechac)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@id_paciente", id_paciente);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@fecha", fecha);
+            command.Parameters.AddWithValue("@tipoanalisis", tipoanalisis);
+            command.Parameters.AddWithValue("@analizado", analizado);
+            command.Parameters.AddWithValue("@reanalizar", reanalizar);
+            command.Parameters.AddWithValue("@fechac", fechac);
+
             command.ExecuteNonQuery();
         }
+
 
         //Funcion para registrar version del software
         public void RegistrarVersion(string nombre, string descripcion)
@@ -511,12 +522,24 @@ namespace MahAppsExample
         }
 
         //Funcion para registrar reanalisis del paciente  
-        public void RegistrarReAnalisisPaciente_Diag(string id_paciente, string nombre, string fecha, string tipoanalisis, string analizado, string reanalizar, string fechac,string padre)
+        public void RegistrarReAnalisisPaciente_Diag(string id_paciente, string nombre, DateTime fecha, int tipoanalisis, int analizado, int reanalizar, DateTime fechac, string padre)
         {
-            sql = "INSERT INTO rad_analisis(idpaciente,nombre,fecha,tipoanalisis,analizado,reanalizar,fechac,padre) VALUES('" + id_paciente + "',$$" + nombre + "$$,$$" + fecha + "$$,$$" + tipoanalisis + "$$,$$" + analizado + "$$,$$" + reanalizar + "$$,$$" + fechac + "$$,$$"+padre+"$$)";
+            sql = "INSERT INTO rad_analisis(idpaciente, nombre, fecha, tipoanalisis, analizado, reanalizar, fechac, padre) VALUES(@id_paciente, @nombre, @fecha, @tipoanalisis, @analizado, @reanalizar, @fechac, @padre)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@id_paciente", id_paciente);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@fecha", fecha);
+            command.Parameters.AddWithValue("@tipoanalisis", tipoanalisis);
+            command.Parameters.AddWithValue("@analizado", analizado);
+            command.Parameters.AddWithValue("@reanalizar", reanalizar);
+            command.Parameters.AddWithValue("@fechac", fechac);
+            command.Parameters.AddWithValue("@padre", padre);
+
             command.ExecuteNonQuery();
         }
+
 
         //Funcion para registrar domicilios del paciente
         public void RegistrarDomicilios(string calle, string numero, string colonia, string cp, string municipio, string estado, string pais, string id_paciente)
@@ -618,12 +641,25 @@ namespace MahAppsExample
         //Funcion para registrar nuevo tratamiento a distancia
 
         //Datos - idt, idpadre, idpaciente, nombrepaciente, nombre, duracion, tiempoemitido, fechainicio, fechac, estado
-        public void Registrar_TratamientoNuevoSencillo(string id_padre, string idpaciente, string nombrepaciente, string nombre, int duracion, int tiempoemitido, string fechainic, string fechac, int estado)
+        public void Registrar_TratamientoNuevoSencillo(string id_padre, string idpaciente, string nombrepaciente, string nombre, int duracion, int tiempoemitido, DateTime fechainic, DateTime fechac, int estado)
         {
-            sql = "INSERT INTO rad_tratamientosadistancia(idpadre,idpaciente,nombrepaciente,nombre,duracion,tiempoemitido,fechainicio,fechac,estado) VALUES($$"+id_padre+"$$,$$" + idpaciente + "$$,$$" + nombrepaciente + "$$,$$"+ nombre+"$$,$$"+duracion+"$$,$$"+tiempoemitido+"$$,$$"+fechainic+"$$,null,$$"+estado+"$$)";
+            sql = "INSERT INTO rad_tratamientosadistancia(idpadre, idpaciente, nombrepaciente, nombre, duracion, tiempoemitido, fechainicio, fechac, estado) VALUES(@id_padre, @idpaciente, @nombrepaciente, @nombre, @duracion, @tiempoemitido, @fechainic, @fechac, @estado)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@id_padre", id_padre);
+            command.Parameters.AddWithValue("@idpaciente", idpaciente);
+            command.Parameters.AddWithValue("@nombrepaciente", nombrepaciente);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@duracion", duracion);
+            command.Parameters.AddWithValue("@tiempoemitido", tiempoemitido);
+            command.Parameters.AddWithValue("@fechainic", fechainic);
+            command.Parameters.AddWithValue("@fechac", fechac);
+            command.Parameters.AddWithValue("@estado", estado);
+
             command.ExecuteNonQuery();
         }
+
 
         //Funcion para registrar contenido del tratamiento a distancia
         public void Registrar_ContenidoTratamiento(string idt, string descripcion, string tipo)
@@ -722,10 +758,14 @@ namespace MahAppsExample
         }
 
         //Funcion que modifica la fecha del tratamiento a distancia
-        public void ModificarFechaTratamiento(string IDs,string fecha)
+        public void ModificarFechaTratamiento(int IDs, DateTime fecha)
         {
-            sql = "UPDATE rad_tratamientosadistancia SET fechainicio=$$" + fecha + "$$ WHERE idt=$$" + IDs + "$$";
+            sql = "UPDATE rad_tratamientosadistancia SET fechainicio=@fecha WHERE idt=@IDs";
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@fecha", fecha);
+            command.Parameters.AddWithValue("@IDs", IDs);
+
             command.ExecuteNonQuery();
         }
 
@@ -1358,12 +1398,24 @@ namespace MahAppsExample
         }
 
         //Guardar el registro en rad_remedios
-        public void Registrar_Remedio_Diagnostico(string idr, string nombre, string id_paciente, string nombre_paciente, string id_analisis, string nombre_analisis,string fecha,string codigo)
+        public void Registrar_Remedio_Diagnostico(string idr, string nombre, string id_paciente, string nombre_paciente, string id_analisis, string nombre_analisis, DateTime fecha, string codigo)
         {
-            sql = "INSERT INTO rad_remedios(idr,nombre,idpaciente,nombrepaciente,idanalisis,nombreanalisis,fechac,codigo) VALUES($$" + idr + "$$,$$" + nombre + "$$,$$" + id_paciente + "$$,$$" + nombre_paciente + "$$,$$" + id_analisis + "$$,$$" + nombre_analisis +"$$,$$" + fecha + "$$,$$" + codigo + "$$)";
+            sql = "INSERT INTO rad_remedios(idr, nombre, idpaciente, nombrepaciente, idanalisis, nombreanalisis, fechac, codigo) VALUES(@idr, @nombre, @id_paciente, @nombre_paciente, @id_analisis, @nombre_analisis, @fecha, @codigo)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@idr", idr);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@id_paciente", id_paciente);
+            command.Parameters.AddWithValue("@nombre_paciente", nombre_paciente);
+            command.Parameters.AddWithValue("@id_analisis", id_analisis);
+            command.Parameters.AddWithValue("@nombre_analisis", nombre_analisis);
+            command.Parameters.AddWithValue("@fecha", fecha);
+            command.Parameters.AddWithValue("@codigo", codigo);
+
             command.ExecuteNonQuery();
         }
+
 
         //Funcion para visualizar los codigos de un analisis en el remedio directamente
         public DataTable VisualizarCodigos_Remedios_de_Analisis(string id_analisis)
@@ -1420,12 +1472,19 @@ namespace MahAppsExample
 
 
         //Guardar remedio para terapia de color
-        public void Registrar_Remedio_Color(string idr, string nombre, string fecha)
+        public void Registrar_Remedio_Color(string idr, string nombre, DateTime fecha)
         {
-            sql = "INSERT INTO rad_remedios(idr,nombre,fechac) VALUES($$" + idr + "$$,$$" + nombre + "$$,$$" + fecha + "$$)";
+            sql = "INSERT INTO rad_remedios(idr, nombre, fechac) VALUES(@idr, @nombre, @fecha)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@idr", idr);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@fecha", fecha);
+
             command.ExecuteNonQuery();
         }
+
 
         //Obtiene codigo del color en base a tabla y color elegido
         public object Obtener_Color_ParteTerapia(string color)
@@ -1476,7 +1535,7 @@ namespace MahAppsExample
         {
             //Conexion
             constring = String.Format("Server=localhost;Port=5433;" +
-            "User Id={0};Password={1};Database=radionica_new", user, password);
+            "User Id={0};Password={1};Database=rad", user, password);
             conn = new NpgsqlConnection(constring);
             conn.Open();
             return true;
