@@ -105,7 +105,8 @@ namespace MahAppsExample
             if (Directory.Exists(path) || Directory.Exists(path2))
             {
                 //Condiciona al control de fechas para que solo use la fecha apartir de hoy...
-                dateProg.DisplayDateStart = DateTime.Now;
+                dateProg.SelectedDate = DateTime.Today;
+                comboTipoProg.SelectedIndex = 0;
 
                 //Deteccion de la maquina o dispositivo
                 string id_maquina = obj.Machine_Detection(puerto);
@@ -307,7 +308,7 @@ namespace MahAppsExample
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ocurrio una excepción :{0},{1}", ex.Message, ex.StackTrace.ToString());
+                Console.WriteLine("An exception occurred :{0},{1}", ex.Message, ex.StackTrace.ToString());
             }
         }
 
@@ -328,7 +329,7 @@ namespace MahAppsExample
             }
             catch (IOException)
             {
-                MessageBox.Show("No se pueden borrar los elementos ya que no existen en el sistema", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Items cannot be deleted as they do not exist in the system.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -393,7 +394,7 @@ namespace MahAppsExample
 
                     string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds.ToString() + " s";
                     // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
-
+                    MessageBox.Show(tfaltante); //A esta variable debemo shacer la comparacion
                     ListadoDiagActivos.Items.Add(new nuevoTratamiento
                     {
                         paciente = Tratamientos_Activos.Rows[j][3].ToString()
@@ -512,7 +513,7 @@ namespace MahAppsExample
                     // Contador_Pendientes_tratamientos();
 
                     // MessageBox.Show("HOLA");
-                    for (int j = 0; j <= Tratamientos_Activos.Rows.Count - 1; j++)
+                    for (int j = 0; j < Tratamientos_Activos.Rows.Count ; j++)
                     {
                         string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()));
 
@@ -2439,7 +2440,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("No se ha seleccionado ningun telefono a eliminar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No phone has been selected to be deleted!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -2488,7 +2489,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("No se ha seleccionado ningun elemento a editar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No item to edit has been selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -3239,13 +3240,13 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("La información biológica solo admite valores númericos, verifique los datos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("The biological information only admits numerical values, verify the data.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos antes de guardar la información biológica!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Complete all fields before saving the biological information.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -3280,13 +3281,13 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("La información biológica solo admite valores númericos, verifique los datos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("The biological information only admits numerical values, verify the data.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos antes de guardar la información biológica!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Complete all fields before saving the biological information.a!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -6651,12 +6652,12 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Introduce un valor númerico en la potencia!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Enter a numerical value in pontency!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Eliga los parámetros de la potencialización avanzada!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Choose the parameters of the advanced potentiation!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -7220,7 +7221,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Seleccione una categoría antes de borrar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select a category before deleting!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -7290,7 +7291,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Seleccione una sub-categoria antes de borrar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select a sub-category before deleting!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -10746,7 +10747,6 @@ namespace MahAppsExample
         {
             Ocultar_TratamientoDiag();
             Mostrar_TratamientoDirecto();
-
         }
 
         void Ocultar_TratamientoDiag()
@@ -10816,8 +10816,9 @@ namespace MahAppsExample
                 //comboTipoTratamiento.Items.Clear();
                 try
                 {
+                    ComboBoxItem selectedItem = (ComboBoxItem)comboTipoTratamiento.SelectedItem;
                     //Si cambia la seleccion... hacer
-                    if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Analysis")
+                    if (selectedItem.Content.ToString() == "Analysis")
                     {
                         Cerrar_ListGenericoParaCodigos();
                         Mostrar_ListGenerico();
@@ -10838,7 +10839,7 @@ namespace MahAppsExample
                     }
 
                     //Si cambia la seleccion... hacer
-                    if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
+                    if (selectedItem.Content.ToString() == "Remedy")
                     {
                         Cerrar_ListGenericoParaCodigos();
                         Mostrar_ListGenerico();
@@ -10862,7 +10863,7 @@ namespace MahAppsExample
                     //Por Códigos Individuales
 
                     //Si cambia la seleccion... hacer
-                    if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Rate")
+                    if (selectedItem.Content.ToString() == "Rate")
                     {
                         Ocultar_ListGenerico();
                         Mostrar_ListGenericoParaCodigos();
@@ -10888,6 +10889,7 @@ namespace MahAppsExample
                         Trata.Header = "Rates";
 
                     }
+
                 }
                 catch (System.NullReferenceException)
                 {
@@ -10997,7 +10999,7 @@ namespace MahAppsExample
                 HacerConexion();
 
                 //Comprueba si se introdujo un nombre para el tratamiento directo
-                if (txtNombreTratamiento.Text == "")
+                if (txtNombreTratamiento.Text == string.Empty)
                 {
                     MessageBox.Show("Please write a treatment's name before continue!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -11023,8 +11025,9 @@ namespace MahAppsExample
                             //Condiciona el nombre a que no exista para continuar...
                             if (existe_nombre.ToString() == "0")
                             {
+                                ComboBoxItem selectedItem = (ComboBoxItem)comboTipoProg.SelectedItem;
                                 //Parte de la programacion del tratamiento
-                                if (((ComboBoxItem)comboTipoProg.SelectedItem).Content.ToString() == "Simple")
+                                if (selectedItem.Content.ToString() == "Simple")
                                 {
                                     if (txtHoras.Text == "" && txtMinutos.Text == "")
                                     {
@@ -11096,9 +11099,7 @@ namespace MahAppsExample
 
                                     }
                                 }
-
-
-                                if (((ComboBoxItem)comboTipoProg.SelectedItem).Content.ToString() == "Periodic")
+                                else if (selectedItem.Content.ToString() == "Periodic")
                                 {
                                     List<DateTime> fechas = new List<DateTime>();
                                     List<DateTime> fecha_origen = new List<DateTime>();
@@ -11253,7 +11254,7 @@ namespace MahAppsExample
                                 }
                                 else
                                 {
-                                    // MessageBox.Show("Seleccione un tipo de programación, antes de continuar!...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                    MessageBox.Show("Select a type of programming before proceeding!...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                             }
                             else
@@ -11265,7 +11266,6 @@ namespace MahAppsExample
                         catch (NullReferenceException ex)
                         {
                             MessageBox.Show("Select the type of scheduling to continue!...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            MessageBox.Show(ex.ToString());
                         }
                     }
                 }
@@ -12083,7 +12083,9 @@ namespace MahAppsExample
 
             }
             catch (NullReferenceException)
-            { }
+            { 
+
+            }
         }
 
         private void tratamientoencola_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -12162,7 +12164,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Seleccione un elemento antes de continuar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select an item before continuing", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -13062,7 +13064,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Seleccione una terapia antes de eliminarla!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Select a therapy before eliminating it!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
