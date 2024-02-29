@@ -386,11 +386,14 @@ namespace MahAppsExample
         }
 
         //Funcion para actualizar el tiempo emitido mientras corre el tiempo restante
-        public void Registar_TiempoEmitido(string tiempoemitido, string nombrepaciente,string nombre_tratamiento)
+        public void Registar_TiempoEmitido(int tiempoemitido, int idTratamiento)
         {
-            //UPDATE rad_tratamientosadistancia SET tiempoemitido='25' WHERE nombrepaciente='Raul Lopez ' and nombre='prueba completa' and duracion='7200'
-            sql = "UPDATE rad_tratamientosadistancia SET tiempoemitido=$$"+tiempoemitido+"$$ WHERE nombrepaciente=$$"+nombrepaciente+"$$ and nombre=$$"+ nombre_tratamiento + "$$";
+            sql = "UPDATE rad_tratamientosadistancia SET tiempoemitido=@tiempoemitido WHERE idt=@idTratamiento";
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@tiempoemitido", tiempoemitido);
+            command.Parameters.AddWithValue("@idTratamiento", idTratamiento);
+
             command.ExecuteNonQuery();
         }
 
@@ -409,7 +412,7 @@ namespace MahAppsExample
         //Funcion para cargar el listado de tratamientos activos
         public DataTable Tratamientos_Activos()
         {
-            sql = "select * from rad_tratamientosadistancia where estado=1";
+            sql = "select * from rad_tratamientosadistancia where estado=1 and duracion != tiempoemitido";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -475,7 +478,8 @@ namespace MahAppsExample
         {
             sql = "delete from rad_tratamientosadistancia where estado=1 and nombre=$$"+nombreTratamientoP+ "$$ and idpadre=''";
             command = new NpgsqlCommand(sql, conn);
-            command.ExecuteNonQuery();
+            int i = command.ExecuteNonQuery();
+            //Console.WriteLine(i);
         }
 
         //Funcion para eliminar tratamiento padre e hijos
@@ -483,7 +487,7 @@ namespace MahAppsExample
         {
             sql = "delete from rad_tratamientosadistancia where estado=0 and nombre=$$" + nombreTratamientoP + "$$ and idpadre<>''";
             command = new NpgsqlCommand(sql, conn);
-            command.ExecuteNonQuery();
+            int i = command.ExecuteNonQuery();
         }
 
         //Funcion para buscar si el nombre del tratamiento esta mas de una vez y determinar si es una secuencia...
@@ -1120,7 +1124,7 @@ namespace MahAppsExample
         //Funcion para cargar el listado de tratamientos activos
         public DataTable Tratamientos_Inactivos()
         {
-            sql = "select * from rad_tratamientosadistancia where estado=0";
+            sql = "SELECT * FROM rad_tratamientosadistancia WHERE estado = 0 LIMIT 30";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();

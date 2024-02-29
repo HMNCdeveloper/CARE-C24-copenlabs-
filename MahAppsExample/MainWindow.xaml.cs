@@ -355,23 +355,23 @@ namespace MahAppsExample
         List<int> temitidos = new List<int>();
 
         static System.Windows.Forms.Timer _timer;  //Temporizador para actualizar la duracion de las fechas individuales.
-
+        private bool temporizadorActivado = false;
         //Funcion de inicio del temporizador
         public void Empezar_Temporizador()
         {
+            temporizadorActivado = true;
             _timer = new System.Windows.Forms.Timer();
             //_timer = new System.Timers.Timer(5000); // Duracion del timer principal en base al no. tratamientos activos
-            _timer.Interval = 8000;
+            _timer.Interval = 1000;
 
             // _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed); //Mientras corra el timer principal hacemos el _time_Elapsed..
             _timer.Enabled = true; // Activamos el timer principal..
             _timer.Tick += new System.EventHandler(_timer_Elapsed);
         }
-
+        private int contadorSegundos = 0;
         public void _timer_Elapsed(object sender, EventArgs e)
         {
             ListadoDiagActivos.Items.Clear();
-            ListadoDiagNoActiv.Items.Clear();
 
             //MessageBox.Show(cant_activos.ToString());
             DateTime hora_actual = DateTime.Now;
@@ -389,38 +389,41 @@ namespace MahAppsExample
                     string nombretratamiento = Tratamientos_Activos.Rows[j][4].ToString();
 
                     TimeSpan diff = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString()) - hora_actual;
-                    // DateTime dt = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString());
                     int emitido = Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString());
 
                     string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds.ToString() + " s";
-                    // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
-                    MessageBox.Show(tfaltante); //A esta variable debemo shacer la comparacion
-                    ListadoDiagActivos.Items.Add(new nuevoTratamiento
-                    {
-                        paciente = Tratamientos_Activos.Rows[j][3].ToString()
-                        ,
-                        tratamiento = Tratamientos_Activos.Rows[j][4].ToString()
-                        ,
-                        inicio = Tratamientos_Activos.Rows[j][7].ToString()
-                        ,
-                        duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()))
-                        ,
-                        tfaltante = tfaltante
-                    });
-
-                    if (Tratamientos_Activos.Rows.Count > 0)
-                    {
-                        // HacerConexion(database_name);
-                        obj2.Registar_TiempoEmitido(emitido.ToString(), Tratamientos_Activos.Rows[j][3].ToString(), Tratamientos_Activos.Rows[j][4].ToString());
-                    }
-
-                    emitido = emitido + 5; //Acumula 8 segundos..
-
+                   
                     if (diff.Minutes < 0 || diff.Seconds < 0 || diff.Hours < 0 || diff.Days < 0)
                     {
                         //Contar cuantas veces esta para ver si hay solo padre he hijos..
                         obj2.Eliminar_TratamientoPadre(nombretratamiento);
-                        obj.BroadcastOFF();
+                        cant_activos--;
+                        if (cant_activos == 0)
+                        {
+                            obj.BroadcastOFF();
+                        }
+                    }
+                    else
+                    {
+                        ListadoDiagActivos.Items.Add(new nuevoTratamiento
+                        {
+                            paciente = Tratamientos_Activos.Rows[j][3].ToString()
+                       ,
+                            tratamiento = Tratamientos_Activos.Rows[j][4].ToString()
+                       ,
+                            inicio = Tratamientos_Activos.Rows[j][7].ToString()
+                       ,
+                            duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()))
+                       ,
+                            tfaltante = tfaltante
+                        });
+                        emitido=emitido+1; //Acumula 8 segundos..
+
+                        if (Tratamientos_Activos.Rows.Count > 0)
+                        {
+                            obj2.Registar_TiempoEmitido(emitido, Int32.Parse(Tratamientos_Activos.Rows[j][0].ToString()));
+                        }
+
                     }
                 }
 
@@ -430,67 +433,76 @@ namespace MahAppsExample
                 obj.BroadcastOFF();
             }
 
-            DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
-
-            if (Tratamiento_Inactivos.Rows.Count > 0)
+            if (contadorSegundos == 60 || contadorSegundos == 0)
             {
-                ListadoDiagActivos_Copy.Items.Clear();
-                // DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
-                for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
+                ListadoDiagNoActiv.Items.Clear();
+
+                DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
+
+                if (Tratamiento_Inactivos.Rows.Count > 0)
                 {
-                    int tiempo_pasado = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-                    int duracion = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
-                    string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
-
-                    TimeSpan diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
-                    // DateTime dt = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString());
-                    int emitido = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-
-                    /*DateTime Fecha_Final = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());
-                    DateTime Fecha_Inicio = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());*/
-
-                    string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds.ToString() + " s";
-                    // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
-
-                    ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
+                    ListadoDiagActivos_Copy.Items.Clear();
+                    // DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
+                    for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
                     {
-                        paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
-                        ,
-                        tratamiento = Tratamiento_Inactivos.Rows[j][4].ToString()
-                        ,
-                        inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
-                        ,
-                        duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
-                        ,
-                        tfaltante = tfaltante
-                    });
+                        int tiempo_pasado = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
+                        int duracion = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
+                        string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
 
-                    int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
+                        TimeSpan diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
+                        // DateTime dt = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString());
+                        int emitido = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
 
-                    //Cuando el beginning time sea cero sumar el tiempo de la duracion para crear nueva fecha
-                    if (diff.Minutes < 0 || diff.Seconds < 0 || diff.Hours < 0 || diff.Days < 0)
-                    {
-                        DateTime hora_actual2 = DateTime.Now;
-                        DateTime Fecha_nueva;
-                        // TimeSpan ts3 = new TimeSpan(hora_actual2.Hour + 0, hora_actual2.Minute + 0, hora_actual2.Second + seg);
-                        Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
+                        /*DateTime Fecha_Final = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());
+                        DateTime Fecha_Inicio = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());*/
 
-                        //Actualizamos en bd (ID,Fecha Nueva) la fecha nueva
-                        obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
+                        string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m";
+                        // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
 
-                        //Actualizamos en bd nuevo estado
-                        obj2.ModificarEstadoTratamiento(Tratamiento_Inactivos.Rows[j][0].ToString());
+                        ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
+                        {
+                            paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
+                            ,
+                            tratamiento = Tratamiento_Inactivos.Rows[j][4].ToString()
+                            ,
+                            inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
+                            ,
+                            duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
+                            ,
+                            tfaltante = tfaltante
+                        });
+
+                        int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
+
+                        //Cuando el beginning time sea cero sumar el tiempo de la duracion para crear nueva fecha
+                        if (diff.Minutes < 0 || diff.Seconds < 0 || diff.Hours < 0 || diff.Days < 0)
+                        {
+                            DateTime hora_actual2 = DateTime.Now;
+                            DateTime Fecha_nueva;
+                            // TimeSpan ts3 = new TimeSpan(hora_actual2.Hour + 0, hora_actual2.Minute + 0, hora_actual2.Second + seg);
+                            Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
+
+                            //Actualizamos en bd (ID,Fecha Nueva) la fecha nueva
+                            obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
+
+                            //Actualizamos en bd nuevo estado
+                            obj2.ModificarEstadoTratamiento(Tratamiento_Inactivos.Rows[j][0].ToString());
 
 
+                        }
+
+
+                        //obj2.Actualizar_Estado_Hijo(Tratamiento_Inactivos.Rows[j][7].ToString());
+
+                        emitido = emitido + 1; //Acumula 8 segundos..                 
                     }
-
-
-                    //obj2.Actualizar_Estado_Hijo(Tratamiento_Inactivos.Rows[j][7].ToString());
-
-                    emitido = emitido + 5; //Acumula 8 segundos..                 
                 }
+                contadorSegundos = 0;
             }
             CerrarConexion();
+            contadorSegundos++;
+            Console.WriteLine(contadorSegundos);
+
         }
 
 
@@ -511,12 +523,10 @@ namespace MahAppsExample
                 if (cant_activos > 0)
                 {
                     // Contador_Pendientes_tratamientos();
-
-                    // MessageBox.Show("HOLA");
                     for (int j = 0; j < Tratamientos_Activos.Rows.Count ; j++)
                     {
                         string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()));
-
+                        //MessageBox.Show(duracion_formatoreloj);
                         //Agregamos las fechas al listado de activos para trabajar el tiempo restante
                         Fechas_Diag_Activos.Add(Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString()));
                         Banderas_Fechas_Activos.Add(true);
@@ -527,17 +537,21 @@ namespace MahAppsExample
                         // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = Tratamientos_Activos.Rows[j][3].ToString(), tratamiento = Tratamientos_Activos.Rows[j][4].ToString(), inicio = Tratamientos_Activos.Rows[j][7].ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
 
                     }
-
-                    Empezar_Temporizador();
+                    if (temporizadorActivado != true)
+                    {
+                        Empezar_Temporizador();
+                    }
                     obj.BroadcastON(); //Activamos el led del broadcaster
 
                 }
-
+                ListadoDiagActivos_Copy.Items.Clear();
                 DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
-
                 if (Tratamiento_Inactivos.Rows.Count > 0)
                 {
-                    ListadoDiagActivos_Copy.Items.Clear();
+                    if (temporizadorActivado != true)
+                    {
+                        Empezar_Temporizador();
+                    }
                     DateTime hora_actual = DateTime.Now;
                     // DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
                     for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
@@ -10818,78 +10832,81 @@ namespace MahAppsExample
                 {
                     ComboBoxItem selectedItem = (ComboBoxItem)comboTipoTratamiento.SelectedItem;
                     //Si cambia la seleccion... hacer
-                    if (selectedItem.Content.ToString() == "Analysis")
+                    if (selectedItem != null)
                     {
-                        Cerrar_ListGenericoParaCodigos();
-                        Mostrar_ListGenerico();
-                        //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
-
-                        //Analisis en base al paciente elegido
-                        DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
-
-                        //Llenar el combobox con analisis relacionados
-                        for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
+                        if (selectedItem.Content.ToString() == "Analysis")
                         {
-                            //Agregar solo nombre del analisis
-                            listgenerico.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
-                        }
+                            Cerrar_ListGenericoParaCodigos();
+                            Mostrar_ListGenerico();
+                            //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
 
-                        Trata.Header = "Analysis";
+                            //Analisis en base al paciente elegido
+                            DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
 
-                    }
-
-                    //Si cambia la seleccion... hacer
-                    if (selectedItem.Content.ToString() == "Remedy")
-                    {
-                        Cerrar_ListGenericoParaCodigos();
-                        Mostrar_ListGenerico();
-                        //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
-
-                        //Analisis en base al paciente elegido
-                        // DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
-                        DataTable ListaRemedios = obj2.VisualizarRemedios("A");
-
-                        //Llenar el combobox con analisis relacionados
-                        for (int i = 0; i <= ListaRemedios.Rows.Count - 1; i++)
-                        {
-                            //Agregar solo nombre del analisis
-                            listgenerico.Items.Add(ListaRemedios.Rows[i][1].ToString());
-                        }
-
-                        Trata.Header = "Remedy";
-
-                    }
-
-                    //Por Códigos Individuales
-
-                    //Si cambia la seleccion... hacer
-                    if (selectedItem.Content.ToString() == "Rate")
-                    {
-                        Ocultar_ListGenerico();
-                        Mostrar_ListGenericoParaCodigos();
-                        HacerConexion();
-
-                        //CARGA CATEGORIAS
-                        DataTable Categorias = obj2.VisualizarCategoriasCodigos2();
-
-                        if (listCategoriasTrat.Items.Count == 0)
-                        {
-                            //Cargar categorias
-                            for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
+                            //Llenar el combobox con analisis relacionados
+                            for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
                             {
-                                if (listCategoriasTrat.Items.Contains(Categorias.Rows[i][1].ToString()) == false)
+                                //Agregar solo nombre del analisis
+                                listgenerico.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
+                            }
+
+                            Trata.Header = "Analysis";
+
+                        }
+
+                        //Si cambia la seleccion... hacer
+                        if (selectedItem.Content.ToString() == "Remedy")
+                        {
+                            Cerrar_ListGenericoParaCodigos();
+                            Mostrar_ListGenerico();
+                            //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
+
+                            //Analisis en base al paciente elegido
+                            // DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
+                            DataTable ListaRemedios = obj2.VisualizarRemedios("A");
+
+                            //Llenar el combobox con analisis relacionados
+                            for (int i = 0; i <= ListaRemedios.Rows.Count - 1; i++)
+                            {
+                                //Agregar solo nombre del analisis
+                                listgenerico.Items.Add(ListaRemedios.Rows[i][1].ToString());
+                            }
+
+                            Trata.Header = "Remedy";
+
+                        }
+
+                        //Por Códigos Individuales
+
+                        //Si cambia la seleccion... hacer
+                        if (selectedItem.Content.ToString() == "Rate")
+                        {
+                            Ocultar_ListGenerico();
+                            Mostrar_ListGenericoParaCodigos();
+                            HacerConexion();
+
+                            //CARGA CATEGORIAS
+                            DataTable Categorias = obj2.VisualizarCategoriasCodigos2();
+
+                            if (listCategoriasTrat.Items.Count == 0)
+                            {
+                                //Cargar categorias
+                                for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
                                 {
-                                    listCategoriasTrat.Items.Add(Categorias.Rows[i][1].ToString());
+                                    if (listCategoriasTrat.Items.Contains(Categorias.Rows[i][1].ToString()) == false)
+                                    {
+                                        listCategoriasTrat.Items.Add(Categorias.Rows[i][1].ToString());
+                                    }
                                 }
                             }
+
+                            CerrarConexion();
+
+                            Trata.Header = "Rates";
+
                         }
 
-                        CerrarConexion();
-
-                        Trata.Header = "Rates";
-
                     }
-
                 }
                 catch (System.NullReferenceException)
                 {
@@ -11103,7 +11120,6 @@ namespace MahAppsExample
                                 {
                                     List<DateTime> fechas = new List<DateTime>();
                                     List<DateTime> fecha_origen = new List<DateTime>();
-                                    HacerConexion();
                                     //Horas y Minutos
                                     int Horas = Int32.Parse(txtHoras.Text);
                                     int Minutos = Int32.Parse(txtMinutos.Text);
@@ -11261,18 +11277,22 @@ namespace MahAppsExample
                             {
                                 MessageBox.Show("The treatment's name '" + nombre_tratamiento + "' is already in used, use another", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             }
-                            CerrarConexion();
                         }
                         catch (NullReferenceException ex)
                         {
                             MessageBox.Show("Select the type of scheduling to continue!...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
+
                 }
             }
             catch (FormatException)
             {
                 MessageBox.Show("Only integer numbers are allowed in the scheduling process", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                CerrarConexion();
             }
 
         }
