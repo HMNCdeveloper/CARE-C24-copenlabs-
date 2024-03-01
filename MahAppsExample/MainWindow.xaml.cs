@@ -11658,23 +11658,15 @@ namespace MahAppsExample
                             {
                                 //Elimina padre
                                 obj2.Eliminar_TratamientoPadre(nombres_tratamientos_antes[q]);
-                                //MessageBox.Show(nombres_tratamientos_antes[q]);
-
                             }
                         }
                     }
-
-                    //Actualizamos el contador de espera
-                    //Total en cola
-                    /*object NoEnEspera = obj2.Tratamientos_Espera_Total();
-                    lblNoEnEspera.Content = NoEnEspera.ToString() + " ON HOLD";*/
                     CerrarConexion();
 
                 }
                 else
                 {
                     obj.BroadcastOFF();
-
                 }
             }
             catch (NullReferenceException)
