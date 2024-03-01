@@ -361,47 +361,41 @@ namespace MahAppsExample
         {
             temporizadorActivado = true;
             _timer = new System.Windows.Forms.Timer();
-            //_timer = new System.Timers.Timer(5000); // Duracion del timer principal en base al no. tratamientos activos
             _timer.Interval = 1000;
 
-            // _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed); //Mientras corra el timer principal hacemos el _time_Elapsed..
-            _timer.Enabled = true; // Activamos el timer principal..
+            _timer.Enabled = true; 
             _timer.Tick += new System.EventHandler(_timer_Elapsed);
         }
         private int contadorSegundos = 0;
         public void _timer_Elapsed(object sender, EventArgs e)
         {
-            ListadoDiagActivos.Items.Clear();
-
-            //MessageBox.Show(cant_activos.ToString());
             DateTime hora_actual = DateTime.Now;
+            string nombretratamiento, tfaltante, nombretratamientoA, tfaltanteA;
+            TimeSpan diff, diffA;
+            int emitido;
 
             HacerConexion();
             if (cant_activos > 0)
             {
-                //obj.BroadcastON(); // Hace el broadcaster possible
+                ListadoDiagActivos.Items.Clear();
                 DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
-
-                for (int j = 0; j <= Tratamientos_Activos.Rows.Count - 1; j++)
+                for (int j = 0; j < Tratamientos_Activos.Rows.Count; j++)
                 {
-                    int tiempo_pasado = Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString());
-                    int duracion = Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString());
-                    string nombretratamiento = Tratamientos_Activos.Rows[j][4].ToString();
+                    nombretratamientoA = Tratamientos_Activos.Rows[j][4].ToString();
+                    diffA = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString()) - hora_actual;
+                    emitido = Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString());
 
-                    TimeSpan diff = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString()) - hora_actual;
-                    int emitido = Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString());
-
-                    string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds.ToString() + " s";
+                    tfaltanteA = diffA.Days.ToString() + "d, " + diffA.Hours.ToString() + " h, " + diffA.Minutes.ToString() + " m, " + diffA.Seconds.ToString() + " s";
                    
-                    if (diff.Minutes < 0 || diff.Seconds < 0 || diff.Hours < 0 || diff.Days < 0)
+                    if (diffA.Minutes < 0 || diffA.Seconds < 0 || diffA.Hours < 0 || diffA.Days < 0)
                     {
-                        //Contar cuantas veces esta para ver si hay solo padre he hijos..
-                        obj2.Eliminar_TratamientoPadre(nombretratamiento);
+                        obj2.Eliminar_TratamientoPasado(Tratamientos_Activos.Rows[j][0].ToString());
                         cant_activos--;
                         if (cant_activos == 0)
                         {
                             obj.BroadcastOFF();
                         }
+                        Console.WriteLine("ELIMINADO "+ Tratamientos_Activos.Rows[j][0].ToString());
                     }
                     else
                     {
@@ -409,15 +403,17 @@ namespace MahAppsExample
                         {
                             paciente = Tratamientos_Activos.Rows[j][3].ToString()
                        ,
-                            tratamiento = Tratamientos_Activos.Rows[j][4].ToString()
+                            tratamiento = nombretratamientoA
                        ,
                             inicio = Tratamientos_Activos.Rows[j][7].ToString()
                        ,
                             duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()))
                        ,
-                            tfaltante = tfaltante
+                            tfaltante = tfaltanteA
                         });
-                        emitido=emitido+1; //Acumula 8 segundos..
+
+
+                        emitido =emitido+1; 
 
                         if (Tratamientos_Activos.Rows.Count > 0)
                         {
@@ -426,88 +422,56 @@ namespace MahAppsExample
 
                     }
                 }
-
             }
             else
             {
                 obj.BroadcastOFF();
             }
-
-            if (contadorSegundos == 60 || contadorSegundos == 0)
-            {
                 ListadoDiagNoActiv.Items.Clear();
-
                 DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
 
                 if (Tratamiento_Inactivos.Rows.Count > 0)
                 {
-                    ListadoDiagActivos_Copy.Items.Clear();
-                    // DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
+                    ListadoDiagInactivos.Items.Clear();
                     for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
                     {
-                        int tiempo_pasado = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-                        int duracion = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
-                        string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
+                        nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
 
-                        TimeSpan diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
-                        // DateTime dt = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString());
-                        int emitido = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-
-                        /*DateTime Fecha_Final = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());
-                        DateTime Fecha_Inicio = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString());*/
-
-                        string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m";
-                        // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
-
-                        ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
-                        {
-                            paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
-                            ,
-                            tratamiento = Tratamiento_Inactivos.Rows[j][4].ToString()
-                            ,
-                            inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
-                            ,
-                            duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
-                            ,
-                            tfaltante = tfaltante
-                        });
+                        diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
+                        tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m -" +diff.Seconds;
 
                         int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
 
-                        //Cuando el beginning time sea cero sumar el tiempo de la duracion para crear nueva fecha
-                        if (diff.Minutes < 0 || diff.Seconds < 0 || diff.Hours < 0 || diff.Days < 0)
+                        if (diff.Minutes == 0 && diff.Seconds == 0 && diff.Hours == 0 && diff.Days == 0)
                         {
                             DateTime hora_actual2 = DateTime.Now;
                             DateTime Fecha_nueva;
-                            // TimeSpan ts3 = new TimeSpan(hora_actual2.Hour + 0, hora_actual2.Minute + 0, hora_actual2.Second + seg);
                             Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
 
-                            //Actualizamos en bd (ID,Fecha Nueva) la fecha nueva
                             obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
 
-                            //Actualizamos en bd nuevo estado
-                            obj2.ModificarEstadoTratamiento(Tratamiento_Inactivos.Rows[j][0].ToString());
-
-
+                            obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
+                            Cargar_Tratamientos_Pendientes_Y_Activos();
+                            break;
                         }
-
-
-                        //obj2.Actualizar_Estado_Hijo(Tratamiento_Inactivos.Rows[j][7].ToString());
-
-                        emitido = emitido + 1; //Acumula 8 segundos..                 
-                    }
+                        ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
+                            {
+                                paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
+                                ,
+                                tratamiento = nombretratamiento
+                                ,
+                                inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
+                                ,
+                                duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
+                                ,
+                                tfaltante = tfaltante
+                            });                
+                        }
                 }
-                contadorSegundos = 0;
-            }
             CerrarConexion();
             contadorSegundos++;
-            Console.WriteLine(contadorSegundos);
-
         }
-
-
         int cant_activos;
-        //Funcion para cargar elementos activos y en espera en el tratamiento a distancia
         void Cargar_Tratamientos_Pendientes_Y_Activos()
         {
             try
@@ -516,35 +480,17 @@ namespace MahAppsExample
 
                 DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
                 cant_activos = Tratamientos_Activos.Rows.Count;
-                // MessageBox.Show(Tratamientos_Activos.Rows.Count.ToString());
-                //MessageBox.Show(Tratamientos_Espera.Rows.Count.ToString());
-
-                //Agrega al listado los tratamientos activos si no hay nada..
+                Console.WriteLine(cant_activos);
                 if (cant_activos > 0)
                 {
-                    // Contador_Pendientes_tratamientos();
-                    for (int j = 0; j < Tratamientos_Activos.Rows.Count ; j++)
-                    {
-                        string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()));
-                        //MessageBox.Show(duracion_formatoreloj);
-                        //Agregamos las fechas al listado de activos para trabajar el tiempo restante
-                        Fechas_Diag_Activos.Add(Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString()));
-                        Banderas_Fechas_Activos.Add(true);
-                        // MessageBox.Show(Tratamientos_Activos.Rows[j][7].ToString());
-                        temitidos.Add(Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString())); //Tiempo emitido
-
-                        //No agrega el tiempo restante ...
-                        // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = Tratamientos_Activos.Rows[j][3].ToString(), tratamiento = Tratamientos_Activos.Rows[j][4].ToString(), inicio = Tratamientos_Activos.Rows[j][7].ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
-
-                    }
                     if (temporizadorActivado != true)
                     {
                         Empezar_Temporizador();
                     }
-                    obj.BroadcastON(); //Activamos el led del broadcaster
+                    obj.BroadcastON();
 
                 }
-                ListadoDiagActivos_Copy.Items.Clear();
+                ListadoDiagInactivos.Items.Clear();
                 DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
                 if (Tratamiento_Inactivos.Rows.Count > 0)
                 {
@@ -553,55 +499,48 @@ namespace MahAppsExample
                         Empezar_Temporizador();
                     }
                     DateTime hora_actual = DateTime.Now;
-                    // DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
-                    for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
+                    for (int j = 0; j < Tratamiento_Inactivos.Rows.Count ; j++)
                     {
-                        int tiempo_pasado = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-                        int duracion = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
-                        string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
-
-                        TimeSpan diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
-                        // DateTime dt = Convert.ToDateTime(Tratamientos_Activos.Rows[j][7].ToString());
-                        int emitido = Int32.Parse(Tratamiento_Inactivos.Rows[j][6].ToString());
-
-                        string tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds.ToString() + " s";
-                        // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = pacientes[i], tratamiento = nombre_tratamientos[i], inicio = inicio[i], duracion = duracion[i], tfaltante = tfaltante[i] });
-
-                        ListadoDiagActivos_Copy.Items.Add(new nuevoTratamiento
+                        DateTime fechaInicioTratamientoInactivo = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7]);
+                        int resultadoComparacion = DateTime.Compare(DateTime.Now, fechaInicioTratamientoInactivo);
+                        //Si la fecha ya ha pasado
+                        if (resultadoComparacion > 0)
                         {
-                            paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
-                            ,
-                            tratamiento = Tratamiento_Inactivos.Rows[j][4].ToString()
-                            ,
-                            inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
-                            ,
-                            duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
-                            ,
-                            tfaltante = tfaltante
-                        });
+                            string idTratamiento = Tratamiento_Inactivos.Rows[j][0].ToString();
+                            obj2.ModificarEstadoTratamientoVencido(idTratamiento);
+                        }
+                        ////Es la misma fecha y hora
+                        //else if(resultadoComparacion == 0)
+                        //{
+                        //    obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
+                        //}
+                        ////Si la fecha aun no ha pasado
+                        else
+                        {
+                            string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
+                            TimeSpan diferenciaTiempoInicioActual = fechaInicioTratamientoInactivo - hora_actual;
+                            string tiempoFaltanteString = diferenciaTiempoInicioActual.Days.ToString() + "d, " + diferenciaTiempoInicioActual.Hours.ToString() + " h, " + diferenciaTiempoInicioActual.Minutes.ToString() + " m";
 
-                        emitido = emitido + 1; //Acumula 8 segundos..
+                            ListadoDiagInactivos.Items.Add(new nuevoTratamiento
+                            {
+                                paciente = Tratamiento_Inactivos.Rows[j][3].ToString(),
+                                tratamiento = nombretratamiento,
+                                inicio = fechaInicioTratamientoInactivo.ToString(),
+                                duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString())),
+                                tfaltante = tiempoFaltanteString
+                            });
+                        }
 
                     }
                 }
-
-                //Una vez terminado el ciclo inicia el temporizador
-                //Verifica si el listado de activos esta vacio o no para empezar el temporizador y estar actualizando el tfaltante
-                if (ListadoDiagActivos.Items.Count != 0)
-                {
-                    //Contador_Pendientes_tratamientos();
-
-                    // Empezar_Temporizador();
-                }
-
-                // Contador_Pendientes_tratamientos();
-
-                CerrarConexion();
-
             }
             catch (Exception df)
             {
                 MessageBox.Show(df.ToString());
+            }
+            finally
+            {
+                CerrarConexion();
             }
         }
 
@@ -11334,21 +11273,25 @@ namespace MahAppsExample
             {
                 if (listelemagregados.Items.Count != 0 || listelemagregados.Items.Count == 0)
                 {
-                    listelemagregados.Items.Add(listgenerico.SelectedItem.ToString());
-
-                    //Si son remedios 
-                    if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
+                    if (listgenerico.SelectedItem != null)
                     {
-                        //Almacenar en lista
-                        lista_remedios.Add(listgenerico.SelectedItem.ToString());
+                        listelemagregados.Items.Add(listgenerico.SelectedItem.ToString());
+                        //Si son remedios 
+                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
+                        {
+                            //Almacenar en lista
+                            lista_remedios.Add(listgenerico.SelectedItem.ToString());
+                        }
+
+                        //Si son analisis
+                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Analysis")
+                        {
+                            // Almacenar en lista
+                            lista_analisis.Add(listgenerico.SelectedItem.ToString());
+                        }
                     }
 
-                    //Si son analisis
-                    if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Analysis")
-                    {
-                        // Almacenar en lista
-                        lista_analisis.Add(listgenerico.SelectedItem.ToString());
-                    }
+                   
                 }
             }
             catch (NullReferenceException)
@@ -12088,18 +12031,10 @@ namespace MahAppsExample
             {
                 if (ListadoDiagActivos.Items.Count != 0)
                 {
-                    //Obtener index 
-                    //int index = ListadoDiagActivos.SelectedIndex;
-
-                    // if (index != -1)
-                    //{
-                    //Desactivamos su bandera para que deje de correr el tiempo restante..
-                    //Banderas_Fechas_Activos[index] = true;
                     obj.BroadcastON();
                     _timer.Start();
 
                 }
-                // ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = fecha_selec.ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
 
             }
             catch (NullReferenceException)
@@ -12207,14 +12142,11 @@ namespace MahAppsExample
             {
                 if (ListadoDiagActivos.Items.Count != 0)
                 {
-                    //Obtener index 
-                    //int index = ListadoDiagActivos.SelectedIndex;
 
-                    // if (index != -1)
-                    // {
                     _timer.Stop(); // Desactivamos el timer principal.. para que deje de correr el tiempo
                     obj.BroadcastOFF();
 
+                    //Actualiza el texto a PAUSADO
                     IEnumerable itemsCodigos = this.ListadoDiagActivos.Items;
                     List<string> nombre_pacientes = new List<string>();
                     List<string> nombre_tratamientos = new List<string>();
@@ -12240,9 +12172,6 @@ namespace MahAppsExample
                         ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_pacientes[i], tratamiento = nombre_tratamientos[i], inicio = fechas[i], duracion = duraciones[i], tfaltante = tfaltante[i] });
 
                     }
-                    // }
-
-                    // }
                 }
             }
             catch (NullReferenceException)

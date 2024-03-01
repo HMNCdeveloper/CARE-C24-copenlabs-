@@ -473,7 +473,7 @@ namespace MahAppsExample
             command.ExecuteNonQuery();
         }
 
-        //Funcion para eliminar tratamiento padre  
+        //Funcion para eliminar tratamiento padre
         public void Eliminar_TratamientoPadre(string nombreTratamientoP)
         {
             sql = "delete from rad_tratamientosadistancia where estado=1 and nombre=$$"+nombreTratamientoP+ "$$ and idpadre=''";
@@ -490,6 +490,13 @@ namespace MahAppsExample
             int i = command.ExecuteNonQuery();
         }
 
+        //Funcion para eliminar tratamiento padre e hijos
+        public void Eliminar_TratamientoPasado(string idTratamiento)
+        {
+            sql = "delete from rad_tratamientosadistancia where idt =$$" + idTratamiento + "$$  ";
+            command = new NpgsqlCommand(sql, conn);
+            int i = command.ExecuteNonQuery();
+        }
         //Funcion para buscar si el nombre del tratamiento esta mas de una vez y determinar si es una secuencia...
         public object Obtener_NoVeces_Tratamiento(string nombreTratamiento)
         {
@@ -502,7 +509,6 @@ namespace MahAppsExample
         public void RegistrarAnalisisPaciente_Diag(string id_paciente, string nombre, DateTime fecha, int tipoanalisis, int analizado, int reanalizar, DateTime fechac)
         {
             sql = "INSERT INTO rad_analisis(idpaciente, nombre, fecha, tipoanalisis, analizado, reanalizar, fechac) VALUES(@id_paciente, @nombre, @fecha, @tipoanalisis, @analizado, @reanalizar, @fechac)";
-
             command = new NpgsqlCommand(sql, conn);
 
             command.Parameters.AddWithValue("@id_paciente", id_paciente);
@@ -774,9 +780,15 @@ namespace MahAppsExample
         }
 
         //Funcion que modifica el estado del tratamiento a distancia
-        public void ModificarEstadoTratamiento(string IDs)
+        public void ModificarEstadoTratamientoActivo(string IDs)
         {
             sql = "UPDATE rad_tratamientosadistancia SET estado=1 WHERE idt=$$" + IDs + "$$";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+        public void ModificarEstadoTratamientoVencido(string IDs)
+        {
+            sql = "UPDATE rad_tratamientosadistancia SET estado=2 WHERE idt=$$" + IDs + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -1113,10 +1125,10 @@ namespace MahAppsExample
         }
 
         //Funcion para actualizar el estado de un tratamiento hijo
-        public void Actualizar_Estado_Hijo(string fecha)
+        public void Actualizar_Estado(string idTratamiento)
         {
             //UPDATE rad_tratamientosadistancia SET tiempoemitido='25' WHERE nombrepaciente='Raul Lopez ' and nombre='prueba completa' and duracion='7200'
-            sql = "UPDATE rad_tratamientosadistancia SET estado=1 WHERE fechainicio=$$" + fecha + "$$";
+            sql = "UPDATE rad_tratamientosadistancia SET estado=1 WHERE idt=$$" + idTratamiento + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }

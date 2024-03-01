@@ -1794,6 +1794,10 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1213*"/>
+                            <ColumnDefinition Width="281*"/>
+                        </Grid.ColumnDefinitions>
                         <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top" Height="170" Width="330" Background="#FF3CB3DF" BorderBrush="Silver" FontWeight="Bold">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -1850,7 +1854,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="213" Margin="22,253,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
+                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="213" Margin="22,0,0,0" VerticalAlignment="Center" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="PATIENT" DisplayMemberBinding="{Binding paciente}" Width="180px" />
@@ -1861,7 +1865,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <GroupBox x:Name="Broadcast" Visibility="Hidden" HorizontalAlignment="Left" Margin="13,210,0,0" VerticalAlignment="Top" Height="491" Width="1469" Background="#CC2194AE" BorderBrush="#CC2194AE">
+                        <GroupBox x:Name="Broadcast" Visibility="Hidden" HorizontalAlignment="Left" Margin="13,210,0,0" VerticalAlignment="Top" Height="491" Width="1469" Background="#CC2194AE" BorderBrush="#CC2194AE" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="TvRemote" Foreground="#FFFDFDFD" />
@@ -1891,7 +1895,7 @@
                             <ComboBoxItem Content="Remedy"/>
                             <ComboBoxItem Content="Rate"/>
                         </ComboBox>
-                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Left" Margin="1080,258,0,0" VerticalAlignment="Top" Height="422" Width="394">
+                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Left" Margin="1080,258,0,0" VerticalAlignment="Top" Height="422" Width="394" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Timer" Foreground="#FFFDFDFD" />
@@ -1899,28 +1903,28 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <Label x:Name="lblNombreTratamiento_Copy2" Visibility="Hidden" Content="TYPES OF SCHEDULING" HorizontalAlignment="Left" Margin="1110,320,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblNombreTratamiento_Copy2" Visibility="Hidden" Content="TYPES OF SCHEDULING" HorizontalAlignment="Left" Margin="1110,320,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblNombreTratamiento_Copy3" Visibility="Hidden" Content="Begin" HorizontalAlignment="Left" Margin="1109,364,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Border x:Name="borderInfobasica_Copy1" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="64" Margin="1109,392,0,0" VerticalAlignment="Top" Width="283"/>
-                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="1180,411,0,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short">
+                        <Border x:Name="borderInfobasica_Copy1" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="64" Margin="1109,392,0,0" VerticalAlignment="Top" Width="283" Grid.ColumnSpan="2"/>
+                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="1180,411,0,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2">
                             <DatePicker.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </DatePicker.Effect>
                         </DatePicker>
                         <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="Duration" HorizontalAlignment="Left" Margin="1109,471,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Border x:Name="borderInfobasica_Copy10" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="1109,497,0,0" VerticalAlignment="Top" Width="241"/>
-                        <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content="Hours           Minutes" HorizontalAlignment="Left" Margin="1123,502,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Border x:Name="borderInfobasica_Copy10" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="1109,497,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content="Hours           Minutes" HorizontalAlignment="Left" Margin="1123,502,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="txtHoras"  Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="1130,530,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="54">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <TextBox x:Name="txtMinutos" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="1201,530,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="54">
+                        <TextBox x:Name="txtMinutos" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="1201,530,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="54" Grid.ColumnSpan="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="1250,320,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged">
+                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="37,320,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged" Grid.Column="1">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>
@@ -1933,19 +1937,19 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <ComboBox x:Name="tiempo1" Visibility="Hidden" HorizontalAlignment="Left" Margin="1187,613,0,0" VerticalAlignment="Top" Width="85">
+                        <ComboBox x:Name="tiempo1" Visibility="Hidden" HorizontalAlignment="Left" Margin="1187,613,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="2">
                             <ComboBoxItem Content="Minute(s)"/>
                             <ComboBoxItem Content="Hour(s)"/>
                         </ComboBox>
-                        <Label x:Name="lblNombreTratamiento_Copy8" Visibility="Hidden" Content="During" HorizontalAlignment="Left" Margin="1287,587,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="txtcantidad2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="1293,613,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54">
+                        <Label x:Name="lblNombreTratamiento_Copy8" Visibility="Hidden" Content="During" HorizontalAlignment="Left" Margin="74,587,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                        <TextBox x:Name="txtcantidad2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="80,613,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54" Grid.Column="1">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="tiempo2" Content="Day(s)" Visibility="Hidden" HorizontalAlignment="Left" Margin="1356,613,0,0" VerticalAlignment="Top" Width="85"/>
+                        <Label x:Name="tiempo2" Content="Day(s)" Visibility="Hidden" HorizontalAlignment="Left" Margin="143,613,0,0" VerticalAlignment="Top" Width="85" Grid.Column="1"/>
                         <Border x:Name="borderInfobasica_Copy11" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="371,40,0,0" VerticalAlignment="Top" Width="466"/>
-                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="1432,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast"/>
+                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="219,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="1"/>
                         <Label x:Name="lblPaciente" Visibility="Hidden" Content="Patient:" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ComboBox x:Name="comboPacientesTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="259"/>
                         <Label x:Name="lblNombreTratamiento_Copy" Visibility="Hidden" Content="Treatment's Name" HorizontalAlignment="Left" Margin="49,397,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -1985,7 +1989,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE ELEMENT" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <GroupBox x:Name="groupBox3_Copy3" Visibility="Hidden" HorizontalAlignment="Left" Margin="953,214,0,0" VerticalAlignment="Top" Height="473" Width="515" Background="#FF3CB3DF" BorderBrush="Silver">
+                        <GroupBox x:Name="groupBox3_Copy3" Visibility="Hidden" HorizontalAlignment="Left" Margin="953,214,0,0" VerticalAlignment="Top" Height="473" Width="515" Background="#FF3CB3DF" BorderBrush="Silver" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="PageUpload" Foreground="#FFFDFDFD" />
@@ -1994,37 +1998,37 @@
                             </GroupBox.Header>
                         </GroupBox>
                         <Label x:Name="lblDiagActivo_Copy1"  Visibility="Hidden" Content="Remedies" HorizontalAlignment="Left" Margin="988,269,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleRemedios" Visibility="Hidden" HorizontalAlignment="Left" Height="87" Margin="989,301,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA"/>
+                        <ListBox x:Name="detalleRemedios" Visibility="Hidden" HorizontalAlignment="Left" Height="87" Margin="989,301,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblDiagActivo_Copy2" Visibility="Hidden" Content="Analysis" HorizontalAlignment="Left" Margin="989,408,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="987,438,0,0" VerticalAlignment="Top" Width="427" BorderThickness="1" BorderBrush="#FFDCDADA"/>
+                        <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="987,438,0,0" VerticalAlignment="Top" Width="427" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="Individual Rates" HorizontalAlignment="Left" Margin="989,543,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="989,574,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA"/>
-                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="Related Treatments" HorizontalAlignment="Left" Margin="953,45,0,0" VerticalAlignment="Top" Height="170" Width="515" Background="#CC0050EF" BorderBrush="Silver"/>
-                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Height="26" Margin="1436,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle"/>
-                        <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="989,116,0,0" VerticalAlignment="Top" Width="297" BorderThickness="1" BorderBrush="#FFDCDADA"/>
+                        <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="989,574,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
+                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="Related Treatments" HorizontalAlignment="Left" Margin="953,45,0,0" VerticalAlignment="Top" Height="170" Width="515" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="2"/>
+                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Height="26" Margin="223,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="1"/>
+                        <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="989,116,0,0" VerticalAlignment="Top" Width="297" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="Period" HorizontalAlignment="Left" Margin="989,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdGenerarReporte" Background="#FF3CB3DF" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="1316,123,0,0" VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click">
+                        <Button x:Name="cmdGenerarReporte" Background="#FF3CB3DF" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="103,123,0,0" VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" CREATE REPORT" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <GroupBox x:Name="tratamencola" Visibility="Hidden" Header="Treatments on hold" HorizontalAlignment="Left" Margin="940,207,0,0" VerticalAlignment="Top" Height="316" Width="542" Background="#CC0050EF" BorderBrush="Silver"/>
+                        <GroupBox x:Name="tratamencola" Visibility="Hidden" Header="Treatments on hold" HorizontalAlignment="Left" Margin="940,207,0,0" VerticalAlignment="Top" Height="316" Width="542" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblNoEnEspera" Content="" HorizontalAlignment="Left" Margin="714,664,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold"/>
-                        <Button x:Name="cmdBorrarSec" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="1316,287,0,0" VerticalAlignment="Top" Width="135" Height="56" Click="cmdBorrarSec_Click">
+                        <Button x:Name="cmdBorrarSec" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="103,287,0,0" VerticalAlignment="Top" Width="135" Height="56" Click="cmdBorrarSec_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE TREATMENT" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBorrarSecCompleta" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="1316,367,0,0" VerticalAlignment="Top" Width="135" Height="56" Click="cmdBorrarSecCompleta_Click">
+                        <Button x:Name="cmdBorrarSecCompleta" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="103,367,0,0" VerticalAlignment="Top" Width="135" Height="56" Click="cmdBorrarSecCompleta_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete " Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE SEQUENCE" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cerrarListadoEspera" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="1441,207,0,0" VerticalAlignment="Top" Width="39" Height="27" Click="cerrarListadoEspera_Click"/>
-                        <ListView x:Name="listadoEnEspera" Visibility="Hidden" HorizontalAlignment="Left" Height="244" Margin="956,248,0,0" VerticalAlignment="Top" Width="333" BorderThickness="1" BorderBrush="#FFDCDADA">
+                        <Button x:Name="cerrarListadoEspera" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="228,207,0,0" VerticalAlignment="Top" Width="39" Height="27" Click="cerrarListadoEspera_Click" Grid.Column="1"/>
+                        <ListView x:Name="listadoEnEspera" Visibility="Hidden" HorizontalAlignment="Left" Height="244" Margin="956,248,0,0" VerticalAlignment="Top" Width="333" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Treatment" DisplayMemberBinding="{Binding tratamiento}" Width="150px" />
@@ -2032,7 +2036,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <ListView x:Name="ListadoDiagActivos_Copy" Visibility="Hidden" HorizontalAlignment="Left" Height="173" Margin="22,536,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
+                        <ListView x:Name="ListadoDiagInactivos" Visibility="Hidden" HorizontalAlignment="Left" Height="173" Margin="22,536,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="PATIENT" DisplayMemberBinding="{Binding paciente}" Width="180px" />
@@ -2047,17 +2051,18 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="PATIENT" DisplayMemberBinding="{Binding paciente}" Width="180px" />
-                                    <GridViewColumn Header="TREATMENT" DisplayMemberBinding="{Binding tratamiento}" Width="190px"/>
-                                    <GridViewColumn Header="START DATE" DisplayMemberBinding="{Binding inicio}" Width="180px"/>
-                                    <GridViewColumn Header="DURATION" DisplayMemberBinding="{Binding duracion}" Width="130px"/>
-                                    <GridViewColumn Header="BEGINNING TIME" DisplayMemberBinding="{Binding tfaltante}" Width="190px"/>
+                                    <GridViewColumn Header="TREATMENT" DisplayMemberBinding="{Binding tratamiento}" Width="190px" />
+                                    <GridViewColumn Header="START DATE" DisplayMemberBinding="{Binding inicio}" Width="180px" />
+                                    <GridViewColumn Header="DURATION" DisplayMemberBinding="{Binding duracion}" Width="130px" />
+                                    <GridViewColumn Header="BEGINNING TIME" DisplayMemberBinding="{Binding tfaltante}" Width="190px" />
                                 </GridView>
                             </ListView.View>
                         </ListView>
+
                     </Grid>
                 </TabItem>
                 <Image x:Name="image2" Height="14" Width="26"/>
-                
+
             </TabControl>
         </Grid>
     </Viewbox>
