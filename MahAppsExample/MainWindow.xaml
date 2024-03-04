@@ -71,9 +71,13 @@
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Margin="0,-1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="919*"/>
+                            <ColumnDefinition Width="575*"/>
+                        </Grid.ColumnDefinitions>
                         <Border BorderBrush="#FFE4E0E0" Visibility="Visible" BorderThickness="1" HorizontalAlignment="Left" Height="598" Margin="25,70,0,0" VerticalAlignment="Top" Width="380" Background="White" />
 
-                        <GroupBox x:Name="groupBox" Margin="10,0,0,46.6" VerticalAlignment="Bottom" Height="653" HorizontalAlignment="Left" Width="407" BorderBrush="#FF3CB3DF" Background="#3CB3DF">
+                        <GroupBox x:Name="groupBox" Margin="10,0,0,46" VerticalAlignment="Bottom" Height="653" HorizontalAlignment="Left" Width="407" BorderBrush="#FF3CB3DF" Background="#3CB3DF">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Magnify" Foreground="#FFFDFDFD" />
@@ -106,7 +110,7 @@
                             </ListView.View>
                         </ListView>
                         <Label x:Name="lblPacientes" Content="Patient's List" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.077" FontWeight="Bold"/>
-                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="433,18,0,0" Background="#3CB3DF" Width="1059" Height="653" VerticalAlignment="Top" BorderBrush="#FF3CB3DF">
+                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="433,18,0,0" Background="#3CB3DF" Width="1059" Height="653" VerticalAlignment="Top" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="User" Foreground="#FFFDFDFD" />
@@ -623,7 +627,7 @@
                                 </TabItem>
                             </TabControl>
                         </GroupBox>
-                        <GroupBox x:Name="PacienteGroup_Copy" Visibility="Hidden" HorizontalAlignment="Left" Margin="433,26,0,0" Background="#3CB3DF" Width="1047" Height="653" VerticalAlignment="Top">
+                        <GroupBox x:Name="PacienteGroup_Copy" Visibility="Hidden" HorizontalAlignment="Left" Margin="433,26,0,0" Background="#3CB3DF" Width="1047" Height="653" VerticalAlignment="Top" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="SimcardMicro" Foreground="#FFFDFDFD" />
@@ -714,7 +718,7 @@
                                 </TabItem>
                             </TabControl>
                         </GroupBox>
-                        <GroupBox Visibility="Hidden" x:Name="registrarGroup" Margin="438,0,0,423" VerticalAlignment="Bottom" Height="275" HorizontalAlignment="Left" Width="687">
+                        <GroupBox Visibility="Hidden" x:Name="registrarGroup" Margin="438,0,0,423" VerticalAlignment="Bottom" Height="275" HorizontalAlignment="Left" Width="687" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Book" Foreground="#FFFDFDFD" />
@@ -723,9 +727,9 @@
                             </GroupBox.Header>
                         </GroupBox>
                         <Label Visibility="Hidden" x:Name="lblNombreRegistro" Content="Nombre:" HorizontalAlignment="Left" Margin="462,75,0,0" VerticalAlignment="Top"/>
-                        <TextBox Visibility="Hidden" x:Name="txtNombreRegistro" HorizontalAlignment="Left" Height="23" Margin="677,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="412" ToolTip="Nombre"/>
+                        <TextBox Visibility="Hidden" x:Name="txtNombreRegistro" HorizontalAlignment="Left" Height="23" Margin="677,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="412" ToolTip="Nombre" Grid.ColumnSpan="2"/>
                         <Label Visibility="Hidden" x:Name="lblDescripcionRegistro" Content="Descripción:" HorizontalAlignment="Left" Margin="462,121,0,0" VerticalAlignment="Top"/>
-                        <TextBox Visibility="Hidden" x:Name="txtDescripcionRegistro" HorizontalAlignment="Left" Height="19" Margin="468,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="624" ToolTip="Descripción"/>
+                        <TextBox Visibility="Hidden" x:Name="txtDescripcionRegistro" HorizontalAlignment="Left" Height="19" Margin="468,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="624" ToolTip="Descripción" Grid.ColumnSpan="2"/>
                         <Label Visibility="Hidden" x:Name="lblDescripcionEjemplo" Content="(Ej: Blvd Revolucion, CP 201200, Tel:277-232-313, Mexico)" HorizontalAlignment="Left" Margin="541,121,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Label Visibility="Hidden" x:Name="lblNombreEjemplo" Content="(Ej: Dr. Juan Martinez)" HorizontalAlignment="Left" Margin="523,75,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Button Visibility="Hidden" x:Name="cmdRegistroVersion" HorizontalAlignment="Left" Margin="677,205,0,0" VerticalAlignment="Top" Width="212" Height="49" ToolTip="Registrar versión " Click="cmdRegistroVersion_Click">
@@ -2047,7 +2051,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <ListView x:Name="ListadoDiagNoActiv" Visibility="Visible" HorizontalAlignment="Left" Height="198" Margin="21,510,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
+                        <ListView x:Name="ListadoDiagNoActiv" Visibility="Visible" HorizontalAlignment="Left" Height="198" Margin="21,510,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListadoDiagNoActiv_SelectionChanged">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="PATIENT" DisplayMemberBinding="{Binding paciente}" Width="180px" />

@@ -508,6 +508,7 @@ namespace MahAppsExample
                         {
                             string idTratamiento = Tratamiento_Inactivos.Rows[j][0].ToString();
                             obj2.ModificarEstadoTratamientoVencido(idTratamiento);
+                            Console.WriteLine("Entraron como pasados");
                         }
                         ////Es la misma fecha y hora
                         //else if(resultadoComparacion == 0)
@@ -517,6 +518,7 @@ namespace MahAppsExample
                         ////Si la fecha aun no ha pasado
                         else
                         {
+                            Console.WriteLine("No estan pasados");
                             string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
                             TimeSpan diferenciaTiempoInicioActual = fechaInicioTratamientoInactivo - hora_actual;
                             string tiempoFaltanteString = diferenciaTiempoInicioActual.Days.ToString() + "d, " + diferenciaTiempoInicioActual.Hours.ToString() + " h, " + diferenciaTiempoInicioActual.Minutes.ToString() + " m";
@@ -5278,33 +5280,36 @@ namespace MahAppsExample
 
                         }
                     }
-
-                    DataTable Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), sexo);
-
-                    //MessageBox.Show(Codigos.Rows.Count.ToString());
-                    //MessageBox.Show(id_subcategoria.ToString());
-
-                    if (Codigos.Rows.Count == 0) //Sino hay por genero pues utiliza el de todos...
+                    if (id_subcategoria.ToString() != null)
                     {
-                        Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
-                    }
-                    else // De lo contrario si existen codigos por genero entonces.. que seria genero mas genero=T
-                    {
-                        Codigos = obj2.VisualizarSubCategoriasCodigosListadoGenero_Todos(id_subcategoria.ToString(), sexo);
-                    }
 
-                    //AGREGADO HASTA AQUI
+                        DataTable Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), sexo);
 
-                    for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
-                    {
-                        if (Codigos.Rows[y][1].ToString() != "")
+                        //MessageBox.Show(Codigos.Rows.Count.ToString());
+                        //MessageBox.Show(id_subcategoria.ToString());
+
+                        if (Codigos.Rows.Count == 0) //Sino hay por genero pues utiliza el de todos...
                         {
-                            //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                            listadoCodigos_Remedios.Items.Add(Codigos.Rows[y][1].ToString());
-                            Categorias_Codigos.Add(Codigos.Rows[y][2].ToString()); //Guarda el codigo
+                            Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
                         }
-                    }
+                        else // De lo contrario si existen codigos por genero entonces.. que seria genero mas genero=T
+                        {
+                            Codigos = obj2.VisualizarSubCategoriasCodigosListadoGenero_Todos(id_subcategoria.ToString(), sexo);
+                        }
 
+                        //AGREGADO HASTA AQUI
+
+                        for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
+                        {
+                            if (Codigos.Rows[y][1].ToString() != "")
+                            {
+                                //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
+                                listadoCodigos_Remedios.Items.Add(Codigos.Rows[y][1].ToString());
+                                Categorias_Codigos.Add(Codigos.Rows[y][2].ToString()); //Guarda el codigo
+                            }
+                        }
+
+                    }
                     CerrarConexion();
                 }
                 catch (NullReferenceException)
@@ -6706,7 +6711,7 @@ namespace MahAppsExample
 
                     //Registrar_Remedio_Duplicado
                     //Envia - idr,nombre,idpaciente,nombrepaciente,idanalisis,nombreanalisis,fechac,codigo
-                    obj2.Registrar_Remedio_Duplicado(id_generado, nombre_copia, elemento_acopiar.Rows[0][2].ToString(), elemento_acopiar.Rows[0][3].ToString(), elemento_acopiar.Rows[0][4].ToString(), elemento_acopiar.Rows[0][5].ToString(), elemento_acopiar.Rows[0][6].ToString(), elemento_acopiar.Rows[0][7].ToString());
+                    obj2.Registrar_Remedio_Duplicado(id_generado, nombre_copia, elemento_acopiar.Rows[0][2].ToString(), elemento_acopiar.Rows[0][3].ToString(), elemento_acopiar.Rows[0][4].ToString(), elemento_acopiar.Rows[0][5].ToString(), Convert.ToDateTime(elemento_acopiar.Rows[0][6].ToString()), elemento_acopiar.Rows[0][7].ToString());
 
                     // codigo,nombrecodigo,idcodigo,potencia,metodo,codigocomplementario,nivel
 
@@ -13462,6 +13467,11 @@ namespace MahAppsExample
         private void window_Closed(object sender, EventArgs e)
         {
            // obj.BroadcastOFF();
+
+        }
+
+        private void ListadoDiagNoActiv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

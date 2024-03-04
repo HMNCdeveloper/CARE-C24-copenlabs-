@@ -578,7 +578,7 @@ namespace MahAppsExample
         //Funcion para consultar elementos del remedio a duplicar
         public DataTable Consultar_Remedio_Duplicar(string nombre_remedio)
         {
-            sql = "SELECT * FROM rad_remedios where nombre=$$"+ nombre_remedio+"$$";
+            sql = "SELECT * FROM rad_remedios where nombre=$$"+ nombre_remedio +"$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -625,12 +625,24 @@ namespace MahAppsExample
         }
 
         //Funcion para registrar remedio duplicado
-        public void Registrar_Remedio_Duplicado(string id_generado,string nombre, string idpaciente, string nombrepaciente, string idanalisis,string nombreanalisis,string fechac, string codigo)
+        public void Registrar_Remedio_Duplicado(string id_generado, string nombre, string idpaciente, string nombrepaciente, string idanalisis, string nombreanalisis, DateTime fechac, string codigo)
         {
-            sql = "INSERT INTO rad_remedios(idr,nombre,idpaciente,nombrepaciente,idanalisis,nombreanalisis,fechac,codigo) VALUES($$" + id_generado + "$$,$$" + nombre + "$$,$$" + idpaciente + "$$,$$" + nombrepaciente + "$$,$$" + idanalisis + "$$,$$" + nombreanalisis + "$$,$$" + fechac + "$$,$$" + codigo + "$$)";
+            sql = "INSERT INTO rad_remedios(idr, nombre, idpaciente, nombrepaciente, idanalisis, nombreanalisis, fechac, codigo) VALUES(@id_generado, @nombre, @idpaciente, @nombrepaciente, @idanalisis, @nombreanalisis, @fechac, @codigo)";
+
             command = new NpgsqlCommand(sql, conn);
+
+            command.Parameters.AddWithValue("@id_generado", id_generado);
+            command.Parameters.AddWithValue("@nombre", nombre);
+            command.Parameters.AddWithValue("@idpaciente", idpaciente);
+            command.Parameters.AddWithValue("@nombrepaciente", nombrepaciente);
+            command.Parameters.AddWithValue("@idanalisis", idanalisis);
+            command.Parameters.AddWithValue("@nombreanalisis", nombreanalisis);
+            command.Parameters.AddWithValue("@fechac", fechac);
+            command.Parameters.AddWithValue("@codigo", codigo);
+
             command.ExecuteNonQuery();
         }
+
 
         //Funcion para registrar categoria nueva
         public void Registrar_CategoriaNueva(string id_generado, string nombre)
