@@ -3,8 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                      GlowBrush="{DynamicResource AccentColorBrush}"
+        xmlns:local="clr-namespace:HS5.Resources.idioma"
+        
+                      
+        GlowBrush="{DynamicResource AccentColorBrush}"
         Title="Homoeonic Software V6" WindowState="Maximized" Height="495.588" Width="Auto" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF" Foreground="#FF2B2929" Closing="window_Closing" Closed="window_Closed">
+
 
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands>
@@ -47,6 +51,7 @@
             </Button>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
+    <!--view of the screen-->
     <Viewbox>
         <Viewbox.OpacityMask>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -56,6 +61,7 @@
         </Viewbox.OpacityMask>
         <Grid Height="798" VerticalAlignment="Top" Width="1564" Background="White">
             <TabControl x:Name="opcionesHomoeonic" Margin="30,10,34,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
+                <!--view of the patients-->
                 <TabItem x:Name="Patients" GotFocus="Pacientes_GotFocus" BorderThickness="0" BorderBrush="#FFFFC898" Background="#FFF3FDFF">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -67,13 +73,14 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>
-                            <TextBlock Text=" Patients" Foreground="Black" FontFamily="Segoe UI" FontSize="28" TextDecorations="{x:Null}"/>
+                            <TextBlock Text="{x:Static local:leng.Angel}" Foreground="Black" FontFamily="Segoe UI" FontSize="28" TextDecorations="{x:Null}"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Margin="0,-1,0,1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="919*"/>
-                            <ColumnDefinition Width="575*"/>
+                            <ColumnDefinition Width="144*"/>
+                            <ColumnDefinition Width="431*"/>
                         </Grid.ColumnDefinitions>
                         <Border BorderBrush="#FFE4E0E0" Visibility="Visible" BorderThickness="1" HorizontalAlignment="Left" Height="598" Margin="25,70,0,0" VerticalAlignment="Top" Width="380" Background="White" />
 
@@ -110,7 +117,7 @@
                             </ListView.View>
                         </ListView>
                         <Label x:Name="lblPacientes" Content="Patient's List" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.077" FontWeight="Bold"/>
-                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="433,18,0,0" Background="#3CB3DF" Width="1059" Height="653" VerticalAlignment="Top" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="433,18,0,0" Background="#3CB3DF" Width="1059" Height="653" VerticalAlignment="Top" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="User" Foreground="#FFFDFDFD" />
@@ -171,7 +178,6 @@
                                         <ComboBox x:Name="combProfesion" HorizontalAlignment="Left" Margin="179,281,0,0" VerticalAlignment="Top" Width="222" IsReadOnly="True" FontSize="14">
                                             <ComboBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-
                                             </ComboBox.Effect>
                                             <ComboBoxItem Content="Elementary School"/>
                                             <ComboBoxItem Content="Junior High School"/>
@@ -627,7 +633,7 @@
                                 </TabItem>
                             </TabControl>
                         </GroupBox>
-                        <GroupBox x:Name="PacienteGroup_Copy" Visibility="Hidden" HorizontalAlignment="Left" Margin="433,26,0,0" Background="#3CB3DF" Width="1047" Height="653" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="PacienteGroup_Copy" Visibility="Hidden" HorizontalAlignment="Left" Margin="433,26,0,0" Background="#3CB3DF" Width="1047" Height="653" VerticalAlignment="Top" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="SimcardMicro" Foreground="#FFFDFDFD" />
@@ -718,7 +724,7 @@
                                 </TabItem>
                             </TabControl>
                         </GroupBox>
-                        <GroupBox Visibility="Hidden" x:Name="registrarGroup" Margin="438,0,0,423" VerticalAlignment="Bottom" Height="275" HorizontalAlignment="Left" Width="687" Grid.ColumnSpan="2">
+                        <GroupBox Visibility="Hidden" x:Name="registrarGroup" Margin="438,0,0,423" VerticalAlignment="Bottom" Height="275" HorizontalAlignment="Left" Width="687" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Book" Foreground="#FFFDFDFD" />
@@ -727,9 +733,9 @@
                             </GroupBox.Header>
                         </GroupBox>
                         <Label Visibility="Hidden" x:Name="lblNombreRegistro" Content="Nombre:" HorizontalAlignment="Left" Margin="462,75,0,0" VerticalAlignment="Top"/>
-                        <TextBox Visibility="Hidden" x:Name="txtNombreRegistro" HorizontalAlignment="Left" Height="23" Margin="677,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="412" ToolTip="Nombre" Grid.ColumnSpan="2"/>
+                        <TextBox Visibility="Hidden" x:Name="txtNombreRegistro" HorizontalAlignment="Left" Height="23" Margin="677,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="412" ToolTip="Nombre" Grid.ColumnSpan="3"/>
                         <Label Visibility="Hidden" x:Name="lblDescripcionRegistro" Content="Descripción:" HorizontalAlignment="Left" Margin="462,121,0,0" VerticalAlignment="Top"/>
-                        <TextBox Visibility="Hidden" x:Name="txtDescripcionRegistro" HorizontalAlignment="Left" Height="19" Margin="468,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="624" ToolTip="Descripción" Grid.ColumnSpan="2"/>
+                        <TextBox Visibility="Hidden" x:Name="txtDescripcionRegistro" HorizontalAlignment="Left" Height="19" Margin="468,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="624" ToolTip="Descripción" Grid.ColumnSpan="3"/>
                         <Label Visibility="Hidden" x:Name="lblDescripcionEjemplo" Content="(Ej: Blvd Revolucion, CP 201200, Tel:277-232-313, Mexico)" HorizontalAlignment="Left" Margin="541,121,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Label Visibility="Hidden" x:Name="lblNombreEjemplo" Content="(Ej: Dr. Juan Martinez)" HorizontalAlignment="Left" Margin="523,75,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Button Visibility="Hidden" x:Name="cmdRegistroVersion" HorizontalAlignment="Left" Margin="677,205,0,0" VerticalAlignment="Top" Width="212" Height="49" ToolTip="Registrar versión " Click="cmdRegistroVersion_Click">
@@ -750,6 +756,8 @@
 
                     </Grid>
                 </TabItem>
+
+                <!--analysis view-->
                 <TabItem x:Name="AnalisisTab" Margin="7,0,-6.4,-0.4" Background="#FFF3FDFF">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -1074,6 +1082,8 @@
 
                     </Grid>
                 </TabItem>
+
+                <!--remedie view-->
                 <TabItem x:Name="RemediosTab" Margin="13.4,0,-13.6,-1.4" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1419,6 +1429,8 @@
                         </Button>
                     </Grid>
                 </TabItem>
+
+                <!--chromotherapy view-->
                 <TabItem x:Name="ColorTab" Margin="21,0,-20,-4" Height="45.6">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1442,6 +1454,10 @@
                     </TabItem.Header>
 
                     <Grid x:Name="TerapiaColor" GotFocus="TerapiaColor_GotFocus" Background="White" MouseDown="TerapiaColor_MouseDown" Margin="0,-2,0,2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="178*"/>
+                            <ColumnDefinition Width="71*"/>
+                        </Grid.ColumnDefinitions>
                         <GroupBox x:Name="groupBox3" Visibility="Hidden" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="181" Width="268">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -1463,19 +1479,19 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <Button Visibility="Hidden" Background="#FF3CB3DF"  x:Name="cmdQuitarColores" HorizontalAlignment="Left" Margin="1271,42,0,0" VerticalAlignment="Top" Width="191" Height="40" Click="cmdQuitarColores_Click">
+                        <Button Visibility="Hidden" Background="#FF3CB3DF"  x:Name="cmdQuitarColores" HorizontalAlignment="Left" Margin="203,42,0,0" VerticalAlignment="Top" Width="191" Height="40" Click="cmdQuitarColores_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Close" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" RESET COLORS" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button Visibility="Hidden" Background="#FF3CB3DF"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Left" Margin="1271,91,0,0" VerticalAlignment="Top" Width="191" Height="41" Click="cmdGuardarTratamiento_Click">
+                        <Button Visibility="Hidden" Background="#FF3CB3DF"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Left" Margin="203,91,0,0" VerticalAlignment="Top" Width="191" Height="41" Click="cmdGuardarTratamiento_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Save" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE THERAPY" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button Visibility="Hidden" Background="#FF3CB3DF" x:Name="cmdRegresarTerapia" HorizontalAlignment="Left" Margin="1432,134,0,0" VerticalAlignment="Top" Width="43" Height="32" Click="cmdRegresarTerapia_Click" >
+                        <Button Visibility="Hidden" Background="#FF3CB3DF" x:Name="cmdRegresarTerapia" HorizontalAlignment="Left" Margin="364,134,0,0" VerticalAlignment="Top" Width="43" Height="32" Click="cmdRegresarTerapia_Click" Grid.Column="1" >
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="ArrowLeft" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" RETURN TO RECENT THERAPIES" Foreground="#FFFAFAFA"/>
@@ -1546,7 +1562,7 @@
                             <Image x:Name="part62" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
 
                         </Canvas>
-                        <ListBox Visibility="Hidden"  x:Name="listaSecciones" HorizontalAlignment="Left" Height="328" Margin="917,154,0,0" VerticalAlignment="Top" Width="511" BorderBrush="#CC0050EF" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" />
+                        <ListBox Visibility="Hidden"  x:Name="listaSecciones" HorizontalAlignment="Left" Height="328" Margin="917,154,0,0" VerticalAlignment="Top" Width="511" BorderBrush="#CC0050EF" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" Grid.ColumnSpan="2" />
                         <Label Visibility="Hidden"  x:Name="lblVista2_Copy" Content="Available Sections:" HorizontalAlignment="Left" Margin="917,123,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Button Visibility="Hidden" x:Name="color3" Content="" HorizontalAlignment="Left" Height="29" Margin="70,248,0,0" VerticalAlignment="Top" Width="45" Background="Lime" Click="color3_Click"/>
                         <Button Visibility="Hidden" x:Name="color1" Content="" HorizontalAlignment="Left" Height="29" Margin="20,248,0,0" VerticalAlignment="Top" Width="45" Background="Red" Click="color1_Click"/>
@@ -1613,9 +1629,9 @@
                         <Button Visibility="Hidden"  x:Name="color2_Copy45" Content="" HorizontalAlignment="Left" Height="29" Margin="170,664,0,0" VerticalAlignment="Top" Width="45" Background="Yellow" Click="color2_Copy45_Click"/>
                         <Button Visibility="Hidden"  x:Name="color1_Copy15" Content="" HorizontalAlignment="Left" Height="29" Margin="70,663,0,0" VerticalAlignment="Top" Width="45" Background="#FFEFB3F2" Click="color1_Copy15_Click"/>
                         <Label Visibility="Hidden"  x:Name="lblVista2_Copy1" Content="Color selected:" HorizontalAlignment="Left" Margin="916,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button Visibility="Hidden"  x:Name="color_elegido" Content="" HorizontalAlignment="Left" Height="36" Margin="921,61,0,0" VerticalAlignment="Top" Width="258" Background="#FFF7F7F6" FontSize="12"/>
+                        <Button Visibility="Hidden"  x:Name="color_elegido" Content="" HorizontalAlignment="Left" Height="36" Margin="921,61,0,0" VerticalAlignment="Top" Width="258" Background="#FFF7F7F6" FontSize="12" Grid.ColumnSpan="2"/>
                         <Label Visibility="Hidden"  x:Name="lblVista2_Copy2" Content="COMBINATED RATES:" HorizontalAlignment="Left" Margin="917,511,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListView Visibility="Hidden"  x:Name="listadoCodigosComb" HorizontalAlignment="Left" Height="160" Margin="917,542,0,0" VerticalAlignment="Top" Width="511" SelectionMode="Single">
+                        <ListView Visibility="Hidden"  x:Name="listadoCodigosComb" HorizontalAlignment="Left" Height="160" Margin="917,542,0,0" VerticalAlignment="Top" Width="511" SelectionMode="Single" Grid.ColumnSpan="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Rate" DisplayMemberBinding="{Binding codigocomp}" Width="120px"/>
@@ -1623,7 +1639,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Button x:Name="cmdEliminarCodComp" Content="Delete" Visibility="Hidden" HorizontalAlignment="Left" Height="29" Margin="1442,559,0,0" VerticalAlignment="Top" Width="69" Click="cmdEliminarCodComp_Click"/>
+                        <Button x:Name="cmdEliminarCodComp" Content="Delete" Visibility="Hidden" HorizontalAlignment="Left" Height="29" Margin="374,559,0,0" VerticalAlignment="Top" Width="69" Click="cmdEliminarCodComp_Click" Grid.Column="1"/>
                         <GroupBox x:Name="BusquedaTerapia" Visibility="Visible" Margin="12,0,0,464" VerticalAlignment="Bottom" Height="242" HorizontalAlignment="Left" Width="389" FontWeight="Bold">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -1656,7 +1672,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE THERAPY" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <GroupBox x:Name="Lista_Analisis_Group1_Copy" Visibility="Visible" Margin="423,0,0,27" VerticalAlignment="Bottom" Height="678" HorizontalAlignment="Left" Width="1068" FontWeight="Bold">
+                        <GroupBox x:Name="Lista_Analisis_Group1_Copy" Visibility="Visible" Margin="423,0,0,27" VerticalAlignment="Bottom" Height="678" HorizontalAlignment="Left" Width="1068" FontWeight="Bold" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Check" Foreground="#FFFDFDFD" />
@@ -1664,7 +1680,7 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <ListView x:Name="ListaPacientes_Recientes1_Copy"  Visibility="Hidden" HorizontalAlignment="Left" Margin="438,57,0,44" Width="1037" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" Initialized="ListaPacientes_Recientes1_Copy_Initialized">
+                        <ListView x:Name="ListaPacientes_Recientes1_Copy"  Visibility="Hidden" HorizontalAlignment="Left" Margin="438,57,0,44" Width="1037" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" Initialized="ListaPacientes_Recientes1_Copy_Initialized" Grid.ColumnSpan="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding nombre}" Width="500px" />
@@ -1684,6 +1700,8 @@
 
                     </Grid>
                 </TabItem>
+
+                <!--categoria view-->
                 <TabItem x:Name="CategoriasTab" Visibility="Visible" Margin="27.8,2,-27.4,-2.4">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -1776,6 +1794,8 @@
                         </Button>
                     </Grid>
                 </TabItem>
+
+                <!--broadcasting view-->
                 <TabItem x:Name="tratamientos" Margin="37.6,2,-36.4,-2.4" GotFocus="tratamientos_GotFocus">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -2063,6 +2083,51 @@
                             </ListView.View>
                         </ListView>
 
+                    </Grid>
+                </TabItem>
+
+                <!--language view-->
+                <TabItem   x:Name="setting" Margin="37.6,2,-36.4,-2.4">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
+                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <!--in this line you will add the icon-->
+                            <!--<iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccessPoint">
+                                <iconPacks:PackIconMaterial.Foreground>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFDFB411" Offset="0"/>
+                                        <GradientStop Color="#FFF07E0B" Offset="1"/>
+                                        <GradientStop Color="#FFF4F4F4" Offset="0.534"/>
+                                    </LinearGradientBrush>
+                                </iconPacks:PackIconMaterial.Foreground>
+                            </iconPacks:PackIconMaterial>-->
+                            <TextBlock Text="Language" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <!--here  is the  content-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="67*"/>
+                            <ColumnDefinition Width="177*"/>
+                            <ColumnDefinition Width="19*"/>
+                            <ColumnDefinition Width="148*"/>
+                            <ColumnDefinition Width="1083*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="label10" Content="Please select the language in this system:" HorizontalAlignment="Left" Margin="67,60,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.ColumnSpan="2"/>
+                        <ComboBox x:Name="languageOption" HorizontalAlignment="Left"   Margin="79,97,0,0" VerticalAlignment="Top" Width="212"  Grid.Column="3" Grid.ColumnSpan="2">
+                            <ComboBox.Effect>
+                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                            </ComboBox.Effect>
+                            <ComboBoxItem Content="Español"/>
+                            <ComboBoxItem Content="Ingles"/>
+                        </ComboBox>
+                        <Button x:Name="button" Content="change" HorizontalAlignment="Left" Height="38" Margin="97,144,0,0" VerticalAlignment="Top" Width="152" Grid.Column="3" Grid.ColumnSpan="2" />
+                        <Image x:Name="imagelogo" HorizontalAlignment="Left" Height="209" Margin="42,10,0,0" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4"/>
                     </Grid>
                 </TabItem>
                 <Image x:Name="image2" Height="14" Width="26"/>

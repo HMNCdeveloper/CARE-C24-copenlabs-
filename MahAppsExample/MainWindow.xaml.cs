@@ -2,17 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using Microsoft.Win32; //OpenFileDialog
 using System.Threading;
@@ -20,16 +14,21 @@ using System.IO;
 using System.Data;
 using Microsoft.VisualBasic; //Interaction
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
-using System.Reflection;
 using System.Diagnostics; //Para ejecutar el bat file
-
 //Libreria Qr-Codes
-using QRCoder;
-
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using HS5;
+using HS5.Resources.idioma;
+using HS5.Properties;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Globalization;
+
+
+
+
 
 namespace MahAppsExample
 {
@@ -87,14 +86,18 @@ namespace MahAppsExample
         List<string> codigos_rates = new List<string>();
         List<string> Sniveles = new List<string>();
 
+        
+
+  
         string tipo_nivel_codigo;
         //string puertoCOM;
 
         public MainWindow(string puerto)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguage);
             InitializeComponent();
             //puertoCOM = puerto;
-           // MessageBox.Show("HOLA");
+            // MessageBox.Show("HOLA");
 
             //Rutas del PostgreSQL 
             string path, path2;
@@ -142,6 +145,7 @@ namespace MahAppsExample
 
                 Cargar_Tratamientos_Pendientes_Y_Activos();
                 CargarListadoCompletoPacientes();
+                
             }
             else
             {
@@ -13474,6 +13478,10 @@ namespace MahAppsExample
         {
 
         }
+
+
+ 
+
     }
 }
  

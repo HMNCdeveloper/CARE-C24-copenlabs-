@@ -15,6 +15,9 @@ using System.IO;
 using System.IO.Ports;
 using System.Drawing;
 using System.Drawing.Imaging;
+using HS5.Properties;
+using System.Globalization;
+using System.Threading;
 
 namespace HS5
 {
@@ -28,6 +31,7 @@ namespace HS5
 
         public Machine()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguage);
             InitializeComponent();
             //Obtiene todos los puertos COM
             ports = SerialPort.GetPortNames();
@@ -77,5 +81,11 @@ namespace HS5
             }
         }
 
+      
+
+        private void CmbPorts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

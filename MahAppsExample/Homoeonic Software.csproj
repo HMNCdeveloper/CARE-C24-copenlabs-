@@ -184,6 +184,11 @@
     </Compile>
     <Compile Include="Radionica.cs" />
     <Compile Include="reporte_ext.cs" />
+    <Compile Include="Resources\idioma\leng.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>leng.resx</DependentUpon>
+    </Compile>
     <Page Include="Codigo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -224,6 +229,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\idioma\language.en.resx" />
+    <EmbeddedResource Include="Resources\idioma\language.es.resx" />
+    <EmbeddedResource Include="Resources\idioma\leng.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>leng.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Homoeonic Software_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -916,6 +927,7 @@
   <ItemGroup>
     <None Include="Resources\HS5.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
