@@ -3,11 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:local="clr-namespace:HS5.Resources.idioma"
-        
-                      
+        xmlns:local="clr-namespace:HS5.Resources.Idiomas"       
         GlowBrush="{DynamicResource AccentColorBrush}"
-        Title="Homoeonic Software V6" WindowState="Maximized" Height="495.588" Width="Auto" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF" Foreground="#FF2B2929" Closing="window_Closing" Closed="window_Closed">
+        Title="Homoeonic Software V6" WindowState="Maximized" Height="495.588"  WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF" Foreground="#FF2B2929" Closing="window_Closing" Closed="window_Closed">
 
 
     <controls:MetroWindow.RightWindowCommands>
@@ -73,7 +71,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>
-                            <TextBlock Text="{x:Static local:leng.Angel}" Foreground="Black" FontFamily="Segoe UI" FontSize="28" TextDecorations="{x:Null}"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Margin="0,-1,0,1">
@@ -88,7 +86,7 @@
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Magnify" Foreground="#FFFDFDFD" />
-                                    <TextBlock x:Name="PacienteNombreletrero" Margin="4 0 0 0" VerticalAlignment="Center" Text=" PATIENT'S SEARCH" Foreground="White" FontWeight="Bold"/>
+                                    <TextBlock x:Name="PacienteNombreletrero" Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderPatientSearch}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
                             <TextBox x:Name="txtBuscarPaciente" HorizontalAlignment="Left" Height="32" Margin="31,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" ToolTip="Type the name of the patient to look for it" TextChanged="txtBuscarPaciente_TextChanged" FontSize="16" BorderBrush="#FF9C9999" Background="White">
@@ -97,14 +95,14 @@
                                 </TextBox.Effect>
                             </TextBox>
                         </GroupBox>
-                        <Label x:Name="lblBusqueda" Content="Search:" HorizontalAlignment="Left" Margin="46,79,0,0" VerticalAlignment="Top" FontWeight="Bold" ToolTip=""/>
+                        <Label x:Name="lblBusqueda" Content="{x:Static local:Lenguaje.Search}" HorizontalAlignment="Left" Margin="46,79,0,0" VerticalAlignment="Top" FontWeight="Bold" ToolTip=""/>
                         <Button x:Name="cmdEliminar" HorizontalAlignment="Left" Margin="43,612,0,0" VerticalAlignment="Top" Width="126" Height="37" ToolTip="Delete selected patient" Background="#FF3CB3DF" Click="cmdEliminar_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                <TextBlock x:Name="EliminarLetrero" Margin="4 0 0 0" VerticalAlignment="Center" Foreground="#FFFAFAFA" Text=" DELETE"/>
+                                <TextBlock x:Name="EliminarLetrero" Margin="4 0 0 0" VerticalAlignment="Center" Foreground="#FFFAFAFA" Text="{x:Static local:Lenguaje.TablePDelete}"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="cmdModificar" Visibility="Hidden" Content="Modificar" HorizontalAlignment="Left" Margin="46,139,0,0" VerticalAlignment="Top" Width="30" Height="32" ToolTip="Modificar un registro de paciente" Click="cmdModificar_Click"/>
@@ -112,24 +110,24 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idp}" Width="100px"/>
-                                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding nombrepaciente}" Width="190px"/>
+                                    <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombrepaciente}" Width="190px"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Label x:Name="lblPacientes" Content="Patient's List" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.077" FontWeight="Bold"/>
+                        <Label x:Name="lblPacientes" Content="{x:Static local:Lenguaje.PatientList}" HorizontalAlignment="Left" Margin="45,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.077" FontWeight="Bold"/>
                         <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="433,18,0,0" Background="#3CB3DF" Width="1059" Height="653" VerticalAlignment="Top" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="User" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" REGISTER NEW PATIENT" Foreground="White" FontWeight="Bold"/>
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderRP}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
-                            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="492" VerticalAlignment="Top" Width="761">
+                            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="492" VerticalAlignment="Top" Width="761" Margin="-4,0,0,0">
                                 <TabItem BorderBrush="#CC00ABA9" Foreground="#CC181919"  Background="#FFF3FDFF" IsSelected="True" >
                                     <TabItem.Header>
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconMaterial Width="23" Height="35" Kind="Account" Foreground="#FFF4CB06"/>
-                                            <TextBlock Text=" Patient Details" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
                                         </StackPanel>
                                     </TabItem.Header>
                                     <Grid OpacityMask="Black" Margin="4,4,-282,-116">
@@ -141,40 +139,40 @@
                                         </Border>
                                         <Border x:Name="borderInfobasica"  BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="521" Margin="20,20,0,0" VerticalAlignment="Top" Width="998"/>
 
-                                        <Label x:Name="label1" Content="First Name:" HorizontalAlignment="Left" Margin="60,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="label1" Content="{x:Static local:Lenguaje.labelFName}" HorizontalAlignment="Left" Margin="60,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="179,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontSize="14">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="label1_Copy" Content="Middle Name:" HorizontalAlignment="Left" Margin="429,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="label1_Copy" Content="{x:Static local:Lenguaje.labelMName}" HorizontalAlignment="Left" Margin="429,87,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtApellidoPat" HorizontalAlignment="Left" Height="23" Margin="568,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" FontSize="14">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="label1_Copy1" Content="Last Name:" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="label1_Copy1" Content="{x:Static local:Lenguaje.labelLastName}" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtApellidoMat" HorizontalAlignment="Left" Height="23" Margin="179,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" FontSize="14">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="label1_Copy2" Content="Birth Date:" HorizontalAlignment="Left" Margin="428,140,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                        <DatePicker x:Name="txtFecha" Focusable="False" HorizontalAlignment="Left" Margin="568,140,0,0" VerticalAlignment="Top" Width="207" IsTodayHighlighted="True" SelectedDateFormat="Short" FontSize="14">
+                                        <Label x:Name="label1_Copy2" Content="{x:Static local:Lenguaje.labelBithDate}" HorizontalAlignment="Left" Margin="428,140,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <DatePicker x:Name="txtFecha" Focusable="False" HorizontalAlignment="Left" Margin="568,142,0,0" VerticalAlignment="Top" Width="207" IsTodayHighlighted="True" SelectedDateFormat="Short" FontSize="14">
                                             <DatePicker.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </DatePicker.Effect>
                                         </DatePicker>
-                                        <Label x:Name="label2" Content="Gender:" HorizontalAlignment="Left" Margin="63,197,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                        <RadioButton x:Name="optionSexoM" Content="Male" HorizontalAlignment="Left" Margin="155,196,0,0" VerticalAlignment="Top" Width="117" Checked="optionSexoM_Checked" />
-                                        <RadioButton x:Name="optionSexoF" Content="Female" HorizontalAlignment="Left" Margin="252,196,0,0" VerticalAlignment="Top" Width="117"  RenderTransformOrigin="0.782,0.653"/>
+                                        <Label x:Name="label2" Content="{x:Static local:Lenguaje.labelGender}" HorizontalAlignment="Left" Margin="63,197,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <RadioButton x:Name="optionSexoM" Content="{x:Static local:Lenguaje.valMale}" HorizontalAlignment="Left" Margin="155,196,0,0" VerticalAlignment="Top" Width="117" Checked="optionSexoM_Checked" />
+                                        <RadioButton x:Name="optionSexoF" Content="{x:Static local:Lenguaje.valFemale}" HorizontalAlignment="Left" Margin="252,196,0,0" VerticalAlignment="Top" Width="117"  RenderTransformOrigin="0.782,0.653"/>
                                         <RadioButton x:Name="optionSexoAn" Visibility="Visible" Content="Animal" HorizontalAlignment="Left" Margin="155,230,0,0" VerticalAlignment="Top" Width="117"/>
-                                        <RadioButton x:Name="optionSexoPl" Visibility="Visible"  Content="Plant and Soil" HorizontalAlignment="Left" Margin="252,230,0,0" VerticalAlignment="Top" Width="117"/>
-                                        <Label x:Name="label1_Copy3" Content="E-mail" HorizontalAlignment="Left" Margin="63,384,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <RadioButton x:Name="optionSexoPl" Visibility="Visible"  Content="{x:Static local:Lenguaje.valPlant}" HorizontalAlignment="Left" Margin="252,230,0,0" VerticalAlignment="Top" Width="117"/>
+                                        <Label x:Name="label1_Copy3" Content="{x:Static local:Lenguaje.LabelEmail}" HorizontalAlignment="Left" Margin="63,384,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="180,387,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontSize="14" TextChanged="txtEmail_TextChanged">
 
                                         </TextBox>
-                                        <Label x:Name="lblProfesion" Content="School Degree:" HorizontalAlignment="Left" Margin="59,281,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblProfesion" Content="{x:Static local:Lenguaje.LabelSchool}" HorizontalAlignment="Left" Margin="59,281,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <ComboBox x:Name="combProfesion" HorizontalAlignment="Left" Margin="179,281,0,0" VerticalAlignment="Top" Width="222" IsReadOnly="True" FontSize="14">
                                             <ComboBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -185,8 +183,8 @@
                                             <ComboBoxItem Content="University"/>
                                             <ComboBoxItem Content="Master's Degree"/>
                                         </ComboBox>
-                                        <Label x:Name="lblTitulo" Content="Title:" HorizontalAlignment="Left" Margin="62,333,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                        <Label x:Name="label3" Content="Personal Frequency:" HorizontalAlignment="Left" Margin="431,191,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblTitulo" Content="{x:Static local:Lenguaje.LabelTitle}" HorizontalAlignment="Left" Margin="62,333,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="label3" Content="{x:Static local:Lenguaje.labelPersonal}" HorizontalAlignment="Left" Margin="431,191,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtPGR" HorizontalAlignment="Left" Height="23" Margin="568,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" MaxLength="14" FontSize="14" RenderTransformOrigin="0.373,0.111">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -198,7 +196,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowLeftRight" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" FIND PGR" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnFinPgre}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
                                         <Button x:Name="cmdGuardarMemoria" HorizontalAlignment="Left" Margin="506,233,0,0" VerticalAlignment="Top" Width="152" ToolTip="SAVE PGR TO ECS" Click="cmdGuardarMemoria_Click" BorderBrush="#3CB3DF" Background="#FF3CB3DF">
@@ -210,10 +208,10 @@
 
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Card" Foreground="#FFFCFBFB"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE PGR TO ECS" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavePGR}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
-                                        <Label x:Name="lblTelefono" Content="Phone:" HorizontalAlignment="Left" Margin="450,295,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblTelefono" Content="{x:Static local:Lenguaje.labelPhone}" HorizontalAlignment="Left" Margin="450,295,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtTelefonos" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" ToolTip="Telephone" FontSize="14" Margin="510,294,0,0" RenderTransformOrigin="0.484,1.808">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -232,7 +230,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Add" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
                                         <Button x:Name="cmdEliminarTelef" HorizontalAlignment="Left" Margin="718,341,0,0" VerticalAlignment="Top" Width="82" ToolTip="Delete Telephone" Background="#FF3CB3DF" FontSize="10" Height="31" Click="cmdEliminarTelef_Click">
@@ -241,7 +239,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
                                         <Button x:Name="cmdEditarTelef" Visibility="Hidden" HorizontalAlignment="Left" Margin="718,377,0,0" VerticalAlignment="Top" Width="89" ToolTip="Edit Telephone" FontSize="10" Height="17" Click="cmdEditarTelef_Click">
@@ -256,7 +254,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE PATIENT" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveP}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
 
@@ -268,7 +266,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Image" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD IMAGE" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAddImage}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
                                         <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="180,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontSize="14">
@@ -284,7 +282,7 @@
                                     <TabItem.Header>
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconMaterial Width="23" Height="35" Kind="Contacts" Foreground="#FF6D33B1"/>
-                                            <TextBlock Text=" Addresses" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderAdreess}" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
                                         </StackPanel>
                                     </TabItem.Header>
                                     <Grid Background="#CCF7F7F7" Margin="4,3,-282,-107">
@@ -295,13 +293,13 @@
                                         <Border x:Name="borderInfobasica_Copy" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="27,56,0,0" VerticalAlignment="Top" Width="738"/>
                                         <Label x:Name="lblAviso" Content="SE HA DETECTADO QUE EL PACIENTE TIENE MAS DOMICILIOS - PARA VISUALIZARLOS HAGA CLICK:" HorizontalAlignment="Left" Margin="25,412,0,0" VerticalAlignment="Top" Width="585" FontWeight="Bold" Foreground="#FFA43E3E" Visibility="Hidden"/>
                                         <Button x:Name="cmdDomicilios" Content="Domicilios" HorizontalAlignment="Left" Margin="610,413,0,0" VerticalAlignment="Top" Width="108" Visibility="Hidden"/>
-                                        <Label x:Name="lblCalle_Copy1" Content="Street:" HorizontalAlignment="Left" Margin="65,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblCalle_Copy1" Content="{x:Static local:Lenguaje.labelStreet}" HorizontalAlignment="Left" Margin="65,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtCalle" HorizontalAlignment="Left" Height="23" Margin="121,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" FontSize="14">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="lblColonia_Copy1" Content="Avenue:" HorizontalAlignment="Left" Margin="356,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblColonia_Copy1" Content="{x:Static local:Lenguaje.labelAvenue}" HorizontalAlignment="Left" Margin="356,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtColonia" HorizontalAlignment="Left" Height="23" Margin="414,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" FontSize="14">
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -312,26 +310,26 @@
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="lblNumero_Copy1" Content="Num:" HorizontalAlignment="Left" Margin="609,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                        <Label x:Name="lblCP_Copy1" Content="Zip Code:" HorizontalAlignment="Left" Margin="65,130,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblNumero_Copy1" Content="{x:Static local:Lenguaje.labelNum}" HorizontalAlignment="Left" Margin="609,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblCP_Copy1" Content="{x:Static local:Lenguaje.labelZpCode}" HorizontalAlignment="Left" Margin="65,130,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtCP" HorizontalAlignment="Left" Height="23" Margin="165,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" FontSize="14" >
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="lblMunicipio_Copy1" Content="County or shire:" HorizontalAlignment="Left" Margin="310,130,0,0" VerticalAlignment="Top" Width="149" FontWeight="Bold"/>
+                                        <Label x:Name="lblMunicipio_Copy1" Content="{x:Static local:Lenguaje.labelCS}" HorizontalAlignment="Left" Margin="310,130,0,0" VerticalAlignment="Top" Width="149" FontWeight="Bold"/>
                                         <TextBox x:Name="txtMunicipio" HorizontalAlignment="Left" Height="23" Margin="419,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" FontSize="14" >
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="lblEstado_Copy8" Content="State:" HorizontalAlignment="Left" Margin="65,171,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        <Label x:Name="lblEstado_Copy8" Content="{x:Static local:Lenguaje.labelSatet}" HorizontalAlignment="Left" Margin="65,171,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtEstado" HorizontalAlignment="Left" Height="23" Margin="121,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontSize="14" >
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Label x:Name="lblPais_Copy1" Content="Country:" HorizontalAlignment="Left" Margin="316,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.947,-3.192" FontWeight="Bold"/>
+                                        <Label x:Name="lblPais_Copy1" Content="{x:Static local:Lenguaje.labelCountry}" HorizontalAlignment="Left" Margin="316,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.947,-3.192" FontWeight="Bold"/>
                                         <TextBox x:Name="txtCountry" HorizontalAlignment="Left" Height="23" Margin="380,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="14" >
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -344,7 +342,7 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Add" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
                                         <ListBox x:Name="listadodomicilios" HorizontalAlignment="Left" Height="155" Margin="27,318,0,0" VerticalAlignment="Top" Width="969" BorderBrush="#FFE4E0E0" BorderThickness="1" FontSize="14">
@@ -359,7 +357,7 @@
 
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
 
                                         </Button>
@@ -369,11 +367,11 @@
                                             </Button.Effect>
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Edit" Foreground="#FFFAFAFA"/>
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" EDIT" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEdit}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
-                                        <Label x:Name="label" Content="Addresses" HorizontalAlignment="Left" Margin="31,275,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
-                                        <Label x:Name="label_Copy" Content="Address Details" HorizontalAlignment="Left" Margin="31,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
+                                        <Label x:Name="label" Content="{x:Static local:Lenguaje.headerAddresses}" HorizontalAlignment="Left" Margin="31,275,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
+                                        <Label x:Name="label_Copy" Content="{x:Static local:Lenguaje.headerAdd}" HorizontalAlignment="Left" Margin="31,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
                                     </Grid>
                                 </TabItem>
 
@@ -381,7 +379,7 @@
                                     <TabItem.Header>
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountCardDetails" Foreground="#FFB2ADB7"/>
-                                            <TextBlock Text=" Records" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderRecords}" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="41.6"/>
                                         </StackPanel>
                                     </TabItem.Header>
                                     <Grid Background="#CCF7F7F7" Margin="2,0,-282,-107">
@@ -401,7 +399,7 @@
                                                                 </LinearGradientBrush>
                                                             </iconPacks:PackIconMaterial.Foreground>
                                                         </iconPacks:PackIconMaterial>
-                                                        <TextBlock Text=" Hereditary" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headeHedit}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid  Margin="0,0,-91.6,-102">
@@ -409,8 +407,8 @@
                                                         <ColumnDefinition Width="63*"/>
                                                         <ColumnDefinition Width="274*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <GroupBox x:Name="groupBox1" Header="List Of Records" HorizontalAlignment="Left" Margin="10,34,0,-38" VerticalAlignment="Top" Height="423" Width="245" Background="#FF3CB3DF" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="2"/>
-                                                    <Label x:Name="lblTituloHeredo" Content="Title" HorizontalAlignment="Left" Margin="91.895,23,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                                                    <GroupBox x:Name="groupBox1" Header="{x:Static local:Lenguaje.headerListRecords}" HorizontalAlignment="Left" Margin="10,34,0,-38" VerticalAlignment="Top" Height="423" Width="245" Background="#FF3CB3DF" BorderBrush="#FF3CB3DF" Grid.ColumnSpan="2"/>
+                                                    <Label x:Name="lblTituloHeredo" Content="{x:Static local:Lenguaje.LabelTitle}" HorizontalAlignment="Left" Margin="91.895,23,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
                                                     <TextBox x:Name="txtTituloHeredo" HorizontalAlignment="Left" Height="23" Margin="91.895,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="678" FontSize="14" Grid.Column="1" >
                                                         <TextBox.Effect>
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -428,7 +426,7 @@
                                                         </Button.Effect>
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Add" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                     <Button x:Name="cmdEliminarHeredo" HorizontalAlignment="Left" Margin="105.895,380,0,0" Background="#FF3CB3DF" VerticalAlignment="Top" Width="129" Height="33" ToolTip="Delete Record" Click="cmdEliminarHeredo_Click" Grid.Column="1">
@@ -437,7 +435,7 @@
                                                         </Button.Effect>
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                     <Button x:Name="cmdEditarHeredo" HorizontalAlignment="Left" Margin="105.895,425,0,-39" Background="#FF3CB3DF" VerticalAlignment="Top" Width="129" Height="33" ToolTip="Edit Record" Click="cmdEditarHeredo_Click" Grid.Column="1">
@@ -446,7 +444,7 @@
                                                         </Button.Effect>
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Edit" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" EDIT" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEdit}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                     <ListBox x:Name="ListadoHeredo" HorizontalAlignment="Left" Height="382" Margin="14,65,0,-28" VerticalAlignment="Top" Width="236" SelectionChanged="ListadoHeredo_SelectionChanged" FontSize="14" Grid.ColumnSpan="2"/>
@@ -463,7 +461,7 @@
                                                                 </LinearGradientBrush>
                                                             </iconPacks:PackIconMaterial.Foreground>
                                                         </iconPacks:PackIconMaterial>
-                                                        <TextBlock Text=" Pathological" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headPatho}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid Background="#FFF7F5F5" Margin="0,0,0.4,-97">
@@ -513,7 +511,7 @@
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal">
                                                         <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountSwitch" Foreground="#FF0681F4"/>
-                                                        <TextBlock Text=" Non Pathological" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headNonPath}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid Background="#FFF7F5F5" Margin="0,0,0.4,-104">
@@ -559,7 +557,7 @@
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal">
                                                         <iconPacks:PackIconMaterial Width="23" Height="35" Kind="CommentAccount" Foreground="#FF181818"/>
-                                                        <TextBlock Text=" Comments" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headComments}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25.6"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid Background="#FFF7F5F5" Margin="0,0,0.4,-111">
@@ -584,19 +582,19 @@
                                                         </Button.Effect>
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Add" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                     <Button x:Name="cmdEliminarComent" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="292,368,0,0" VerticalAlignment="Top" Width="139" Height="33" ToolTip="Delete Record" Click="cmdEliminarComent_Click">
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                     <Button x:Name="cmdEditarComent" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="292,415,0,-30" VerticalAlignment="Top" Width="139" Height="33" ToolTip="Edit Record" Click="cmdEditarComent_Click">
                                                         <StackPanel Orientation="Horizontal">
                                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Edit" Foreground="#FFFAFAFA"/>
-                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" EDIT" Foreground="#FFFAFAFA"/>
+                                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEdit}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
                                                 </Grid>
@@ -750,7 +748,7 @@
                             </Button.Effect>
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Foreground="#FFFAFAFA" Kind="PageFilePdf"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Foreground="#FFFAFAFA" Text=" CREATE PATIENT'S LIST"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Foreground="#FFFAFAFA" Text="{x:Static local:Lenguaje.TablePCreate}"/>
                             </StackPanel>
                         </Button>
 
@@ -769,7 +767,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconModern.Foreground>
                             </iconPacks:PackIconModern>
-                            <TextBlock Text=" Analysis" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.MenuAnalysis}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid Margin="-1,0,1,-7" >
@@ -991,7 +989,7 @@
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="PageSearch" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ANALYSIS' SEARCH" Foreground="#FFFDFCFC" FontWeight="Bold"/>
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headerAnalysisearch}" Foreground="#FFFDFCFC" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
@@ -1007,7 +1005,7 @@
                             </Button.Effect>
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="New" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" NEW ANALYSIS | REANALYSIS" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewAnal}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="cmdEliminar_Copy1" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="249,145,0,0" VerticalAlignment="Top" Width="114" Height="36" ToolTip="DELETE ANALYSIS" Click="cmdEliminar_Copy1_Click">
@@ -1016,7 +1014,7 @@
                             </Button.Effect>
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
                         <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" HorizontalAlignment="Left" Margin="438,57,0,51" Width="1037" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListaPacientes_Recientes_SelectionChanged" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick" Initialized="ListaPacientes_Recientes1_Initialized">
@@ -1094,7 +1092,7 @@
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconModern Width="35" Height="35" Kind="Potion" Foreground="#FF6D33B1"/>
-                            <TextBlock Text=" Remedies and Homeopathy" Foreground="Black" FontFamily="Segoe UI" FontSize="28" Height="41.6"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.MenuRemedies}" Foreground="Black" FontFamily="Segoe UI" FontSize="28" Height="41.6"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid GotFocus="Grid_GotFocus" LostFocus="Grid_LostFocus" >
@@ -1449,7 +1447,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>
-                            <TextBlock Text=" Chromotherapy" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.MenuChromo}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
 
@@ -1719,7 +1717,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>
-                            <TextBlock Text=" Categories" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.Categories}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
 
@@ -1814,7 +1812,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>
-                            <TextBlock Text=" Broadcasting" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.MenuBroad}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Grid >
@@ -2106,7 +2104,7 @@
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
                             </iconPacks:PackIconMaterial>-->
-                            <TextBlock Text="Language" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
+                            <TextBlock Text="{x:Static local:Lenguaje.Language}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                         </StackPanel>
                     </TabItem.Header>
                     <!--here  is the  content-->
@@ -2119,7 +2117,7 @@
                             <ColumnDefinition Width="1083*"/>
                         </Grid.ColumnDefinitions>
                         <Label x:Name="label10" Content="Please select the language in this system:" HorizontalAlignment="Left" Margin="67,60,0,0" VerticalAlignment="Top" Grid.Column="3" Grid.ColumnSpan="2"/>
-                        <ComboBox x:Name="languageOption" HorizontalAlignment="Left"   Margin="79,97,0,0" VerticalAlignment="Top" Width="212"  Grid.Column="3" Grid.ColumnSpan="2">
+                        <ComboBox x:Name="languageOption" HorizontalAlignment="Left"   Margin="79,97,0,0" VerticalAlignment="Top" Width="212"  Grid.Column="3" Grid.ColumnSpan="2" SelectionChanged="ChangeLanguage">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>

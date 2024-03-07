@@ -20,13 +20,13 @@ using System.Diagnostics; //Para ejecutar el bat file
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using HS5;
-using HS5.Resources.idioma;
 using HS5.Properties;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
 
-
+using HS5.Resources.Idiomas;
+using HS5.Properties;
 
 
 
@@ -94,7 +94,7 @@ namespace MahAppsExample
 
         public MainWindow(string puerto)
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguage);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
             InitializeComponent();
             //puertoCOM = puerto;
             // MessageBox.Show("HOLA");
@@ -164,6 +164,13 @@ namespace MahAppsExample
                 var window = Application.Current.Windows[0];
                 window.Close();
             }
+        }
+
+
+        private string obtenerRecurso(string nombreCadena)
+        {
+            string miCadena = Lenguaje.ResourceManager.GetString(nombreCadena);
+            return miCadena;
         }
 
         //Funcion que valida la version del programa
@@ -13479,8 +13486,43 @@ namespace MahAppsExample
 
         }
 
+        //this function is used to change the language in the desktop applicacion 
+        private void ChangeLanguage(object sender, SelectionChangedEventArgs e)
+        {
+            if(languageOption.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string selectedLanguage = selectedItem.Content.ToString();
+               
+                if (selectedLanguage == "Español")
+                {
+                    ChoseLanguage("es-MX");
+                }
+                else if (selectedLanguage == "Ingles")
+                {
+                    ChoseLanguage("en-US");
+                }
 
- 
+            }
+
+        }
+
+        private void ChoseLanguage (string value)
+        {
+
+            Settings.Default.Lenguaje = value;
+            Settings.Default.Save();
+
+            var confirmacion = MessageBox.Show(obtenerRecurso("Message13"), obtenerRecurso("Message14"), MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (confirmacion == MessageBoxResult.Yes)
+            {
+                // Iniciar una nueva instancia de la aplicación
+                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+                // Cerrar la instancia actual de la aplicación
+                System.Windows.Application.Current.Shutdown();
+            }
+        }
+
+
 
     }
 }

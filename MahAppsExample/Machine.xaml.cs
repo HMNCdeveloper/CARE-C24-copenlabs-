@@ -31,7 +31,7 @@ namespace HS5
 
         public Machine()
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguage);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
             InitializeComponent();
             //Obtiene todos los puertos COM
             ports = SerialPort.GetPortNames();

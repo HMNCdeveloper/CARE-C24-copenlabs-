@@ -26,12 +26,12 @@ namespace HS5.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
-        public string Lenguage {
+        public string Lenguaje {
             get {
-                return ((string)(this["Lenguage"]));
+                return ((string)(this["Lenguaje"]));
             }
             set {
-                this["Lenguage"] = value;
+                this["Lenguaje"] = value;
             }
         }
     }

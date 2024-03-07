@@ -117,10 +117,190 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Angel" xml:space="preserve">
-    <value>jajajaj</value>
+  <data name="btnAdd" xml:space="preserve">
+    <value>Agregar</value>
   </data>
-  <data name="Menu" xml:space="preserve">
+  <data name="btnAddImage" xml:space="preserve">
+    <value>Agregar  Image </value>
+  </data>
+  <data name="btnCAna" xml:space="preserve">
+    <value>Crear Analisis</value>
+  </data>
+  <data name="btnEdit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="btnFinPgre" xml:space="preserve">
+    <value>Encontrar PGR</value>
+  </data>
+  <data name="btnNewAnal" xml:space="preserve">
+    <value>Nueva Analisis </value>
+  </data>
+  <data name="btnSaveP" xml:space="preserve">
+    <value>Guardar paciente</value>
+  </data>
+  <data name="btnSavePGR" xml:space="preserve">
+    <value>Guardar  PGR a   ECS</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="headComments" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="headeHedit" xml:space="preserve">
+    <value>Hereditario</value>
+  </data>
+  <data name="headerAdd" xml:space="preserve">
+    <value>Detalle de direccion</value>
+  </data>
+  <data name="headerAddresses" xml:space="preserve">
+    <value>Direcciones</value>
+  </data>
+  <data name="HeaderAdreess" xml:space="preserve">
+    <value>Direccion</value>
+  </data>
+  <data name="headerAnalysisearch" xml:space="preserve">
+    <value>Busqueda de Analisis</value>
+  </data>
+  <data name="headerListRecords" xml:space="preserve">
+    <value>Lista de registros</value>
+  </data>
+  <data name="HeaderPatientSearch" xml:space="preserve">
+    <value>Buscar paciente</value>
+  </data>
+  <data name="HeaderRecords" xml:space="preserve">
+    <value>Registros</value>
+  </data>
+  <data name="HeaderRP" xml:space="preserve">
+    <value>Registrar Nuevo Paciente</value>
+  </data>
+  <data name="headNonPath" xml:space="preserve">
+    <value>No Patológico</value>
+  </data>
+  <data name="headPatho" xml:space="preserve">
+    <value>Patológico</value>
+  </data>
+  <data name="headReana" xml:space="preserve">
+    <value>Analisis  | Reanalisis </value>
+  </data>
+  <data name="labelAvenue" xml:space="preserve">
+    <value>Avenida:</value>
+  </data>
+  <data name="labelBithDate" xml:space="preserve">
+    <value>Fecha de Cumpleaños</value>
+  </data>
+  <data name="labelCountry" xml:space="preserve">
+    <value>Pais:</value>
+  </data>
+  <data name="labelCS" xml:space="preserve">
+    <value>Pais o Condado:</value>
+  </data>
+  <data name="labelDescrip" xml:space="preserve">
+    <value>Descripcion:</value>
+  </data>
+  <data name="LabelEmail" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="labelExt" xml:space="preserve">
+    <value>Ext:</value>
+  </data>
+  <data name="labelFName" xml:space="preserve">
+    <value>Primer Nombre</value>
+  </data>
+  <data name="labelGender" xml:space="preserve">
+    <value>Genero</value>
+  </data>
+  <data name="labelLastName" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="labelMName" xml:space="preserve">
+    <value>Segundo Nombre</value>
+  </data>
+  <data name="labelNum" xml:space="preserve">
+    <value>Numero:</value>
+  </data>
+  <data name="labelPersonal" xml:space="preserve">
+    <value>Frecuencia Personal </value>
+  </data>
+  <data name="labelPhone" xml:space="preserve">
+    <value>Telefono:</value>
+  </data>
+  <data name="labelRAN" xml:space="preserve">
+    <value>Relacion del Analisis</value>
+  </data>
+  <data name="labelSatet" xml:space="preserve">
+    <value>Estado:</value>
+  </data>
+  <data name="LabelSchool" xml:space="preserve">
+    <value>Titulo Escolar</value>
+  </data>
+  <data name="labelStreet" xml:space="preserve">
+    <value>Calle:</value>
+  </data>
+  <data name="LabelTitle" xml:space="preserve">
+    <value>Titulo</value>
+  </data>
+  <data name="labelZpCode" xml:space="preserve">
+    <value>Codigo Postal:</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
+  <data name="MenuAnalysis" xml:space="preserve">
+    <value>Analisis</value>
+  </data>
+  <data name="MenuBroad" xml:space="preserve">
+    <value>Tratamiento</value>
+  </data>
+  <data name="MenuCategories" xml:space="preserve">
+    <value>Categorias </value>
+  </data>
+  <data name="MenuChromo" xml:space="preserve">
+    <value>Homoterapia</value>
+  </data>
+  <data name="MenuPatient" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="MenuRemedies" xml:space="preserve">
+    <value>Remedios y Homopatia</value>
+  </data>
+  <data name="nameAnalysis" xml:space="preserve">
+    <value>Nombre del analisis</value>
+  </data>
+  <data name="NavItem" xml:space="preserve">
     <value>Manuel</value>
+  </data>
+  <data name="PatientList" xml:space="preserve">
+    <value>Lista de Paciente</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="tableName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="tableNameAna" xml:space="preserve">
+    <value>Nombre del Analisis</value>
+  </data>
+  <data name="tableNameP" xml:space="preserve">
+    <value>Nombre del Paciente</value>
+  </data>
+  <data name="TablePCreate" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="TablePDelete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="valAnimal" xml:space="preserve">
+    <value>Animal</value>
+  </data>
+  <data name="valFemale" xml:space="preserve">
+    <value>Femenino</value>
+  </data>
+  <data name="valMale" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="valPlant" xml:space="preserve">
+    <value>Plant and Soil</value>
   </data>
 </root>
