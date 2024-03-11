@@ -16,6 +16,7 @@ using System.IO.Ports;
 using System.Drawing;
 using System.Drawing.Imaging;
 using HS5.Properties;
+using HS5.Resources.Idiomas;
 using System.Globalization;
 using System.Threading;
 

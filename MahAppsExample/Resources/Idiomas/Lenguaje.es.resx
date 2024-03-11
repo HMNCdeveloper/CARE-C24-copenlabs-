@@ -117,23 +117,116 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="availRates" xml:space="preserve">
+    <value>TIPOS  DISPONIBLES</value>
+  </data>
+  <data name="availSect" xml:space="preserve">
+    <value>Secciones disponibles:</value>
+  </data>
+  <data name="brnEraseRate" xml:space="preserve">
+    <value>BORRAR TARIFA</value>
+  </data>
+  <data name="brnSC" xml:space="preserve">
+    <value>GUARDAR CAMBIOS</value>
+  </data>
   <data name="btnAdd" xml:space="preserve">
     <value>Agregar</value>
   </data>
   <data name="btnAddImage" xml:space="preserve">
     <value>Agregar  Image </value>
   </data>
+  <data name="btnAutoSM" xml:space="preserve">
+    <value>AUTOSIMIL</value>
+  </data>
   <data name="btnCAna" xml:space="preserve">
     <value>Crear Analisis</value>
+  </data>
+  <data name="btnCopy" xml:space="preserve">
+    <value>COPIAR</value>
+  </data>
+  <data name="btnD" xml:space="preserve">
+    <value>DUPLICAR</value>
+  </data>
+  <data name="btnDelRem" xml:space="preserve">
+    <value>ELIMINAR REMEDIO</value>
+  </data>
+  <data name="btnDelTherap" xml:space="preserve">
+    <value>ELIMINAR TERAPIA</value>
+  </data>
+  <data name="btnDirectT" xml:space="preserve">
+    <value>TRATAMIENTO DIRECTO</value>
+  </data>
+  <data name="btnDupli" xml:space="preserve">
+    <value>DUPLICAR REMEDIO</value>
   </data>
   <data name="btnEdit" xml:space="preserve">
     <value>Editar</value>
   </data>
+  <data name="btnErase" xml:space="preserve">
+    <value>BORRAR ECS</value>
+  </data>
+  <data name="btnEraseNorm" xml:space="preserve">
+    <value>BORRRAR</value>
+  </data>
   <data name="btnFinPgre" xml:space="preserve">
     <value>Encontrar PGR</value>
   </data>
+  <data name="btnGetRate" xml:space="preserve">
+    <value>OBTENER TARIFA</value>
+  </data>
+  <data name="btnImp" xml:space="preserve">
+    <value>IMPRIMIR</value>
+  </data>
+  <data name="btnNeutralize" xml:space="preserve">
+    <value>NEUTRALIZAR</value>
+  </data>
   <data name="btnNewAnal" xml:space="preserve">
-    <value>Nueva Analisis </value>
+    <value>NUEVO ANALISIS </value>
+  </data>
+  <data name="btnNewBroad" xml:space="preserve">
+    <value>NUEVA EMISION</value>
+  </data>
+  <data name="btnNewCat" xml:space="preserve">
+    <value>NUEVA CATEGORIA</value>
+  </data>
+  <data name="btnNewRate" xml:space="preserve">
+    <value>NUEVA TARIFA</value>
+  </data>
+  <data name="btnNewRem" xml:space="preserve">
+    <value>NUEVO REMEDIO</value>
+  </data>
+  <data name="btnNewSubCat" xml:space="preserve">
+    <value>NUEVA SUB CATEGORIA</value>
+  </data>
+  <data name="btnNewTherap" xml:space="preserve">
+    <value>NUEVA TERAPIA</value>
+  </data>
+  <data name="btnNone" xml:space="preserve">
+    <value>NINGUNO</value>
+  </data>
+  <data name="btnPause" xml:space="preserve">
+    <value>PAUSA</value>
+  </data>
+  <data name="btnPotent" xml:space="preserve">
+    <value>POTENCIACIÓN</value>
+  </data>
+  <data name="btnQR" xml:space="preserve">
+    <value>CODIGO QR</value>
+  </data>
+  <data name="btnReana" xml:space="preserve">
+    <value>Re-analisis</value>
+  </data>
+  <data name="btnRepTherap" xml:space="preserve">
+    <value>REPORTE DE LA TERAPIA</value>
+  </data>
+  <data name="btnResume" xml:space="preserve">
+    <value>RESUMEN</value>
+  </data>
+  <data name="btnSaveEcs" xml:space="preserve">
+    <value>GUARDAR ECS</value>
+  </data>
+  <data name="btnSaveEcsDB" xml:space="preserve">
+    <value>GUARDAR ECS A LA DATABASE</value>
   </data>
   <data name="btnSaveP" xml:space="preserve">
     <value>Guardar paciente</value>
@@ -141,8 +234,17 @@
   <data name="btnSavePGR" xml:space="preserve">
     <value>Guardar  PGR a   ECS</value>
   </data>
+  <data name="btnSaveT" xml:space="preserve">
+    <value>GUARDAR TERAPIA</value>
+  </data>
+  <data name="btnUse" xml:space="preserve">
+    <value>UTILIZAR</value>
+  </data>
   <data name="date" xml:space="preserve">
     <value>Fecha</value>
+  </data>
+  <data name="headBroad" xml:space="preserve">
+    <value>CONTROL DE EMISIONES</value>
   </data>
   <data name="headComments" xml:space="preserve">
     <value>Comentarios</value>
@@ -151,7 +253,7 @@
     <value>Hereditario</value>
   </data>
   <data name="headerAdd" xml:space="preserve">
-    <value>Detalle de direccion</value>
+    <value>Detalle de la direccion</value>
   </data>
   <data name="headerAddresses" xml:space="preserve">
     <value>Direcciones</value>
@@ -165,6 +267,9 @@
   <data name="headerListRecords" xml:space="preserve">
     <value>Lista de registros</value>
   </data>
+  <data name="headerListReport" xml:space="preserve">
+    <value>LISTA DE LA TERAPIAS RECIENTES</value>
+  </data>
   <data name="HeaderPatientSearch" xml:space="preserve">
     <value>Buscar paciente</value>
   </data>
@@ -173,6 +278,24 @@
   </data>
   <data name="HeaderRP" xml:space="preserve">
     <value>Registrar Nuevo Paciente</value>
+  </data>
+  <data name="headerRun" xml:space="preserve">
+    <value>CORRIENDO (AHORA MISMO)</value>
+  </data>
+  <data name="headerTherapSearch" xml:space="preserve">
+    <value>BUSCAR TERAPIA</value>
+  </data>
+  <data name="headHold" xml:space="preserve">
+    <value>EN ESPERA</value>
+  </data>
+  <data name="headListComments" xml:space="preserve">
+    <value>LISTA DE COMENTARIOS</value>
+  </data>
+  <data name="headListNonPath" xml:space="preserve">
+    <value>LISTA DE NO PATOLOGIA</value>
+  </data>
+  <data name="headListPatholog" xml:space="preserve">
+    <value>LISTA DE PATOLOGIA</value>
   </data>
   <data name="headNonPath" xml:space="preserve">
     <value>No Patológico</value>
@@ -183,17 +306,62 @@
   <data name="headReana" xml:space="preserve">
     <value>Analisis  | Reanalisis </value>
   </data>
+  <data name="headRecentListAna" xml:space="preserve">
+    <value>LISTA DE LOS ANALISIS RECIENTES</value>
+  </data>
+  <data name="headRemSearch" xml:space="preserve">
+    <value>BUSCAR REMEDIO</value>
+  </data>
+  <data name="inputAll" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="inputByAna" xml:space="preserve">
+    <value>POR ANALISIS</value>
+  </data>
+  <data name="inputByUser" xml:space="preserve">
+    <value>POR USUARIO</value>
+  </data>
+  <data name="itemCollSchool" xml:space="preserve">
+    <value>Preparatoria</value>
+  </data>
+  <data name="itemElemSchool" xml:space="preserve">
+    <value>Primaria</value>
+  </data>
+  <data name="itemJunSchool" xml:space="preserve">
+    <value>Secundaria</value>
+  </data>
+  <data name="itemMaster" xml:space="preserve">
+    <value>Maestria</value>
+  </data>
+  <data name="itemUniversity" xml:space="preserve">
+    <value>Universidad</value>
+  </data>
   <data name="labelAvenue" xml:space="preserve">
     <value>Avenida:</value>
   </data>
   <data name="labelBithDate" xml:space="preserve">
     <value>Fecha de Cumpleaños</value>
   </data>
+  <data name="labelCat" xml:space="preserve">
+    <value>Categorias</value>
+  </data>
+  <data name="labelColSel" xml:space="preserve">
+    <value>Color seleccionado:</value>
+  </data>
+  <data name="labelCombiRate" xml:space="preserve">
+    <value>TIPOS COMBINADO:</value>
+  </data>
   <data name="labelCountry" xml:space="preserve">
     <value>Pais:</value>
   </data>
   <data name="labelCS" xml:space="preserve">
     <value>Pais o Condado:</value>
+  </data>
+  <data name="labelDataBase" xml:space="preserve">
+    <value>Base de datos</value>
+  </data>
+  <data name="labelDate" xml:space="preserve">
+    <value>Fecha:</value>
   </data>
   <data name="labelDescrip" xml:space="preserve">
     <value>Descripcion:</value>
@@ -210,8 +378,14 @@
   <data name="labelGender" xml:space="preserve">
     <value>Genero</value>
   </data>
+  <data name="labelInclude" xml:space="preserve">
+    <value>Tarifas incluidas</value>
+  </data>
   <data name="labelLastName" xml:space="preserve">
     <value>Apellido</value>
+  </data>
+  <data name="labelMayRem" xml:space="preserve">
+    <value>REMEDIO</value>
   </data>
   <data name="labelMName" xml:space="preserve">
     <value>Segundo Nombre</value>
@@ -219,14 +393,26 @@
   <data name="labelNum" xml:space="preserve">
     <value>Numero:</value>
   </data>
+  <data name="labelOrder" xml:space="preserve">
+    <value>ORDENAR POR</value>
+  </data>
   <data name="labelPersonal" xml:space="preserve">
     <value>Frecuencia Personal </value>
   </data>
   <data name="labelPhone" xml:space="preserve">
     <value>Telefono:</value>
   </data>
+  <data name="labelPorts" xml:space="preserve">
+    <value>PUERTOS:</value>
+  </data>
   <data name="labelRAN" xml:space="preserve">
     <value>Relacion del Analisis</value>
+  </data>
+  <data name="labelRemedy" xml:space="preserve">
+    <value>Remedio</value>
+  </data>
+  <data name="labelRM" xml:space="preserve">
+    <value>Remedio:</value>
   </data>
   <data name="labelSatet" xml:space="preserve">
     <value>Estado:</value>
@@ -234,11 +420,29 @@
   <data name="LabelSchool" xml:space="preserve">
     <value>Titulo Escolar</value>
   </data>
+  <data name="labelSearchDatabase" xml:space="preserve">
+    <value>Buscar en la Base de Datos</value>
+  </data>
+  <data name="labelSearchRate" xml:space="preserve">
+    <value>BUSCAR  (TARIFA):</value>
+  </data>
+  <data name="labelSelectPort" xml:space="preserve">
+    <value>POR FAVOR SELECCIONA EL PUERTO  PARA CONTINUAR:</value>
+  </data>
   <data name="labelStreet" xml:space="preserve">
     <value>Calle:</value>
   </data>
+  <data name="labelSubCat" xml:space="preserve">
+    <value>SUB-CATEGORIAS</value>
+  </data>
+  <data name="labelTherap" xml:space="preserve">
+    <value>Terapia:</value>
+  </data>
   <data name="LabelTitle" xml:space="preserve">
     <value>Titulo</value>
+  </data>
+  <data name="labelView" xml:space="preserve">
+    <value>Vista:</value>
   </data>
   <data name="labelZpCode" xml:space="preserve">
     <value>Codigo Postal:</value>
@@ -256,13 +460,91 @@
     <value>Categorias </value>
   </data>
   <data name="MenuChromo" xml:space="preserve">
-    <value>Homoterapia</value>
+    <value>Cromoterapia</value>
   </data>
   <data name="MenuPatient" xml:space="preserve">
     <value>Paciente</value>
   </data>
   <data name="MenuRemedies" xml:space="preserve">
-    <value>Remedios y Homopatia</value>
+    <value>Remedios y Homoepatia</value>
+  </data>
+  <data name="messageError" xml:space="preserve">
+    <value>Solo se permite numoros </value>
+  </data>
+  <data name="messageError1" xml:space="preserve">
+    <value>Por favor escribe el nombre del tipo</value>
+  </data>
+  <data name="messageError10" xml:space="preserve">
+    <value> Solo se permite numeros enteros </value>
+  </data>
+  <data name="messageError11" xml:space="preserve">
+    <value>Seleccionar el tipo de programacion para continuar!...</value>
+  </data>
+  <data name="messageError12" xml:space="preserve">
+    <value>'Durante' y 'cada' no puede tenere estos valores!</value>
+  </data>
+  <data name="messageError13" xml:space="preserve">
+    <value>Introduzca el tiempo estimado para continuar</value>
+  </data>
+  <data name="messageError14" xml:space="preserve">
+    <value>Por favor seleccione el tipo de tratamiento!</value>
+  </data>
+  <data name="messageError15" xml:space="preserve">
+    <value>Por favor escribe el nombre del tratamiento para continuar!</value>
+  </data>
+  <data name="messageError16" xml:space="preserve">
+    <value>Seleccione un paciente  par continuar </value>
+  </data>
+  <data name="messageError2" xml:space="preserve">
+    <value> Seleccionar a terapia antes de eliminarlo ! </value>
+  </data>
+  <data name="messageError3" xml:space="preserve">
+    <value>Completa todos los campos antes de continuar!</value>
+  </data>
+  <data name="messageError4" xml:space="preserve">
+    <value> Selecciona un elemento antes de continuar</value>
+  </data>
+  <data name="messageError5" xml:space="preserve">
+    <value>Eliga una ubicación antes de continuar!..</value>
+  </data>
+  <data name="messageError6" xml:space="preserve">
+    <value>Seleccione un tratamiento antes de continuar!..</value>
+  </data>
+  <data name="messageError7" xml:space="preserve">
+    <value>Seleccione un tratamiento primero!..</value>
+  </data>
+  <data name="messageError8" xml:space="preserve">
+    <value>Por favor selecciona un elemento para continuar!</value>
+  </data>
+  <data name="messageError9" xml:space="preserve">
+    <value>Por favor  Escribe un nombre del analisis antes de continuar  </value>
+  </data>
+  <data name="messageHeadInf" xml:space="preserve">
+    <value>informacion</value>
+  </data>
+  <data name="messageHeadQ" xml:space="preserve">
+    <value>Pregunta</value>
+  </data>
+  <data name="messageHeadWarning" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="messageInf1" xml:space="preserve">
+    <value>Por favor seleccione una categoria para continuar!  </value>
+  </data>
+  <data name="messageQustion1" xml:space="preserve">
+    <value>¿Tu quieres incluir la secuencia en proceso de borrado ?  </value>
+  </data>
+  <data name="messageWarning" xml:space="preserve">
+    <value>¿Quieres  cambiar  el idioama?</value>
+  </data>
+  <data name="messageWarning2" xml:space="preserve">
+    <value>Por favor selecciona una primera categoria principal y sub categoria para obtener a un nuevo tipo en la base de datos! </value>
+  </data>
+  <data name="messageWarning3" xml:space="preserve">
+    <value>Por favor selecciona una categoria y subcategoria primero en orden para continuar !</value>
+  </data>
+  <data name="messOptLan" xml:space="preserve">
+    <value>Por faver selecciona  un idioma para el sistema:</value>
   </data>
   <data name="nameAnalysis" xml:space="preserve">
     <value>Nombre del analisis</value>
@@ -270,14 +552,53 @@
   <data name="NavItem" xml:space="preserve">
     <value>Manuel</value>
   </data>
+  <data name="optLangEn" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
+  <data name="optLangEs" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="patGender" xml:space="preserve">
+    <value>GENERO DEL PACIENTE</value>
+  </data>
   <data name="PatientList" xml:space="preserve">
     <value>Lista de Paciente</value>
+  </data>
+  <data name="resetC" xml:space="preserve">
+    <value>REINICIAR COLORES</value>
+  </data>
+  <data name="returnTheRecent" xml:space="preserve">
+    <value>VOLVER A TERAPIAS RECIENTES</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="tableBegTime" xml:space="preserve">
+    <value>INICIANDO TIEMPO</value>
+  </data>
+  <data name="tableComp" xml:space="preserve">
+    <value>COMPLEMENTO</value>
+  </data>
+  <data name="tableDes" xml:space="preserve">
+    <value>DESCRIPCION</value>
+  </data>
+  <data name="tableDuration" xml:space="preserve">
+    <value>DURACION</value>
+  </data>
+  <data name="tableEndDate" xml:space="preserve">
+    <value>FECHA FINAL</value>
+  </data>
+  <data name="tableLevel" xml:space="preserve">
+    <value>NIVEL</value>
+  </data>
+  <data name="tableMethod" xml:space="preserve">
+    <value>METODO</value>
+  </data>
+  <data name="tableMissing" xml:space="preserve">
+    <value>TIEMPO PERDIDO</value>
+  </data>
   <data name="tableName" xml:space="preserve">
-    <value>Nombre</value>
+    <value>NOMBRE</value>
   </data>
   <data name="tableNameAna" xml:space="preserve">
     <value>Nombre del Analisis</value>
@@ -285,11 +606,29 @@
   <data name="tableNameP" xml:space="preserve">
     <value>Nombre del Paciente</value>
   </data>
+  <data name="tablePat" xml:space="preserve">
+    <value>PACIENTE</value>
+  </data>
   <data name="TablePCreate" xml:space="preserve">
     <value>Crear</value>
   </data>
   <data name="TablePDelete" xml:space="preserve">
     <value>Eliminar</value>
+  </data>
+  <data name="tablePotency" xml:space="preserve">
+    <value>POTENCIA</value>
+  </data>
+  <data name="tableRate" xml:space="preserve">
+    <value>TARIFA</value>
+  </data>
+  <data name="tableRateTip" xml:space="preserve">
+    <value>TIPO</value>
+  </data>
+  <data name="tableStartDate" xml:space="preserve">
+    <value>INICIO FECHA</value>
+  </data>
+  <data name="tableTreat" xml:space="preserve">
+    <value>TRATAMIENTO</value>
   </data>
   <data name="valAnimal" xml:space="preserve">
     <value>Animal</value>
@@ -301,6 +640,6 @@
     <value>Masculino</value>
   </data>
   <data name="valPlant" xml:space="preserve">
-    <value>Plant and Soil</value>
+    <value>Planta y Suelo</value>
   </data>
 </root>
