@@ -318,6 +318,12 @@
   <data name="inputByUser" xml:space="preserve">
     <value>By User</value>
   </data>
+  <data name="inputMessBox1" xml:space="preserve">
+    <value>Name of the Rate</value>
+  </data>
+  <data name="inputMessHead1" xml:space="preserve">
+    <value>Getting Rate</value>
+  </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>College School</value>
   </data>
@@ -492,11 +498,56 @@
   <data name="messageError16" xml:space="preserve">
     <value>Select a patient in order to continue!...</value>
   </data>
+  <data name="messageError17" xml:space="preserve">
+    <value>Select an analysis before continue with a re-analysis</value>
+  </data>
+  <data name="messageError18" xml:space="preserve">
+    <value>Select an analysis before erasing a record</value>
+  </data>
+  <data name="messageError19" xml:space="preserve">
+    <value>Enter another name for the analysis-is already in use</value>
+  </data>
   <data name="messageError2" xml:space="preserve">
     <value>Select a therapy before eliminating it!</value>
   </data>
+  <data name="messageError20" xml:space="preserve">
+    <value>Select a patient before performing the analysis</value>
+  </data>
+  <data name="messageError21" xml:space="preserve">
+    <value>Please write an analysis name before continue...</value>
+  </data>
+  <data name="messageError22" xml:space="preserve">
+    <value>Select a patient to see the analysis!</value>
+  </data>
+  <data name="messageError23" xml:space="preserve">
+    <value>First select it  a code before execute the  operation </value>
+  </data>
+  <data name="messageError24" xml:space="preserve">
+    <value>Please write the Rate's name!</value>
+  </data>
+  <data name="messageError25" xml:space="preserve">
+    <value>Please select a main category first and a sub-category in order to add a new rate on the database!</value>
+  </data>
+  <data name="messageError26" xml:space="preserve">
+    <value>Please select a color before continuing</value>
+  </data>
+  <data name="messageError27" xml:space="preserve">
+    <value>You cannot save a therapy without a single combinated rate!</value>
+  </data>
+  <data name="messageError28" xml:space="preserve">
+    <value>You haven't written anything, please write down one</value>
+  </data>
+  <data name="messageError29" xml:space="preserve">
+    <value>Select a sub-category before deleting!</value>
+  </data>
   <data name="messageError3" xml:space="preserve">
     <value> Please fill in    all fields before to  continue! </value>
+  </data>
+  <data name="messageError30" xml:space="preserve">
+    <value>Select a category before deleting!</value>
+  </data>
+  <data name="messageError31" xml:space="preserve">
+    <value>Please write a name for the remedy!</value>
   </data>
   <data name="messageError4" xml:space="preserve">
     <value>Select an item before continuing</value>

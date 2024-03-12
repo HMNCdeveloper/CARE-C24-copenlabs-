@@ -321,6 +321,12 @@
   <data name="inputByUser" xml:space="preserve">
     <value>POR USUARIO</value>
   </data>
+  <data name="inputMessBox1" xml:space="preserve">
+    <value>Nombre de la tarifa</value>
+  </data>
+  <data name="inputMessHead1" xml:space="preserve">
+    <value>Obtener tarifa</value>
+  </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>Preparatoria</value>
   </data>
@@ -495,11 +501,56 @@
   <data name="messageError16" xml:space="preserve">
     <value>Seleccione un paciente  par continuar </value>
   </data>
+  <data name="messageError17" xml:space="preserve">
+    <value>Seleccionar una analisis antes de continuar con un re-analisis   </value>
+  </data>
+  <data name="messageError18" xml:space="preserve">
+    <value>Seleccionar un analisis antes de borrar un expediente.</value>
+  </data>
+  <data name="messageError19" xml:space="preserve">
+    <value> Introduce otro nombre para  el analisis-porque ya esta en uso </value>
+  </data>
   <data name="messageError2" xml:space="preserve">
     <value> Seleccionar a terapia antes de eliminarlo ! </value>
   </data>
+  <data name="messageError20" xml:space="preserve">
+    <value>Selecciona un paciente antes de realizar el analisis </value>
+  </data>
+  <data name="messageError21" xml:space="preserve">
+    <value>Por favor Escribe un  nombre de analisis   antes de continuar...</value>
+  </data>
+  <data name="messageError22" xml:space="preserve">
+    <value>Selecciona una paciente para ver  el analisis!</value>
+  </data>
+  <data name="messageError23" xml:space="preserve">
+    <value>Primero seleccione un código antes de ejecutar la operación!</value>
+  </data>
+  <data name="messageError24" xml:space="preserve">
+    <value>Por favor Escribe el nombre de la tarifa!</value>
+  </data>
+  <data name="messageError25" xml:space="preserve">
+    <value> Para Añadir  una tarifa a la base de datos primero seleccione una primer  categoria principal   y sub categoria.</value>
+  </data>
+  <data name="messageError26" xml:space="preserve">
+    <value>Por favor selecciona  un color antes para continuar</value>
+  </data>
+  <data name="messageError27" xml:space="preserve">
+    <value>No puedes Guardar una terapia  sin ninguna una unica combinacion de  tarifa</value>
+  </data>
+  <data name="messageError28" xml:space="preserve">
+    <value>No has escrito ninguna cosa, Escribe algo</value>
+  </data>
+  <data name="messageError29" xml:space="preserve">
+    <value>Seleccionar una sub categoria    antes de eliminar!</value>
+  </data>
   <data name="messageError3" xml:space="preserve">
     <value>Completa todos los campos antes de continuar!</value>
+  </data>
+  <data name="messageError30" xml:space="preserve">
+    <value>Seleccionar una categoria antes de eliminar.</value>
+  </data>
+  <data name="messageError31" xml:space="preserve">
+    <value>Escribe un nombre para el remedio!</value>
   </data>
   <data name="messageError4" xml:space="preserve">
     <value> Selecciona un elemento antes de continuar</value>

@@ -6751,7 +6751,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Please write a name for the remedy!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError31"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -7190,7 +7190,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Select a category before deleting!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError30"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -7260,7 +7260,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Select a sub-category before deleting!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError29"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -7340,7 +7340,7 @@ namespace MahAppsExample
 
                 if (nombre_tratamiento_color == "")
                 {
-                    MessageBox.Show("You haven't written anything, please write down one!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError28"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -7375,7 +7375,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("You cannot save a therapy without a single combinated rate!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError27"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             //Limpiar campos e imagenes
@@ -9792,7 +9792,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Please select a color before continuing", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError26"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -9936,7 +9936,7 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show("Please select a main category first and a sub-category in order to add a new rate on the database!", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
                     }
                     lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
@@ -9944,12 +9944,12 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Only numbers are allowed", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please write the Rate's name!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError24"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -10027,7 +10027,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Primero seleccione un código antes de ejecutar la operación!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError23"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -10077,7 +10077,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Select a patient to see the analysis!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError22"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -10112,18 +10112,18 @@ namespace MahAppsExample
                         }
                         else
                         {
-                            MessageBox.Show("Please write an analysis name before continue...", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(obtenerRecurso("messageError21"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             cmdAnalisisPaciente_Copy.Focus();
                         }
                     }
                     catch (NullReferenceException)
                     {
-                        MessageBox.Show("Select a patient before performing the analysis");
+                        MessageBox.Show(obtenerRecurso("messageError20"));
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Enter another name for the analysis - " + cmdAnalisisPaciente_Copy.Text + " is already in use", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(string.Join(cmdAnalisisPaciente_Copy.Text, obtenerRecurso("messageError19").Split('-')), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     cmdAnalisisPaciente_Copy.Focus();
                 }
                 CerrarConexion();
@@ -10468,7 +10468,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Select an analysis before erasing a record", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError18"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -10661,7 +10661,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Select an analysis before continue with a re-analysis", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError17"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             /*  }
               else
@@ -13356,7 +13356,7 @@ namespace MahAppsExample
                 string nombre_codigo;
                 string codigo_num; // string description;
 
-                nombre_codigo = Interaction.InputBox("Name of the Rate", "Getting Rate", "", 300, 300);
+                nombre_codigo = Interaction.InputBox(obtenerRecurso("inputMessageBox1"),obtenerRecurso("inputMessageHead1"), "", 300, 300);
 
                 if (nombre_codigo != "")
                 {
