@@ -152,7 +152,7 @@ namespace MahAppsExample
                 //FUNCIONA A LA PERFECCION ESTA PARTE DE INSTALAR EL GESTOR DE BD..
 
                 //De lo contrario manda a instalarlo..
-                MessageBox.Show("Se necesita instalar el administrador de base de datos antes de continuar!... A continuación se instalará!", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(obtenerRecurso("messageInfo7"), "Información", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 //Obtener direccion del directorio
                 string directorioinst = RutaInstalacion();
@@ -340,7 +340,7 @@ namespace MahAppsExample
             }
             catch (IOException)
             {
-                MessageBox.Show("Items cannot be deleted as they do not exist in the system.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError65"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -721,7 +721,7 @@ namespace MahAppsExample
             {
                 if (cmdEliminar.IsEnabled == false)
                 {
-                    MessageBox.Show("Function disabled while you are modifying a patient's record", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageInfo6"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -746,7 +746,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected any patient, please select one to continue!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError64"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -913,7 +913,7 @@ namespace MahAppsExample
             //Valida si se elegio un sexo del paciente
             if (optionSexoF.IsChecked == false && optionSexoM.IsChecked == false && optionSexoAn.IsChecked == false && optionSexoPl.IsChecked == false)
             {
-                MessageBox.Show("Please select the gender of the patient before getting the PGR!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(obtenerRecurso("messageWarning15"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
@@ -921,7 +921,7 @@ namespace MahAppsExample
                 Random num = new Random();
 
                 //Mensaje de si hay una muestra en la maquina
-                MessageBoxResult Result = MessageBox.Show("¡Check if you have put the patient sample in the right cup!, ¿Is there any sample?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult Result = MessageBox.Show(obtenerRecurso("messageQuestion7"), obtenerRecurso("messageHeadQ"), MessageBoxButton.YesNo, MessageBoxImage.Question);
                 //MessageBox.Show(num.Next(10, 14).ToString());
 
                 //Validacion
@@ -1044,7 +1044,7 @@ namespace MahAppsExample
                         Limpiar_Campos();
                     }
 
-                    MessageBox.Show("The patient record was modified successfully", "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageWarning14"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     //Al final de modificar
                     cmdGuardarPaciente.Content = "Register New Patient";
@@ -1092,7 +1092,7 @@ namespace MahAppsExample
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Please select the gender of the patient!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    MessageBox.Show(obtenerRecurso("mesageError63"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 }
                             }
                         }
@@ -1142,7 +1142,7 @@ namespace MahAppsExample
                         else
                         {
                             //Mensaje de error de conexion
-                            MessageBox.Show("Check your DB Manager, please contact Homoeonic to any future assistance!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(obtenerRecurso("messageError62"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
 
                         CerrarConexion(); //Cerrar conexion
@@ -1170,7 +1170,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show("Please fill the name, last name, gender, date of birth and PGR before continuing!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(obtenerRecurso("messageError3"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
 
             }
@@ -1183,13 +1183,13 @@ namespace MahAppsExample
         {
             if (txtPGR.Text == "")
             {
-                MessageBox.Show("Please generate the PGR before saving it on an EECS Card", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError61"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
                 obj.Save(); //Guarda
                 Thread.Sleep(5000);
-                MessageBox.Show("Personal Frequency Saved", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(obtenerRecurso("messageInfo5"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -1207,7 +1207,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Please type the patient's name to find it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError36"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtBuscarPaciente.Focus();
             }
         }
@@ -1229,7 +1229,7 @@ namespace MahAppsExample
         {
             if (txtTituloHeredo.Text == "" || txtDescripcionHeredo.Text == "")
             {
-                MessageBox.Show("Please fill all the fields of the hereditary form!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError3"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTituloHeredo.Focus();
             }
             else
@@ -1478,7 +1478,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to erase!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1529,7 +1529,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to edit!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError60"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1570,7 +1570,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to erase!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1618,7 +1618,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to edit!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError60"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1664,7 +1664,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to erase!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1712,7 +1712,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to edit!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError60"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1753,7 +1753,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to erase!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1803,7 +1803,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected anything to edit!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError60"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -1812,7 +1812,7 @@ namespace MahAppsExample
         {
             if (txtTituloPat.Text == "" || txtDescripPat.Text == "")
             {
-                MessageBox.Show("Complete ambos campos del registro patologico!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError3"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTituloPat.Focus();
             }
             else
@@ -1864,7 +1864,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show("El registro patologico ya esta incluido en el listado!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError58"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtTituloPat.Focus();
                 }
             }
@@ -1874,7 +1874,7 @@ namespace MahAppsExample
         {
             if (txtTituloNoPat.Text == "" || txtDescripNoPat.Text == "")
             {
-                MessageBox.Show("Complete ambos campos del registro no patologico!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError3"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTituloNoPat.Focus();
             }
             else
@@ -1936,7 +1936,7 @@ namespace MahAppsExample
         {
             if (txtTituloComent.Text == "" || txtDescripComent.Text == "")
             {
-                MessageBox.Show("Complete ambos campos del comentario!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messagerError58"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTituloComent.Focus();
             }
             else
@@ -2002,18 +2002,18 @@ namespace MahAppsExample
 
             if (txtNombre.Text == "" || txtApellidoPat.Text == "")
             {
-                MessageBox.Show("Introduzca primero todos los datos del paciente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError57"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 tabControl.SelectedIndex = 0; //Va a tab info general del paciente
                 txtNombre.Focus();
             }
             else
             {
 
-                nombre_analisis = Interaction.InputBox("Introduce nombre del analisis", "Nombre", "", 300, 300);
+                nombre_analisis = Interaction.InputBox(obtenerRecurso("messageQuestion6"), obtenerRecurso("messageHeadQ5"), "", 300, 300);
 
                 if (nombre_analisis == "")
                 {
-                    MessageBox.Show("No se ha introducido ningún nombre", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError9"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -2072,7 +2072,7 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show("El nombre del analisis ya esta en uso!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(obtenerRecurso("messageError56"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -2111,20 +2111,20 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show("Error al abrir la BD!", "Error de comunicacion", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Error al abrir la BD!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     CerrarConexion();
                 }
                 else
                 {
                     //Mostrar mensaje
-                    MessageBox.Show("Introduzca un nombre a buscar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError55"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtBusquedaAnalisis.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Feature available only for a patient previously registered!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError54"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -2233,7 +2233,7 @@ namespace MahAppsExample
             //Si modificar esta activado mostrar mensaje
             if (cmdModificar.IsEnabled == false && txtNombre.Text != "")
             {
-                MessageBox.Show("Please finish a previous modification before continue with another one", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning13"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
         }
@@ -2272,7 +2272,7 @@ namespace MahAppsExample
                 {
                     if (txtTelefonos.Text + " , Ext: " + txtExtensiones.Text == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
                     {
-                        MessageBox.Show("El telefono ya se encuentra registrado!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         txtTelefonos.Focus();
                         Vali = true;
                     }
@@ -2308,13 +2308,13 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show("Introduzca un telefono!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(obtenerRecurso("messageError53"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         txtTelefonos.Focus();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El telefono ya se encuentra registrado!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     txtTelefonos.Focus();
                 }
             }
@@ -2327,7 +2327,7 @@ namespace MahAppsExample
                     {
                         if (txtTelefonos.Text + " , Ext: " + txtExtensiones.Text == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
                         {
-                            MessageBox.Show("El telefono ya se encuentra registrado!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                             txtTelefonos.Focus();
                             Vali = true;
                         }
@@ -2358,7 +2358,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show("Introduzca un telefono!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError53"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtTelefonos.Focus();
                 }
             }
@@ -2406,7 +2406,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("No phone has been selected to be deleted!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError52"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -2455,7 +2455,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("No item to edit has been selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError51"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -2548,7 +2548,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Please type all the fields to continue", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError3"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtCalle.Focus();
             }
         }
@@ -3124,7 +3124,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show("Please select a category first!", "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageError50"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -3172,7 +3172,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Complete todos los campos antes de guardar el padecimiento!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("mssageError49"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -3206,13 +3206,13 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("The biological information only admits numerical values, verify the data.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError48"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
             else
             {
-                MessageBox.Show("Complete all fields before saving the biological information.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError47"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -3247,13 +3247,13 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("The biological information only admits numerical values, verify the data.!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError48"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
             else
             {
-                MessageBox.Show("Complete all fields before saving the biological information.a!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError47"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -3331,7 +3331,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected an element to erase!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -3351,7 +3351,7 @@ namespace MahAppsExample
 
                 if (listadoCodigos.Items.Count == 0)
                 {
-                    MessageBox.Show("There are no rates for adding, please use the search option or categories option", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show(obtenerRecurso("messageWarning11"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 else
                 {
@@ -3488,7 +3488,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show("Introduce un código a buscar primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning10"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
         bool busqueda;
@@ -3593,13 +3593,13 @@ namespace MahAppsExample
           {*/
             string rangomin, rangomax;
 
-            rangomin = Interaction.InputBox("Type the initial numeric value", "Range feature", "", 300, 300);
+            rangomin = Interaction.InputBox(obtenerRecurso("messageQuestion5"), obtenerRecurso("messageHeadQ4"), "", 300, 300);
 
-            rangomax = Interaction.InputBox("Type the end numeric value", "Range feature", "", 300, 300);
+            rangomax = Interaction.InputBox(obtenerRecurso("messageQuestion4"), obtenerRecurso("messageHeadQ4"), "", 300, 300);
 
             if (rangomin == "" || rangomax == "")
             {
-                MessageBox.Show("Error you have not typed any value!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError46"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             else
@@ -4327,7 +4327,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("You haven't selected any patient's record to modify!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError45"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 PacienteGroup_Copy.Visibility = Visibility.Hidden;
                 PacienteGroup.Visibility = Visibility.Visible;
 
@@ -4564,7 +4564,7 @@ namespace MahAppsExample
         {
             obj.Save(); //Llama a la maquina
             Thread.Sleep(5000);
-            MessageBox.Show("The analysis has been saved", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(obtenerRecurso("messageInfo4"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void cmdEnviarFrecuencia_Click(object sender, RoutedEventArgs e)
@@ -4574,12 +4574,12 @@ namespace MahAppsExample
                 string prueba = ListaCodigos.SelectedItem.ToString();
                 obj.Diagnostic(); //Llama a la maquina
                 Thread.Sleep(5000);
-                MessageBox.Show("Press (OK) to continue..", "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(obtenerRecurso("messageWarning9"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
                 obj.Diagnostic();
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("Please select a rate before sending to the instrument", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError44"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -4620,7 +4620,7 @@ namespace MahAppsExample
 
                 if (valor_s.Count == 0 || ListaCodigos.Items.Count == 0)
                 {
-                    MessageBox.Show("We cannot save the analysis because there are no rates added!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError43"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
                 if (valor_s.Count != 0 || ListaCodigos.Items.Count != 0)
@@ -4650,7 +4650,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("We cannot save the analysis because it hasn't been processed!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError42"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -4803,7 +4803,7 @@ namespace MahAppsExample
         {
             if (ListaCodigos.Items.Count == 0)
             {
-                MessageBox.Show("There's no rate to order, please add some rates before using this function!", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning8"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -5003,7 +5003,7 @@ namespace MahAppsExample
             }
             catch (Exception)
             {
-                MessageBox.Show("Select a remedy of the list before continuing!.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(obtenerRecurso("messageWarning7"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -5098,11 +5098,11 @@ namespace MahAppsExample
             //Nombre del remedio
             string nombre_remedio_diagnostico;
 
-            nombre_remedio_diagnostico = Interaction.InputBox("Name of the Remedy", "Name", "Remedy of " + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
+            nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), "Name",obtenerRecurso("messageHeadQ3") + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
 
             if (nombre_remedio_diagnostico == "")
             {
-                MessageBox.Show("Please write a name for the remedy before continuing!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError39"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -5136,7 +5136,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show("Please write another name, the remedy name " + nombre_remedio_diagnostico + " has been used before!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(string.Join(nombre_remedio_diagnostico, obtenerRecurso("messageError41").Split('-')), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -5390,7 +5390,7 @@ namespace MahAppsExample
                         }
                         else
                         {
-                            MessageBox.Show("Please create a remedy before continue...", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(obtenerRecurso("messageInfo3"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         }
                         // }
@@ -5460,7 +5460,7 @@ namespace MahAppsExample
         {
             if (listadoCodigos_Remedios.Items.Count == 0)
             {
-                MessageBox.Show("There's no rates for adding, please use the categories or search function to add some rates", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning6"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -5592,7 +5592,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show("You haven't selected anything to erase", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError40"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
@@ -5602,7 +5602,7 @@ namespace MahAppsExample
         {
             if (ListaRemedios.Items.Count == 0)
             {
-                MessageBox.Show("There's no rate added to use this function!", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning5"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -5913,7 +5913,7 @@ namespace MahAppsExample
 
                         if (results.Count() > 0)
                         {
-                            MessageBoxResult resp = MessageBox.Show("There is an autosimilium added, Do you want to create a new one?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            MessageBoxResult resp = MessageBox.Show(obtenerRecurso("messageWarning4"), "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                             if (resp == MessageBoxResult.Yes)
                             {
@@ -6248,11 +6248,11 @@ namespace MahAppsExample
                 Random num = new Random();
                 Radionica obj_rem = new Radionica();
 
-                nombre_remedio_diagnostico = Interaction.InputBox("Name of the Remedy", "New Remedy", "", 300, 300);
+                nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), obtenerRecurso("messageHeadQ3"), "", 300, 300);
 
                 if (nombre_remedio_diagnostico == "")
                 {
-                    MessageBox.Show("Please write a name for the remedy first", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError39"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -6301,7 +6301,7 @@ namespace MahAppsExample
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("There's no remedy selected in order to delete it!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError37"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -6351,7 +6351,7 @@ namespace MahAppsExample
 
                         if (contador_complementarios >= 5)
                         {
-                            MessageBox.Show("We allow only 5 complementary rate at the same time", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show(obtenerRecurso("messageError38"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                         else
                         {
@@ -6411,7 +6411,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show("There's no remedy selected in order to delete it!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError37"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
             }
@@ -6439,11 +6439,11 @@ namespace MahAppsExample
             {
                 string nombre_tarjeta;
 
-                nombre_tarjeta = Interaction.InputBox("Name of the ECS Card to Save", "Name", "", 300, 300);
+                nombre_tarjeta = Interaction.InputBox(obtenerRecurso("messageQuestion2"), "Name", "", 300, 300);
 
                 if (nombre_tarjeta == "")
                 {
-                    MessageBox.Show("Please write a name first!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError36"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -6454,7 +6454,7 @@ namespace MahAppsExample
                     //Mandar grabar en bd 
                     obj2.Registrar_Tarjeta_Categorias(obj_temp.Generar_Id(), nombre_tarjeta, obj_temp.RandomDigits(num.Next(12, 16)).ToString());
 
-                    MessageBox.Show("The card has been save successfully!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageInfo2"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     CerrarConexion();
                 }
             }
@@ -6490,14 +6490,14 @@ namespace MahAppsExample
                     }
                     catch (NullReferenceException)
                     {
-                        MessageBox.Show("There's no rate selected to use the potentiation!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(obtenerRecurso("messageError35"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                     }
                 }
             }
             else
             {
-                MessageBox.Show("There's no rate selected to use the potentiation!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError35"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -6621,12 +6621,12 @@ namespace MahAppsExample
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Enter a numerical value in pontency!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError34"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Choose the parameters of the advanced potentiation!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError33"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
 
@@ -6712,7 +6712,7 @@ namespace MahAppsExample
                 //Si existen mas de 0 registros mostrar mensaje
                 if (cantidad > 0)
                 {
-                    MessageBox.Show("The name is already in use, please choose another name!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError32"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
@@ -6743,7 +6743,7 @@ namespace MahAppsExample
                         obj2.Registrar_CodigosdeRemedios(id_gen, id_generado, codigosremedios_acopiar.Rows[q][0].ToString(), codigosremedios_acopiar.Rows[q][5].ToString(), codigosremedios_acopiar.Rows[q][1].ToString(), codigosremedios_acopiar.Rows[q][2].ToString(), codigosremedios_acopiar.Rows[q][3].ToString(), codigosremedios_acopiar.Rows[q][4].ToString(), codigosremedios_acopiar.Rows[q][6].ToString());
                     }
 
-                    MessageBox.Show("The remedy was duplicated successfully!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageInfo1"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 CargarListadoRemedios(); //Actualiza el listado de remedios para que aparezca el duplicado
                 ListaRemedios.Items.Clear();

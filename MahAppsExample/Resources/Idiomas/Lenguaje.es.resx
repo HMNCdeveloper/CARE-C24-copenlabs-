@@ -474,6 +474,9 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedios y Homoepatia</value>
   </data>
+  <data name="messageErro61" xml:space="preserve">
+    <value>Please generate the PGR before saving it on an EECS Card</value>
+  </data>
   <data name="messageError" xml:space="preserve">
     <value>Solo se permite numoros </value>
   </data>
@@ -552,14 +555,113 @@
   <data name="messageError31" xml:space="preserve">
     <value>Escribe un nombre para el remedio!</value>
   </data>
+  <data name="messageError32" xml:space="preserve">
+    <value>El nombe esta en usao, introduzca otro nombre!</value>
+  </data>
+  <data name="messageError33" xml:space="preserve">
+    <value> Seleccione los paramatros de la potenciacion avanzada!</value>
+  </data>
+  <data name="messageError34" xml:space="preserve">
+    <value>   Introduce un valor numerico en la potencia!</value>
+  </data>
+  <data name="messageError35" xml:space="preserve">
+    <value>No hay  indice seleccionado para usar la potecicacion!</value>
+  </data>
+  <data name="messageError36" xml:space="preserve">
+    <value>Primero escribe un nombre!</value>
+  </data>
+  <data name="messageError37" xml:space="preserve">
+    <value>No hay remedio seleccioando  para eliminar!</value>
+  </data>
+  <data name="messageError38" xml:space="preserve">
+    <value>solamente se permite 5 indices complementarios al mismo tiempo</value>
+  </data>
+  <data name="messageError39" xml:space="preserve">
+    <value>Primero Escribe el nombre del remedio</value>
+  </data>
   <data name="messageError4" xml:space="preserve">
     <value> Selecciona un elemento antes de continuar</value>
+  </data>
+  <data name="messageError40" xml:space="preserve">
+    <value>No has seleccionado algo   para borrar.</value>
+  </data>
+  <data name="messageError41" xml:space="preserve">
+    <value>Escribe otro nombre de remedio, por este nombre-ha sido utilizado antes!</value>
+  </data>
+  <data name="messageError42" xml:space="preserve">
+    <value>No se puede guardar el analisis porque aun no se procesa!</value>
+  </data>
+  <data name="messageError43" xml:space="preserve">
+    <value>No se puede guardar el analisis porque  no hay indices agregado!</value>
+  </data>
+  <data name="messageError44" xml:space="preserve">
+    <value>Please select a rate before sending to the instrument</value>
+  </data>
+  <data name="messageError45" xml:space="preserve">
+    <value>No has seleccionado ningun historial del paiente para modificar!</value>
+  </data>
+  <data name="messageError46" xml:space="preserve">
+    <value> Error No has Introducido ningun valor!</value>
+  </data>
+  <data name="messageError47" xml:space="preserve">
+    <value>Completa todo los campos antes de guardar  la informacion biologica!</value>
+  </data>
+  <data name="messageError48" xml:space="preserve">
+    <value>La informacion biologica solamente admite valores numericos, verifica el dato.!</value>
+  </data>
+  <data name="messageError49" xml:space="preserve">
+    <value>Complete todos los campos antes de guardar el padecimiento!</value>
   </data>
   <data name="messageError5" xml:space="preserve">
     <value>Eliga una ubicación antes de continuar!..</value>
   </data>
+  <data name="messageError50" xml:space="preserve">
+    <value>Primero selcciona una categoria</value>
+  </data>
+  <data name="messageError51" xml:space="preserve">
+    <value>No se ha  seleccionado ningun elemento para editar</value>
+  </data>
+  <data name="messageError52" xml:space="preserve">
+    <value>No se ha seleccionado el telefono para ser eliminad!</value>
+  </data>
+  <data name="messageError53" xml:space="preserve">
+    <value>Introduzca un numero de telefono</value>
+  </data>
+  <data name="messageError54" xml:space="preserve">
+    <value>Caracterisitica disponible solamente por un paciente previamente registrado!</value>
+  </data>
+  <data name="messageError55" xml:space="preserve">
+    <value>Introduzca un nombre a buscar</value>
+  </data>
+  <data name="messageError56" xml:space="preserve">
+    <value>El nombre del analisis ya esta en uso!</value>
+  </data>
+  <data name="messageError57" xml:space="preserve">
+    <value>Introduzca primero todos los datos del paciente</value>
+  </data>
+  <data name="messageError58" xml:space="preserve">
+    <value>Complete ambos campos del comentario!</value>
+  </data>
+  <data name="messageError59" xml:space="preserve">
+    <value>El registro patologico ya esta incluido en el listado!</value>
+  </data>
   <data name="messageError6" xml:space="preserve">
     <value>Seleccione un tratamiento antes de continuar!..</value>
+  </data>
+  <data name="messageError60" xml:space="preserve">
+    <value>No has seleccionado ningun elemento para editar</value>
+  </data>
+  <data name="messageError62" xml:space="preserve">
+    <value>Verifica tu Manejador de BD, por Favor  contactanos  para  darte soporte!</value>
+  </data>
+  <data name="messageError63" xml:space="preserve">
+    <value>Selecciona  un genero para el paciente</value>
+  </data>
+  <data name="messageError64" xml:space="preserve">
+    <value>No has seleccionado ningun paciente, por favor  selecciona una para continuar</value>
+  </data>
+  <data name="messageError65" xml:space="preserve">
+    <value>Los elementos no pueden borrarse porque no existen en el sistema.</value>
   </data>
   <data name="messageError7" xml:space="preserve">
     <value>Seleccione un tratamiento primero!..</value>
@@ -576,23 +678,104 @@
   <data name="messageHeadQ" xml:space="preserve">
     <value>Pregunta</value>
   </data>
+  <data name="messageHeadQ3" xml:space="preserve">
+    <value>Nuevo Remedio</value>
+  </data>
+  <data name="messageHeadQ4" xml:space="preserve">
+    <value>Rango de caracterisiticas </value>
+  </data>
   <data name="messageHeadWarning" xml:space="preserve">
     <value>Advertencia</value>
   </data>
   <data name="messageInf1" xml:space="preserve">
     <value>Por favor seleccione una categoria para continuar!  </value>
   </data>
-  <data name="messageQustion1" xml:space="preserve">
+  <data name="messageInfo1" xml:space="preserve">
+    <value>El remedio fue duplicado exitosamente!</value>
+  </data>
+  <data name="messageInfo2" xml:space="preserve">
+    <value> La tarjeta se ha guardado exitosamente!</value>
+  </data>
+  <data name="messageInfo3" xml:space="preserve">
+    <value>Por favor crear  un reemedio antes para continuar...</value>
+  </data>
+  <data name="messageInfo4" xml:space="preserve">
+    <value>  El analisis esta aguardado </value>
+  </data>
+  <data name="messageInfo5" xml:space="preserve">
+    <value>Frecuencia personal Guardada</value>
+  </data>
+  <data name="messageInfo6" xml:space="preserve">
+    <value>Función desactivada mientras se modifica la ficha de un paciente</value>
+  </data>
+  <data name="messageInfo7" xml:space="preserve">
+    <value>Se necesita instalar el administrador de base de datos antes de continuar!... A continuación se instalará!</value>
+  </data>
+  <data name="messageQuestion1" xml:space="preserve">
     <value>¿Tu quieres incluir la secuencia en proceso de borrado ?  </value>
+  </data>
+  <data name="messageQuestion2" xml:space="preserve">
+    <value>Nombre de la tarjeta ECS para guardar</value>
+  </data>
+  <data name="messageQuestion3" xml:space="preserve">
+    <value>Nombre del Remedio</value>
+  </data>
+  <data name="messageQuestion4" xml:space="preserve">
+    <value>Introduce el valor numerico final</value>
+  </data>
+  <data name="messageQuestion5" xml:space="preserve">
+    <value> Introduce el valor numerico inicial</value>
+  </data>
+  <data name="messageQuestion6" xml:space="preserve">
+    <value>Introduce nombre del analisis</value>
+  </data>
+  <data name="messageQuestion7" xml:space="preserve">
+    <value>Compruebe si ha colocado la muestra del paciente en el recipiente correcto.</value>
+  </data>
+  <data name="messageWarnig11" xml:space="preserve">
+    <value>No hay indices para agregar, utiliza la opcion de busqueda  o opcion de categorias.</value>
   </data>
   <data name="messageWarning" xml:space="preserve">
     <value>¿Quieres  cambiar  el idioama?</value>
+  </data>
+  <data name="messageWarning10" xml:space="preserve">
+    <value>Introduce un código a buscar primero!</value>
+  </data>
+  <data name="messageWarning12" xml:space="preserve">
+    <value>El telefono ya se encuentra registrado</value>
+  </data>
+  <data name="messageWarning13" xml:space="preserve">
+    <value>Finaliza la previa modificacion antes de  continuar con otro </value>
+  </data>
+  <data name="messageWarning14" xml:space="preserve">
+    <value>El Historial del paciente fue modificado exitosamente</value>
+  </data>
+  <data name="messageWarning15" xml:space="preserve">
+    <value>Seleccione el sexo del paciente antes de obtener el PGR.</value>
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Por favor selecciona una primera categoria principal y sub categoria para obtener a un nuevo tipo en la base de datos! </value>
   </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Por favor selecciona una categoria y subcategoria primero en orden para continuar !</value>
+  </data>
+  <data name="messageWarning4" xml:space="preserve">
+    <value>Hay un autosimilium agregado, ¿Quieres crear uno otro?   </value>
+  </data>
+  <data name="messageWarning5" xml:space="preserve">
+    <value>No hay indice agregado para usar esta funcion!</value>
+  </data>
+  <data name="messageWarning6" xml:space="preserve">
+    <value>No hay indicies para agregar, utiliza las categorias o busca una funcion  para agregar  algunos indices,</value>
+  </data>
+  <data name="messageWarning7" xml:space="preserve">
+    <value> Selecciona un remedio de la lista antes para continuar!.</value>
+  </data>
+  <data name="messageWarning8" xml:space="preserve">
+    <value> No hay indices, agrega algunos indices antes de utilizar esta funcion.</value>
+  </data>
+  <data name="messageWarning9" xml:space="preserve">
+    <value>Presione (OK) para  continuar..</value>
   </data>
   <data name="messOptLan" xml:space="preserve">
     <value>Por faver selecciona  un idioma para el sistema:</value>
@@ -670,7 +853,7 @@
     <value>POTENCIA</value>
   </data>
   <data name="tableRate" xml:space="preserve">
-    <value>TARIFA</value>
+    <value>Indice</value>
   </data>
   <data name="tableRateTip" xml:space="preserve">
     <value>TIPO</value>

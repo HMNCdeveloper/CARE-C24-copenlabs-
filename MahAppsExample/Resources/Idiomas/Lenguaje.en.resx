@@ -471,6 +471,9 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedies and Homoepathy </value>
   </data>
+  <data name="messageErro61" xml:space="preserve">
+    <value>Please generate the PGR before saving it on an EECS Card</value>
+  </data>
   <data name="messageError" xml:space="preserve">
     <value>Only Numbers are allowed</value>
   </data>
@@ -549,14 +552,113 @@
   <data name="messageError31" xml:space="preserve">
     <value>Please write a name for the remedy!</value>
   </data>
+  <data name="messageError32" xml:space="preserve">
+    <value>The name is already in use, please choose another name!</value>
+  </data>
+  <data name="messageError33" xml:space="preserve">
+    <value>Choose the parameters of the advanced potentiation!</value>
+  </data>
+  <data name="messageError34" xml:space="preserve">
+    <value>Enter a numerical value in pontency!</value>
+  </data>
+  <data name="messageError35" xml:space="preserve">
+    <value>There's no rate selected to use the potentiation!</value>
+  </data>
+  <data name="messageError36" xml:space="preserve">
+    <value>Please write a name first!</value>
+  </data>
+  <data name="messageError37" xml:space="preserve">
+    <value>There's no remedy selected in order to delete it!</value>
+  </data>
+  <data name="messageError38" xml:space="preserve">
+    <value>We allow only 5 complementary rate at the same time</value>
+  </data>
+  <data name="messageError39" xml:space="preserve">
+    <value>Please write a name for the remedy first</value>
+  </data>
   <data name="messageError4" xml:space="preserve">
     <value>Select an item before continuing</value>
+  </data>
+  <data name="messageError40" xml:space="preserve">
+    <value>You haven't selected anything to erase</value>
+  </data>
+  <data name="messageError41" xml:space="preserve">
+    <value>Please write another name, the remedy name-has been used before!</value>
+  </data>
+  <data name="messageError42" xml:space="preserve">
+    <value>We cannot save the analysis because it hasn't been processed!</value>
+  </data>
+  <data name="messageError43" xml:space="preserve">
+    <value>We cannot save the analysis because there are no rates added!</value>
+  </data>
+  <data name="messageError44" xml:space="preserve">
+    <value>Please select a rate before sending to the instrument</value>
+  </data>
+  <data name="messageError45" xml:space="preserve">
+    <value>You haven't selected any patient's record to modify!</value>
+  </data>
+  <data name="messageError46" xml:space="preserve">
+    <value>Error you have not typed any value!</value>
+  </data>
+  <data name="messageError47" xml:space="preserve">
+    <value>Complete all fields before saving the biological information!</value>
+  </data>
+  <data name="messageError48" xml:space="preserve">
+    <value>The biological information only admits numerical values, verify the data.!</value>
+  </data>
+  <data name="messageError49" xml:space="preserve">
+    <value> Fill all fields beforo saving the suffering!</value>
   </data>
   <data name="messageError5" xml:space="preserve">
     <value>chose a ubication before continuing!...</value>
   </data>
+  <data name="messageError50" xml:space="preserve">
+    <value>Please select a category first!</value>
+  </data>
+  <data name="messageError51" xml:space="preserve">
+    <value>No item to edit has been selected!</value>
+  </data>
+  <data name="messageError52" xml:space="preserve">
+    <value>No phone has been selected to be deleted!</value>
+  </data>
+  <data name="messageError53" xml:space="preserve">
+    <value>type a number phone</value>
+  </data>
+  <data name="messageError54" xml:space="preserve">
+    <value>Feature available only for a patient previously registered!</value>
+  </data>
+  <data name="messageError55" xml:space="preserve">
+    <value>Type a name to search</value>
+  </data>
+  <data name="messageError56" xml:space="preserve">
+    <value>The analysis's name already is used!</value>
+  </data>
+  <data name="messageError57" xml:space="preserve">
+    <value>First Type all datas of the patient ! </value>
+  </data>
+  <data name="messageError58" xml:space="preserve">
+    <value>Fill   all fields of the commit!</value>
+  </data>
+  <data name="messageError59" xml:space="preserve">
+    <value>The pathology registry is already included in the list!</value>
+  </data>
   <data name="messageError6" xml:space="preserve">
     <value> Chose a treatment  before continuing!..</value>
+  </data>
+  <data name="messageError60" xml:space="preserve">
+    <value>You haven't selected anything to erase</value>
+  </data>
+  <data name="messageError62" xml:space="preserve">
+    <value>Check your DB Manager, please contact Homoeonic to any future assistance!</value>
+  </data>
+  <data name="messageError63" xml:space="preserve">
+    <value>Please select the gender of the patient!</value>
+  </data>
+  <data name="messageError64" xml:space="preserve">
+    <value>You haven't selected any patient, please select one to continue!</value>
+  </data>
+  <data name="messageError65" xml:space="preserve">
+    <value>Items cannot be deleted as they do not exist in the system.</value>
   </data>
   <data name="messageError7" xml:space="preserve">
     <value>Select a treatment first!..</value>
@@ -573,23 +675,104 @@
   <data name="messageHeadQ" xml:space="preserve">
     <value>Question</value>
   </data>
+  <data name="messageHeadQ3" xml:space="preserve">
+    <value>New Remedy</value>
+  </data>
+  <data name="messageHeadQ4" xml:space="preserve">
+    <value>Range feature</value>
+  </data>
   <data name="messageHeadWarning" xml:space="preserve">
     <value>Warning</value>
   </data>
   <data name="messageInf1" xml:space="preserve">
     <value>Please select a category to continue!</value>
   </data>
-  <data name="messageQustion1" xml:space="preserve">
+  <data name="messageInfo1" xml:space="preserve">
+    <value>The remedy was duplicated successfully!</value>
+  </data>
+  <data name="messageInfo2" xml:space="preserve">
+    <value>The card has been save successfully!</value>
+  </data>
+  <data name="messageInfo3" xml:space="preserve">
+    <value>Please create a remedy before continue...</value>
+  </data>
+  <data name="messageInfo4" xml:space="preserve">
+    <value>The analysis has been saved</value>
+  </data>
+  <data name="messageInfo5" xml:space="preserve">
+    <value>Personal Frequency Saved</value>
+  </data>
+  <data name="messageInfo6" xml:space="preserve">
+    <value>Function disabled while you are modifying a patient's record</value>
+  </data>
+  <data name="messageInfo7" xml:space="preserve">
+    <value>You need to install the database manager before proceeding!.... Then it will be installed!</value>
+  </data>
+  <data name="messageQuestion1" xml:space="preserve">
     <value>Do you want to include the 'Sequence' in the erasing process?</value>
+  </data>
+  <data name="messageQuestion2" xml:space="preserve">
+    <value>Name of the ECS Card to Save</value>
+  </data>
+  <data name="messageQuestion3" xml:space="preserve">
+    <value>Name of the Remedy</value>
+  </data>
+  <data name="messageQuestion4" xml:space="preserve">
+    <value>Type the end numeric value</value>
+  </data>
+  <data name="messageQuestion5" xml:space="preserve">
+    <value>Type the initial numeric value</value>
+  </data>
+  <data name="messageQuestion6" xml:space="preserve">
+    <value>Type a anlisys's name</value>
+  </data>
+  <data name="messageQuestion7" xml:space="preserve">
+    <value>Check whether you have placed the patient's sample in the correct container.</value>
   </data>
   <data name="messageWarning" xml:space="preserve">
     <value>Do you want to  change the language ?</value>
+  </data>
+  <data name="messageWarning10" xml:space="preserve">
+    <value>Type a code  to  search first!</value>
+  </data>
+  <data name="messageWarning11" xml:space="preserve">
+    <value>There are no rates for adding, please use the search option or categories option</value>
+  </data>
+  <data name="messageWarning12" xml:space="preserve">
+    <value>The number phone already is saved </value>
+  </data>
+  <data name="messageWarning13" xml:space="preserve">
+    <value>Please finish a previous modification before continue with another one</value>
+  </data>
+  <data name="messageWarning14" xml:space="preserve">
+    <value>The patient record was modified successfully</value>
+  </data>
+  <data name="messageWarning15" xml:space="preserve">
+    <value>Please select the gender of the patient before getting the PGR!</value>
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Please select a main category first and a sub-category in order to get a new rate on the database!</value>
   </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Please select a category and subcategory first in order to continue!</value>
+  </data>
+  <data name="messageWarning4" xml:space="preserve">
+    <value>There is an autosimilium added, Do you want to create a new one?</value>
+  </data>
+  <data name="messageWarning5" xml:space="preserve">
+    <value>There's no rate added to use this function!</value>
+  </data>
+  <data name="messageWarning6" xml:space="preserve">
+    <value>There's no rates for adding, please use the categories or search function to add some rates</value>
+  </data>
+  <data name="messageWarning7" xml:space="preserve">
+    <value>Select a remedy of the list before continuing!.</value>
+  </data>
+  <data name="messageWarning8" xml:space="preserve">
+    <value>There's no rate to order, please add some rates before using this function!</value>
+  </data>
+  <data name="messageWarning9" xml:space="preserve">
+    <value>Press (OK) to continue..</value>
   </data>
   <data name="messOptLan" xml:space="preserve">
     <value>Please select the language to the  system:</value>
