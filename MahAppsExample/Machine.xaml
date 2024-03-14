@@ -9,7 +9,7 @@
     <Grid>
         <Label x:Name="label" Content="{x:Static local:Lenguaje.labelSelectPort}" HorizontalAlignment="Left" Margin="232,51,0,0" VerticalAlignment="Top" Width="311"/>
         <Label x:Name="label1" Content="{x:Static local:Lenguaje.labelPorts}" HorizontalAlignment="Left" Margin="270,97,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ComboBox x:Name="cmbPorts" HorizontalAlignment="Left" Margin="342,97,0,0" VerticalAlignment="Top" Width="212" SelectionChanged="CmbPorts_SelectionChanged"/>
+        <ComboBox x:Name="cmbPorts" HorizontalAlignment="Left" Margin="342,97,0,0" VerticalAlignment="Top" Width="212"/>
         <Button x:Name="button" Content="{x:Static local:Lenguaje.btnUse}" HorizontalAlignment="Left" Height="38" Margin="360,144,0,0" VerticalAlignment="Top" Width="152" Click="button_Click"/>
         <Image x:Name="imagelogo" HorizontalAlignment="Left" Height="209" Margin="42,10,0,0" VerticalAlignment="Top" Width="231"/>
 

@@ -7,10 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homoeonic Software", "MahAp
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Homoeonic Software", "Instalador Homoeonic Software\Instalador Homoeonic Software.vdproj", "{0F11579B-6BED-4A01-8ADE-C8D319899F57}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Setup", "Setup\Setup.aiproj", "{2C2AE025-12FC-4859-9D3F-43328077D6BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
+		DefaultBuild|Any CPU = DefaultBuild|Any CPU
+		DefaultBuild|x86 = DefaultBuild|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -19,16 +23,37 @@ Global
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Debug|x86.ActiveCfg = Debug|x86
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Debug|x86.Build.0 = Debug|x86
+		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.DefaultBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.DefaultBuild|Any CPU.Build.0 = Debug|Any CPU
+		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.DefaultBuild|x86.ActiveCfg = Debug|x86
+		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.DefaultBuild|x86.Build.0 = Debug|x86
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Release|Any CPU.Build.0 = Release|Any CPU
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Release|x86.ActiveCfg = Release|x86
 		{133EC58A-45B8-48F2-99C8-3E1C3DF45337}.Release|x86.Build.0 = Release|x86
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Debug|Any CPU.ActiveCfg = Debug
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Debug|x86.ActiveCfg = Debug
+		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.DefaultBuild|Any CPU.ActiveCfg = Debug
+		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.DefaultBuild|x86.ActiveCfg = Debug
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Release|Any CPU.ActiveCfg = Release
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Release|x86.ActiveCfg = Release
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Debug|Any CPU.Build.0 = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Debug|x86.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Debug|x86.Build.0 = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.DefaultBuild|Any CPU.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.DefaultBuild|Any CPU.Build.0 = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.DefaultBuild|x86.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.DefaultBuild|x86.Build.0 = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Release|Any CPU.Build.0 = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Release|x86.ActiveCfg = DefaultBuild
+		{2C2AE025-12FC-4859-9D3F-43328077D6BA}.Release|x86.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7907FF91-FBFB-4797-9F4F-E2CFB52D84F1}
 	EndGlobalSection
 EndGlobal

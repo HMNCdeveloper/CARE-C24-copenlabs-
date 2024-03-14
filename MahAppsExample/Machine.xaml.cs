@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 using System.IO;
 using System.IO.Ports;
 using System.Drawing;
 using System.Drawing.Imaging;
 using HS5.Properties;
-using HS5.Resources.Idiomas;
+
 using System.Globalization;
 using System.Threading;
 
@@ -28,7 +21,6 @@ namespace HS5
     public partial class Machine : Window
     {
         string[] ports; //COMs (Puertos)
-        //SerialPort port; //Puerto
 
         public Machine()
         {
@@ -47,6 +39,8 @@ namespace HS5
             imagelogo.Source = img_logo;
         }
 
+
+        //this function is used to reload the logo in the first window
         public static BitmapImage ToBitmapImage(Bitmap bitmap)
         {
             using (var memory = new MemoryStream())
@@ -64,29 +58,20 @@ namespace HS5
             }
         }
 
+
+        //this function is used to check if there are ports to start the Mainwindow
         private void button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (cmbPorts.SelectedIndex != -1)
                 {
-                   MahAppsExample.MainWindow vent = new MahAppsExample.MainWindow(cmbPorts.SelectedItem.ToString());
+                    MahAppsExample.MainWindow vent = new MahAppsExample.MainWindow(cmbPorts.SelectedItem.ToString());
                     vent.Show();
-                    Application.Current.Windows[0].Close();
-                    // this.Hide();
+                    Application.Current.Windows[0].Close();//this setences is used to close the recent window
                 }
             }
-            catch (Exception)
-            {
-
-            }
-        }
-
-      
-
-        private void CmbPorts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            catch (Exception){}
         }
     }
 }

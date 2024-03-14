@@ -637,12 +637,12 @@
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="SimcardMicro" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" PATIENT'S RECORD" Foreground="#FFFDFCFC"/>
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headRecordP}" Foreground="#FFFDFCFC"/>
                                 </StackPanel>
                             </GroupBox.Header>
 
                             <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="492" VerticalAlignment="Top" Width="761">
-                                <TabItem Header="Patient Profile">
+                                <TabItem Header="{x:Static local:Lenguaje.headPP}">
 
                                     <Grid Background="#FFF7F5F5" OpacityMask="Black" Margin="4,7,-264,-113">
                                         <Border x:Name="borderInfobasica_Copy6" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="170" Margin="808,20,0,0" VerticalAlignment="Top" Width="172">
@@ -651,37 +651,37 @@
                                         <Border x:Name="borderInfobasica1" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="511" Margin="22,20,0,0" VerticalAlignment="Top" Width="973" IsEnabled="False"/>
                                         <Label x:Name="id_ppaciente" HorizontalAlignment="Left" Margin="69,73,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Visibility="Hidden"/>
 
-                                        <Label x:Name="label4" Content="First Name" HorizontalAlignment="Left" Margin="69,73,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label4" Content="{x:Static local:Lenguaje.labelFName}" HorizontalAlignment="Left" Margin="69,73,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtNombre1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="72,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontSize="15" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
-                                        <Label x:Name="label1_Copy4" Content="Middle Name" HorizontalAlignment="Left" Margin="318,71,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label1_Copy4" Content="{x:Static local:Lenguaje.labelMName}" HorizontalAlignment="Left" Margin="318,71,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtApellidoPat1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="321,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"  FontSize="15" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
-                                        <Label x:Name="label1_Copy5" Content="Last Name" HorizontalAlignment="Left" Margin="71,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label1_Copy5" Content="{x:Static local:Lenguaje.labelLastName}" HorizontalAlignment="Left" Margin="71,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtApellidoMat1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="72,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="15" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
-                                        <Label x:Name="label1_Copy6" Content="Birth Date" HorizontalAlignment="Left" Margin="315,139,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
-                                        <Label x:Name="label5" Content="Gender" HorizontalAlignment="Left" Margin="536,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label1_Copy6" Content="{x:Static local:Lenguaje.labelBithDate}" HorizontalAlignment="Left" Margin="315,139,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label5" Content="{x:Static local:Lenguaje.labelGender}" HorizontalAlignment="Left" Margin="536,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <RadioButton x:Name="optionSexoAn1" Visibility="Hidden" Content="Animal" HorizontalAlignment="Left" Margin="177,253,0,0" VerticalAlignment="Top" Width="117"/>
                                         <RadioButton x:Name="optionSexoPl1" Visibility="Hidden"  Content="Plantas y suelo" HorizontalAlignment="Left" Margin="279,254,0,0" VerticalAlignment="Top" Width="117"/>
-                                        <Label x:Name="label1_Copy7" Content="E-mail" HorizontalAlignment="Left" Margin="536,218,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label1_Copy7" Content="{x:Static local:Lenguaje.LabelEmail}" HorizontalAlignment="Left" Margin="536,218,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtEmail1" HorizontalAlignment="Left" Height="23" Margin="536,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" ToolTip="Correo Electrónico" FontSize="15" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black" IsReadOnly="True"/>
-                                        <Label x:Name="lblProfesion1" Content="School Degree:" HorizontalAlignment="Left" Margin="72,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
-                                        <Label x:Name="lblTitulo1" Content="Title" HorizontalAlignment="Left" Margin="318,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="lblProfesion1" Content="{x:Static local:Lenguaje.schoolDegree}" HorizontalAlignment="Left" Margin="72,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="lblTitulo1" Content="{x:Static local:Lenguaje.LabelTitle}" HorizontalAlignment="Left" Margin="318,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtTitulo1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="318,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" FontSize="15" ToolTip="Título del Paciente" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
-                                        <Label x:Name="label6" Content="Personal Frequency" HorizontalAlignment="Left" Margin="536,72,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label6" Content="{x:Static local:Lenguaje.labelPersonal}" HorizontalAlignment="Left" Margin="536,72,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <TextBox x:Name="txtPGR1" HorizontalAlignment="Left" Height="23" Margin="536,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" IsReadOnly="True" ToolTip="Frecuencia Personal del Paciente" MaxLength="14" FontSize="15" RenderTransformOrigin="0.373,0.111" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
 
 
-                                        <Label x:Name="lblTelefono1" Content="Phones" HorizontalAlignment="Left" Margin="69,408,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="lblTelefono1" Content="{x:Static local:Lenguaje.labelPhones}" HorizontalAlignment="Left" Margin="69,408,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
                                         <ListBox x:Name="listaTelefonos1" HorizontalAlignment="Left" Height="79" Margin="72,437,0,0" VerticalAlignment="Top" Width="303" Background="#FFF7F5F5" BorderThickness="1" BorderBrush="#FFF7F5F5" FontSize="15"  Foreground="Black"/>
                                         <Button x:Name="cmdGuardarPaciente1" HorizontalAlignment="Left" Margin="808,212,0,0" VerticalAlignment="Top" Width="172" Height="49" Background="#FFD1CFCF" Click="cmdGuardarPaciente1_Click">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Undo" Foreground="#FF0C0B0B" />
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" EDIT PATIENT PROFILE" Foreground="#FF0C0B0B"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.labelEditP}" Foreground="#FF0C0B0B"/>
                                             </StackPanel>
                                         </Button>
 
                                         <Label x:Name="lblFecha1" Content="Fecha de Registro" Visibility="Hidden" HorizontalAlignment="Left" Margin="841,223,0,0" VerticalAlignment="Top" Width="172" FontWeight="Bold"/>
                                         <Label x:Name="lblFechaReg1" Content="NNNNA" Visibility="Hidden" HorizontalAlignment="Left" Margin="841,254,0,0" VerticalAlignment="Top" Width="172" FontWeight="Bold" Foreground="#FF973838"/>
-                                        <Label x:Name="label1_Copy8" Content="Addresses" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="72,299,0,0" FontSize="13" Foreground="#FF171616"/>
+                                        <Label x:Name="label1_Copy8" Content="{x:Static local:Lenguaje.headerAddresses}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="72,299,0,0" FontSize="13" Foreground="#FF171616"/>
                                         <ListBox x:Name="listadodomicilios1_Copy" HorizontalAlignment="Left" Height="69" Margin="72,330,0,0" VerticalAlignment="Top" Width="728" BorderBrush="#FFF7F5F5" BorderThickness="1" FontSize="15" Background="#FFF7F5F5" Foreground="Black"/>
                                         <TextBox x:Name="txtFecha1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" IsReadOnly="True" MaxLength="14" FontSize="15" RenderTransformOrigin="0.373,0.111" Margin="318,167,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
                                         <TextBox x:Name="txtSexo1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" IsReadOnly="True" MaxLength="14" FontSize="15" RenderTransformOrigin="0.373,0.111" Margin="536,167,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="Black"/>
@@ -689,37 +689,37 @@
                                         <Button x:Name="cmdRegresar" HorizontalAlignment="Left" Margin="808,409,0,0" VerticalAlignment="Top" Width="172" Height="49" Background="#FFF7F7F7" Click="cmdRegresar_Click">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="ArrowLeft" Foreground="#FF0C0B0B" />
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" RETURN" Foreground="#FF0C0B0B"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnReturn}" Foreground="#FF0C0B0B"/>
                                             </StackPanel>
                                         </Button>
                                         <Button x:Name="cmdGenerarExpPDF" HorizontalAlignment="Left" Margin="808,279,0,0" VerticalAlignment="Top" Width="172" Height="49" Background="#FFF7F7F7" Click="cmdGenerarExpPDF_Click">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="PageFilePdf" Foreground="#FF0C0B0B" />
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" PATIENT REPORT" Foreground="#FF0C0B0B"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnReportP}" Foreground="#FF0C0B0B"/>
                                             </StackPanel>
                                         </Button>
                                         <Button x:Name="cmdGenerarAnalisisPDF" HorizontalAlignment="Left" Margin="808,344,0,0" VerticalAlignment="Top" Width="172" Height="49" Background="#FFF7F7F7" Click="cmdGenerarAnalisisPDF_Click">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="PageFilePdf" Foreground="#FF0C0B0B" />
-                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ANALYSIS REPORT" Foreground="#FF0C0B0B"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAnaReport}" Foreground="#FF0C0B0B"/>
                                             </StackPanel>
                                         </Button>
                                     </Grid>
                                 </TabItem>
-                                <TabItem Header="Background and Analysis">
+                                <TabItem Header="{x:Static local:Lenguaje.headBA}">
                                     <Grid Background="#FFF7F5F5" OpacityMask="Black" Margin="4,7,-262,-113">
                                         <Border x:Name="borderInfobasica1_Copy" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="503" Margin="22,20,0,0" VerticalAlignment="Top" Width="954">
-                                            <Label x:Name="label4_Copy2" Content="Pathological" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="50,164,0,0" FontSize="13"/>
+                                            <Label x:Name="label4_Copy2" Content="{x:Static local:Lenguaje.headPatho}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="50,164,0,0" FontSize="13"/>
                                         </Border>
                                         <ListBox x:Name="ListadoHeredo1_Copy" HorizontalAlignment="Left" Height="72" Margin="63,83,0,0" VerticalAlignment="Top" Width="438" ToolTip="Listado de Registros" SelectionChanged="ListadoHeredo_SelectionChanged" FontSize="15" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="#FF814545"/>
                                         <ListBox x:Name="listadoPatologicos1_Copy" HorizontalAlignment="Left" Height="76" VerticalAlignment="Top" Width="438" ToolTip="Listado de registros" FontSize="15" Margin="63,217,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="#FF814545"/>
                                         <ListBox x:Name="listadoNoPatologicos1_Copy" HorizontalAlignment="Left" Height="84" VerticalAlignment="Top" Width="438" ToolTip="Listado de registros" FontSize="15" Margin="63,345,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="#FF814545"/>
                                         <ListBox x:Name="listadoComentarios1_Copy" HorizontalAlignment="Left" Height="72" VerticalAlignment="Top" Width="389" ToolTip="Listado de comentarios" FontSize="15" Margin="544,83,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="#FF814545"/>
                                         <ListBox x:Name="listadoAnalisis1_Copy" HorizontalAlignment="Left" Height="212" VerticalAlignment="Top" Width="386" SelectionChanged="listadoAnalisis_SelectionChanged" FontSize="15" ToolTip="Lista de Análisis" Margin="547,217,0,0" Background="#FFF7F5F5" BorderBrush="#FFF7F5F5" Foreground="#FF814545"/>
-                                        <Label x:Name="label4_Copy" Content="Hereditary" HorizontalAlignment="Left" Margin="69,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
-                                        <Label x:Name="label4_Copy1" Content="Non Pathological" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="74,314,0,0" FontSize="13"/>
-                                        <Label x:Name="label4_Copy3" Content="Comments" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="552,52,0,0" FontSize="13"/>
-                                        <Label x:Name="label4_Copy4" Content="Analysis Performed" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="552,185,0,0" FontSize="13"/>
+                                        <Label x:Name="label4_Copy" Content="{x:Static local:Lenguaje.headeHedit}" HorizontalAlignment="Left" Margin="69,52,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13"/>
+                                        <Label x:Name="label4_Copy1" Content="{x:Static local:Lenguaje.headNonPath}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="74,314,0,0" FontSize="13"/>
+                                        <Label x:Name="label4_Copy3" Content="{x:Static local:Lenguaje.headComments}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="552,52,0,0" FontSize="13"/>
+                                        <Label x:Name="label4_Copy4" Content="{x:Static local:Lenguaje.labelAnalPerformed}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Margin="552,185,0,0" FontSize="13"/>
                                     </Grid>
                                 </TabItem>
                             </TabControl>

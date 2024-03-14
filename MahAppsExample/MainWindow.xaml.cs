@@ -19,14 +19,14 @@ using System.Diagnostics; //Para ejecutar el bat file
 //Libreria Qr-Codes
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using HS5;
+//using HS5;
 using HS5.Properties;
-using System.Threading;
-using System.Threading.Tasks;
+//using System.Threading;
+//using System.Threading.Tasks;
 using System.Globalization;
 
 using HS5.Resources.Idiomas;
-using HS5.Properties;
+//using HS5.Properties;
 
 
 
@@ -39,7 +39,7 @@ namespace MahAppsExample
     {
         Machine obj = new Machine(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
-
+      
         //Listado Heredo
         List<string> ListaHeredoTitulos = new List<string>();
         List<string> ListaHeredoDescrip = new List<string>();
@@ -97,9 +97,8 @@ namespace MahAppsExample
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
             InitializeComponent();
             //puertoCOM = puerto;
-            // MessageBox.Show("HOLA");
 
-            //Rutas del PostgreSQL 
+            //PostgreSQL's path 
             string path, path2;
             path = @"C:\Program Files\PostgreSQL"; //Windows 64
             path2 = @"C:\Program Files (x86)\PostgreSQL";  //Windows 32
@@ -197,6 +196,8 @@ namespace MahAppsExample
         {
             string programa = Environment.GetCommandLineArgs()[0];
             string directorio = System.IO.Path.GetDirectoryName(programa);
+
+            MessageBox.Show(programa);
             return directorio;
         }
 
@@ -1130,6 +1131,7 @@ namespace MahAppsExample
                             if (image.Source != null)
                             {
                                 //Grabar en la ruta con el id_paciente como nombre y formato PNG
+                                Console.WriteLine(image.Source);
                                 var encoder = new PngBitmapEncoder();
                                 encoder.Frames.Add(BitmapFrame.Create((BitmapSource)image.Source));
                                 using (FileStream stream = new FileStream(ruta, FileMode.Create))
@@ -7101,8 +7103,8 @@ namespace MahAppsExample
             radioMasculino.IsChecked = true;
             if (radioMasculino.IsChecked == true)
             {
-                listVista.Items.Add("Front");
-                listVista.Items.Add("Back");
+                listVista.Items.Add(obtenerRecurso("valFront"));
+                listVista.Items.Add(obtenerRecurso("valBack"));
             }
             listVista.SelectedIndex = 0;
             listaSecciones.SelectedIndex = -1;
@@ -7505,7 +7507,7 @@ namespace MahAppsExample
         private void listVista_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Hombre parte frontal
-            if (listVista.SelectedItem.ToString() == "Front" && radioMasculino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valFront") && radioMasculino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Cuerpo_HFront_500);
@@ -7576,7 +7578,7 @@ namespace MahAppsExample
             }
 
 
-            if (listVista.SelectedItem.ToString() == "Back" && radioMasculino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valBack") && radioMasculino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Color_Hombre_Back_500);
@@ -7634,7 +7636,7 @@ namespace MahAppsExample
             }
 
             //Sexo Femenino
-            if (listVista.SelectedItem.ToString() == "Front" && radioFemenino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valFront") && radioFemenino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Mujer_front_500);
@@ -7709,7 +7711,7 @@ namespace MahAppsExample
             }
 
 
-            if (listVista.SelectedItem.ToString() == "Back" && radioFemenino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valBack") && radioFemenino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Fback_500);
@@ -7771,7 +7773,7 @@ namespace MahAppsExample
         void Partes()
         {
             //Hombre parte frontal
-            if (listVista.SelectedItem.ToString() == "Front" && radioMasculino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valFront") && radioMasculino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Cuerpo_HFront_500);
@@ -7842,7 +7844,7 @@ namespace MahAppsExample
             }
 
 
-            if (listVista.SelectedItem.ToString() == "Back" && radioMasculino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valBack") && radioMasculino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Color_Hombre_Back_500);
@@ -7900,7 +7902,7 @@ namespace MahAppsExample
             }
 
             //Sexo Femenino
-            if (listVista.SelectedItem.ToString() == "Front" && radioFemenino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valFront") && radioFemenino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Mujer_front_500);
@@ -7975,7 +7977,7 @@ namespace MahAppsExample
             }
 
 
-            if (listVista.SelectedItem.ToString() == "Back" && radioFemenino.IsChecked == true)
+            if (listVista.SelectedItem.ToString() == obtenerRecurso("valBack") && radioFemenino.IsChecked == true)
             {
                 ImageBrush brush = new ImageBrush();
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Fback_500);
@@ -8592,7 +8594,7 @@ namespace MahAppsExample
                                                                   newBrush.Color.B);
 
                 //Si es hombre y es parte frontal
-                if (radioMasculino.IsChecked == true && listVista.SelectedItem.ToString() == "Front")
+                if (radioMasculino.IsChecked == true && listVista.SelectedItem.ToString() == obtenerRecurso("valFront"))
                 {
                     //Partes que le corresponden
                     //Seccion elegida
@@ -9185,7 +9187,7 @@ namespace MahAppsExample
                 }
 
                 //Si es mujer y es la parte frontal
-                if (radioFemenino.IsChecked == true && listVista.SelectedItem.ToString() == "Front")
+                if (radioFemenino.IsChecked == true && listVista.SelectedItem.ToString() == obtenerRecurso("valFront"))
                 {
                     //////////////
 

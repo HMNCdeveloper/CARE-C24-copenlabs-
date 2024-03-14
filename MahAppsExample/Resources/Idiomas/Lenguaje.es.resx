@@ -135,6 +135,9 @@
   <data name="btnAddImage" xml:space="preserve">
     <value>Agregar  Image </value>
   </data>
+  <data name="btnAnaReport" xml:space="preserve">
+    <value>REPORTE DEL ANALISIS</value>
+  </data>
   <data name="btnAutoSM" xml:space="preserve">
     <value>AUTOSIMIL</value>
   </data>
@@ -216,11 +219,17 @@
   <data name="btnReana" xml:space="preserve">
     <value>Re-analisis</value>
   </data>
+  <data name="btnReportP" xml:space="preserve">
+    <value>REPORTE DEL PACIENTE</value>
+  </data>
   <data name="btnRepTherap" xml:space="preserve">
     <value>REPORTE DE LA TERAPIA</value>
   </data>
   <data name="btnResume" xml:space="preserve">
     <value>RESUMEN</value>
+  </data>
+  <data name="btnReturn" xml:space="preserve">
+    <value>REGRESAR</value>
   </data>
   <data name="btnSaveEcs" xml:space="preserve">
     <value>GUARDAR ECS</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="date" xml:space="preserve">
     <value>Fecha</value>
+  </data>
+  <data name="headBA" xml:space="preserve">
+    <value>Antecedentes y Analisis</value>
   </data>
   <data name="headBroad" xml:space="preserve">
     <value>CONTROL DE EMISIONES</value>
@@ -303,11 +315,17 @@
   <data name="headPatho" xml:space="preserve">
     <value>Patológico</value>
   </data>
+  <data name="headPP" xml:space="preserve">
+    <value>Perfil del Paciente</value>
+  </data>
   <data name="headReana" xml:space="preserve">
     <value>Analisis  | Reanalisis </value>
   </data>
   <data name="headRecentListAna" xml:space="preserve">
     <value>LISTA DE LOS ANALISIS RECIENTES</value>
+  </data>
+  <data name="headRecordP" xml:space="preserve">
+    <value>Historial del Paciente</value>
   </data>
   <data name="headRemSearch" xml:space="preserve">
     <value>BUSCAR REMEDIO</value>
@@ -342,6 +360,9 @@
   <data name="itemUniversity" xml:space="preserve">
     <value>Universidad</value>
   </data>
+  <data name="labelAnalPerformed" xml:space="preserve">
+    <value>Analisis Realizados</value>
+  </data>
   <data name="labelAvenue" xml:space="preserve">
     <value>Avenida:</value>
   </data>
@@ -371,6 +392,9 @@
   </data>
   <data name="labelDescrip" xml:space="preserve">
     <value>Descripcion:</value>
+  </data>
+  <data name="labelEditP" xml:space="preserve">
+    <value>Editar  perfil del paciente </value>
   </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>Correo</value>
@@ -407,6 +431,9 @@
   </data>
   <data name="labelPhone" xml:space="preserve">
     <value>Telefono:</value>
+  </data>
+  <data name="labelPhones" xml:space="preserve">
+    <value>Telefonos</value>
   </data>
   <data name="labelPorts" xml:space="preserve">
     <value>PUERTOS:</value>
@@ -804,6 +831,9 @@
   <data name="returnTheRecent" xml:space="preserve">
     <value>VOLVER A TERAPIAS RECIENTES</value>
   </data>
+  <data name="schoolDegree" xml:space="preserve">
+    <value>Titulo Escolar:</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Buscar</value>
   </data>
@@ -867,8 +897,14 @@
   <data name="valAnimal" xml:space="preserve">
     <value>Animal</value>
   </data>
+  <data name="valBack" xml:space="preserve">
+    <value>Atras</value>
+  </data>
   <data name="valFemale" xml:space="preserve">
     <value>Femenino</value>
+  </data>
+  <data name="valFront" xml:space="preserve">
+    <value>Enfrente</value>
   </data>
   <data name="valMale" xml:space="preserve">
     <value>Masculino</value>
