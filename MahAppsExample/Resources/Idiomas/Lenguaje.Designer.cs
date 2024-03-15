@@ -61,6 +61,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anus.
+        /// </summary>
+        public static string Anus {
+            get {
+                return ResourceManager.GetString("Anus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AVAILABLE RATES.
         /// </summary>
         public static string availRates {
@@ -75,6 +84,15 @@ namespace HS5.Resources.Idiomas {
         public static string availSect {
             get {
                 return ResourceManager.GetString("availSect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
             }
         }
         
@@ -115,6 +133,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD RATES.
+        /// </summary>
+        public static string btnAddRates {
+            get {
+                return ResourceManager.GetString("btnAddRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ANALYSIS REPORT.
         /// </summary>
         public static string btnAnaReport {
@@ -151,11 +178,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CREATE REPORT.
+        /// </summary>
+        public static string btnCreatRep {
+            get {
+                return ResourceManager.GetString("btnCreatRep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DUPLICATE.
         /// </summary>
         public static string btnD {
             get {
                 return ResourceManager.GetString("btnD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE.
+        /// </summary>
+        public static string btnDelete {
+            get {
+                return ResourceManager.GetString("btnDelete", resourceCulture);
             }
         }
         
@@ -358,6 +403,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RANGE.
+        /// </summary>
+        public static string btnRange {
+            get {
+                return ResourceManager.GetString("btnRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reanalysis.
         /// </summary>
         public static string btnReana {
@@ -403,6 +457,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to START ANALYSIS.
+        /// </summary>
+        public static string btnSanalysis {
+            get {
+                return ResourceManager.GetString("btnSanalysis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SAVE AND CREATE A REMEDY.
+        /// </summary>
+        public static string btnSavCRemed {
+            get {
+                return ResourceManager.GetString("btnSavCRemed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SAVE TO ECS.
         /// </summary>
         public static string btnSaveEcs {
@@ -417,6 +489,15 @@ namespace HS5.Resources.Idiomas {
         public static string btnSaveEcsDB {
             get {
                 return ResourceManager.GetString("btnSaveEcsDB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SAVE.
+        /// </summary>
+        public static string btnSaveN {
+            get {
+                return ResourceManager.GetString("btnSaveN", resourceCulture);
             }
         }
         
@@ -448,6 +529,42 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SAVE AND RETURN .
+        /// </summary>
+        public static string btnSavRet {
+            get {
+                return ResourceManager.GetString("btnSavRet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SEND TO DEVICE.
+        /// </summary>
+        public static string btnSendD {
+            get {
+                return ResourceManager.GetString("btnSendD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SEND TO ECS CARD.
+        /// </summary>
+        public static string btnSendToEcs {
+            get {
+                return ResourceManager.GetString("btnSendToEcs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to START ANALYSING.
+        /// </summary>
+        public static string btnStartAna {
+            get {
+                return ResourceManager.GetString("btnStartAna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to USE.
         /// </summary>
         public static string btnUse {
@@ -466,11 +583,38 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Column.
+        /// </summary>
+        public static string Column {
+            get {
+                return ResourceManager.GetString("Column", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coxis.
+        /// </summary>
+        public static string Coxis {
+            get {
+                return ResourceManager.GetString("Coxis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DATE.
         /// </summary>
         public static string date {
             get {
                 return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Head.
+        /// </summary>
+        public static string Head {
+            get {
+                return ResourceManager.GetString("Head", resourceCulture);
             }
         }
         
@@ -547,7 +691,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to List of Records.
+        ///   Looks up a localized string similar to List of hereditaries.
         /// </summary>
         public static string headerListRecords {
             get {
@@ -606,6 +750,15 @@ namespace HS5.Resources.Idiomas {
         public static string headerTherapSearch {
             get {
                 return ResourceManager.GetString("headerTherapSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Historical.
+        /// </summary>
+        public static string headHis {
+            get {
+                return ResourceManager.GetString("headHis", resourceCulture);
             }
         }
         
@@ -669,6 +822,15 @@ namespace HS5.Resources.Idiomas {
         public static string headPP {
             get {
                 return ResourceManager.GetString("headPP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rates and Analysis.
+        /// </summary>
+        public static string headRatAn {
+            get {
+                return ResourceManager.GetString("headRatAn", resourceCulture);
             }
         }
         
@@ -898,7 +1060,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EDIT PATIENT PROFILE.
+        ///   Looks up a localized string similar to EDIT PATIENT&apos;S PROFILE.
         /// </summary>
         public static string labelEditP {
             get {
@@ -1024,6 +1186,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patient:.
+        /// </summary>
+        public static string labelPmin {
+            get {
+                return ResourceManager.GetString("labelPmin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PORTS:.
         /// </summary>
         public static string labelPorts {
@@ -1047,6 +1218,15 @@ namespace HS5.Resources.Idiomas {
         public static string labelRemedy {
             get {
                 return ResourceManager.GetString("labelRemedy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Results from medical devices:.
+        /// </summary>
+        public static string labelResultMD {
+            get {
+                return ResourceManager.GetString("labelResultMD", resourceCulture);
             }
         }
         
@@ -1123,6 +1303,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suffering:.
+        /// </summary>
+        public static string labelSuff {
+            get {
+                return ResourceManager.GetString("labelSuff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Therapy:.
         /// </summary>
         public static string labelTherap {
@@ -1164,6 +1353,177 @@ namespace HS5.Resources.Idiomas {
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Achilles Heel.
+        /// </summary>
+        public static string Left_Achilles_heel {
+            get {
+                return ResourceManager.GetString("Left-Achilles heel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Ankle.
+        /// </summary>
+        public static string Left_Ankle {
+            get {
+                return ResourceManager.GetString("Left-Ankle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Arm.
+        /// </summary>
+        public static string Left_Arm {
+            get {
+                return ResourceManager.GetString("Left-Arm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Buttock.
+        /// </summary>
+        public static string Left_Buttock {
+            get {
+                return ResourceManager.GetString("Left-Buttock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Calf.
+        /// </summary>
+        public static string Left_Calf {
+            get {
+                return ResourceManager.GetString("Left-Calf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Clavicle.
+        /// </summary>
+        public static string Left_Clavicle {
+            get {
+                return ResourceManager.GetString("Left-Clavicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Elbow.
+        /// </summary>
+        public static string Left_Elbow {
+            get {
+                return ResourceManager.GetString("Left-Elbow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Fingers.
+        /// </summary>
+        public static string Left_Fingers {
+            get {
+                return ResourceManager.GetString("Left-Fingers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Foot.
+        /// </summary>
+        public static string Left_Foot {
+            get {
+                return ResourceManager.GetString("Left-Foot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Forearm.
+        /// </summary>
+        public static string Left_Forearm {
+            get {
+                return ResourceManager.GetString("Left-Forearm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Hand.
+        /// </summary>
+        public static string Left_Hand {
+            get {
+                return ResourceManager.GetString("Left-Hand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Heel.
+        /// </summary>
+        public static string Left_Heel {
+            get {
+                return ResourceManager.GetString("Left-Heel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Hip.
+        /// </summary>
+        public static string Left_Hip {
+            get {
+                return ResourceManager.GetString("Left-Hip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Leg.
+        /// </summary>
+        public static string Left_Leg {
+            get {
+                return ResourceManager.GetString("Left-Leg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Phalanges.
+        /// </summary>
+        public static string Left_Phalanges {
+            get {
+                return ResourceManager.GetString("Left-Phalanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Shoulder.
+        /// </summary>
+        public static string Left_Shoulder {
+            get {
+                return ResourceManager.GetString("Left-Shoulder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Thigh.
+        /// </summary>
+        public static string Left_Thigh {
+            get {
+                return ResourceManager.GetString("Left-Thigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Thumb.
+        /// </summary>
+        public static string Left_Thumb {
+            get {
+                return ResourceManager.GetString("Left-Thumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Wrist.
+        /// </summary>
+        public static string Left_Wrist {
+            get {
+                return ResourceManager.GetString("Left-Wrist", resourceCulture);
             }
         }
         
@@ -2140,7 +2500,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name of the Analysis:.
+        ///   Looks up a localized string similar to Name of the   Analysis:.
         /// </summary>
         public static string nameAnalysis {
             get {
@@ -2154,6 +2514,15 @@ namespace HS5.Resources.Idiomas {
         public static string NavItem {
             get {
                 return ResourceManager.GetString("NavItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neck.
+        /// </summary>
+        public static string Neck {
+            get {
+                return ResourceManager.GetString("Neck", resourceCulture);
             }
         }
         
@@ -2208,6 +2577,177 @@ namespace HS5.Resources.Idiomas {
         public static string returnTheRecent {
             get {
                 return ResourceManager.GetString("returnTheRecent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Achilles Heel.
+        /// </summary>
+        public static string Right_Achilles_heel {
+            get {
+                return ResourceManager.GetString("Right-Achilles heel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Ankle.
+        /// </summary>
+        public static string Right_Ankle {
+            get {
+                return ResourceManager.GetString("Right-Ankle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Arm.
+        /// </summary>
+        public static string Right_Arm {
+            get {
+                return ResourceManager.GetString("Right-Arm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Buttock.
+        /// </summary>
+        public static string Right_Buttock {
+            get {
+                return ResourceManager.GetString("Right-Buttock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Calf.
+        /// </summary>
+        public static string Right_Calf {
+            get {
+                return ResourceManager.GetString("Right-Calf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Clavicle.
+        /// </summary>
+        public static string Right_Clavicle {
+            get {
+                return ResourceManager.GetString("Right-Clavicle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Elbow.
+        /// </summary>
+        public static string Right_Elbow {
+            get {
+                return ResourceManager.GetString("Right-Elbow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Fingers.
+        /// </summary>
+        public static string Right_Fingers {
+            get {
+                return ResourceManager.GetString("Right-Fingers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Foot.
+        /// </summary>
+        public static string Right_Foot {
+            get {
+                return ResourceManager.GetString("Right-Foot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Forearm.
+        /// </summary>
+        public static string Right_Forearm {
+            get {
+                return ResourceManager.GetString("Right-Forearm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Hand.
+        /// </summary>
+        public static string Right_Hand {
+            get {
+                return ResourceManager.GetString("Right-Hand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Heel.
+        /// </summary>
+        public static string Right_Heel {
+            get {
+                return ResourceManager.GetString("Right-Heel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Hip.
+        /// </summary>
+        public static string Right_Hip {
+            get {
+                return ResourceManager.GetString("Right-Hip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Leg.
+        /// </summary>
+        public static string Right_Leg {
+            get {
+                return ResourceManager.GetString("Right-Leg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Phalanges.
+        /// </summary>
+        public static string Right_Phalanges {
+            get {
+                return ResourceManager.GetString("Right-Phalanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Shoulder.
+        /// </summary>
+        public static string Right_Shoulder {
+            get {
+                return ResourceManager.GetString("Right-Shoulder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Thigh.
+        /// </summary>
+        public static string Right_Thigh {
+            get {
+                return ResourceManager.GetString("Right-Thigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Thumb.
+        /// </summary>
+        public static string Right_Thumb {
+            get {
+                return ResourceManager.GetString("Right-Thumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Wrist.
+        /// </summary>
+        public static string Right_Wrist {
+            get {
+                return ResourceManager.GetString("Right-Wrist", resourceCulture);
             }
         }
         
@@ -2280,6 +2820,15 @@ namespace HS5.Resources.Idiomas {
         public static string tableLevel {
             get {
                 return ResourceManager.GetString("tableLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Levels.
+        /// </summary>
+        public static string tableLevels {
+            get {
+                return ResourceManager.GetString("tableLevels", resourceCulture);
             }
         }
         
@@ -2383,6 +2932,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to S.Levels.
+        /// </summary>
+        public static string tableSlevels {
+            get {
+                return ResourceManager.GetString("tableSlevels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to START DATE.
         /// </summary>
         public static string tableStartDate {
@@ -2397,6 +2955,15 @@ namespace HS5.Resources.Idiomas {
         public static string tableTreat {
             get {
                 return ResourceManager.GetString("tableTreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string tableValue {
+            get {
+                return ResourceManager.GetString("tableValue", resourceCulture);
             }
         }
         
@@ -2437,6 +3004,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string valLev {
+            get {
+                return ResourceManager.GetString("valLev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Male.
         /// </summary>
         public static string valMale {
@@ -2451,6 +3027,51 @@ namespace HS5.Resources.Idiomas {
         public static string valPlant {
             get {
                 return ResourceManager.GetString("valPlant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polarity.
+        /// </summary>
+        public static string valPolat {
+            get {
+                return ResourceManager.GetString("valPolat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Porcentage.
+        /// </summary>
+        public static string valPorcent {
+            get {
+                return ResourceManager.GetString("valPorcent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Probability.
+        /// </summary>
+        public static string valProba {
+            get {
+                return ResourceManager.GetString("valProba", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pronuntiation.
+        /// </summary>
+        public static string valPronun {
+            get {
+                return ResourceManager.GetString("valPronun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suggest Level.
+        /// </summary>
+        public static string valSuggLev {
+            get {
+                return ResourceManager.GetString("valSuggLev", resourceCulture);
             }
         }
     }

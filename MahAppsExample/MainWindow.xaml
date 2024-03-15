@@ -775,11 +775,11 @@
                     <Grid Margin="-1,0,1,-7" >
                         <Border x:Name="ventana1" Visibility="Visible" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="141" Margin="27,57,0,0" VerticalAlignment="Top" Width="358" Background="#CCF7F7F7"/>
 
-                        <Label x:Name="lblPacienteAnalisis1" Visibility="Hidden" Content="Patient:" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Label x:Name="lblPacienteAnalisis_P1" Visibility="Hidden" Content="------------" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="325"/>
-                        <Label x:Name="lblNombreAnalisis1" Visibility="Hidden" Content="Analysis Name:" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Label x:Name="lblPacienteAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Label x:Name="lblPacienteAnalisis_P1" Visibility="Hidden" Content="------------" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="325"/>
+                        <Label x:Name="lblNombreAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="49,10,0,10" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                         <Label x:Name="lblNombre_Anal1" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="179,67,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="330"/>
-                        <Label x:Name="lblFechaAnalisis2" Visibility="Hidden" Content="Date:" HorizontalAlignment="Left" Margin="50,38,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Label x:Name="lblFechaAnalisis2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="50,38,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                         <Label x:Name="lblFechaAnalisis3" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="177,38,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="323"/>
                         <Button x:Name="cmdGuardarDiagnostico" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="527,26,0,0" VerticalAlignment="Top" Width="169" Click="cmdGuardarDiagnostico_Click">
                             <StackPanel Orientation="Horizontal">
@@ -790,22 +790,22 @@
                         <Button x:Name="cmdListaDiagnos" Visibility="Hidden" Background="#FF3CB3DF" HorizontalAlignment="Left" Height="39" Margin="527,27,0,0" VerticalAlignment="Top" Width="174" Click="cmdListaDiagnos_Click">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowLeft" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE AND RETURN" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavRet}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Left" Height="548" Margin="25,116,-6.4,0" VerticalAlignment="Top" Width="1475">
-                            <TabItem Header="Rates and Analysis">
+                        <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Left" Height="548" Margin="50,116,-6.4,0" VerticalAlignment="Top" Width="1475">
+                            <TabItem Header="{x:Static local:Lenguaje.headRatAn}">
                                 <Grid Background="#FFF7F7F7" Margin="-18,0,-22.4,-58.8">
                                     <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
-                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Header="Analysis" HorizontalAlignment="Left" Margin="101,28,0,0" VerticalAlignment="Top" Height="192" Width="519"/>
-                                    <RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="Probability" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>
-                                    <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="Percentage" HorizontalAlignment="Left" Margin="457,80,0,0" VerticalAlignment="Top" Width="97" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
+                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="101,28,0,0" VerticalAlignment="Top" Height="192" Width="519"/>
+                                    <RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>
+                                    <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="457,80,0,0" VerticalAlignment="Top" Width="97" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
                                     <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="161,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="option100_Checked"/>
-                                    <RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="Polarity" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>
-                                    <RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="Pronunciation" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>
-                                    <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="Suggest Levels" HorizontalAlignment="Left" Margin="424,122,0,0" VerticalAlignment="Top" Width="117"/>
+                                    <RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPolat}" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>
+                                    <RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>
+                                    <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="424,122,0,0" VerticalAlignment="Top" Width="117"/>
                                     <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="238,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
-                                    <Label x:Name="nivellabel" Content="Level" Visibility="Hidden" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+                                    <Label x:Name="nivellabel" Content="{x:Static local:Lenguaje.valLev}" Visibility="Hidden" HorizontalAlignment="Left" Margin="254,165,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
                                     <ComboBox x:Name="comboNiveles" Visibility="Hidden" HorizontalAlignment="Left" Margin="300,166,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboNiveles_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -827,55 +827,55 @@
                                     <Button x:Name="cmdIniciarDiag" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdIniciarDiag_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowRight" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" START ANALYZING" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnStartAna}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdAgregarCodigos" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="372,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdAgregarCodigos_Click" RenderTransformOrigin="0.528,0.014">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerAdd" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ADD RATES" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAddRates}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdHacerRemedios" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdHacerRemedios_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Potion" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE AND CREATE A REMEDY" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavCRemed}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdGuardarTarjeta" Background="#FF3CB3DF" IsEnabled="false" Visibility="Hidden" HorizontalAlignment="Left" Margin="372,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdGuardarTarjeta_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SEND TO ECS CARD" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendToEcs}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdEnviarFrecuencia" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,397,0,0" VerticalAlignment="Top" Width="219" Height="56" RenderTransformOrigin="0.168,1.803" Click="cmdEnviarFrecuencia_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="CameraSend" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SEND TO DEVICE" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendD}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdDocumento" Background="#FF3CB3DF"  IsEnabled="false" Visibility="Hidden" ToolTip="Create an Analysis Report"  HorizontalAlignment="Left" Margin="373,397,0,0" VerticalAlignment="Top" Width="218" Height="56" Click="GenerarDocumento">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" CREATE REPORT" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCreatRep}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdProcesarAnalisis" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="810,25,0,0" VerticalAlignment="Top" Width="136" Height="30" Click="cmdProcesarAnalisis_Click" ToolTip="Start Processing the Analysis">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="15" Height="15" Kind="CameraFlash" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" START ANALYSIS" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSanalysis}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdBorrar" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="977,25,0,0" VerticalAlignment="Top" Width="114" Height="30" Click="cmdBorrar_Click" ToolTip="Delete one or multiple rates added">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="15" Height="15" Kind="Close" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" DELETE" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelete}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdRango" Background="#FF3CB3DF" IsEnabled="False" HorizontalAlignment="Left" Margin="1122,25,0,0" VerticalAlignment="Top" Width="112" Height="30" Click="cmdRango_Click" RenderTransformOrigin="0.821,0.617">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="15" Height="15" Kind="Console" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" RANGE" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRange}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdEliminarCodigosNoSensados" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="137,470,0,0" VerticalAlignment="Top" Width="454" Height="56" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click">
@@ -887,18 +887,18 @@
                                     <ListView x:Name="ListaCodigos" HorizontalAlignment="Left" Margin="733,80,0,33" Width="725" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" >
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Rate" DisplayMemberBinding="{Binding rates}" Width="130px"/>
-                                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding nombre}" Width="170px"/>
-                                                <GridViewColumn Header="Value" DisplayMemberBinding="{Binding ftester}" Width="60px"/>
-                                                <GridViewColumn Header="Levels" DisplayMemberBinding="{Binding niveles}" Width="100px"/>
-                                                <GridViewColumn Header="S.Levels" DisplayMemberBinding="{Binding nsugerido}" Width="100px"/>
+                                                <GridViewColumn Header="{x:Static local:Lenguaje.tableRate}" DisplayMemberBinding="{Binding rates}" Width="130px"/>
+                                                <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombre}" Width="170px"/>
+                                                <GridViewColumn Header="{x:Static local:Lenguaje.tableValue}" DisplayMemberBinding="{Binding ftester}" Width="60px"/>
+                                                <GridViewColumn Header="{x:Static local:Lenguaje.tableLevels}" DisplayMemberBinding="{Binding niveles}" Width="100px"/>
+                                                <GridViewColumn Header="{x:Static local:Lenguaje.tableSlevels}" DisplayMemberBinding="{Binding nsugerido}" Width="100px"/>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
                                     <ListBox x:Name="listadoCategorias" Visibility="Visible" HorizontalAlignment="Left" Height="253" Margin="21,50,0,0" VerticalAlignment="Top" Width="346" BorderBrush="Silver" BorderThickness="1" SelectionChanged="listadoCategorias_SelectionChanged" MouseDoubleClick="listadoCategorias_MouseDoubleClick" MouseRightButtonDown="listadoCategorias_MouseRightButtonDown" FontSize="14"/>
                                     <ListBox x:Name="listadoSubcategorias" Visibility="Visible" HorizontalAlignment="Left" Height="181" Margin="23,350,0,0" VerticalAlignment="Top" Width="344" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoSubcategorias_MouseDoubleClick" FontSize="14" SelectionChanged="listadoSubcategorias_SelectionChanged_1"/>
                                     <ListBox x:Name="listadoCodigos" Visibility="Visible" HorizontalAlignment="Left" Height="481" Margin="385,50,0,0" VerticalAlignment="Top" Width="335" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" />
-                                    <Label x:Name="lblCategorias" Visibility="Visible" Content="Categories" HorizontalAlignment="Left" Margin="26,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblCategorias" Visibility="Visible" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="26,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblSubCategorias" Visibility="Visible" Content="Sub-Categories" HorizontalAlignment="Left" Margin="27,319,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblCodigoBuscar" Visibility="Visible" Content="Search Rate:" HorizontalAlignment="Left" Margin="313,17,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <TextBox x:Name="txtCodigoBuscar" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="398,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
@@ -918,12 +918,12 @@
                                     <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="file://C:\Users\Raul Zavala\Desktop\Homoeonic Software\MahAppsExample\img\analisis-mujer.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
 
                                     <ProgressBar Visibility="Hidden" IsEnabled="True" x:Name="progreso1" IsIndeterminate="True" HorizontalAlignment="Left" Margin="740,533,0,0" VerticalAlignment="Top" Width="534" Height="18"/>
-                                    <Label x:Name="lblContador" Content="Rates Included:" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblOrdenar" Content="Order by:" Visibility="Visible" HorizontalAlignment="Left" Margin="1303,34,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblOrdenar" Content="{x:Static local:Lenguaje.labelOrder}" Visibility="Visible" HorizontalAlignment="Left" Margin="1303,34,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <ComboBox x:Name="comboOrdenarTipos" Visibility="Visible" HorizontalAlignment="Left" Margin="1374,34,0,0" VerticalAlignment="Top" Width="107" IsReadOnly="True" SelectionChanged="comboOrdenarTipos_SelectionChanged">
-                                        <ComboBoxItem Content="NAME"/>
-                                        <ComboBoxItem Content="VALUE"/>
+                                        <ComboBoxItem Content="{x:Static local:Lenguaje.tableName}"/>
+                                        <ComboBoxItem Content="{x:Static local:Lenguaje.tableValue}"/>
                                     </ComboBox>
                                 </Grid>
                             </TabItem>
@@ -956,15 +956,15 @@
                                     </Button>
                                 </Grid>
                             </TabItem>
-                            <TabItem Header="Historical">
+                            <TabItem Header="{x:Static local:Lenguaje.headHis}">
                                 <Grid Background="#FFF7F7F7" Margin="0,0,-0.4,-18.8">
-                                    <Label x:Name="lblPadecimiento" Content="Suffering:" HorizontalAlignment="Left" Margin="33,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                                    <Label x:Name="lblPadecimiento" Content="{x:Static local:Lenguaje.labelSuff}" HorizontalAlignment="Left" Margin="33,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                                     <TextBox x:Name="txtPadecimiento" HorizontalAlignment="Left" Height="135" Margin="37,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="937" FontSize="14">
                                         <TextBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                         </TextBox.Effect>
                                     </TextBox>
-                                    <Label x:Name="lblInterragotorio" Content="Results from medical devices:" HorizontalAlignment="Left" Margin="37,221,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                                    <Label x:Name="lblInterragotorio" Content="{x:Static local:Lenguaje.labelResultMD}" HorizontalAlignment="Left" Margin="37,221,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                                     <TextBox x:Name="txtInterrogatorio" HorizontalAlignment="Left" Height="135" Margin="37,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="937" FontSize="14">
                                         <TextBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -973,7 +973,7 @@
                                     <Button x:Name="cmdGuardarPadec" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Height="48" Margin="37,410,0,0" VerticalAlignment="Top" Width="202" Click="GuardarPadecimiento">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveN}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                 </Grid>
@@ -1047,7 +1047,7 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="38,532,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="40,532,0,0"  VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBox x:Name="cmdAnalisisPaciente_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="41,558,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>

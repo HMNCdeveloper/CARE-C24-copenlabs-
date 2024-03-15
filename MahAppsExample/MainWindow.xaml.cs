@@ -197,7 +197,7 @@ namespace MahAppsExample
             string programa = Environment.GetCommandLineArgs()[0];
             string directorio = System.IO.Path.GetDirectoryName(programa);
 
-            MessageBox.Show(programa);
+            //MessageBox.Show(programa);
             return directorio;
         }
 
@@ -1048,9 +1048,9 @@ namespace MahAppsExample
                     MessageBox.Show(obtenerRecurso("messageWarning14"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     //Al final de modificar
-                    cmdGuardarPaciente.Content = "Register New Patient";
-                    PacienteGroup.Header = "Register New Patient";
-                    cmdGuardarPaciente.ToolTip = "Register New Patient";
+                    cmdGuardarPaciente.Content = obtenerRecurso("btnSaveP");
+                    PacienteGroup.Header = obtenerRecurso("HeaderRP");
+                    cmdGuardarPaciente.ToolTip = obtenerRecurso("HeaderRP");
                     SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(60, 179, 223));
                     PacienteGroup.Background = brush;
                     tabControl.Foreground = brush;
@@ -4490,8 +4490,8 @@ namespace MahAppsExample
                 }
 
                 //Cambiar el nombre header paciente registro
-                PacienteGroup.Header = "Edit Patient's Profile";
-                cmdGuardarPaciente.Content = "Save Patient Profile";
+                PacienteGroup.Header = obtenerRecurso("labelEditP");
+                cmdGuardarPaciente.Content = obtenerRecurso("brnSC");
                 //cmdGuardarPaciente.ToolTip = "Modificar el registro del paciente";
                 SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(105, 185, 126));
                 PacienteGroup.Background = brush;
@@ -7585,53 +7585,104 @@ namespace MahAppsExample
                 brush.ImageSource = neww;
                 canvas.Background = brush;
                 listaSecciones.Items.Clear();
-
                 Reset_images();
 
-                listaSecciones.Items.Add("Anus");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Head");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Right-Trapezius");
-                listaSecciones.Items.Add("Left-Trapezius");
-                listaSecciones.Items.Add("Right-Elbow");
-                listaSecciones.Items.Add("Left-Elbow");
-                listaSecciones.Items.Add("Column");
-                listaSecciones.Items.Add("Neck");
-                listaSecciones.Items.Add("Right-Fingers");
-                listaSecciones.Items.Add("Left-Fingers");
-                listaSecciones.Items.Add("Back");
-                listaSecciones.Items.Add("Right-Phalanges");
-                listaSecciones.Items.Add("Left-Phalanges");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Wrist");
-                listaSecciones.Items.Add("Left-Wrist");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Right-Buttock");
-                listaSecciones.Items.Add("Left-Buttock");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Pelvis");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Left-Heel");
-                listaSecciones.Items.Add("Right-Heel");
-                listaSecciones.Items.Add("Right-Achilles heel");
-                listaSecciones.Items.Add("Left-Achilles heel");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
+                string[] parts_body = {
+                            "Anus",
+                            "Right-Forearm",
+                            "Left-Forearm",
+                            "Right-Arm",
+                            "Left-Arm",
+                            "Head",
+                            "Right-Hip",
+                            "Left-Hip",
+                            "Right-Clavicle",
+                            "Left-Clavicle",
+                            "Right-Elbow",
+                            "Left-Elbow",
+                            "Column",
+                            "Coxis",
+                            "Neck",
+                            "Right-Fingers",
+                            "Left-Fingers",
+                            "Back",
+                            "Right-Phalanges",
+                            "Left-Phalanges",
+                            "Right-Shoulder",
+                            "Left-Shoulder",
+                            "Right-Hand",
+                            "Left-Hand",
+                            "Right-Wrist",
+                            "Left-Wrist",
+                            "Right-Thigh",
+                            "Left-Thigh",
+                            "Right-Buttock",
+                            "Left-Buttock",
+                            "Right-Calf",
+                            "Left-Calf",
+                            "Right-Foot",
+                            "Left-Foot",
+                            "Right-Leg",
+                            "Left-Leg",
+                            "Right-Thumb",
+                            "Left-Thumb",
+                            "Left-Heel",
+                            "Right-Heel",
+                            "Right-Achilles heel",
+                            "Left-Achilles heel",
+                            "Right-Ankle",
+                            "Left-Ankle"
+                          };
+
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+
+                //listaSecciones.Items.Add("Anus");
+                //listaSecciones.Items.Add("Right-Forearm");
+                //listaSecciones.Items.Add("Left-Forearm");
+                //listaSecciones.Items.Add("Right-Arm");
+                //listaSecciones.Items.Add("Left-Arm");
+                //listaSecciones.Items.Add("Head");
+                //listaSecciones.Items.Add("Right-Hip");
+                //listaSecciones.Items.Add("Left-Hip");
+                //listaSecciones.Items.Add("Right-Trapezius");
+                //listaSecciones.Items.Add("Left-Trapezius");
+                //listaSecciones.Items.Add("Right-Elbow");
+                //listaSecciones.Items.Add("Left-Elbow");
+                //listaSecciones.Items.Add("Column");
+                //listaSecciones.Items.Add("Neck");
+                //listaSecciones.Items.Add("Right-Fingers");
+                //listaSecciones.Items.Add("Left-Fingers");
+                //listaSecciones.Items.Add("Back");
+                //listaSecciones.Items.Add("Right-Phalanges");
+                //listaSecciones.Items.Add("Left-Phalanges");
+                //listaSecciones.Items.Add("Right-Shoulder");
+                //listaSecciones.Items.Add("Left-Shoulder");
+                //listaSecciones.Items.Add("Right-Hand");
+                //listaSecciones.Items.Add("Left-Hand");
+                //listaSecciones.Items.Add("Right-Wrist");
+                //listaSecciones.Items.Add("Left-Wrist");
+                //listaSecciones.Items.Add("Right-Thigh");
+                //listaSecciones.Items.Add("Left-Thigh");
+                //listaSecciones.Items.Add("Right-Buttock");
+                //listaSecciones.Items.Add("Left-Buttock");
+                //listaSecciones.Items.Add("Right-Ear");
+                //listaSecciones.Items.Add("Left-Ear");
+                //listaSecciones.Items.Add("Right-Calf");
+                //listaSecciones.Items.Add("Left-Calf");
+                //listaSecciones.Items.Add("Right-Foot");
+                //listaSecciones.Items.Add("Left-Foot");
+                //listaSecciones.Items.Add("Pelvis");
+                //listaSecciones.Items.Add("Right-Thumb");
+                //listaSecciones.Items.Add("Left-Thumb");
+                //listaSecciones.Items.Add("Left-Heel");
+                //listaSecciones.Items.Add("Right-Heel");
+                //listaSecciones.Items.Add("Right-Achilles heel");
+                //listaSecciones.Items.Add("Left-Achilles heel");
+                //listaSecciones.Items.Add("Right-Ankle");
+                //listaSecciones.Items.Add("Left-Ankle");
 
             }
 
@@ -7719,53 +7770,103 @@ namespace MahAppsExample
                 canvas.Background = brush;
 
                 listaSecciones.Items.Clear();
-
                 Reset_images();
+                string[] parts_body = {
+                            "Anus",
+                            "Right-Forearm",
+                            "Left-Forearm",
+                            "Right-Arm",
+                            "Left-Arm",
+                            "Head",
+                            "Right-Hip",
+                            "Left-Hip",
+                            "Right-Clavicle",
+                            "Left-Clavicle",
+                            "Right-Elbow",
+                            "Left-Elbow",
+                            "Column",
+                            "Coxis",
+                            "Neck",
+                            "Right-Fingers",
+                            "Left-Fingers",
+                            "Back",
+                            "Right-Phalanges",
+                            "Left-Phalanges",
+                            "Right-Shoulder",
+                            "Left-Shoulder",
+                            "Right-Hand",
+                            "Left-Hand",
+                            "Right-Wrist",
+                            "Left-Wrist",
+                            "Right-Thigh",
+                            "Left-Thigh",
+                            "Right-Buttock",
+                            "Left-Buttock",
+                            "Right-Calf",
+                            "Left-Calf",
+                            "Right-Foot",
+                            "Left-Foot",
+                            "Right-Leg",
+                            "Left-Leg",
+                            "Right-Thumb",
+                            "Left-Thumb",
+                            "Left-Heel",
+                            "Right-Heel",
+                            "Right-Achilles heel",
+                            "Left-Achilles heel",
+                            "Right-Ankle",
+                            "Left-Ankle"
+                          };
 
-                listaSecciones.Items.Add("Anus");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Head");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Elbow");
-                listaSecciones.Items.Add("Left-Elbow");
-                listaSecciones.Items.Add("Column");
-                listaSecciones.Items.Add("Coxis");
-                listaSecciones.Items.Add("Neck");
-                listaSecciones.Items.Add("Right-Fingers");
-                listaSecciones.Items.Add("Left-Fingers");
-                listaSecciones.Items.Add("Back");
-                listaSecciones.Items.Add("Right-Phalanges");
-                listaSecciones.Items.Add("Left-Phalanges");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Wrist");
-                listaSecciones.Items.Add("Left-Wrist");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Right-Buttock");
-                listaSecciones.Items.Add("Left-Buttock");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Leg");
-                listaSecciones.Items.Add("Left-Leg");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Left-Heel");
-                listaSecciones.Items.Add("Right-Heel");
-                listaSecciones.Items.Add("Right-Achilles heel");
-                listaSecciones.Items.Add("Left-Achilles heel");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+
+                //listaSecciones.Items.Add("Anus");
+                //listaSecciones.Items.Add("Right-Forearm");
+                //listaSecciones.Items.Add("Left-Forearm");
+                //listaSecciones.Items.Add("Right-Arm");
+                //listaSecciones.Items.Add("Left-Arm");
+                //listaSecciones.Items.Add("Head");
+                //listaSecciones.Items.Add("Right-Hip");
+                //listaSecciones.Items.Add("Left-Hip");
+                //listaSecciones.Items.Add("Right-Clavicle");
+                //listaSecciones.Items.Add("Left-Clavicle");
+                //listaSecciones.Items.Add("Right-Elbow");
+                //listaSecciones.Items.Add("Left-Elbow");
+                //listaSecciones.Items.Add("Column");
+                //listaSecciones.Items.Add("Coxis");
+                //listaSecciones.Items.Add("Neck");
+                //listaSecciones.Items.Add("Right-Fingers");
+                //listaSecciones.Items.Add("Left-Fingers");
+                //listaSecciones.Items.Add("Back");
+                //listaSecciones.Items.Add("Right-Phalanges");
+                //listaSecciones.Items.Add("Left-Phalanges");
+                //listaSecciones.Items.Add("Right-Shoulder");
+                //listaSecciones.Items.Add("Left-Shoulder");
+                //listaSecciones.Items.Add("Right-Hand");
+                //listaSecciones.Items.Add("Left-Hand");
+                //listaSecciones.Items.Add("Right-Wrist");
+                //listaSecciones.Items.Add("Left-Wrist");
+                //listaSecciones.Items.Add("Right-Thigh");
+                //listaSecciones.Items.Add("Left-Thigh");
+                //listaSecciones.Items.Add("Right-Buttock");
+                //listaSecciones.Items.Add("Left-Buttock");
+                //listaSecciones.Items.Add("Right-Calf");
+                //listaSecciones.Items.Add("Left-Calf");
+                //listaSecciones.Items.Add("Right-Foot");
+                //listaSecciones.Items.Add("Left-Foot");
+                //listaSecciones.Items.Add("Right-Leg");
+                //listaSecciones.Items.Add("Left-Leg");
+                //listaSecciones.Items.Add("Right-Thumb");
+                //listaSecciones.Items.Add("Left-Thumb");
+                //listaSecciones.Items.Add("Left-Heel");
+                //listaSecciones.Items.Add("Right-Heel");
+                //listaSecciones.Items.Add("Right-Achilles heel");
+                //listaSecciones.Items.Add("Left-Achilles heel");
+                //listaSecciones.Items.Add("Right-Ankle");
+                //listaSecciones.Items.Add("Left-Ankle");
             }
 
         }
@@ -7851,54 +7952,59 @@ namespace MahAppsExample
                 brush.ImageSource = neww;
                 canvas.Background = brush;
                 listaSecciones.Items.Clear();
-
                 Reset_images();
-
-                listaSecciones.Items.Add("Anus");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Head");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Right-Trapezius");
-                listaSecciones.Items.Add("Left-Trapezius");
-                listaSecciones.Items.Add("Right-Elbow");
-                listaSecciones.Items.Add("Left-Elbow");
-                listaSecciones.Items.Add("Column");
-                listaSecciones.Items.Add("Neck");
-                listaSecciones.Items.Add("Right-Fingers");
-                listaSecciones.Items.Add("Left-Fingers");
-                listaSecciones.Items.Add("Back");
-                listaSecciones.Items.Add("Right-Phalanges");
-                listaSecciones.Items.Add("Left-Phalanges");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Wrist");
-                listaSecciones.Items.Add("Left-Wrist");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Right-Buttock");
-                listaSecciones.Items.Add("Left-Buttock");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Pelvis");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Left-Heel");
-                listaSecciones.Items.Add("Right-Heel");
-                listaSecciones.Items.Add("Right-Achilles heel");
-                listaSecciones.Items.Add("Left-Achilles heel");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
-
+                string[] parts_body = {
+                            "Anus",
+                            "Right-Forearm",
+                            "Left-Forearm",
+                            "Right-Arm",
+                            "Left-Arm",
+                            "Head",
+                            "Right-Hip",
+                            "Left-Hip",
+                            "Right-Clavicle",
+                            "Left-Clavicle",
+                            "Right-Elbow",
+                            "Left-Elbow",
+                            "Column",
+                            "Coxis",
+                            "Neck",
+                            "Right-Fingers",
+                            "Left-Fingers",
+                            "Back",
+                            "Right-Phalanges",
+                            "Left-Phalanges",
+                            "Right-Shoulder",
+                            "Left-Shoulder",
+                            "Right-Hand",
+                            "Left-Hand",
+                            "Right-Wrist",
+                            "Left-Wrist",
+                            "Right-Thigh",
+                            "Left-Thigh",
+                            "Right-Buttock",
+                            "Left-Buttock",
+                            "Right-Calf",
+                            "Left-Calf",
+                            "Right-Foot",
+                            "Left-Foot",
+                            "Right-Leg",
+                            "Left-Leg",
+                            "Right-Thumb",
+                            "Left-Thumb",
+                            "Left-Heel",
+                            "Right-Heel",
+                            "Right-Achilles heel",
+                            "Left-Achilles heel",
+                            "Right-Ankle",
+                            "Left-Ankle"
+                          };
+                foreach (var item in parts_body)
+                {
+                    Console.WriteLine(item);
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+               
             }
 
             //Sexo Femenino
@@ -7983,55 +8089,59 @@ namespace MahAppsExample
                 BitmapImage neww = ToBitmapImage(HS5.Properties.Resources.Fback_500);
                 brush.ImageSource = neww;
                 canvas.Background = brush;
-
                 listaSecciones.Items.Clear();
-
                 Reset_images();
+                string[] parts_body = {
+                            "Anus",
+                            "Right-Forearm",
+                            "Left-Forearm",
+                            "Right-Arm",
+                            "Left-Arm",
+                            "Head",
+                            "Right-Hip",
+                            "Left-Hip",
+                            "Right-Clavicle",
+                            "Left-Clavicle",
+                            "Right-Elbow",
+                            "Left-Elbow",
+                            "Column",
+                            "Coxis",
+                            "Neck",
+                            "Right-Fingers",
+                            "Left-Fingers",
+                            "Back",
+                            "Right-Phalanges",
+                            "Left-Phalanges",
+                            "Right-Shoulder",
+                            "Left-Shoulder",
+                            "Right-Hand",
+                            "Left-Hand",
+                            "Right-Wrist",
+                            "Left-Wrist",
+                            "Right-Thigh",
+                            "Left-Thigh",
+                            "Right-Buttock",
+                            "Left-Buttock",
+                            "Right-Calf",
+                            "Left-Calf",
+                            "Right-Foot",
+                            "Left-Foot",
+                            "Right-Leg",
+                            "Left-Leg",
+                            "Right-Thumb",
+                            "Left-Thumb",
+                            "Left-Heel",
+                            "Right-Heel",
+                            "Right-Achilles heel",
+                            "Left-Achilles heel",
+                            "Right-Ankle",
+                            "Left-Ankle"
+                          };
 
-                listaSecciones.Items.Add("Anus");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Head");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Elbow");
-                listaSecciones.Items.Add("Left-Elbow");
-                listaSecciones.Items.Add("Column");
-                listaSecciones.Items.Add("Coxis");
-                listaSecciones.Items.Add("Neck");
-                listaSecciones.Items.Add("Right-Fingers");
-                listaSecciones.Items.Add("Left-Fingers");
-                listaSecciones.Items.Add("Back");
-                listaSecciones.Items.Add("Right-Phalanges");
-                listaSecciones.Items.Add("Left-Phalanges");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Wrist");
-                listaSecciones.Items.Add("Left-Wrist");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Right-Buttock");
-                listaSecciones.Items.Add("Left-Buttock");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Leg");
-                listaSecciones.Items.Add("Left-Leg");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Left-Heel");
-                listaSecciones.Items.Add("Right-Heel");
-                listaSecciones.Items.Add("Right-Achilles heel");
-                listaSecciones.Items.Add("Left-Achilles heel");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
             }
         }
 

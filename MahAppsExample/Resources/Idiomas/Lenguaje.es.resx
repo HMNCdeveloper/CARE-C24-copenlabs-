@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Anus" xml:space="preserve">
+    <value>Ano</value>
+  </data>
   <data name="availRates" xml:space="preserve">
     <value>TIPOS  DISPONIBLES</value>
   </data>
   <data name="availSect" xml:space="preserve">
     <value>Secciones disponibles:</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Espalda</value>
   </data>
   <data name="brnEraseRate" xml:space="preserve">
     <value>BORRAR TARIFA</value>
@@ -135,6 +141,9 @@
   <data name="btnAddImage" xml:space="preserve">
     <value>Agregar  Image </value>
   </data>
+  <data name="btnAddRates" xml:space="preserve">
+    <value>AGREGAR INDICES</value>
+  </data>
   <data name="btnAnaReport" xml:space="preserve">
     <value>REPORTE DEL ANALISIS</value>
   </data>
@@ -147,8 +156,14 @@
   <data name="btnCopy" xml:space="preserve">
     <value>COPIAR</value>
   </data>
+  <data name="btnCreatRep" xml:space="preserve">
+    <value>CREAR REPORTE</value>
+  </data>
   <data name="btnD" xml:space="preserve">
     <value>DUPLICAR</value>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>ELIMINAR</value>
   </data>
   <data name="btnDelRem" xml:space="preserve">
     <value>ELIMINAR REMEDIO</value>
@@ -216,6 +231,9 @@
   <data name="btnQR" xml:space="preserve">
     <value>CODIGO QR</value>
   </data>
+  <data name="btnRange" xml:space="preserve">
+    <value>RANGO</value>
+  </data>
   <data name="btnReana" xml:space="preserve">
     <value>Re-analisis</value>
   </data>
@@ -231,11 +249,20 @@
   <data name="btnReturn" xml:space="preserve">
     <value>REGRESAR</value>
   </data>
+  <data name="btnSanalysis" xml:space="preserve">
+    <value>INICIAR EL ANALISIS</value>
+  </data>
+  <data name="btnSavCRemed" xml:space="preserve">
+    <value>GUARDAR Y CREAR UN REMEDIO</value>
+  </data>
   <data name="btnSaveEcs" xml:space="preserve">
     <value>GUARDAR ECS</value>
   </data>
   <data name="btnSaveEcsDB" xml:space="preserve">
     <value>GUARDAR ECS A LA DATABASE</value>
+  </data>
+  <data name="btnSaveN" xml:space="preserve">
+    <value>GUARDAR</value>
   </data>
   <data name="btnSaveP" xml:space="preserve">
     <value>Guardar paciente</value>
@@ -246,11 +273,32 @@
   <data name="btnSaveT" xml:space="preserve">
     <value>GUARDAR TERAPIA</value>
   </data>
+  <data name="btnSavRet" xml:space="preserve">
+    <value>Guardar y Regresar</value>
+  </data>
+  <data name="btnSendD" xml:space="preserve">
+    <value>ENVIAR AL EQUIPO</value>
+  </data>
+  <data name="btnSendToEcs" xml:space="preserve">
+    <value>ENVIAR A TARJETA  ECS</value>
+  </data>
+  <data name="btnStartAna" xml:space="preserve">
+    <value>COMENZAR A ANALIZAR</value>
+  </data>
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
   </data>
+  <data name="Column" xml:space="preserve">
+    <value>Columna vertebral</value>
+  </data>
+  <data name="Coxis" xml:space="preserve">
+    <value>Coxis</value>
+  </data>
   <data name="date" xml:space="preserve">
     <value>Fecha</value>
+  </data>
+  <data name="Head" xml:space="preserve">
+    <value>Cabeza</value>
   </data>
   <data name="headBA" xml:space="preserve">
     <value>Antecedentes y Analisis</value>
@@ -277,7 +325,7 @@
     <value>Busqueda de Analisis</value>
   </data>
   <data name="headerListRecords" xml:space="preserve">
-    <value>Lista de registros</value>
+    <value>Lista de hereditarios</value>
   </data>
   <data name="headerListReport" xml:space="preserve">
     <value>LISTA DE LA TERAPIAS RECIENTES</value>
@@ -296,6 +344,9 @@
   </data>
   <data name="headerTherapSearch" xml:space="preserve">
     <value>BUSCAR TERAPIA</value>
+  </data>
+  <data name="headHis" xml:space="preserve">
+    <value>Historico</value>
   </data>
   <data name="headHold" xml:space="preserve">
     <value>EN ESPERA</value>
@@ -317,6 +368,9 @@
   </data>
   <data name="headPP" xml:space="preserve">
     <value>Perfil del Paciente</value>
+  </data>
+  <data name="headRatAn" xml:space="preserve">
+    <value>Indices y Analisis</value>
   </data>
   <data name="headReana" xml:space="preserve">
     <value>Analisis  | Reanalisis </value>
@@ -435,6 +489,9 @@
   <data name="labelPhones" xml:space="preserve">
     <value>Telefonos</value>
   </data>
+  <data name="labelPmin" xml:space="preserve">
+    <value>Paciente:</value>
+  </data>
   <data name="labelPorts" xml:space="preserve">
     <value>PUERTOS:</value>
   </data>
@@ -443,6 +500,9 @@
   </data>
   <data name="labelRemedy" xml:space="preserve">
     <value>Remedio</value>
+  </data>
+  <data name="labelResultMD" xml:space="preserve">
+    <value>Reultados de los dispositivos medicos:</value>
   </data>
   <data name="labelRM" xml:space="preserve">
     <value>Remedio:</value>
@@ -468,6 +528,9 @@
   <data name="labelSubCat" xml:space="preserve">
     <value>SUB-CATEGORIAS</value>
   </data>
+  <data name="labelSuff" xml:space="preserve">
+    <value>Sufrimiento:</value>
+  </data>
   <data name="labelTherap" xml:space="preserve">
     <value>Terapia:</value>
   </data>
@@ -482,6 +545,63 @@
   </data>
   <data name="Language" xml:space="preserve">
     <value>Lenguaje</value>
+  </data>
+  <data name="Left-Achilles heel" xml:space="preserve">
+    <value>Tendón de Aquiles izquierdo</value>
+  </data>
+  <data name="Left-Ankle" xml:space="preserve">
+    <value>Tobillo izquierdo</value>
+  </data>
+  <data name="Left-Arm" xml:space="preserve">
+    <value>Brazo izquierdo</value>
+  </data>
+  <data name="Left-Buttock" xml:space="preserve">
+    <value>Nalga izquierda</value>
+  </data>
+  <data name="Left-Calf" xml:space="preserve">
+    <value>Pantorrilla izquierda</value>
+  </data>
+  <data name="Left-Clavicle" xml:space="preserve">
+    <value>Clavícula izquierda</value>
+  </data>
+  <data name="Left-Elbow" xml:space="preserve">
+    <value>Codo izquierdo</value>
+  </data>
+  <data name="Left-Fingers" xml:space="preserve">
+    <value>Dedos de la mano izquierda</value>
+  </data>
+  <data name="Left-Foot" xml:space="preserve">
+    <value>Pie izquierdo</value>
+  </data>
+  <data name="Left-Forearm" xml:space="preserve">
+    <value>Antebrazo izquierdo</value>
+  </data>
+  <data name="Left-Hand" xml:space="preserve">
+    <value>Mano izquierda</value>
+  </data>
+  <data name="Left-Heel" xml:space="preserve">
+    <value>Talón izquierdo</value>
+  </data>
+  <data name="Left-Hip" xml:space="preserve">
+    <value>Cadera izquierda</value>
+  </data>
+  <data name="Left-Leg" xml:space="preserve">
+    <value>Pierna izquierda</value>
+  </data>
+  <data name="Left-Phalanges" xml:space="preserve">
+    <value>Falanges de la mano izquierda</value>
+  </data>
+  <data name="Left-Shoulder" xml:space="preserve">
+    <value>Hombro izquierdo</value>
+  </data>
+  <data name="Left-Thigh" xml:space="preserve">
+    <value>Muslo izquierdo</value>
+  </data>
+  <data name="Left-Thumb" xml:space="preserve">
+    <value>Pulgar izquierdo</value>
+  </data>
+  <data name="Left-Wrist" xml:space="preserve">
+    <value>Muñeca izquierda</value>
   </data>
   <data name="MenuAnalysis" xml:space="preserve">
     <value>Analisis</value>
@@ -808,10 +928,13 @@
     <value>Por faver selecciona  un idioma para el sistema:</value>
   </data>
   <data name="nameAnalysis" xml:space="preserve">
-    <value>Nombre del analisis</value>
+    <value>Nombre del analisis:</value>
   </data>
   <data name="NavItem" xml:space="preserve">
     <value>Manuel</value>
+  </data>
+  <data name="Neck" xml:space="preserve">
+    <value>Cuello</value>
   </data>
   <data name="optLangEn" xml:space="preserve">
     <value>Ingles</value>
@@ -830,6 +953,63 @@
   </data>
   <data name="returnTheRecent" xml:space="preserve">
     <value>VOLVER A TERAPIAS RECIENTES</value>
+  </data>
+  <data name="Right-Achilles heel" xml:space="preserve">
+    <value>Tendón de Aquiles derecho</value>
+  </data>
+  <data name="Right-Ankle" xml:space="preserve">
+    <value>Tobillo derecho</value>
+  </data>
+  <data name="Right-Arm" xml:space="preserve">
+    <value>Brazo derecho</value>
+  </data>
+  <data name="Right-Buttock" xml:space="preserve">
+    <value>Nalga derecha</value>
+  </data>
+  <data name="Right-Calf" xml:space="preserve">
+    <value>Pantorrilla derecha</value>
+  </data>
+  <data name="Right-Clavicle" xml:space="preserve">
+    <value>Clavícula derecha</value>
+  </data>
+  <data name="Right-Elbow" xml:space="preserve">
+    <value>Codo derecho</value>
+  </data>
+  <data name="Right-Fingers" xml:space="preserve">
+    <value>Dedos de la mano derecha</value>
+  </data>
+  <data name="Right-Foot" xml:space="preserve">
+    <value>Pie derecho</value>
+  </data>
+  <data name="Right-Forearm" xml:space="preserve">
+    <value>Antebrazo derecho</value>
+  </data>
+  <data name="Right-Hand" xml:space="preserve">
+    <value>Mano derecha</value>
+  </data>
+  <data name="Right-Heel" xml:space="preserve">
+    <value>Talón derecho</value>
+  </data>
+  <data name="Right-Hip" xml:space="preserve">
+    <value>Cadera derecha</value>
+  </data>
+  <data name="Right-Leg" xml:space="preserve">
+    <value>Pierna derecha</value>
+  </data>
+  <data name="Right-Phalanges" xml:space="preserve">
+    <value>Falanges de la mano derecha</value>
+  </data>
+  <data name="Right-Shoulder" xml:space="preserve">
+    <value>Hombro derecho</value>
+  </data>
+  <data name="Right-Thigh" xml:space="preserve">
+    <value>Muslo derecho</value>
+  </data>
+  <data name="Right-Thumb" xml:space="preserve">
+    <value>Pulgar derecho</value>
+  </data>
+  <data name="Right-Wrist" xml:space="preserve">
+    <value>Muñeca derecha</value>
   </data>
   <data name="schoolDegree" xml:space="preserve">
     <value>Titulo Escolar:</value>
@@ -854,6 +1034,9 @@
   </data>
   <data name="tableLevel" xml:space="preserve">
     <value>NIVEL</value>
+  </data>
+  <data name="tableLevels" xml:space="preserve">
+    <value>Niveles</value>
   </data>
   <data name="tableMethod" xml:space="preserve">
     <value>METODO</value>
@@ -888,11 +1071,17 @@
   <data name="tableRateTip" xml:space="preserve">
     <value>TIPO</value>
   </data>
+  <data name="tableSlevels" xml:space="preserve">
+    <value>S.Niveles</value>
+  </data>
   <data name="tableStartDate" xml:space="preserve">
     <value>INICIO FECHA</value>
   </data>
   <data name="tableTreat" xml:space="preserve">
     <value>TRATAMIENTO</value>
+  </data>
+  <data name="tableValue" xml:space="preserve">
+    <value>Valor</value>
   </data>
   <data name="valAnimal" xml:space="preserve">
     <value>Animal</value>
@@ -906,10 +1095,28 @@
   <data name="valFront" xml:space="preserve">
     <value>Enfrente</value>
   </data>
+  <data name="valLev" xml:space="preserve">
+    <value>Nivel</value>
+  </data>
   <data name="valMale" xml:space="preserve">
     <value>Masculino</value>
   </data>
   <data name="valPlant" xml:space="preserve">
     <value>Planta y Suelo</value>
+  </data>
+  <data name="valPolat" xml:space="preserve">
+    <value>Polaridad</value>
+  </data>
+  <data name="valPorcent" xml:space="preserve">
+    <value>Porcentage</value>
+  </data>
+  <data name="valProba" xml:space="preserve">
+    <value>Probabilidad</value>
+  </data>
+  <data name="valPronun" xml:space="preserve">
+    <value>Pronuciacion</value>
+  </data>
+  <data name="valSuggLev" xml:space="preserve">
+    <value>Sugerir Niveles</value>
   </data>
 </root>
