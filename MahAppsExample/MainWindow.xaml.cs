@@ -17,6 +17,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Diagnostics; //Para ejecutar el bat file
 //Libreria Qr-Codes
+using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 //using HS5;
@@ -26,6 +27,8 @@ using HS5.Properties;
 using System.Globalization;
 
 using HS5.Resources.Idiomas;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Xml.Linq;
 //using HS5.Properties;
 
 
@@ -12324,7 +12327,7 @@ namespace MahAppsExample
         }
 
         //Funcion para generar reporte del paciente (Expediente)
-        private void cmdGenerarExpPDF_Click(object sender, RoutedEventArgs e)
+        public void cmdGenerarExpPDF_Click(object sender, RoutedEventArgs e)
         {
             //Comprobamos si la version esta registrada
             HacerConexion();
@@ -12351,6 +12354,43 @@ namespace MahAppsExample
             CerrarConexion();
             CargarListadoCompletoPacientes();
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de Pdf|*.pdf";
+            saveFileDialog.Title = "Save - Patient's Report";
+            saveFileDialog.FileName = "";
+            saveFileDialog.ShowDialog();
+
+            Document reporte = new Document(iTextSharp.text.PageSize.LETTER, 40, 40, 80, 80);
+            var path = string.Empty;
+            path = saveFileDialog.FileName;
+            PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(path, FileMode.Create));
+            
+            /*
+            //Comprobamos si la version esta registrada
+            HacerConexion();
+
+            DataTable Version = obj2.Consultar_Version();
+            //Campos para los datos de registro de la version
+            string nombre = "";
+            string descripcion = "";
+
+            //Recorremos valores
+            for (int i = 0; i <= Version.Rows.Count - 1; i++)
+            {
+                nombre = Version.Rows[i][1].ToString();
+                descripcion = Version.Rows[i][2].ToString();
+            }
+
+            //En caso de que no este registrada
+            if (Version.Rows.Count == 0)
+            {
+                nombre = "<REGISTRE VERSION PARA PERSONALIZAR>";
+                descripcion = "<REGISTRE VERSION PARA PERSONALIZAR>";
+            }
+
+            CerrarConexion();
+            CargarListadoCompletoPacientes();
+            
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "PDF Document|*.pdf";
             saveFileDialog1.Title = "Save - Patient's Report";
@@ -12359,11 +12399,12 @@ namespace MahAppsExample
             //Si se eligio ruta haz...
             if (saveFileDialog1.FileName != "")
             {
-                Document reporte = new Document(iTextSharp.text.PageSize.LETTER, 40, 40, 80, 80);
-                PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(saveFileDialog1.FileName.ToString(), FileMode.Create));
+                Document reporte = new Document();
+                PdfWriter.GetInstance(reporte, new FileStream("prueba.pdf",FileMode.Create));
+            
                 //Mandamos datos del registro de version
-                buffer.PageEvent = new HS5.reporte_ext("Patient's Report", nombre, descripcion); //Agrega el encabezado y pie de pagina
-
+                //buffer.PageEvent = new HS5.reporte_ext("Patient's Report", nombre, descripcion); //Agrega el encabezado y pie de pagina
+                */
                 reporte.Open();
                 // reporte.AddTitle("Expediente del Paciente - HS5");
                 //reporte.AddCreator("Homoeonic Software 5");
@@ -12385,10 +12426,10 @@ namespace MahAppsExample
                 reporte.Add(linebreak);
 
                 //FONDO DEL DOCUMENTO
-                string path = RutaInstalacion() + "//fotos//portada_hoja.png";
+                string path_ins = RutaInstalacion() + "//fotos//portada_hoja.png";
 
                 //Fondo del documento
-                iTextSharp.text.Image fondodoc = iTextSharp.text.Image.GetInstance(path);
+                iTextSharp.text.Image fondodoc = iTextSharp.text.Image.GetInstance(path_ins);
                 fondodoc.ScaleToFit(reporte.PageSize);
                 fondodoc.Alignment = iTextSharp.text.Image.UNDERLYING;
                 fondodoc.SetAbsolutePosition(0, 0);
@@ -12537,7 +12578,7 @@ namespace MahAppsExample
                 reporte.Add(linebreak);
 
                 reporte.Close();
-            }
+            
         }
 
         private void cmdRegistroVersion_Click(object sender, RoutedEventArgs e)
@@ -12772,108 +12813,115 @@ namespace MahAppsExample
             saveFileDialog1.Filter = "PDF Document|*.pdf";
             saveFileDialog1.Title = "Save - Analysis' List";
             saveFileDialog1.ShowDialog();
-
-            //Si se eligio ruta haz...
-            if (saveFileDialog1.FileName != "")
+            try
             {
-                Document reporte = new Document(iTextSharp.text.PageSize.LETTER, 40, 40, 80, 80);
-                PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(saveFileDialog1.FileName.ToString(), FileMode.Create));
-                //Mandamos datos del registro de version
-                buffer.PageEvent = new HS5.reporte_ext("Analysis' List", nombre, descripcion); //Agrega el encabezado y pie de pagina
-
-                reporte.Open();
-                // reporte.AddTitle("Expediente del Paciente - HS5");
-                //reporte.AddCreator("Homoeonic Software 5");
-                // reporte.AddAuthor("HS5");
-
-                iTextSharp.text.Font titulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 14, iTextSharp.text.Font.BOLD);
-                iTextSharp.text.Font subtitulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 12, iTextSharp.text.Font.BOLD);
-                iTextSharp.text.Font texto = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.NORMAL);
-                iTextSharp.text.Font texto2 = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.BOLD);
-
-                iTextSharp.text.Font LineBreak = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.NORMAL);
-                iTextSharp.text.Paragraph linebreak = new iTextSharp.text.Paragraph("\n", LineBreak);
-
-                //Documento titulo
-                // iTextSharp.text.Paragraph parrafo = new iTextSharp.text.Paragraph("Expediente del Paciente", titulos);
-                /// reporte.Add(parrafo);
-                /// 
-                reporte.Add(linebreak);
-                reporte.Add(linebreak);
-
-                //FONDO DEL DOCUMENTO
-                string path = RutaInstalacion() + "//fotos//portada_hoja.png";
-
-                //Fondo del documento
-                iTextSharp.text.Image fondodoc = iTextSharp.text.Image.GetInstance(path);
-                fondodoc.ScaleToFit(reporte.PageSize);
-                fondodoc.Alignment = iTextSharp.text.Image.UNDERLYING;
-                fondodoc.SetAbsolutePosition(0, 0);
-                reporte.Add(fondodoc);
-
-                //Imagen del paciente
-                string ruta = id_ppaciente.Content.ToString();
-                if (ruta != "NA")
+                if (saveFileDialog1.FileName != "")
                 {
-                    string imageURL = ruta;
-                    iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
-                    jpg.ScaleToFit(250f, 250f);
-                    // jpg.ScaleToFit(500f,30f);
-                    jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_RIGHT;
-                    jpg.IndentationLeft = 9f;
-                    jpg.SpacingAfter = 9f;
-                    // jpg.BorderWidthTop = 36f;
-                    reporte.Add(jpg);
-                }
+                    Document reporte = new Document(iTextSharp.text.PageSize.LETTER, 40, 40, 80, 80);
+                    PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(saveFileDialog1.FileName.ToString(), FileMode.Create));
+                    //Mandamos datos del registro de version
+                    buffer.PageEvent = new HS5.reporte_ext("Analysis' List", nombre, descripcion); //Agrega el encabezado y pie de pagina
 
-                //iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph("Datos generales", subtitulos);
-                // reporte.Add(parrafo2);
-                reporte.Add(linebreak);
+                    reporte.Open();
+                    // reporte.AddTitle("Expediente del Paciente - HS5");
+                    //reporte.AddCreator("Homoeonic Software 5");
+                    // reporte.AddAuthor("HS5");
 
-                Chunk parrafo3 = new Chunk("Patient's Name: ", texto2);
-                Chunk parrafo3_1 = new Chunk(txtNombre1.Text + " " + txtApellidoPat1.Text + " " + txtApellidoMat1.Text, texto);
-                reporte.Add(parrafo3);
-                reporte.Add(parrafo3_1);
-                reporte.Add(Chunk.NEWLINE);
+                    iTextSharp.text.Font titulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 14, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font subtitulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 12, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font texto = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font texto2 = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.BOLD);
 
-                Chunk parrafo4 = new Chunk("Birthday: ", texto2);
-                Chunk parrafo4_1 = new Chunk(txtFecha1.Text, texto);
-                reporte.Add(parrafo4);
-                reporte.Add(parrafo4_1);
-                reporte.Add(Chunk.NEWLINE);
+                    iTextSharp.text.Font LineBreak = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Paragraph linebreak = new iTextSharp.text.Paragraph("\n", LineBreak);
 
-                Chunk parrafo5 = new Chunk("Gender: ", texto2);
-                Chunk parrafo5_1 = new Chunk(txtSexo1.Text, texto);
-                reporte.Add(parrafo5);
-                reporte.Add(parrafo5_1);
-                reporte.Add(Chunk.NEWLINE);
+                    //Documento titulo
+                    // iTextSharp.text.Paragraph parrafo = new iTextSharp.text.Paragraph("Expediente del Paciente", titulos);
+                    /// reporte.Add(parrafo);
+                    /// 
+                    reporte.Add(linebreak);
+                    reporte.Add(linebreak);
 
-                Chunk parrafo6 = new Chunk("E-mail: ", texto2);
-                Chunk parrafo6_1 = new Chunk(txtEmail1.Text, texto);
-                reporte.Add(parrafo6);
-                reporte.Add(parrafo6_1);
-                reporte.Add(linebreak);
+                    //FONDO DEL DOCUMENTO
+                    string path = RutaInstalacion() + "//fotos//portada_hoja.png";
 
-                //ANALISIS (LISTADO) 
-                if (listadoAnalisis1_Copy.Items.Count != 0)
-                {
-                    iTextSharp.text.Paragraph parrafoan = new iTextSharp.text.Paragraph("Analysis", texto2);
-                    reporte.Add(parrafoan);
+                    //Fondo del documento
+                    iTextSharp.text.Image fondodoc = iTextSharp.text.Image.GetInstance(path);
+                    fondodoc.ScaleToFit(reporte.PageSize);
+                    fondodoc.Alignment = iTextSharp.text.Image.UNDERLYING;
+                    fondodoc.SetAbsolutePosition(0, 0);
+                    reporte.Add(fondodoc);
 
-                    //Se cargan los teléfonos asociados
-                    for (int i = 0; i <= listadoAnalisis1_Copy.Items.Count - 1; i++)
+                    //Imagen del paciente
+                    string ruta = id_ppaciente.Content.ToString();
+                    if (ruta != "NA")
                     {
-                        iTextSharp.text.Paragraph detalleaso = new iTextSharp.text.Paragraph(listadoAnalisis1_Copy.Items[i].ToString(), texto);
-                        reporte.Add(detalleaso);
+                        string imageURL = ruta;
+                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageURL);
+                        jpg.ScaleToFit(250f, 250f);
+                        // jpg.ScaleToFit(500f,30f);
+                        jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_RIGHT;
+                        jpg.IndentationLeft = 9f;
+                        jpg.SpacingAfter = 9f;
+                        // jpg.BorderWidthTop = 36f;
+                        reporte.Add(jpg);
                     }
 
-                    reporte.Close();
-                }
-                else
-                {
-                    reporte.Close();
+                    //iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph("Datos generales", subtitulos);
+                    // reporte.Add(parrafo2);
+                    reporte.Add(linebreak);
+
+                    Chunk parrafo3 = new Chunk("Patient's Name: ", texto2);
+                    Chunk parrafo3_1 = new Chunk(txtNombre1.Text + " " + txtApellidoPat1.Text + " " + txtApellidoMat1.Text, texto);
+                    reporte.Add(parrafo3);
+                    reporte.Add(parrafo3_1);
+                    reporte.Add(Chunk.NEWLINE);
+
+                    Chunk parrafo4 = new Chunk("Birthday: ", texto2);
+                    Chunk parrafo4_1 = new Chunk(txtFecha1.Text, texto);
+                    reporte.Add(parrafo4);
+                    reporte.Add(parrafo4_1);
+                    reporte.Add(Chunk.NEWLINE);
+
+                    Chunk parrafo5 = new Chunk("Gender: ", texto2);
+                    Chunk parrafo5_1 = new Chunk(txtSexo1.Text, texto);
+                    reporte.Add(parrafo5);
+                    reporte.Add(parrafo5_1);
+                    reporte.Add(Chunk.NEWLINE);
+
+                    Chunk parrafo6 = new Chunk("E-mail: ", texto2);
+                    Chunk parrafo6_1 = new Chunk(txtEmail1.Text, texto);
+                    reporte.Add(parrafo6);
+                    reporte.Add(parrafo6_1);
+                    reporte.Add(linebreak);
+
+                    //ANALISIS (LISTADO) 
+                    if (listadoAnalisis1_Copy.Items.Count != 0)
+                    {
+                        iTextSharp.text.Paragraph parrafoan = new iTextSharp.text.Paragraph("Analysis", texto2);
+                        reporte.Add(parrafoan);
+
+                        //Se cargan los teléfonos asociados
+                        for (int i = 0; i <= listadoAnalisis1_Copy.Items.Count - 1; i++)
+                        {
+                            iTextSharp.text.Paragraph detalleaso = new iTextSharp.text.Paragraph(listadoAnalisis1_Copy.Items[i].ToString(), texto);
+                            reporte.Add(detalleaso);
+                        }
+
+                        reporte.Close();
+                    }
+                    else
+                    {
+                        reporte.Close();
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("EXCEPCIONNNN");
+            }
+            //Si se eligio ruta haz...
+            
         }
 
         //Funcion para mostrar la terapia de color
