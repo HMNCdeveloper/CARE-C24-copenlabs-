@@ -61,6 +61,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abdomen.
+        /// </summary>
+        public static string Abdomen {
+            get {
+                return ResourceManager.GetString("Abdomen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anus.
         /// </summary>
         public static string Anus {
@@ -93,6 +102,15 @@ namespace HS5.Resources.Idiomas {
         public static string Back {
             get {
                 return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bladder.
+        /// </summary>
+        public static string Bladder {
+            get {
+                return ResourceManager.GetString("Bladder", resourceCulture);
             }
         }
         
@@ -583,6 +601,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chest.
+        /// </summary>
+        public static string Chest {
+            get {
+                return ResourceManager.GetString("Chest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Column.
         /// </summary>
         public static string Column {
@@ -606,6 +633,51 @@ namespace HS5.Resources.Idiomas {
         public static string date {
             get {
                 return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Esophagus.
+        /// </summary>
+        public static string Esophagus {
+            get {
+                return ResourceManager.GetString("Esophagus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Face.
+        /// </summary>
+        public static string Face {
+            get {
+                return ResourceManager.GetString("Face", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forehead.
+        /// </summary>
+        public static string Forehead {
+            get {
+                return ResourceManager.GetString("Forehead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glans.
+        /// </summary>
+        public static string Glans {
+            get {
+                return ResourceManager.GetString("Glans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hair.
+        /// </summary>
+        public static string Hair {
+            get {
+                return ResourceManager.GetString("Hair", resourceCulture);
             }
         }
         
@@ -957,6 +1029,15 @@ namespace HS5.Resources.Idiomas {
         public static string itemUniversity {
             get {
                 return ResourceManager.GetString("itemUniversity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jaw.
+        /// </summary>
+        public static string Jaw {
+            get {
+                return ResourceManager.GetString("Jaw", resourceCulture);
             }
         }
         
@@ -1375,6 +1456,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Areola.
+        /// </summary>
+        public static string Left_Areola {
+            get {
+                return ResourceManager.GetString("Left-Areola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Arm.
         /// </summary>
         public static string Left_Arm {
@@ -1402,6 +1492,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Chest.
+        /// </summary>
+        public static string Left_Chest {
+            get {
+                return ResourceManager.GetString("Left-Chest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Clavicle.
         /// </summary>
         public static string Left_Clavicle {
@@ -1411,11 +1510,38 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Ear.
+        /// </summary>
+        public static string Left_Ear {
+            get {
+                return ResourceManager.GetString("Left-Ear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Elbow.
         /// </summary>
         public static string Left_Elbow {
             get {
                 return ResourceManager.GetString("Left-Elbow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Eye.
+        /// </summary>
+        public static string Left_Eye {
+            get {
+                return ResourceManager.GetString("Left-Eye", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Eyelid.
+        /// </summary>
+        public static string Left_Eyelid {
+            get {
+                return ResourceManager.GetString("Left-Eyelid", resourceCulture);
             }
         }
         
@@ -1456,6 +1582,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Hand Thumb.
+        /// </summary>
+        public static string Left_Hand_Thumb {
+            get {
+                return ResourceManager.GetString("Left-Hand Thumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Heel.
         /// </summary>
         public static string Left_Heel {
@@ -1474,11 +1609,38 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Knee.
+        /// </summary>
+        public static string Left_Knee {
+            get {
+                return ResourceManager.GetString("Left-Knee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Leg.
         /// </summary>
         public static string Left_Leg {
             get {
                 return ResourceManager.GetString("Left-Leg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Neck.
+        /// </summary>
+        public static string Left_Neck {
+            get {
+                return ResourceManager.GetString("Left-Neck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Nipple.
+        /// </summary>
+        public static string Left_Nipple {
+            get {
+                return ResourceManager.GetString("Left-Nipple", resourceCulture);
             }
         }
         
@@ -1492,11 +1654,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Left Ribs.
+        /// </summary>
+        public static string Left_Ribs {
+            get {
+                return ResourceManager.GetString("Left-Ribs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Left Shoulder.
         /// </summary>
         public static string Left_Shoulder {
             get {
                 return ResourceManager.GetString("Left-Shoulder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left Testicle.
+        /// </summary>
+        public static string Left_Testicle {
+            get {
+                return ResourceManager.GetString("Left-Testicle", resourceCulture);
             }
         }
         
@@ -2500,6 +2680,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mouth.
+        /// </summary>
+        public static string Mouth {
+            get {
+                return ResourceManager.GetString("Mouth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name of the   Analysis:.
         /// </summary>
         public static string nameAnalysis {
@@ -2523,6 +2712,15 @@ namespace HS5.Resources.Idiomas {
         public static string Neck {
             get {
                 return ResourceManager.GetString("Neck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nose.
+        /// </summary>
+        public static string Nose {
+            get {
+                return ResourceManager.GetString("Nose", resourceCulture);
             }
         }
         
@@ -2563,6 +2761,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Penis.
+        /// </summary>
+        public static string Penis {
+            get {
+                return ResourceManager.GetString("Penis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RESET COLORS.
         /// </summary>
         public static string resetC {
@@ -2599,6 +2806,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Areola.
+        /// </summary>
+        public static string Right_Areola {
+            get {
+                return ResourceManager.GetString("Right-Areola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Arm.
         /// </summary>
         public static string Right_Arm {
@@ -2626,6 +2842,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Chest.
+        /// </summary>
+        public static string Right_Chest {
+            get {
+                return ResourceManager.GetString("Right-Chest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Clavicle.
         /// </summary>
         public static string Right_Clavicle {
@@ -2635,11 +2860,38 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Ear.
+        /// </summary>
+        public static string Right_Ear {
+            get {
+                return ResourceManager.GetString("Right-Ear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Elbow.
         /// </summary>
         public static string Right_Elbow {
             get {
                 return ResourceManager.GetString("Right-Elbow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Eye.
+        /// </summary>
+        public static string Right_Eye {
+            get {
+                return ResourceManager.GetString("Right-Eye", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Eyelid.
+        /// </summary>
+        public static string Right_Eyelid {
+            get {
+                return ResourceManager.GetString("Right-Eyelid", resourceCulture);
             }
         }
         
@@ -2680,6 +2932,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Hand Thumb.
+        /// </summary>
+        public static string Right_Hand_Thumb {
+            get {
+                return ResourceManager.GetString("Right-Hand Thumb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Heel.
         /// </summary>
         public static string Right_Heel {
@@ -2698,11 +2959,38 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Knee.
+        /// </summary>
+        public static string Right_Knee {
+            get {
+                return ResourceManager.GetString("Right-Knee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Leg.
         /// </summary>
         public static string Right_Leg {
             get {
                 return ResourceManager.GetString("Right-Leg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Neck.
+        /// </summary>
+        public static string Right_Neck {
+            get {
+                return ResourceManager.GetString("Right-Neck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Nipple.
+        /// </summary>
+        public static string Right_Nipple {
+            get {
+                return ResourceManager.GetString("Right-Nipple", resourceCulture);
             }
         }
         
@@ -2716,11 +3004,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Right Ribs.
+        /// </summary>
+        public static string Right_Ribs {
+            get {
+                return ResourceManager.GetString("Right-Ribs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right Shoulder.
         /// </summary>
         public static string Right_Shoulder {
             get {
                 return ResourceManager.GetString("Right-Shoulder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right Testicle.
+        /// </summary>
+        public static string Right_Testicle {
+            get {
+                return ResourceManager.GetString("Right-Testicle", resourceCulture);
             }
         }
         
@@ -2766,6 +3072,15 @@ namespace HS5.Resources.Idiomas {
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stomach.
+        /// </summary>
+        public static string Stomach {
+            get {
+                return ResourceManager.GetString("Stomach", resourceCulture);
             }
         }
         
@@ -2964,6 +3279,42 @@ namespace HS5.Resources.Idiomas {
         public static string tableValue {
             get {
                 return ResourceManager.GetString("tableValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Throat.
+        /// </summary>
+        public static string Throat {
+            get {
+                return ResourceManager.GetString("Throat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Umbilicus.
+        /// </summary>
+        public static string Umbilicus {
+            get {
+                return ResourceManager.GetString("Umbilicus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uterus.
+        /// </summary>
+        public static string Uterus {
+            get {
+                return ResourceManager.GetString("Uterus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vagina.
+        /// </summary>
+        public static string Vagina {
+            get {
+                return ResourceManager.GetString("Vagina", resourceCulture);
             }
         }
         

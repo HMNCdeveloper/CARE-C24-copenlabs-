@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Abdomen" xml:space="preserve">
+    <value>Abdomen</value>
+  </data>
   <data name="Anus" xml:space="preserve">
     <value>Ano</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>Espalda</value>
+  </data>
+  <data name="Bladder" xml:space="preserve">
+    <value>Vejiga</value>
   </data>
   <data name="brnEraseRate" xml:space="preserve">
     <value>BORRAR TARIFA</value>
@@ -288,6 +294,12 @@
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
   </data>
+  <data name="Chest" xml:space="preserve">
+    <value>Pecho</value>
+  </data>
+  <data name="Chest1" xml:space="preserve">
+    <value>Pecho</value>
+  </data>
   <data name="Column" xml:space="preserve">
     <value>Columna vertebral</value>
   </data>
@@ -296,6 +308,21 @@
   </data>
   <data name="date" xml:space="preserve">
     <value>Fecha</value>
+  </data>
+  <data name="Esophagus" xml:space="preserve">
+    <value>Esófago</value>
+  </data>
+  <data name="Face" xml:space="preserve">
+    <value>Cara</value>
+  </data>
+  <data name="Forehead" xml:space="preserve">
+    <value>Frente</value>
+  </data>
+  <data name="Glans" xml:space="preserve">
+    <value>Glande (término médico)</value>
+  </data>
+  <data name="Hair" xml:space="preserve">
+    <value>Cabello</value>
   </data>
   <data name="Head" xml:space="preserve">
     <value>Cabeza</value>
@@ -413,6 +440,9 @@
   </data>
   <data name="itemUniversity" xml:space="preserve">
     <value>Universidad</value>
+  </data>
+  <data name="Jaw" xml:space="preserve">
+    <value>Mandíbula</value>
   </data>
   <data name="labelAnalPerformed" xml:space="preserve">
     <value>Analisis Realizados</value>
@@ -546,14 +576,23 @@
   <data name="Language" xml:space="preserve">
     <value>Lenguaje</value>
   </data>
+  <data name="Left Big Toe" xml:space="preserve">
+    <value>Dedo gordo del pie izquierdo</value>
+  </data>
   <data name="Left-Achilles heel" xml:space="preserve">
     <value>Tendón de Aquiles izquierdo</value>
   </data>
   <data name="Left-Ankle" xml:space="preserve">
     <value>Tobillo izquierdo</value>
   </data>
+  <data name="Left-Areola" xml:space="preserve">
+    <value>Areola izquierda</value>
+  </data>
   <data name="Left-Arm" xml:space="preserve">
     <value>Brazo izquierdo</value>
+  </data>
+  <data name="Left-Big Toe" xml:space="preserve">
+    <value>Dedo gordo del pie izquierdo</value>
   </data>
   <data name="Left-Buttock" xml:space="preserve">
     <value>Nalga izquierda</value>
@@ -561,11 +600,23 @@
   <data name="Left-Calf" xml:space="preserve">
     <value>Pantorrilla izquierda</value>
   </data>
+  <data name="Left-Chest" xml:space="preserve">
+    <value>Pecho izquierdo</value>
+  </data>
   <data name="Left-Clavicle" xml:space="preserve">
     <value>Clavícula izquierda</value>
   </data>
+  <data name="Left-Ear" xml:space="preserve">
+    <value>Oreja izquierda</value>
+  </data>
   <data name="Left-Elbow" xml:space="preserve">
     <value>Codo izquierdo</value>
+  </data>
+  <data name="Left-Eye" xml:space="preserve">
+    <value>Ojo izquierdo</value>
+  </data>
+  <data name="Left-Eyelid" xml:space="preserve">
+    <value>Párpado izquierdo</value>
   </data>
   <data name="Left-Fingers" xml:space="preserve">
     <value>Dedos de la mano izquierda</value>
@@ -579,20 +630,50 @@
   <data name="Left-Hand" xml:space="preserve">
     <value>Mano izquierda</value>
   </data>
+  <data name="Left-Hand Fingers" xml:space="preserve">
+    <value>Dedos de la mano izquierda</value>
+  </data>
+  <data name="Left-Hand Phalanges" xml:space="preserve">
+    <value>Falanges de la mano izquierda</value>
+  </data>
+  <data name="Left-Hand Thumb" xml:space="preserve">
+    <value>Pulgar de la mano izquierda</value>
+  </data>
+  <data name="Left-Hand-Fingers" xml:space="preserve">
+    <value>Dedos de la mano izquierda</value>
+  </data>
+  <data name="Left-Hand-Phalanges" xml:space="preserve">
+    <value>Falanges de la mano izquierda</value>
+  </data>
   <data name="Left-Heel" xml:space="preserve">
     <value>Talón izquierdo</value>
   </data>
   <data name="Left-Hip" xml:space="preserve">
     <value>Cadera izquierda</value>
   </data>
+  <data name="Left-Knee" xml:space="preserve">
+    <value>Rodilla izquierda</value>
+  </data>
   <data name="Left-Leg" xml:space="preserve">
     <value>Pierna izquierda</value>
+  </data>
+  <data name="Left-Neck" xml:space="preserve">
+    <value>Cuello izquierdo</value>
+  </data>
+  <data name="Left-Nipple" xml:space="preserve">
+    <value>Pezón izquierdo</value>
   </data>
   <data name="Left-Phalanges" xml:space="preserve">
     <value>Falanges de la mano izquierda</value>
   </data>
+  <data name="Left-Ribs" xml:space="preserve">
+    <value>Costillas izquierdas</value>
+  </data>
   <data name="Left-Shoulder" xml:space="preserve">
     <value>Hombro izquierdo</value>
+  </data>
+  <data name="Left-Testicle" xml:space="preserve">
+    <value>Testículo izquierdo</value>
   </data>
   <data name="Left-Thigh" xml:space="preserve">
     <value>Muslo izquierdo</value>
@@ -927,6 +1008,9 @@
   <data name="messOptLan" xml:space="preserve">
     <value>Por faver selecciona  un idioma para el sistema:</value>
   </data>
+  <data name="Mouth" xml:space="preserve">
+    <value>Boca</value>
+  </data>
   <data name="nameAnalysis" xml:space="preserve">
     <value>Nombre del analisis:</value>
   </data>
@@ -935,6 +1019,9 @@
   </data>
   <data name="Neck" xml:space="preserve">
     <value>Cuello</value>
+  </data>
+  <data name="Nose" xml:space="preserve">
+    <value>Nariz</value>
   </data>
   <data name="optLangEn" xml:space="preserve">
     <value>Ingles</value>
@@ -948,11 +1035,17 @@
   <data name="PatientList" xml:space="preserve">
     <value>Lista de Paciente</value>
   </data>
+  <data name="Penis" xml:space="preserve">
+    <value>Pene (término médico)</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>REINICIAR COLORES</value>
   </data>
   <data name="returnTheRecent" xml:space="preserve">
     <value>VOLVER A TERAPIAS RECIENTES</value>
+  </data>
+  <data name="Right Big Toe" xml:space="preserve">
+    <value>Dedo gordo del pie derecho</value>
   </data>
   <data name="Right-Achilles heel" xml:space="preserve">
     <value>Tendón de Aquiles derecho</value>
@@ -960,8 +1053,14 @@
   <data name="Right-Ankle" xml:space="preserve">
     <value>Tobillo derecho</value>
   </data>
+  <data name="Right-Areola" xml:space="preserve">
+    <value>Areola derecha</value>
+  </data>
   <data name="Right-Arm" xml:space="preserve">
     <value>Brazo derecho</value>
+  </data>
+  <data name="Right-Big Toe" xml:space="preserve">
+    <value>Dedo gordo del pie derecho</value>
   </data>
   <data name="Right-Buttock" xml:space="preserve">
     <value>Nalga derecha</value>
@@ -969,11 +1068,23 @@
   <data name="Right-Calf" xml:space="preserve">
     <value>Pantorrilla derecha</value>
   </data>
+  <data name="Right-Chest" xml:space="preserve">
+    <value>Pecho derecho</value>
+  </data>
   <data name="Right-Clavicle" xml:space="preserve">
     <value>Clavícula derecha</value>
   </data>
+  <data name="Right-Ear" xml:space="preserve">
+    <value>Oreja derecha</value>
+  </data>
   <data name="Right-Elbow" xml:space="preserve">
     <value>Codo derecho</value>
+  </data>
+  <data name="Right-Eye" xml:space="preserve">
+    <value>Ojo derecho</value>
+  </data>
+  <data name="Right-Eyelid" xml:space="preserve">
+    <value>Párpado derecho</value>
   </data>
   <data name="Right-Fingers" xml:space="preserve">
     <value>Dedos de la mano derecha</value>
@@ -987,20 +1098,50 @@
   <data name="Right-Hand" xml:space="preserve">
     <value>Mano derecha</value>
   </data>
+  <data name="Right-Hand Fingers" xml:space="preserve">
+    <value>Dedos de la mano derecha</value>
+  </data>
+  <data name="Right-Hand Phalanges" xml:space="preserve">
+    <value>Falanges de la mano derecha</value>
+  </data>
+  <data name="Right-Hand Thumb" xml:space="preserve">
+    <value>Pulgar de la mano derecha</value>
+  </data>
+  <data name="Right-Hand-Fingers" xml:space="preserve">
+    <value>Dedos de la mano derecha</value>
+  </data>
+  <data name="Right-Hand-Phalanges" xml:space="preserve">
+    <value>Falanges de la mano derecha</value>
+  </data>
   <data name="Right-Heel" xml:space="preserve">
     <value>Talón derecho</value>
   </data>
   <data name="Right-Hip" xml:space="preserve">
     <value>Cadera derecha</value>
   </data>
+  <data name="Right-Knee" xml:space="preserve">
+    <value>Rodilla derecha</value>
+  </data>
   <data name="Right-Leg" xml:space="preserve">
     <value>Pierna derecha</value>
+  </data>
+  <data name="Right-Neck" xml:space="preserve">
+    <value>Cuello derecho</value>
+  </data>
+  <data name="Right-Nipple" xml:space="preserve">
+    <value>Pezón derecho</value>
   </data>
   <data name="Right-Phalanges" xml:space="preserve">
     <value>Falanges de la mano derecha</value>
   </data>
+  <data name="Right-Ribs" xml:space="preserve">
+    <value>Costillas derechas</value>
+  </data>
   <data name="Right-Shoulder" xml:space="preserve">
     <value>Hombro derecho</value>
+  </data>
+  <data name="Right-Testicle" xml:space="preserve">
+    <value>Testículo derecho</value>
   </data>
   <data name="Right-Thigh" xml:space="preserve">
     <value>Muslo derecho</value>
@@ -1016,6 +1157,9 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Buscar</value>
+  </data>
+  <data name="Stomach" xml:space="preserve">
+    <value>Estómago</value>
   </data>
   <data name="tableBegTime" xml:space="preserve">
     <value>INICIANDO TIEMPO</value>
@@ -1082,6 +1226,18 @@
   </data>
   <data name="tableValue" xml:space="preserve">
     <value>Valor</value>
+  </data>
+  <data name="Throat" xml:space="preserve">
+    <value>Garganta</value>
+  </data>
+  <data name="Umbilicus" xml:space="preserve">
+    <value>Ombligo</value>
+  </data>
+  <data name="Uterus" xml:space="preserve">
+    <value>Útero</value>
+  </data>
+  <data name="Vagina" xml:space="preserve">
+    <value>Vagina</value>
   </data>
   <data name="valAnimal" xml:space="preserve">
     <value>Animal</value>

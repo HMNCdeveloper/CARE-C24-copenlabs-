@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Abdomen" xml:space="preserve">
+    <value>Abdomen</value>
+  </data>
   <data name="Anus" xml:space="preserve">
     <value>Anus</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
+  </data>
+  <data name="Bladder" xml:space="preserve">
+    <value>Bladder</value>
   </data>
   <data name="brnEraseRate" xml:space="preserve">
     <value>ERASE RATE</value>
@@ -285,6 +291,9 @@
   <data name="btnUse" xml:space="preserve">
     <value>USE</value>
   </data>
+  <data name="Chest" xml:space="preserve">
+    <value>Chest</value>
+  </data>
   <data name="Column" xml:space="preserve">
     <value>Column</value>
   </data>
@@ -293,6 +302,21 @@
   </data>
   <data name="date" xml:space="preserve">
     <value>DATE</value>
+  </data>
+  <data name="Esophagus" xml:space="preserve">
+    <value>Esophagus</value>
+  </data>
+  <data name="Face" xml:space="preserve">
+    <value>Face</value>
+  </data>
+  <data name="Forehead" xml:space="preserve">
+    <value>Forehead</value>
+  </data>
+  <data name="Glans" xml:space="preserve">
+    <value>Glans</value>
+  </data>
+  <data name="Hair" xml:space="preserve">
+    <value>Hair</value>
   </data>
   <data name="Head" xml:space="preserve">
     <value>Head</value>
@@ -410,6 +434,9 @@
   </data>
   <data name="itemUniversity" xml:space="preserve">
     <value>University</value>
+  </data>
+  <data name="Jaw" xml:space="preserve">
+    <value>Jaw</value>
   </data>
   <data name="labelAnalPerformed" xml:space="preserve">
     <value>Analysis Performed</value>
@@ -543,14 +570,23 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Left Big Toe" xml:space="preserve">
+    <value>Left Big Toe</value>
+  </data>
   <data name="Left-Achilles heel" xml:space="preserve">
     <value>Left Achilles Heel</value>
   </data>
   <data name="Left-Ankle" xml:space="preserve">
     <value>Left Ankle</value>
   </data>
+  <data name="Left-Areola" xml:space="preserve">
+    <value>Left Areola</value>
+  </data>
   <data name="Left-Arm" xml:space="preserve">
     <value>Left Arm</value>
+  </data>
+  <data name="Left-Big Toe" xml:space="preserve">
+    <value>Left Big Toe</value>
   </data>
   <data name="Left-Buttock" xml:space="preserve">
     <value>Left Buttock</value>
@@ -558,11 +594,23 @@
   <data name="Left-Calf" xml:space="preserve">
     <value>Left Calf</value>
   </data>
+  <data name="Left-Chest" xml:space="preserve">
+    <value>Left Chest</value>
+  </data>
   <data name="Left-Clavicle" xml:space="preserve">
     <value>Left Clavicle</value>
   </data>
+  <data name="Left-Ear" xml:space="preserve">
+    <value>Left Ear</value>
+  </data>
   <data name="Left-Elbow" xml:space="preserve">
     <value>Left Elbow</value>
+  </data>
+  <data name="Left-Eye" xml:space="preserve">
+    <value>Left Eye</value>
+  </data>
+  <data name="Left-Eyelid" xml:space="preserve">
+    <value>Left Eyelid</value>
   </data>
   <data name="Left-Fingers" xml:space="preserve">
     <value>Left Fingers</value>
@@ -576,20 +624,50 @@
   <data name="Left-Hand" xml:space="preserve">
     <value>Left Hand</value>
   </data>
+  <data name="Left-Hand Fingers" xml:space="preserve">
+    <value>Left Hand Fingers</value>
+  </data>
+  <data name="Left-Hand Phalanges" xml:space="preserve">
+    <value>Left Hand Phalanges</value>
+  </data>
+  <data name="Left-Hand Thumb" xml:space="preserve">
+    <value>Left Hand Thumb</value>
+  </data>
+  <data name="Left-Hand-Fingers" xml:space="preserve">
+    <value>Left Hand Fingers</value>
+  </data>
+  <data name="Left-Hand-Phalanges" xml:space="preserve">
+    <value>Left Hand Phalanges</value>
+  </data>
   <data name="Left-Heel" xml:space="preserve">
     <value>Left Heel</value>
   </data>
   <data name="Left-Hip" xml:space="preserve">
     <value>Left Hip</value>
   </data>
+  <data name="Left-Knee" xml:space="preserve">
+    <value>Left Knee</value>
+  </data>
   <data name="Left-Leg" xml:space="preserve">
     <value>Left Leg</value>
+  </data>
+  <data name="Left-Neck" xml:space="preserve">
+    <value>Left Neck</value>
+  </data>
+  <data name="Left-Nipple" xml:space="preserve">
+    <value>Left Nipple</value>
   </data>
   <data name="Left-Phalanges" xml:space="preserve">
     <value>Left Phalanges</value>
   </data>
+  <data name="Left-Ribs" xml:space="preserve">
+    <value>Left Ribs</value>
+  </data>
   <data name="Left-Shoulder" xml:space="preserve">
     <value>Left Shoulder</value>
+  </data>
+  <data name="Left-Testicle" xml:space="preserve">
+    <value>Left Testicle</value>
   </data>
   <data name="Left-Thigh" xml:space="preserve">
     <value>Left Thigh</value>
@@ -924,6 +1002,9 @@
   <data name="messOptLan" xml:space="preserve">
     <value>Please select the language to the  system:</value>
   </data>
+  <data name="Mouth" xml:space="preserve">
+    <value>Mouth</value>
+  </data>
   <data name="nameAnalysis" xml:space="preserve">
     <value>Name of the Analysis:</value>
   </data>
@@ -932,6 +1013,9 @@
   </data>
   <data name="Neck" xml:space="preserve">
     <value>Neck</value>
+  </data>
+  <data name="Nose" xml:space="preserve">
+    <value>Nose</value>
   </data>
   <data name="optLangEn" xml:space="preserve">
     <value>English</value>
@@ -945,11 +1029,17 @@
   <data name="PatientList" xml:space="preserve">
     <value>Patient's list</value>
   </data>
+  <data name="Penis" xml:space="preserve">
+    <value>Penis</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>RESET COLORS</value>
   </data>
   <data name="returnTheRecent" xml:space="preserve">
     <value>RETURN  TO RECENT THERAPIES</value>
+  </data>
+  <data name="Right Big Toe" xml:space="preserve">
+    <value>Right Big Toe</value>
   </data>
   <data name="Right-Achilles heel" xml:space="preserve">
     <value>Right Achilles Heel</value>
@@ -957,8 +1047,14 @@
   <data name="Right-Ankle" xml:space="preserve">
     <value>Right Ankle</value>
   </data>
+  <data name="Right-Areola" xml:space="preserve">
+    <value>Right Areola</value>
+  </data>
   <data name="Right-Arm" xml:space="preserve">
     <value>Right Arm</value>
+  </data>
+  <data name="Right-Big Toe" xml:space="preserve">
+    <value>Right Big Toe</value>
   </data>
   <data name="Right-Buttock" xml:space="preserve">
     <value>Right Buttock</value>
@@ -966,11 +1062,23 @@
   <data name="Right-Calf" xml:space="preserve">
     <value>Right Calf</value>
   </data>
+  <data name="Right-Chest" xml:space="preserve">
+    <value>Right Chest</value>
+  </data>
   <data name="Right-Clavicle" xml:space="preserve">
     <value>Right Clavicle</value>
   </data>
+  <data name="Right-Ear" xml:space="preserve">
+    <value>Right Ear</value>
+  </data>
   <data name="Right-Elbow" xml:space="preserve">
     <value>Right Elbow</value>
+  </data>
+  <data name="Right-Eye" xml:space="preserve">
+    <value>Right Eye</value>
+  </data>
+  <data name="Right-Eyelid" xml:space="preserve">
+    <value>Right Eyelid</value>
   </data>
   <data name="Right-Fingers" xml:space="preserve">
     <value>Right Fingers</value>
@@ -984,20 +1092,50 @@
   <data name="Right-Hand" xml:space="preserve">
     <value>Right Hand</value>
   </data>
+  <data name="Right-Hand Fingers" xml:space="preserve">
+    <value>Right Hand Fingers</value>
+  </data>
+  <data name="Right-Hand Phalanges" xml:space="preserve">
+    <value>Right Hand Phalanges</value>
+  </data>
+  <data name="Right-Hand Thumb" xml:space="preserve">
+    <value>Right Hand Thumb</value>
+  </data>
+  <data name="Right-Hand-Fingers" xml:space="preserve">
+    <value>Right Hand Fingers</value>
+  </data>
+  <data name="Right-Hand-Phalanges" xml:space="preserve">
+    <value>Right Hand Phalanges</value>
+  </data>
   <data name="Right-Heel" xml:space="preserve">
     <value>Right Heel</value>
   </data>
   <data name="Right-Hip" xml:space="preserve">
     <value>Right Hip</value>
   </data>
+  <data name="Right-Knee" xml:space="preserve">
+    <value>Right Knee</value>
+  </data>
   <data name="Right-Leg" xml:space="preserve">
     <value>Right Leg</value>
+  </data>
+  <data name="Right-Neck" xml:space="preserve">
+    <value>Right Neck</value>
+  </data>
+  <data name="Right-Nipple" xml:space="preserve">
+    <value>Right Nipple</value>
   </data>
   <data name="Right-Phalanges" xml:space="preserve">
     <value>Right Phalanges</value>
   </data>
+  <data name="Right-Ribs" xml:space="preserve">
+    <value>Right Ribs</value>
+  </data>
   <data name="Right-Shoulder" xml:space="preserve">
     <value>Right Shoulder</value>
+  </data>
+  <data name="Right-Testicle" xml:space="preserve">
+    <value>Right Testicle</value>
   </data>
   <data name="Right-Thigh" xml:space="preserve">
     <value>Right Thigh</value>
@@ -1013,6 +1151,9 @@
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="Stomach" xml:space="preserve">
+    <value>Stomach</value>
   </data>
   <data name="tableBegTime" xml:space="preserve">
     <value>BEGGING TIME</value>
@@ -1079,6 +1220,18 @@
   </data>
   <data name="tableValue" xml:space="preserve">
     <value>Value</value>
+  </data>
+  <data name="Throat" xml:space="preserve">
+    <value>Throat</value>
+  </data>
+  <data name="Umbilicus" xml:space="preserve">
+    <value>Umbilicus</value>
+  </data>
+  <data name="Uterus" xml:space="preserve">
+    <value>Uterus</value>
+  </data>
+  <data name="Vagina" xml:space="preserve">
+    <value>Vagina</value>
   </data>
   <data name="valAnimal" xml:space="preserve">
     <value>Animal</value>

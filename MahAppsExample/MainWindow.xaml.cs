@@ -7518,63 +7518,72 @@ namespace MahAppsExample
                 Reset_images();
 
                 //Agregar secciones
-                listaSecciones.Items.Add("Abdomen");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Mouth");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Hair");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Face");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Ribs");
-                listaSecciones.Items.Add("Left-Ribs");
-                listaSecciones.Items.Add("Right-Neck");
-                listaSecciones.Items.Add("Left-Neck");
-                listaSecciones.Items.Add("Right-Hand-Fingers");
-                listaSecciones.Items.Add("Left-Hand-Fingers");
-                listaSecciones.Items.Add("Esophagus");
-                listaSecciones.Items.Add("Stomach");
-                listaSecciones.Items.Add("Left-Hand-Phalanges");
-                listaSecciones.Items.Add("Right-Hand-Phalanges");
-                listaSecciones.Items.Add("Forehead");
-                listaSecciones.Items.Add("Throat");
-                listaSecciones.Items.Add("Glans");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Jaw");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Nose");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Eye");
-                listaSecciones.Items.Add("Left-Eye");
-                listaSecciones.Items.Add("Umbilicus");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Eyelid");
-                listaSecciones.Items.Add("Left-Eyelid");
-                listaSecciones.Items.Add("Chest");
-                listaSecciones.Items.Add("Penis");
-                listaSecciones.Items.Add("Right-Nipple");
-                listaSecciones.Items.Add("Left-Nipple");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Right-Big Toe");
-                listaSecciones.Items.Add("Left-Big Toe");
-                listaSecciones.Items.Add("Right-Knee");
-                listaSecciones.Items.Add("Left-Knee");
-                listaSecciones.Items.Add("Right-Testicle");
-                listaSecciones.Items.Add("Left-Testicle");
-                listaSecciones.Items.Add("Bladder");
+                string[] parts_body = new string[]
+                                                   {
+                                                     "Abdomen",
+                                                     "Left-Forearm",
+                                                     "Right-Forearm",
+                                                     "Mouth",
+                                                     "Right-Arm",
+                                                     "Left-Arm",
+                                                     "Hair",
+                                                     "Right-Hip",
+                                                     "Left-Hip",
+                                                     "Face",
+                                                     "Right-Clavicle",
+                                                     "Left-Clavicle",
+                                                     "Right-Ribs",
+                                                     "Left-Ribs",
+                                                     "Right-Neck",
+                                                     "Left-Neck",
+                                                     "Right-Hand-Fingers",
+                                                     "Left-Hand-Fingers",
+                                                     "Esophagus",
+                                                     "Stomach",
+                                                     "Left-Hand-Phalanges",
+                                                     "Right-Hand-Phalanges",
+                                                     "Forehead",
+                                                     "Throat",
+                                                     "Glans", // Consider replacing with a more appropriate term if needed
+                                                     "Right-Shoulder",
+                                                     "Left-Shoulder",
+                                                     "Jaw",
+                                                     "Right-Hand",
+                                                     "Left-Hand",
+                                                     "Right-Thigh",
+                                                     "Left-Thigh",
+                                                     "Nose",
+                                                     "Right-Ear",
+                                                     "Left-Ear",
+                                                     "Right-Eye",
+                                                     "Left-Eye",
+                                                     "Umbilicus",
+                                                     "Right-Calf",
+                                                     "Left-Calf",
+                                                     "Right-Eyelid",
+                                                     "Left-Eyelid",
+                                                     "Chest",
+                                                     "Penis", // Consider replacing with a more appropriate term if needed
+                                                     "Right-Nipple",
+                                                     "Left-Nipple",
+                                                     "Right-Foot",
+                                                     "Left-Foot",
+                                                     "Right-Thumb",
+                                                     "Left-Thumb",
+                                                     "Right-Big Toe",
+                                                     "Left-Big Toe",
+                                                     "Right-Knee",
+                                                     "Left-Knee",
+                                                     "Right-Testicle", // Consider replacing with a more appropriate term if needed
+                                                     "Left-Testicle", // Consider replacing with a more appropriate term if needed
+                                                     "Bladder"
+                                                   };
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+
+
             }
 
 
@@ -7698,67 +7707,77 @@ namespace MahAppsExample
                 Reset_images();
 
                 //Agregar secciones
-                listaSecciones.Items.Add("Abdomen");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Right-Areola");
-                listaSecciones.Items.Add("Left-Areola");
-                listaSecciones.Items.Add("Mouth");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Hair");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Face");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Ribs");
-                listaSecciones.Items.Add("Left-Ribs");
-                listaSecciones.Items.Add("Right-Neck");
-                listaSecciones.Items.Add("Left-Neck");
-                listaSecciones.Items.Add("Right-Hand Fingers");
-                listaSecciones.Items.Add("Left-Hand Fingers");
-                listaSecciones.Items.Add("Esophagus");
-                listaSecciones.Items.Add("Stomach");
-                listaSecciones.Items.Add("Left-Hand Phalanges");
-                listaSecciones.Items.Add("Right-Hand Phalanges");
-                listaSecciones.Items.Add("Forehead");
-                listaSecciones.Items.Add("Throat");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Jaw");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Nose");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Eye");
-                listaSecciones.Items.Add("Left-Eye");
-                listaSecciones.Items.Add("Umbilicus");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Eyelid");
-                listaSecciones.Items.Add("Left-Eyelid");
-                listaSecciones.Items.Add("Right-Chest");
-                listaSecciones.Items.Add("Left-Chest");
-                listaSecciones.Items.Add("Chest");
-                listaSecciones.Items.Add("Right-Nipple");
-                listaSecciones.Items.Add("Left-Nipple");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Hand Thumb");
-                listaSecciones.Items.Add("Left-Hand Thumb");
-                listaSecciones.Items.Add("Right Big Toe");
-                listaSecciones.Items.Add("Left Big Toe");
-                listaSecciones.Items.Add("Right-Knee");
-                listaSecciones.Items.Add("Left-Knee");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
-                listaSecciones.Items.Add("Uterus");
-                listaSecciones.Items.Add("Vagina");
-                listaSecciones.Items.Add("Bladder");
+                string[] parts_body = new string[]
+                                                  {
+                                                   "Abdomen",
+                                                   "Left-Forearm",
+                                                   "Right-Forearm",
+                                                   "Right-Areola",
+                                                   "Left-Areola",
+                                                   "Mouth",
+                                                   "Right-Arm",
+                                                   "Left-Arm",
+                                                   "Hair",
+                                                   "Right-Hip",
+                                                   "Left-Hip",
+                                                   "Face",
+                                                   "Right-Clavicle",
+                                                   "Left-Clavicle",
+                                                   "Right-Ribs",
+                                                   "Left-Ribs",
+                                                   "Right-Neck",
+                                                   "Left-Neck",
+                                                   "Right-Hand Fingers",
+                                                   "Left-Hand Fingers",
+                                                   "Esophagus",
+                                                   "Stomach",
+                                                   "Left-Hand Phalanges",
+                                                   "Right-Hand Phalanges",
+                                                   "Forehead",
+                                                   "Throat",
+                                                   "Right-Shoulder",
+                                                   "Left-Shoulder",
+                                                   "Jaw",
+                                                   "Right-Hand",
+                                                   "Left-Hand",
+                                                   "Right-Thigh",
+                                                   "Left-Thigh",
+                                                   "Nose",
+                                                   "Right-Ear",
+                                                   "Left-Ear",
+                                                   "Right-Eye",
+                                                   "Left-Eye",
+                                                   "Umbilicus",
+                                                   "Right-Calf",
+                                                   "Left-Calf",
+                                                   "Right-Eyelid",
+                                                   "Left-Eyelid",
+                                                   "Right-Chest",
+                                                   "Left-Chest",
+                                                   "Chest",
+                                                   "Right-Nipple",
+                                                   "Left-Nipple",
+                                                   "Right-Foot",
+                                                   "Left-Foot",
+                                                   "Right-Hand Thumb",
+                                                   "Left-Hand Thumb",
+                                                   "Right Big Toe",
+                                                   "Left Big Toe",
+                                                   "Right-Knee",
+                                                   "Left-Knee",
+                                                   "Right-Ankle",
+                                                   "Left-Ankle",
+                                                   "Uterus",
+                                                   "Vagina",
+                                                   "Bladder"
+                                                  };
+
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+
+
             }
 
 
@@ -7884,64 +7903,71 @@ namespace MahAppsExample
 
                 Reset_images();
 
-                //Agregar secciones
-                listaSecciones.Items.Add("Abdomen");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Mouth");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Hair");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Face");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Ribs");
-                listaSecciones.Items.Add("Left-Ribs");
-                listaSecciones.Items.Add("Right-Neck");
-                listaSecciones.Items.Add("Left-Neck");
-                listaSecciones.Items.Add("Right-Hand-Fingers");
-                listaSecciones.Items.Add("Left-Hand-Fingers");
-                listaSecciones.Items.Add("Esophagus");
-                listaSecciones.Items.Add("Stomach");
-                listaSecciones.Items.Add("Left-Hand-Phalanges");
-                listaSecciones.Items.Add("Right-Hand-Phalanges");
-                listaSecciones.Items.Add("Forehead");
-                listaSecciones.Items.Add("Throat");
-                listaSecciones.Items.Add("Glans");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Jaw");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Nose");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Eye");
-                listaSecciones.Items.Add("Left-Eye");
-                listaSecciones.Items.Add("Umbilicus");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Eyelid");
-                listaSecciones.Items.Add("Left-Eyelid");
-                listaSecciones.Items.Add("Chest");
-                listaSecciones.Items.Add("Penis");
-                listaSecciones.Items.Add("Right-Nipple");
-                listaSecciones.Items.Add("Left-Nipple");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Thumb");
-                listaSecciones.Items.Add("Left-Thumb");
-                listaSecciones.Items.Add("Right-Big Toe");
-                listaSecciones.Items.Add("Left-Big Toe");
-                listaSecciones.Items.Add("Right-Knee");
-                listaSecciones.Items.Add("Left-Knee");
-                listaSecciones.Items.Add("Right-Testicle");
-                listaSecciones.Items.Add("Left-Testicle");
-                listaSecciones.Items.Add("Bladder");
+                string[] parts_body = new string[]
+                                              {
+                                                     "Abdomen",
+                                                     "Left-Forearm",
+                                                     "Right-Forearm",
+                                                     "Mouth",
+                                                     "Right-Arm",
+                                                     "Left-Arm",
+                                                     "Hair",
+                                                     "Right-Hip",
+                                                     "Left-Hip",
+                                                     "Face",
+                                                     "Right-Clavicle",
+                                                     "Left-Clavicle",
+                                                     "Right-Ribs",
+                                                     "Left-Ribs",
+                                                     "Right-Neck",
+                                                     "Left-Neck",
+                                                     "Right-Hand-Fingers",
+                                                     "Left-Hand-Fingers",
+                                                     "Esophagus",
+                                                     "Stomach",
+                                                     "Left-Hand-Phalanges",
+                                                     "Right-Hand-Phalanges",
+                                                     "Forehead",
+                                                     "Throat",
+                                                     "Glans", // Consider replacing with a more appropriate term if needed
+                                                     "Right-Shoulder",
+                                                     "Left-Shoulder",
+                                                     "Jaw",
+                                                     "Right-Hand",
+                                                     "Left-Hand",
+                                                     "Right-Thigh",
+                                                     "Left-Thigh",
+                                                     "Nose",
+                                                     "Right-Ear",
+                                                     "Left-Ear",
+                                                     "Right-Eye",
+                                                     "Left-Eye",
+                                                     "Umbilicus",
+                                                     "Right-Calf",
+                                                     "Left-Calf",
+                                                     "Right-Eyelid",
+                                                     "Left-Eyelid",
+                                                     "Chest",
+                                                     "Penis", // Consider replacing with a more appropriate term if needed
+                                                     "Right-Nipple",
+                                                     "Left-Nipple",
+                                                     "Right-Foot",
+                                                     "Left-Foot",
+                                                     "Right-Thumb",
+                                                     "Left-Thumb",
+                                                     "Right-Big Toe",
+                                                     "Left-Big Toe",
+                                                     "Right-Knee",
+                                                     "Left-Knee",
+                                                     "Right-Testicle", // Consider replacing with a more appropriate term if needed
+                                                     "Left-Testicle", // Consider replacing with a more appropriate term if needed
+                                                     "Bladder"
+                                              };
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
+
             }
 
 
@@ -8018,68 +8044,75 @@ namespace MahAppsExample
 
                 Reset_images();
 
-                //Agregar secciones
-                listaSecciones.Items.Add("Abdomen");
-                listaSecciones.Items.Add("Left-Forearm");
-                listaSecciones.Items.Add("Right-Forearm");
-                listaSecciones.Items.Add("Right-Areola");
-                listaSecciones.Items.Add("Left-Areola");
-                listaSecciones.Items.Add("Mouth");
-                listaSecciones.Items.Add("Right-Arm");
-                listaSecciones.Items.Add("Left-Arm");
-                listaSecciones.Items.Add("Hair");
-                listaSecciones.Items.Add("Right-Hip");
-                listaSecciones.Items.Add("Left-Hip");
-                listaSecciones.Items.Add("Face");
-                listaSecciones.Items.Add("Right-Clavicle");
-                listaSecciones.Items.Add("Left-Clavicle");
-                listaSecciones.Items.Add("Right-Ribs");
-                listaSecciones.Items.Add("Left-Ribs");
-                listaSecciones.Items.Add("Right-Neck");
-                listaSecciones.Items.Add("Left-Neck");
-                listaSecciones.Items.Add("Right-Hand Fingers");
-                listaSecciones.Items.Add("Left-Hand Fingers");
-                listaSecciones.Items.Add("Esophagus");
-                listaSecciones.Items.Add("Stomach");
-                listaSecciones.Items.Add("Left-Hand Phalanges");
-                listaSecciones.Items.Add("Right-Hand Phalanges");
-                listaSecciones.Items.Add("Forehead");
-                listaSecciones.Items.Add("Throat");
-                listaSecciones.Items.Add("Right-Shoulder");
-                listaSecciones.Items.Add("Left-Shoulder");
-                listaSecciones.Items.Add("Jaw");
-                listaSecciones.Items.Add("Right-Hand");
-                listaSecciones.Items.Add("Left-Hand");
-                listaSecciones.Items.Add("Right-Thigh");
-                listaSecciones.Items.Add("Left-Thigh");
-                listaSecciones.Items.Add("Nose");
-                listaSecciones.Items.Add("Right-Ear");
-                listaSecciones.Items.Add("Left-Ear");
-                listaSecciones.Items.Add("Right-Eye");
-                listaSecciones.Items.Add("Left-Eye");
-                listaSecciones.Items.Add("Umbilicus");
-                listaSecciones.Items.Add("Right-Calf");
-                listaSecciones.Items.Add("Left-Calf");
-                listaSecciones.Items.Add("Right-Eyelid");
-                listaSecciones.Items.Add("Left-Eyelid");
-                listaSecciones.Items.Add("Right-Chest");
-                listaSecciones.Items.Add("Left-Chest");
-                listaSecciones.Items.Add("Chest");
-                listaSecciones.Items.Add("Right-Nipple");
-                listaSecciones.Items.Add("Left-Nipple");
-                listaSecciones.Items.Add("Right-Foot");
-                listaSecciones.Items.Add("Left-Foot");
-                listaSecciones.Items.Add("Right-Hand Thumb");
-                listaSecciones.Items.Add("Left-Hand Thumb");
-                listaSecciones.Items.Add("Right Big Toe");
-                listaSecciones.Items.Add("Left Big Toe");
-                listaSecciones.Items.Add("Right-Knee");
-                listaSecciones.Items.Add("Left-Knee");
-                listaSecciones.Items.Add("Right-Ankle");
-                listaSecciones.Items.Add("Left-Ankle");
-                listaSecciones.Items.Add("Uterus");
-                listaSecciones.Items.Add("Vagina");
-                listaSecciones.Items.Add("Bladder");
+                string[] parts_body = new string[]
+                                         {
+                                                   "Abdomen",
+                                                   "Left-Forearm",
+                                                   "Right-Forearm",
+                                                   "Right-Areola",
+                                                   "Left-Areola",
+                                                   "Mouth",
+                                                   "Right-Arm",
+                                                   "Left-Arm",
+                                                   "Hair",
+                                                   "Right-Hip",
+                                                   "Left-Hip",
+                                                   "Face",
+                                                   "Right-Clavicle",
+                                                   "Left-Clavicle",
+                                                   "Right-Ribs",
+                                                   "Left-Ribs",
+                                                   "Right-Neck",
+                                                   "Left-Neck",
+                                                   "Right-Hand Fingers",
+                                                   "Left-Hand Fingers",
+                                                   "Esophagus",
+                                                   "Stomach",
+                                                   "Left-Hand Phalanges",
+                                                   "Right-Hand Phalanges",
+                                                   "Forehead",
+                                                   "Throat",
+                                                   "Right-Shoulder",
+                                                   "Left-Shoulder",
+                                                   "Jaw",
+                                                   "Right-Hand",
+                                                   "Left-Hand",
+                                                   "Right-Thigh",
+                                                   "Left-Thigh",
+                                                   "Nose",
+                                                   "Right-Ear",
+                                                   "Left-Ear",
+                                                   "Right-Eye",
+                                                   "Left-Eye",
+                                                   "Umbilicus",
+                                                   "Right-Calf",
+                                                   "Left-Calf",
+                                                   "Right-Eyelid",
+                                                   "Left-Eyelid",
+                                                   "Right-Chest",
+                                                   "Left-Chest",
+                                                   "Chest",
+                                                   "Right-Nipple",
+                                                   "Left-Nipple",
+                                                   "Right-Foot",
+                                                   "Left-Foot",
+                                                   "Right-Hand Thumb",
+                                                   "Left-Hand Thumb",
+                                                   "Right Big Toe",
+                                                   "Left Big Toe",
+                                                   "Right-Knee",
+                                                   "Left-Knee",
+                                                   "Right-Ankle",
+                                                   "Left-Ankle",
+                                                   "Uterus",
+                                                   "Vagina",
+                                                   "Bladder"
+                                         };
+
+                foreach (var item in parts_body)
+                {
+                    listaSecciones.Items.Add(obtenerRecurso(item));
+                }
             }
 
 
@@ -8715,9 +8748,9 @@ namespace MahAppsExample
                     HacerConexion();
                     object cod_color;
 
-                    
-                        cod_color = obj2.Obtener_Color_ParteTerapia(color_elegido.Content.ToString());
-                    
+
+                    cod_color = obj2.Obtener_Color_ParteTerapia(color_elegido.Content.ToString());
+
                     object cod_seccion = obj2.Obtener_CodigoParte_Color_ParteTerapia(seccion);
 
                     //Sino existe la parte elegida en rad_codigos generar un random para ello
@@ -8742,300 +8775,296 @@ namespace MahAppsExample
                     listadoCodigosComb.Items.Add(new nuevoColorCombinado { codigocomp = cod_seccion.ToString() + cod_color.ToString(), nombrecodigocomp = descrip_color });
 
                     //////////
-
-                    switch (seccion)
+                    if (seccion == obtenerRecurso("Abdomen"))
                     {
-                        case "Abdomen":
-                            BitmapImage Abdomen = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Abdomen_500, myColor));
-                            part1.Source = Abdomen;
-                            break;
-
-                        case "Left-Forearm":
-                            BitmapImage Ante1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Izq_500, myColor));
-                            part2.Source = Ante1;
-                            break;
-
-                        case "Right-Forearm":
-                            BitmapImage Ante2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Der_500, myColor));
-                            part3.Source = Ante2;
-                            break;
-
-                        case "Mouth":
-                            BitmapImage Boca = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Boca_B_500, myColor));
-                            part4.Source = Boca;
-                            break;
-
-                        case "Right-Arm":
-                            BitmapImage Brazo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_500, myColor));
-                            part5.Source = Brazo1;
-                            break;
-
-                        case "Left-Arm":
-                            BitmapImage Brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_500, myColor));
-                            part62.Source = Brazo2;
-                            break;
-
-                        case "Hair":
-                            BitmapImage Cabello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabello_500, myColor));
-                            part6.Source = Cabello;
-                            break;
-
-                        case "Right-Hip":
-                            BitmapImage Cadera1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_500, myColor));
-                            part7.Source = Cadera1;
-                            break;
-
-                        case "Left-Hip":
-                            BitmapImage Cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_500, myColor));
-                            part8.Source = Cadera2;
-                            break;
-
-                        case "Face":
-                            BitmapImage Cara = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cara_500, myColor));
-                            part9.Source = Cara;
-                            break;
-
-                        case "Right-Clavicle":
-                            BitmapImage Clavícula1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_500, myColor));
-                            part10.Source = Clavícula1;
-                            break;
-
-                        case "Left-Clavicle":
-                            BitmapImage Clavícula2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_500, myColor));
-                            part11.Source = Clavícula2;
-                            break;
-
-                        case "Right-Ribs":
-                            BitmapImage Costillas = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Der_500, myColor));
-                            part12.Source = Costillas;
-                            break;
-
-                        case "Left-Ribs":
-                            BitmapImage Costillas2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Izq_500, myColor));
-                            part13.Source = Costillas2;
-                            break;
-
-                        case "Right-Neck":
-                            BitmapImage Cuello1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Der_500, myColor));
-                            part14.Source = Cuello1;
-                            break;
-
-                        case "Left-Neck":
-                            BitmapImage Cuello2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Izq_500, myColor));
-                            part15.Source = Cuello2;
-                            break;
-
-                        case "Right-Hand-Fingers":
-                            BitmapImage Dedos = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Der_500, myColor));
-                            part16.Source = Dedos;
-                            break;
-
-                        case "Left-Hand-Fingers":
-                            BitmapImage Dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Izq_500, myColor));
-                            part17.Source = Dedos2;
-                            break;
-
-                        case "Esophagus":
-                            BitmapImage Esofago = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Esofago_500, myColor));
-                            part18.Source = Esofago;
-                            break;
-
-                        case "Stomach":
-                            BitmapImage Estomago = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Estomago_500, myColor));
-                            part19.Source = Estomago;
-                            break;
-
-                        case "Left-Hand-Phalanges":
-                            BitmapImage Falanges1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falange_Izq_500, myColor));
-                            part20.Source = Falanges1;
-                            break;
-
-                        case "Right-Hand-Phalanges":
-                            BitmapImage Falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_500, myColor));
-                            part21.Source = Falanges2;
-                            break;
-
-                        case "Forehead":
-                            BitmapImage Frente = ToBitmapImage(ChangeColor(HS5.Properties.Resources.frente_500, myColor));
-                            part22.Source = Frente;
-                            break;
-
-                        case "Throat":
-                            BitmapImage Garganta = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Garganta_500, myColor));
-                            part23.Source = Garganta;
-                            break;
-
-                        case "Glans":
-                            BitmapImage Glande = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Glande_500, myColor));
-                            part24.Source = Glande;
-                            break;
-
-                        case "Right-Shoulder":
-                            BitmapImage Hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_500, myColor));
-                            part25.Source = Hombro1;
-                            break;
-
-                        case "Left-Shoulder":
-                            BitmapImage Hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_500, myColor));
-                            part26.Source = Hombro2;
-                            break;
-
-                        case "Jaw":
-                            BitmapImage Man1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mandibula_500, myColor));
-                            part27.Source = Man1;
-                            break;
-
-                        case "Right-Hand":
-                            BitmapImage Mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_500, myColor));
-                            part28.Source = Mano1;
-                            break;
-
-                        case "Left-Hand":
-                            BitmapImage Mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_500, myColor));
-                            part29.Source = Mano2;
-                            break;
-
-                        case "Right-Thigh":
-                            BitmapImage Muslo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_500, myColor));
-                            part30.Source = Muslo;
-                            break;
-
-                        case "Left-Thigh":
-                            BitmapImage Muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_500, myColor));
-                            part31.Source = Muslo2;
-                            break;
-
-                        case "Nose":
-                            BitmapImage Nariz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.nariz_500, myColor));
-                            part32.Source = Nariz;
-                            break;
-
-                        case "Right-Ear":
-                            BitmapImage Oreja1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oreja_Der_500, myColor));
-                            part33.Source = Oreja1;
-                            break;
-
-                        case "Left-Ear":
-                            BitmapImage Oreja2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oreja_Izq_500, myColor));
-                            part34.Source = Oreja2;
-                            break;
-
-                        case "Right-Eye":
-                            BitmapImage Ojo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Der_500, myColor));
-                            part35.Source = Ojo1;
-                            break;
-
-                        case "Left-Eye":
-                            BitmapImage Ojo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Izq_500, myColor));
-                            part36.Source = Ojo2;
-                            break;
-
-                        case "Umbilicus":
-                            BitmapImage Ombligo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ombligo_500, myColor));
-                            part37.Source = Ombligo;
-                            break;
-
-                        case "Right-Calf":
-                            BitmapImage Pantorilla = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_500, myColor));
-                            part38.Source = Pantorilla;
-                            break;
-
-                        case "Left-Calf":
-                            BitmapImage Pantorilla2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_500, myColor));
-                            part39.Source = Pantorilla2;
-                            break;
-
-                        case "Right-Eyelid":
-                            BitmapImage Parpado = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_DerB_500, myColor));
-                            part40.Source = Parpado;
-                            break;
-
-                        case "Left-Eyelid":
-                            BitmapImage Parpado2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Izq_500, myColor));
-                            part41.Source = Parpado2;
-                            break;
-
-                        case "Chest":
-                            BitmapImage Pecho = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_500, myColor));
-                            part42.Source = Pecho;
-                            break;
-
-                        case "Penis":
-                            BitmapImage Pene = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pene_500, myColor));
-                            part43.Source = Pene;
-                            break;
-
-                        case "Right-Nipple":
-                            BitmapImage Pezon1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Der_500, myColor));
-                            part44.Source = Pezon1;
-                            break;
-
-                        case "Left-Nipple":
-                            BitmapImage Pezon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Izq_500, myColor));
-                            part45.Source = Pezon2;
-                            break;
-
-                        case "Right-Foot":
-                            BitmapImage Pie = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_500, myColor));
-                            part46.Source = Pie;
-                            break;
-
-                        case "Left-Foot":
-                            BitmapImage Pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_500, myColor));
-                            part47.Source = Pie2;
-                            break;
-
-                        case "Right-Thumb":
-                            BitmapImage Pulgar = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Mano_Der_500, myColor));
-                            part48.Source = Pulgar;
-                            break;
-
-                        case "Left-Thumb":
-                            BitmapImage Pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulganr_Mano_Izq_500, myColor));
-                            part49.Source = Pulgar2;
-                            break;
-
-                        case "Right-Knee":
-                            BitmapImage Rodilla1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Der_500, myColor));
-                            part50.Source = Rodilla1;
-                            break;
-
-                        case "Left-Knee":
-                            BitmapImage Rodilla2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Izq_500, myColor));
-                            part51.Source = Rodilla2;
-                            break;
-
-                        case "Right-Testicle":
-                            BitmapImage Testi1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Testiculo_Der_500, myColor));
-                            part52.Source = Testi1;
-                            break;
-
-                        case "Left-Testicle":
-                            BitmapImage Testi2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Testiculo_Izq_500, myColor));
-                            part53.Source = Testi2;
-                            break;
-
-                        case "Bladder":
-                            BitmapImage Vegija = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vegiga_500, myColor));
-                            part54.Source = Vegija;
-                            break;
-
-                        case "Right-Big Toe":
-                            BitmapImage Pulgar11 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Der_500, myColor));
-                            part55.Source = Pulgar11;
-                            break;
-
-                        case "Left-Big Toe":
-                            BitmapImage Pulgar22 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Izq_500, myColor));
-                            part56.Source = Pulgar22;
-                            break;
-
+                        BitmapImage Abdomen = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Abdomen_500, myColor));
+                        part1.Source = Abdomen;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Forearm"))
+                    {
+                        BitmapImage Ante1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Izq_500, myColor));
+                        part2.Source = Ante1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Forearm"))
+                    {
+                        BitmapImage Ante2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Der_500, myColor));
+                        part3.Source = Ante2;
+                    }
+                    else if (seccion == obtenerRecurso("Mouth"))
+                    {
+                        BitmapImage Boca = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Boca_B_500, myColor));
+                        part4.Source = Boca;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Arm"))
+                    {
+                        BitmapImage Brazo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_500, myColor));
+                        part5.Source = Brazo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Arm"))
+                    {
+                        BitmapImage Brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_500, myColor));
+                        part62.Source = Brazo2;
+                    }
+                    else if (seccion == obtenerRecurso("Hair"))
+                    {
+                        BitmapImage Cabello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabello_500, myColor));
+                        part6.Source = Cabello;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hip"))
+                    {
+                        BitmapImage Cadera1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_500, myColor));
+                        part7.Source = Cadera1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hip"))
+                    {
+                        BitmapImage Cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_500, myColor));
+                        part8.Source = Cadera2;
+                    }
+                    else if (seccion == obtenerRecurso("Face"))
+                    {
+                        BitmapImage Cara = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cara_500, myColor));
+                        part9.Source = Cara;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Clavicle"))
+                    {
+                        BitmapImage Clavícula1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_500, myColor));
+                        part10.Source = Clavícula1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Clavicle"))
+                    {
+                        BitmapImage Clavícula2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_500, myColor));
+                        part11.Source = Clavícula2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ribs"))
+                    {
+                        BitmapImage Costillas = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Der_500, myColor));
+                        part12.Source = Costillas;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ribs"))
+                    {
+                        BitmapImage Costillas2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Izq_500, myColor));
+                        part13.Source = Costillas2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Neck"))
+                    {
+                        BitmapImage Cuello1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Der_500, myColor));
+                        part14.Source = Cuello1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Neck"))
+                    {
+                        BitmapImage Cuello2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Izq_500, myColor));
+                        part15.Source = Cuello2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand-Fingers"))
+                    {
+                        BitmapImage Dedos = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Der_500, myColor));
+                        part16.Source = Dedos;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand-Fingers"))
+                    {
+                        BitmapImage Dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Izq_500, myColor));
+                        part17.Source = Dedos2;
+                    }
+                    else if (seccion == obtenerRecurso("Esophagus"))
+                    {
+                        BitmapImage Esofago = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Esofago_500, myColor));
+                        part18.Source = Esofago;
+                    }
+                    else if (seccion == obtenerRecurso("Stomach"))
+                    {
+                        BitmapImage Estomago = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Estomago_500, myColor));
+                        part19.Source = Estomago;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand-Phalanges"))
+                    {
+                        BitmapImage Falanges1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falange_Izq_500, myColor));
+                        part20.Source = Falanges1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand-Phalanges"))
+                    {
+                        BitmapImage Falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_500, myColor));
+                        part21.Source = Falanges2;
+                    }
+                    else if (seccion == obtenerRecurso("Forehead"))
+                    {
+                        BitmapImage Frente = ToBitmapImage(ChangeColor(HS5.Properties.Resources.frente_500, myColor));
+                        part22.Source = Frente;
+                    }
+                    else if (seccion ==obtenerRecurso("Throat"))
+                    {
+                        BitmapImage Garganta = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Garganta_500, myColor));
+                        part23.Source = Garganta;
+                    }
+                    else if (seccion == obtenerRecurso("Glans"))
+                    {
+                        BitmapImage Glande = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Glande_500, myColor));
+                        part24.Source = Glande;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Shoulder"))
+                    {
+                        BitmapImage Hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_500, myColor));
+                        part25.Source = Hombro1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Shoulder"))
+                    {
+                        BitmapImage Hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_500, myColor));
+                        part26.Source = Hombro2;
+                    }
+                    else if (seccion == obtenerRecurso("Jaw"))
+                    {
+                        BitmapImage Man1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mandibula_500, myColor));
+                        part27.Source = Man1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand"))
+                    {
+                        BitmapImage Mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_500, myColor));
+                        part28.Source = Mano1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand"))
+                    {
+                        BitmapImage Mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_500, myColor));
+                        part29.Source = Mano2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thigh"))
+                    {
+                        BitmapImage Muslo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_500, myColor));
+                        part30.Source = Muslo;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thigh"))
+                    {
+                        BitmapImage Muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_500, myColor));
+                        part31.Source = Muslo2;
+                    }
+                    else if (seccion == obtenerRecurso("Nose"))
+                    {
+                        BitmapImage Nariz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.nariz_500, myColor));
+                        part32.Source = Nariz;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ear"))
+                    {
+                        BitmapImage Oreja1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oreja_Der_500, myColor));
+                        part33.Source = Oreja1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ear"))
+                    {
+                        BitmapImage Oreja2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oreja_Izq_500, myColor));
+                        part34.Source = Oreja2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Eye"))
+                    {
+                        BitmapImage Ojo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Der_500, myColor));
+                        part35.Source = Ojo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Eye"))
+                    {
+                        BitmapImage Ojo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Izq_500, myColor));
+                        part36.Source = Ojo2;
+                    }
+                    else if (seccion == obtenerRecurso("Umbilicus"))
+                    {
+                        BitmapImage Ombligo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ombligo_500, myColor));
+                        part37.Source = Ombligo;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Calf"))
+                    {
+                        BitmapImage Pantorilla = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_500, myColor));
+                        part38.Source = Pantorilla;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Calf"))
+                    {
+                        BitmapImage Pantorilla2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_500, myColor));
+                        part39.Source = Pantorilla2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Eyelid"))
+                    {
+                        BitmapImage Parpado = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_DerB_500, myColor));
+                        part40.Source = Parpado;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Eyelid"))
+                    {
+                        BitmapImage Parpado2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Izq_500, myColor));
+                        part41.Source = Parpado2;
+                    }
+                    else if (seccion == obtenerRecurso("Chest"))
+                    {
+                        BitmapImage Pecho = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_500, myColor));
+                        part42.Source = Pecho;
+                    }
+                    else if (seccion == obtenerRecurso("Penis"))
+                    {
+                        BitmapImage Pene = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pene_500, myColor));
+                        part43.Source = Pene;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Nipple"))
+                    {
+                        BitmapImage Pezon1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Der_500, myColor));
+                        part44.Source = Pezon1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Nipple"))
+                    {
+                        BitmapImage Pezon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Izq_500, myColor));
+                        part45.Source = Pezon2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Foot"))
+                    {
+                        BitmapImage Pie = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_500, myColor));
+                        part46.Source = Pie;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Foot"))
+                    {
+                        BitmapImage Pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_500, myColor));
+                        part47.Source = Pie2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thumb"))
+                    {
+                        BitmapImage Pulgar = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Mano_Der_500, myColor));
+                        part48.Source = Pulgar;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thumb"))
+                    {
+                        BitmapImage Pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulganr_Mano_Izq_500, myColor));
+                        part49.Source = Pulgar2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Knee"))
+                    {
+                        BitmapImage Rodilla1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Der_500, myColor));
+                        part50.Source = Rodilla1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Knee"))
+                    {
+                        BitmapImage Rodilla2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Izq_500, myColor));
+                        part51.Source = Rodilla2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Testicle"))
+                    {
+                        BitmapImage Testi1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Testiculo_Der_500, myColor));
+                        part52.Source = Testi1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Testicle"))
+                    {
+                        BitmapImage Testi2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Testiculo_Izq_500, myColor));
+                        part53.Source = Testi2;
+                    }
+                    else if (seccion == obtenerRecurso("Bladder"))
+                    {
+                        BitmapImage Vegija = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vegiga_500, myColor));
+                        part54.Source = Vegija;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Big Toe"))
+                    {
+                        BitmapImage Pulgar11 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Der_500, myColor));
+                        part55.Source = Pulgar11;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Big Toe"))
+                    {
+                        BitmapImage Pulgar22 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Izq_500, myColor));
+                        part56.Source = Pulgar22;
                     }
 
                 }
 
-                //Si es hombre y es parte trasera
-                if (radioMasculino.IsChecked == true && listVista.SelectedItem.ToString() == "Back")
+                    //Si es hombre y es parte trasera
+                    if (radioMasculino.IsChecked == true && listVista.SelectedItem.ToString() == obtenerRecurso("valBack"))
                 {
                     //Partes que le corresponden
                     //Seccion elegida
@@ -9070,231 +9099,229 @@ namespace MahAppsExample
                     //Agregar a la lista para visualizar (Combina el codigo uniendo cod_seccion+cod_color)
                     listadoCodigosComb.Items.Add(new nuevoColorCombinado { codigocomp = cod_seccion.ToString() + cod_color.ToString(), nombrecodigocomp = descrip_color });
 
-                    //////////
-
-                    switch (seccion)
+                    //condition to show or add color to the image of body 
+                    if (seccion == obtenerRecurso("Anus"))
                     {
-                        case "Anus":
-                            BitmapImage ano = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBAnus_500, myColor));
-                            part1.Source = ano;
-                            break;
-
-                        case "Right-Forearm":
-                            BitmapImage ante1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBAnteBrazo_Der_500, myColor));
-                            part2.Source = ante1;
-                            break;
-
-                        case "Left-Forearm":
-                            BitmapImage ante2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Izq_5001, myColor));
-                            part3.Source = ante2;
-                            break;
-
-                        case "Right-Arm":
-                            BitmapImage brazo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBBrazo_Der_500, myColor));
-                            part4.Source = brazo1;
-                            break;
-
-                        case "Left-Arm":
-                            BitmapImage brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBBrazo_Izq_500, myColor));
-                            part5.Source = brazo2;
-                            break;
-
-                        case "Head":
-                            BitmapImage cabeza = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBCabeza_500, myColor));
-                            part6.Source = cabeza;
-                            break;
-
-                        case "Right-Hip":
-                            BitmapImage cadera1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5001, myColor));
-                            part7.Source = cadera1;
-                            break;
-
-                        case "Left-Hip":
-                            BitmapImage cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5001, myColor));
-                            part8.Source = cadera2;
-                            break;
-
-                        case "Right-Trapezius":
-                            BitmapImage trapecio1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Trapecio_Der_500, myColor));
-                            part9.Source = trapecio1;
-                            break;
-
-                        case "Left-Trapezius":
-                            BitmapImage trapecio2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Trapecio_Izp_500, myColor));
-                            part10.Source = trapecio2;
-                            break;
-
-                        case "Right-Elbow":
-                            BitmapImage codo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBCodo_Der_500, myColor));
-                            part11.Source = codo1;
-                            break;
-
-                        case "Left-Elbow":
-                            BitmapImage codo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Izq_500, myColor));
-                            part12.Source = codo2;
-                            break;
-
-                        case "Column":
-                            BitmapImage columna = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBColumna_500, myColor));
-                            part13.Source = columna;
-                            break;
-
-                        case "Neck":
-                            BitmapImage cuello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_500, myColor));
-                            part14.Source = cuello;
-                            break;
-
-                        case "Right-Fingers":
-                            BitmapImage dedos1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Der_500, myColor));
-                            part15.Source = dedos1;
-                            break;
-
-                        case "Left-Fingers":
-                            BitmapImage dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_izq_5001, myColor));
-                            part16.Source = dedos2;
-                            break;
-
-                        case "Back":
-                            BitmapImage espalda = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Espalda_500, myColor));
-                            part17.Source = espalda;
-                            break;
-
-                        case "Right-Phalanges":
-                            BitmapImage falanges = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_5001, myColor));
-                            part18.Source = falanges;
-                            break;
-
-                        case "Left-Phalanges":
-                            BitmapImage falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.HBFalages_Izq_500, myColor));
-                            part19.Source = falanges2;
-                            break;
-
-                        case "Right-Shoulder":
-                            BitmapImage hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.HBHombro_Der_500, myColor));
-                            part20.Source = hombro1;
-                            break;
-
-                        case "Left-Shoulder":
-                            BitmapImage hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBHombro_Izq_500, myColor));
-                            part21.Source = hombro2;
-                            break;
-
-                        case "Right-Hand":
-                            BitmapImage mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5001, myColor));
-                            part22.Source = mano1;
-                            break;
-
-                        case "Left-Hand":
-                            BitmapImage mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5001, myColor));
-                            part23.Source = mano2;
-                            break;
-
-                        case "Right-Wrist":
-                            BitmapImage mun1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBMuñeca_der_500, myColor));
-                            part24.Source = mun1;
-                            break;
-
-                        case "Left-Wrist":
-                            BitmapImage mun2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_Izq_500, myColor));
-                            part25.Source = mun2;
-                            break;
-
-                        case "Right-Thigh":
-                            BitmapImage muslo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_5001, myColor));
-                            part26.Source = muslo1;
-                            break;
-
-                        case "Left-Thigh":
-                            BitmapImage muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_5001, myColor));
-                            part27.Source = muslo2;
-                            break;
-
-                        case "Right-Buttock":
-                            BitmapImage nalga1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBNalga_Der_500, myColor));
-                            part28.Source = nalga1;
-                            break;
-
-                        case "Left-Buttock":
-                            BitmapImage nalga2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBNalga_Izq_500, myColor));
-                            part29.Source = nalga2;
-                            break;
-
-                        case "Right-Ear":
-                            BitmapImage oido1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBOido_der_500, myColor));
-                            part30.Source = oido1;
-                            break;
-
-                        case "Left-Ear":
-                            BitmapImage oido2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBOido_Izq_500, myColor));
-                            part31.Source = oido2;
-                            break;
-
-                        case "Right-Calf":
-                            BitmapImage panto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5001, myColor));
-                            part32.Source = panto1;
-                            break;
-
-                        case "Left-Calf":
-                            BitmapImage panto2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5001, myColor));
-                            part33.Source = panto2;
-                            break;
-
-                        case "Right-Foot":
-                            BitmapImage pie1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5001, myColor));
-                            part34.Source = pie1;
-                            break;
-
-                        case "Left-Foot":
-                            BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5001, myColor));
-                            part35.Source = pie2;
-                            break;
-
-                        case "Pelvis":
-                            BitmapImage pelvis = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pelvis_500, myColor));
-                            part36.Source = pelvis;
-                            break;
-
-                        case "Right-Thumb":
-                            BitmapImage pulga1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBPulgar_Der_500, myColor));
-                            part37.Source = pulga1;
-                            break;
-
-                        case "Left-Thumb":
-                            BitmapImage pulga2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Izq_5001, myColor));
-                            part38.Source = pulga2;
-                            break;
-
-                        case "Left-Heel":
-                            BitmapImage talon1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Izq_500, myColor));
-                            part39.Source = talon1;
-                            break;
-
-                        case "Right-Heel":
-                            BitmapImage talon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Der_500, myColor));
-                            part40.Source = talon2;
-                            break;
-
-                        case "Right-Achilles heel":
-                            BitmapImage talonn1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aquiles_Der_500, myColor));
-                            part41.Source = talonn1;
-                            break;
-
-                        case "Left-Achilles heel":
-                            BitmapImage talonn2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aquiles_Izq_500, myColor));
-                            part42.Source = talonn2;
-                            break;
-
-                        case "Right-Ankle":
-                            BitmapImage tobillo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Der_500, myColor));
-                            part43.Source = tobillo1;
-                            break;
-
-                        case "Left-Ankle":
-                            BitmapImage tobillo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_500, myColor));
-                            part44.Source = tobillo2;
-                            break;
+                        BitmapImage ano = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBAnus_500, myColor));
+                        part1.Source = ano;
                     }
-                }
+                    else if (seccion == obtenerRecurso("Right-Forearm"))
+                    {
+                        BitmapImage ante1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBAnteBrazo_Der_500, myColor));
+                        part2.Source = ante1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Forearm"))
+                    {
+                        BitmapImage ante2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Izq_5001, myColor));
+                        part3.Source = ante2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Arm"))
+                    {
+                        BitmapImage brazo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBBrazo_Der_500, myColor));
+                        part4.Source = brazo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Arm"))
+                    {
+                        BitmapImage brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBBrazo_Izq_500, myColor));
+                        part5.Source = brazo2;
+                    }
+                    else if (seccion == obtenerRecurso("Head"))
+                    {
+                        BitmapImage cabeza = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBCabeza_500, myColor));
+                        part6.Source = cabeza;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hip"))
+                    {
+                        BitmapImage cadera1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5001, myColor));
+                        part7.Source = cadera1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hip"))
+                    {
+                        BitmapImage cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5001, myColor));
+                        part8.Source = cadera2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Trapezius"))
+                    {
+                        BitmapImage trapecio1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Trapecio_Der_500, myColor));
+                        part9.Source = trapecio1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Trapezius"))
+                    {
+                        BitmapImage trapecio2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Trapecio_Izp_500, myColor));
+                        part10.Source = trapecio2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Elbow"))
+                    {
+                        BitmapImage codo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBCodo_Der_500, myColor));
+                        part11.Source = codo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Elbow"))
+                    {
+                        BitmapImage codo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Izq_500, myColor));
+                        part12.Source = codo2;
+                    }
+                    else if (seccion == obtenerRecurso("Column"))
+                    {
+                        BitmapImage columna = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBColumna_500, myColor));
+                        part13.Source = columna;
+                    }
+                    else if (seccion == obtenerRecurso("Neck"))
+                    {
+                        BitmapImage cuello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_500, myColor));
+                        part14.Source = cuello;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Fingers"))
+                    {
+                        BitmapImage dedos1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Der_500, myColor));
+                        part15.Source = dedos1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Fingers"))
+                    {
+                        BitmapImage dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_izq_5001, myColor));
+                        part16.Source = dedos2;
+                    }
+                    else if (seccion == obtenerRecurso("Back"))
+                    {
+                        BitmapImage espalda = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Espalda_500, myColor));
+                        part17.Source = espalda;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Phalanges"))
+                    {
+                        BitmapImage falanges = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_5001, myColor));
+                        part18.Source = falanges;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Phalanges"))
+                    {
+                        BitmapImage falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.HBFalages_Izq_500, myColor));
+                        part19.Source = falanges2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Shoulder"))
+                    {
+                        BitmapImage hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.HBHombro_Der_500, myColor));
+                        part20.Source = hombro1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Shoulder"))
+                    {
+                        BitmapImage hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBHombro_Izq_500, myColor));
+                        part21.Source = hombro2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand"))
+                    {
+                        BitmapImage mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5001, myColor));
+                        part22.Source = mano1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand"))
+                    {
+                        BitmapImage mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5001, myColor));
+                        part23.Source = mano2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Wrist"))
+                    {
+                        BitmapImage mun1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBMuñeca_der_500, myColor));
+                        part24.Source = mun1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Wrist"))
+                    {
+                        BitmapImage mun2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_Izq_500, myColor));
+                        part25.Source = mun2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thigh"))
+                    {
+                        BitmapImage muslo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_5001, myColor));
+                        part26.Source = muslo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thigh"))
+                    {
+                        BitmapImage muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_5001, myColor));
+                        part27.Source = muslo2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Buttock"))
+                    {
+                        BitmapImage nalga1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBNalga_Der_500, myColor));
+                        part28.Source = nalga1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Buttock"))
+                    {
+                        BitmapImage nalga2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBNalga_Izq_500, myColor));
+                        part29.Source = nalga2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ear"))
+                    {
+                        BitmapImage oido1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBOido_der_500, myColor));
+                        part30.Source = oido1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ear"))
+                    {
+                        BitmapImage oido2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBOido_Izq_500, myColor));
+                        part31.Source = oido2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Calf"))
+                    {
+                        BitmapImage panto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5001, myColor));
+                        part32.Source = panto1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Calf"))
+                    {
+                        BitmapImage panto2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5001, myColor));
+                        part33.Source = panto2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Foot"))
+                    {
+                        BitmapImage pie1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5001, myColor));
+                        part34.Source = pie1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Foot"))
+                    {
+                        BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5001, myColor));
+                        part35.Source = pie2;
+                    }
+                    else if (seccion == obtenerRecurso("Pelvis"))
+                    {
+                        BitmapImage pelvis = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pelvis_500, myColor));
+                        part36.Source = pelvis;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thumb"))
+                    {
+                        BitmapImage pulga1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.MBPulgar_Der_500, myColor));
+                        part37.Source = pulga1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thumb"))
+                    {
+                        BitmapImage pulga2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Izq_5001, myColor));
+                        part38.Source = pulga2;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Heel"))
+                    {
+                        BitmapImage talon1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Izq_500, myColor));
+                        part39.Source = talon1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Heel"))
+                    {
+                        BitmapImage talon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Der_500, myColor));
+                        part40.Source = talon2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Achilles heel"))
+                    {
+                        BitmapImage talonn1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aquiles_Der_500, myColor));
+                        part41.Source = talonn1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Achilles heel"))
+                    {
+                        BitmapImage talonn2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aquiles_Izq_500, myColor));
+                        part42.Source = talonn2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ankle"))
+                    {
+                        BitmapImage tobillo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Der_500, myColor));
+                        part43.Source = tobillo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ankle"))
+                    {
+                        BitmapImage tobillo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_500, myColor));
+                        part44.Source = tobillo2;
+                    }
+                } 
+   
 
                 //Si es mujer y es la parte frontal
                 if (radioFemenino.IsChecked == true && listVista.SelectedItem.ToString() == obtenerRecurso("valFront"))
@@ -9336,319 +9363,316 @@ namespace MahAppsExample
 
                     //////////
 
-                    switch (seccion)
+                    if (seccion == obtenerRecurso("Abdomen"))
                     {
-                        case "Abdomen":
-                            BitmapImage abdo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Abdomen_5001, myColor));
-                            part1.Source = abdo;
-                            break;
-
-                        case "Left-Forearm":
-                            BitmapImage ant1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBraxo_Izq_500, myColor));
-                            part2.Source = ant1;
-                            break;
-
-                        case "Right-Forearm":
-                            BitmapImage ant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Der_5001, myColor));
-                            part3.Source = ant2;
-                            break;
-
-                        case "Right-Areola":
-                            BitmapImage aure = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aureola_Der_500, myColor));
-                            part4.Source = aure;
-                            break;
-
-                        case "Left-Areola":
-                            BitmapImage aure2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aureola_Izq_500, myColor));
-                            part5.Source = aure2;
-                            break;
-
-                        case "Mouth":
-                            BitmapImage boca = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Boca_500, myColor));
-                            part6.Source = boca;
-                            break;
-
-                        case "Right-Arm":
-                            BitmapImage brazo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_5001, myColor));
-                            part7.Source = brazo;
-                            break;
-
-                        case "Left-Arm":
-                            BitmapImage brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_5001, myColor));
-                            part8.Source = brazo2;
-                            break;
-
-                        case "Hair":
-                            BitmapImage cabello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabello_5001, myColor));
-                            part9.Source = cabello;
-                            break;
-
-                        case "Right-Hip":
-                            BitmapImage cadera = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5002, myColor));
-                            part10.Source = cadera;
-                            break;
-
-                        case "Left-Hip":
-                            BitmapImage cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5002, myColor));
-                            part11.Source = cadera2;
-                            break;
-
-                        case "Face":
-                            BitmapImage cara = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cara_5001, myColor));
-                            part12.Source = cara;
-                            break;
-
-                        case "Right-Clavicle":
-                            BitmapImage clavi = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_5001, myColor));
-                            part13.Source = clavi;
-                            break;
-
-                        case "Left-Clavicle":
-                            BitmapImage clavi2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_5001, myColor));
-                            part14.Source = clavi2;
-                            break;
-
-                        case "Right-Ribs":
-                            BitmapImage cost1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Der_5001, myColor));
-                            part15.Source = cost1;
-                            break;
-
-                        case "Left-Ribs":
-                            BitmapImage cost2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Izq_5001, myColor));
-                            part16.Source = cost2;
-                            break;
-
-                        case "Right-Neck":
-                            BitmapImage cuell1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Der_5001, myColor));
-                            part17.Source = cuell1;
-                            break;
-
-                        case "Left-Neck":
-                            BitmapImage cuell2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Izq_5001, myColor));
-                            part18.Source = cuell2;
-                            break;
-
-                        case "Right-Hand Fingers":
-                            BitmapImage dedos1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Der_5001, myColor));
-                            part19.Source = dedos1;
-                            break;
-
-                        case "Left-Hand Fingers":
-                            BitmapImage dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Izq_500, myColor));
-                            part20.Source = dedos2;
-                            break;
-
-                        case "Esophagus":
-                            BitmapImage eso1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Esofago_5001, myColor));
-                            part21.Source = eso1;
-                            break;
-
-                        case "Stomach":
-                            BitmapImage esto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Estomago_5001, myColor));
-                            part22.Source = esto1;
-                            break;
-
-                        case "Left-Hand Phalanges":
-                            BitmapImage falanges = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_5002, myColor));
-                            part23.Source = falanges;
-                            break;
-
-                        case "Right-Hand Phalanges":
-                            BitmapImage falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Mano_Der_500, myColor));
-                            part24.Source = falanges2;
-                            break;
-
-                        case "Forehead":
-                            BitmapImage frente = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Frente_5001, myColor));
-                            part25.Source = frente;
-                            break;
-
-                        case "Throat":
-                            BitmapImage garg = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Garganta_5001, myColor));
-                            part26.Source = garg;
-                            break;
-
-                        case "Right-Shoulder":
-                            BitmapImage hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_5001, myColor));
-                            part27.Source = hombro1;
-                            break;
-
-                        case "Left-Shoulder":
-                            BitmapImage hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_5001, myColor));
-                            part28.Source = hombro2;
-                            break;
-
-                        case "Jaw":
-                            BitmapImage man1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mandibula_5001, myColor));
-                            part29.Source = man1;
-                            break;
-
-                        case "Right-Hand":
-                            BitmapImage mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5002, myColor));
-                            part30.Source = mano1;
-                            break;
-
-                        case "Left-Hand":
-                            BitmapImage mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5002, myColor));
-                            part31.Source = mano2;
-                            break;
-
-                        case "Right-Thigh":
-                            BitmapImage muslo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_5002, myColor));
-                            part32.Source = muslo1;
-                            break;
-
-                        case "Left-Thigh":
-                            BitmapImage muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_5002, myColor));
-                            part33.Source = muslo2;
-                            break;
-
-                        case "Nose":
-                            BitmapImage nariz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nariz_5001, myColor));
-                            part34.Source = nariz;
-                            break;
-
-                        case "Right-Ear":
-                            BitmapImage oido1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oido_Der_500, myColor));
-                            part35.Source = oido1;
-                            break;
-
-                        case "Left-Ear":
-                            BitmapImage oido2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oido_Izq_500, myColor));
-                            part36.Source = oido2;
-                            break;
-
-                        case "Right-Eye":
-                            BitmapImage ojo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Der_5001, myColor));
-                            part37.Source = ojo1;
-                            break;
-
-                        case "Left-Eye":
-                            BitmapImage ojo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Izq_5001, myColor));
-                            part38.Source = ojo2;
-                            break;
-
-                        case "Umbilicus":
-                            BitmapImage ombligo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ombligo_5001, myColor));
-                            part39.Source = ombligo1;
-                            break;
-
-                        case "Right-Calf":
-                            BitmapImage panto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5002, myColor));
-                            part40.Source = panto1;
-                            break;
-
-                        case "Left-Calf":
-                            BitmapImage panto2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5002, myColor));
-                            part41.Source = panto2;
-                            break;
-
-                        case "Right-Eyelid":
-                            BitmapImage parp = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Der_500, myColor));
-                            part42.Source = parp;
-                            break;
-
-                        case "Left-Eyelid":
-                            BitmapImage parp2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Izq_5001, myColor));
-                            part43.Source = parp2;
-                            break;
-
-                        case "Right-Chest":
-                            BitmapImage pecho1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_Der_500, myColor));
-                            part44.Source = pecho1;
-                            break;
-
-                        case "Left-Chest":
-                            BitmapImage pecho2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_Izq_500, myColor));
-                            part45.Source = pecho2;
-                            break;
-
-                        case "Chest":
-                            BitmapImage pecho = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_5001, myColor));
-                            part46.Source = pecho;
-                            break;
-
-                        case "Right-Nipple":
-                            BitmapImage pezo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Der_5001, myColor));
-                            part47.Source = pezo1;
-                            break;
-
-                        case "Left-Nipple":
-                            BitmapImage pezo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Izq_5001, myColor));
-                            part48.Source = pezo2;
-                            break;
-
-                        case "Right-Foot":
-                            BitmapImage pie1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5002, myColor));
-                            part49.Source = pie1;
-                            break;
-
-                        case "Left-Foot":
-                            BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5002, myColor));
-                            part50.Source = pie2;
-                            break;
-
-                        case "Right-Hand Thumb":
-                            BitmapImage pulgar1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Mano_Der_5001, myColor));
-                            part51.Source = pulgar1;
-                            break;
-
-                        case "Left-Hand Thumb":
-                            BitmapImage pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulganr_Mano_Izq_500, myColor));
-                            part52.Source = pulgar2;
-                            break;
-
-                        case "Right Big Toe":
-                            BitmapImage pulgar3 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Der_5001, myColor));
-                            part53.Source = pulgar3;
-                            break;
-
-                        case "Left Big Toe":
-                            BitmapImage pulgar4 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Izq_5001, myColor));
-                            part54.Source = pulgar4;
-                            break;
-
-                        case "Right-Knee":
-                            BitmapImage rod = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Der_5001, myColor));
-                            part55.Source = rod;
-                            break;
-
-                        case "Left-Knee":
-                            BitmapImage rod2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Izq_5001, myColor));
-                            part56.Source = rod2;
-                            break;
-
-                        case "Right-Ankle":
-                            BitmapImage tob = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Der_5001, myColor));
-                            part57.Source = tob;
-                            break;
-
-                        case "Left-Ankle":
-                            BitmapImage tob2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_5001, myColor));
-                            part58.Source = tob2;
-                            break;
-
-                        case "Uterus":
-                            BitmapImage ut = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Utero_500, myColor));
-                            part59.Source = ut;
-                            break;
-
-                        case "Vagina":
-                            BitmapImage vag = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vagina_500, myColor));
-                            part60.Source = vag;
-                            break;
-
-                        case "Bladder":
-                            BitmapImage vej = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vejiga_500, myColor));
-                            part61.Source = vej;
-                            break;
-
-
+                        BitmapImage abdo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Abdomen_5001, myColor));
+                        part1.Source = abdo;
                     }
+                    else if (seccion == obtenerRecurso("Left-Forearm"))
+                    {
+                        BitmapImage ant1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBraxo_Izq_500, myColor));
+                        part2.Source = ant1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Forearm"))
+                    {
+                        BitmapImage ant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.AnteBrazo_Der_5001, myColor));
+                        part3.Source = ant2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Areola"))
+                    {
+                        BitmapImage aure = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aureola_Der_500, myColor));
+                        part4.Source = aure;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Areola"))
+                    {
+                        BitmapImage aure2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Aureola_Izq_500, myColor));
+                        part5.Source = aure2;
+                    }
+                    else if (seccion == obtenerRecurso("Mouth"))
+                    {
+                        BitmapImage boca = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Boca_500, myColor));
+                        part6.Source = boca;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Arm"))
+                    {
+                        BitmapImage brazo = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_5001, myColor));
+                        part7.Source = brazo;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Arm"))
+                    {
+                        BitmapImage brazo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_5001, myColor));
+                        part8.Source = brazo2;
+                    }
+                    else if (seccion == obtenerRecurso("Hair"))
+                    {
+                        BitmapImage cabello = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabello_5001, myColor));
+                        part9.Source = cabello;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hip"))
+                    {
+                        BitmapImage cadera = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5002, myColor));
+                        part10.Source = cadera;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hip"))
+                    {
+                        BitmapImage cadera2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5002, myColor));
+                        part11.Source = cadera2;
+                    }
+                    else if (seccion == obtenerRecurso("Face"))
+                    {
+                        BitmapImage cara = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cara_5001, myColor));
+                        part12.Source = cara;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Clavicle"))
+                    {
+                        BitmapImage clavi = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_5001, myColor));
+                        part13.Source = clavi;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Clavicle"))
+                    {
+                        BitmapImage clavi2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_5001, myColor));
+                        part14.Source = clavi2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ribs"))
+                    {
+                        BitmapImage cost1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Der_5001, myColor));
+                        part15.Source = cost1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ribs"))
+                    {
+                        BitmapImage cost2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Costillas_Izq_5001, myColor));
+                        part16.Source = cost2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Neck"))
+                    {
+                        BitmapImage cuell1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Der_5001, myColor));
+                        part17.Source = cuell1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Neck"))
+                    {
+                        BitmapImage cuell2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_Izq_5001, myColor));
+                        part18.Source = cuell2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand Fingers"))
+                    {
+                        BitmapImage dedos1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Der_5001, myColor));
+                        part19.Source = dedos1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand Fingers"))
+                    {
+                        BitmapImage dedos2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Mano_Izq_500, myColor));
+                        part20.Source = dedos2;
+                    }
+                    else if (seccion == obtenerRecurso("Esophagus"))
+                    {
+                        BitmapImage eso1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Esofago_5001, myColor));
+                        part21.Source = eso1;
+                    }
+                    else if (seccion == obtenerRecurso("Stomach"))
+                    {
+                        BitmapImage esto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Estomago_5001, myColor));
+                        part22.Source = esto1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand Phalanges"))
+                    {
+                        BitmapImage falanges = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Der_5002, myColor));
+                        part23.Source = falanges;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand Phalanges"))
+                    {
+                        BitmapImage falanges2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Mano_Der_500, myColor));
+                        part24.Source = falanges2;
+                    }
+                    else if (seccion == obtenerRecurso("Forehead"))
+                    {
+                        BitmapImage frente = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Frente_5001, myColor));
+                        part25.Source = frente;
+                    }
+                    else if (seccion == obtenerRecurso("Throat"))
+                    {
+                        BitmapImage garg = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Garganta_5001, myColor));
+                        part26.Source = garg;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Shoulder"))
+                    {
+                        BitmapImage hombro1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_5001, myColor));
+                        part27.Source = hombro1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Shoulder"))
+                    {
+                        BitmapImage hombro2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_5001, myColor));
+                        part28.Source = hombro2;
+                    }
+                    else if (seccion == obtenerRecurso("Jaw"))
+                    {
+                        BitmapImage man1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mandibula_5001, myColor));
+                        part29.Source = man1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand"))
+                    {
+                        BitmapImage mano1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5002, myColor));
+                        part30.Source = mano1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand"))
+                    {
+                        BitmapImage mano2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5002, myColor));
+                        part31.Source = mano2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thigh"))
+                    {
+                        BitmapImage muslo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Der_5002, myColor));
+                        part32.Source = muslo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thigh"))
+                    {
+                        BitmapImage muslo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muslo_Izq_5002, myColor));
+                        part33.Source = muslo2;
+                    }
+                    else if (seccion == obtenerRecurso("Nose"))
+                    {
+                        BitmapImage nariz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nariz_5001, myColor));
+                        part34.Source = nariz;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ear"))
+                    {
+                        BitmapImage oido1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oido_Der_500, myColor));
+                        part35.Source = oido1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ear"))
+                    {
+                        BitmapImage oido2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Oido_Izq_500, myColor));
+                        part36.Source = oido2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Eye"))
+                    {
+                        BitmapImage ojo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Der_5001, myColor));
+                        part37.Source = ojo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Eye"))
+                    {
+                        BitmapImage ojo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ojo_Izq_5001, myColor));
+                        part38.Source = ojo2;
+                    }
+                    else if (seccion == obtenerRecurso("Umbilicus"))
+                    {
+                        BitmapImage ombligo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ombligo_5001, myColor));
+                        part39.Source = ombligo1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Calf"))
+                    {
+                        BitmapImage panto1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5002, myColor));
+                        part40.Source = panto1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Calf"))
+                    {
+                        BitmapImage panto2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5002, myColor));
+                        part41.Source = panto2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Eyelid"))
+                    {
+                        BitmapImage parp = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Der_500, myColor));
+                        part42.Source = parp;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Eyelid"))
+                    {
+                        BitmapImage parp2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Parpado_Izq_5001, myColor));
+                        part43.Source = parp2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Chest"))
+                    {
+                        BitmapImage pecho1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_Der_500, myColor));
+                        part44.Source = pecho1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Chest"))
+                    {
+                        BitmapImage pecho2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_Izq_500, myColor));
+                        part45.Source = pecho2;
+                    }
+                    else if (seccion == obtenerRecurso("Chest"))
+                    {
+                        BitmapImage pecho = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pecho_5001, myColor));
+                        part46.Source = pecho;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Nipple"))
+                    {
+                        BitmapImage pezo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Der_5001, myColor));
+                        part47.Source = pezo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Nipple"))
+                    {
+                        BitmapImage pezo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pezon_Izq_5001, myColor));
+                        part48.Source = pezo2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Foot"))
+                    {
+                        BitmapImage pie1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5002, myColor));
+                        part49.Source = pie1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Foot"))
+                    {
+                        BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5002, myColor));
+                        part50.Source = pie2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand Thumb"))
+                    {
+                        BitmapImage pulgar1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Mano_Der_5001, myColor));
+                        part51.Source = pulgar1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand Thumb"))
+                    {
+                        BitmapImage pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulganr_Mano_Izq_500, myColor));
+                        part52.Source = pulgar2;
+                    }
+                    else if (seccion == obtenerRecurso("Right Big Toe"))
+                    {
+                        BitmapImage pulgar3 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Der_5001, myColor));
+                        part53.Source = pulgar3;
+                    }
+                    else if (seccion == obtenerRecurso("Left Big Toe"))
+                    {
+                        BitmapImage pulgar4 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Pie_Izq_5001, myColor));
+                        part54.Source = pulgar4;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Knee"))
+                    {
+                        BitmapImage rod = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Der_5001, myColor));
+                        part55.Source = rod;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Knee"))
+                    {
+                        BitmapImage rod2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Rodilla_Izq_5001, myColor));
+                        part56.Source = rod2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ankle"))
+                    {
+                        BitmapImage tob = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Der_5001, myColor));
+                        part57.Source = tob;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ankle"))
+                    {
+                        BitmapImage tob2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_5001, myColor));
+                        part58.Source = tob2;
+                    }
+                    else if (seccion == obtenerRecurso("Uterus"))
+                    {
+                        BitmapImage ut = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Utero_500, myColor));
+                        part59.Source = ut;
+                    }
+                    else if (seccion == obtenerRecurso("Vagina"))
+                    {
+                        BitmapImage vag = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vagina_500, myColor));
+                        part60.Source = vag;
+                    }
+                    else if (seccion == obtenerRecurso("Bladder"))
+                    {
+                        BitmapImage vej = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Vejiga_500, myColor));
+                        part61.Source = vej;
+                    }
+
 
                 }
 
-                if (radioFemenino.IsChecked == true && listVista.SelectedItem.ToString() == "Back")
+                if (radioFemenino.IsChecked == true && listVista.SelectedItem.ToString() == obtenerRecurso("valBack"))
                 {
                     //////////////
 
@@ -9687,219 +9711,433 @@ namespace MahAppsExample
 
                     //////////
 
-                    switch (seccion)
+                    //switch (seccion)
+                    //{
+                    //    case "Anus":
+                    //        BitmapImage ano = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ano_500, myColor));
+                    //        part1.Source = ano;
+                    //        break;
+
+                    //    case "Right-Forearm":
+                    //        BitmapImage ant1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Der_5002, myColor));
+                    //        part2.Source = ant1;
+                    //        break;
+
+                    //    case "Left-Forearm":
+                    //        BitmapImage ant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Izq_5002, myColor));
+                    //        part3.Source = ant2;
+                    //        break;
+
+                    //    case "Right-Arm":
+                    //        BitmapImage braz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_5002, myColor));
+                    //        part4.Source = braz;
+                    //        break;
+
+                    //    case "Left-Arm":
+                    //        BitmapImage braz2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_5002, myColor));
+                    //        part5.Source = braz2;
+                    //        break;
+
+                    //    case "Head":
+                    //        BitmapImage cab = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabeza_500, myColor));
+                    //        part6.Source = cab;
+                    //        break;
+
+                    //    case "Right-Hip":
+                    //        BitmapImage cad1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5003, myColor));
+                    //        part7.Source = cad1;
+                    //        break;
+
+                    //    case "Left-Hip":
+                    //        BitmapImage cad2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5003, myColor));
+                    //        part8.Source = cad2;
+                    //        break;
+
+                    //    case "Right-Clavicle":
+                    //        BitmapImage clav = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_5002, myColor));
+                    //        part9.Source = clav;
+                    //        break;
+
+                    //    case "Left-Clavicle":
+                    //        BitmapImage clav2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_5002, myColor));
+                    //        part10.Source = clav2;
+                    //        break;
+
+                    //    case "Right-Elbow":
+                    //        BitmapImage codo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Der_500, myColor));
+                    //        part11.Source = codo1;
+                    //        break;
+
+                    //    case "Left-Elbow":
+                    //        BitmapImage codo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Izq_5001, myColor));
+                    //        part12.Source = codo2;
+                    //        break;
+
+                    //    case "Column":
+                    //        BitmapImage colum = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Columna_500, myColor));
+                    //        part13.Source = colum;
+                    //        break;
+
+                    //    case "Coxis":
+                    //        BitmapImage coxis = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Coxis_500, myColor));
+                    //        part14.Source = coxis;
+                    //        break;
+
+                    //    case "Neck":
+                    //        BitmapImage cuell = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_5001, myColor));
+                    //        part15.Source = cuell;
+                    //        break;
+
+                    //    case "Right-Fingers":
+                    //        BitmapImage dedoss = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Der_5001, myColor));
+                    //        part16.Source = dedoss;
+                    //        break;
+
+                    //    case "Left-Fingers":
+                    //        BitmapImage dedoss2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Izq_5002, myColor));
+                    //        part17.Source = dedoss2;
+                    //        break;
+
+                    //    case "Back":
+                    //        BitmapImage esp1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Espalda_5001, myColor));
+                    //        part18.Source = esp1;
+                    //        break;
+
+                    //    case "Right-Phalanges":
+                    //        BitmapImage faag = ToBitmapImage(ChangeColor(HS5.Properties.Resources.falanges_Der_5003, myColor));
+                    //        part19.Source = faag;
+                    //        break;
+
+                    //    case "Left-Phalanges":
+                    //        BitmapImage falag2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Izq_500, myColor));
+                    //        part20.Source = falag2;
+                    //        break;
+
+                    //    case "Right-Shoulder":
+                    //        BitmapImage hom = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_5002, myColor));
+                    //        part21.Source = hom;
+                    //        break;
+
+                    //    case "Left-Shoulder":
+                    //        BitmapImage hom2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_5002, myColor));
+                    //        part22.Source = hom2;
+                    //        break;
+
+                    //    case "Right-Hand":
+                    //        BitmapImage man = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5003, myColor));
+                    //        part23.Source = man;
+                    //        break;
+
+                    //    case "Left-Hand":
+                    //        BitmapImage man2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5003, myColor));
+                    //        part24.Source = man2;
+                    //        break;
+
+                    //    case "Right-Wrist":
+                    //        BitmapImage mun = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_Der_500, myColor));
+                    //        part25.Source = mun;
+                    //        break;
+
+                    //    case "Left-Wrist":
+                    //        BitmapImage mun2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_izq_5001, myColor));
+                    //        part26.Source = mun2;
+                    //        break;
+
+                    //    case "Right-Buttock":
+                    //        BitmapImage nal = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Der_500, myColor));
+                    //        part27.Source = nal;
+                    //        break;
+
+                    //    case "Left-Buttock":
+                    //        BitmapImage nal2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Izq_500, myColor));
+                    //        part28.Source = nal2;
+                    //        break;
+
+                    //    case "Right-Calf":
+                    //        BitmapImage pant = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5003, myColor));
+                    //        part29.Source = pant;
+                    //        break;
+
+                    //    case "Left-Calf":
+                    //        BitmapImage pant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5003, myColor));
+                    //        part30.Source = pant2;
+                    //        break;
+
+                    //    case "Right-Foot":
+                    //        BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5003, myColor));
+                    //        part31.Source = pie2;
+                    //        break;
+
+                    //    case "Left-Foot":
+                    //        BitmapImage pie = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5003, myColor));
+                    //        part32.Source = pie;
+                    //        break;
+
+                    //    case "Right-Leg":
+                    //        BitmapImage pierna = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Der_500, myColor));
+                    //        part33.Source = pierna;
+                    //        break;
+
+                    //    case "Left-Leg":
+                    //        BitmapImage pierna2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Izq_500, myColor));
+                    //        part34.Source = pierna2;
+                    //        break;
+
+                    //    case "Right-Thumb":
+                    //        BitmapImage pulgar = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Der_500, myColor));
+                    //        part35.Source = pulgar;
+                    //        break;
+
+                    //    case "Left-Thumb":
+                    //        BitmapImage pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Izq_5002, myColor));
+                    //        part36.Source = pulgar2;
+                    //        break;
+
+                    //    case "Left-Heel":
+                    //        BitmapImage talon = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Der_5001, myColor));
+                    //        part37.Source = talon;
+                    //        break;
+
+                    //    case "Right-Heel":
+                    //        BitmapImage talon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Izq_5001, myColor));
+                    //        part38.Source = talon2;
+                    //        break;
+
+                    //    case "Right-Achilles heel":
+                    //        BitmapImage aq = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Der_500, myColor));
+                    //        part39.Source = aq;
+                    //        break;
+
+                    //    case "Left-Achilles heel":
+                    //        BitmapImage aq2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Izq_500, myColor));
+                    //        part40.Source = aq2;
+                    //        break;
+
+                    //    case "Right-Ankle":
+                    //        BitmapImage tob = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Derecho_500, myColor));
+                    //        part41.Source = tob;
+                    //        break;
+
+                    //    case "Left-Ankle":
+                    //        BitmapImage tob2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_5002, myColor));
+                    //        part42.Source = tob2;
+                    //        break;
+
+                    //}
+
+                    if (seccion == obtenerRecurso("Anus"))
                     {
-                        case "Anus":
-                            BitmapImage ano = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ano_500, myColor));
-                            part1.Source = ano;
-                            break;
-
-                        case "Right-Forearm":
-                            BitmapImage ant1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Der_5002, myColor));
-                            part2.Source = ant1;
-                            break;
-
-                        case "Left-Forearm":
-                            BitmapImage ant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Izq_5002, myColor));
-                            part3.Source = ant2;
-                            break;
-
-                        case "Right-Arm":
-                            BitmapImage braz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_5002, myColor));
-                            part4.Source = braz;
-                            break;
-
-                        case "Left-Arm":
-                            BitmapImage braz2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_5002, myColor));
-                            part5.Source = braz2;
-                            break;
-
-                        case "Head":
-                            BitmapImage cab = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabeza_500, myColor));
-                            part6.Source = cab;
-                            break;
-
-                        case "Right-Hip":
-                            BitmapImage cad1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5003, myColor));
-                            part7.Source = cad1;
-                            break;
-
-                        case "Left-Hip":
-                            BitmapImage cad2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5003, myColor));
-                            part8.Source = cad2;
-                            break;
-
-                        case "Right-Clavicle":
-                            BitmapImage clav = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_5002, myColor));
-                            part9.Source = clav;
-                            break;
-
-                        case "Left-Clavicle":
-                            BitmapImage clav2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_5002, myColor));
-                            part10.Source = clav2;
-                            break;
-
-                        case "Right-Elbow":
-                            BitmapImage codo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Der_500, myColor));
-                            part11.Source = codo1;
-                            break;
-
-                        case "Left-Elbow":
-                            BitmapImage codo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Izq_5001, myColor));
-                            part12.Source = codo2;
-                            break;
-
-                        case "Column":
-                            BitmapImage colum = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Columna_500, myColor));
-                            part13.Source = colum;
-                            break;
-
-                        case "Coxis":
-                            BitmapImage coxis = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Coxis_500, myColor));
-                            part14.Source = coxis;
-                            break;
-
-                        case "Neck":
-                            BitmapImage cuell = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_5001, myColor));
-                            part15.Source = cuell;
-                            break;
-
-                        case "Right-Fingers":
-                            BitmapImage dedoss = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Der_5001, myColor));
-                            part16.Source = dedoss;
-                            break;
-
-                        case "Left-Fingers":
-                            BitmapImage dedoss2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Izq_5002, myColor));
-                            part17.Source = dedoss2;
-                            break;
-
-                        case "Back":
-                            BitmapImage esp1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Espalda_5001, myColor));
-                            part18.Source = esp1;
-                            break;
-
-                        case "Right-Phalanges":
-                            BitmapImage faag = ToBitmapImage(ChangeColor(HS5.Properties.Resources.falanges_Der_5003, myColor));
-                            part19.Source = faag;
-                            break;
-
-                        case "Left-Phalanges":
-                            BitmapImage falag2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Izq_500, myColor));
-                            part20.Source = falag2;
-                            break;
-
-                        case "Right-Shoulder":
-                            BitmapImage hom = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_5002, myColor));
-                            part21.Source = hom;
-                            break;
-
-                        case "Left-Shoulder":
-                            BitmapImage hom2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_5002, myColor));
-                            part22.Source = hom2;
-                            break;
-
-                        case "Right-Hand":
-                            BitmapImage man = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5003, myColor));
-                            part23.Source = man;
-                            break;
-
-                        case "Left-Hand":
-                            BitmapImage man2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5003, myColor));
-                            part24.Source = man2;
-                            break;
-
-                        case "Right-Wrist":
-                            BitmapImage mun = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_Der_500, myColor));
-                            part25.Source = mun;
-                            break;
-
-                        case "Left-Wrist":
-                            BitmapImage mun2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_izq_5001, myColor));
-                            part26.Source = mun2;
-                            break;
-
-                        case "Right-Buttock":
-                            BitmapImage nal = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Der_500, myColor));
-                            part27.Source = nal;
-                            break;
-
-                        case "Left-Buttock":
-                            BitmapImage nal2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Izq_500, myColor));
-                            part28.Source = nal2;
-                            break;
-
-                        case "Right-Calf":
-                            BitmapImage pant = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5003, myColor));
-                            part29.Source = pant;
-                            break;
-
-                        case "Left-Calf":
-                            BitmapImage pant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5003, myColor));
-                            part30.Source = pant2;
-                            break;
-
-                        case "Right-Foot":
-                            BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5003, myColor));
-                            part31.Source = pie2;
-                            break;
-
-                        case "Left-Foot":
-                            BitmapImage pie = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5003, myColor));
-                            part32.Source = pie;
-                            break;
-
-                        case "Right-Leg":
-                            BitmapImage pierna = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Der_500, myColor));
-                            part33.Source = pierna;
-                            break;
-
-                        case "Left-Leg":
-                            BitmapImage pierna2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Izq_500, myColor));
-                            part34.Source = pierna2;
-                            break;
-
-                        case "Right-Thumb":
-                            BitmapImage pulgar = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Der_500, myColor));
-                            part35.Source = pulgar;
-                            break;
-
-                        case "Left-Thumb":
-                            BitmapImage pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Izq_5002, myColor));
-                            part36.Source = pulgar2;
-                            break;
-
-                        case "Left-Heel":
-                            BitmapImage talon = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Der_5001, myColor));
-                            part37.Source = talon;
-                            break;
-
-                        case "Right-Heel":
-                            BitmapImage talon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Izq_5001, myColor));
-                            part38.Source = talon2;
-                            break;
-
-                        case "Right-Achilles heel":
-                            BitmapImage aq = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Der_500, myColor));
-                            part39.Source = aq;
-                            break;
-
-                        case "Left-Achilles heel":
-                            BitmapImage aq2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Izq_500, myColor));
-                            part40.Source = aq2;
-                            break;
-
-                        case "Right-Ankle":
-                            BitmapImage tob = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Derecho_500, myColor));
-                            part41.Source = tob;
-                            break;
-
-                        case "Left-Ankle":
-                            BitmapImage tob2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_5002, myColor));
-                            part42.Source = tob2;
-                            break;
-
+                        BitmapImage ano = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Ano_500, myColor));
+                        part1.Source = ano;
                     }
+                    else if (seccion == obtenerRecurso("Right-Forearm"))
+                    {
+                        BitmapImage ant1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Der_5002, myColor));
+                        part2.Source = ant1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Forearm"))
+                    {
+                        BitmapImage ant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Antebrazo_Izq_5002, myColor));
+                        part3.Source = ant2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Arm"))
+                    {
+                        BitmapImage braz = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Der_5002, myColor));
+                        part4.Source = braz;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Arm"))
+                    {
+                        BitmapImage braz2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Brazo_Izq_5002, myColor));
+                        part5.Source = braz2;
+                    }
+                    else if (seccion == obtenerRecurso("Head"))
+                    {
+                        BitmapImage cab = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cabeza_500, myColor));
+                        part6.Source = cab;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hip"))
+                    {
+                        BitmapImage cad1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Der_5003, myColor));
+                        part7.Source = cad1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hip"))
+                    {
+                        BitmapImage cad2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cadera_Izq_5003, myColor));
+                        part8.Source = cad2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Clavicle"))
+                    {
+                        BitmapImage clav = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Der_5002, myColor));
+                        part9.Source = clav;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Clavicle"))
+                    {
+                        BitmapImage clav2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Clavicula_Izq_5002, myColor));
+                        part10.Source = clav2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Elbow"))
+                    {
+                        BitmapImage codo1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Der_500, myColor));
+                        part11.Source = codo1;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Elbow"))
+                    {
+                        BitmapImage codo2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Codo_Izq_5001, myColor));
+                        part12.Source = codo2;
+                    }
+                    else if (seccion == obtenerRecurso("Column"))
+                    {
+                        BitmapImage colum = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Columna_500, myColor));
+                        part13.Source = colum;
+                    }
+                    else if (seccion == obtenerRecurso("Coxis"))
+                    {
+                        BitmapImage coxis = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Coxis_500, myColor));
+                        part14.Source = coxis;
+                    }
+                    else if (seccion == obtenerRecurso("Neck"))
+                    {
+                        BitmapImage cuell = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Cuello_5001, myColor));
+                        part15.Source = cuell;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Fingers"))
+                    {
+                        BitmapImage dedoss = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Der_5001, myColor));
+                        part16.Source = dedoss;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Fingers"))
+                    {
+                        BitmapImage dedoss2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Dedos_Izq_5002, myColor));
+                        part17.Source = dedoss2;
+                    }
+                    else if (seccion == obtenerRecurso("Back"))
+                    {
+                        BitmapImage esp1 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Espalda_5001, myColor));
+                        part18.Source = esp1;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Phalanges"))
+                    {
+                        BitmapImage faag = ToBitmapImage(ChangeColor(HS5.Properties.Resources.falanges_Der_5003, myColor));
+                        part19.Source = faag;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Phalanges"))
+                    {
+                        BitmapImage falag2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Falanges_Izq_500, myColor));
+                        part20.Source = falag2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Shoulder"))
+                    {
+                        BitmapImage hom = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Der_5002, myColor));
+                        part21.Source = hom;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Shoulder"))
+                    {
+                        BitmapImage hom2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Hombro_Izq_5002, myColor));
+                        part22.Source = hom2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Hand"))
+                    {
+                        BitmapImage man = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Der_5003, myColor));
+                        part23.Source = man;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Hand"))
+                    {
+                        BitmapImage man2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Mano_Izq_5003, myColor));
+                        part24.Source = man2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Wrist"))
+                    {
+                        BitmapImage mun = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_Der_500, myColor));
+                        part25.Source = mun;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Wrist"))
+                    {
+                        BitmapImage mun2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Muñeca_izq_5001, myColor));
+                        part26.Source = mun2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Buttock"))
+                    {
+                        BitmapImage nal = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Der_500, myColor));
+                        part27.Source = nal;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Buttock"))
+                    {
+                        BitmapImage nal2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Nalga_Izq_500, myColor));
+                        part28.Source = nal2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Calf"))
+                    {
+                        BitmapImage pant = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Der_5003, myColor));
+                        part29.Source = pant;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Calf"))
+                    {
+                        BitmapImage pant2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pantorrilla_Izq_5003, myColor));
+                        part30.Source = pant2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Foot"))
+                    {
+                        BitmapImage pie2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Der_5003, myColor));
+                        part31.Source = pie2;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Foot"))
+                    {
+                        BitmapImage pie = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pie_Izq_5003, myColor));
+                        part32.Source = pie;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Leg"))
+                    {
+                        BitmapImage pierna = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Der_500, myColor));
+                        part33.Source = pierna;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Leg"))
+                    {
+                        BitmapImage pierna2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pierna_Izq_500, myColor));
+                        part34.Source = pierna2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Thumb"))
+                    {
+                        BitmapImage pulgar = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Der_500, myColor));
+                        part35.Source = pulgar;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Thumb"))
+                    {
+                        BitmapImage pulgar2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Pulgar_Izq_5002, myColor));
+                        part36.Source = pulgar2;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Heel"))
+                    {
+                        BitmapImage talon = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Der_5001, myColor));
+                        part37.Source = talon;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Heel"))
+                    {
+                        BitmapImage talon2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Talon_Izq_5001, myColor));
+                        part38.Source = talon2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Achilles heel"))
+                    {
+                        BitmapImage aq = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Der_500, myColor));
+                        part39.Source = aq;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Achilles heel"))
+                    {
+                        BitmapImage aq2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.TAquiles_Izq_500, myColor));
+                        part40.Source = aq2;
+                    }
+                    else if (seccion == obtenerRecurso("Right-Ankle"))
+                    {
+                        BitmapImage tob = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Derecho_500, myColor));
+                        part41.Source = tob;
+                    }
+                    else if (seccion == obtenerRecurso("Left-Ankle"))
+                    {
+                        BitmapImage tob2 = ToBitmapImage(ChangeColor(HS5.Properties.Resources.Tobillo_Izq_5002, myColor));
+                        part42.Source = tob2;
+                    }
+
+
+
                 }
             }
             else
