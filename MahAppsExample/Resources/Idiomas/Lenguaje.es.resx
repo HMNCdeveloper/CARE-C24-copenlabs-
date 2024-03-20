@@ -189,6 +189,9 @@
   <data name="btnErase" xml:space="preserve">
     <value>BORRAR ECS</value>
   </data>
+  <data name="btnEraseElem" xml:space="preserve">
+    <value>BORRAR  UN ELEMENTO</value>
+  </data>
   <data name="btnEraseNorm" xml:space="preserve">
     <value>BORRRAR</value>
   </data>
@@ -291,8 +294,14 @@
   <data name="btnStartAna" xml:space="preserve">
     <value>COMENZAR A ANALIZAR</value>
   </data>
+  <data name="btnStartTreat" xml:space="preserve">
+    <value>INICIAR TRATAMIENTO</value>
+  </data>
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorias</value>
   </data>
   <data name="Chest" xml:space="preserve">
     <value>Pecho</value>
@@ -327,11 +336,17 @@
   <data name="Head" xml:space="preserve">
     <value>Cabeza</value>
   </data>
+  <data name="headAddElemT" xml:space="preserve">
+    <value>ELEMENTOS AGREGADOS PAEA  EL TRATAMIENTO</value>
+  </data>
   <data name="headBA" xml:space="preserve">
     <value>Antecedentes y Analisis</value>
   </data>
   <data name="headBroad" xml:space="preserve">
     <value>CONTROL DE EMISIONES</value>
+  </data>
+  <data name="headbroadcast" xml:space="preserve">
+    <value>EMISION</value>
   </data>
   <data name="headComments" xml:space="preserve">
     <value>Comentarios</value>
@@ -411,6 +426,9 @@
   <data name="headRemSearch" xml:space="preserve">
     <value>BUSCAR REMEDIO</value>
   </data>
+  <data name="headScchedule" xml:space="preserve">
+    <value>PROGRAMAR</value>
+  </data>
   <data name="inputAll" xml:space="preserve">
     <value>TODO</value>
   </data>
@@ -444,11 +462,17 @@
   <data name="Jaw" xml:space="preserve">
     <value>Mandíbula</value>
   </data>
+  <data name="labelAdd" xml:space="preserve">
+    <value>AGREGAR</value>
+  </data>
   <data name="labelAnalPerformed" xml:space="preserve">
     <value>Analisis Realizados</value>
   </data>
   <data name="labelAvenue" xml:space="preserve">
     <value>Avenida:</value>
+  </data>
+  <data name="labelBeg" xml:space="preserve">
+    <value>Inicio</value>
   </data>
   <data name="labelBithDate" xml:space="preserve">
     <value>Fecha de Cumpleaños</value>
@@ -492,6 +516,9 @@
   <data name="labelGender" xml:space="preserve">
     <value>Genero</value>
   </data>
+  <data name="labelInc" xml:space="preserve">
+    <value>Incluir:</value>
+  </data>
   <data name="labelInclude" xml:space="preserve">
     <value>Tarifas incluidas</value>
   </data>
@@ -527,6 +554,9 @@
   </data>
   <data name="labelRAN" xml:space="preserve">
     <value>Relacion del Analisis</value>
+  </data>
+  <data name="labelRate" xml:space="preserve">
+    <value>Indice</value>
   </data>
   <data name="labelRemedy" xml:space="preserve">
     <value>Remedio</value>
@@ -566,6 +596,12 @@
   </data>
   <data name="LabelTitle" xml:space="preserve">
     <value>Titulo</value>
+  </data>
+  <data name="labelTreatNam" xml:space="preserve">
+    <value>NOMBRE DEL TRATAMIENTO</value>
+  </data>
+  <data name="labelTypeSh" xml:space="preserve">
+    <value>TIPOS DE PROGRAMACION</value>
   </data>
   <data name="labelView" xml:space="preserve">
     <value>Vista:</value>
@@ -1256,6 +1292,9 @@
   </data>
   <data name="valMale" xml:space="preserve">
     <value>Masculino</value>
+  </data>
+  <data name="valPe" xml:space="preserve">
+    <value>Periodico</value>
   </data>
   <data name="valPlant" xml:space="preserve">
     <value>Planta y Suelo</value>

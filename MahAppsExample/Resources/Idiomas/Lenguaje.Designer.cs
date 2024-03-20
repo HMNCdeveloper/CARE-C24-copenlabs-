@@ -277,6 +277,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ERASE A ELEMENT.
+        /// </summary>
+        public static string btnEraseElem {
+            get {
+                return ResourceManager.GetString("btnEraseElem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ERASE.
         /// </summary>
         public static string btnEraseNorm {
@@ -583,6 +592,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to START TREATMENT.
+        /// </summary>
+        public static string btnStartTreat {
+            get {
+                return ResourceManager.GetString("btnStartTreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to USE.
         /// </summary>
         public static string btnUse {
@@ -691,6 +709,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ELEMENTS ADDED TO THE TREATMENT.
+        /// </summary>
+        public static string headAddElemT {
+            get {
+                return ResourceManager.GetString("headAddElemT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Background and Analysis.
         /// </summary>
         public static string headBA {
@@ -705,6 +732,15 @@ namespace HS5.Resources.Idiomas {
         public static string headBroad {
             get {
                 return ResourceManager.GetString("headBroad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BROADCAST.
+        /// </summary>
+        public static string headbroadcast {
+            get {
+                return ResourceManager.GetString("headbroadcast", resourceCulture);
             }
         }
         
@@ -943,6 +979,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SCHEDULING.
+        /// </summary>
+        public static string headScchedule {
+            get {
+                return ResourceManager.GetString("headScchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All.
         /// </summary>
         public static string inputAll {
@@ -1042,6 +1087,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADD.
+        /// </summary>
+        public static string labelAdd {
+            get {
+                return ResourceManager.GetString("labelAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Analysis Performed.
         /// </summary>
         public static string labelAnalPerformed {
@@ -1056,6 +1110,15 @@ namespace HS5.Resources.Idiomas {
         public static string labelAvenue {
             get {
                 return ResourceManager.GetString("labelAvenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begin.
+        /// </summary>
+        public static string labelBeg {
+            get {
+                return ResourceManager.GetString("labelBeg", resourceCulture);
             }
         }
         
@@ -1177,11 +1240,20 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gennder:.
+        ///   Looks up a localized string similar to Gender:.
         /// </summary>
         public static string labelGender {
             get {
                 return ResourceManager.GetString("labelGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include:.
+        /// </summary>
+        public static string labelInc {
+            get {
+                return ResourceManager.GetString("labelInc", resourceCulture);
             }
         }
         
@@ -1290,6 +1362,15 @@ namespace HS5.Resources.Idiomas {
         public static string labelRAN {
             get {
                 return ResourceManager.GetString("labelRAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string labelRate {
+            get {
+                return ResourceManager.GetString("labelRate", resourceCulture);
             }
         }
         
@@ -1407,6 +1488,24 @@ namespace HS5.Resources.Idiomas {
         public static string LabelTitle {
             get {
                 return ResourceManager.GetString("LabelTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TREATMENT&apos;S NAME.
+        /// </summary>
+        public static string labelTreatNam {
+            get {
+                return ResourceManager.GetString("labelTreatNam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TYPES OF SCHEDULING.
+        /// </summary>
+        public static string labelTypeSh {
+            get {
+                return ResourceManager.GetString("labelTypeSh", resourceCulture);
             }
         }
         
@@ -3369,6 +3468,15 @@ namespace HS5.Resources.Idiomas {
         public static string valMale {
             get {
                 return ResourceManager.GetString("valMale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Periodic.
+        /// </summary>
+        public static string valPe {
+            get {
+                return ResourceManager.GetString("valPe", resourceCulture);
             }
         }
         
