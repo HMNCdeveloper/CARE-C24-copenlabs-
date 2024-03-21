@@ -453,7 +453,7 @@ namespace MahAppsExample
                         nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
 
                         diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
-                        tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m -" +diff.Seconds;
+                        tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds + " s";
 
                         int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
 
@@ -729,22 +729,35 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    //Campo seleccionado con el mouse
-                    DataRowView paciente_seleccionado = (DataRowView)ListaPacientes.SelectedItem;
-                    string id_paciente = paciente_seleccionado[0].ToString();
-                    HacerConexion(); //Abre conexion
-                    obj2.EliminarPaciente(id_paciente); //Manda a eliminar el paciente de la bd
-                    CerrarConexion(); //Cierra
+                    string duMsg = "Do you want to delete de user?";
+                    string duTitle = "DELETE USER";
 
-                    // string ruta = RutaInstalacion() + "\\fotos\\"+id_paciente+".png";
+                    MessageBoxButton buttons = MessageBoxButton.YesNo;
 
-                    //Borra posible foto
-                    //if (File.Exists(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png"))
-                    //  {
-                    //      File.Delete(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png");
-                    //  }
+                    MessageBoxResult dialogResult = MessageBox.Show(duMsg, duTitle, buttons);
+                    if (dialogResult == MessageBoxResult.Yes)
+                    {
 
-                    //MessageBox.Show("Paciente eliminado con exito!", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //Campo seleccionado con el mouse
+                        DataRowView paciente_seleccionado = (DataRowView)ListaPacientes.SelectedItem;
+                        string id_paciente = paciente_seleccionado[0].ToString();
+                        HacerConexion(); //Abre conexion
+                        obj2.EliminarPaciente(id_paciente); //Manda a eliminar el paciente de la bd
+                        CerrarConexion(); //Cierra
+
+
+                        //Borra posible foto
+                        if (File.Exists(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png"))
+                        {
+                              File.Delete(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png");
+                        }
+
+                        MessageBox.Show("Patient Deleted!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+
+                    }
                     CargarListadoCompletoPacientes();
                 }
             }
@@ -2714,10 +2727,7 @@ namespace MahAppsExample
             }
         }
 
-        private void ListaPacientes_Recientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
         //Guarda en listas
         /*List<string> Pac_nombre = new List<string>();
@@ -13123,6 +13133,7 @@ namespace MahAppsExample
         //PENDIENTE TERAPIA DE COLOR BUSQUEDA Y REPORTE DE TERAPIA DE COLOR
         private void txtBuscarPaciente2_Copy_TextChanged(object sender, TextChangedEventArgs e)
         {
+
             if (txtBuscarPaciente2_Copy.Text != "")
             {
                 HacerConexion();
