@@ -470,19 +470,23 @@ namespace MahAppsExample
                             Cargar_Tratamientos_Pendientes_Y_Activos();
                             break;
                         }
-                        ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
+                        if(diff.Seconds > 0)
+                        {
+                            ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
                             {
                                 paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
-                                ,
+                                    ,
                                 tratamiento = nombretratamiento
-                                ,
+                                    ,
                                 inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
-                                ,
+                                    ,
                                 duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
-                                ,
+                                    ,
                                 tfaltante = tfaltante
-                            });                
+                            });
                         }
+                    }
+                        
                 }
             CerrarConexion();
             contadorSegundos++;

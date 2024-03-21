@@ -1899,6 +1899,10 @@
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="TvRemote" Foreground="#FFFDFDFD" />
                                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headbroadcast}" Foreground="#FFFDFCFC"/>
                                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" BROADCAST " Foreground="#FFFDFCFC"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 68da2a2704ff1c065fce5600b66c0802d7b3ea6d
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
