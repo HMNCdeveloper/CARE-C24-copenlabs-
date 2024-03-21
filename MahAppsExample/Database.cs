@@ -160,7 +160,7 @@ namespace MahAppsExample
         }
 
         //Funcion para buscar analisis en los pacientes recientemente registrados 
-        public DataTable Buscar_Analisis(string nombre)
+        /*public DataTable Buscar_Analisis(string nombre)
         {
             sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE nombre LIKE '$$"+nombre+"$$'";
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
@@ -168,6 +168,21 @@ namespace MahAppsExample
             da2.Fill(ds2);
             dt2 = ds2.Tables[0];
             return dt2; //regresa tabla con datos del paciente
+        }*/
+
+        public DataTable Buscar_Analisis(string nombre)
+        {
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre, rad_analisis.fecha, CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente FROM rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE nombre LIKE '%' || @nombre || '%'";
+
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@nombre", nombre);
+
+            NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(cmd);
+            ds2.Reset();
+            da2.Fill(ds2);
+            dt2 = ds2.Tables[0];
+
+            return dt2; // regresa tabla con datos del paciente
         }
 
         //Funcion para buscar terapia de color en las registradas
