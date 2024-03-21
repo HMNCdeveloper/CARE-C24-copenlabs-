@@ -141,7 +141,8 @@ namespace MahAppsExample
                     listadoCategorias_Remedios.Items.Add(Categorias.Rows[i][1].ToString());
                     listadoCategorias_Copy.Items.Add(Categorias.Rows[i][1].ToString()); 
                 }
-                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count + " Categories";
+                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count+" " + obtenerRecurso("Categories");
+                lblSubcategoriasCont.Content = "0 " + obtenerRecurso("labelSubCat");
 
                 CerrarConexion();
 
@@ -1941,7 +1942,8 @@ namespace MahAppsExample
         {
             if (txtTituloComent.Text == "" || txtDescripComent.Text == "")
             {
-                MessageBox.Show(obtenerRecurso("messagerError58"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //obtenerRecurso("messagerError58")
+                MessageBox.Show(obtenerRecurso("messageError58"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 txtTituloComent.Focus();
             }
             else
@@ -6802,7 +6804,7 @@ namespace MahAppsExample
                             }
 
                         }
-                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " Sub-Categories";
+                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count +" "+obtenerRecurso("labelSubCat");
                         lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
                     }
@@ -6817,7 +6819,7 @@ namespace MahAppsExample
                             }
                         }
 
-                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " Sub-Categories";
+                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " "+ obtenerRecurso("labelSubCat");
 
                         // IMPORTANTE: categorias con subcategorias y codigos en su categoria
 
@@ -6877,7 +6879,7 @@ namespace MahAppsExample
                     }
 
                 }
-                lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " Sub-Categories";
+                lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " "+ obtenerRecurso("labelSubCat");
                 lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
             }
@@ -6892,7 +6894,7 @@ namespace MahAppsExample
                     }
                 }
 
-                lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " Sub-Categories";
+                lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " +obtenerRecurso("labelSubCat");
 
                 // IMPORTANTE: categorias con subcategorias y codigos en su categoria
 
@@ -6943,7 +6945,7 @@ namespace MahAppsExample
                         listadoCategorias_Copy.Items.Add(Categorias.Rows[i][1].ToString());
                     }
                 }
-                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count + " Categories";
+                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count + " "+ obtenerRecurso("Categories");
 
             }
             CerrarConexion();

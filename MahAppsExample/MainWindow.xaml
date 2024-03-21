@@ -58,9 +58,9 @@
             </LinearGradientBrush>
         </Viewbox.OpacityMask>
         <Grid Height="798" VerticalAlignment="Top" Width="1564" Background="White">
-            <TabControl x:Name="opcionesHomoeonic" Margin="30,10,34,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
+            <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
                 <!--view of the patients-->
-                <TabItem x:Name="Patients" GotFocus="Pacientes_GotFocus" BorderThickness="0" BorderBrush="#FFFFC898" Background="#FFF3FDFF" Margin="0,0,-12,0">
+                <TabItem x:Name="Patients" GotFocus="Pacientes_GotFocus" BorderThickness="0" BorderBrush="#FFFFC898" Background="#FFF3FDFF" Margin="1,-2,10,2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="150">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccountMultiple">
@@ -758,7 +758,7 @@
                 </TabItem>
 
                 <!--analysis view-->
-                <TabItem x:Name="AnalisisTab" Margin="20,0,-13,0" Background="#FFF3FDFF">
+                <TabItem x:Name="AnalisisTab" Margin="-4,0,11,0" Background="#FFF3FDFF">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconModern Width="35" Height="35" Kind="MathPlusMinus">
@@ -900,16 +900,16 @@
                                     <ListBox x:Name="listadoCodigos" Visibility="Visible" HorizontalAlignment="Left" Height="481" Margin="385,50,0,0" VerticalAlignment="Top" Width="335" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" />
                                     <Label x:Name="lblCategorias" Visibility="Visible" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="26,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblSubCategorias" Visibility="Visible" Content="Sub-Categories" HorizontalAlignment="Left" Margin="27,319,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblCodigoBuscar" Visibility="Visible" Content="Search Rate:" HorizontalAlignment="Left" Margin="313,17,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblCodigoBuscar" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="313,17,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <TextBox x:Name="txtCodigoBuscar" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="398,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
                                     <Button x:Name="cmdTodos" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="598,15,0,0" VerticalAlignment="Top" Width="53" ToolTip="Select All Rates" Click="cmdTodos_Click">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ALL" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.inputAll}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
                                     <Button x:Name="cmdNinguno" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="661,16,0,0" VerticalAlignment="Top" Width="63" ToolTip="Select none of them" Click="cmdNinguno_Click" RenderTransformOrigin="0.489,-0.042">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" NONE" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNone}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
 
@@ -1935,7 +1935,7 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </DatePicker.Effect>
                         </DatePicker>
-                        <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="Duration" HorizontalAlignment="Left" Margin="1109,471,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="{x:Static local:Lenguaje.tableDuration}" HorizontalAlignment="Left" Margin="1109,471,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Border x:Name="borderInfobasica_Copy10" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="1109,497,0,0" VerticalAlignment="Top" Width="241" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content="Hours           Minutes" HorizontalAlignment="Left" Margin="1123,502,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <TextBox x:Name="txtHoras"  Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="1130,530,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" Width="54">
@@ -2087,7 +2087,7 @@
                 </TabItem>
 
                 <!--language view-->
-                <TabItem   x:Name="setting" Margin="36,-4,-35,4">
+                <TabItem   x:Name="setting" Margin="32,-1,-31,1">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFAF9F9" Offset="0"/>
@@ -2096,7 +2096,7 @@
                     </TabItem.Background>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <!--<iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccessPoint">
+                            <iconPacks:PackIconMaterial Width="35" Height="35" Kind="Translate">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFDFB411" Offset="0"/>
@@ -2104,7 +2104,7 @@
                                         <GradientStop Color="#FFF4F4F4" Offset="0.534"/>
                                     </LinearGradientBrush>
                                 </iconPacks:PackIconMaterial.Foreground>
-                            </iconPacks:PackIconMaterial>-->
+                            </iconPacks:PackIconMaterial>
                             <TextBlock Text="{x:Static local:Lenguaje.Language}" Foreground="Black" FontFamily="Segoe UI" FontSize="28"/>
                             <!--in this line you will add the icon-->
                             <!--<iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccessPoint">

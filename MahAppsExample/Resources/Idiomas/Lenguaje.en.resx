@@ -508,7 +508,7 @@
     <value>First name </value>
   </data>
   <data name="labelGender" xml:space="preserve">
-    <value>Gennder</value>
+    <value>Gender</value>
   </data>
   <data name="labelInc" xml:space="preserve">
     <value>Include:</value>
@@ -1243,7 +1243,7 @@
     <value>RATE</value>
   </data>
   <data name="tableRateTip" xml:space="preserve">
-    <value>TIPO</value>
+    <value>TYPE</value>
   </data>
   <data name="tableSlevels" xml:space="preserve">
     <value>S.Levels</value>

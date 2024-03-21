@@ -988,7 +988,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All.
+        ///   Looks up a localized string similar to ALL.
         /// </summary>
         public static string inputAll {
             get {
@@ -3337,7 +3337,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TIPO.
+        ///   Looks up a localized string similar to TYPE.
         /// </summary>
         public static string tableRateTip {
             get {
