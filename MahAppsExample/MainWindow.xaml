@@ -1897,11 +1897,8 @@
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="TvRemote" Foreground="#FFFDFDFD" />
-<<<<<<< HEAD
                                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headbroadcast}" Foreground="#FFFDFCFC"/>
-=======
                                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" BROADCAST " Foreground="#FFFDFCFC"/>
->>>>>>> 65746edd37431adf68fdcf5274d6a60d191fcc95
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
