@@ -1729,15 +1729,19 @@
                     </TabItem.Header>
 
                     <Grid x:Name="categorias" Margin="0,-3,0,3" GotFocus="Grid_GotFocus_1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="115*"/>
+                            <ColumnDefinition Width="1417*"/>
+                        </Grid.ColumnDefinitions>
                         <Label x:Name="label7" Content="{x:Static local:Lenguaje.Categories}" HorizontalAlignment="Left" Margin="21,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="listadoCategorias_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="281" Margin="21,50,0,0" VerticalAlignment="Top" Width="379" BorderBrush="Silver" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoCategorias_Copy_MouseDoubleClick" SelectionChanged="listadoCategorias_Copy_SelectionChanged"/>
-                        <ListBox x:Name="listadoSubcategorias_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="296" Margin="23,396,0,0" VerticalAlignment="Top" Width="377" BorderBrush="Silver" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoSubcategorias_Copy_MouseDoubleClick" SelectionChanged="listadoSubcategorias_Copy_SelectionChanged" />
-                        <Label x:Name="lblSubCategorias_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSubCat}" HorizontalAlignment="Left" Margin="23,365,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Border x:Name="borderInfobasica_Copy9" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="140" Margin="426,50,0,0" VerticalAlignment="Top" Width="734"/>
-                        <Label x:Name="label7_Copy" Content="{x:Static local:Lenguaje.tableRate}" HorizontalAlignment="Left" Margin="426,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label x:Name="lblCategoriasCont" Visibility="Visible" Content="0 Categories" HorizontalAlignment="Left" Margin="303,331,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="103"/>
-                        <Label x:Name="lblSubcategoriasCont" Visibility="Visible" Content="0 Sub-Categories" HorizontalAlignment="Left" Margin="287,692,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="129"/>
-                        <Button x:Name="cmdNuevo" Background="#FF3CB3DF" ToolTip="New Category" HorizontalAlignment="Left" Margin="280,16,0,0" VerticalAlignment="Top" Width="120" Click="cmdNuevo_Click" Height="28">
+                        <ListBox x:Name="listadoCategorias_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="281" Margin="21,50,0,0" VerticalAlignment="Top" Width="379" BorderBrush="Silver" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoCategorias_Copy_MouseDoubleClick" SelectionChanged="listadoCategorias_Copy_SelectionChanged" Grid.ColumnSpan="2"/>
+                        <ListBox x:Name="listadoSubcategorias_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="296" Margin="23,396,0,0" VerticalAlignment="Top" Width="377" BorderBrush="Silver" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoSubcategorias_Copy_MouseDoubleClick" SelectionChanged="listadoSubcategorias_Copy_SelectionChanged" Grid.ColumnSpan="2" />
+                        <Label x:Name="lblSubCategorias_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSubCat}" HorizontalAlignment="Left" Margin="23,365,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Border x:Name="borderInfobasica_Copy9" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="140" Margin="311,50,0,0" VerticalAlignment="Top" Width="734" Grid.Column="1"/>
+                        <Label x:Name="label7_Copy" Content="{x:Static local:Lenguaje.tableRate}" HorizontalAlignment="Left" Margin="311,18,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                        <Label x:Name="lblCategoriasCont" Visibility="Visible" Content="0 Categories" HorizontalAlignment="Left" Margin="188,331,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="103" Grid.Column="1"/>
+                        <Label x:Name="lblSubcategoriasCont" Visibility="Visible" Content="0 Sub-Categories" HorizontalAlignment="Left" Margin="172,692,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="129" Grid.Column="1"/>
+                        <Button x:Name="cmdNuevo" Background="#FF3CB3DF" ToolTip="New Category" HorizontalAlignment="Left" Margin="165,16,0,0" VerticalAlignment="Top" Width="120" Click="cmdNuevo_Click" Height="28" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1747,7 +1751,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="cmdNueva" Background="#FF3CB3DF" ToolTip="New Subcategory" HorizontalAlignment="Left" Margin="233,362,0,0" VerticalAlignment="Top" Width="167" Click="cmdNueva_Click">
+                        <Button x:Name="cmdNueva" Background="#FF3CB3DF" ToolTip="New Subcategory" HorizontalAlignment="Left" Margin="118,362,0,0" VerticalAlignment="Top" Width="167" Click="cmdNueva_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1756,7 +1760,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewSubCat}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdNuevoCod" Background="#FF3CB3DF" ToolTip="New Rate" HorizontalAlignment="Left" Height="32" Margin="507,123,0,0" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Click">
+                        <Button x:Name="cmdNuevoCod" Background="#FF3CB3DF" ToolTip="New Rate" HorizontalAlignment="Left" Height="32" Margin="392,123,0,0" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1765,7 +1769,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewRate}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBorrarCod" Background="#FF3CB3DF" ToolTip="Erase Rate" HorizontalAlignment="Left" Height="32" Margin="821,123,0,0" VerticalAlignment="Top" Width="134" Click="cmdBorrarCod_Click">
+                        <Button x:Name="cmdBorrarCod" Background="#FF3CB3DF" ToolTip="Erase Rate" HorizontalAlignment="Left" Height="32" Margin="706,123,0,0" VerticalAlignment="Top" Width="134" Click="cmdBorrarCod_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1774,11 +1778,21 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.brnEraseRate}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="label7_Copy1" Content="{x:Static local:Lenguaje.labelSearchDatabase}" HorizontalAlignment="Left" Margin="434,74,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170"/>
-                        <TextBox x:Name="txtBuscarBase" HorizontalAlignment="Left" Height="23" Margin="615,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtBuscarBase_TextChanged"/>
-                        <Label x:Name="lblCodigosCont" Visibility="Visible" Content="0 Rates" HorizontalAlignment="Left" Margin="1395,210,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="89"/>
-                        <ListBox x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="426,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" />
-                        <Button x:Name="cmdNuevoCod_Copy" Background="#FF3CB3DF" ToolTip="Get Rate" HorizontalAlignment="Left" Height="32" Margin="661,123,0,0" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Copy_Click">
+                        <Label x:Name="label7_Copy1" Content="{x:Static local:Lenguaje.labelSearchDatabase}" HorizontalAlignment="Left" Margin="319,74,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170" Grid.Column="1"/>
+                        <TextBox x:Name="txtBuscarBase" HorizontalAlignment="Left" Height="23" Margin="500,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtBuscarBase_TextChanged" Grid.Column="1"/>
+                        <Label x:Name="lblCodigosCont" Visibility="Visible" Content="0 Rates" HorizontalAlignment="Left" Margin="1280,210,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="89" Grid.Column="1"/>
+                        <!--<ListBox x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1"/>-->
+                        <ListView x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
+                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="200"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+
+                        <Button x:Name="cmdNuevoCod_Copy" Background="#FF3CB3DF" ToolTip="Get Rate" HorizontalAlignment="Left" Height="32" Margin="546,123,0,0" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Copy_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1787,7 +1801,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnGetRate}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBuscar" Background="#FF3CB3DF" ToolTip="Search Rate" HorizontalAlignment="Left" Margin="983,75,0,0" VerticalAlignment="Top" Width="139" Height="26" Click="cmdBuscar_Click_1">
+                        <Button x:Name="cmdBuscar" Background="#FF3CB3DF" ToolTip="Search Rate" HorizontalAlignment="Left" Margin="868,75,0,0" VerticalAlignment="Top" Width="139" Height="26" Click="cmdBuscar_Click_1" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>

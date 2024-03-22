@@ -29,7 +29,9 @@ using System.Globalization;
 using HS5.Resources.Idiomas;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Xml.Linq;
+using HS5;
 //using HS5.Properties;
+
 
 
 
@@ -42,7 +44,7 @@ namespace MahAppsExample
     {
         Machine obj = new Machine(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
-      
+
         //Listado Heredo
         List<string> ListaHeredoTitulos = new List<string>();
         List<string> ListaHeredoDescrip = new List<string>();
@@ -89,9 +91,9 @@ namespace MahAppsExample
         List<string> codigos_rates = new List<string>();
         List<string> Sniveles = new List<string>();
 
-        
 
-  
+
+
         string tipo_nivel_codigo;
         //string puertoCOM;
 
@@ -139,16 +141,16 @@ namespace MahAppsExample
                 for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
                 {
                     listadoCategorias_Remedios.Items.Add(Categorias.Rows[i][1].ToString());
-                    listadoCategorias_Copy.Items.Add(Categorias.Rows[i][1].ToString()); 
+                    listadoCategorias_Copy.Items.Add(Categorias.Rows[i][1].ToString());
                 }
-                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count+" " + obtenerRecurso("Categories");
+                lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count + " " + obtenerRecurso("Categories");
                 lblSubcategoriasCont.Content = "0 " + obtenerRecurso("labelSubCat");
 
                 CerrarConexion();
 
                 Cargar_Tratamientos_Pendientes_Y_Activos();
                 CargarListadoCompletoPacientes();
-                
+
             }
             else
             {
@@ -379,7 +381,7 @@ namespace MahAppsExample
             _timer = new System.Windows.Forms.Timer();
             _timer.Interval = 1000;
 
-            _timer.Enabled = true; 
+            _timer.Enabled = true;
             _timer.Tick += new System.EventHandler(_timer_Elapsed);
         }
         private int contadorSegundos = 0;
@@ -402,7 +404,7 @@ namespace MahAppsExample
                     emitido = Int32.Parse(Tratamientos_Activos.Rows[j][6].ToString());
 
                     tfaltanteA = diffA.Days.ToString() + "d, " + diffA.Hours.ToString() + " h, " + diffA.Minutes.ToString() + " m, " + diffA.Seconds.ToString() + " s";
-                   
+
                     if (diffA.Minutes < 0 || diffA.Seconds < 0 || diffA.Hours < 0 || diffA.Days < 0)
                     {
                         obj2.Eliminar_TratamientoPasado(Tratamientos_Activos.Rows[j][0].ToString());
@@ -411,7 +413,7 @@ namespace MahAppsExample
                         {
                             obj.BroadcastOFF();
                         }
-                        Console.WriteLine("ELIMINADO "+ Tratamientos_Activos.Rows[j][0].ToString());
+                        Console.WriteLine("ELIMINADO " + Tratamientos_Activos.Rows[j][0].ToString());
                     }
                     else
                     {
@@ -429,7 +431,7 @@ namespace MahAppsExample
                         });
 
 
-                        emitido =emitido+1; 
+                        emitido = emitido + 1;
 
                         if (Tratamientos_Activos.Rows.Count > 0)
                         {
@@ -443,51 +445,51 @@ namespace MahAppsExample
             {
                 obj.BroadcastOFF();
             }
-                ListadoDiagNoActiv.Items.Clear();
-                DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
+            ListadoDiagNoActiv.Items.Clear();
+            DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
 
-                if (Tratamiento_Inactivos.Rows.Count > 0)
+            if (Tratamiento_Inactivos.Rows.Count > 0)
+            {
+                ListadoDiagInactivos.Items.Clear();
+                for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
                 {
-                    ListadoDiagInactivos.Items.Clear();
-                    for (int j = 0; j <= Tratamiento_Inactivos.Rows.Count - 1; j++)
+                    nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
+
+                    diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
+                    tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds + " s";
+
+                    int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
+
+                    if (diff.Minutes == 0 && diff.Seconds == 0 && diff.Hours == 0 && diff.Days == 0)
                     {
-                        nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
+                        DateTime hora_actual2 = DateTime.Now;
+                        DateTime Fecha_nueva;
+                        Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
 
-                        diff = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7].ToString()) - hora_actual;
-                        tfaltante = diff.Days.ToString() + "d, " + diff.Hours.ToString() + " h, " + diff.Minutes.ToString() + " m, " + diff.Seconds + " s";
+                        obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
 
-                        int seg = Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString());
-
-                        if (diff.Minutes == 0 && diff.Seconds == 0 && diff.Hours == 0 && diff.Days == 0)
-                        {
-                            DateTime hora_actual2 = DateTime.Now;
-                            DateTime Fecha_nueva;
-                            Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
-
-                            obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
-
-                            obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
-                            Cargar_Tratamientos_Pendientes_Y_Activos();
-                            break;
-                        }
-                        if(diff.Seconds > 0)
-                        {
-                            ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
-                            {
-                                paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
-                                    ,
-                                tratamiento = nombretratamiento
-                                    ,
-                                inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
-                                    ,
-                                duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
-                                    ,
-                                tfaltante = tfaltante
-                            });
-                        }
+                        obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
+                        Cargar_Tratamientos_Pendientes_Y_Activos();
+                        break;
                     }
-                        
+                    if (diff.Seconds > 0)
+                    {
+                        ListadoDiagNoActiv.Items.Add(new nuevoTratamiento
+                        {
+                            paciente = Tratamiento_Inactivos.Rows[j][3].ToString()
+                                ,
+                            tratamiento = nombretratamiento
+                                ,
+                            inicio = Tratamiento_Inactivos.Rows[j][7].ToString()
+                                ,
+                            duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamiento_Inactivos.Rows[j][5].ToString()))
+                                ,
+                            tfaltante = tfaltante
+                        });
+                    }
                 }
+
+            }
             CerrarConexion();
             contadorSegundos++;
         }
@@ -519,7 +521,7 @@ namespace MahAppsExample
                         Empezar_Temporizador();
                     }
                     DateTime hora_actual = DateTime.Now;
-                    for (int j = 0; j < Tratamiento_Inactivos.Rows.Count ; j++)
+                    for (int j = 0; j < Tratamiento_Inactivos.Rows.Count; j++)
                     {
                         DateTime fechaInicioTratamientoInactivo = Convert.ToDateTime(Tratamiento_Inactivos.Rows[j][7]);
                         int resultadoComparacion = DateTime.Compare(DateTime.Now, fechaInicioTratamientoInactivo);
@@ -754,7 +756,7 @@ namespace MahAppsExample
                         //Borra posible foto
                         if (File.Exists(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png"))
                         {
-                              File.Delete(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png");
+                            File.Delete(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png");
                         }
 
                         MessageBox.Show("Patient Deleted!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -1057,7 +1059,7 @@ namespace MahAppsExample
                         }
                         catch (Exception)
                         {
-                           // MessageBox.Show("The profile will be saved without a patient image included", "Information", MessageBoxButton.OK);
+                            // MessageBox.Show("The profile will be saved without a patient image included", "Information", MessageBoxButton.OK);
                         }
 
                         CerrarConexion();
@@ -3850,7 +3852,7 @@ namespace MahAppsExample
 
                         Dispatcher.Invoke((ThreadStart)delegate
                         {
-                             obj.Diagnostic();
+                            obj.Diagnostic();
                             Panel_opcion2();
 
                             if (optionSugerirNiv.IsChecked == true)
@@ -4204,147 +4206,147 @@ namespace MahAppsExample
                 DataRowView paciente_seleccionado = (DataRowView)ListaPacientes.SelectedItem;
                 if (paciente_seleccionado != null)
                 {
-                     string id_paciente = paciente_seleccionado[0].ToString();
-                id_paciente_global_modif = id_paciente;
-                //MessageBox.Show(id_paciente);
+                    string id_paciente = paciente_seleccionado[0].ToString();
+                    id_paciente_global_modif = id_paciente;
+                    //MessageBox.Show(id_paciente);
 
-                //INFORMACION DEL PACIENTE
+                    //INFORMACION DEL PACIENTE
 
-                //Traer informacion del paciente (Tabla rad_pacientes)
-                DataTable Paciente_InfoPrincipal = obj2.Modificar_Paciente(id_paciente);
+                    //Traer informacion del paciente (Tabla rad_pacientes)
+                    DataTable Paciente_InfoPrincipal = obj2.Modificar_Paciente(id_paciente);
 
-                //Extraer (Nombre, apellido1, apellido2, email, sexo, profesion, titulo, fecha de nacimiento, fpg)
-                txtNombre1.Text = Paciente_InfoPrincipal.Rows[0][1].ToString();
-                txtApellidoPat1.Text = Paciente_InfoPrincipal.Rows[0][2].ToString();
-                txtApellidoMat1.Text = Paciente_InfoPrincipal.Rows[0][3].ToString();
-                txtEmail1.Text = Paciente_InfoPrincipal.Rows[0][4].ToString();
-                //lblNombreGrande.Content = txtNombre.Text +" "+ txtApellidoPat.Text + " "+txtApellidoMat.Text;
-                txtSexo1.Text = Paciente_InfoPrincipal.Rows[0][5].ToString();
-                txtProfesion1.Text = Paciente_InfoPrincipal.Rows[0][6].ToString();
-                txtTitulo1.Text = Paciente_InfoPrincipal.Rows[0][7].ToString();
-                txtFecha1.Text = Paciente_InfoPrincipal.Rows[0][8].ToString();
-                txtPGR1.Text = Paciente_InfoPrincipal.Rows[0][9].ToString();
+                    //Extraer (Nombre, apellido1, apellido2, email, sexo, profesion, titulo, fecha de nacimiento, fpg)
+                    txtNombre1.Text = Paciente_InfoPrincipal.Rows[0][1].ToString();
+                    txtApellidoPat1.Text = Paciente_InfoPrincipal.Rows[0][2].ToString();
+                    txtApellidoMat1.Text = Paciente_InfoPrincipal.Rows[0][3].ToString();
+                    txtEmail1.Text = Paciente_InfoPrincipal.Rows[0][4].ToString();
+                    //lblNombreGrande.Content = txtNombre.Text +" "+ txtApellidoPat.Text + " "+txtApellidoMat.Text;
+                    txtSexo1.Text = Paciente_InfoPrincipal.Rows[0][5].ToString();
+                    txtProfesion1.Text = Paciente_InfoPrincipal.Rows[0][6].ToString();
+                    txtTitulo1.Text = Paciente_InfoPrincipal.Rows[0][7].ToString();
+                    txtFecha1.Text = Paciente_InfoPrincipal.Rows[0][8].ToString();
+                    txtPGR1.Text = Paciente_InfoPrincipal.Rows[0][9].ToString();
 
-                //DOMICILIOS
-                DataTable Paciente_Domicilios = obj2.ListadoPacienteDomicilios(id_paciente);
-                //MessageBox.Show(Paciente_Domicilios.Rows[0][0].ToString());
-                //listadoDomicilios.ItemsSource = Paciente_Domicilios.DefaultView; //Carga los domicilios del paciente
-                listadodomicilios1_Copy.Items.Clear();
+                    //DOMICILIOS
+                    DataTable Paciente_Domicilios = obj2.ListadoPacienteDomicilios(id_paciente);
+                    //MessageBox.Show(Paciente_Domicilios.Rows[0][0].ToString());
+                    //listadoDomicilios.ItemsSource = Paciente_Domicilios.DefaultView; //Carga los domicilios del paciente
+                    listadodomicilios1_Copy.Items.Clear();
 
-                //calle,numero,colonia,cp,municipio,estado,pais
-                for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
-                {
-                    listadodomicilios1_Copy.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
-
-                }
-
-                //TELEFONOS Y ANTECEDENTES
-
-                //Traer informacion de los telefonos (rad_telefonos)
-                DataTable Paciente_Telefonos = obj2.Modificar_PacienteTelefonos(id_paciente);
-
-                listaTelefonos1.Items.Clear();
-
-                //Extraer del datatable los telefonos
-                for (int y = 0; y <= Paciente_Telefonos.Rows.Count - 1; y++)
-                {
-                    listaTelefonos1.Items.Add(Paciente_Telefonos.Rows[y][0].ToString() + " , Ext: " + Paciente_Telefonos.Rows[y][1].ToString());
-
-                }
-
-                //Traer informacion de los antecedentes (rad_antecedentes)
-                DataTable Paciente_Antecedentes = obj2.Modificar_PacienteAntecedentes(id_paciente);
-
-                ListadoHeredo1_Copy.Items.Clear();
-                listadoPatologicos1_Copy.Items.Clear();
-                listadoNoPatologicos1_Copy.Items.Clear();
-                listadoComentarios1_Copy.Items.Clear();
-                listadoAnalisis1_Copy.Items.Clear();
-
-                //Extraer del datatable
-                for (int w = 0; w <= Paciente_Antecedentes.Rows.Count - 1; w++)
-                {
-                    //Selectiva para los diferentes tipos de antecedentes
-                    switch (Paciente_Antecedentes.Rows[w][2].ToString())
+                    //calle,numero,colonia,cp,municipio,estado,pais
+                    for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
                     {
-                        case "HF":
+                        listadodomicilios1_Copy.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
 
-                            ListadoHeredo1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
-                            break;
-
-                        case "P":
-
-                            listadoPatologicos1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
-                            break;
-
-                        case "NP":
-
-                            listadoNoPatologicos1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
-                            break;
-
-                        case "C":
-
-                            listadoComentarios1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
-                            break;
                     }
 
-                    //Agrega al conglomerado del paciente antecedentes
-                    // Paciente_Conglomerado.Add(Paciente_Telefonos.Rows[w][0].ToString()); 
-                    //  Paciente_Conglomerado.Add(Paciente_Telefonos.Rows[w][1].ToString()); 
-                }
+                    //TELEFONOS Y ANTECEDENTES
 
-                //ANALISIS
+                    //Traer informacion de los telefonos (rad_telefonos)
+                    DataTable Paciente_Telefonos = obj2.Modificar_PacienteTelefonos(id_paciente);
 
-                Historial_Analisis_Paciente = obj2.HistorialAnalisisPacienteCompleto(id_paciente.ToString());
+                    listaTelefonos1.Items.Clear();
 
-                //Agrega a listbox los nombres de los analisis
-                for (int p = 0; p <= Historial_Analisis_Paciente.Rows.Count - 1; p++)
-                {
-                    listadoAnalisis1_Copy.Items.Add(Historial_Analisis_Paciente.Rows[p][2].ToString() + " , " + Historial_Analisis_Paciente.Rows[p][3].ToString()); //Agarra el nombre del analisis buscado
-                }
-
-                //IMAGEN DEL PACIENTE
-
-                string ruta_imagen = RutaInstalacion() + "//fotos//" + id_paciente.ToString() + ".png";
-
-                //Guarda URL de la imagen del paciente..
-                if (File.Exists(ruta_imagen) == true)
-                {
-                    //Guarda la ruta
-                    id_ppaciente.Content = ruta_imagen;
-
-                    byte[] imageInfo = File.ReadAllBytes(ruta_imagen);
-
-                    BitmapImage image;
-
-                    using (MemoryStream imageStream = new MemoryStream(imageInfo))
+                    //Extraer del datatable los telefonos
+                    for (int y = 0; y <= Paciente_Telefonos.Rows.Count - 1; y++)
                     {
-                        image = new BitmapImage();
-                        image.BeginInit();
-                        image.CacheOption = BitmapCacheOption.OnLoad;
-                        image.StreamSource = imageStream;
-                        image.EndInit();
+                        listaTelefonos1.Items.Add(Paciente_Telefonos.Rows[y][0].ToString() + " , Ext: " + Paciente_Telefonos.Rows[y][1].ToString());
+
                     }
-                    //Se almacena en memoria y evita hacer uso directo de ella.
-                    /*   BitmapImage imageb = new BitmapImage();
-                       imageb.BeginInit();
-                       Uri imageSource = new Uri(ruta_imagen);
-                       imageb.UriSource = imageSource;
-                       imageb.EndInit();*/
-                    image1.Source = image;
-                    //image1.Source= new BitmapImage(new Uri(ruta_imagen));
-                }
-                else
-                {
-                    id_ppaciente.Content = "NA";
-                }
-                // id_ppaciente.Content = ruta_imagen;               
 
-                //Mostrar Listado completo de pacientes
-                CargarListadoCompletoPacientes();
+                    //Traer informacion de los antecedentes (rad_antecedentes)
+                    DataTable Paciente_Antecedentes = obj2.Modificar_PacienteAntecedentes(id_paciente);
+
+                    ListadoHeredo1_Copy.Items.Clear();
+                    listadoPatologicos1_Copy.Items.Clear();
+                    listadoNoPatologicos1_Copy.Items.Clear();
+                    listadoComentarios1_Copy.Items.Clear();
+                    listadoAnalisis1_Copy.Items.Clear();
+
+                    //Extraer del datatable
+                    for (int w = 0; w <= Paciente_Antecedentes.Rows.Count - 1; w++)
+                    {
+                        //Selectiva para los diferentes tipos de antecedentes
+                        switch (Paciente_Antecedentes.Rows[w][2].ToString())
+                        {
+                            case "HF":
+
+                                ListadoHeredo1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
+                                break;
+
+                            case "P":
+
+                                listadoPatologicos1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
+                                break;
+
+                            case "NP":
+
+                                listadoNoPatologicos1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
+                                break;
+
+                            case "C":
+
+                                listadoComentarios1_Copy.Items.Add(Paciente_Antecedentes.Rows[w][0].ToString());
+                                break;
+                        }
+
+                        //Agrega al conglomerado del paciente antecedentes
+                        // Paciente_Conglomerado.Add(Paciente_Telefonos.Rows[w][0].ToString()); 
+                        //  Paciente_Conglomerado.Add(Paciente_Telefonos.Rows[w][1].ToString()); 
+                    }
+
+                    //ANALISIS
+
+                    Historial_Analisis_Paciente = obj2.HistorialAnalisisPacienteCompleto(id_paciente.ToString());
+
+                    //Agrega a listbox los nombres de los analisis
+                    for (int p = 0; p <= Historial_Analisis_Paciente.Rows.Count - 1; p++)
+                    {
+                        listadoAnalisis1_Copy.Items.Add(Historial_Analisis_Paciente.Rows[p][2].ToString() + " , " + Historial_Analisis_Paciente.Rows[p][3].ToString()); //Agarra el nombre del analisis buscado
+                    }
+
+                    //IMAGEN DEL PACIENTE
+
+                    string ruta_imagen = RutaInstalacion() + "//fotos//" + id_paciente.ToString() + ".png";
+
+                    //Guarda URL de la imagen del paciente..
+                    if (File.Exists(ruta_imagen) == true)
+                    {
+                        //Guarda la ruta
+                        id_ppaciente.Content = ruta_imagen;
+
+                        byte[] imageInfo = File.ReadAllBytes(ruta_imagen);
+
+                        BitmapImage image;
+
+                        using (MemoryStream imageStream = new MemoryStream(imageInfo))
+                        {
+                            image = new BitmapImage();
+                            image.BeginInit();
+                            image.CacheOption = BitmapCacheOption.OnLoad;
+                            image.StreamSource = imageStream;
+                            image.EndInit();
+                        }
+                        //Se almacena en memoria y evita hacer uso directo de ella.
+                        /*   BitmapImage imageb = new BitmapImage();
+                           imageb.BeginInit();
+                           Uri imageSource = new Uri(ruta_imagen);
+                           imageb.UriSource = imageSource;
+                           imageb.EndInit();*/
+                        image1.Source = image;
+                        //image1.Source= new BitmapImage(new Uri(ruta_imagen));
+                    }
+                    else
+                    {
+                        id_ppaciente.Content = "NA";
+                    }
+                    // id_ppaciente.Content = ruta_imagen;               
+
+                    //Mostrar Listado completo de pacientes
+                    CargarListadoCompletoPacientes();
 
                 }
-               
+
             }
             catch (NullReferenceException)
             {
@@ -5119,7 +5121,7 @@ namespace MahAppsExample
             //Nombre del remedio
             string nombre_remedio_diagnostico;
 
-            nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), "Name",obtenerRecurso("messageHeadQ3") + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
+            nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), "Name", obtenerRecurso("messageHeadQ3") + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
 
             if (nombre_remedio_diagnostico == "")
             {
@@ -5259,7 +5261,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                 //   MessageBox.Show("Por favor seleccione una categoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //   MessageBox.Show("Por favor seleccione una categoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -5346,7 +5348,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                  //  MessageBox.Show("Por favor seleccione una categoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //  MessageBox.Show("Por favor seleccione una categoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -5947,15 +5949,15 @@ namespace MahAppsExample
                                     obj.Similie();
                                     Thread.Sleep(10000); //Tiempo
 
-                                Dispatcher.Invoke((ThreadStart)delegate
-                                            {
-                                                ListaRemedios.Items.Remove(lista_objetos[index]); //Elimina objeto en base a index
-                                            ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
-                                                lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
-                                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                                lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    Dispatcher.Invoke((ThreadStart)delegate
+                                                {
+                                                    ListaRemedios.Items.Remove(lista_objetos[index]); //Elimina objeto en base a index
+                                                    ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
+                                                    lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
+                                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                                    lblProgresRemedy.Visibility = Visibility.Hidden;
 
-                                            });
+                                                });
 
                                 }).Start();
                             }
@@ -5971,16 +5973,16 @@ namespace MahAppsExample
                                 obj.Similie();
                                 Thread.Sleep(10000); //Tiempo
 
-                            Dispatcher.Invoke((ThreadStart)delegate
-                                        {
-                                            ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
-                                            lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
+                                Dispatcher.Invoke((ThreadStart)delegate
+                                            {
+                                                ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
+                                                lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
 
-                                            progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                            lblProgresRemedy.Visibility = Visibility.Hidden;
-                                            function_activa = false;
+                                                progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                                lblProgresRemedy.Visibility = Visibility.Hidden;
+                                                function_activa = false;
 
-                                        });
+                                            });
 
                             }).Start();
 
@@ -6007,12 +6009,12 @@ namespace MahAppsExample
                         obj.Neutralizando();
                         Thread.Sleep(4700); //Tiempo
 
-                    Dispatcher.Invoke((ThreadStart)delegate
-                            {
-                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                lblProgresRemedy.Visibility = Visibility.Hidden;
-                                function_activa = false;
-                            });
+                        Dispatcher.Invoke((ThreadStart)delegate
+                                {
+                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                    lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    function_activa = false;
+                                });
 
                     }).Start();
                 }
@@ -6035,13 +6037,13 @@ namespace MahAppsExample
                         obj.Imprint();
                         Thread.Sleep(15000); //Tiempo
 
-                    Dispatcher.Invoke((ThreadStart)delegate
-                            {
-                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                lblProgresRemedy.Visibility = Visibility.Hidden;
-                                function_activa = false;
+                        Dispatcher.Invoke((ThreadStart)delegate
+                                {
+                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                    lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    function_activa = false;
 
-                            });
+                                });
 
                     }).Start();
                 }
@@ -6064,12 +6066,12 @@ namespace MahAppsExample
                         obj.Copy();
                         Thread.Sleep(15000); //Tiempo
 
-                    Dispatcher.Invoke((ThreadStart)delegate
-                            {
-                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                lblProgresRemedy.Visibility = Visibility.Hidden;
-                                function_activa = false;
-                            });
+                        Dispatcher.Invoke((ThreadStart)delegate
+                                {
+                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                    lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    function_activa = false;
+                                });
 
                     }).Start();
                 }
@@ -6092,12 +6094,12 @@ namespace MahAppsExample
                         obj.Erase();
                         Thread.Sleep(5000); //Tiempo
 
-                    Dispatcher.Invoke((ThreadStart)delegate
-                            {
-                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                lblProgresRemedy.Visibility = Visibility.Hidden;
-                                function_activa = false;
-                            });
+                        Dispatcher.Invoke((ThreadStart)delegate
+                                {
+                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                    lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    function_activa = false;
+                                });
 
                     }).Start();
                 }
@@ -6121,12 +6123,12 @@ namespace MahAppsExample
                         obj.Save();
                         Thread.Sleep(5000); //Tiempo
 
-                    Dispatcher.Invoke((ThreadStart)delegate
-                            {
-                                progressbar_options_remedy.Visibility = Visibility.Hidden;
-                                lblProgresRemedy.Visibility = Visibility.Hidden;
-                                function_activa = false;
-                            });
+                        Dispatcher.Invoke((ThreadStart)delegate
+                                {
+                                    progressbar_options_remedy.Visibility = Visibility.Hidden;
+                                    lblProgresRemedy.Visibility = Visibility.Hidden;
+                                    function_activa = false;
+                                });
 
                     }).Start();
                 }
@@ -6782,8 +6784,19 @@ namespace MahAppsExample
         }
 
         string id_categoria_padre;
+
+        public void ClearData()
+        {
+            // Obtener la DataView subyacente del DataTable
+            listadoCodigos_Copy.ItemsSource = null;
+
+
+        }
+
+
         private void listadoCategorias_Copy_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            ClearData();
             listadoSubcategorias_Copy.Items.Clear(); //Limpia antes de cada uso
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear();
@@ -6806,18 +6819,25 @@ namespace MahAppsExample
                     if (SubCategorias.Rows.Count == 0)
                     {
                         CategoriasCodigos = obj2.VisualizarSubCategoriasCodigos2(id_categoria.ToString());
+                        DataTable dtc = new DataTable();
+                        dtc.Columns.Add("Id", typeof(string));
+                        dtc.Columns.Add("Nombre", typeof(string));
 
-                        for (int y = 0; y <= CategoriasCodigos.Rows.Count - 1; y++)
+                        // Llenar el DataTable con los datos de CategoriasCodigos
+                        for (int y = 0; y < CategoriasCodigos.Rows.Count; y++)
                         {
-                            if (CategoriasCodigos.Rows[y][1].ToString() != "")
+                            if (!string.IsNullOrEmpty(CategoriasCodigos.Rows[y][1].ToString()))
                             {
-                                //listadoCodigos.Items.Add(new CheckBox { Content = SubCategorias.Rows[y][1].ToString() });
-                                listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString() + " , " + CategoriasCodigos.Rows[y][2].ToString());
-
+                                string id = (CategoriasCodigos.Rows[y][1].ToString());
+                                string nombre = CategoriasCodigos.Rows[y][2].ToString();
+                                dtc.Rows.Add(nombre, id);
                                 Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                             }
-
                         }
+
+                        // Asignar el DataTable como origen de datos para la ListView
+                        listadoCodigos_Copy.ItemsSource = dtc.AsDataView();
+
                         lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count +" "+obtenerRecurso("labelSubCat");
                         lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
@@ -6845,9 +6865,10 @@ namespace MahAppsExample
                             if (CategoriasCodigos.Rows[y][1].ToString() != "")
                             {
                                 //listadoCodigos.Items.Add(new CheckBox { Content = SubCategorias.Rows[y][1].ToString() });
-                                listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString());
-
-                                Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
+                                
+                                //listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString() + " , " + CategoriasCodigos.Rows[y][2].ToString());
+                                
+                                Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString() + " , " + CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                             }
                         }
 
@@ -6904,7 +6925,7 @@ namespace MahAppsExample
                 {
                     if (SubCategorias.Rows[y][0].ToString() != "")
                     {
-                        listadoSubcategorias_Copy.Items.Add(SubCategorias.Rows[y][0].ToString());
+                        listadoSubcategorias_Copy.Items.Add(SubCategorias.Rows[y][0].ToString() + SubCategorias.Rows[y][1].ToString());
                     }
                 }
 
@@ -6920,7 +6941,7 @@ namespace MahAppsExample
                     if (CategoriasCodigos.Rows[y][1].ToString() != "")
                     {
                         //listadoCodigos.Items.Add(new CheckBox { Content = SubCategorias.Rows[y][1].ToString() });
-                        listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString());
+                        listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString() + ", " + CategoriasCodigos.Rows[y][2].ToString());
 
                         Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                     }
@@ -6969,6 +6990,7 @@ namespace MahAppsExample
         //DataTable codigos_cop;
         private void listadoSubcategorias_Copy_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            ClearData();
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear(); //Limpia los codigos guardados
 
@@ -7039,16 +7061,45 @@ namespace MahAppsExample
                     //MessageBox.Show(Codigos.Rows[0][1].ToString());
                     //AGREGADO HASTA AQUI
 
-                    for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
+                    /*for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
                     {
                         if (Codigos.Rows[y][1].ToString() != "")
                         {
                             //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                            listadoCodigos_Copy.Items.Add(Codigos.Rows[y][1].ToString());// + "  ,  " + Codigos.Rows[y][2].ToString());  //Agrega el rate
+                            listadoCodigos_Copy.Items.Add(Codigos.Rows[y][1].ToString() + ", " + Codigos.Rows[y][2].ToString());// + "  ,  " + Codigos.Rows[y][2].ToString());  //Agrega el rate
                             Categorias_Codigos2.Add(Codigos.Rows[y][2].ToString()); //Guarda el codigo
+                        }
+                    }*/
+
+                    // Crear un nuevo DataTable
+                    DataTable dtc = new DataTable();
+                    dtc.Columns.Add("Id", typeof(string));
+                    dtc.Columns.Add("Nombre", typeof(string));
+
+                    // Llenar el DataTable con los datos de Codigos
+                    for (int y = 0; y < Codigos.Rows.Count; y++)
+                    {
+                        if (!string.IsNullOrEmpty(Codigos.Rows[y][1].ToString()))
+                        {
+                            string id = Codigos.Rows[y][1].ToString();
+                            string nombre = Codigos.Rows[y][2].ToString();
+
+                            // Agregar una nueva fila al DataTable
+                            dtc.Rows.Add(nombre, id);
+
+                            // Guardar el código
+                            Categorias_Codigos2.Add(id);
                         }
                     }
 
+                    // Establecer el DataTable como origen de datos para la ListView
+                    listadoCodigos_Copy.ItemsSource = dtc.DefaultView;
+
+                    // Asignar el DataTable como origen de datos para la ListView
+                    listadoCodigos_Copy.ItemsSource = dtc.AsDataView();
+
+                    lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " + obtenerRecurso("labelSubCat");
+                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
                     lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
                     CerrarConexion();
@@ -7067,6 +7118,7 @@ namespace MahAppsExample
 
         private void txtBuscarBase_TextChanged(object sender, TextChangedEventArgs e)
         {
+            ClearData();
             listadoCategorias_Copy.SelectedIndex = -1;
             listadoSubcategorias_Copy.SelectedIndex = -1;
             listadoCodigos_Copy.SelectedIndex = -1;
@@ -7082,14 +7134,27 @@ namespace MahAppsExample
 
                 DataTable Codigos = obj2.BuscarCodigo(txtBuscarBase.Text);
 
-                for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
+                // Crear un nuevo DataTable
+                DataTable dtc = new DataTable();
+                dtc.Columns.Add("Id", typeof(string));
+                dtc.Columns.Add("Nombre", typeof(string));
+
+                // Llenar el DataTable con los datos de Codigos
+                for (int y = 0; y < Codigos.Rows.Count; y++)
                 {
-                    if (Codigos.Rows[y][0].ToString() != "")
+                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
                     {
-                        //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                        listadoCodigos_Copy.Items.Add(Codigos.Rows[y][0].ToString());
+                        string columna1 = Codigos.Rows[y][0].ToString();
+                        string columna2 = Codigos.Rows[y][1].ToString();
+
+                        // Agregar una nueva fila al DataTable
+                        dtc.Rows.Add(columna2, columna1);
                     }
                 }
+
+                // Establecer el DataTable como origen de datos para la ListView
+                listadoCodigos_Copy.ItemsSource = dtc.DefaultView;
+
 
                 lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
@@ -13770,6 +13835,88 @@ namespace MahAppsExample
             {
                 string nombre_codigo;
                 string codigo_num; // string description;
+                string inpMB1 = obtenerRecurso("inputMessBox1");
+                string inpMH1 = obtenerRecurso("inputMessHead1");
+
+
+                try
+                {
+                    nombre_codigo = Interaction.InputBox(inpMB1, inpMH1, "", 300, 300);
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show("Error al mostrar el cuadro de diálogo de entrada. Detalles del error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return; // Salir del método o manejar el flujo de ejecución según sea necesario
+                }
+
+                if (nombre_codigo != "")
+                {
+                    Radionica obj_new = new Radionica();
+                    Random numnum = new Random();
+
+                    // codigo = Interaction.InputBox("Code", "New Rate", "", 300, 300);
+                    codigo_num = obj_new.RandomDigits(numnum.Next(16, 22)); //Obtiene valor numerico
+
+                    try
+                    {
+                        //description = Interaction.InputBox("Description", "New Rate", "", 300, 300);
+                        HacerConexion();
+
+                        //Cambios en el genero_para_codigo a fin de que meta el codigo en la categoria y subcategoria deseada..
+                        obj.Diagnostic();
+
+                        if (listadoCategorias_Copy.SelectedItem != null && listadoSubcategorias_Copy.SelectedItem != null)
+                        {
+                            //Categoria padre
+                            string id_cat_pad = obj2.Obtener_IDCategoria(listadoCategorias_Copy.SelectedItem.ToString()).ToString();
+
+                            //Subcategoria
+                            string id_subcat = obj2.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
+
+                            //object genero_para_codigo = obj2.Buscar_Genero(id_subcat, id_cat_pad);
+                            string genero_para_codigo = "T";
+
+                            /* MessageBox.Show(id_cat_pad.ToString()); 
+                             MessageBox.Show(id_subcat.ToString());
+                             MessageBox.Show(genero_para_codigo.ToString());
+                             MessageBox.Show(obj_new.Generar_Id());*/
+
+                            obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "Obtenida", id_subcat, id_cat_pad, genero_para_codigo);
+
+                            Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
+                        }
+                        else
+                        {
+                            MessageBox.Show(obtenerRecurso("messageWarning2"), obtenerRecurso("mesageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+
+                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
+                        CerrarConexion();
+                        obj.Diagnostic();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(obtenerRecurso("messageError1"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+        /*private void cmdNuevoCod_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string nombre_codigo;
+                string codigo_num; // string description;
 
                 nombre_codigo = Interaction.InputBox(obtenerRecurso("inputMessageBox1"),obtenerRecurso("inputMessageHead1"), "", 300, 300);
 
@@ -13805,35 +13952,35 @@ namespace MahAppsExample
                              MessageBox.Show(genero_para_codigo.ToString());
                              MessageBox.Show(obj_new.Generar_Id());*/
 
-                            obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "Obtenida", id_subcat, id_cat_pad, genero_para_codigo);
+        /*obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "Obtenida", id_subcat, id_cat_pad, genero_para_codigo);
 
-                            Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
-                        }
-                        else
-                        {
-                            MessageBox.Show(obtenerRecurso("messageWarning2"), obtenerRecurso("mesageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
+    }
+    else
+    {
+        MessageBox.Show(obtenerRecurso("messageWarning2"), obtenerRecurso("mesageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-                        }
+    }
 
-                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
-                        CerrarConexion();
-                        obj.Diagnostic();
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(obtenerRecurso("messageError1"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
+    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
+    CerrarConexion();
+    obj.Diagnostic();
+}
+catch (FormatException)
+{
+    MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+}
+}
+else
+{
+MessageBox.Show(obtenerRecurso("messageError1"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+}
+}
+catch (Exception ex)
+{
+MessageBox.Show(ex.ToString());
+}
+}*/
 
         private void radioMasculino_Click(object sender, RoutedEventArgs e)
         {
@@ -13855,6 +14002,7 @@ namespace MahAppsExample
 
         private void cmdBuscar_Click_1(object sender, RoutedEventArgs e)
         {
+            ClearData();
             listadoCategorias_Copy.SelectedIndex = -1;
             listadoSubcategorias_Copy.SelectedIndex = -1;
             listadoCodigos_Copy.SelectedIndex = -1;
