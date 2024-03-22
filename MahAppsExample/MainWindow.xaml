@@ -2051,7 +2051,7 @@
                         <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Height="26" Margin="223,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="1"/>
                         <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="989,116,0,0" VerticalAlignment="Top" Width="297" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="Period" HorizontalAlignment="Left" Margin="989,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdGenerarReporte" Background="#FF3CB3DF" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="103,123,0,0" VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click" Grid.Column="1">
+                        <Button x:Name="cmdGenerarReporte" Background="#FF3CB3DF" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="72,115,0,0" VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" CREATE REPORT" Foreground="#FFFAFAFA"/>
