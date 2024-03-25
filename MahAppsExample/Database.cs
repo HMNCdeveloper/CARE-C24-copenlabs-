@@ -172,7 +172,7 @@ namespace MahAppsExample
 
         public DataTable Buscar_Analisis(string nombre)
         {
-            sql = "SELECT * FROM (SELECT rad_analisis.nombre, rad_analisis.fecha, CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente FROM rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE nombre LIKE '%' || @nombre || '%'";
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre, rad_analisis.fecha, CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente FROM rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE UPPER(nombre) LIKE '%' || @nombre || '%'";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -263,7 +263,8 @@ namespace MahAppsExample
         //Funcion que busca si existe el paciente
         public DataTable Buscar_Paciente(string paciente)
         {
-            sql = "SELECT idp, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes where (nombre || ' ' || apellido1 || ' ' || apellido2) like $$%" + paciente + "%$$ order by nombre";
+            //sql = "SELECT idp, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes where UPPER((nombre || ' ' || apellido1 || ' ' || apellido2)) like $$%" + paciente + "%$$ order by nombre";
+            sql = "SELECT idp, CONCAT(nombre, ' ', apellido1, ' ', apellido2) AS nombrepaciente FROM rad_pacientes WHERE UPPER(CONCAT(nombre, ' ', apellido1, ' ', apellido2)) LIKE '%" + paciente +  "%'ORDER BY nombre";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -299,7 +300,7 @@ namespace MahAppsExample
         //Funcion que despliega los nombres de los pacientes
         public DataTable Mostrar_Pacientes_Listado_Sencillo_2(string nombre_paciente)
         {
-            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where nombre like $$%"+nombre_paciente+"%$$";
+            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where UPPER(nombre) like $$%"+nombre_paciente+"%$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -1019,7 +1020,7 @@ namespace MahAppsExample
         //Funcion para buscar codigo en base al nombre de la categoria
         public object BuscarCodigoPorNombreCategoria(string nombre_categoria)
         {
-            sql = "SELECT codigo FROM rad_codigos where nombre=$$" + nombre_categoria + "$$";
+            sql = "SELECT codigo FROM rad_codigos where UPPER(nombre)=$$" + nombre_categoria + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -1051,7 +1052,7 @@ namespace MahAppsExample
         //Funcion para buscar codigos directamente
         public DataTable BuscarCodigo(string nombre_codigo)
         {
-            sql = "SELECT nombre,codigo FROM rad_codigos WHERE nombre LIKE $$%" + nombre_codigo + "%$$";
+            sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);

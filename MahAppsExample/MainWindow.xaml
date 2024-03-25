@@ -91,7 +91,7 @@
                                     <TextBlock x:Name="PacienteNombreletrero" Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderPatientSearch}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
-                            <TextBox x:Name="txtBuscarPaciente" HorizontalAlignment="Left" Height="32" Margin="31,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" ToolTip="Type the name of the patient to look for it" TextChanged="txtBuscarPaciente_TextChanged" FontSize="16" BorderBrush="#FF9C9999" Background="White">
+                            <TextBox x:Name="txtBuscarPaciente" HorizontalAlignment="Left" Height="32" Margin="31,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" ToolTip="Type the name of the patient to look for it" TextChanged="txtBuscarPaciente_TextChanged" FontSize="16" BorderBrush="#FF9C9999" Background="White" CharacterCasing="Upper">
                                 <TextBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                 </TextBox.Effect>
@@ -999,7 +999,7 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <TextBox x:Name="txtBuscarPaciente2"  Visibility="Visible" HorizontalAlignment="Left" Height="32" Margin="45,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="16" TextChanged="txtBuscarPaciente1_TextChanged" Grid.ColumnSpan="2">
+                        <TextBox x:Name="txtBuscarPaciente2"  CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="32" Margin="45,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="16" TextChanged="txtBuscarPaciente1_TextChanged" Grid.ColumnSpan="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
@@ -1046,7 +1046,7 @@
                             </ListBox>
                         </GroupBox>
                         <Label x:Name="lblPacienteAnalisis2" Visibility="Visible" Content="{x:Static local:Lenguaje.HeaderPatientSearch}" HorizontalAlignment="Left" Margin="45,286,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="cmdAnalisisPaciente" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="40,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="1">
+                        <TextBox x:Name="cmdAnalisisPaciente" CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="40,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="1">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
@@ -1779,14 +1779,14 @@
                             </StackPanel>
                         </Button>
                         <Label x:Name="label7_Copy1" Content="{x:Static local:Lenguaje.labelSearchDatabase}" HorizontalAlignment="Left" Margin="319,74,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170" Grid.Column="1"/>
-                        <TextBox x:Name="txtBuscarBase" HorizontalAlignment="Left" Height="23" Margin="500,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtBuscarBase_TextChanged" Grid.Column="1"/>
+                        <TextBox x:Name="txtBuscarBase" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="500,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtBuscarBase_TextChanged" Grid.Column="1"/>
                         <Label x:Name="lblCodigosCont" Visibility="Visible" Content="0 Rates" HorizontalAlignment="Left" Margin="1280,210,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="89" Grid.Column="1"/>
                         <!--<ListBox x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1"/>-->
                         <ListView x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
-                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="200"/>
+                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="958"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>

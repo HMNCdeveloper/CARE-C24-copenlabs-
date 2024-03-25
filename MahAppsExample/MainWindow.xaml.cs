@@ -107,7 +107,7 @@ namespace MahAppsExample
             string path, path2;
             path = @"C:\Program Files\PostgreSQL"; //Windows 64
             path2 = @"C:\Program Files (x86)\PostgreSQL";  //Windows 32
-
+ 
             //Si el postgresql existe entonces continuar todo normal...
             if (Directory.Exists(path) || Directory.Exists(path2))
             {
@@ -1226,7 +1226,8 @@ namespace MahAppsExample
                 HacerConexion();
                 //Llama y obtiene posibles matches
                 DataTable PacientesLista = new DataTable();
-                PacientesLista = obj2.Buscar_Paciente(txtBuscarPaciente.Text);
+                string busqueda = txtBuscarPaciente.Text.ToUpper();
+                PacientesLista = obj2.Buscar_Paciente(busqueda);
                 ListaPacientes.ItemsSource = PacientesLista.DefaultView;
                 CerrarConexion();
             }
@@ -7118,48 +7119,7 @@ namespace MahAppsExample
 
         private void txtBuscarBase_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ClearData();
-            listadoCategorias_Copy.SelectedIndex = -1;
-            listadoSubcategorias_Copy.SelectedIndex = -1;
-            listadoCodigos_Copy.SelectedIndex = -1;
-
-            if (txtBuscarBase.Text != "")
-            {
-                //Busqueda on
-                busqueda = true;
-
-                listadoCodigos_Copy.Items.Clear();
-
-                HacerConexion();
-
-                DataTable Codigos = obj2.BuscarCodigo(txtBuscarBase.Text);
-
-                // Crear un nuevo DataTable
-                DataTable dtc = new DataTable();
-                dtc.Columns.Add("Id", typeof(string));
-                dtc.Columns.Add("Nombre", typeof(string));
-
-                // Llenar el DataTable con los datos de Codigos
-                for (int y = 0; y < Codigos.Rows.Count; y++)
-                {
-                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
-                    {
-                        string columna1 = Codigos.Rows[y][0].ToString();
-                        string columna2 = Codigos.Rows[y][1].ToString();
-
-                        // Agregar una nueva fila al DataTable
-                        dtc.Rows.Add(columna2, columna1);
-                    }
-                }
-
-                // Establecer el DataTable como origen de datos para la ListView
-                listadoCodigos_Copy.ItemsSource = dtc.DefaultView;
-
-
-                lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
-
-                CerrarConexion();
-            }
+            
         }
 
         private void radioButton_Checked(object sender, RoutedEventArgs e)
@@ -10244,6 +10204,7 @@ namespace MahAppsExample
 
         void Cargar_Codigos(string id_categoria_padre, string id_subcategoria_c)
         {
+            ClearData();
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear(); //Limpia los codigos guardados
             try
@@ -14018,14 +13979,27 @@ MessageBox.Show(ex.ToString());
 
                 DataTable Codigos = obj2.BuscarCodigo(txtBuscarBase.Text);
 
-                for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
+                // Crear un nuevo DataTable
+                DataTable dtc = new DataTable();
+                dtc.Columns.Add("Id", typeof(string));
+                dtc.Columns.Add("Nombre", typeof(string));
+
+                // Llenar el DataTable con los datos de Codigos
+                for (int y = 0; y < Codigos.Rows.Count; y++)
                 {
-                    if (Codigos.Rows[y][0].ToString() != "")
+                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
                     {
-                        //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                        listadoCodigos_Copy.Items.Add(Codigos.Rows[y][0].ToString());
+                        string columna1 = Codigos.Rows[y][0].ToString();
+                        string columna2 = Codigos.Rows[y][1].ToString();
+
+                        // Agregar una nueva fila al DataTable
+                        dtc.Rows.Add(columna2, columna1);
                     }
                 }
+
+                // Establecer el DataTable como origen de datos para la ListView
+                listadoCodigos_Copy.ItemsSource = dtc.DefaultView;
+
 
                 lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
 
