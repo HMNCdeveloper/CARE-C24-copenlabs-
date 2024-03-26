@@ -202,6 +202,7 @@ namespace MahAppsExample
             //txtCalle.Text, txtNum.Text, txtColonia.Text, 
             //txtCP.Text, txtMunicipio.Text, txtEstado.Text, comboCountries.Text, id_paciente.ToString()
             sql = "SELECT iddom from rad_domicilios where calle=$$" + calle + "$$ and numero=$$" + numero + "$$ and colonia=$$" + colonia + "$$ and cp=$$" + CP + "$$ and municipio=$$" + municipio + "$$ and estado=$$" + estado + "$$ and pais=$$" + pais + "$$ and idpaciente=$$" + id_paciente + "$$";
+            Console.WriteLine(sql);
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
@@ -567,7 +568,7 @@ namespace MahAppsExample
 
 
         //Funcion para registrar domicilios del paciente
-        public void RegistrarDomicilios(string calle, string numero, string colonia, string cp, string municipio, string estado, string pais, string id_paciente)
+        public void  RegistrarDomicilios(string calle, string numero, string colonia, string cp, string municipio, string estado, string pais, string id_paciente)
         {
             sql = "INSERT INTO rad_domicilios(calle,numero,colonia,cp,municipio,estado,pais,idpaciente) VALUES($$" + calle + "$$,$$" + numero + "$$,$$" + colonia + "$$,$$" + cp + "$$,$$" + municipio + "$$,$$" + estado + "$$,$$" + pais + "$$,$$" + id_paciente + "$$)";
             command = new NpgsqlCommand(sql, conn);

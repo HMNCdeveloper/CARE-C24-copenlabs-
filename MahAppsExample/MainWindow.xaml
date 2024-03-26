@@ -61,7 +61,7 @@
         <Grid Height="798" VerticalAlignment="Top" Width="1564" Background="White">
             <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
                 <!--view of the patients-->
-                <TabItem x:Name="Patients" GotFocus="Pacientes_GotFocus" BorderThickness="0" BorderBrush="#FFFFC898" Background="#FFF3FDFF" Margin="1,-2,10,2">
+                <TabItem x:Name="Patients"   GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus" BorderThickness="0" Margin="1,-2,13,2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="150">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccountMultiple">
@@ -336,6 +336,7 @@
                                             </TextBox.Effect>
                                         </TextBox>
 
+                                        <!--Buttons to  edita, add, delete and save address-->
                                         <Button x:Name="cmdAgregarDom" HorizontalAlignment="Left" Margin="817,55,0,0" VerticalAlignment="Top" Background="#FF3CB3DF" Width="155" Height="45" ToolTip="Add Record" Click="cmdAgregarDom_Click">
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
@@ -345,12 +346,14 @@
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
+                                        
                                         <ListBox x:Name="listadodomicilios" HorizontalAlignment="Left" Height="155" Margin="27,318,0,0" VerticalAlignment="Top" Width="969" BorderBrush="#FFE4E0E0" BorderThickness="1" FontSize="14">
                                             <ListBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </ListBox.Effect>
                                         </ListBox>
-                                        <Button x:Name="cmdEliminarDom" HorizontalAlignment="Left" Margin="817,121,0,0" Background="#FF3CB3DF" VerticalAlignment="Top" Width="155" Height="45" ToolTip="Delete Record" Click="cmdEliminarDom_Click">
+                                        
+                                        <Button x:Name="cmdEliminarDom" IsEnabled="False" Visibility="Hidden" HorizontalAlignment="Left" Margin="817,121,0,0" Background="#FF3CB3DF" VerticalAlignment="Top" Width="155" Height="45" ToolTip="Delete Record" Click="cmdEliminarDom_Click">
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                             </Button.Effect>
@@ -361,7 +364,8 @@
                                             </StackPanel>
 
                                         </Button>
-                                        <Button x:Name="cmdEditarDom" HorizontalAlignment="Left" Margin="817,185,0,0" Background="#FF3CB3DF" VerticalAlignment="Top" Width="155" Height="45" ToolTip="Edit Record" Click="cmdEditarDom_Click">
+                                        
+                                        <Button x:Name="cmdEditarDom"  Visibility="Hidden"  IsEnabled="False" HorizontalAlignment="Left" Margin="817,185,0,0" Background="#FF3CB3DF" VerticalAlignment="Top" Width="155" Height="45" ToolTip="Edit Record" Click="cmdEditarDom_Click">
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                             </Button.Effect>
@@ -370,6 +374,9 @@
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEdit}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
+                                        
+                                        
+                                        
                                         <Label x:Name="label" Content="{x:Static local:Lenguaje.headerAddresses}" HorizontalAlignment="Left" Margin="31,275,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
                                         <Label x:Name="label_Copy" Content="{x:Static local:Lenguaje.headerAdd}" HorizontalAlignment="Left" Margin="31,25,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.128,1.692" FontWeight="Bold"/>
                                     </Grid>
@@ -758,7 +765,7 @@
                 </TabItem>
 
                 <!--analysis view-->
-                <TabItem x:Name="AnalisisTab" Margin="-4,0,11,0" Background="#FFF3FDFF">
+                <TabItem x:Name="AnalisisTab" Margin="-4,0,11,0"   GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconModern Width="35" Height="35" Kind="MathPlusMinus">
@@ -1088,13 +1095,7 @@
                 </TabItem>
 
                 <!--remedie view-->
-                <TabItem x:Name="RemediosTab" Margin="21,-1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TabItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
-                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TabItem.Background>
+                <TabItem x:Name="RemediosTab" Margin="21,-1,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconModern Width="35" Height="35" Kind="Potion" Foreground="#FF6D33B1"/>
@@ -1435,13 +1436,7 @@
                 </TabItem>
 
                 <!--chromotherapy view-->
-                <TabItem x:Name="ColorTab" Margin="10,-2,-9,2" Height="45.6">
-                    <TabItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
-                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TabItem.Background>
+                <TabItem x:Name="ColorTab" Margin="10,-2,-9,2" Height="45.6"  GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="ChartPie">
@@ -1707,13 +1702,7 @@
                 </TabItem>
 
                 <!--categoria view-->
-                <TabItem x:Name="CategoriasTab" Visibility="Visible" Margin="18,-3,-18,3">
-                    <TabItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
-                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TabItem.Background>
+                <TabItem x:Name="CategoriasTab" Visibility="Visible" Margin="18,-3,-18,3"  GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="Archive">
@@ -1800,13 +1789,7 @@
                 </TabItem>
 
                 <!--broadcasting view-->
-                <TabItem x:Name="tratamientos" Margin="28,-2,-27,2" GotFocus="tratamientos_GotFocus">
-                    <TabItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
-                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TabItem.Background>
+                <TabItem x:Name="tratamientos" Margin="28,-2,-27,2"  GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccessPoint">
@@ -1898,11 +1881,6 @@
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="TvRemote" Foreground="#FFFDFDFD" />
                                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headbroadcast}" Foreground="#FFFDFCFC"/>
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" BROADCAST " Foreground="#FFFDFCFC"/>
-<<<<<<< HEAD
-=======
-
->>>>>>> 68da2a2704ff1c065fce5600b66c0802d7b3ea6d
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
@@ -1982,7 +1960,7 @@
                         </TextBox>
                         <Label x:Name="tiempo2" Content="Day(s)" Visibility="Hidden" HorizontalAlignment="Left" Margin="143,613,0,0" VerticalAlignment="Top" Width="85" Grid.Column="1"/>
                         <Border x:Name="borderInfobasica_Copy11" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="371,40,0,0" VerticalAlignment="Top" Width="466"/>
-                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="219,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="1"/>
+                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="190,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="1"/>
                         <Label x:Name="lblPaciente" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ComboBox x:Name="comboPacientesTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="259"/>
                         <Label x:Name="lblNombreTratamiento_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTreatNam}" HorizontalAlignment="Left" Margin="49,397,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -2026,24 +2004,24 @@
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="PageUpload" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" TREATMENT'S DETAIL" Foreground="#FFFDFCFC"/>
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headTRD}" Foreground="#FFFDFCFC"/>
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <Label x:Name="lblDiagActivo_Copy1"  Visibility="Hidden" Content="Remedies" HorizontalAlignment="Left" Margin="988,269,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblDiagActivo_Copy1"  Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="988,269,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="detalleRemedios" Visibility="Hidden" HorizontalAlignment="Left" Height="87" Margin="989,301,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblDiagActivo_Copy2" Visibility="Hidden" Content="Analysis" HorizontalAlignment="Left" Margin="989,408,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblDiagActivo_Copy2" Visibility="Hidden" Content="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="989,408,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="987,438,0,0" VerticalAlignment="Top" Width="427" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="Individual Rates" HorizontalAlignment="Left" Margin="989,543,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.headIndRates}" HorizontalAlignment="Left" Margin="989,543,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="989,574,0,0" VerticalAlignment="Top" Width="425" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
-                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="Related Treatments" HorizontalAlignment="Left" Margin="953,45,0,0" VerticalAlignment="Top" Height="170" Width="515" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="2"/>
+                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="{x:Static local:Lenguaje.headTR}" HorizontalAlignment="Left" Margin="953,45,0,0" VerticalAlignment="Top" Height="170" Width="515" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="2"/>
                         <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Height="26" Margin="223,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="1"/>
                         <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="989,116,0,0" VerticalAlignment="Top" Width="297" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="Period" HorizontalAlignment="Left" Margin="989,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPeriod}" HorizontalAlignment="Left" Margin="989,86,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Button x:Name="cmdGenerarReporte" Background="#FF3CB3DF" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="103,123,0,0" VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" CREATE REPORT" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCreatRep}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
                         <GroupBox x:Name="tratamencola" Visibility="Hidden" Header="Treatments on hold" HorizontalAlignment="Left" Margin="940,207,0,0" VerticalAlignment="Top" Height="316" Width="542" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="2"/>
@@ -2096,13 +2074,7 @@
                 </TabItem>
 
                 <!--language view-->
-                <TabItem   x:Name="setting" Margin="32,-1,-31,1">
-                    <TabItem.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFAF9F9" Offset="0"/>
-                            <GradientStop Color="#FFF3FDFF" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TabItem.Background>
+                <TabItem   x:Name="setting" Margin="32,-1,-31,1"  GotFocus="TabItem_GotFocus" LostFocus="TabItem_LostFocus">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <iconPacks:PackIconMaterial Width="35" Height="35" Kind="Translate">

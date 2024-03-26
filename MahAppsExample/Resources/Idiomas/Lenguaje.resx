@@ -309,6 +309,9 @@
   <data name="Column" xml:space="preserve">
     <value>Column</value>
   </data>
+  <data name="contentMessage" xml:space="preserve">
+    <value>THERE'S NO PERIOD IN A SIMPLE TREATMENT</value>
+  </data>
   <data name="Coxis" xml:space="preserve">
     <value>Coxis</value>
   </data>
@@ -390,6 +393,9 @@
   <data name="headHold" xml:space="preserve">
     <value>ON HOLD</value>
   </data>
+  <data name="headIndRates" xml:space="preserve">
+    <value>Individual Rates</value>
+  </data>
   <data name="headListComments" xml:space="preserve">
     <value>LIST OF COMMENTS</value>
   </data>
@@ -420,11 +426,20 @@
   <data name="headRecordP" xml:space="preserve">
     <value>PATIENT'S RECORD</value>
   </data>
+  <data name="headRemedies" xml:space="preserve">
+    <value>Remedies</value>
+  </data>
   <data name="headRemSearch" xml:space="preserve">
     <value>REMEDY SEARCH</value>
   </data>
   <data name="headScchedule" xml:space="preserve">
     <value>SCHEDULING</value>
+  </data>
+  <data name="headTR" xml:space="preserve">
+    <value>Related Treatments</value>
+  </data>
+  <data name="headTRD" xml:space="preserve">
+    <value>TREATMENT'S DETAIL</value>
   </data>
   <data name="inputAll" xml:space="preserve">
     <value>ALL</value>
@@ -534,6 +549,9 @@
   <data name="labelOrder" xml:space="preserve">
     <value>Order By</value>
   </data>
+  <data name="labelPeriod" xml:space="preserve">
+    <value>Period</value>
+  </data>
   <data name="labelPersonal" xml:space="preserve">
     <value>Personal Frenquecy:</value>
   </data>
@@ -553,7 +571,7 @@
     <value>Related Analysis:</value>
   </data>
   <data name="labelRate" xml:space="preserve">
-    <value>Rate</value>
+    <value>Rates</value>
   </data>
   <data name="labelRemedy" xml:space="preserve">
     <value>Remedy</value>
@@ -921,6 +939,12 @@
   <data name="messageError65" xml:space="preserve">
     <value>Items cannot be deleted as they do not exist in the system.</value>
   </data>
+  <data name="messageError68" xml:space="preserve">
+    <value>you have not chosen any patient's address to edit it</value>
+  </data>
+  <data name="messageError69" xml:space="preserve">
+    <value>you have not chosen any patient's address to delete it</value>
+  </data>
   <data name="messageError7" xml:space="preserve">
     <value>Select a treatment first!..</value>
   </data>
@@ -929,6 +953,9 @@
   </data>
   <data name="messageError9" xml:space="preserve">
     <value>Please type an analysis name before continuing</value>
+  </data>
+  <data name="messageHead1" xml:space="preserve">
+    <value>DELETE  USER</value>
   </data>
   <data name="messageHeadInf" xml:space="preserve">
     <value>information</value>
@@ -972,8 +999,14 @@
   <data name="messageInfo7" xml:space="preserve">
     <value>You need to install the database manager before proceeding!.... Then it will be installed!</value>
   </data>
+  <data name="messageInfo8" xml:space="preserve">
+    <value>Patient Deleted!</value>
+  </data>
   <data name="messageQuestion1" xml:space="preserve">
     <value>Do you want to include the 'Sequence' in the erasing process?</value>
+  </data>
+  <data name="messageQuestion10" xml:space="preserve">
+    <value>Do you want   to delete the user?</value>
   </data>
   <data name="messageQuestion2" xml:space="preserve">
     <value>Name of the ECS Card to Save</value>
@@ -1070,6 +1103,9 @@
   </data>
   <data name="Penis" xml:space="preserve">
     <value>Penis</value>
+  </data>
+  <data name="PUASED" xml:space="preserve">
+    <value>PAUSED</value>
   </data>
   <data name="resetC" xml:space="preserve">
     <value>RESET COLORS</value>

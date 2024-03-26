@@ -29,6 +29,14 @@ using System.Globalization;
 using HS5.Resources.Idiomas;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Xml.Linq;
+using System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using Application = System.Windows.Application;
+using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using Brushes = System.Windows.Media.Brushes;
+using ColorConverter = System.Windows.Media.ColorConverter;
 //using HS5.Properties;
 
 
@@ -135,6 +143,7 @@ namespace MahAppsExample
 
                 //Categorias Remedios y Categorias
                 HacerConexion();
+
                 DataTable Categorias = obj2.VisualizarCategoriasCodigos();
                 for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
                 {
@@ -143,6 +152,7 @@ namespace MahAppsExample
                 }
                 lblCategoriasCont.Content = listadoCategorias_Copy.Items.Count+" " + obtenerRecurso("Categories");
                 lblSubcategoriasCont.Content = "0 " + obtenerRecurso("labelSubCat");
+                lblCodigosCont.Content = "0 " + obtenerRecurso("labelRate");
 
                 CerrarConexion();
 
@@ -734,12 +744,10 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    string duMsg = "Do you want to delete de user?";
-                    string duTitle = "DELETE USER";
-
+                   
                     MessageBoxButton buttons = MessageBoxButton.YesNo;
 
-                    MessageBoxResult dialogResult = MessageBox.Show(duMsg, duTitle, buttons);
+                    MessageBoxResult dialogResult = MessageBox.Show(obtenerRecurso("messageQuestion10"), obtenerRecurso("messageHead1"), buttons);
                     if (dialogResult == MessageBoxResult.Yes)
                     {
 
@@ -757,7 +765,7 @@ namespace MahAppsExample
                               File.Delete(RutaInstalacion() + "\\fotos\\" + id_paciente + ".png");
                         }
 
-                        MessageBox.Show("Patient Deleted!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show(obtenerRecurso("messageInfo8"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
@@ -998,6 +1006,10 @@ namespace MahAppsExample
         //Funcion para registrar el paciente en la bd
         private void cmdGuardarPaciente_Click(object sender, RoutedEventArgs e)
         {
+            cmdAgregarDom.IsEnabled = true;
+            cmdEditarDom.Visibility = Visibility.Hidden;
+            cmdEliminarDom.Visibility = Visibility.Hidden;
+            
             //Determina el sexo del paciente y valida que se seleccione
             if (cmdModificar.IsEnabled == false)
             {
@@ -1459,10 +1471,7 @@ namespace MahAppsExample
             }*/
         }
 
-        private void cmdTelEditar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+ 
 
         //Eliminar registro del heredo
         private void cmdEliminarHeredo_Click(object sender, RoutedEventArgs e)
@@ -2262,16 +2271,7 @@ namespace MahAppsExample
             }
         }
 
-        private void optionSexoM_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cmdAgregarTelefono_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+  
         private void cmdMasDomicilios_Click_1(object sender, RoutedEventArgs e)
         {
             /* if (txtCalle.Text == "" || txtNum.Text == "" || txtColonia.Text == "" || txtCP.Text == "" || txtMunicipio.Text == "" || txtEstado.Text == "" || txtCountry.Text == "")
@@ -2285,6 +2285,12 @@ namespace MahAppsExample
                  domicilios.IsSelected = true;
              }*/
         }
+
+        private void optionSexoM_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         private void cmdAgregarTelef_Click_1(object sender, RoutedEventArgs e)
         {
@@ -2499,33 +2505,21 @@ namespace MahAppsExample
             cmdAnalisisReanalisisCerrar.Visibility = Visibility.Hidden;
         }
 
-        public void CambiarIdiomaIngles(object sender, RoutedEventArgs e)
-        {
-            //Seccion de pacientes
-            PacienteNombreletrero.Text = "PATIENT SEARCH";
-            lblBusqueda.Content = "Search";
-            txtBuscarPaciente.ToolTip = "Patient name";
-            EliminarLetrero.Text = "DELETE";
-            cmdEliminar.ToolTip = "Delete patient's record";
-            cmdModificar.Content = "MODIFY";
-            cmdModificar.ToolTip = "Modify a patient's record";
-            lblPacientes.Content = "Patients List";
-        }
-
+        /*
+          This function is  used to save a address from the patient
+         */
         private void cmdAgregarDom_Click(object sender, RoutedEventArgs e)
         {
-            bool valflag = obj2.ComprobarDomicilios(txtCalle.Text, txtColonia.Text, txtNum.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text);
-
-            if (valflag != true)
+           bool valflag = obj2.ComprobarDomicilios(txtCalle.Text, txtColonia.Text, txtNum.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text);
+            
+            if(valflag != true)
             {
-                if (cmdModificar.IsEnabled == false)
+                if (cmdEditarDom.IsEnabled == false && cmdAgregarDom.IsEnabled == true)
                 {
                     HacerConexion();
+                    obj2.RegistrarDomicilios(txtCalle.Text, txtNum.Text, txtColonia.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text, id_paciente_global_modif);
 
-                    obj2.RegistrarDomicilios(txtCalle.Text, txtColonia.Text, txtNum.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text, id_paciente_global_modif);
-
-                    listadodomicilios.Items.Add("STREET:  " + txtCalle.Text + ", NUM:  " + txtNum.Text + ", AVENUE:  " + txtColonia.Text + ", ZIP:  " + txtCP.Text + ", COUNTY:  " + txtMunicipio.Text + ", STATE:  " + txtEstado.Text + ", COUNTRY:  " + txtCountry.Text);
-
+                    listadodomicilios.Items.Add(obtenerRecurso("labelStreet") + " " + txtCalle.Text + ", " + obtenerRecurso("labelNum") + " " + txtNum.Text + ", " + obtenerRecurso("labelAvenue") + " " + txtColonia.Text + ", " + obtenerRecurso("labelZpCode") + " " + txtCP.Text + ", " + obtenerRecurso("labelCS") + " " + txtMunicipio.Text + ", " + obtenerRecurso("labelSatet") + " " + txtEstado.Text + ", " + obtenerRecurso("labelCountry") + " " + txtCountry.Text);
                     ListaCalles.Add(txtCalle.Text);
                     ListaColonia.Add(txtColonia.Text);
                     ListaNum.Add(txtNum.Text);
@@ -2543,14 +2537,16 @@ namespace MahAppsExample
                     txtEstado.Clear();
                     txtCountry.Clear();
 
+                    cmdAgregarDom.IsEnabled = false;
+                    cmdEditarDom.IsEnabled = true;
+                    cmdEliminarDom.IsEnabled = true;
                     CerrarConexion();
                 }
                 else
                 {
-                    //calle,numero,colonia,cp,municipio,estado,pais
-                    //Agregar a listview
-                    listadodomicilios.Items.Add("STREET:  " + txtCalle.Text + ", NUM:  " + txtNum.Text + ", AVENUE:  " + txtColonia.Text + ", ZIP:  " + txtCP.Text + ", COUNTY:  " + txtMunicipio.Text + ", STATE:  " + txtEstado.Text + ", COUNTRY:  " + txtCountry.Text);
 
+                    //listadodomicilios.Items.Add("STREET:  " + txtCalle.Text + ", NUM:  " + txtNum.Text + ", AVENUE:  " + txtColonia.Text + ", ZIP:  " + txtCP.Text + ", COUNTY:  " + txtMunicipio.Text + ", STATE:  " + txtEstado.Text + ", COUNTRY:  " + txtCountry.Text);
+                    listadodomicilios.Items.Add(obtenerRecurso("labelStreet") + " " + txtCalle.Text + ", " + obtenerRecurso("labelNum") + " " + txtNum.Text + ", " + obtenerRecurso("labelAvenue") + " " + txtColonia.Text + ", " + obtenerRecurso("labelZpCode") + " " + txtCP.Text + ", " + obtenerRecurso("labelCS") + " " + txtMunicipio.Text + ", " + obtenerRecurso("labelSatet") + " " + txtEstado.Text + ", " + obtenerRecurso("labelCountry") + " " + txtCountry.Text);
                     ListaCalles.Add(txtCalle.Text);
                     ListaColonia.Add(txtColonia.Text);
                     ListaNum.Add(txtNum.Text);
@@ -2573,23 +2569,29 @@ namespace MahAppsExample
             else
             {
                 MessageBox.Show(obtenerRecurso("messageError3"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                txtCalle.Focus();
             }
         }
 
-        //Funcion sirve para el modulo de editar paciente y salvar paciente
+        /*
+          This method is used to edit the pataint's address
+         */
         private void cmdEditarDom_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (cmdModificar.IsEnabled == false || cmdModificar.IsEnabled == true)
+                if (listadodomicilios.SelectedItem.ToString() != null)
                 {
+                    cmdEditarDom.IsEnabled = false;
+                    cmdEliminarDom.IsEnabled = false;
+                    cmdAgregarDom.IsEnabled = true;
+
+
                     HacerConexion();
                     for (int d = 0; d <= ListaCalles.Count - 1; d++)
                     {
-                        if (listadodomicilios.SelectedItem.ToString() == "STREET:  " + ListaCalles[d].ToString() + ", NUM:  " + ListaNum[d].ToString() + ", AVENUE:  " + ListaColonia[d].ToString() + ", ZIP:  " + ListaCP[d].ToString() + ", COUNTY:  " + ListaMunicipio[d].ToString() + ", STATE:  " + ListaEstado[d].ToString() + ", COUNTRY:  " + ListaPais[d].ToString())
+                        if (listadodomicilios.SelectedItem.ToString() == obtenerRecurso("labelStreet") + " " + ListaCalles[d].ToString() + ", " + obtenerRecurso("labelNum") + " " + ListaNum[d].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + ListaColonia[d].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + ListaCP[d].ToString() + ", " + obtenerRecurso("labelCS") + " " + ListaMunicipio[d].ToString() + ", " + obtenerRecurso("labelSatet") + " " + ListaEstado[d].ToString() + ", " + obtenerRecurso("labelCountry") + " " + ListaPais[d].ToString())
                         {
-                            //Eliminar el elemento seleccionado (Titulo y descripcion)
+                            //Eliminar el elemento seleccionado 
                             txtCalle.Text = ListaCalles[d].ToString();
                             txtNum.Text = ListaNum[d].ToString();
                             txtColonia.Text = ListaColonia[d].ToString();
@@ -2597,12 +2599,14 @@ namespace MahAppsExample
                             txtMunicipio.Text = ListaMunicipio[d].ToString();
                             txtEstado.Text = ListaEstado[d].ToString();
                             txtCountry.Text = ListaPais[d].ToString();
-                            // MessageBox.Show(ListaHeredoDescrip[d].ToString());
 
-                            object id_domicilio_modif = obj2.Obtener_IdDomicilio_Paciente(ListaCalles[d].ToString(), ListaNum[d].ToString(), ListaColonia[d].ToString(), ListaCP[d].ToString(), ListaMunicipio[d].ToString(), ListaEstado[d].ToString(), ListaPais[d].ToString(), id_paciente_global_modif);
-                            obj2.EliminarDomicilioPaciente(id_domicilio_modif.ToString());
+
 
                             listadodomicilios.Items.Remove(listadodomicilios.SelectedItem.ToString());
+
+                            object id_domicilio_modif = obj2.Obtener_IdDomicilio_Paciente(ListaCalles[d].ToString(), ListaNum[d].ToString(), ListaColonia[d].ToString(), ListaCP[d].ToString(), ListaMunicipio[d].ToString(), ListaEstado[d].ToString(), ListaPais[d].ToString(), id_paciente_global_modif);
+
+                            obj2.EliminarDomicilioPaciente(id_domicilio_modif.ToString());
                             ListaCalles.RemoveAt(d);
                             ListaNum.RemoveAt(d);
                             ListaColonia.RemoveAt(d);
@@ -2614,58 +2618,38 @@ namespace MahAppsExample
                         }
                     }
                     CerrarConexion();
-                }
-
-                string pr = listadodomicilios.SelectedItem.ToString();
-
-                for (int d = 0; d <= ListaCalles.Count - 1; d++)
-                {
-                    if (listadodomicilios.SelectedItem.ToString() == "STREET:  " + ListaCalles[d].ToString() + ", NUM:  " + ListaNum[d].ToString() + ", AVENUE:  " + ListaColonia[d].ToString() + ", ZIP:  " + ListaCP[d].ToString() + ", COUNTY:  " + ListaMunicipio[d].ToString() + ", STATE:  " + ListaEstado[d].ToString() + ", COUNTRY:  " + ListaPais[d].ToString())
-                    {
-                        //Eliminar el elemento seleccionado (Titulo y descripcion)
-                        txtCalle.Text = ListaCalles[d].ToString();
-                        txtNum.Text = ListaNum[d].ToString();
-                        txtColonia.Text = ListaColonia[d].ToString();
-                        txtCP.Text = ListaCP[d].ToString();
-                        txtMunicipio.Text = ListaMunicipio[d].ToString();
-                        txtEstado.Text = ListaEstado[d].ToString();
-                        txtCountry.Text = ListaPais[d].ToString();
-
-                        // MessageBox.Show(ListaHeredoDescrip[d].ToString());
-                        listadodomicilios.Items.Remove(listadodomicilios.SelectedItem.ToString());
-                        ListaCalles.RemoveAt(d);
-                        ListaNum.RemoveAt(d);
-                        ListaColonia.RemoveAt(d);
-                        ListaCP.RemoveAt(d);
-                        ListaMunicipio.RemoveAt(d);
-                        ListaEstado.RemoveAt(d);
-                        ListaPais.RemoveAt(d);
-                    }
-                }
-
+                }                
             }
             catch (NullReferenceException)
             {
-                //   MessageBox.Show("No se ha seleccionado ningun domicilio a editar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show(obtenerRecurso("messageError68"),"Error",MessageBoxButton.OK,MessageBoxImage.Error);      
             }
+
         }
 
+        /*
+          This method is used to delete the patient's address
+         */
         private void cmdEliminarDom_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (cmdModificar.IsEnabled == false || cmdModificar.IsEnabled == true)
+
+                if(listadodomicilios.SelectedItem.ToString() != null)
                 {
-                    HacerConexion(); //Conexion
+                    HacerConexion();
                     for (int d = 0; d <= ListaCalles.Count - 1; d++)
                     {
-                        if (listadodomicilios.SelectedItem.ToString() == "STREET:  " + ListaCalles[d].ToString() + ", NUM:  " + ListaNum[d].ToString() + ", AVENUE:  " + ListaColonia[d].ToString() + ", ZIP:  " + ListaCP[d].ToString() + ", COUNTY:  " + ListaMunicipio[d].ToString() + ", STATE:  " + ListaEstado[d].ToString() + ", COUNTRY:  " + ListaPais[d].ToString())
+                        if (listadodomicilios.SelectedItem.ToString() == obtenerRecurso("labelStreet") + " " + ListaCalles[d].ToString() + ", " + obtenerRecurso("labelNum") + " " + ListaNum[d].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + ListaColonia[d].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + ListaCP[d].ToString() + ", " + obtenerRecurso("labelCS") + " " + ListaMunicipio[d].ToString() + ", " + obtenerRecurso("labelSatet") + " " + ListaEstado[d].ToString() + ", " + obtenerRecurso("labelCountry") + " " + ListaPais[d].ToString())
                         {
                             object id_domicilio_modif = obj2.Obtener_IdDomicilio_Paciente(ListaCalles[d].ToString(), ListaNum[d].ToString(), ListaColonia[d].ToString(), ListaCP[d].ToString(), ListaMunicipio[d].ToString(), ListaEstado[d].ToString(), ListaPais[d].ToString(), id_paciente_global_modif);
-                            obj2.EliminarDomicilioPaciente(id_domicilio_modif.ToString());
+                            
+                            if (id_domicilio_modif != null)
+                            {
+                                obj2.EliminarDomicilioPaciente(id_domicilio_modif.ToString());
+                            }
 
-                            // MessageBox.Show(ListaHeredoDescrip[d].ToString());
+
                             listadodomicilios.Items.Remove(listadodomicilios.SelectedItem.ToString());
                             ListaCalles.RemoveAt(d);
                             ListaNum.RemoveAt(d);
@@ -2676,30 +2660,20 @@ namespace MahAppsExample
                             ListaPais.RemoveAt(d);
                         }
                     }
+
+                    if (listadodomicilios.Items.Count == 0)
+                    {
+                        cmdEliminarDom.IsEnabled = false;
+                        cmdEditarDom.IsEnabled = false;
+                    }
+
+                    cmdAgregarDom.IsEnabled = true;
                     CerrarConexion();//Cerrar conexion
                 }
-
-                string pr = listadodomicilios.SelectedItem.ToString();
-                for (int d = 0; d <= ListaTelefonos.Count - 1; d++)
-                {
-                    if (listadodomicilios.SelectedItem.ToString() == "STREET:  " + ListaCalles[d].ToString() + ", NUM:  " + ListaNum[d].ToString() + ", AVENUE:  " + ListaColonia[d].ToString() + ", ZIP:  " + ListaCP[d].ToString() + ", COUNTY:  " + ListaMunicipio[d].ToString() + ", STATE:  " + ListaEstado[d].ToString() + ", COUNTRY:  " + ListaPais[d].ToString())
-                    {
-                        // MessageBox.Show(ListaHeredoDescrip[d].ToString());
-                        listadodomicilios.Items.Remove(listadodomicilios.SelectedItem.ToString());
-                        ListaCalles.RemoveAt(d);
-                        ListaNum.RemoveAt(d);
-                        ListaColonia.RemoveAt(d);
-                        ListaCP.RemoveAt(d);
-                        ListaMunicipio.RemoveAt(d);
-                        ListaEstado.RemoveAt(d);
-                        ListaPais.RemoveAt(d);
-                    }
-                }
-
             }
             catch (NullReferenceException)
             {
-                //MessageBox.Show("No se ha seleccionado ningun domicilio a eliminar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(obtenerRecurso("messageError69"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -3062,6 +3036,13 @@ namespace MahAppsExample
                     //MessageBox.Show("Por favor seleccione una categoría o subcategoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+
+
+        //this function is importan on xaml but it doesn't have any functionality
+        private void part1_MouseMove(object sender, MouseEventArgs e)
+        {
+
         }
 
         private void listadoSubcategorias_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -4190,12 +4171,17 @@ namespace MahAppsExample
             cmdDocumento.IsEnabled = true;
         }
 
+
+        //thid method is used to  show the patient's data when the user select on the list 
+
         private void ListaPacientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
                 //Funcion desactivada mientras modificar un perfil
-                cmdEliminar.IsEnabled = false;
+                cmdEliminarDom.Visibility = Visibility.Visible;
+                cmdEditarDom.Visibility = Visibility.Visible;
+
 
                 PacienteGroup.Visibility = Visibility.Hidden;
                 PacienteGroup_Copy.Visibility = Visibility.Visible;
@@ -4230,18 +4216,27 @@ namespace MahAppsExample
                 //MessageBox.Show(Paciente_Domicilios.Rows[0][0].ToString());
                 //listadoDomicilios.ItemsSource = Paciente_Domicilios.DefaultView; //Carga los domicilios del paciente
                 listadodomicilios1_Copy.Items.Clear();
-
-                //calle,numero,colonia,cp,municipio,estado,pais
-                for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
+                if (Paciente_Domicilios.Rows.Count > 0)
                 {
-                    listadodomicilios1_Copy.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
-
+                    cmdAgregarDom.IsEnabled = false;
+                    cmdEliminarDom.IsEnabled=true;
+                    cmdEditarDom.IsEnabled= true;
+                }else {
+                        cmdAgregarDom.IsEnabled = true;
+                        cmdEliminarDom.IsEnabled=false;
+                        cmdEditarDom.IsEnabled = false;
                 }
 
-                //TELEFONOS Y ANTECEDENTES
+                for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
+                {
+                    listadodomicilios1_Copy.Items.Add(obtenerRecurso("labelStreet") + " " + Paciente_Domicilios.Rows[q][0].ToString() + ", " + obtenerRecurso("labelNum") + " " + Paciente_Domicilios.Rows[q][1].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + Paciente_Domicilios.Rows[q][2].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + Paciente_Domicilios.Rows[q][3].ToString() + ", " + obtenerRecurso("labelCS") + " " + Paciente_Domicilios.Rows[q][4].ToString() + ", " + obtenerRecurso("labelSatet") + " " + Paciente_Domicilios.Rows[q][5].ToString() + ", " + obtenerRecurso("labelCountry") + " " + Paciente_Domicilios.Rows[q][6].ToString());
+                        
+                }
 
-                //Traer informacion de los telefonos (rad_telefonos)
-                DataTable Paciente_Telefonos = obj2.Modificar_PacienteTelefonos(id_paciente);
+                    //TELEFONOS Y ANTECEDENTES
+
+                    //Traer informacion de los telefonos (rad_telefonos)
+                    DataTable Paciente_Telefonos = obj2.Modificar_PacienteTelefonos(id_paciente);
 
                 listaTelefonos1.Items.Clear();
 
@@ -4421,7 +4416,7 @@ namespace MahAppsExample
                 for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
                 {
                     //listadodomicilios.Items.Add(Paciente_Domicilios.Rows[q][0].ToString() + ",   " + Paciente_Domicilios.Rows[q][1].ToString() + ",   " + Paciente_Domicilios.Rows[q][2].ToString() + ",   " + Paciente_Domicilios.Rows[q][3].ToString() + ",   " + Paciente_Domicilios.Rows[q][4].ToString() + ",   " + Paciente_Domicilios.Rows[q][5].ToString() + ",   " + Paciente_Domicilios.Rows[q][6].ToString());
-                    listadodomicilios.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
+                    listadodomicilios.Items.Add(obtenerRecurso("labelStreet") + " " + Paciente_Domicilios.Rows[q][0].ToString() + ", " + obtenerRecurso("labelNum") + " " + Paciente_Domicilios.Rows[q][1].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + Paciente_Domicilios.Rows[q][2].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + Paciente_Domicilios.Rows[q][3].ToString() + ", " + obtenerRecurso("labelCS") + " " + Paciente_Domicilios.Rows[q][4].ToString() + ", " + obtenerRecurso("labelSatet") + " " + Paciente_Domicilios.Rows[q][5].ToString() + ", " + obtenerRecurso("labelCountry") + " " + Paciente_Domicilios.Rows[q][6].ToString());
                     ListaCalles.Add(Paciente_Domicilios.Rows[q][0].ToString());
                     ListaNum.Add(Paciente_Domicilios.Rows[q][1].ToString());
                     ListaColonia.Add(Paciente_Domicilios.Rows[q][2].ToString());
@@ -6819,7 +6814,7 @@ namespace MahAppsExample
 
                         }
                         lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count +" "+obtenerRecurso("labelSubCat");
-                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
+                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count +" "+obtenerRecurso("labelRate");
 
                     }
                     else
@@ -6851,7 +6846,7 @@ namespace MahAppsExample
                             }
                         }
 
-                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
+                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
 
                     }
                     CerrarConexion();
@@ -7445,10 +7440,10 @@ namespace MahAppsExample
             CerrarConexion();
         }
 
-        private void part1_MouseMove(object sender, MouseEventArgs e)
-        {
+        //private void part1_MouseMove(object sender, MouseEventArgs e)
+        //{
 
-        }
+        //}
 
         private void TerapiaColor_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -11158,7 +11153,7 @@ namespace MahAppsExample
                     //Si cambia la seleccion... hacer
                     if (selectedItem != null)
                     {
-                        if (selectedItem.Content.ToString() == "Analysis")
+                        if (selectedItem.Content.ToString() == obtenerRecurso("MenuAnalysis"))
                         {
                             Cerrar_ListGenericoParaCodigos();
                             Mostrar_ListGenerico();
@@ -11174,12 +11169,12 @@ namespace MahAppsExample
                                 listgenerico.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
                             }
 
-                            Trata.Header = "Analysis";
+                            Trata.Header = obtenerRecurso("MenuAnalysis");
 
                         }
 
                         //Si cambia la seleccion... hacer
-                        if (selectedItem.Content.ToString() == "Remedy")
+                        if (selectedItem.Content.ToString() == obtenerRecurso("labelRemedy"))
                         {
                             Cerrar_ListGenericoParaCodigos();
                             Mostrar_ListGenerico();
@@ -11196,14 +11191,14 @@ namespace MahAppsExample
                                 listgenerico.Items.Add(ListaRemedios.Rows[i][1].ToString());
                             }
 
-                            Trata.Header = "Remedy";
+                            Trata.Header = obtenerRecurso("labelRemedy");
 
                         }
 
                         //Por Códigos Individuales
 
                         //Si cambia la seleccion... hacer
-                        if (selectedItem.Content.ToString() == "Rate")
+                        if (selectedItem.Content.ToString() == obtenerRecurso("labelRate"))
                         {
                             Ocultar_ListGenerico();
                             Mostrar_ListGenericoParaCodigos();
@@ -11226,7 +11221,7 @@ namespace MahAppsExample
 
                             CerrarConexion();
 
-                            Trata.Header = "Rates";
+                            Trata.Header = obtenerRecurso("labelRate");
 
                         }
 
@@ -12154,7 +12149,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    detalleAsociados.Items.Add("THERE'S NO PERIOD IN A SIMPLE TREATMENT");
+                    detalleAsociados.Items.Add(obtenerRecurso("contentMessage"));
                 }
 
                 CerrarConexion();
@@ -12538,7 +12533,7 @@ namespace MahAppsExample
                         nombre_tratamientos.Add(codigo.tratamiento.ToString());
                         fechas.Add(codigo.inicio.ToString());
                         duraciones.Add(codigo.duracion.ToString());
-                        tfaltante.Add("PAUSED");
+                        tfaltante.Add(obtenerRecurso("PAUSED"));
                     }
 
                     ListadoDiagActivos.Items.Clear();
@@ -13935,6 +13930,24 @@ namespace MahAppsExample
                 System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
                 // Cerrar la instancia actual de la aplicación
                 System.Windows.Application.Current.Shutdown();
+            }
+        }
+        private void TabItem_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // Cambiar el color de fondo cuando se obtiene el foco
+            if (sender is TabItem tabItem)
+            {
+               SolidColorBrush customColor = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString("#FFF3FDFF"));
+               tabItem.Background = customColor;
+            }
+        }
+
+        private void TabItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Cambiar el color de fondo cuando se pierde el foco
+            if (sender is TabItem tabItem)
+            {
+                tabItem.Background = Brushes.White; // Cambia a cualquier color de fondo deseado
             }
         }
 

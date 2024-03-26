@@ -637,6 +637,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to THERE&apos;S NO PERIOD IN A SIMPLE TREATMENT.
+        /// </summary>
+        public static string contentMessage {
+            get {
+                return ResourceManager.GetString("contentMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coxis.
         /// </summary>
         public static string Coxis {
@@ -880,6 +889,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Individual Rates.
+        /// </summary>
+        public static string headIndRates {
+            get {
+                return ResourceManager.GetString("headIndRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LIST OF COMMENTS.
         /// </summary>
         public static string headListComments {
@@ -970,6 +988,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remedies.
+        /// </summary>
+        public static string headRemedies {
+            get {
+                return ResourceManager.GetString("headRemedies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to REMEDY SEARCH.
         /// </summary>
         public static string headRemSearch {
@@ -984,6 +1011,24 @@ namespace HS5.Resources.Idiomas {
         public static string headScchedule {
             get {
                 return ResourceManager.GetString("headScchedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Related Treatments.
+        /// </summary>
+        public static string headTR {
+            get {
+                return ResourceManager.GetString("headTR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TREATMENT&apos;S DETAIL.
+        /// </summary>
+        public static string headTRD {
+            get {
+                return ResourceManager.GetString("headTRD", resourceCulture);
             }
         }
         
@@ -1312,6 +1357,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Period.
+        /// </summary>
+        public static string labelPeriod {
+            get {
+                return ResourceManager.GetString("labelPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Personal Frenquecy:.
         /// </summary>
         public static string labelPersonal {
@@ -1366,7 +1420,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rate.
+        ///   Looks up a localized string similar to Rates.
         /// </summary>
         public static string labelRate {
             get {
@@ -2419,6 +2473,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to you have not chosen any patient&apos;s address to edit it.
+        /// </summary>
+        public static string messageError68 {
+            get {
+                return ResourceManager.GetString("messageError68", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to you have not chosen any patient&apos;s address to delete it.
+        /// </summary>
+        public static string messageError69 {
+            get {
+                return ResourceManager.GetString("messageError69", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select a treatment first!...
         /// </summary>
         public static string messageError7 {
@@ -2442,6 +2514,15 @@ namespace HS5.Resources.Idiomas {
         public static string messageError9 {
             get {
                 return ResourceManager.GetString("messageError9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE  USER.
+        /// </summary>
+        public static string messageHead1 {
+            get {
+                return ResourceManager.GetString("messageHead1", resourceCulture);
             }
         }
         
@@ -2572,11 +2653,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patient Deleted!.
+        /// </summary>
+        public static string messageInfo8 {
+            get {
+                return ResourceManager.GetString("messageInfo8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to include the &apos;Sequence&apos; in the erasing process?.
         /// </summary>
         public static string messageQuestion1 {
             get {
                 return ResourceManager.GetString("messageQuestion1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want   to delete the user?.
+        /// </summary>
+        public static string messageQuestion10 {
+            get {
+                return ResourceManager.GetString("messageQuestion10", resourceCulture);
             }
         }
         
@@ -2865,6 +2964,15 @@ namespace HS5.Resources.Idiomas {
         public static string Penis {
             get {
                 return ResourceManager.GetString("Penis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PAUSED.
+        /// </summary>
+        public static string PUASED {
+            get {
+                return ResourceManager.GetString("PUASED", resourceCulture);
             }
         }
         

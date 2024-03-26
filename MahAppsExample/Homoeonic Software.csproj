@@ -214,6 +214,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lenguaje.en.resx</DependentUpon>
     </Compile>
+    <Compile Include="System\Windows\OpenFileDialog.cs" />
     <Page Include="Codigo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -136,7 +136,7 @@
     <value>Vejiga</value>
   </data>
   <data name="brnEraseRate" xml:space="preserve">
-    <value>BORRAR TARIFA</value>
+    <value>BORRAR INDICE</value>
   </data>
   <data name="brnSC" xml:space="preserve">
     <value>GUARDAR CAMBIOS</value>
@@ -217,7 +217,7 @@
     <value>NUEVA CATEGORIA</value>
   </data>
   <data name="btnNewRate" xml:space="preserve">
-    <value>NUEVA TARIFA</value>
+    <value>NUEVO INDICE</value>
   </data>
   <data name="btnNewRem" xml:space="preserve">
     <value>NUEVO REMEDIO</value>
@@ -312,6 +312,9 @@
   <data name="Column" xml:space="preserve">
     <value>Columna vertebral</value>
   </data>
+  <data name="contentMessage" xml:space="preserve">
+    <value> NO HAY PERIODO EN UN SIMPLE TRATAMIENTO</value>
+  </data>
   <data name="Coxis" xml:space="preserve">
     <value>Coxis</value>
   </data>
@@ -382,7 +385,7 @@
     <value>Registrar Nuevo Paciente</value>
   </data>
   <data name="headerRun" xml:space="preserve">
-    <value>CORRIENDO (AHORA MISMO)</value>
+    <value>EJECUTANDO (AHORA MISMO)</value>
   </data>
   <data name="headerTherapSearch" xml:space="preserve">
     <value>BUSCAR TERAPIA</value>
@@ -392,6 +395,9 @@
   </data>
   <data name="headHold" xml:space="preserve">
     <value>EN ESPERA</value>
+  </data>
+  <data name="headIndRates" xml:space="preserve">
+    <value>Indices individuales</value>
   </data>
   <data name="headListComments" xml:space="preserve">
     <value>LISTA DE COMENTARIOS</value>
@@ -423,11 +429,20 @@
   <data name="headRecordP" xml:space="preserve">
     <value>Historial del Paciente</value>
   </data>
+  <data name="headRemedies" xml:space="preserve">
+    <value>Remedios</value>
+  </data>
   <data name="headRemSearch" xml:space="preserve">
     <value>BUSCAR REMEDIO</value>
   </data>
   <data name="headScchedule" xml:space="preserve">
     <value>PROGRAMAR</value>
+  </data>
+  <data name="headTR" xml:space="preserve">
+    <value>  Tramientos relacionados</value>
+  </data>
+  <data name="headTRD" xml:space="preserve">
+    <value>DETALLE DEL TRATAMIENTO</value>
   </data>
   <data name="inputAll" xml:space="preserve">
     <value>TODO</value>
@@ -442,7 +457,7 @@
     <value>Nombre de la tarifa</value>
   </data>
   <data name="inputMessHead1" xml:space="preserve">
-    <value>Obtener tarifa</value>
+    <value>Obtener indice</value>
   </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>Preparatoria</value>
@@ -469,7 +484,7 @@
     <value>Analisis Realizados</value>
   </data>
   <data name="labelAvenue" xml:space="preserve">
-    <value>Avenida:</value>
+    <value>Colonia:</value>
   </data>
   <data name="labelBeg" xml:space="preserve">
     <value>Inicio</value>
@@ -490,7 +505,7 @@
     <value>Pais:</value>
   </data>
   <data name="labelCS" xml:space="preserve">
-    <value>Pais o Condado:</value>
+    <value>Municipio:</value>
   </data>
   <data name="labelDataBase" xml:space="preserve">
     <value>Base de datos</value>
@@ -537,6 +552,9 @@
   <data name="labelOrder" xml:space="preserve">
     <value>ORDENAR POR</value>
   </data>
+  <data name="labelPeriod" xml:space="preserve">
+    <value>Periodo</value>
+  </data>
   <data name="labelPersonal" xml:space="preserve">
     <value>Frecuencia Personal </value>
   </data>
@@ -556,7 +574,7 @@
     <value>Relacion del Analisis</value>
   </data>
   <data name="labelRate" xml:space="preserve">
-    <value>Indice</value>
+    <value>Indices</value>
   </data>
   <data name="labelRemedy" xml:space="preserve">
     <value>Remedio</value>
@@ -802,7 +820,7 @@
     <value>Por favor selecciona  un color antes para continuar</value>
   </data>
   <data name="messageError27" xml:space="preserve">
-    <value>No puedes Guardar una terapia  sin ninguna una unica combinacion de  tarifa</value>
+    <value>No puedes Guardar una terapia  sin ninguna una unica combinacion del indice</value>
   </data>
   <data name="messageError28" xml:space="preserve">
     <value>No has escrito ninguna cosa, Escribe algo</value>
@@ -927,6 +945,12 @@
   <data name="messageError65" xml:space="preserve">
     <value>Los elementos no pueden borrarse porque no existen en el sistema.</value>
   </data>
+  <data name="messageError68" xml:space="preserve">
+    <value>No has seleccionado ningun domicilio para editar</value>
+  </data>
+  <data name="messageError69" xml:space="preserve">
+    <value>No se ha seleccionado ningun domicilio  para eliminar</value>
+  </data>
   <data name="messageError7" xml:space="preserve">
     <value>Seleccione un tratamiento primero!..</value>
   </data>
@@ -935,6 +959,9 @@
   </data>
   <data name="messageError9" xml:space="preserve">
     <value>Por favor  Escribe un nombre del analisis antes de continuar  </value>
+  </data>
+  <data name="messageHead1" xml:space="preserve">
+    <value>ELIMINAR USUARIO</value>
   </data>
   <data name="messageHeadInf" xml:space="preserve">
     <value>informacion</value>
@@ -975,8 +1002,14 @@
   <data name="messageInfo7" xml:space="preserve">
     <value>Se necesita instalar el administrador de base de datos antes de continuar!... A continuación se instalará!</value>
   </data>
+  <data name="messageInfo8" xml:space="preserve">
+    <value>Paciente Eliminado!</value>
+  </data>
   <data name="messageQuestion1" xml:space="preserve">
     <value>¿Tu quieres incluir la secuencia en proceso de borrado ?  </value>
+  </data>
+  <data name="messageQuestion10" xml:space="preserve">
+    <value>¿Deseas eliminar este usuario?</value>
   </data>
   <data name="messageQuestion2" xml:space="preserve">
     <value>Nombre de la tarjeta ECS para guardar</value>
@@ -1073,6 +1106,9 @@
   </data>
   <data name="Penis" xml:space="preserve">
     <value>Pene (término médico)</value>
+  </data>
+  <data name="PUASED" xml:space="preserve">
+    <value>DETENIDO</value>
   </data>
   <data name="resetC" xml:space="preserve">
     <value>REINICIAR COLORES</value>
