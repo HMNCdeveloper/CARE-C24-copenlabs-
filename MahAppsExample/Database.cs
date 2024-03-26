@@ -8,6 +8,7 @@ using Npgsql; //BD
 using System.Drawing; //Imagenes
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Windows.Controls;
 
 namespace MahAppsExample
 {
@@ -151,7 +152,7 @@ namespace MahAppsExample
         //Funcion para obtener los analisis recientemente de acuerdo a nombre del paciente
         public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente2(string paciente_nombre,string nombre_analisis)
         {
-            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where nombre like '$$"+nombre_analisis+"$$' and nombrepaciente=$$" + paciente_nombre + "$$";
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where UPPER(nombre) like '$$"+nombre_analisis+"$$' and nombrepaciente=$$" + paciente_nombre + "$$";
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -172,7 +173,7 @@ namespace MahAppsExample
 
         public DataTable Buscar_Analisis(string nombre)
         {
-            sql = "SELECT * FROM (SELECT rad_analisis.nombre, rad_analisis.fecha, CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente FROM rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE nombre LIKE '%' || @nombre || '%'";
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre, rad_analisis.fecha, CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente FROM rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as Tabla WHERE UPPER(nombre) LIKE '%' || @nombre || '%'";
 
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             cmd.Parameters.AddWithValue("@nombre", nombre);
@@ -264,7 +265,8 @@ namespace MahAppsExample
         //Funcion que busca si existe el paciente
         public DataTable Buscar_Paciente(string paciente)
         {
-            sql = "SELECT idp, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes where (nombre || ' ' || apellido1 || ' ' || apellido2) like $$%" + paciente + "%$$ order by nombre";
+            //sql = "SELECT idp, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes where UPPER((nombre || ' ' || apellido1 || ' ' || apellido2)) like $$%" + paciente + "%$$ order by nombre";
+            sql = "SELECT idp, CONCAT(nombre, ' ', apellido1, ' ', apellido2) AS nombrepaciente FROM rad_pacientes WHERE UPPER(CONCAT(nombre, ' ', apellido1, ' ', apellido2)) LIKE '%" + paciente +  "%'ORDER BY nombre";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -300,7 +302,7 @@ namespace MahAppsExample
         //Funcion que despliega los nombres de los pacientes
         public DataTable Mostrar_Pacientes_Listado_Sencillo_2(string nombre_paciente)
         {
-            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where nombre like $$%"+nombre_paciente+"%$$";
+            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where UPPER(nombre) like $$%"+nombre_paciente+"%$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -1020,7 +1022,7 @@ namespace MahAppsExample
         //Funcion para buscar codigo en base al nombre de la categoria
         public object BuscarCodigoPorNombreCategoria(string nombre_categoria)
         {
-            sql = "SELECT codigo FROM rad_codigos where nombre=$$" + nombre_categoria + "$$";
+            sql = "SELECT codigo FROM rad_codigos where UPPER(nombre)=$$" + nombre_categoria + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -1052,13 +1054,55 @@ namespace MahAppsExample
         //Funcion para buscar codigos directamente
         public DataTable BuscarCodigo(string nombre_codigo)
         {
-            sql = "SELECT nombre,codigo FROM rad_codigos WHERE nombre LIKE $$%" + nombre_codigo + "%$$";
+            sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
             dt = ds.Tables[0];
             return dt;
         }
+
+
+        public DataTable BuscarCodigoRem(string nombre_codigo)
+        {
+            sql = "SELECT nombrecodigo,codigo FROM rad_codigosderemedios WHERE UPPER(nombrecodigo) LIKE $$%" + nombre_codigo + "%$$";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
+        }
+
+        public string ObtenerIdr(string nombre)
+        {
+            sql = "SELECT idr FROM rad_remedios WHERE nombre LIKE @nombre";
+            command = new NpgsqlCommand(sql, conn);
+            command.Parameters.AddWithValue("@nombre", nombre);
+
+            // Ejecutar la consulta y obtener el resultado como objeto
+            object result = command.ExecuteScalar();
+
+            // Comprobar si el resultado no es nulo y convertirlo a string
+            if (result != null && result != DBNull.Value)
+            {
+                return result.ToString();
+            }
+            else
+            {
+                return null; // O un valor predeterminado, dependiendo de tus necesidades
+            }
+        }
+        public DataTable BuscarCodigoRem1(string idr)
+        {
+            sql = "SELECT nombrecodigo, codigo FROM rad_codigosderemedios WHERE idr LIKE '%' || @idr || '%'";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            da.SelectCommand.Parameters.AddWithValue("@idr", idr);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
+        }
+
 
         //Funcion para buscar remedios directamente
         /*public DataTable BuscarRemedioPorNombre(string nombre)
@@ -1291,9 +1335,9 @@ namespace MahAppsExample
         //select * from (SELECT sexo, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes) as tabla where nombrepaciente like '%Raul Lopez%'
 
         //Funcion para visualizar remedios directamente dependiendo de la categoria y la letra
-        public DataTable VisualizarRemedios(string letra)
+        public DataTable VisualizarRemedios()
         {
-            sql = "select * from (select * from rad_remedios where codigo!='' order by nombre) as tabla where nombre like $$"+letra+"%$$";
+            sql = "select * from  rad_remedios Order by nombre";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1460,7 +1504,6 @@ namespace MahAppsExample
             command.ExecuteNonQuery();
         }
 
-
         //Funcion para visualizar los codigos de un analisis en el remedio directamente
         public DataTable VisualizarCodigos_Remedios_de_Analisis(string id_analisis)
         {
@@ -1514,6 +1557,7 @@ namespace MahAppsExample
             return command.ExecuteScalar();
         }
 
+       
 
         //Guardar remedio para terapia de color
         public void Registrar_Remedio_Color(string idr, string nombre, DateTime fecha)
@@ -1579,7 +1623,7 @@ namespace MahAppsExample
         {
             //Conexion
             constring = String.Format("Server=localhost;Port=5433;" +
-            "User Id={0};Password={1};Database=rad", user, password);
+            "User Id={0};Password={1};Database=Prueba", user, password);
             conn = new NpgsqlConnection(constring);
             conn.Open();
             return true;
@@ -1600,11 +1644,17 @@ namespace MahAppsExample
         }
 
         //Imagen a bytes (Conversion)
-        public byte[] ConvertirImagen(Image x)
+        public byte[] ConvertirImagen(System.Drawing.Image x)
         {
             ImageConverter _imageConverter = new ImageConverter();
             byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
             return xByte; //Regresa imagen convertida
         }
+
+
+
+        
+
+
     }
 }
