@@ -1291,7 +1291,7 @@
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
-                                    <Label x:Name="lblContador_Copy" Content="Rates included:" HorizontalAlignment="Left" Margin="912,536,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblContador_Copy" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="912,536,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigosRemedios" Content="" HorizontalAlignment="Left" Margin="1015,535,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblOrdenarRem" Visibility="Visible" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="977,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <ComboBox x:Name="comboOrdenarRemedios" Visibility="Visible" HorizontalAlignment="Left" Margin="967,101,0,0" VerticalAlignment="Top" Width="103" SelectionChanged="comboOrdenarRemedios_SelectionChanged" IsReadOnly="True">

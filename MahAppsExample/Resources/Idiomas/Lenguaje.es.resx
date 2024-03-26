@@ -535,7 +535,7 @@
     <value>Incluir:</value>
   </data>
   <data name="labelInclude" xml:space="preserve">
-    <value>Tarifas incluidas</value>
+    <value>Indices incluidos:</value>
   </data>
   <data name="labelLastName" xml:space="preserve">
     <value>Apellido</value>
