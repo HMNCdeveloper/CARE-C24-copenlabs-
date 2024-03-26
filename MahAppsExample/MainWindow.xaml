@@ -1731,7 +1731,8 @@
                     <Grid x:Name="categorias" Margin="0,-3,0,3" GotFocus="Grid_GotFocus_1" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*"/>
-                            <ColumnDefinition Width="1417*"/>
+                            <ColumnDefinition Width="1132*"/>
+                            <ColumnDefinition Width="285*"/>
                         </Grid.ColumnDefinitions>
                         <Label x:Name="label7" Content="{x:Static local:Lenguaje.Categories}" HorizontalAlignment="Left" Margin="21,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="listadoCategorias_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="281" Margin="21,50,0,0" VerticalAlignment="Top" Width="379" BorderBrush="Silver" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoCategorias_Copy_MouseDoubleClick" SelectionChanged="listadoCategorias_Copy_SelectionChanged" Grid.ColumnSpan="2"/>
@@ -1780,9 +1781,9 @@
                         </Button>
                         <Label x:Name="label7_Copy1" Content="{x:Static local:Lenguaje.labelSearchDatabase}" HorizontalAlignment="Left" Margin="319,74,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="170" Grid.Column="1"/>
                         <TextBox x:Name="txtBuscarBase" CharacterCasing="Upper" HorizontalAlignment="Left" Height="23" Margin="500,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtBuscarBase_TextChanged" Grid.Column="1"/>
-                        <Label x:Name="lblCodigosCont" Visibility="Visible" Content="0 Rates" HorizontalAlignment="Left" Margin="1280,210,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="89" Grid.Column="1"/>
+                        <Label x:Name="lblCodigosCont" Visibility="Visible" Content="0 Rates" HorizontalAlignment="Left" Margin="148,210,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="89" Grid.Column="2"/>
                         <!--<ListBox x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1"/>-->
-                        <ListView x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1">
+                        <ListView x:Name="listadoCodigos_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="448" Margin="311,244,0,0" VerticalAlignment="Top" Width="1058" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="1" Grid.ColumnSpan="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
@@ -1930,6 +1931,17 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ListBox.Effect>
                         </ListBox>
+                        <ListBox x:Name="Remedy1" Visibility="Hidden" HorizontalAlignment="Left" Height="319" Margin="359,342,0,0" VerticalAlignment="Top" Width="335" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="Remedy1_MouseDoubleClick">
+                            <ListBox.Effect>
+                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                            </ListBox.Effect>
+                        </ListBox>
+                        <ListBox x:Name="Remedy2" Visibility="Hidden" HorizontalAlignment="Left" Height="319" Margin="705,343,0,0" VerticalAlignment="Top" Width="331" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="Remedy2_MouseDoubleClick">
+                            <ListBox.Effect>
+                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                            </ListBox.Effect>
+                        </ListBox>
+                        <!--PABUSCAR-->
                         <Label x:Name="lblNombreTratamiento_Copy1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelInc}" HorizontalAlignment="Left" Margin="46,330,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ComboBox x:Name="comboTipoTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Margin="46,356,0,0" VerticalAlignment="Top" Width="259" SelectionChanged="comboTipoTratamiento_SelectionChanged">
                             <ComboBox.Effect>
@@ -2009,7 +2021,7 @@
                             </StackPanel>
                         </Button>
                         <Label x:Name="lblNombreTratamiento_Copy9" Visibility="Hidden" Content="{x:Static local:Lenguaje.Search}" HorizontalAlignment="Left" Margin="358,302,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="txtNombreTratamiento_Copy" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="414,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395" SelectionChanged="txtNombreTratamiento_Copy_SelectionChanged">
+                        <TextBox x:Name="txtNombreTratamiento_Copy" CharacterCasing="Upper" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="414,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395" SelectionChanged="txtNombreTratamiento_Copy_SelectionChanged">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>

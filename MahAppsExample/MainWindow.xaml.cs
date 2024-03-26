@@ -30,6 +30,7 @@ using HS5.Resources.Idiomas;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Xml.Linq;
 using HS5;
+using Npgsql;
 //using HS5.Properties;
 
 
@@ -4789,8 +4790,8 @@ namespace MahAppsExample
             {
                 if (comboCategoriasRemedios.SelectedIndex == -1)
                 {
-                    letra = "A";
-                    RemediosLista = obj2.VisualizarRemedios(letra);
+                    
+                    RemediosLista = obj2.VisualizarRemedios();
 
                     //Agrega elementos al listbox
                     for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
@@ -4807,7 +4808,7 @@ namespace MahAppsExample
                         letra = ((ComboBoxItem)comboCategoriasRemedios.SelectedItem).Content.ToString();
 
                         //Obtener remedios
-                        RemediosLista = obj2.VisualizarRemedios(letra);
+                        RemediosLista = obj2.VisualizarRemedios();
                         //Agrega elementos al listbox
                         for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
                         {
@@ -6786,18 +6787,21 @@ namespace MahAppsExample
 
         string id_categoria_padre;
 
-        public void ClearData()
+        public void ClearData(ListView lv)
         {
             // Obtener la DataView subyacente del DataTable
-            listadoCodigos_Copy.ItemsSource = null;
-
-
+            lv.ItemsSource = null;
+        }
+        
+        public void ClearDataLb(ListBox lb)
+        {
+            lb.Items.Clear();
         }
 
 
         private void listadoCategorias_Copy_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ClearData();
+            ClearData(listadoCodigos_Copy);
             listadoSubcategorias_Copy.Items.Clear(); //Limpia antes de cada uso
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear();
@@ -6991,7 +6995,7 @@ namespace MahAppsExample
         //DataTable codigos_cop;
         private void listadoSubcategorias_Copy_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ClearData();
+            ClearData(listadoCodigos_Copy);
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear(); //Limpia los codigos guardados
 
@@ -7004,74 +7008,13 @@ namespace MahAppsExample
 
                     object id_subcategoria = obj2.BuscarCategoriasCodigosSub(listadoSubcategorias_Copy.SelectedItem.ToString(), id_categoria.ToString());
 
-                    /// AGREGADO
-                    /// 
-                    //Buscar el sexo del paciente
-                    //DataTable paciente_sexo_tabla = obj2.VisualizarAnalisisPorGenero();
-                    /*string sexo = "";
-
-                    for (int a = 0; a <= paciente_sexo_tabla.Rows.Count - 1; a++)
-                    {
-                        //Si es igual el nombre obtener el sexo
-                        if (paciente_sexo_tabla.Rows[a][1].ToString() == lblPacienteAnalisis_P1.Content.ToString())
-                        {
-                            //MessageBox.Show(paciente_sexo_tabla.Rows[a][0].ToString());
-                            if (paciente_sexo_tabla.Rows[a][0].ToString() == "Masculino")
-                            {
-                                sexo = "M";
-                            }
-
-                            if (paciente_sexo_tabla.Rows[a][0].ToString() == "Femenino")
-                            {
-                                sexo = "F";
-                            }
-
-                            if (paciente_sexo_tabla.Rows[a][0].ToString() == "Animal")
-                            {
-                                sexo = "A";
-                            }
-
-                            if (paciente_sexo_tabla.Rows[a][0].ToString() == "Plantas y suelo")
-                            {
-                                sexo = "P";
-                            }
-
-                        }
-                    }*/
-
                     DataTable Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
-                    //MessageBox.Show(Codigos.Rows.Count.ToString());
-                    //codigos_cop = Codigos; //Codigos para poder borrar los agregados
-                    //MessageBox.Show(codigos_cop.Rows.Count.ToString());
-
-                    //MessageBox.Show(Codigos.Rows.Count.ToString());
-                    // MessageBox.Show(id_subcategoria.ToString());
-                    id_categoria_cop = id_subcategoria.ToString(); //Guarda la categoria para generar nuevo codigo;
-
-                    // MessageBox.Show(Codigos.Rows.Count.ToString());
-
-                    if (Codigos.Rows.Count == 0) //Sino hay por genero pues utiliza el de todos...
+                    
+                    if (Codigos.Rows.Count == 0) 
                     {
                         Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
                     }
-                    //  else // De lo contrario si existen codigos por genero entonces.. que seria genero mas genero=T
-                    //  {
-                    //       Codigos = obj2.VisualizarSubCategoriasCodigosListadoGenero_Todos(id_subcategoria.ToString(), sexo);
-                    //   }
-
-                    //MessageBox.Show(Codigos.Rows[0][1].ToString());
-                    //AGREGADO HASTA AQUI
-
-                    /*for (int y = 0; y <= Codigos.Rows.Count - 1; y++)
-                    {
-                        if (Codigos.Rows[y][1].ToString() != "")
-                        {
-                            //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                            listadoCodigos_Copy.Items.Add(Codigos.Rows[y][1].ToString() + ", " + Codigos.Rows[y][2].ToString());// + "  ,  " + Codigos.Rows[y][2].ToString());  //Agrega el rate
-                            Categorias_Codigos2.Add(Codigos.Rows[y][2].ToString()); //Guarda el codigo
-                        }
-                    }*/
-
+                    
                     // Crear un nuevo DataTable
                     DataTable dtc = new DataTable();
                     dtc.Columns.Add("Id", typeof(string));
@@ -10204,7 +10147,7 @@ namespace MahAppsExample
 
         void Cargar_Codigos(string id_categoria_padre, string id_subcategoria_c)
         {
-            ClearData();
+            ClearData(listadoCodigos_Copy);
             listadoCodigos_Copy.Items.Clear();
             Categorias_Codigos2.Clear(); //Limpia los codigos guardados
             try
@@ -11165,6 +11108,18 @@ namespace MahAppsExample
             listCodigosTrat.Visibility = Visibility.Hidden;
         }
 
+        void MostrarRemedy()
+        {
+            Remedy1.Visibility = Visibility.Visible;
+            Remedy2.Visibility = Visibility.Visible;
+        }
+
+        void CerrarRemedy()
+        {
+            Remedy1.Visibility = Visibility.Hidden;
+            Remedy2.Visibility = Visibility.Hidden;
+        }
+
         List<string> Rates_Codigos = new List<string>();
         private void comboTipoTratamiento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -11186,6 +11141,7 @@ namespace MahAppsExample
                     {
                         if (selectedItem.Content.ToString() == "Analysis")
                         {
+                            CerrarRemedy();
                             Cerrar_ListGenericoParaCodigos();
                             Mostrar_ListGenerico();
                             //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
@@ -11207,19 +11163,20 @@ namespace MahAppsExample
                         //Si cambia la seleccion... hacer
                         if (selectedItem.Content.ToString() == "Remedy")
                         {
+                            listgenerico.Visibility = Visibility.Hidden;
                             Cerrar_ListGenericoParaCodigos();
-                            Mostrar_ListGenerico();
+                            MostrarRemedy();
                             //MessageBox.Show(comboPacientesTratamiento.SelectedItem.ToString());
 
                             //Analisis en base al paciente elegido
                             // DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
-                            DataTable ListaRemedios = obj2.VisualizarRemedios("A");
+                            DataTable ListaRemedios = obj2.VisualizarRemedios();
 
                             //Llenar el combobox con analisis relacionados
                             for (int i = 0; i <= ListaRemedios.Rows.Count - 1; i++)
                             {
                                 //Agregar solo nombre del analisis
-                                listgenerico.Items.Add(ListaRemedios.Rows[i][1].ToString());
+                                Remedy1.Items.Add(ListaRemedios.Rows[i][1].ToString());
                             }
 
                             Trata.Header = "Remedy";
@@ -11231,6 +11188,7 @@ namespace MahAppsExample
                         //Si cambia la seleccion... hacer
                         if (selectedItem.Content.ToString() == "Rate")
                         {
+                            CerrarRemedy();
                             Ocultar_ListGenerico();
                             Mostrar_ListGenericoParaCodigos();
                             HacerConexion();
@@ -11360,6 +11318,8 @@ namespace MahAppsExample
 
         void Iniciar_Tratamiento(object sender, RoutedEventArgs e)
         {
+            Remedy1.Visibility = Visibility.Hidden;
+            Remedy2.Visibility = Visibility.Hidden;
             //(((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Usando un Análisis")
             try
             {
@@ -11755,36 +11715,39 @@ namespace MahAppsExample
 
                 if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
                 {
+                    ClearDataLb(Remedy2);
+                    Remedy2.SelectedIndex = -1;
+
                     if (txtNombreTratamiento_Copy.Text != "")
                     {
-                        listgenerico.Items.Clear();//Limpiar la caja de remedios
+                        // Busqueda activada
+                        busqueda = true;
+
+                        Remedy2.Items.Clear();
 
                         HacerConexion();
-                        DataTable RemediosBuscados;
-                        RemediosBuscados = obj2.CodigoRemedioBuscado(txtNombreTratamiento_Copy.Text);
 
-                        //Agrega elementos al listbox
-                        for (int i = 0; i <= RemediosBuscados.Rows.Count - 1; i++)
+                        DataTable Codigos = obj2.BuscarCodigoRem(txtNombreTratamiento_Copy.Text);
+
+                        for (int y = 0; y < Codigos.Rows.Count; y++)
                         {
-                            listgenerico.Items.Add(RemediosBuscados.Rows[i][1].ToString());
+                            if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
+                            {
+                                string id = Codigos.Rows[y][0].ToString();
+                                string nombre = Codigos.Rows[y][1].ToString();
+
+                                // Crear un nuevo objeto ListBoxItem con la concatenación de id y nombre
+                                ListBoxItem item = new ListBoxItem();
+                                item.Content = id + ", " + nombre;
+
+                                // Agregar el ListBoxItem a la ListBox
+                                Remedy2.Items.Add(item);
+                            }
                         }
+
+                        lblCodigosCont.Content = Remedy2.Items.Count + " Rates";
 
                         CerrarConexion();
-                    }
-                    else
-                    {
-                        listgenerico.Items.Clear();//Limpiar la caja de remedios
-
-                        //Analisis en base al paciente elegido
-                        // DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(comboPacientesTratamiento.SelectedItem.ToString());
-                        DataTable ListaRemedios = obj2.VisualizarRemedios("A");
-
-                        //Llenar el combobox con analisis relacionados
-                        for (int i = 0; i <= ListaRemedios.Rows.Count - 1; i++)
-                        {
-                            //Agregar solo nombre del analisis
-                            listgenerico.Items.Add(ListaRemedios.Rows[i][1].ToString());
-                        }
                     }
                 }
 
@@ -11831,6 +11794,35 @@ namespace MahAppsExample
                // MessageBox.Show("Entrada inválida!, utilice otras teclas", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+
+        private void Remedy2_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (listelemagregados.Items.Count != 0 || listelemagregados.Items.Count == 0)
+                {
+                    if (Remedy2.SelectedItem != null)
+                    {
+                        string selectedItemText = ((ListBoxItem)Remedy2.SelectedItem).Content.ToString();
+                        listelemagregados.Items.Add(selectedItemText);
+
+                        //Si son remedios 
+                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
+                        {
+                            //Almacenar en lista
+                            lista_remedios.Add(selectedItemText);
+                        }
+                    }
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show(obtenerRecurso("messageError8"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
 
         private void listSubCategoriasTrat_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -13963,7 +13955,7 @@ MessageBox.Show(ex.ToString());
 
         private void cmdBuscar_Click_1(object sender, RoutedEventArgs e)
         {
-            ClearData();
+            ClearData(listadoCodigos_Copy);
             listadoCategorias_Copy.SelectedIndex = -1;
             listadoSubcategorias_Copy.SelectedIndex = -1;
             listadoCodigos_Copy.SelectedIndex = -1;
@@ -14060,7 +14052,46 @@ MessageBox.Show(ex.ToString());
             }
         }
 
+        private void Remedy1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ClearDataLb(Remedy2);
+            Remedy2.SelectedIndex = -1;
+            HacerConexion();
+            string nombreR = Remedy1.SelectedItem.ToString();
+            string idr = obj2.ObtenerIdr(nombreR);
 
+
+            if (Remedy1.SelectedItem != null)
+            {
+                // Busqueda activada
+                Remedy2.Items.Clear();
+
+                
+
+                DataTable Codigos = obj2.BuscarCodigoRem1(idr);
+
+                for (int y = 0; y < Codigos.Rows.Count; y++)
+                {
+                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
+                    {
+                        string id = Codigos.Rows[y][0].ToString();
+                        string nombre = Codigos.Rows[y][1].ToString();
+
+                        // Crear un nuevo objeto ListBoxItem con la concatenación de id y nombre
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = id + ", " + nombre;
+
+                        // Agregar el ListBoxItem a la ListBox
+                        Remedy2.Items.Add(item);
+                    }
+                }
+
+                lblCodigosCont.Content = Remedy2.Items.Count + " Rates";
+
+                CerrarConexion();
+            }
+        
+        }
 
     }
 }
