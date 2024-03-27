@@ -29,7 +29,7 @@ using System.Globalization;
 using HS5.Resources.Idiomas;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Xml.Linq;
-<<<<<<< HEAD
+
 using System.Windows.Forms;
 using MessageBox = System.Windows.MessageBox;
 using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
@@ -38,10 +38,9 @@ using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 using Brushes = System.Windows.Media.Brushes;
 using ColorConverter = System.Windows.Media.ColorConverter;
-=======
+
 using HS5;
 using Npgsql;
->>>>>>> 672d01434f9a1246cf0b585c596d32918425f4e1
 //using HS5.Properties;
 
 
@@ -4186,9 +4185,7 @@ namespace MahAppsExample
             try
             {
                 //Funcion desactivada mientras modificar un perfil
-                cmdEliminarDom.Visibility = Visibility.Visible;
-                cmdEditarDom.Visibility = Visibility.Visible;
-
+                cmdEliminar.IsEnabled = false;
 
                 PacienteGroup.Visibility = Visibility.Hidden;
                 PacienteGroup_Copy.Visibility = Visibility.Visible;
@@ -4218,58 +4215,6 @@ namespace MahAppsExample
                     txtFecha1.Text = Paciente_InfoPrincipal.Rows[0][8].ToString();
                     txtPGR1.Text = Paciente_InfoPrincipal.Rows[0][9].ToString();
 
-<<<<<<< HEAD
-                //DOMICILIOS
-                DataTable Paciente_Domicilios = obj2.ListadoPacienteDomicilios(id_paciente);
-                //MessageBox.Show(Paciente_Domicilios.Rows[0][0].ToString());
-                //listadoDomicilios.ItemsSource = Paciente_Domicilios.DefaultView; //Carga los domicilios del paciente
-                listadodomicilios1_Copy.Items.Clear();
-                if (Paciente_Domicilios.Rows.Count > 0)
-                {
-                    cmdAgregarDom.IsEnabled = false;
-                    cmdEliminarDom.IsEnabled=true;
-                    cmdEditarDom.IsEnabled= true;
-                }else {
-                        cmdAgregarDom.IsEnabled = true;
-                        cmdEliminarDom.IsEnabled=false;
-                        cmdEditarDom.IsEnabled = false;
-                }
-
-                for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
-                {
-                    listadodomicilios1_Copy.Items.Add(obtenerRecurso("labelStreet") + " " + Paciente_Domicilios.Rows[q][0].ToString() + ", " + obtenerRecurso("labelNum") + " " + Paciente_Domicilios.Rows[q][1].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + Paciente_Domicilios.Rows[q][2].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + Paciente_Domicilios.Rows[q][3].ToString() + ", " + obtenerRecurso("labelCS") + " " + Paciente_Domicilios.Rows[q][4].ToString() + ", " + obtenerRecurso("labelSatet") + " " + Paciente_Domicilios.Rows[q][5].ToString() + ", " + obtenerRecurso("labelCountry") + " " + Paciente_Domicilios.Rows[q][6].ToString());
-                        
-                }
-
-                    //TELEFONOS Y ANTECEDENTES
-
-                    //Traer informacion de los telefonos (rad_telefonos)
-                    DataTable Paciente_Telefonos = obj2.Modificar_PacienteTelefonos(id_paciente);
-
-                listaTelefonos1.Items.Clear();
-
-                //Extraer del datatable los telefonos
-                for (int y = 0; y <= Paciente_Telefonos.Rows.Count - 1; y++)
-                {
-                    listaTelefonos1.Items.Add(Paciente_Telefonos.Rows[y][0].ToString() + " , Ext: " + Paciente_Telefonos.Rows[y][1].ToString());
-
-                }
-
-                //Traer informacion de los antecedentes (rad_antecedentes)
-                DataTable Paciente_Antecedentes = obj2.Modificar_PacienteAntecedentes(id_paciente);
-
-                ListadoHeredo1_Copy.Items.Clear();
-                listadoPatologicos1_Copy.Items.Clear();
-                listadoNoPatologicos1_Copy.Items.Clear();
-                listadoComentarios1_Copy.Items.Clear();
-                listadoAnalisis1_Copy.Items.Clear();
-
-                //Extraer del datatable
-                for (int w = 0; w <= Paciente_Antecedentes.Rows.Count - 1; w++)
-                {
-                    //Selectiva para los diferentes tipos de antecedentes
-                    switch (Paciente_Antecedentes.Rows[w][2].ToString())
-=======
                     //DOMICILIOS
                     DataTable Paciente_Domicilios = obj2.ListadoPacienteDomicilios(id_paciente);
                     //MessageBox.Show(Paciente_Domicilios.Rows[0][0].ToString());
@@ -4278,7 +4223,6 @@ namespace MahAppsExample
 
                     //calle,numero,colonia,cp,municipio,estado,pais
                     for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
->>>>>>> 672d01434f9a1246cf0b585c596d32918425f4e1
                     {
                         listadodomicilios1_Copy.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
 
@@ -6829,13 +6773,13 @@ namespace MahAppsExample
 
         string id_categoria_padre;
 
-        public void ClearData(ListView lv)
+        public void ClearData(System.Windows.Controls.ListView lv)
         {
             // Obtener la DataView subyacente del DataTable
             lv.ItemsSource = null;
         }
         
-        public void ClearDataLb(ListBox lb)
+        public void ClearDataLb(System.Windows.Controls.ListBox lb)
         {
             lb.Items.Clear();
         }
