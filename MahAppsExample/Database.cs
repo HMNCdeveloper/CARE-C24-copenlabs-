@@ -761,9 +761,9 @@ namespace MahAppsExample
         }
 
         //Funcion para eliminar un código
-        public void Eliminar_Codigo(string nombre, string id_subcategoria)
+        public void Eliminar_Codigo(string nombre)
         {
-            sql = "DELETE FROM rad_codigos where nombre=$$"+nombre+"$$ and (idcat=$$"+id_subcategoria+"$$ and (genero='T' or genero='P'))";
+            sql = "DELETE FROM rad_codigos where codigo LIKE'"+nombre+"'";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -1054,13 +1054,37 @@ namespace MahAppsExample
         //Funcion para buscar codigos directamente
         public DataTable BuscarCodigo(string nombre_codigo)
         {
-            sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
+            //sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
+            sql = "SELECT rc.codigo, rc.nombre, cat.categoria FROM rad_codigos rc JOIN rad_categorias cat ON rc.idcat = cat.idcategoria WHERE UPPER(rc.nombre) LIKE '%" + nombre_codigo + "%'";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
             dt = ds.Tables[0];
             return dt;
         }
+
+        public DataTable BuscarCategoriaCodigo(string nombre_codigo)
+        {
+            //sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
+            sql = "SELECT rc.codigo, rc.nombre, cat.categoria FROM rad_codigos rc JOIN rad_categorias cat ON rc.idcat = cat.idcategoria WHERE UPPER(rc.nombre) LIKE '%" + nombre_codigo + "%'";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
+        }
+
+        public string Categoria(string id)
+        {
+            string categoria = null;
+            sql = "SELECT categoria FROM rad_categorias WHERE idcategoria = '" + id + "'";
+            using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+            {
+                categoria = cmd.ExecuteScalar()?.ToString();
+            }
+            return categoria;
+        }
+
 
 
         public DataTable BuscarCodigoRem(string nombre_codigo)
@@ -1651,10 +1675,56 @@ namespace MahAppsExample
             return xByte; //Regresa imagen convertida
         }
 
+        public static bool ExisteCodigo(string codigo, NpgsqlConnection conn)
+        {
+            string query = "SELECT COUNT(*) FROM rad_codigos WHERE codigo = @codigo";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
 
+        public string Generarcodigo()
+        {
+            Random rdm = new Random();
+            string id = rdm.Next(1000000, 9999999).ToString();
+    
+            if (!ExisteCodigo(id, conn))
+            {
+                // Asegúrate de cerrar la conexión si el código no existe
+                return id;
+            }
+            else
+            {
+                // Asegúrate de cerrar la conexión si el código existe
+                return Generarcodigo(); // Llama recursivamente al método hasta encontrar un código único
+            }
+        }
 
-        
+        public static bool ExisteCodigoRemedio(string codigo, NpgsqlConnection conn)
+        {
+            string query = "SELECT COUNT(*) FROM rad_codigosderemedios WHERE codigo = @codigo";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
+            return count > 0;
+        }
 
+        public string Generarcodigoremedios()
+        {
+            Random rdm = new Random();
+            string id = rdm.Next(1000000, 9999999).ToString();
 
+            if (!ExisteCodigoRemedio(id, conn))
+            {
+                // Asegúrate de cerrar la conexión si el código no existe
+                return id;
+            }
+            else
+            {
+                // Asegúrate de cerrar la conexión si el código existe
+                return Generarcodigo(); // Llama recursivamente al método hasta encontrar un código único
+            }
+        }
     }
 }

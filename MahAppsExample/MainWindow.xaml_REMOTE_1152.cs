@@ -42,10 +42,6 @@ using ColorConverter = System.Windows.Media.ColorConverter;
 using HS5;
 using Npgsql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-<<<<<<< HEAD
-using System.Windows.Media.Animation;
-=======
->>>>>>> aab1f9c9ecee34521cb804e4c6eb6f081603ed8d
 //using HS5.Properties;
 
 
@@ -2555,6 +2551,8 @@ namespace MahAppsExample
                 }
                 else
                 {
+
+                    //listadodomicilios.Items.Add("STREET:  " + txtCalle.Text + ", NUM:  " + txtNum.Text + ", AVENUE:  " + txtColonia.Text + ", ZIP:  " + txtCP.Text + ", COUNTY:  " + txtMunicipio.Text + ", STATE:  " + txtEstado.Text + ", COUNTRY:  " + txtCountry.Text);
                     listadodomicilios.Items.Add(obtenerRecurso("labelStreet") + " " + txtCalle.Text + ", " + obtenerRecurso("labelNum") + " " + txtNum.Text + ", " + obtenerRecurso("labelAvenue") + " " + txtColonia.Text + ", " + obtenerRecurso("labelZpCode") + " " + txtCP.Text + ", " + obtenerRecurso("labelCS") + " " + txtMunicipio.Text + ", " + obtenerRecurso("labelSatet") + " " + txtEstado.Text + ", " + obtenerRecurso("labelCountry") + " " + txtCountry.Text);
                     ListaCalles.Add(txtCalle.Text);
                     ListaColonia.Add(txtColonia.Text);
@@ -4188,9 +4186,7 @@ namespace MahAppsExample
             try
             {
                 //Funcion desactivada mientras modificar un perfil
-                cmdEliminarDom.Visibility = Visibility.Visible;
-                cmdEditarDom.Visibility = Visibility.Visible;
-
+                cmdEliminar.IsEnabled = false;
 
                 PacienteGroup.Visibility = Visibility.Hidden;
                 PacienteGroup_Copy.Visibility = Visibility.Visible;
@@ -4226,23 +4222,10 @@ namespace MahAppsExample
                     //listadoDomicilios.ItemsSource = Paciente_Domicilios.DefaultView; //Carga los domicilios del paciente
                     listadodomicilios1_Copy.Items.Clear();
 
-                    if (Paciente_Domicilios.Rows.Count > 0)
-                    {
-                        cmdAgregarDom.IsEnabled = false;
-                        cmdEliminarDom.IsEnabled = true;
-                        cmdEditarDom.IsEnabled = true;
-                    }
-                    else
-                    {
-                        cmdAgregarDom.IsEnabled = true;
-                        cmdEliminarDom.IsEnabled = false;
-                        cmdEditarDom.IsEnabled = false;
-                    }
-
                     //calle,numero,colonia,cp,municipio,estado,pais
                     for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
                     {
-                        listadodomicilios1_Copy.Items.Add(obtenerRecurso("labelStreet") + " " + Paciente_Domicilios.Rows[q][0].ToString() + ", " + obtenerRecurso("labelNum") + " " + Paciente_Domicilios.Rows[q][1].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + Paciente_Domicilios.Rows[q][2].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + Paciente_Domicilios.Rows[q][3].ToString() + ", " + obtenerRecurso("labelCS") + " " + Paciente_Domicilios.Rows[q][4].ToString() + ", " + obtenerRecurso("labelSatet") + " " + Paciente_Domicilios.Rows[q][5].ToString() + ", " + obtenerRecurso("labelCountry") + " " + Paciente_Domicilios.Rows[q][6].ToString());
+                        listadodomicilios1_Copy.Items.Add("STREET:  " + Paciente_Domicilios.Rows[q][0].ToString() + ", NUM:  " + Paciente_Domicilios.Rows[q][1].ToString() + ", AVENUE:  " + Paciente_Domicilios.Rows[q][2].ToString() + ", ZIP:  " + Paciente_Domicilios.Rows[q][3].ToString() + ", COUNTY:  " + Paciente_Domicilios.Rows[q][4].ToString() + ", STATE:  " + Paciente_Domicilios.Rows[q][5].ToString() + ", COUNTRY:  " + Paciente_Domicilios.Rows[q][6].ToString());
 
                     }
 
@@ -5946,7 +5929,6 @@ namespace MahAppsExample
 
                             if (resp == MessageBoxResult.Yes)
                             {
-
                                 progressbar_options_remedy.Visibility = Visibility.Visible;
                                 lblProgresRemedy.Content = "AUTOSIMILE";
                                 lblProgresRemedy.Visibility = Visibility.Visible;
@@ -5971,12 +5953,9 @@ namespace MahAppsExample
                         }
                         else
                         {
-                            
                             progressbar_options_remedy.Visibility = Visibility.Visible;
                             lblProgresRemedy.Content = "RUNNING AUTOSIMILE...";
                             lblProgresRemedy.Visibility = Visibility.Visible;
-                            
-                           
 
                             new Thread((ThreadStart)delegate
                             {
@@ -14070,16 +14049,24 @@ MessageBox.Show(ex.ToString());
                 System.Windows.Application.Current.Shutdown();
             }
         }
-
-        private void TabItem_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
+            // Cambiar el color de fondo cuando se obtiene el foco
             if (sender is TabItem tabItem)
             {
-                tabItem.Background = (SolidColorBrush)tabItem.FindResource("PressedBackgroundBrush");
+               SolidColorBrush customColor = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString("#FFF3FDFF"));
+               tabItem.Background = customColor;
             }
         }
 
-     
+        private void TabItem_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Cambiar el color de fondo cuando se pierde el foco
+            if (sender is TabItem tabItem)
+            {
+                tabItem.Background = Brushes.White; // Cambia a cualquier color de fondo deseado
+            }
+        }
 
         private void Remedy1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

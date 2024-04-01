@@ -42,10 +42,7 @@ using ColorConverter = System.Windows.Media.ColorConverter;
 using HS5;
 using Npgsql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-<<<<<<< HEAD
 using System.Windows.Media.Animation;
-=======
->>>>>>> aab1f9c9ecee34521cb804e4c6eb6f081603ed8d
 //using HS5.Properties;
 
 
@@ -6295,7 +6292,7 @@ namespace MahAppsExample
                     HacerConexion();
 
                     string id_remedio_generado = obj_rem.Generar_Id();
-                    string codigo = obj2.Generarcodigoremedios();
+                    string codigo = obj_rem.RandomDigits(num.Next(15));
 
                     //Crear registro de remedio proveniente de diagnostico
                     obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, "", "", "", "", DateTime.Now, codigo);
@@ -6835,7 +6832,6 @@ namespace MahAppsExample
                         DataTable dtc = new DataTable();
                         dtc.Columns.Add("Id", typeof(string));
                         dtc.Columns.Add("Nombre", typeof(string));
-                        dtc.Columns.Add("Categoria", typeof(string));
 
                         // Llenar el DataTable con los datos de CategoriasCodigos
                         for (int y = 0; y < CategoriasCodigos.Rows.Count; y++)
@@ -6844,8 +6840,7 @@ namespace MahAppsExample
                             {
                                 string id = (CategoriasCodigos.Rows[y][1].ToString());
                                 string nombre = CategoriasCodigos.Rows[y][2].ToString();
-                                string categoria = listadoCategorias_Copy.SelectedItem.ToString();
-                                dtc.Rows.Add(nombre, id, categoria);
+                                dtc.Rows.Add(nombre, id);
                                 Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                             }
                         }
@@ -7029,7 +7024,6 @@ namespace MahAppsExample
                     DataTable dtc = new DataTable();
                     dtc.Columns.Add("Id", typeof(string));
                     dtc.Columns.Add("Nombre", typeof(string));
-                    dtc.Columns.Add("Categoria", typeof(string));
 
                     // Llenar el DataTable con los datos de Codigos
                     for (int y = 0; y < Codigos.Rows.Count; y++)
@@ -7038,9 +7032,9 @@ namespace MahAppsExample
                         {
                             string id = Codigos.Rows[y][1].ToString();
                             string nombre = Codigos.Rows[y][2].ToString();
-                            string catego = obj2.Categoria(id_categoria.ToString());
+
                             // Agregar una nueva fila al DataTable
-                            dtc.Rows.Add(nombre, id, catego);
+                            dtc.Rows.Add(nombre, id);
 
                             // Guardar el código
                             Categorias_Codigos2.Add(id);
@@ -10256,6 +10250,8 @@ namespace MahAppsExample
             {
                 try
                 {
+                    codigo = Interaction.InputBox("Rate", "New Rate", "", 300, 300);
+                    codigo_num = Int32.Parse(codigo);
 
                     // description = Interaction.InputBox("Description - (OPTIONAL)", "New Rate", "", 300, 300);
                     HacerConexion();
@@ -10276,7 +10272,7 @@ namespace MahAppsExample
 
                         object genero_para_codigo = "T";
 
-                        obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, obj2.Generarcodigo(), "-", id_subcat, id_cat_pad, genero_para_codigo.ToString());
+                        obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "-", id_subcat, id_cat_pad, genero_para_codigo.ToString());
 
                         Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
 
@@ -10305,21 +10301,9 @@ namespace MahAppsExample
             //Seleccionar el elemento a eliminar
             try
             {
-                DataRowView rowView = (DataRowView)listadoCodigos_Copy.SelectedItem;
 
-                DataTable dataTable = new DataTable();
+                string elemento_borrar = listadoCodigos_Copy.SelectedItem.ToString();
 
-                // Agregar columnas al DataTable
-                foreach (DataColumn column in rowView.Row.Table.Columns)
-                {
-                    dataTable.Columns.Add(column.ColumnName, column.DataType);
-                }
-
-                // Agregar la fila de DataRowView al DataTable
-                dataTable.ImportRow(rowView.Row);
-
-                string elemento_borrar = dataTable.Rows[0][0].ToString();
-                Console.WriteLine(elemento_borrar);
                 // MessageBox.Show(codigos_cop.Rows.Count.ToString());
 
                 //Eliminar objeto
@@ -10337,7 +10321,7 @@ namespace MahAppsExample
                 //string elemento_borrar = Codigos.Rows[fila_elemento_borrar][1].ToString() + " ";
                 // MessageBox.Show(elemento_borrar);*/
 
-                obj2.Eliminar_Codigo(elemento_borrar);
+                obj2.Eliminar_Codigo(elemento_borrar, id_categoria_cop);
                 //obj2.Eliminar_CodigosCategorias()
 
                 CerrarConexion();
@@ -13855,7 +13839,7 @@ namespace MahAppsExample
                              MessageBox.Show(genero_para_codigo.ToString());
                              MessageBox.Show(obj_new.Generar_Id());*/
 
-                            obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, obj2.Generarcodigo(), "Obtenida", id_subcat, id_cat_pad, genero_para_codigo);
+                            obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "Obtenida", id_subcat, id_cat_pad, genero_para_codigo);
 
                             Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
                         }
@@ -13990,21 +13974,23 @@ MessageBox.Show(ex.ToString());
 
                 HacerConexion();
 
-                DataTable CodigosCat = obj2.BuscarCategoriaCodigo(txtBuscarBase.Text);
+                DataTable Codigos = obj2.BuscarCodigo(txtBuscarBase.Text);
+
                 // Crear un nuevo DataTable
                 DataTable dtc = new DataTable();
                 dtc.Columns.Add("Id", typeof(string));
                 dtc.Columns.Add("Nombre", typeof(string));
-                dtc.Columns.Add("Categoria", typeof(string));
 
-                for (int y = 0; y < CodigosCat.Rows.Count; y++)
+                // Llenar el DataTable con los datos de Codigos
+                for (int y = 0; y < Codigos.Rows.Count; y++)
                 {
-                    if (!string.IsNullOrEmpty(CodigosCat.Rows[y][0].ToString()))
+                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
                     {
-                        string columna1 = CodigosCat.Rows[y][0].ToString();
-                        string columna2 = CodigosCat.Rows[y][1].ToString();
-                        string columna3 = CodigosCat.Rows[y][2].ToString(); // Asegúrate de que exista la columna 2
-                        dtc.Rows.Add(columna1, columna2, columna3);
+                        string columna1 = Codigos.Rows[y][0].ToString();
+                        string columna2 = Codigos.Rows[y][1].ToString();
+
+                        // Agregar una nueva fila al DataTable
+                        dtc.Rows.Add(columna2, columna1);
                     }
                 }
 

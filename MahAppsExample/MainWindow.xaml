@@ -2205,7 +2205,8 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
-                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="958"/>
+                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="500"/>
+                                    <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=Categoria}" Width="300"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
