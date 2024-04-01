@@ -42,10 +42,8 @@ using ColorConverter = System.Windows.Media.ColorConverter;
 using HS5;
 using Npgsql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-<<<<<<< HEAD
 using System.Windows.Media.Animation;
-=======
->>>>>>> aab1f9c9ecee34521cb804e4c6eb6f081603ed8d
+
 //using HS5.Properties;
 
 
