@@ -1623,7 +1623,7 @@ namespace MahAppsExample
         {
             //Conexion
             constring = String.Format("Server=localhost;Port=5433;" +
-            "User Id={0};Password={1};Database=Prueba", user, password);
+            "User Id={0};Password={1};Database=rad", user, password);
             conn = new NpgsqlConnection(constring);
             conn.Open();
             return true;

@@ -12,6 +12,7 @@ using HS5.Properties;
 
 using System.Globalization;
 using System.Threading;
+using System.Windows.Media;
 
 namespace HS5
 {
@@ -34,6 +35,7 @@ namespace HS5
             {
                 cmbPorts.Items.Add(ports[i].ToString());
             }
+         
 
             BitmapImage img_logo = ToBitmapImage(HS5.Properties.Resources.HS5);
             imagelogo.Source = img_logo;
