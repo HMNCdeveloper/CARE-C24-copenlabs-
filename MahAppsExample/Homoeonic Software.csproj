@@ -955,11 +955,9 @@
   <ItemGroup>
     <None Include="Resources\HS5.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\81.gif">
+    <Content Include="Resources\245.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

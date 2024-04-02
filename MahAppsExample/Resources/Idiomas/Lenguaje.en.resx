@@ -153,11 +153,17 @@
   <data name="btnAnaReport" xml:space="preserve">
     <value>ANALYSIS REPORT</value>
   </data>
+  <data name="btnApp" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="btnAutoSM" xml:space="preserve">
     <value>AUTOSIMILE</value>
   </data>
   <data name="btnCAna" xml:space="preserve">
     <value>Create Analysis</value>
+  </data>
+  <data name="btnCancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="btnCopy" xml:space="preserve">
     <value>COPY</value>
@@ -336,6 +342,9 @@
   <data name="headAddElemT" xml:space="preserve">
     <value>ELEMENTS ADDED TO THE TREATMENT</value>
   </data>
+  <data name="headApply" xml:space="preserve">
+    <value>Apply to..</value>
+  </data>
   <data name="headBA" xml:space="preserve">
     <value>Background and Analysis</value>
   </data>
@@ -405,6 +414,9 @@
   <data name="headNonPath" xml:space="preserve">
     <value> Non Pathological</value>
   </data>
+  <data name="headP" xml:space="preserve">
+    <value>Potency </value>
+  </data>
   <data name="headPatho" xml:space="preserve">
     <value>Pathological</value>
   </data>
@@ -413,6 +425,9 @@
   </data>
   <data name="headRatAn" xml:space="preserve">
     <value>Rates and Analysis</value>
+  </data>
+  <data name="headRate" xml:space="preserve">
+    <value>Rate</value>
   </data>
   <data name="headReana" xml:space="preserve">
     <value>Analysis | Reanalysis </value>
@@ -540,6 +555,9 @@
   <data name="labelMName" xml:space="preserve">
     <value>Middle Name</value>
   </data>
+  <data name="labelMultiRates" xml:space="preserve">
+    <value>Multiples indices seleccionado:</value>
+  </data>
   <data name="labelNum" xml:space="preserve">
     <value>Num:</value>
   </data>
@@ -593,6 +611,9 @@
   </data>
   <data name="labelSelectPort" xml:space="preserve">
     <value>Please select the appropiate PORT in order to continue:</value>
+  </data>
+  <data name="labelSelectRat" xml:space="preserve">
+    <value>There are [N] rates selected</value>
   </data>
   <data name="labelStreet" xml:space="preserve">
     <value>Street:</value>

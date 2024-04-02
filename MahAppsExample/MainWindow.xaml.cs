@@ -2785,7 +2785,7 @@ namespace MahAppsExample
                 cmdEliminar_Copy1.Visibility = Visibility.Visible;
                 ListaPacientes_Recientes1.Visibility = Visibility.Visible;
                 //  cmdRespaldar_Copy2.Visibility = Visibility.Visible;
-
+                OcultarDiag();
                 //Autoguardar
                 Guarda_Diagnostico();
                 //GuardarPadecimiento();
@@ -2815,7 +2815,7 @@ namespace MahAppsExample
 
                 comboNiveles.SelectedIndex = -1;
 
-                OcultarDiag();
+             
                 OcultarDiag2();
                 CargarRegistrosPacientesRecientes();
             }
@@ -14120,6 +14120,10 @@ MessageBox.Show(ex.ToString());
         
         }
 
+        private void ListaPacientes_Recientes1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
  

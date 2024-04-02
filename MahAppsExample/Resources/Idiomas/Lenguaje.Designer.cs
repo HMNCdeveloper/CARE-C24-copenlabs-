@@ -169,6 +169,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string btnApp {
+            get {
+                return ResourceManager.GetString("btnApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AUTOSIMILE.
         /// </summary>
         public static string btnAutoSM {
@@ -183,6 +192,15 @@ namespace HS5.Resources.Idiomas {
         public static string btnCAna {
             get {
                 return ResourceManager.GetString("btnCAna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string btnCancel {
+            get {
+                return ResourceManager.GetString("btnCancel", resourceCulture);
             }
         }
         
@@ -727,6 +745,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Apply to...
+        /// </summary>
+        public static string headApply {
+            get {
+                return ResourceManager.GetString("headApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Background and Analysis.
         /// </summary>
         public static string headBA {
@@ -934,6 +961,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Potency .
+        /// </summary>
+        public static string headP {
+            get {
+                return ResourceManager.GetString("headP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pathological.
         /// </summary>
         public static string headPatho {
@@ -957,6 +993,15 @@ namespace HS5.Resources.Idiomas {
         public static string headRatAn {
             get {
                 return ResourceManager.GetString("headRatAn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string headRate {
+            get {
+                return ResourceManager.GetString("headRate", resourceCulture);
             }
         }
         
@@ -1074,6 +1119,24 @@ namespace HS5.Resources.Idiomas {
         public static string inputMessHead1 {
             get {
                 return ResourceManager.GetString("inputMessHead1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection.
+        /// </summary>
+        public static string inputSelect {
+            get {
+                return ResourceManager.GetString("inputSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection.
+        /// </summary>
+        public static string inputSelect1 {
+            get {
+                return ResourceManager.GetString("inputSelect1", resourceCulture);
             }
         }
         
@@ -1339,6 +1402,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple Rates Selected:.
+        /// </summary>
+        public static string labelMultiRates {
+            get {
+                return ResourceManager.GetString("labelMultiRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Num:.
         /// </summary>
         public static string labelNum {
@@ -1497,6 +1569,15 @@ namespace HS5.Resources.Idiomas {
         public static string labelSelectPort {
             get {
                 return ResourceManager.GetString("labelSelectPort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are [N] rates selected.
+        /// </summary>
+        public static string labelSelectRat {
+            get {
+                return ResourceManager.GetString("labelSelectRat", resourceCulture);
             }
         }
         
