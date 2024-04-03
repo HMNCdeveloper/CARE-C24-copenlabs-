@@ -2205,11 +2205,18 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
-                                    <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}" Width="500"/>
+                                    <GridViewColumn Header="Nombre" Width="500">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Path=Nombre}" TextWrapping="Wrap"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                     <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=Categoria}" Width="300"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+
 
 
                         <Button x:Name="cmdNuevoCod_Copy" BorderThickness="0" Background="#FF3CB3DF" ToolTip="Get Rate" HorizontalAlignment="Left" Height="32" Margin="546,123,0,0" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Copy_Click" Grid.Column="1">
