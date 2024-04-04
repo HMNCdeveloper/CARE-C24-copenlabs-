@@ -144,7 +144,7 @@
                 <TabItem x:Name="Patients" Margin="2,6,-5,2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="150">
-                            <iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccountMultiple" Margin="0,0,2,0">
+                            <iconPacks:PackIconMaterial Width="35" Height="35" Kind="AccountMultiple" Margin="0,0,5,0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFF3A10B" Offset="0"/>
@@ -197,7 +197,7 @@
                                     <TranslateTransform X="0.034"/>
                                 </TransformGroup>
                             </ListView.RenderTransform>
-                            <ListView.View>
+                            <ListView.View >
                                 <GridView>
                                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idp}" Width="100px"/>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombrepaciente}" Width="190px"/>
@@ -877,7 +877,7 @@
                 <TabItem x:Name="AnalisisTab" Width="150"   Margin="6,4,-6,1"  >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="129" Height="36" Margin="10,0,10,0">
-                            <iconPacks:PackIconModern Width="29" Height="42" Kind="MathPlusMinus" Margin="0,0,2,0">
+                            <iconPacks:PackIconModern Width="29" Height="42" Kind="MathPlusMinus" Margin="0,0,5,0">
                                 <iconPacks:PackIconModern.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFEE1313" Offset="0"/>
@@ -1212,7 +1212,7 @@
                 <TabItem x:Name="RemediosTab"  VerticalAlignment="Top" HorizontalAlignment="Left"   Width="390" Height="40" Margin="10,4,-30,0" >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="390" Margin="10,3,10,-3">
-                            <iconPacks:PackIconModern Width="27" Height="40" Kind="Potion" Foreground="#FF6D33B1" Margin="0,0,2,0" RenderTransformOrigin="0.348,1.468">
+                            <iconPacks:PackIconModern Width="27" Height="40" Kind="Potion" Foreground="#FF6D33B1" Margin="0,0,5,0" RenderTransformOrigin="0.348,1.468">
                                 <iconPacks:PackIconModern.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -1632,7 +1632,7 @@
                 <TabItem x:Name="ColorTab" Width="230"  Height="45.6"  Margin="13,0,-11,2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Viewbox Width="31" Height="43" Margin="0,0,2,0">
+                            <Viewbox Width="31" Height="43" Margin="0,0,5,0">
                                 <Canvas Width="24" Height="24" Canvas.Left="0" Canvas.Top="0">
                                     <!-- Rojo -->
                                     <Ellipse Width="14" Height="14" Canvas.Left="-2" Canvas.Top="-2" Fill="#FFEA2828"/>
@@ -2268,7 +2268,7 @@
                 <TabItem x:Name="tratamientos" Margin="25,1,-29,2">
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconMaterial Width="34" Height="35" Kind="AccessPoint" Margin="0,0,2,0">
+                            <iconPacks:PackIconMaterial Width="34" Height="35" Kind="AccessPoint" Margin="0,0,5,0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFDFB411" Offset="0"/>
@@ -2578,7 +2578,7 @@
                 <TabItem   x:Name="setting" Margin="32,0,-35,2" >
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" Width="180" Margin="7,0,-7,0">
-                            <iconPacks:PackIconMaterial Width="35" Height="35" Kind="Translate" Margin="0,0,2,0">
+                            <iconPacks:PackIconMaterial Width="35" Height="35" Kind="Translate" Margin="0,0,5,0">
                                 <iconPacks:PackIconMaterial.Foreground>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF545454" Offset="0"/>

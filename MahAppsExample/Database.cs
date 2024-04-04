@@ -9,6 +9,7 @@ using System.Drawing; //Imagenes
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace MahAppsExample
 {
@@ -1647,7 +1648,7 @@ namespace MahAppsExample
         {
             //Conexion
             constring = String.Format("Server=localhost;Port=5433;" +
-            "User Id={0};Password={1};Database=rad", user, password);
+            "User Id={0};Password={1};Database=rad2", user, password);
             conn = new NpgsqlConnection(constring);
             conn.Open();
             return true;
@@ -1725,6 +1726,32 @@ namespace MahAppsExample
                 // Asegúrate de cerrar la conexión si el código existe
                 return Generarcodigo(); // Llama recursivamente al método hasta encontrar un código único
             }
+        }
+
+        //this method is used to upload all query sql in the databa already is installed in postgesql
+        public void UploadBackup(string backupFilePath,string message,string title)
+        {
+            try
+            {
+              //here, in this code line, we are saving the content from the sql file
+              string backupContent = System.IO.File.ReadAllText(backupFilePath);
+                    
+              //after it, the next line will be executed all neccesary queries, the DB will need to work as well with the system
+              using (var cmd = new NpgsqlCommand(backupContent, conn))
+              {
+                 cmd.ExecuteNonQuery();
+                 Console.WriteLine("Backup restaurado exitosamente.");
+                 MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information); 
+               
+                // Remove the file when the precess have been successfull
+                System.IO.File.Delete(backupFilePath);
+              }     
+            
+            } catch (Exception ex)
+            {
+                Console.WriteLine($"Error al restaurar el backup: {ex.Message}");
+            }
+
         }
     }
 }

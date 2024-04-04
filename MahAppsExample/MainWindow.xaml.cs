@@ -114,17 +114,22 @@ namespace MahAppsExample
         public MainWindow(string puerto)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
-            InitializeComponent();
-            //puertoCOM = puerto;
 
-            //PostgreSQL's path 
-            string path, path2;
-            path = @"C:\Program Files\PostgreSQL"; //Windows 64
-            path2 = @"C:\Program Files (x86)\PostgreSQL";  //Windows 32
- 
-            //Si el postgresql existe entonces continuar todo normal...
-            if (Directory.Exists(path) || Directory.Exists(path2))
+            //this condition is used to perform the backup loading in the db in an automated way
+            if (File.Exists(RutaInstalacion() + "\\db\\code.sql"))
             {
+
+                MessageBox.Show("You need to restore  the bckup to your local database before proceeding!.... Then it will be installed!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                HacerConexion();
+                obj2.UploadBackup(RutaInstalacion() + "\\db\\code.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
+                CerrarConexion();
+
+                var window = Application.Current.Windows[0];
+                window.Close();
+            }
+            else
+            {
+                InitializeComponent();
                 //Condiciona al control de fechas para que solo use la fecha apartir de hoy...
                 dateProg.SelectedDate = DateTime.Today;
                 comboTipoProg.SelectedIndex = 0;
@@ -151,7 +156,6 @@ namespace MahAppsExample
 
                 //Categorias Remedios y Categorias
                 HacerConexion();
-
                 DataTable Categorias = obj2.VisualizarCategoriasCodigos();
                 for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
                 {
@@ -168,23 +172,8 @@ namespace MahAppsExample
                 CargarListadoCompletoPacientes();
 
             }
-            else
-            {
-                //FUNCIONA A LA PERFECCION ESTA PARTE DE INSTALAR EL GESTOR DE BD..
-
-                //De lo contrario manda a instalarlo..
-                MessageBox.Show(obtenerRecurso("messageInfo7"), "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                //Obtener direccion del directorio
-                string directorioinst = RutaInstalacion();
-
-                //Ejecutamos Bat
-                Ejecutar_Bat(directorioinst);
-
-                //Cerra aplicacion actual una vez que empezamos la secuencia de instalar el postgresql y generar la bd..
-                var window = Application.Current.Windows[0];
-                window.Close();
-            }
+          
+          
         }
 
 
@@ -5971,7 +5960,7 @@ namespace MahAppsExample
                         {
                             
                             progressbar_options_remedy.Visibility = Visibility.Visible;
-                            lblProgresRemedy.Content = "RUNNING AUTOSIMILE...";
+                            lblProgresRemedy.Content = obtenerRecurso("textMessage");
                             lblProgresRemedy.Visibility = Visibility.Visible;
                             
                            
@@ -6009,7 +5998,7 @@ namespace MahAppsExample
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
                     progressbar_options_remedy.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Content = "NEUTRALIZING SUBSTANCE...";
+                    lblProgresRemedy.Content = obtenerRecurso("txtMessage2");
                     lblProgresRemedy.Visibility = Visibility.Visible;
 
                     new Thread((ThreadStart)delegate
@@ -6037,7 +6026,7 @@ namespace MahAppsExample
                 if (ListaRemedios.Items.Count != 0)
                 {
                     progressbar_options_remedy.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Content = "IMPRINTING...";
+                    lblProgresRemedy.Content = obtenerRecurso("txtMessage3");
                     lblProgresRemedy.Visibility = Visibility.Visible;
 
                     new Thread((ThreadStart)delegate
@@ -6066,7 +6055,7 @@ namespace MahAppsExample
                 if (ListaRemedios.Items.Count != 0)
                 {
                     progressbar_options_remedy.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Content = "COPYING...";
+                    lblProgresRemedy.Content = obtenerRecurso("txtMessage4");
                     lblProgresRemedy.Visibility = Visibility.Visible;
 
                     new Thread((ThreadStart)delegate
@@ -6094,7 +6083,7 @@ namespace MahAppsExample
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
                     progressbar_options_remedy.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Content = "ERASING - ECS CARD...";
+                    lblProgresRemedy.Content = obtenerRecurso("txtMessage5");
                     lblProgresRemedy.Visibility = Visibility.Visible;
 
                     new Thread((ThreadStart)delegate
@@ -6123,7 +6112,7 @@ namespace MahAppsExample
                 if (ListaRemedios.Items.Count != 0)
                 {
                     progressbar_options_remedy.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Content = "SAVING TO ECS CARD...";
+                    lblProgresRemedy.Content = obtenerRecurso("txtMessage6");
                     lblProgresRemedy.Visibility = Visibility.Visible;
 
                     new Thread((ThreadStart)delegate

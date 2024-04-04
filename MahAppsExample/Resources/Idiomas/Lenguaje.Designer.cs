@@ -3580,6 +3580,60 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RUNNING AUTOSIMILE....
+        /// </summary>
+        public static string txtMessage1 {
+            get {
+                return ResourceManager.GetString("txtMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NEUTRALIZING SUBSTANCE....
+        /// </summary>
+        public static string txtMessage2 {
+            get {
+                return ResourceManager.GetString("txtMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IMPRINTING....
+        /// </summary>
+        public static string txtMessage3 {
+            get {
+                return ResourceManager.GetString("txtMessage3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to COPYING....
+        /// </summary>
+        public static string txtMessage4 {
+            get {
+                return ResourceManager.GetString("txtMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERASING - ECS CARD....
+        /// </summary>
+        public static string txtMessage5 {
+            get {
+                return ResourceManager.GetString("txtMessage5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SAVING TO ECS CARD....
+        /// </summary>
+        public static string txtMessage6 {
+            get {
+                return ResourceManager.GetString("txtMessage6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Umbilicus.
         /// </summary>
         public static string Umbilicus {

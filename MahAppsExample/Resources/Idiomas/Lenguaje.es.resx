@@ -1320,8 +1320,26 @@
   <data name="tableValue" xml:space="preserve">
     <value>Valor</value>
   </data>
+  <data name="textMessage" xml:space="preserve">
+    <value>EJECUTANDO AUTOSIMILE...</value>
+  </data>
   <data name="Throat" xml:space="preserve">
     <value>Garganta</value>
+  </data>
+  <data name="txtMessage2" xml:space="preserve">
+    <value>NEUTRALIZANDO SUSTANCIA...</value>
+  </data>
+  <data name="txtMessage3" xml:space="preserve">
+    <value>IMPRIMIENDO...</value>
+  </data>
+  <data name="txtMessage4" xml:space="preserve">
+    <value>COPIANDO...</value>
+  </data>
+  <data name="txtMessage5" xml:space="preserve">
+    <value>BORRANDO - TARJETA ECS...</value>
+  </data>
+  <data name="txtMessage6" xml:space="preserve">
+    <value>GUADANDO TARJETA ECS...</value>
   </data>
   <data name="Umbilicus" xml:space="preserve">
     <value>Ombligo</value>

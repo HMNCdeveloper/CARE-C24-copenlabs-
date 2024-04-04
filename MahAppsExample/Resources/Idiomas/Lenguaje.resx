@@ -1326,6 +1326,24 @@
   <data name="Throat" xml:space="preserve">
     <value>Throat</value>
   </data>
+  <data name="txtMessage1" xml:space="preserve">
+    <value>RUNNING AUTOSIMILE...</value>
+  </data>
+  <data name="txtMessage2" xml:space="preserve">
+    <value>NEUTRALIZING SUBSTANCE...</value>
+  </data>
+  <data name="txtMessage3" xml:space="preserve">
+    <value>IMPRINTING...</value>
+  </data>
+  <data name="txtMessage4" xml:space="preserve">
+    <value>COPYING...</value>
+  </data>
+  <data name="txtMessage5" xml:space="preserve">
+    <value>ERASING - ECS CARD...</value>
+  </data>
+  <data name="txtMessage6" xml:space="preserve">
+    <value>SAVING TO ECS CARD...</value>
+  </data>
   <data name="Umbilicus" xml:space="preserve">
     <value>Umbilicus</value>
   </data>
