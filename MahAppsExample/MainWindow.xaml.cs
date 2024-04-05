@@ -135,6 +135,13 @@ namespace MahAppsExample
                 comboTipoProg.SelectedIndex = 0;
                 Console.WriteLine(Settings.Default.Lenguaje.ToString());
 
+                if(Settings.Default.Lenguaje.ToString() == "es-MX")
+                {
+                    Database.db = "rad_es";
+                }else if(Settings.Default.Lenguaje.ToString() == "en-US"){
+                    Database.db = "rad_en";
+                }
+
                 //Deteccion de la maquina o dispositivo
                 string id_maquina = obj.Machine_Detection(puerto);
                 IDs_maquinas_aceptados(id_maquina);
@@ -14008,14 +14015,15 @@ MessageBox.Show(ex.ToString());
                 if (selectedLanguage == "Español" || selectedLanguage == "Spanish")
                 {
                     ChoseLanguage("es-MX");
+                    Database.db = "rad_es";
                 }
                 else if (selectedLanguage == "Ingles" || selectedLanguage == "English")
                 {
                     ChoseLanguage("en-US");
+                    Database.db = "rad_en";
                 }
 
             }
-
         }
 
         private void ChoseLanguage (string value)
