@@ -1072,7 +1072,7 @@
     <value>No hay indices para agregar, utiliza la opcion de busqueda  o opcion de categorias.</value>
   </data>
   <data name="messageWarning" xml:space="preserve">
-    <value>¿Quieres  cambiar  el idioama?</value>
+    <value>¿Quieres  cambiar  el idioma?</value>
   </data>
   <data name="messageWarning10" xml:space="preserve">
     <value>Introduce un código a buscar primero!</value>
