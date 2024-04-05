@@ -1643,12 +1643,15 @@ namespace MahAppsExample
             return dt;
         }
 
+
+        public static string db = "rad_es";
+
         //Conectar a la bd
         public bool ConexionBD(string user, string password)
         {
             //Conexion
             constring = String.Format("Server=localhost;Port=5433;" +
-            "User Id={0};Password={1};Database=rad", user, password);
+            "User Id={0};Password={1};Database={2}", user, password, Database.db);
             conn = new NpgsqlConnection(constring);
             conn.Open();
             return true;
@@ -1753,5 +1756,6 @@ namespace MahAppsExample
             }
 
         }
+
     }
 }
