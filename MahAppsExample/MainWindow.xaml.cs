@@ -13677,6 +13677,14 @@ namespace MahAppsExample
 
         private void listadoRemedios_Initialized(object sender, EventArgs e)
         {
+            if (Settings.Default.Lenguaje.ToString() == "es-MX")
+            {
+                Database.db = "rad_es";
+            }
+            else if (Settings.Default.Lenguaje.ToString() == "en-US")
+            {
+                Database.db = "rad_en";
+            }
             CargarListadoRemedios();
         }
 
