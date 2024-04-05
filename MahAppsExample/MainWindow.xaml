@@ -146,7 +146,7 @@
                 <Grid>
                     <Image  wag:ImageBehavior.AnimatedSource="Resources\1493.gif"  Margin="700,240,0,0" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="290" Height="236"></Image>
                     <!--<Label x:Name="lblProgresRemedy"  Width="239"  Margin="690,470,0,0" HorizontalAlignment="Left"   VerticalAlignment="Top"></Label>-->
-                    <TextBlock x:Name="lblProgresRemedy" Text="RUNNING AUTOSIMIL" Foreground="Black" Width="333333" Margin="690,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="40" TextWrapping="Wrap"/>
+                    <TextBlock x:Name="lblProgresRemedy" Text="RUNNING AUTOSIMIL" Foreground="Black" Width="353" Margin="690,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
             </Border>
 
