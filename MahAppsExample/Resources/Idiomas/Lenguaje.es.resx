@@ -468,6 +468,24 @@
   <data name="inputByUser" xml:space="preserve">
     <value>POR USUARIO</value>
   </data>
+  <data name="inputHeadMessage1" xml:space="preserve">
+    <value>Nuevo Indice</value>
+  </data>
+  <data name="inputHeadMessage2" xml:space="preserve">
+    <value>Nueva Categoria</value>
+  </data>
+  <data name="inputHeadMessage3" xml:space="preserve">
+    <value>Nueva Sub categoria </value>
+  </data>
+  <data name="inputMessage2" xml:space="preserve">
+    <value>Nombre del Indice</value>
+  </data>
+  <data name="inputMessage3" xml:space="preserve">
+    <value>Nombre de la categoria</value>
+  </data>
+  <data name="inputMessage4" xml:space="preserve">
+    <value>Nombre de la Sub categoria</value>
+  </data>
   <data name="inputMessBox1" xml:space="preserve">
     <value>Nombre de la tarifa</value>
   </data>

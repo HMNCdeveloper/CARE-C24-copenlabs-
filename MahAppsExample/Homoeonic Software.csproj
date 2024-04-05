@@ -957,6 +957,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\1493.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\245.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

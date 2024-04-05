@@ -1105,6 +1105,60 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Rate.
+        /// </summary>
+        public static string inputHeadMessage1 {
+            get {
+                return ResourceManager.GetString("inputHeadMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Category.
+        /// </summary>
+        public static string inputHeadMessage2 {
+            get {
+                return ResourceManager.GetString("inputHeadMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Sub-category .
+        /// </summary>
+        public static string inputHeadMessage3 {
+            get {
+                return ResourceManager.GetString("inputHeadMessage3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of th rate.
+        /// </summary>
+        public static string inputMessage2 {
+            get {
+                return ResourceManager.GetString("inputMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the Category.
+        /// </summary>
+        public static string inputMessage3 {
+            get {
+                return ResourceManager.GetString("inputMessage3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the Sub-Category.
+        /// </summary>
+        public static string inputMessage4 {
+            get {
+                return ResourceManager.GetString("inputMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name of the Rate.
         /// </summary>
         public static string inputMessBox1 {
@@ -3589,7 +3643,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NEUTRALIZING SUBSTANCE....
+        ///   Looks up a localized string similar to NEUTRALIZING    SUBSTANCE.
         /// </summary>
         public static string txtMessage2 {
             get {

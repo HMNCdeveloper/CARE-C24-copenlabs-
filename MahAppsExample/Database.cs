@@ -1013,6 +1013,8 @@ namespace MahAppsExample
         {
             // sql = "SELECT * FROM rad_codigos where idcat='" + categoria + "' order by nombre";
             sql = "SELECT * FROM rad_codigos where idcat=$$" + categoria + "$$ and (genero=$$" + genero_paciente + "$$ or genero='P') order by nombre";
+
+            Console.WriteLine(sql);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);

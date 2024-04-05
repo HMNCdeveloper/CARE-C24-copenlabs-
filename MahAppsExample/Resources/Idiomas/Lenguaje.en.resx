@@ -462,6 +462,24 @@
   <data name="inputByUser" xml:space="preserve">
     <value>By User</value>
   </data>
+  <data name="inputHeadMessage1" xml:space="preserve">
+    <value>New Rate</value>
+  </data>
+  <data name="inputHeadMessage2" xml:space="preserve">
+    <value>New Category</value>
+  </data>
+  <data name="inputHeadMessage3" xml:space="preserve">
+    <value>New Sub-category </value>
+  </data>
+  <data name="inputMessage2" xml:space="preserve">
+    <value>Name of th rate</value>
+  </data>
+  <data name="inputMessage3" xml:space="preserve">
+    <value>Name of the Category</value>
+  </data>
+  <data name="inputMessage4" xml:space="preserve">
+    <value>Name of the Sub-Category</value>
+  </data>
   <data name="inputMessBox1" xml:space="preserve">
     <value>Name of the Rate</value>
   </data>
@@ -1321,7 +1339,7 @@
     <value>Throat</value>
   </data>
   <data name="txtMessage2" xml:space="preserve">
-    <value>NEUTRALIZING SUBSTANCE...</value>
+    <value>NEUTRALIZING   SUBSTANCE</value>
   </data>
   <data name="txtMessage3" xml:space="preserve">
     <value>IMPRINTING...</value>
