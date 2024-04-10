@@ -6816,6 +6816,7 @@ namespace MahAppsExample
                         dtc.Columns.Add("Id", typeof(string));
                         dtc.Columns.Add("Nombre", typeof(string));
                         dtc.Columns.Add("Categoria", typeof(string));
+                        dtc.Columns.Add("SubCategoria", typeof(string));
 
                         // Llenar el DataTable con los datos de CategoriasCodigos
                         for (int y = 0; y < CategoriasCodigos.Rows.Count; y++)
@@ -6825,7 +6826,8 @@ namespace MahAppsExample
                                 string id = (CategoriasCodigos.Rows[y][1].ToString());
                                 string nombre = CategoriasCodigos.Rows[y][2].ToString();
                                 string categoria = listadoCategorias_Copy.SelectedItem.ToString();
-                                dtc.Rows.Add(nombre, id, categoria);
+                                string subcategoria = null;
+                                dtc.Rows.Add(nombre, id, categoria, subcategoria);
                                 Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                             }
                         }
@@ -7010,6 +7012,7 @@ namespace MahAppsExample
                     dtc.Columns.Add("Id", typeof(string));
                     dtc.Columns.Add("Nombre", typeof(string));
                     dtc.Columns.Add("Categoria", typeof(string));
+                    dtc.Columns.Add("SubCategoria", typeof(string));
 
                     // Llenar el DataTable con los datos de Codigos
                     for (int y = 0; y < Codigos.Rows.Count; y++)
@@ -7019,8 +7022,9 @@ namespace MahAppsExample
                             string id = Codigos.Rows[y][1].ToString();
                             string nombre = Codigos.Rows[y][2].ToString();
                             string catego = obj2.Categoria(id_categoria.ToString());
+                            string subcat = listadoSubcategorias_Copy.SelectedItem.ToString();
                             // Agregar una nueva fila al DataTable
-                            dtc.Rows.Add(nombre, id, catego);
+                            dtc.Rows.Add(nombre, id, catego, subcat);
 
                             // Guardar el código
                             Categorias_Codigos2.Add(id);
@@ -13975,6 +13979,7 @@ MessageBox.Show(ex.ToString());
                 dtc.Columns.Add("Id", typeof(string));
                 dtc.Columns.Add("Nombre", typeof(string));
                 dtc.Columns.Add("Categoria", typeof(string));
+                dtc.Columns.Add("SubCategoria", typeof(string));
 
                 for (int y = 0; y < CodigosCat.Rows.Count; y++)
                 {
@@ -13982,8 +13987,9 @@ MessageBox.Show(ex.ToString());
                     {
                         string columna1 = CodigosCat.Rows[y][0].ToString();
                         string columna2 = CodigosCat.Rows[y][1].ToString();
-                        string columna3 = CodigosCat.Rows[y][2].ToString(); // Asegúrate de que exista la columna 2
-                        dtc.Rows.Add(columna1, columna2, columna3);
+                        string columna3 = CodigosCat.Rows[y][2].ToString();
+                        string columna4 = CodigosCat.Rows[y][3].ToString();
+                        dtc.Rows.Add(columna1, columna2, columna3, columna4);
                     }
                 }
 

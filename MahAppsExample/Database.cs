@@ -1069,7 +1069,7 @@ namespace MahAppsExample
         public DataTable BuscarCategoriaCodigo(string nombre_codigo)
         {
             //sql = "SELECT nombre,codigo FROM rad_codigos WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
-            sql = "SELECT rc.codigo, rc.nombre, cat.categoria FROM rad_codigos rc JOIN rad_categorias cat ON rc.idcat = cat.idcategoria WHERE UPPER(rc.nombre) LIKE '%" + nombre_codigo + "%'";
+            sql = "SELECT rd.codigo,rd.nombre,(SELECT CASE WHEN rc.idcp = '' THEN rc.categoria ELSE (SELECT categoria FROM rad_categorias WHERE idcategoria = rc.idcp) END FROM rad_categorias rc WHERE rc.idcategoria = rd.idcat ) AS Categoria_Principal,( SELECT CASE WHEN rc.idcp = '' THEN '' ELSE rc.categoria END FROM rad_categorias rc WHERE rc.idcategoria = rd.idcat) AS Subcategoria FROM rad_codigos rd WHERE UPPER(rd.nombre) LIKE '%" + nombre_codigo + "%'";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
