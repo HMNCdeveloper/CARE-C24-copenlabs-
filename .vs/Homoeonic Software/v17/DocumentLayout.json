@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\machine.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\machine.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\resources\\idiomas\\lenguaje.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
@@ -38,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml.cs",
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml.cs",
-              "ViewState": "AQIAALcmAAAAAAAAAAAowMgmAABXAAAA",
+              "ViewState": "AQIAALcmAAAAAAAAAAAowL0mAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T21:45:47.226Z",
               "EditorCaption": ""
@@ -61,7 +61,7 @@
               "RelativeDocumentMoniker": "MahAppsExample\\Machine.xaml.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Machine.xaml.cs",
               "RelativeToolTip": "MahAppsExample\\Machine.xaml.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAqwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T21:45:41.745Z",
               "EditorCaption": ""
@@ -87,8 +87,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-16T21:36:06.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-16T21:36:06.79Z"
             },
             {
               "$type": "Document",
@@ -103,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml",
@@ -115,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Lenguaje.es.resx",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "RelativeDocumentMoniker": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
