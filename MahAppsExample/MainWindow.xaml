@@ -2273,7 +2273,7 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Path=Id}" Width="100"/>
-                                    <GridViewColumn Header="Nombre" Width="500">
+                                    <GridViewColumn Header="Nombre" Width="400">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding Path=Nombre}" TextWrapping="Wrap"/>
@@ -2281,6 +2281,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=Categoria}" Width="300"/>
+                                    <GridViewColumn Header="Sub-Categoria" DisplayMemberBinding="{Binding Path=SubCategoria}" Width="258"></GridViewColumn>
                                 </GridView>
                             </ListView.View>
                         </ListView>
