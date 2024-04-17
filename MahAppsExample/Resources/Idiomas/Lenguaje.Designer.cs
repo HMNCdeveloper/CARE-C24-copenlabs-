@@ -3607,6 +3607,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suggested potency.
+        /// </summary>
+        public static string tableSugestP {
+            get {
+                return ResourceManager.GetString("tableSugestP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TREATMENT.
         /// </summary>
         public static string tableTreat {

@@ -105,22 +105,12 @@ namespace MahAppsExample
         public bool Diagnostic()
         {
             //Cierre
-            //port.Close();
-            //Indicamos inicio|fin de diagnostico
             try {
-               /* if (!port.IsOpen)
-                {
-                    MessageBox.Show("No hay ningún dispositivo conectado!, conecte uno antes de continuar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);                    
-                }
-                else
-                {*/
-                    port.Write("A"); //DiagON
-                    return true;
-                //}
+                port.Write("A");
+                return true;
             }
             catch (Exception)
             {
-             //   MessageBox.Show("There's no Homoeonic connected, please connect it in order to continue", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 

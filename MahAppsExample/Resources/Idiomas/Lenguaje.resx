@@ -1335,6 +1335,9 @@
   <data name="tableStartDate" xml:space="preserve">
     <value>START DATE</value>
   </data>
+  <data name="tableSugestP" xml:space="preserve">
+    <value>Suggested potency</value>
+  </data>
   <data name="tableTreat" xml:space="preserve">
     <value>TREATMENT</value>
   </data>

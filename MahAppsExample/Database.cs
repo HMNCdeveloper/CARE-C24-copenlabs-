@@ -1184,6 +1184,7 @@ namespace MahAppsExample
         public object Validar_Analisis_Analizado(string nombre_analisis)
         {
             sql = "SELECT analizado from rad_analisis where nombre =$$" + nombre_analisis + "$$";
+            Console.WriteLine(sql);
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
@@ -1270,9 +1271,9 @@ namespace MahAppsExample
         }
 
         //Guardar el registro en rad_codigosdeanalisis
-        public void Registrar_Codigo_de_Analisis(string id_analisis,string id_codigo,string codigo, string nombrecodigo,string valor,string niveles,string sugerido)
+        public void Registrar_Codigo_de_Analisis(string id_analisis,string id_codigo,string codigo, string nombrecodigo,string valor,string niveles,string sugerido,string potencia,string potenciaSugeridad)
         {
-            sql = "INSERT INTO rad_codigosdeanalisis(ida,idcodigo,codigo,nombrecodigo,nivel,nivelsugerido,valor) VALUES($$" + id_analisis + "$$,$$" + id_codigo + "$$,$$" + codigo + "$$,$$" + nombrecodigo + "$$,$$" + niveles + "$$,$$" + sugerido + "$$,$$" + valor + "$$)";
+            sql = "INSERT INTO rad_codigosdeanalisis(ida,idcodigo,codigo,nombrecodigo,nivel,nivelsugerido,valor,potencia,potenciasugerida) VALUES($$" + id_analisis + "$$,$$" + id_codigo + "$$,$$" + codigo + "$$,$$" + nombrecodigo + "$$,$$" + niveles + "$$,$$" + sugerido + "$$,$$" + valor + "$$,$$"+potencia+"$$,$$"+potenciaSugeridad+"$$)";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }

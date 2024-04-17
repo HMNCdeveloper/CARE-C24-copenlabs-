@@ -96,12 +96,16 @@ namespace MahAppsExample
         //Radionico - Sugerir niveles
         public string RadionicoSugerirNiveles()
         {
-            int cantidad_niveles = random.Next(0, 11); //Cantidad de veces que recorrera el arreglo
-
-            string[] niveles = { "01 - FISICO", "02 - EMOCIONAL", "03 - MENTAL", "04 - ESPIRITUAL 1", "05 - ESPIRITUAL 2", "06 - ESPIRITUAL 3", "07 - ESPIRITUAL 4", "08 - ESPIRITUAL 5", "09 - ESPIRITUAL 6", "10 - ESPIRITUAL 7", "11 - ESPIRITUAL 8", "12 - ESPIRITUAL 9" }; //Niveles
-           
+            string[] niveles = { "01 - FISICO", "02 - EMOCIONAL", "03 - MENTAL", "04 - ESPIRITUAL 1", "05 - ESPIRITUAL 2", "06 - ESPIRITUAL 3", "07 - ESPIRITUAL 4", "08 - ESPIRITUAL 5", "09 - ESPIRITUAL 6", "10 - ESPIRITUAL 7", "11 - ESPIRITUAL 8", "12 - ESPIRITUAL 9" }; //Niveles  
             return niveles[random.Next(0,11)]; //Regresa valor random (nivel)
         }
+
+        public string RadionicaSurgerirPotencia()
+        {
+            string[] nivelesPotencia = {"1x","3x","6x","10x","2x","12x","8x","24x","30x","50x","100x","200x","20c","30c","10c","200c","100c","3c","6c","20c","40c","50c","1LMCM","2 LM","3 LM","6 LM","10 LM","16 LM","20 LM","30 LM","1 M","2 M","5 M","10 M","50 M","500 M","1 MM","2 MM","5 MM","10 MM"};
+            return nivelesPotencia[random.Next(0,nivelesPotencia.Length-1)];
+        }
+       
 
         //Codigos complementarios
         public string CodigoComplementario(string codigo)
