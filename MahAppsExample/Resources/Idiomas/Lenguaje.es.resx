@@ -205,7 +205,7 @@
     <value>Encontrar PGR</value>
   </data>
   <data name="btnGetRate" xml:space="preserve">
-    <value>OBTENER TARIFA</value>
+    <value>OBTENER INDICE</value>
   </data>
   <data name="btnImp" xml:space="preserve">
     <value>IMPRIMIR</value>
@@ -486,8 +486,20 @@
   <data name="inputMessage4" xml:space="preserve">
     <value>Nombre de la Sub categoria</value>
   </data>
+  <data name="inputMessage5" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="inputMessage6" xml:space="preserve">
+    <value>Guardar como </value>
+  </data>
+  <data name="inputMessageHQ" xml:space="preserve">
+    <value>Nombre de la terapia </value>
+  </data>
+  <data name="inputMessageHQ1" xml:space="preserve">
+    <value>Nombre de la copia</value>
+  </data>
   <data name="inputMessBox1" xml:space="preserve">
-    <value>Nombre de la tarifa</value>
+    <value>Nombre del indice</value>
   </data>
   <data name="inputMessHead1" xml:space="preserve">
     <value>Obtener indice</value>
@@ -795,14 +807,11 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedios y Homoepatia</value>
   </data>
-  <data name="messageErro61" xml:space="preserve">
-    <value>Please generate the PGR before saving it on an EECS Card</value>
-  </data>
   <data name="messageError" xml:space="preserve">
-    <value>Solo se permite numoros </value>
+    <value>Solo se permite numeros </value>
   </data>
   <data name="messageError1" xml:space="preserve">
-    <value>Por favor escribe el nombre del tipo</value>
+    <value>Por favor escribe el nombre del indice</value>
   </data>
   <data name="messageError10" xml:space="preserve">
     <value> Solo se permite numeros enteros </value>
@@ -850,16 +859,16 @@
     <value>Primero seleccione un código antes de ejecutar la operación!</value>
   </data>
   <data name="messageError24" xml:space="preserve">
-    <value>Por favor Escribe el nombre de la tarifa!</value>
+    <value>Por favor Escribe el nombre del indice!</value>
   </data>
   <data name="messageError25" xml:space="preserve">
-    <value> Para Añadir  una tarifa a la base de datos primero seleccione una primer  categoria principal   y sub categoria.</value>
+    <value> Para Añadir  un indice  a la base de datos primero seleccione una primer  categoria principal   y sub categoria.</value>
   </data>
   <data name="messageError26" xml:space="preserve">
     <value>Por favor selecciona  un color antes para continuar</value>
   </data>
   <data name="messageError27" xml:space="preserve">
-    <value>No puedes Guardar una terapia  sin ninguna una unica combinacion del indice</value>
+    <value>No puedes Guardar una terapia  sin ninguna una unica combinacion de color</value>
   </data>
   <data name="messageError28" xml:space="preserve">
     <value>No has escrito ninguna cosa, Escribe algo</value>
@@ -971,6 +980,9 @@
   </data>
   <data name="messageError60" xml:space="preserve">
     <value>No has seleccionado ningun elemento para editar</value>
+  </data>
+  <data name="messageError61" xml:space="preserve">
+    <value>Genera el PGR antes de Guardar en un trajeta de EECS</value>
   </data>
   <data name="messageError62" xml:space="preserve">
     <value>Verifica tu Manejador de BD, por Favor  contactanos  para  darte soporte!</value>

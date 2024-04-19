@@ -472,13 +472,25 @@
     <value>New Sub-category </value>
   </data>
   <data name="inputMessage2" xml:space="preserve">
-    <value>Name of th rate</value>
+    <value>Name of the rate</value>
   </data>
   <data name="inputMessage3" xml:space="preserve">
     <value>Name of the Category</value>
   </data>
   <data name="inputMessage4" xml:space="preserve">
     <value>Name of the Sub-Category</value>
+  </data>
+  <data name="inputMessage5" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="inputMessage6" xml:space="preserve">
+    <value>Save as</value>
+  </data>
+  <data name="inputMessageHQ" xml:space="preserve">
+    <value>Name of the Therapy</value>
+  </data>
+  <data name="inputMessageHQ1" xml:space="preserve">
+    <value>Name of the copy</value>
   </data>
   <data name="inputMessBox1" xml:space="preserve">
     <value>Name of the Rate</value>
@@ -789,9 +801,6 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedies and Homoepathy </value>
   </data>
-  <data name="messageErro61" xml:space="preserve">
-    <value>Please generate the PGR before saving it on an EECS Card</value>
-  </data>
   <data name="messageError" xml:space="preserve">
     <value>Only Numbers are allowed</value>
   </data>
@@ -965,6 +974,9 @@
   </data>
   <data name="messageError60" xml:space="preserve">
     <value>You haven't selected anything to erase</value>
+  </data>
+  <data name="messageError61" xml:space="preserve">
+    <value>Please generate the PGR before saving it on an EECS Card</value>
   </data>
   <data name="messageError62" xml:space="preserve">
     <value>Check your DB Manager, please contact Homoeonic to any future assistance!</value>

@@ -1132,7 +1132,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name of th rate.
+        ///   Looks up a localized string similar to Name of the rate.
         /// </summary>
         public static string inputMessage2 {
             get {
@@ -1155,6 +1155,42 @@ namespace HS5.Resources.Idiomas {
         public static string inputMessage4 {
             get {
                 return ResourceManager.GetString("inputMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string inputMessage5 {
+            get {
+                return ResourceManager.GetString("inputMessage5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save as.
+        /// </summary>
+        public static string inputMessage6 {
+            get {
+                return ResourceManager.GetString("inputMessage6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the Therapy.
+        /// </summary>
+        public static string inputMessageHQ {
+            get {
+                return ResourceManager.GetString("inputMessageHQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the copy.
+        /// </summary>
+        public static string inputMessageHQ1 {
+            get {
+                return ResourceManager.GetString("inputMessageHQ1", resourceCulture);
             }
         }
         
@@ -2041,15 +2077,6 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Genera el PGR antes de Guardar en un trajeta de EECS .
-        /// </summary>
-        public static string messageErro61 {
-            get {
-                return ResourceManager.GetString("messageErro61", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Only Numbers are allowed.
         /// </summary>
         public static string messageError {
@@ -2568,6 +2595,15 @@ namespace HS5.Resources.Idiomas {
         public static string messageError60 {
             get {
                 return ResourceManager.GetString("messageError60", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please generate the PGR before saving it on an EECS Card.
+        /// </summary>
+        public static string messageError61 {
+            get {
+                return ResourceManager.GetString("messageError61", resourceCulture);
             }
         }
         

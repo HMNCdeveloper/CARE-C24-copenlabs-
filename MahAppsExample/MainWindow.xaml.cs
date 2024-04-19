@@ -905,7 +905,7 @@ namespace MahAppsExample
             //Valida si se elegio un sexo del paciente
             if (optionSexoF.IsChecked == false && optionSexoM.IsChecked == false && optionSexoAn.IsChecked == false && optionSexoPl.IsChecked == false)
             {
-                MessageBox.Show(obtenerRecurso("messageWarning15"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(obtenerRecurso("messageWarning15"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
@@ -1040,7 +1040,7 @@ namespace MahAppsExample
                         Limpiar_Campos();
                     }
 
-                    MessageBox.Show(obtenerRecurso("messageWarning14"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageWarning14"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
 
                     //Al final de modificar
                     cmdGuardarPaciente.Content = obtenerRecurso("btnSaveP");
@@ -1086,7 +1086,7 @@ namespace MahAppsExample
                                 }
                                 else
                                 {
-                                    MessageBox.Show(obtenerRecurso("mesageError63"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                                    MessageBox.Show(obtenerRecurso("mesageError63"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
                                 }
                             }
                         }
@@ -1154,7 +1154,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show(obtenerRecurso("messageError3"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(obtenerRecurso("messageError3"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
 
             }
@@ -2196,7 +2196,7 @@ namespace MahAppsExample
             //Si modificar esta activado mostrar mensaje
             if (cmdModificar.IsEnabled == false && txtNombre.Text != "")
             {
-                MessageBox.Show(obtenerRecurso("messageWarning13"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning13"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
         }
@@ -2232,7 +2232,7 @@ namespace MahAppsExample
                 {
                     if (txtTelefonos.Text + " , Ext: " + txtExtensiones.Text == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
                     {
-                        MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageWarning12"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         txtTelefonos.Focus();
                         Vali = true;
                     }
@@ -2274,7 +2274,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show(obtenerRecurso("messageWarning12"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     txtTelefonos.Focus();
                 }
             }
@@ -2287,7 +2287,7 @@ namespace MahAppsExample
                     {
                         if (txtTelefonos.Text + " , Ext: " + txtExtensiones.Text == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
                         {
-                            MessageBox.Show(obtenerRecurso("messageWarning12"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            MessageBox.Show(obtenerRecurso("messageWarning12"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
                             txtTelefonos.Focus();
                             Vali = true;
                         }
@@ -3015,7 +3015,7 @@ namespace MahAppsExample
                 }
                 catch (NullReferenceException)
                 {
-                    MessageBox.Show(obtenerRecurso("messageError50"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(obtenerRecurso("messageError50"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -3202,7 +3202,7 @@ namespace MahAppsExample
 
                 if (listadoCodigos.Items.Count == 0)
                 {
-                    MessageBox.Show(obtenerRecurso("messageWarning11"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show(obtenerRecurso("messageWarning11"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
                 else
                 {
@@ -3327,7 +3327,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show(obtenerRecurso("messageWarning10"), "Advertencia", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning10"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
         bool busqueda;
@@ -3516,8 +3516,17 @@ namespace MahAppsExample
             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
             {
                 Sniveles.Add(objF.RadionicoSugerirNiveles());
+            }
+            CerrarConexion();
+        }
+
+        void NivelSugerirPotencia()
+        {
+            HacerConexion();
+            Radionica objF=new Radionica();
+            for (int i = 0; i <= nombrecodigo.Count - 1; i++)
+            {
                 potenciasugeridad.Add(objF.RadionicaSurgerirPotencia());
-                //nivel.Add(tipo_nivel_codigo);
             }
             CerrarConexion();
         }
@@ -3646,21 +3655,25 @@ namespace MahAppsExample
 
                             if (optionSugerirNiv.IsChecked == true)
                             {
-                                NivelSugerido(); //Genera el nivel random
-
-                                //Agrega valores random a la columna de valores
-                                for (int w = 0; w <= nombrecodigo.Count - 1; w++)
-                                {
-                                    ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], potencia = potencia[w], potenciaSugeridad = potenciasugeridad[w],niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), nsugerido = Sniveles[w] });
-                                }
+                                NivelSugerido();
                             }
-                            else
+
+                            if (optionSugerirPot.IsChecked == true)
                             {
-                                //Agrega valores random a la columna de valores
-                                for (int w = 0; w <= nombrecodigo.Count - 1; w++)
-                                {
-                                    ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], potencia = potencia[w],potenciaSugeridad="-",niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), nsugerido = "-" });
-                                }
+                                NivelSugerirPotencia();
+                            }
+
+
+                            for (int w = 0; w <= nombrecodigo.Count - 1; w++)
+                            {
+                                ListaCodigos.Items.Add(new nuevoCodigo {
+                                    nombre = nombrecodigo[w], 
+                                    rates = codigos_rates[w], 
+                                    potencia = potencia[w], 
+                                    potenciaSugeridad = potenciasugeridad.Count > 0 ? potenciasugeridad[w] : "-", 
+                                    niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), 
+                                    nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-" 
+                                });
                             }
 
                             Panel_opciones();
@@ -3699,19 +3712,26 @@ namespace MahAppsExample
                             Panel_opcion2();
                             if (optionSugerirNiv.IsChecked == true)
                             {
-                                NivelSugerido(); //Genera el nivel random
-
-                                for (int w = 0; w <= nombrecodigo.Count - 1; w++)
-                                {
-                                    ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], potencia = potencia[w],potenciaSugeridad= potenciasugeridad[w], rates = codigos_rates[w], niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), nsugerido = Sniveles[w] });
-                                }
+                                NivelSugerido();
                             }
-                            else
+
+                            if (optionSugerirPot.IsChecked == true)
                             {
-                                for (int w = 0; w <= nombrecodigo.Count - 1; w++)
-                                {
-                                    ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], potencia = potencia[w], potenciaSugeridad="-",rates = codigos_rates[w], niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), nsugerido = "-" });
-                                }
+                                NivelSugerirPotencia();
+                            }
+
+
+                            for (int w = 0; w <= nombrecodigo.Count - 1; w++)
+                            {
+                                ListaCodigos.Items.Add(new nuevoCodigo {
+                                    nombre = nombrecodigo[w], 
+                                    rates = codigos_rates[w], 
+                                    potencia = potencia[w], 
+                                    potenciaSugeridad = potenciasugeridad.Count > 0 ? potenciasugeridad[w] : "-",
+                                    niveles = nivel[w], 
+                                    ftester = Convert.ToInt32(ftester[w]), 
+                                    nsugerido = Sniveles.Count > 0? Sniveles[w] : "-" 
+                                });
                             }
 
                             Panel_opciones();
@@ -4304,7 +4324,7 @@ namespace MahAppsExample
                 string prueba = ListaCodigos.SelectedItem.ToString();
                 obj.Diagnostic(); //Llama a la maquina
                 Thread.Sleep(5000);
-                MessageBox.Show(obtenerRecurso("messageWarning9"), "Warning", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(obtenerRecurso("messageWarning9"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
                 obj.Diagnostic();
             }
             catch (NullReferenceException)
@@ -4650,7 +4670,7 @@ namespace MahAppsExample
             }
             catch (Exception)
             {
-                MessageBox.Show(obtenerRecurso("messageWarning7"), "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(obtenerRecurso("messageWarning7"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -5107,7 +5127,7 @@ namespace MahAppsExample
         {
             if (listadoCodigos_Remedios.Items.Count == 0)
             {
-                MessageBox.Show(obtenerRecurso("messageWarning6"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning6"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -5236,7 +5256,7 @@ namespace MahAppsExample
         {
             if (ListaRemedios.Items.Count == 0)
             {
-                MessageBox.Show(obtenerRecurso("messageWarning5"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageWarning5"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
             else
             {
@@ -5265,16 +5285,16 @@ namespace MahAppsExample
                 {
                     string valor_combo = ((ComboBoxItem)comboOrdenarRemedios.SelectedItem).Content.ToString();
 
-                    //NOMBRE - OPCION
-                    if (valor_combo == "NAME")
+                    //Name - option
+                    if (valor_combo == obtenerRecurso("tableName"))
                     {
 
-                        //Ordenar por nombre
+                        //order by name
                         query = objetos_Codigos.OrderBy(codigo => codigo.nombrecodigo);
 
                         ListaRemedios.Items.Clear();
 
-                        //Lectura
+                        //reading
                         foreach (nuevoRemedio codigo in query)
                         {
                             codigos_ord.Add(codigo.codigo.ToString());
@@ -5292,7 +5312,7 @@ namespace MahAppsExample
                     }
 
 
-                    if (valor_combo == "POTENCY")
+                    if (valor_combo == obtenerRecurso("tablePotency"))
                     {
                         try
                         {
@@ -5300,7 +5320,7 @@ namespace MahAppsExample
 
                             ListaRemedios.Items.Clear();
 
-                            //Lectura
+                            //reading
                             foreach (nuevoRemedio codigo in query)
                             {
                                 codigos_ord.Add(codigo.codigo.ToString());
@@ -5322,7 +5342,7 @@ namespace MahAppsExample
 
                             ListaRemedios.Items.Clear();
 
-                            //Lectura
+                            //reading
                             foreach (nuevoRemedio codigo in query)
                             {
                                 codigos_ord.Add(codigo.codigo.ToString());
@@ -5340,7 +5360,7 @@ namespace MahAppsExample
                         }
                     }
 
-                    if (valor_combo == "METHOD")
+                    if (valor_combo == obtenerRecurso("tableMethod"))
                     {
                         //Ordenar por nombre
                         query = objetos_Codigos.OrderBy(codigo => codigo.metodo);
@@ -5547,7 +5567,7 @@ namespace MahAppsExample
 
                         if (results.Count() > 0)
                         {
-                            MessageBoxResult resp = MessageBox.Show(obtenerRecurso("messageWarning4"), "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                            MessageBoxResult resp = MessageBox.Show(obtenerRecurso("messageWarning4"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                             if (resp == MessageBoxResult.Yes)
                             {
@@ -6320,7 +6340,7 @@ namespace MahAppsExample
             //Duplicar el remedio
             string nombre_copia;
 
-            nombre_copia = Interaction.InputBox("Name of the copy", "Save as", "", 300, 300);
+            nombre_copia = Interaction.InputBox(obtenerRecurso("inputMessageHQ1"), obtenerRecurso("inputMessage6"), "", 300, 300);
 
             if (nombre_copia != "")
             {
@@ -6932,7 +6952,7 @@ namespace MahAppsExample
 
             if (partes_colores.Count != 0)
             {
-                nombre_tratamiento_color = Interaction.InputBox("Name of the Therapy", "Name", "", 300, 300);
+                nombre_tratamiento_color = Interaction.InputBox(obtenerRecurso("inputMessageHQ"), obtenerRecurso("inputMessage5"), "", 300, 300);
 
                 if (nombre_tratamiento_color == "")
                 {
@@ -9758,7 +9778,7 @@ namespace MahAppsExample
             //Duplicar el remedio
             string nombre_codigo= Interaction.InputBox(obtenerRecurso("inputMessage2"), obtenerRecurso("inputHeadMessage1"), "", 300, 300);
 
-            if (nombre_codigo != "")
+            if (nombre_codigo != ""  )
             {
                 try
                 {
@@ -9795,7 +9815,7 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageError25"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
                     }
                     lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
