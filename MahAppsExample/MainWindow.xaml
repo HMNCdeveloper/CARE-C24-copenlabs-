@@ -915,19 +915,19 @@
                         <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Left" Height="548" Margin="50,116,0,0" VerticalAlignment="Top" Width="1475" Grid.ColumnSpan="2">
                             <TabItem Width="125" Height="29"   FontSize="15" Header="{x:Static local:Lenguaje.headRatAn}">
                                 <Grid Background="#FFF7F7F7" Margin="-18,0,-22.4,-58.8">
-                                    <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
-                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="101,28,0,0" VerticalAlignment="Top" Height="192" Width="519"/>
+                                  <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
+                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="20,28,0,0" VerticalAlignment="Top" Height="192" Width="450"/>
                                     <!--<RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>-->
-                                    <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="340,80,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
-                                    <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="161,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="option100_Checked"/>
+                                    <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
+                                    <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="option100_Checked"/>
                                     <!--<RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPolat}" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>-->
                                     <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
-                                    <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="449,80,0,0" VerticalAlignment="Top" Width="117"/>
-                                    <CheckBox x:Name="optionSugerirPot"  Visibility="Visible" Content="Suggest potency" HorizontalAlignment="Left" Margin="449,100,0,0" VerticalAlignment="Top" Width="117"/>
-                                    <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="238,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
+                                    <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
+                                    <CheckBox x:Name="optionSugerirPot"  Visibility="Visible" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+                                    <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="258,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
                                      <!--the next tag is used to show the comboBox-->
-                                    <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="360,120,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-                                    <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="430,126,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+                                    <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+                                    <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="90,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                         </ComboBox.Effect>
@@ -974,8 +974,8 @@
                                         <ComboBoxItem Content="10 MM"/>
                                     </ComboBox>
 
-                                    <Label x:Name="nivellabel" Content="{x:Static local:Lenguaje.valLev}" Visibility="Hidden" HorizontalAlignment="Left" Margin="154,120,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-                                    <ComboBox x:Name="comboNiveles" Visibility="Hidden" HorizontalAlignment="Left" Margin="200,126,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboNiveles_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+                                    <Label x:Name="nivellabel" Content="{x:Static local:Lenguaje.valLev}" Visibility="Hidden" HorizontalAlignment="Left" Margin="254,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+                                    <ComboBox x:Name="comboNiveles" Visibility="Hidden" HorizontalAlignment="Left" Margin="300,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboNiveles_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                         </ComboBox.Effect>
@@ -993,37 +993,37 @@
                                         <ComboBoxItem Content="12 - SPIRITUAL 9"/>
                                         <ComboBoxItem Content="13 - AUTOMATIC"/>
                                     </ComboBox>
-                                    <Button x:Name="cmdIniciarDiag" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdIniciarDiag_Click">
+                                    <Button x:Name="cmdIniciarDiag" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdIniciarDiag_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowRight" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnStartAna}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdAgregarCodigos" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="372,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdAgregarCodigos_Click" RenderTransformOrigin="0.528,0.014">
+                                    <Button x:Name="cmdAgregarCodigos" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="250,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdAgregarCodigos_Click" RenderTransformOrigin="0.528,0.014">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerAdd" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAddRates}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdHacerRemedios" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdHacerRemedios_Click">
+                                    <Button x:Name="cmdHacerRemedios" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdHacerRemedios_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Potion" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavCRemed}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdGuardarTarjeta" Background="#FF3CB3DF" IsEnabled="false" Visibility="Hidden" HorizontalAlignment="Left" Margin="372,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdGuardarTarjeta_Click">
+                                    <Button x:Name="cmdGuardarTarjeta" Background="#FF3CB3DF" IsEnabled="false" Visibility="Hidden" HorizontalAlignment="Left" Margin="250,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdGuardarTarjeta_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendToEcs}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdEnviarFrecuencia" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="137,397,0,0" VerticalAlignment="Top" Width="219" Height="56" RenderTransformOrigin="0.168,1.803" Click="cmdEnviarFrecuencia_Click">
+                                    <Button x:Name="cmdEnviarFrecuencia" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,397,0,0" VerticalAlignment="Top" Width="219" Height="56" RenderTransformOrigin="0.168,1.803" Click="cmdEnviarFrecuencia_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="CameraSend" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendD}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdDocumento" Background="#FF3CB3DF"  IsEnabled="false" Visibility="Hidden" ToolTip="Create an Analysis Report"  HorizontalAlignment="Left" Margin="373,397,0,0" VerticalAlignment="Top" Width="218" Height="56" Click="GenerarDocumento">
+                                    <Button x:Name="cmdDocumento" Background="#FF3CB3DF"  IsEnabled="false" Visibility="Hidden" ToolTip="Create an Analysis Report"  HorizontalAlignment="Left" Margin="250,397,0,0" VerticalAlignment="Top" Width="218" Height="56" Click="GenerarDocumento">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCreatRep}" Foreground="#FFFAFAFA"/>
@@ -1047,7 +1047,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRange}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdEliminarCodigosNoSensados" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="137,470,0,0" VerticalAlignment="Top" Width="454" Height="56" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click">
+                                    <Button x:Name="cmdEliminarCodigosNoSensados" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="20,470,0,0" VerticalAlignment="Top" Width="450" Height="56" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerDelete" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE NON RATES USED" Foreground="#FFFAFAFA"/>

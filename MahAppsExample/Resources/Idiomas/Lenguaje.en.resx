@@ -1416,4 +1416,7 @@
   <data name="valSuggLev" xml:space="preserve">
     <value>Suggest Level</value>
   </data>
+  <data name="valSuggPot" xml:space="preserve">
+    <value>Sugggest Potency</value>
+  </data>
 </root>

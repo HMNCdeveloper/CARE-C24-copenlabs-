@@ -102,8 +102,41 @@ namespace MahAppsExample
 
         public string RadionicaSurgerirPotencia()
         {
-            string[] nivelesPotencia = {"1x","3x","6x","10x","2x","12x","8x","24x","30x","50x","100x","200x","20c","30c","10c","200c","100c","3c","6c","20c","40c","50c","1LMCM","2 LM","3 LM","6 LM","10 LM","16 LM","20 LM","30 LM","1 M","2 M","5 M","10 M","50 M","500 M","1 MM","2 MM","5 MM","10 MM"};
-            return nivelesPotencia[random.Next(0,nivelesPotencia.Length-1)];
+
+            double probabilidad = random.NextDouble()*100;
+            string resp="";
+
+            if(probabilidad <= 15.0)
+            {
+                string[] nivelesPotencia = {  "1 MM", "2 MM", "5 MM", "10 MM" };
+                resp = nivelesPotencia[random.Next(0, nivelesPotencia.Length - 1)];
+            }
+            else if(probabilidad <= 30.0)
+            {
+                resp = "cm";
+            }
+            else if (probabilidad <= 45.0)
+            {
+                string[] nivelesPotencia = {  "1 M", "2 M", "5 M", "10 M", "50 M" };
+                resp = nivelesPotencia[random.Next(0, nivelesPotencia.Length - 1)];
+            }
+            else if(probabilidad <= 50.0)
+            {
+                string[] nivelesPotencia = {  "1 M", "2 M", "5 M", "10 M", "50 M", "500 M", "1 MM", "2 MM", "5 MM", "10 MM" };
+                resp = nivelesPotencia[random.Next(0, nivelesPotencia.Length - 1)];
+            }
+            else if(probabilidad <= 70.0)
+            {
+                string[] nivelesPotencia = {  "20c", "30c", "10c", "200c", "100c", "3c", "6c", "20c", "40c", "50c"};
+                resp = nivelesPotencia[random.Next(0, nivelesPotencia.Length - 1)];
+            }
+            else
+            {
+                string[] nivelesPotencia = { "1x", "3x", "6x", "10x", "2x", "12x", "8x", "24x", "30x", "50x", "100x", "200x" };
+                resp= nivelesPotencia[random.Next(0, nivelesPotencia.Length - 1)];
+            }
+
+            return resp;
         }
        
 

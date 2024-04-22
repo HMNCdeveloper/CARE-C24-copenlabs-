@@ -3875,5 +3875,14 @@ namespace HS5.Resources.Idiomas {
                 return ResourceManager.GetString("valSuggLev", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sugggest Potency.
+        /// </summary>
+        public static string valSuggPot {
+            get {
+                return ResourceManager.GetString("valSuggPot", resourceCulture);
+            }
+        }
     }
 }
