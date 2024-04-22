@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.es.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\resources\\idiomas\\lenguaje.en.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\resources\\idiomas\\lenguaje.en.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.en.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     }
   ],
@@ -41,8 +41,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-22T17:58:05.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T17:58:05.041Z"
             },
             {
               "$type": "Document",
@@ -53,8 +52,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.en.resx",
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.en.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-22T17:57:48.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T17:57:48.756Z"
             },
             {
               "$type": "Document",
@@ -65,8 +63,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml",
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-19T18:36:17.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-19T18:36:17.638Z"
             },
             {
               "$type": "Document",
@@ -77,8 +74,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-18T16:07:02.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T16:07:02.446Z"
             },
             {
               "$type": "Document",
@@ -88,7 +84,7 @@
               "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml.cs",
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAMYRAAAAAAAAAAAAAMkRAAARAAAA",
+              "ViewState": "AQIAAMwRAAAAAAAAAAAAANIRAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-16T21:45:47.226Z",
               "EditorCaption": ""
