@@ -2725,6 +2725,7 @@ namespace MahAppsExample
                 //optionPronunciamiento.IsChecked = false;
                 optionradionico.IsChecked = false;
                 optionSugerirNiv.IsChecked = false;
+                optionSugerirPot.IsChecked=false;
 
                 comboNiveles.SelectedIndex = -1;
                 comboP.SelectedIndex = -1;
@@ -2771,6 +2772,7 @@ namespace MahAppsExample
             //optionPolaridad.Visibility = Visibility.Hidden;
             //optionPronunciamiento.Visibility = Visibility.Hidden;
             optionSugerirNiv.Visibility = Visibility.Hidden;
+            optionSugerirPot.Visibility = Visibility.Hidden;
             optionradionico.Visibility = Visibility.Hidden;
             nivellabel.Visibility = Visibility.Hidden;
             comboNiveles.Visibility = Visibility.Hidden;
@@ -2906,8 +2908,16 @@ namespace MahAppsExample
 
                         if (nombrecodigo.Contains(listadoCodigos.SelectedItem.ToString()) == false)
                         {
+<<<<<<< HEAD
 
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+||||||| 7d76458
+                            
+                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+=======
+                            
+                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-",potencia="-",potenciaSugeridad="-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+>>>>>>> master
 
                         }
                     }
@@ -2924,9 +2934,7 @@ namespace MahAppsExample
                         }
                         else
                         {
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-
-
+                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", potencia="-",potenciaSugeridad="-",ftester = Convert.ToInt32(0), nsugerido = "-" });
                         }
 
                     }
@@ -3229,7 +3237,7 @@ namespace MahAppsExample
                             if (nombrecodigo.Contains(listadoCodigos.Items[w].ToString()) == false)
                             {
                                 //Buscar codigo
-                                ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+                                ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0),potencia="-",potenciaSugeridad="-", nsugerido = "-" });
                             }
 
 
@@ -3243,8 +3251,16 @@ namespace MahAppsExample
                         //Agregar todos los existentes en la listadecodigos
                         for (int w = 0; w <= listadoCodigos.Items.Count - 1; w++)
                         {
+<<<<<<< HEAD
 
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+||||||| 7d76458
+                            
+                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
+=======
+                            
+                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), potencia="-",potenciaSugeridad="-",nsugerido = "-" });
+>>>>>>> master
 
                         }
                         lblContCodigos.Content = ListaCodigos.Items.Count;
@@ -3418,6 +3434,7 @@ namespace MahAppsExample
                 cmdDocumento.Visibility = Visibility.Visible;
                 cmdEliminarCodigosNoSensados.Visibility = Visibility.Visible;
                 optionSugerirNiv.Visibility = Visibility.Visible;
+                optionSugerirPot.Visibility=Visibility.Visible;
 
             }
 
@@ -3580,6 +3597,7 @@ namespace MahAppsExample
                 case "100":
                     cmdRango.IsEnabled = true;
                     optionSugerirNiv.IsChecked = true;
+                    optionSugerirPot.IsChecked = true;
                     IEnumerable items1 = this.ListaCodigos.Items;
                     Limpiar_Listas();
 
@@ -3712,6 +3730,7 @@ namespace MahAppsExample
                         {
                             obj.Diagnostic();
                             Panel_opcion2();
+
                             if (optionSugerirNiv.IsChecked == true)
                             {
                                 NivelSugerido();
@@ -3798,6 +3817,7 @@ namespace MahAppsExample
                     //Lectura
                     foreach (nuevoCodigo codigo in query)
                     {
+                        
                         codigos_ord.Add(codigo.rates.ToString());
                         nombres_ord.Add(codigo.nombre.ToString());
                         valor_ord.Add(codigo.ftester.ToString());
@@ -3890,6 +3910,7 @@ namespace MahAppsExample
             //optionPolaridad.Visibility = Visibility.Hidden;
             //optionPronunciamiento.Visibility = Visibility.Hidden;
             optionSugerirNiv.Visibility = Visibility.Hidden;
+            optionSugerirPot.Visibility = Visibility.Hidden;
             optionradionico.Visibility = Visibility.Hidden;
             nivellabel.Visibility = Visibility.Hidden;
             comboNiveles.Visibility = Visibility.Hidden;
@@ -4419,6 +4440,7 @@ namespace MahAppsExample
         void Desbloquear_OpcionesNoPRO()
         {
             optionSugerirNiv.IsEnabled = true;
+            optionSugerirPot.IsEnabled = true;
             comboNiveles.IsEnabled = true;
             comboP.IsEnabled = true;
         }
@@ -4426,6 +4448,7 @@ namespace MahAppsExample
         private void option100_Checked(object sender, RoutedEventArgs e)
         {
             optionSugerirNiv.IsEnabled = false;
+            optionSugerirPot.IsEnabled=false;
             comboNiveles.IsEnabled = false;
             comboP.IsEnabled = false;
         }
@@ -4526,18 +4549,25 @@ namespace MahAppsExample
         //Cargar los remedios
         void CargarListadoRemedios()
         {
-            string letra; //Letra para el filtrado de los remedios
-            DataTable RemediosLista = new DataTable();
-            listadoRemedios.Items.Clear(); //Limpiar la lista
-
-            HacerConexion();
-
             try
             {
+                HacerConexion();
+                string letra; //Letra para el filtrado de los remedios
+                DataTable RemediosLista = obj2.VisualizarRemedios();
+                listadoRemedios.Items.Clear(); //Limpiar la lista
+                CerrarConexion();
+
+            
                 if (comboCategoriasRemedios.SelectedIndex == -1)
                 {
+<<<<<<< HEAD
 
                     RemediosLista = obj2.VisualizarRemedios();
+||||||| 7d76458
+                    
+                    RemediosLista = obj2.VisualizarRemedios();
+=======
+>>>>>>> master
 
                     //Agrega elementos al listbox
                     for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
@@ -4546,34 +4576,43 @@ namespace MahAppsExample
                     }
                     //listadoRemedios.ItemsSource = RemediosLista.DefaultView;
                 }
-                else
+                else 
                 {
-                    //Si no esta seleccionado 
-                    if (comboCategoriasRemedios.SelectedIndex != -1)
-                    {
-                        letra = ((ComboBoxItem)comboCategoriasRemedios.SelectedItem).Content.ToString();
+                      checkOpcion1.IsChecked = false;
+                      checkOpcion2.IsChecked = false;
+                      checkOpcion3.IsChecked = false;
+                       letra = ((ComboBoxItem)comboCategoriasRemedios.SelectedItem).Content.ToString();
+                        var FilterRemedy =RemediosLista.Clone();
 
-                        //Obtener remedios
-                        RemediosLista = obj2.VisualizarRemedios();
-                        //Agrega elementos al listbox
-                        for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
+                        //filter the list of remedy by the letter
+                        foreach (DataRow row in RemediosLista.Rows)
                         {
-                            listadoRemedios.Items.Add(RemediosLista.Rows[i][1].ToString());
+                            if (row["nombre"].ToString().StartsWith(letra))
+                            {
+                                FilterRemedy.ImportRow(row);
+                            }
                         }
-                    }
+
+                        //Agrega elementos al listbox
+                        for (int i = 0; i <= FilterRemedy.Rows.Count - 1; i++)
+                        {
+                            listadoRemedios.Items.Add(FilterRemedy.Rows[i][1].ToString());
+                        }
+                    
                 }
             }
             catch (Npgsql.NpgsqlException ex)
             {
                 ex.ToString();
             }
-            CerrarConexion();
+           
         }
 
 
 
         private void comboCategoriasRemedios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             CargarListadoRemedios();
         }
 
@@ -4590,6 +4629,7 @@ namespace MahAppsExample
             {
                 listadoRemedios.Items.Add(RemediosLista.Rows[i][1].ToString());
             }
+            comboCategoriasRemedios.SelectedIndex = -1;
             CerrarConexion();
         }
 
@@ -4600,7 +4640,7 @@ namespace MahAppsExample
 
             HacerConexion();
             RemediosLista = obj2.VisualizarRemediosGenerales_Usuarios();
-
+            comboCategoriasRemedios.SelectedIndex = -1;
             //Agrega elementos al listbox
             for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
             {
@@ -10188,6 +10228,7 @@ namespace MahAppsExample
                 //optionPolaridad.Visibility = Visibility.Visible;
                 //optionPronunciamiento.Visibility = Visibility.Visible;
                 optionSugerirNiv.Visibility = Visibility.Visible;
+                optionSugerirPot.Visibility = Visibility.Visible;
                 optionradionico.Visibility = Visibility.Visible;
                 nivellabel.Visibility = Visibility.Visible;
                 comboNiveles.Visibility = Visibility.Visible;
@@ -10390,46 +10431,53 @@ namespace MahAppsExample
 
         void A_Diagnosticar(string[] datos_paciente=null)
         {
-            //Si es un analisis nuevo
-            if (datos_paciente != null)
+            try
             {
-                lblPacienteAnalisis_P1.Content = datos_paciente[1];
-                lblNombre_Anal1.Content = datos_paciente[0];
-                string date;
-                date = DateTime.Now.ToString();
 
-                //Fecha actual para el analisis
-                lblFechaAnalisis3.Content = date;
+                //Si es un analisis nuevo
+                if (datos_paciente != null)
+                {
+                    lblPacienteAnalisis_P1.Content = datos_paciente[1];
+                    lblNombre_Anal1.Content = datos_paciente[0];
+                    string date;
+                    date = DateTime.Now.ToString();
 
-                Ocultar_Diag();
-                Checar_SiYaFueAnalizado("");
+                    //Fecha actual para el analisis
+                    lblFechaAnalisis3.Content = date;
+
+                    Ocultar_Diag();
+                    Checar_SiYaFueAnalizado("");
+
+                }
+                else
+                {
+                    //Si se selecciona uno en vez de crear el analisis...
+
+                    //Agarra
+                    DataRowView paciente_seleccionado_reciente = (DataRowView)ListaPacientes_Recientes1.SelectedItem;
+                    lblPacienteAnalisis_P1.Content = paciente_seleccionado_reciente[0].ToString();
+                    lblNombre_Anal1.Content = paciente_seleccionado_reciente[2].ToString();
+                    lblFechaAnalisis3.Content = paciente_seleccionado_reciente[1].ToString();
+
+                    Console.WriteLine(paciente_seleccionado_reciente[0].ToString());
+
+                    //Revisar si ya fue analizado
+                    HacerConexion();
+                    object validacion_analisis = obj2.Validar_Analisis_Analizado(paciente_seleccionado_reciente[0].ToString());
+                    CerrarConexion();
+
+                    // MessageBox.Show(validacion_analisis.ToString());
+                    Ocultar_Diag();
+
+                    Checar_SiYaFueAnalizado(validacion_analisis.ToString());
+
+                }
 
             }
-            else
-            {
-                //Si se selecciona uno en vez de crear el analisis...
-
-                //Agarra
-                
-
-                DataRowView paciente_seleccionado_reciente = (DataRowView)ListaPacientes_Recientes1.SelectedItem;
-                lblPacienteAnalisis_P1.Content = paciente_seleccionado_reciente[0].ToString();
-                lblNombre_Anal1.Content = paciente_seleccionado_reciente[2].ToString();
-                lblFechaAnalisis3.Content = paciente_seleccionado_reciente[1].ToString();
-
-                Console.WriteLine(paciente_seleccionado_reciente[0].ToString());
-
-                //Revisar si ya fue analizado
-                HacerConexion();
-                object validacion_analisis = obj2.Validar_Analisis_Analizado(paciente_seleccionado_reciente[0].ToString());
-                CerrarConexion();
-
-                // MessageBox.Show(validacion_analisis.ToString());
-                Ocultar_Diag();
-
-                Checar_SiYaFueAnalizado(validacion_analisis.ToString());
-
+            catch(Exception ) {
+                MessageBox.Show(obtenerRecurso("messageError70"),"Error",MessageBoxButton.OK,MessageBoxImage.Error);
             }
+
         }
 
         //This function is used to  display  recent patient analyses 

@@ -933,14 +933,22 @@
                                     <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="20,28,0,0" VerticalAlignment="Top" Height="192" Width="450"/>
                                     <!--<RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>-->
                                     <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
-                                    <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="option100_Checked"/>
+                                    <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" Checked="option100_Checked"/>
                                     <!--<RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPolat}" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>-->
                                     <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
                                     <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
-                                    <CheckBox x:Name="optionSugerirPot"  Visibility="Visible" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
+                                    <CheckBox x:Name="optionSugerirPot"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
                                     <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="258,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
+<<<<<<< HEAD
                                     <!--the next tag is used to show the comboBox-->
                                     <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+||||||| 7d76458
+                                     <!--the next tag is used to show the comboBox-->
+                                    <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+=======
+                                     <!--the next tag is used to show the comboBox-->
+                                    <Label x:Name="nivelP" Visibility="Hidden" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+>>>>>>> master
                                     <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="90,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -1110,7 +1118,7 @@
 
                                     <MediaElement Visibility="Hidden" x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="file://C:\Users\Raul Zavala\Desktop\Homoeonic Software\MahAppsExample\img\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="215,0,994,0"/>
                                     <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="file://C:\Users\Raul Zavala\Desktop\Homoeonic Software\MahAppsExample\img\analisis-mujer.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
-                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\Timer.gif"  Margin="1090,240,0,0" HorizontalAlignment="Left" Width="60" Height="60"  VerticalAlignment="Top"></Image>
+                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="520,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
                                     <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 </Grid>

@@ -1005,6 +1005,9 @@
   <data name="messageError7" xml:space="preserve">
     <value>Seleccione un tratamiento primero!..</value>
   </data>
+  <data name="messageError70" xml:space="preserve">
+    <value>Debes Seleccionar un paciente para continuar</value>
+  </data>
   <data name="messageError8" xml:space="preserve">
     <value>Por favor selecciona un elemento para continuar!</value>
   </data>
