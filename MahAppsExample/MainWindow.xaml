@@ -29,6 +29,7 @@
         </Style>
 
 
+
         <!-- Define un estilo para los ListBoxItems -->
         <Style TargetType="ListBoxItem">
             <Setter Property="Padding" Value="3.5"/>
@@ -70,6 +71,11 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="CustomProgressBarStyle" TargetType="ProgressBar">
+            <Setter Property="Foreground" Value="#FFF" />
+            <!-- Otros setters según tus necesidades -->
+        </Style>
+
     </Window.Resources>
 
     <controls:MetroWindow.RightWindowCommands>
@@ -133,7 +139,15 @@
                     <TextBlock x:Name="lblProgresRemedy" Text="RUNNING AUTOSIMIL" Foreground="Black" Width="353" Margin="690,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="40" TextWrapping="Wrap"/>
                 </Grid>
             </Border>
-
+            <Button x:Name="cmdTerminarDiag" HorizontalAlignment="Left" Margin="1153,150,0,0" VerticalAlignment="Top" Width="149" Height="39" Visibility="Hidden" Click="cmdTerminarDiag_Click" Background="#F00" Foreground="White" RenderTransformOrigin="0.711,2.028">
+                <Button.Effect>
+                    <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconModern Width="20" Height="20" Kind="Close" Foreground="#FFFAFAFA"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="CANCEL TREATMENT" Foreground="#FFFAFAFA"/>
+                </StackPanel>
+            </Button>
             <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
                 <!--view of the patients-->
                 <TabItem x:Name="Patients" Margin="0,0,-5,0">
@@ -915,7 +929,7 @@
                         <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Left" Height="548" Margin="50,116,0,0" VerticalAlignment="Top" Width="1475" Grid.ColumnSpan="2">
                             <TabItem Width="125" Height="29"   FontSize="15" Header="{x:Static local:Lenguaje.headRatAn}">
                                 <Grid Background="#FFF7F7F7" Margin="-18,0,-22.4,-58.8">
-                                  <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
+                                    <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
                                     <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="20,28,0,0" VerticalAlignment="Top" Height="192" Width="450"/>
                                     <!--<RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>-->
                                     <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
@@ -925,7 +939,7 @@
                                     <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
                                     <CheckBox x:Name="optionSugerirPot"  Visibility="Visible" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
                                     <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="258,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
-                                     <!--the next tag is used to show the comboBox-->
+                                    <!--the next tag is used to show the comboBox-->
                                     <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
                                     <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="90,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
@@ -1064,7 +1078,7 @@
                                                         <EventSetter Event="Loaded" Handler="GridViewColumn_Loaded"/>
                                                     </Style>
                                                 </GridView.ColumnHeaderContainerStyle>
-                                                
+
                                                 <GridViewColumn Header="{x:Static local:Lenguaje.tableRate}" DisplayMemberBinding="{Binding rates}"  Width="130px"/>
                                                 <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombre}" Width="170px"/>
                                                 <GridViewColumn Header="{x:Static local:Lenguaje.tableValue}" DisplayMemberBinding="{Binding ftester}" Width="60px"/>
@@ -1584,9 +1598,11 @@
                                     </Button>
                                 </Grid>
                             </TabItem>
+
                         </TabControl>
 
-                        <Button x:Name="cmdTerminarDiag" Content="Finish Treatment" HorizontalAlignment="Left" Margin="1320,46,0,0" VerticalAlignment="Top" Width="149" Height="30" Visibility="Hidden" Click="cmdTerminarDiag_Click"/>
+                        
+
                         <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="268,216,0,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked"/>
                         <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="799,326,0,0" VerticalAlignment="Top" Height="125" Width="300">
                             <Label x:Name="lblMultiples_Copy1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelMultiRates}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -1661,6 +1677,9 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.brnSC}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
+                        <ProgressBar x:Name="progressBar" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="723,30,0,0" VerticalAlignment="Top" Width="764" Style="{StaticResource CustomProgressBarStyle}"/>
+                        <Label x:Name="lblProgress" Content="" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="730,32,203,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
+                        <Label x:Name="lblPorcentProgress" Content="" Visibility="Hidden" Margin="1377,33,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
                     </Grid>
                 </TabItem>
 

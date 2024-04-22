@@ -12,7 +12,7 @@ using System.Threading;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-
+using System.Threading.Tasks;
 using System.Data;
 using Microsoft.VisualBasic; //Interaction
 using System.Drawing;
@@ -30,6 +30,8 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using Application = System.Windows.Application;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using System.Windows.Media;
+using System.Windows.Controls;
 
 
 
@@ -170,33 +172,33 @@ namespace MahAppsExample
                 CargarListadoCompletoPacientes();
                 //getVersion();
             }
-          
-          
+
+
         }
 
 
         //This function is used to decrypt the version is to encrypt
         string Decrypt(string encryptedText)
         {
-       
-                string ToReturn = "";
-                string publickey = "16345679"; // Clave pública
-                string secretkey = "97654361"; // Clave secreta
 
-                byte[] secretkeyByte = Encoding.UTF8.GetBytes(secretkey);
-                byte[] publickeybyte = Encoding.UTF8.GetBytes(publickey);
+            string ToReturn = "";
+            string publickey = "16345679"; // Clave pública
+            string secretkey = "97654361"; // Clave secreta
 
-                using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
-                {
-                    byte[] inputbyteArray = Convert.FromBase64String(encryptedText);
-                    MemoryStream ms = new MemoryStream();
-                    CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(publickeybyte, secretkeyByte), CryptoStreamMode.Write);
-                    cs.Write(inputbyteArray, 0, inputbyteArray.Length);
-                    cs.FlushFinalBlock();
-                    ToReturn = Encoding.UTF8.GetString(ms.ToArray());
-                }
+            byte[] secretkeyByte = Encoding.UTF8.GetBytes(secretkey);
+            byte[] publickeybyte = Encoding.UTF8.GetBytes(publickey);
 
-                return ToReturn;
+            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
+            {
+                byte[] inputbyteArray = Convert.FromBase64String(encryptedText);
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(publickeybyte, secretkeyByte), CryptoStreamMode.Write);
+                cs.Write(inputbyteArray, 0, inputbyteArray.Length);
+                cs.FlushFinalBlock();
+                ToReturn = Encoding.UTF8.GetString(ms.ToArray());
+            }
+
+            return ToReturn;
         }
 
         //This function is used to get the version the program after it will be execute some functions by the version
@@ -204,7 +206,7 @@ namespace MahAppsExample
         {
             try
             {
-                string  fileversion = File.ReadAllText(RutaInstalacion() + "\\version\\version.txt");
+                string fileversion = File.ReadAllText(RutaInstalacion() + "\\version\\version.txt");
                 string value = Decrypt(fileversion);
                 switch (value)
                 {
@@ -216,8 +218,8 @@ namespace MahAppsExample
 
 
                         AnalisisTab.Visibility = Visibility.Collapsed;
-                        RemediosTab.Visibility= Visibility.Collapsed;
-                        ColorTab.Visibility= Visibility.Collapsed;
+                        RemediosTab.Visibility = Visibility.Collapsed;
+                        ColorTab.Visibility = Visibility.Collapsed;
                         break;
                     case "Medium":
                         Patients.Margin = new Thickness(2, 6, -5, -8);
@@ -240,7 +242,7 @@ namespace MahAppsExample
             }
             catch (Exception)
             {
-                MessageBox.Show("happened some error, notify the company about the error","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("happened some error, notify the company about the error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 var window = Application.Current.Windows[0];
                 window.Close();
@@ -722,7 +724,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                   
+
                     MessageBoxButton buttons = MessageBoxButton.YesNo;
 
                     MessageBoxResult dialogResult = MessageBox.Show(obtenerRecurso("messageQuestion10"), obtenerRecurso("messageHead1"), buttons);
@@ -877,7 +879,7 @@ namespace MahAppsExample
 
         }
 
-        
+
 
         void cmdConfigurarBotonSuperior(object sender, RoutedEventArgs e)
         {
@@ -971,7 +973,7 @@ namespace MahAppsExample
             cmdAgregarDom.IsEnabled = true;
             cmdEditarDom.Visibility = Visibility.Hidden;
             cmdEliminarDom.Visibility = Visibility.Hidden;
-            
+
             //Determina el sexo del paciente y valida que se seleccione
             if (cmdModificar.IsEnabled == false)
             {
@@ -1143,7 +1145,7 @@ namespace MahAppsExample
 
                         //Cargue listado de pacientes
                         CargarListadoCompletoPacientes();
-                      
+
                     }
                     else
                     {
@@ -1420,7 +1422,7 @@ namespace MahAppsExample
             }*/
         }
 
- 
+
 
         //Eliminar registro del heredo
         private void cmdEliminarHeredo_Click(object sender, RoutedEventArgs e)
@@ -2201,7 +2203,7 @@ namespace MahAppsExample
             }
         }
 
-  
+
         private void cmdMasDomicilios_Click_1(object sender, RoutedEventArgs e)
         {
             /* if (txtCalle.Text == "" || txtNum.Text == "" || txtColonia.Text == "" || txtCP.Text == "" || txtMunicipio.Text == "" || txtEstado.Text == "" || txtCountry.Text == "")
@@ -2434,9 +2436,9 @@ namespace MahAppsExample
          */
         private void cmdAgregarDom_Click(object sender, RoutedEventArgs e)
         {
-           bool valflag = obj2.ComprobarDomicilios(txtCalle.Text, txtColonia.Text, txtNum.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text);
-            
-            if(valflag != true)
+            bool valflag = obj2.ComprobarDomicilios(txtCalle.Text, txtColonia.Text, txtNum.Text, txtCP.Text, txtMunicipio.Text, txtEstado.Text, txtCountry.Text);
+
+            if (valflag != true)
             {
                 if (cmdEditarDom.IsEnabled == false && cmdAgregarDom.IsEnabled == true)
                 {
@@ -2540,11 +2542,11 @@ namespace MahAppsExample
                         }
                     }
                     CerrarConexion();
-                }                
+                }
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show(obtenerRecurso("messageError68"),"Error",MessageBoxButton.OK,MessageBoxImage.Error);      
+                MessageBox.Show(obtenerRecurso("messageError68"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
         }
@@ -2557,7 +2559,7 @@ namespace MahAppsExample
             try
             {
 
-                if(listadodomicilios.SelectedItem.ToString() != null)
+                if (listadodomicilios.SelectedItem.ToString() != null)
                 {
                     HacerConexion();
                     for (int d = 0; d <= ListaCalles.Count - 1; d++)
@@ -2565,7 +2567,7 @@ namespace MahAppsExample
                         if (listadodomicilios.SelectedItem.ToString() == obtenerRecurso("labelStreet") + " " + ListaCalles[d].ToString() + ", " + obtenerRecurso("labelNum") + " " + ListaNum[d].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + ListaColonia[d].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + ListaCP[d].ToString() + ", " + obtenerRecurso("labelCS") + " " + ListaMunicipio[d].ToString() + ", " + obtenerRecurso("labelSatet") + " " + ListaEstado[d].ToString() + ", " + obtenerRecurso("labelCountry") + " " + ListaPais[d].ToString())
                         {
                             object id_domicilio_modif = obj2.Obtener_IdDomicilio_Paciente(ListaCalles[d].ToString(), ListaNum[d].ToString(), ListaColonia[d].ToString(), ListaCP[d].ToString(), ListaMunicipio[d].ToString(), ListaEstado[d].ToString(), ListaPais[d].ToString(), id_paciente_global_modif);
-                            
+
                             if (id_domicilio_modif != null)
                             {
                                 obj2.EliminarDomicilioPaciente(id_domicilio_modif.ToString());
@@ -2670,7 +2672,7 @@ namespace MahAppsExample
             comboOtrosAnal.Visibility = Visibility.Visible;
             lblPacienteAnalisis.Visibility = Visibility.Visible;
             cmdAnalisisReanalisisCerrar.Visibility = Visibility.Visible;
-            
+
             //Desactivar
             cmdNuevoAnalisis1.IsEnabled = false;
             cmdAnalisisPaciente.Focus();
@@ -2696,11 +2698,11 @@ namespace MahAppsExample
                 cmdNuevoAnalisis1.Visibility = Visibility.Visible;
                 cmdEliminar_Copy1.Visibility = Visibility.Visible;
                 ListaPacientes_Recientes1.Visibility = Visibility.Visible;
-               
+
                 OcultarDiag();
                 //Autoguardar
                 Guarda_Diagnostico();
-               
+
 
                 ListaCodigos.Items.Clear();
                 txtEstatura.Text = "";
@@ -2726,7 +2728,7 @@ namespace MahAppsExample
 
                 comboNiveles.SelectedIndex = -1;
                 comboP.SelectedIndex = -1;
-             
+
                 OcultarDiag2();
                 CargarRegistrosPacientesRecientes();
             }
@@ -2758,7 +2760,7 @@ namespace MahAppsExample
             cmdTodos.Visibility = Visibility.Hidden;
             cmdNinguno.Visibility = Visibility.Hidden;
             lblCodigoBuscar.Visibility = Visibility.Hidden;
-            txtCodigoBuscar.Visibility = Visibility.Hidden;;            
+            txtCodigoBuscar.Visibility = Visibility.Hidden; ;
 
 
             //SECCION DEL METODO DE RESULTADOS
@@ -2772,8 +2774,8 @@ namespace MahAppsExample
             optionradionico.Visibility = Visibility.Hidden;
             nivellabel.Visibility = Visibility.Hidden;
             comboNiveles.Visibility = Visibility.Hidden;
-            nivelP.Visibility=Visibility.Hidden;
-            comboP.Visibility=Visibility.Hidden;
+            nivelP.Visibility = Visibility.Hidden;
+            comboP.Visibility = Visibility.Hidden;
             cmdIniciarDiag.Visibility = Visibility.Hidden;
             cmdAgregarCodigos.Visibility = Visibility.Hidden;
             cmdHacerRemedios.Visibility = Visibility.Hidden;
@@ -2844,9 +2846,9 @@ namespace MahAppsExample
                     {
                         if (CategoriasCodigos.Rows[y][1].ToString() != "")
                         {
-                           
+
                             listadoCodigos.Items.Add(CategoriasCodigos.Rows[y][1].ToString());
-                            Categorias_Codigos.Add(CategoriasCodigos.Rows[y][2].ToString()); 
+                            Categorias_Codigos.Add(CategoriasCodigos.Rows[y][2].ToString());
                         }
 
                     }
@@ -2901,17 +2903,17 @@ namespace MahAppsExample
 
                     if (ListaCodigos.Items.Count != 0)
                     {
-                       
+
                         if (nombrecodigo.Contains(listadoCodigos.SelectedItem.ToString()) == false)
                         {
-                            
+
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
 
                         }
                     }
                     else
                     {
-                        
+
                         if (busqueda == true)
                         {
                             HacerConexion();
@@ -2926,7 +2928,7 @@ namespace MahAppsExample
 
 
                         }
-                        
+
                     }
                     lblContCodigos.Content = ListaCodigos.Items.Count;
 
@@ -2967,7 +2969,7 @@ namespace MahAppsExample
 
                     for (int a = 0; a <= paciente_sexo_tabla.Rows.Count - 1; a++)
                     {
-                     
+
                         if (paciente_sexo_tabla.Rows[a][0].ToString() == "Masculino")
                         {
                             sexo = "M";
@@ -2989,10 +2991,10 @@ namespace MahAppsExample
                         }
                     }
 
-                    
+
                     DataTable Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), sexo);
 
-                    
+
                     if (Codigos.Rows.Count == 0) //Sino hay por genero pues utiliza el de todos...
                     {
                         Codigos = obj2.VisualizarSubCategoriasCodigosListadoGenero_Todos(id_subcategoria.ToString(), sexo);
@@ -3030,9 +3032,9 @@ namespace MahAppsExample
             public string niveles { get; set; }
             public int ftester { get; set; }
 
-            public string  potencia { get; set; }
+            public string potencia { get; set; }
 
-            public string potenciaSugeridad {  get; set; }
+            public string potenciaSugeridad { get; set; }
 
             public string nsugerido { get; set; }
 
@@ -3164,11 +3166,11 @@ namespace MahAppsExample
                     var nombre_selected = selectedItem.nombre;
                     int inde_var = nombrecodigo.IndexOf(nombre_selected);
                     ListaCodigos.Items.RemoveAt(ListaCodigos.Items.IndexOf(ListaCodigos.SelectedItem));
-                    
+
                 }
                 else
                 {
-                    
+
                     for (int q = 0; q <= ListaCodigos.SelectedItems.Count - 1; q++)
                     {
 
@@ -3178,7 +3180,7 @@ namespace MahAppsExample
                         ListaCodigos.Items.RemoveAt(ListaCodigos.Items.IndexOf(ListaCodigos.SelectedItems[q]));
                     }
                 }
-              
+
                 lblContCodigos.Content = ListaCodigos.Items.Count;
             }
             catch (NullReferenceException)
@@ -3192,7 +3194,7 @@ namespace MahAppsExample
         {
             try
             {
-        
+
 
                 //Siempre visible
                 borderInfobasica_Copy2.Visibility = Visibility.Visible;
@@ -3223,14 +3225,14 @@ namespace MahAppsExample
                         //Agregar todos los existentes en la listadecodigos
                         for (int w = 0; w <= listadoCodigos.Items.Count - 1; w++)
                         {
-                            
+
                             if (nombrecodigo.Contains(listadoCodigos.Items[w].ToString()) == false)
                             {
                                 //Buscar codigo
                                 ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
                             }
 
-                            
+
                         }
                         lblContCodigos.Content = ListaCodigos.Items.Count;
 
@@ -3241,7 +3243,7 @@ namespace MahAppsExample
                         //Agregar todos los existentes en la listadecodigos
                         for (int w = 0; w <= listadoCodigos.Items.Count - 1; w++)
                         {
-                            
+
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
 
                         }
@@ -3258,7 +3260,7 @@ namespace MahAppsExample
         {
             try
             {
-             
+
                 //Siempre visible
                 borderInfobasica_Copy2.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.Visibility = Visibility.Visible;
@@ -3271,10 +3273,10 @@ namespace MahAppsExample
 
                 foreach (nuevoCodigo codigo in items)
                 {
-                    
+
                     nombrecodigo.Add(codigo.nombre.ToString());
                     codigos_rates.Add(codigo.rates.ToString());
-                    
+
                 }
 
                 for (int i = 0; i <= listadoCodigos.Items.Count - 1; i++)
@@ -3284,7 +3286,7 @@ namespace MahAppsExample
                         int index = nombrecodigo.IndexOf(listadoCodigos.Items[i].ToString());
                         nombrecodigo.RemoveAt(index);
                         codigos_rates.RemoveAt(index);
-                       
+
                     }
 
                 }
@@ -3294,7 +3296,7 @@ namespace MahAppsExample
                 for (int w = 0; w <= nombrecodigo.Count - 1; w++)
                 {
                     ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-                    
+
 
                 }
 
@@ -3409,7 +3411,7 @@ namespace MahAppsExample
                 nivellabel.Visibility = Visibility.Visible;
                 comboNiveles.Visibility = Visibility.Visible;
                 nivelP.Visibility = Visibility.Visible;
-                comboP.Visibility= Visibility.Visible;
+                comboP.Visibility = Visibility.Visible;
                 cmdHacerRemedios.Visibility = Visibility.Visible;
                 cmdGuardarTarjeta.Visibility = Visibility.Visible;
                 cmdEnviarFrecuencia.Visibility = Visibility.Visible;
@@ -3523,7 +3525,7 @@ namespace MahAppsExample
         void NivelSugerirPotencia()
         {
             HacerConexion();
-            Radionica objF=new Radionica();
+            Radionica objF = new Radionica();
             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
             {
                 potenciasugeridad.Add(objF.RadionicaSurgerirPotencia());
@@ -3549,24 +3551,24 @@ namespace MahAppsExample
             if (option100.IsChecked == true)
             {
                 tipo = "100";
-            }else if (optionPorcentaje.IsChecked == true)
+            } else if (optionPorcentaje.IsChecked == true)
             {
                 tipo = "Porcentaje";
-            }else if (optionradionico.IsChecked == true)
+            } else if (optionradionico.IsChecked == true)
             {
                 tipo = "Radionico";
-            }   
-           
+            }
+
 
             //Sino hay seleccion de nivel del codigo agarra por default el 01 - FISICO
-            
+
             /*this line of code should be rewied  in a future moment*/
             if (comboNiveles.SelectedIndex == -1)
             {
                 comboNiveles.SelectedIndex = 0;
             }
 
-            if(comboNiveles.SelectedIndex == -1)
+            if (comboNiveles.SelectedIndex == -1)
             {
                 comboP.SelectedIndex = 0;
             }
@@ -3610,7 +3612,7 @@ namespace MahAppsExample
                             //Agrega valores random a la columna de valores
                             for (int w = 0; w <= nombrecodigo.Count - 1; w++)
                             {
-                                ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], potencia="-",potenciaSugeridad="-",niveles = "-", ftester = Convert.ToInt32(ftester[w]), nsugerido = nivel[w] });
+                                ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], potencia = "-", potenciaSugeridad = "-", niveles = "-", ftester = Convert.ToInt32(ftester[w]), nsugerido = nivel[w] });
                             }
 
                             Panel_opciones();
@@ -3667,12 +3669,12 @@ namespace MahAppsExample
                             for (int w = 0; w <= nombrecodigo.Count - 1; w++)
                             {
                                 ListaCodigos.Items.Add(new nuevoCodigo {
-                                    nombre = nombrecodigo[w], 
-                                    rates = codigos_rates[w], 
-                                    potencia = potencia[w], 
-                                    potenciaSugeridad = potenciasugeridad.Count > 0 ? potenciasugeridad[w] : "-", 
-                                    niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]), 
-                                    nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-" 
+                                    nombre = nombrecodigo[w],
+                                    rates = codigos_rates[w],
+                                    potencia = potencia[w],
+                                    potenciaSugeridad = potenciasugeridad.Count > 0 ? potenciasugeridad[w] : "-",
+                                    niveles = nivel[w], ftester = Convert.ToInt32(ftester[w]),
+                                    nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-"
                                 });
                             }
 
@@ -3724,13 +3726,13 @@ namespace MahAppsExample
                             for (int w = 0; w <= nombrecodigo.Count - 1; w++)
                             {
                                 ListaCodigos.Items.Add(new nuevoCodigo {
-                                    nombre = nombrecodigo[w], 
-                                    rates = codigos_rates[w], 
-                                    potencia = potencia[w], 
+                                    nombre = nombrecodigo[w],
+                                    rates = codigos_rates[w],
+                                    potencia = potencia[w],
                                     potenciaSugeridad = potenciasugeridad.Count > 0 ? potenciasugeridad[w] : "-",
-                                    niveles = nivel[w], 
-                                    ftester = Convert.ToInt32(ftester[w]), 
-                                    nsugerido = Sniveles.Count > 0? Sniveles[w] : "-" 
+                                    niveles = nivel[w],
+                                    ftester = Convert.ToInt32(ftester[w]),
+                                    nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-"
                                 });
                             }
 
@@ -3738,7 +3740,7 @@ namespace MahAppsExample
                         });
 
                     }).Start();
-                  break;
+                    break;
             }
         }
 
@@ -3746,7 +3748,7 @@ namespace MahAppsExample
         private void GridViewColumn_Loaded(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader header = sender as GridViewColumnHeader;
-            if (header!=null)
+            if (header != null)
             {
                 header.Click += GridViewColumnHeader_MouseDoubleClick;
             }
@@ -3760,7 +3762,7 @@ namespace MahAppsExample
             {
                 GridViewColumn column = header.Column;
                 string nameTable = column.Header.ToString();
-                
+
                 IEnumerable itemsCodigos = this.ListaCodigos.Items;
                 List<nuevoCodigo> objetos_Codigos = new List<nuevoCodigo>();
 
@@ -3772,24 +3774,24 @@ namespace MahAppsExample
                 List<string> sugeridos_ord = new List<string>();
                 List<string> potencia_ord = new List<string>();
                 List<string> potenciasugeridad_ord = new List<string>();
-                IEnumerable<nuevoCodigo> query=null;
+                IEnumerable<nuevoCodigo> query = null;
 
                 foreach (nuevoCodigo codigo in itemsCodigos)
                 {
                     objetos_Codigos.Add(codigo);
                 }
 
-                
+
                 if (nameTable == obtenerRecurso("tableName"))
                     query = objetos_Codigos.OrderBy(codigo => codigo.nombre);
-                
+
                 else if (nameTable == obtenerRecurso("tableRate"))
                     query = objetos_Codigos.OrderBy(codigo => codigo.rates);
-                
+
                 else if (nameTable == obtenerRecurso("tableValue"))
                     query = objetos_Codigos.OrderBy(codigo => codigo.ftester);
-                
-                if(query != null)
+
+                if (query != null)
                 {
                     ListaCodigos.Items.Clear();
 
@@ -3810,7 +3812,7 @@ namespace MahAppsExample
                         ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombres_ord[p], rates = codigos_ord[p], potencia = potencia_ord[p], potenciaSugeridad = potenciasugeridad_ord[p], niveles = niveles_ord[p], ftester = Convert.ToInt32(valor_ord[p]), nsugerido = sugeridos_ord[p] });
                     }
                 }
-                
+
             }
         }
 
@@ -3892,7 +3894,7 @@ namespace MahAppsExample
             nivellabel.Visibility = Visibility.Hidden;
             comboNiveles.Visibility = Visibility.Hidden;
             nivelP.Visibility = Visibility.Hidden;
-            comboP.Visibility=Visibility.Hidden;
+            comboP.Visibility = Visibility.Hidden;
             cmdIniciarDiag.Visibility = Visibility.Hidden;
             cmdAgregarCodigos.Visibility = Visibility.Hidden;
             cmdHacerRemedios.Visibility = Visibility.Hidden;
@@ -4165,7 +4167,7 @@ namespace MahAppsExample
                 //calle,numero,colonia,cp,municipio,estado,pais
                 for (int q = 0; q <= Paciente_Domicilios.Rows.Count - 1; q++)
                 {
-            
+
                     listadodomicilios.Items.Add(obtenerRecurso("labelStreet") + " " + Paciente_Domicilios.Rows[q][0].ToString() + ", " + obtenerRecurso("labelNum") + " " + Paciente_Domicilios.Rows[q][1].ToString() + ", " + obtenerRecurso("labelAvenue") + " " + Paciente_Domicilios.Rows[q][2].ToString() + ", " + obtenerRecurso("labelZpCode") + " " + Paciente_Domicilios.Rows[q][3].ToString() + ", " + obtenerRecurso("labelCS") + " " + Paciente_Domicilios.Rows[q][4].ToString() + ", " + obtenerRecurso("labelSatet") + " " + Paciente_Domicilios.Rows[q][5].ToString() + ", " + obtenerRecurso("labelCountry") + " " + Paciente_Domicilios.Rows[q][6].ToString());
                     ListaCalles.Add(Paciente_Domicilios.Rows[q][0].ToString());
                     ListaNum.Add(Paciente_Domicilios.Rows[q][1].ToString());
@@ -4253,7 +4255,7 @@ namespace MahAppsExample
                 PacienteGroup.Background = brush;
                 tabControl.Foreground = brush;
 
-           
+
                 string ruta_imagen = RutaInstalacion() + "//fotos//" + id_paciente.ToString() + ".png";
 
 
@@ -4351,8 +4353,8 @@ namespace MahAppsExample
                 List<string> valor_s = new List<string>();
                 List<string> niveles_s = new List<string>();
                 List<string> sugeridos = new List<string>();
-                List<string> potencia=new List<string>();
-                List<string> potenciaSugeridad=new List<string>();
+                List<string> potencia = new List<string>();
+                List<string> potenciaSugeridad = new List<string>();
 
                 object id_codigo;
                 object id_analisis;
@@ -4370,7 +4372,7 @@ namespace MahAppsExample
                     sugeridos.Add(codigo.nsugerido.ToString());
                     potencia.Add(codigo.potencia.ToString());
                     potenciaSugeridad.Add(codigo.potenciaSugeridad.ToString());
-                    
+
                 }
 
                 if (valor_s.Count == 0 || ListaCodigos.Items.Count == 0)
@@ -4437,11 +4439,11 @@ namespace MahAppsExample
             }
         }
 
-        private void comboPontency_SelectionChanged(object sender,SelectionChangedEventArgs e)
+        private void comboPontency_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboP.SelectedIndex !=-1)
+            if (comboP.SelectedIndex != -1)
             {
-                nivel_potencia=((ComboBoxItem)comboP.SelectedItem).Content.ToString();
+                nivel_potencia = ((ComboBoxItem)comboP.SelectedItem).Content.ToString();
             }
 
         }
@@ -4534,7 +4536,7 @@ namespace MahAppsExample
             {
                 if (comboCategoriasRemedios.SelectedIndex == -1)
                 {
-                    
+
                     RemediosLista = obj2.VisualizarRemedios();
 
                     //Agrega elementos al listbox
@@ -4568,7 +4570,7 @@ namespace MahAppsExample
             CerrarConexion();
         }
 
-     
+
 
         private void comboCategoriasRemedios_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4715,7 +4717,7 @@ namespace MahAppsExample
 
             //Antes borramos todo lo de un remedio anterior para evitar duplicados
             obj2.Eliminar_codigos_remedio(id_remedio_s.ToString());
-      
+
 
 
             Random rdm = new Random();
@@ -5522,6 +5524,61 @@ namespace MahAppsExample
         //Variable global para funciones
         bool function_activa = false;
 
+        public async void progressBarAnimation(int ms, string txt, string color)
+        {
+
+            // Convierte el valor hexadecimal a un objeto SolidColorBrush
+            SolidColorBrush nuevoColor = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
+
+            // Asigna el nuevo color a la propiedad Foreground del Label
+            progressBar.Foreground = nuevoColor; // Reemplaza "tuLabel" con el nombre de tu Label
+            
+
+            lblProgress.Content = txt;
+            progressBar.Visibility = Visibility.Visible;
+            lblProgress.Visibility = Visibility.Visible;
+            lblPorcentProgress.Visibility = Visibility.Visible;
+
+            // Valor final al que queremos llegar
+            double targetValue = 100;
+
+            // Valor inicial de la barra de progreso
+            double startValue = progressBar.Value;
+
+            // Incremento por milisegundo
+            double incrementPerMillisecond = (targetValue - startValue) / ms;
+
+            // Variable de tiempo inicial
+            DateTime startTime = DateTime.Now;
+
+            // Mientras no haya pasado el tiempo total de la animación
+            while ((DateTime.Now - startTime).TotalMilliseconds < ms)
+            {
+                // Calcular el nuevo valor de la barra de progreso
+                double elapsedTimeMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
+                double newValue = startValue + (incrementPerMillisecond * elapsedTimeMilliseconds);
+
+                // Aplicar el nuevo valor a la barra de progreso
+                progressBar.Value = newValue;
+                string num = newValue.ToString("0") + "%";
+                lblPorcentProgress.Content = num;
+                // Pequeño retraso para actualizar la barra de progreso suavemente
+                await Task.Delay(10);
+            }
+
+            // Ajustar el valor final a 100 en caso de que se haya excedido
+            progressBar.Value = targetValue;
+            progressClean();
+            progressBar.Visibility = Visibility.Hidden;
+            lblProgress.Visibility = Visibility.Hidden;
+            lblPorcentProgress.Visibility = Visibility.Hidden;
+        }
+
+        public void progressClean()
+        {
+            progressBar.Value = 0;
+        }
+
         //Funcion autosimile
         private void cmdAutosimile_Click(object sender, RoutedEventArgs e)
         {
@@ -5530,6 +5587,9 @@ namespace MahAppsExample
                 if (function_activa == false)
                 {
                     function_activa = true; //Activa la bandera
+
+                    
+
                     //Si tiene o no tiene elementos
                     if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                     {
@@ -5571,9 +5631,9 @@ namespace MahAppsExample
 
                             if (resp == MessageBoxResult.Yes)
                             {
+                                
 
-                                loaderBack.Visibility= Visibility.Visible;
-                                lblProgresRemedy.Text = "AUTOSIMILE";
+                                progressBarAnimation(10000, "AUTOSIMIL", "#DCB74D");
 
                                 new Thread((ThreadStart)delegate
                                 {
@@ -5585,7 +5645,7 @@ namespace MahAppsExample
                                                     ListaRemedios.Items.Remove(lista_objetos[index]); //Elimina objeto en base a index
                                                     ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                     lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
-                                                    loaderBack.Visibility = Visibility.Hidden;
+                                                    function_activa = false;
                                                 });
 
                                 }).Start();
@@ -5593,12 +5653,7 @@ namespace MahAppsExample
                         }
                         else
                         {
-                            
-                            loaderBack.Visibility = Visibility.Visible;
-                            lblProgresRemedy.Text = obtenerRecurso("textMessage");
-                     
-                            
-                           
+                            progressBarAnimation(10000, obtenerRecurso("txtMessage1"), "#DCB74D");
 
                             new Thread((ThreadStart)delegate
                             {
@@ -5609,8 +5664,6 @@ namespace MahAppsExample
                                             {
                                                 ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                 lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
-
-                                                loaderBack.Visibility = Visibility.Hidden;
                                                 function_activa = false;
 
                                             });
@@ -5631,13 +5684,12 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
-                    loaderBack.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Text = obtenerRecurso("txtMessage2");
+                    progressBarAnimation(3000, obtenerRecurso("txtMessage2"), "#ff0000");
 
                     new Thread((ThreadStart)delegate
                     {
                         obj.Neutralizando();
-                        Thread.Sleep(4700); //Tiempo
+                        Thread.Sleep(3000); //Tiempo
 
                         Dispatcher.Invoke((ThreadStart)delegate
                                 {
@@ -5657,8 +5709,8 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    loaderBack.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Text = obtenerRecurso("txtMessage3");
+                    progressBarAnimation(15000, obtenerRecurso("txtMessage3"), "#c90076");
+                    
 
                     new Thread((ThreadStart)delegate
                     {
@@ -5667,7 +5719,6 @@ namespace MahAppsExample
 
                         Dispatcher.Invoke((ThreadStart)delegate
                                 {
-                                    loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
 
                                 });
@@ -5684,8 +5735,8 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    loaderBack.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Text = obtenerRecurso("txtMessage4");
+                    progressBarAnimation(15000, obtenerRecurso("txtMessage4"), "#FFF");
+                    
 
                     new Thread((ThreadStart)delegate
                     {
@@ -5694,7 +5745,6 @@ namespace MahAppsExample
 
                         Dispatcher.Invoke((ThreadStart)delegate
                                 {
-                                    loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
                                 });
 
@@ -5710,8 +5760,7 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
-                    loaderBack.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Text = obtenerRecurso("txtMessage5");
+                    progressBarAnimation(5000, obtenerRecurso("txtMessage5"),"#FFF");
 
                     new Thread((ThreadStart)delegate
                     {
@@ -5737,10 +5786,8 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    loaderBack.Visibility = Visibility.Visible;
-                    lblProgresRemedy.Text = obtenerRecurso("txtMessage6");
-
-
+                    progressBarAnimation(5000, obtenerRecurso("txtMessage6"), "#FFF");
+                   
                     new Thread((ThreadStart)delegate
                     {
                         obj.Save();
@@ -5758,13 +5805,57 @@ namespace MahAppsExample
             }
         }
 
+        public async void progressBarAnimationDT(int ms, string txt, string color)
+        {
+            SolidColorBrush nuevoColor = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
+            progressBar.Foreground = nuevoColor;
+
+            lblProgress.Content = txt;
+            progressBar.Visibility = Visibility.Visible;
+            lblProgress.Visibility = Visibility.Visible;
+            lblPorcentProgress.Visibility = Visibility.Visible;
+
+            double targetValue = 100;
+            double startValue = progressBar.Value;
+            double incrementPerMillisecond = (targetValue - startValue) / ms;
+            DateTime startTime = DateTime.Now;
+
+            while ((DateTime.Now - startTime).TotalMilliseconds < ms && isAnimationActive)
+            {
+                double elapsedTimeMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
+                double newValue = startValue + (incrementPerMillisecond * elapsedTimeMilliseconds);
+                progressBar.Value = newValue;
+
+                // Calcula el tiempo restante en minutos y segundos
+                double remainingSeconds = (ms - elapsedTimeMilliseconds) / 1000;
+                int remainingMinutes = (int)(remainingSeconds / 60);
+                int remainingSecondsDisplay = (int)(remainingSeconds % 60);
+
+                // Formatea el tiempo restante en una cadena
+                string remainingTime = $"{remainingMinutes:00}:{remainingSecondsDisplay:00}";
+
+                // Actualiza el contenido del TextBlock con el tiempo restante
+                lblPorcentProgress.Content = remainingTime;
+
+                await Task.Delay(10);
+            }
+
+            progressBar.Value = targetValue;
+            progressClean();
+            progressBar.Visibility = Visibility.Hidden;
+            lblProgress.Visibility = Visibility.Hidden;
+            lblPorcentProgress.Visibility = Visibility.Hidden;
+        }
+
         System.Windows.Threading.DispatcherTimer Timer_segundos = new System.Windows.Threading.DispatcherTimer();
         System.Windows.Threading.DispatcherTimer Timer_minutos = new System.Windows.Threading.DispatcherTimer();
 
         double minutos_tratamiento;
         double segundos_tratamiento = 60;
+        bool isAnimationActive = true;
         private void cmdTratamientoDirecto_Click(object sender, RoutedEventArgs e)
         {
+            isAnimationActive = true;
             if (function_activa == false)
             {
                 function_activa = true;
@@ -5795,15 +5886,21 @@ namespace MahAppsExample
                             Timer_minutos.Start();
 
                             //Barra de progreso
-                            loaderBack.Visibility = Visibility.Visible;
-                            cmdTerminarDiag.Visibility = Visibility.Hidden;
+                            int tratamientoenms = Convert.ToInt32(minutos_tratamiento) * 60 * 1000;
+                            progressBarAnimationDT(tratamientoenms, "DIRECT TREATMENT", "#8ED6FF");
+                            cmdTerminarDiag.Visibility = Visibility.Visible;
                             obj.Diagnostic(); //Lo inicia
                         }
                         else
                         {
                             opcionesHomoeonic.IsEnabled = true;
+                            // Detener y reiniciar Timer_segundos
                             Timer_segundos.Stop();
+                            Timer_segundos.Interval = TimeSpan.Zero;
+
+                            // Detener y reiniciar Timer_minutos
                             Timer_minutos.Stop();
+                            Timer_minutos.Interval = TimeSpan.Zero;
                             function_activa = false;
                         }
 
@@ -5818,19 +5915,29 @@ namespace MahAppsExample
 
         private void cmdTerminarDiag_Click(object sender, RoutedEventArgs e)
         {
+            isAnimationActive = false;
             //Para ambos timers
-            Timer_minutos.Stop();
+            // Detener y reiniciar Timer_segundos
             Timer_segundos.Stop();
+            Timer_segundos.Interval = TimeSpan.Zero;
+
+            // Detener y reiniciar Timer_minutos
+            Timer_minutos.Stop();
+            Timer_minutos.Interval = TimeSpan.Zero;
+
 
             //Elimina todo
             new Thread((ThreadStart)delegate
             {
                 Dispatcher.Invoke((ThreadStart)delegate
                 {
-                    loaderBack.Visibility = Visibility.Hidden;
+                    cmdTerminarDiag.Visibility=Visibility.Hidden;
+                    lblPorcentProgress.Visibility = Visibility.Hidden;
+                    lblProgress.Visibility = Visibility.Hidden;
+                    progressBar.Visibility = Visibility.Hidden;
                     cmdTerminarDiag.Visibility = Visibility.Hidden;
-
-                    obj.Diagnostic();
+                    function_activa = false;
+                    opcionesHomoeonic.IsEnabled = true;
 
                 });
 
