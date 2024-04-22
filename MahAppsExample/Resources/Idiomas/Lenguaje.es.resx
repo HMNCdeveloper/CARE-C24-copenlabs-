@@ -1161,6 +1161,12 @@
   <data name="Penis" xml:space="preserve">
     <value>Pene (término médico)</value>
   </data>
+  <data name="progressBar1" xml:space="preserve">
+    <value>Guardando  PGR ...</value>
+  </data>
+  <data name="progressBar2" xml:space="preserve">
+    <value>Obteniendo PGR ...</value>
+  </data>
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
   </data>

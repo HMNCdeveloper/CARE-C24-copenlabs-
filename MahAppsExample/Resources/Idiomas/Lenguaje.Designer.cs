@@ -3148,6 +3148,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Saving PGR ....
+        /// </summary>
+        public static string progressBar1 {
+            get {
+                return ResourceManager.GetString("progressBar1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting PGR ....
+        /// </summary>
+        public static string progressBar2 {
+            get {
+                return ResourceManager.GetString("progressBar2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PAUSED.
         /// </summary>
         public static string PUASED {

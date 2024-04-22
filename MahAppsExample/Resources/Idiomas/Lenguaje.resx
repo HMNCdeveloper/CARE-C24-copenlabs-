@@ -1164,6 +1164,12 @@
   <data name="Penis" xml:space="preserve">
     <value>Penis</value>
   </data>
+  <data name="progressBar1" xml:space="preserve">
+    <value>Saving PGR ...</value>
+  </data>
+  <data name="progressBar2" xml:space="preserve">
+    <value>Getting PGR ...</value>
+  </data>
   <data name="PUASED" xml:space="preserve">
     <value>PAUSED</value>
   </data>

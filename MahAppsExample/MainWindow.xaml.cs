@@ -32,6 +32,7 @@ using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 using System.Windows.Media;
 using System.Windows.Controls;
+using System.Reflection;
 
 
 
@@ -913,48 +914,43 @@ namespace MahAppsExample
             {
                 //Numero Random para los rangos del PGR
                 Random num = new Random();
-
+                
                 //Mensaje de si hay una muestra en la maquina
                 MessageBoxResult Result = MessageBox.Show(obtenerRecurso("messageQuestion7"), obtenerRecurso("messageHeadQ"), MessageBoxButton.YesNo, MessageBoxImage.Question);
-                //MessageBox.Show(num.Next(10, 14).ToString());
+        
 
                 //Validacion
                 switch (Result)
                 {
                     //Respuesta SI
                     case MessageBoxResult.Yes:
-                        //Llamada a la clase Maquina (Para ejecutar funcion Diagnostic OFF(Code=-, Tiempo=0, Respuesta=-, Resumen=602)
-                        Radionica obj2 = new Radionica();
 
-                        bool bandera = true; // 
-                        obj.Diagnostic(); //DiagON
-
-
-                        //Validar si es humano o animal o suelo
-                        if ((optionSexoM.IsChecked == true || optionSexoF.IsChecked == true) && bandera == true)//Humanos
+                        progressBarAnimationPGR(3000, obtenerRecurso("progressBar2"), "#DCB74D");
+                        new Thread((ThreadStart)delegate
                         {
-                            Thread.Sleep(80);
+                            //obj.Similie(); //DiagON
+                            Thread.Sleep(3000);
 
-                            txtPGR.Text = obj2.RandomDigits(num.Next(16, 22));  //Llamada a funcion diagnostico (6 a 12 digitos)
 
-                        }
+                            Dispatcher.Invoke((ThreadStart)delegate
+                            {
+                                Radionica obj2 = new Radionica();
 
-                        if ((optionSexoAn.IsChecked == true || optionSexoPl.IsChecked == true) && bandera == true)///Animales o suelo
-                        {
-                            Thread.Sleep(80);
+                                bool bandera = true; // 
 
-                            txtPGR.Text = obj2.RandomDigits(num.Next(13, 22));  //Llamada a funcion diagnostico (3 a 7 digitos)
-                        }
+                                //Validar si es humano o animal o suelo
+                                if ((optionSexoM.IsChecked == true || optionSexoF.IsChecked == true) && bandera == true)//Humanos
+                                {
+                                    txtPGR.Text = obj2.RandomDigits(num.Next(16, 22));  //Llamada a funcion diagnostico (6 a 12 digitos)
+                                }
 
-                        //Progressbar_PGR.Value = 0; //Reinicia la barra
+                                if ((optionSexoAn.IsChecked == true || optionSexoPl.IsChecked == true) && bandera == true)///Animales o suelo
+                                {
+                                    txtPGR.Text = obj2.RandomDigits(num.Next(13, 22));  //Llamada a funcion diagnostico (3 a 7 digitos)
+                                }
+                            });
 
-                        //Ciclo de avance
-                        for (int i = 0; i < 100; i++)
-                        {
-                            // Progressbar_PGR.Value++;
-                            Thread.Sleep(80);
-                        }
-                        obj.Diagnostic(); //DiagON
+                        }).Start();   
 
                         break;
 
@@ -1173,9 +1169,18 @@ namespace MahAppsExample
             }
             else
             {
-                obj.Save(); //Guarda
-                Thread.Sleep(5000);
-                MessageBox.Show(obtenerRecurso("messageInfo5"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                progressBarAnimationPGR(5000, obtenerRecurso("progressBar1"), "#DCB74D");
+                new Thread((ThreadStart)delegate
+                {
+                    obj.Save();
+                    Thread.Sleep(5000);
+                    Dispatcher.Invoke((ThreadStart)delegate
+                    {
+                        MessageBox.Show(obtenerRecurso("messageInfo5"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+
+                }).Start();
             }
         }
 
@@ -2908,17 +2913,7 @@ namespace MahAppsExample
 
                         if (nombrecodigo.Contains(listadoCodigos.SelectedItem.ToString()) == false)
                         {
-<<<<<<< HEAD
-
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-||||||| 7d76458
-                            
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-=======
-                            
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-",potencia="-",potenciaSugeridad="-", ftester = Convert.ToInt32(0), nsugerido = "-" });
->>>>>>> master
-
                         }
                     }
                     else
@@ -3251,17 +3246,8 @@ namespace MahAppsExample
                         //Agregar todos los existentes en la listadecodigos
                         for (int w = 0; w <= listadoCodigos.Items.Count - 1; w++)
                         {
-<<<<<<< HEAD
-
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-||||||| 7d76458
-                            
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-=======
                             
                             ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.Items[w].ToString(), rates = Categorias_Codigos[w], niveles = "-", ftester = Convert.ToInt32(0), potencia="-",potenciaSugeridad="-",nsugerido = "-" });
->>>>>>> master
-
                         }
                         lblContCodigos.Content = ListaCodigos.Items.Count;
 
@@ -4560,14 +4546,8 @@ namespace MahAppsExample
             
                 if (comboCategoriasRemedios.SelectedIndex == -1)
                 {
-<<<<<<< HEAD
 
-                    RemediosLista = obj2.VisualizarRemedios();
-||||||| 7d76458
-                    
-                    RemediosLista = obj2.VisualizarRemedios();
-=======
->>>>>>> master
+
 
                     //Agrega elementos al listbox
                     for (int i = 0; i <= RemediosLista.Rows.Count - 1; i++)
@@ -5614,9 +5594,61 @@ namespace MahAppsExample
             lblPorcentProgress.Visibility = Visibility.Hidden;
         }
 
+
+        public async void progressBarAnimationPGR(int ms, string txt, string color)
+        {
+
+            // Convierte el valor hexadecimal a un objeto SolidColorBrush
+            SolidColorBrush nuevoColor = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
+
+            // Asigna el nuevo color a la propiedad Foreground del Label
+            progressBar1.Foreground = nuevoColor; // Reemplaza "tuLabel" con el nombre de tu Label
+
+
+            lblProgress1.Content = txt;
+            progressBar1.Visibility = Visibility.Visible;
+            lblProgress1.Visibility = Visibility.Visible;
+            lblPorcentProgress1.Visibility = Visibility.Visible;
+
+            // Valor final al que queremos llegar
+            double targetValue = 100;
+
+            // Valor inicial de la barra de progreso
+            double startValue = progressBar1.Value;
+
+            // Incremento por milisegundo
+            double incrementPerMillisecond = (targetValue - startValue) / ms;
+
+            // Variable de tiempo inicial
+            DateTime startTime = DateTime.Now;
+
+            // Mientras no haya pasado el tiempo total de la animación
+            while ((DateTime.Now - startTime).TotalMilliseconds < ms)
+            {
+                // Calcular el nuevo valor de la barra de progreso
+                double elapsedTimeMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
+                double newValue = startValue + (incrementPerMillisecond * elapsedTimeMilliseconds);
+
+                // Aplicar el nuevo valor a la barra de progreso
+                progressBar1.Value = newValue;
+                string num = newValue.ToString("0") + "%";
+                lblPorcentProgress1.Content = num;
+                // Pequeño retraso para actualizar la barra de progreso suavemente
+                await Task.Delay(10);
+            }
+
+            // Ajustar el valor final a 100 en caso de que se haya excedido
+            progressBar1.Value = targetValue;
+            progressBar1.Value = 0;
+            progressBar1.Visibility = Visibility.Hidden;
+            lblProgress1.Visibility = Visibility.Hidden;
+            lblPorcentProgress1.Visibility = Visibility.Hidden;
+        }
+
         public void progressClean()
         {
             progressBar.Value = 0;
+           
         }
 
         //Funcion autosimile

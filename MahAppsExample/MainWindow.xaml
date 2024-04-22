@@ -369,8 +369,12 @@
                                             <TextBox.Effect>
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
-
                                         </TextBox>
+
+                                         <!--progress bar to PGR-->
+                                        <ProgressBar x:Name="progressBar1" Visibility="Hidden" HorizontalAlignment="Left"  Height="50" Margin="20,490,0,0" VerticalAlignment="Top" Width="1000" Style="{StaticResource CustomProgressBarStyle}"/>
+                                        <Label x:Name="lblProgress1" Content="jaja" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="45,498,389,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
+                                        <Label x:Name="lblPorcentProgress1" Content="%" Visibility="Hidden" Margin="100,493,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
                                     </Grid>
                                 </TabItem>
 
@@ -939,16 +943,8 @@
                                     <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
                                     <CheckBox x:Name="optionSugerirPot"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
                                     <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="258,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
-<<<<<<< HEAD
                                     <!--the next tag is used to show the comboBox-->
-                                    <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-||||||| 7d76458
-                                     <!--the next tag is used to show the comboBox-->
-                                    <Label x:Name="nivelP" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-=======
-                                     <!--the next tag is used to show the comboBox-->
                                     <Label x:Name="nivelP" Visibility="Hidden" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
->>>>>>> master
                                     <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="90,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
                                         <ComboBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
