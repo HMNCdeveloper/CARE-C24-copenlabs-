@@ -960,6 +960,9 @@
     <Content Include="Resources\1493.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\analisis-hombre.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Timer.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -2671,6 +2671,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to you must choose a patient to continue.
+        /// </summary>
+        public static string messageError70 {
+            get {
+                return ResourceManager.GetString("messageError70", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select an element to continue!.
         /// </summary>
         public static string messageError8 {
