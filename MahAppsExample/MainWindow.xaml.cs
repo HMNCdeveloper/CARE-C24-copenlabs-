@@ -37,6 +37,7 @@ using System.Reflection;
 
 
 
+
 namespace MahAppsExample
 {
     /// <summary>
@@ -925,7 +926,7 @@ namespace MahAppsExample
                     //Respuesta SI
                     case MessageBoxResult.Yes:
 
-                        progressBarAnimationPGR(3000, obtenerRecurso("progressBar2"), "#DCB74D");
+                        progressBarAnimationPGR(3000, obtenerRecurso("progressBar2"));
                         new Thread((ThreadStart)delegate
                         {
                             //obj.Similie(); //DiagON
@@ -1170,7 +1171,7 @@ namespace MahAppsExample
             else
             {
 
-                progressBarAnimationPGR(5000, obtenerRecurso("progressBar1"), "#DCB74D");
+                progressBarAnimationPGR(5000, obtenerRecurso("progressBar1"));
                 new Thread((ThreadStart)delegate
                 {
                     obj.Save();
@@ -5544,15 +5545,31 @@ namespace MahAppsExample
         //Variable global para funciones
         bool function_activa = false;
 
-        public async void progressBarAnimation(int ms, string txt, string color)
+        public async void progressBarAnimation(int ms, string txt, string color, string _color)
         {
+            LinearGradientBrush gradientBrush = new LinearGradientBrush();
 
+            // Definir los puntos de inicio y fin del gradiente
+            gradientBrush.StartPoint = new System.Windows.Point(0, 0);
+            gradientBrush.EndPoint = new System.Windows.Point(1, 1);
+
+            // Crear los dos colores del gradiente
+            System.Windows.Media.Color color1 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color);
+            System.Windows.Media.Color color2 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(_color); // Un tono más oscuro en hexadecimal sería "#FF3CB3DF"
+
+            // Agregar los colores al gradiente
+            gradientBrush.GradientStops.Add(new GradientStop(color1, 0.0));
+            gradientBrush.GradientStops.Add(new GradientStop(color2, 1.0));
+
+            // Asignar el LinearGradientBrush al Foreground del elemento deseado (por ejemplo, progressBar1)
+            progressBar.Foreground = gradientBrush; // Reemplaza "tuLabel" con el nombre de tu Label
+            /*
             // Convierte el valor hexadecimal a un objeto SolidColorBrush
             SolidColorBrush nuevoColor = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
 
             // Asigna el nuevo color a la propiedad Foreground del Label
-            progressBar.Foreground = nuevoColor; // Reemplaza "tuLabel" con el nombre de tu Label
-            
+            progressBar.Foreground = nuevoColor; // Reemplaza "tuLabel" con el nombre de tu Label*/
+
 
             lblProgress.Content = txt;
             progressBar.Visibility = Visibility.Visible;
@@ -5595,14 +5612,25 @@ namespace MahAppsExample
         }
 
 
-        public async void progressBarAnimationPGR(int ms, string txt, string color)
+        public async void progressBarAnimationPGR(int ms, string txt)
         {
 
-            // Convierte el valor hexadecimal a un objeto SolidColorBrush
-            SolidColorBrush nuevoColor = (SolidColorBrush)new BrushConverter().ConvertFromString(color);
+            LinearGradientBrush gradientBrush = new LinearGradientBrush();
 
-            // Asigna el nuevo color a la propiedad Foreground del Label
-            progressBar1.Foreground = nuevoColor; // Reemplaza "tuLabel" con el nombre de tu Label
+            // Definir los puntos de inicio y fin del gradiente
+            gradientBrush.StartPoint = new System.Windows.Point(0, 0);
+            gradientBrush.EndPoint = new System.Windows.Point(1, 1);
+
+            // Crear los dos colores del gradiente
+            System.Windows.Media.Color color1 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF3CB3DF");
+            System.Windows.Media.Color color2 = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#16537e"); // Un tono más oscuro en hexadecimal sería "#FF3CB3DF"
+
+            // Agregar los colores al gradiente
+            gradientBrush.GradientStops.Add(new GradientStop(color1, 0.0));
+            gradientBrush.GradientStops.Add(new GradientStop(color2, 1.0));
+
+            // Asignar el LinearGradientBrush al Foreground del elemento deseado (por ejemplo, progressBar1)
+            progressBar1.Foreground = gradientBrush; // Reemplaza "tuLabel" con el nombre de tu Label
 
 
             lblProgress1.Content = txt;
@@ -5705,7 +5733,7 @@ namespace MahAppsExample
                             {
                                 
 
-                                progressBarAnimation(10000, "AUTOSIMIL", "#DCB74D");
+                                progressBarAnimation(10000, "AUTOSIMIL", "#ffbd00", "#fcd66b");
 
                                 new Thread((ThreadStart)delegate
                                 {
@@ -5718,14 +5746,16 @@ namespace MahAppsExample
                                                     ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                     lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                     function_activa = false;
+                                                    MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
                                                 });
 
                                 }).Start();
+
                             }
                         }
                         else
                         {
-                            progressBarAnimation(10000, obtenerRecurso("txtMessage1"), "#DCB74D");
+                            progressBarAnimation(10000, obtenerRecurso("txtMessage1"), "#ffbd00", "#fcd66b");
 
                             new Thread((ThreadStart)delegate
                             {
@@ -5737,10 +5767,11 @@ namespace MahAppsExample
                                                 ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                 lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                 function_activa = false;
-
+                                                MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
                                             });
 
                             }).Start();
+                            
 
                         }
                     }
@@ -5756,7 +5787,7 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
-                    progressBarAnimation(3000, obtenerRecurso("txtMessage2"), "#ff0000");
+                    progressBarAnimation(3000, obtenerRecurso("txtMessage2"), "#ff0000", "#ff6161");
 
                     new Thread((ThreadStart)delegate
                     {
@@ -5781,7 +5812,7 @@ namespace MahAppsExample
                 function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    progressBarAnimation(15000, obtenerRecurso("txtMessage3"), "#c90076");
+                    progressBarAnimation(15000, obtenerRecurso("txtMessage3"), "#c90076", "#c15795");
                     
 
                     new Thread((ThreadStart)delegate
@@ -5804,10 +5835,10 @@ namespace MahAppsExample
         {
             if (function_activa == false)
             {
-                function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    progressBarAnimation(15000, obtenerRecurso("txtMessage4"), "#FFF");
+                    function_activa = true;
+                    progressBarAnimation(15000, obtenerRecurso("txtMessage4"), "#ff0096", "#ff8dd0");
                     
 
                     new Thread((ThreadStart)delegate
@@ -5829,10 +5860,10 @@ namespace MahAppsExample
         {
             if (function_activa == false)
             {
-                function_activa = true;
                 if (ListaRemedios.Items.Count != 0 || ListaRemedios.Items.Count == 0)
                 {
-                    progressBarAnimation(5000, obtenerRecurso("txtMessage5"),"#FFF");
+                    function_activa = true;
+                    progressBarAnimation(5000, obtenerRecurso("txtMessage5"), "#f44336", "#fa746a");
 
                     new Thread((ThreadStart)delegate
                     {
@@ -5855,10 +5886,10 @@ namespace MahAppsExample
             if (function_activa == false)
             {
 
-                function_activa = true;
                 if (ListaRemedios.Items.Count != 0)
                 {
-                    progressBarAnimation(5000, obtenerRecurso("txtMessage6"), "#FFF");
+                    function_activa = true;
+                    progressBarAnimation(5000, obtenerRecurso("txtMessage6"), "#ffc000", "#ffe599");
                    
                     new Thread((ThreadStart)delegate
                     {
@@ -5928,10 +5959,17 @@ namespace MahAppsExample
         private void cmdTratamientoDirecto_Click(object sender, RoutedEventArgs e)
         {
             isAnimationActive = true;
-            if (function_activa == false)
+            function_activa = true;
+            if (function_activa == true)
             {
+<<<<<<< HEAD
                 function_activa = true;
       
+||||||| 58b7157
+                function_activa = true;
+=======
+                
+>>>>>>> bb20a9088beb6176166b8276180030aea0463067
                 if (ListaRemedios.Items.Count != 0)
                 {
                     try
@@ -5962,7 +6000,9 @@ namespace MahAppsExample
                             int tratamientoenms = Convert.ToInt32(minutos_tratamiento) * 60 * 1000;
                             progressBarAnimationDT(tratamientoenms, "DIRECT TREATMENT", "#8ED6FF");
                             cmdTerminarDiag.Visibility = Visibility.Visible;
-                            obj.Diagnostic(); //Lo inicia
+                            obj.Diagnostic();
+                            //Lo inicia
+                            
                         }
                         else
                         {
@@ -5974,6 +6014,13 @@ namespace MahAppsExample
                             // Detener y reiniciar Timer_minutos
                             Timer_minutos.Stop();
                             Timer_minutos.Interval = TimeSpan.Zero;
+<<<<<<< HEAD
+||||||| 58b7157
+                            function_activa = false;
+=======
+                            function_activa = false;
+                            
+>>>>>>> bb20a9088beb6176166b8276180030aea0463067
                         }
 
                         function_activa = false;
@@ -5985,9 +6032,10 @@ namespace MahAppsExample
                     }
                 }
             }
+            
         }
 
-        private void cmdTerminarDiag_Click(object sender, RoutedEventArgs e)
+        public void cmdTerminarDiagnostico()
         {
             isAnimationActive = false;
             //Para ambos timers
@@ -6005,7 +6053,7 @@ namespace MahAppsExample
             {
                 Dispatcher.Invoke((ThreadStart)delegate
                 {
-                    cmdTerminarDiag.Visibility=Visibility.Hidden;
+                    cmdTerminarDiag.Visibility = Visibility.Hidden;
                     lblPorcentProgress.Visibility = Visibility.Hidden;
                     lblProgress.Visibility = Visibility.Hidden;
                     progressBar.Visibility = Visibility.Hidden;
@@ -6016,6 +6064,10 @@ namespace MahAppsExample
                 });
 
             }).Start();
+        }
+        private void cmdTerminarDiag_Click(object sender, RoutedEventArgs e)
+        {
+            cmdTerminarDiagnostico();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -6048,6 +6100,10 @@ namespace MahAppsExample
                     });
 
                 }).Start();
+
+                cmdTerminarDiagnostico();
+                MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
+
             }
         }
 
