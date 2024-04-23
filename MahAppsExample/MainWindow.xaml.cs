@@ -37,7 +37,6 @@ using System.Reflection;
 
 
 
-
 namespace MahAppsExample
 {
     /// <summary>
@@ -5544,6 +5543,8 @@ namespace MahAppsExample
 
         //Variable global para funciones
         bool function_activa = false;
+        // En algún método dentro de tu archivo .cs
+        
 
         public async void progressBarAnimation(int ms, string txt, string color, string _color)
         {
@@ -5746,7 +5747,9 @@ namespace MahAppsExample
                                                     ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                     lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                     function_activa = false;
-                                                    MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
+                                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                                    customMessageBox.Message = "Autosimil realizado correctamente";
+                                                    customMessageBox.ShowDialog();
                                                 });
 
                                 }).Start();
@@ -5767,7 +5770,9 @@ namespace MahAppsExample
                                                 ListaRemedios.Items.Add(new nuevoRemedio { codigo = autosimile_codigo, nombrecodigo = "Autosimile - " + DateTime.Now.ToString(), potencia = "1", metodo = "R", codigocomplementario = "-", nivel = "-" });
                                                 lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                 function_activa = false;
-                                                MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
+                                                HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                                customMessageBox.Message = "Autosimil realizado correctamente";
+                                                customMessageBox.ShowDialog();
                                             });
 
                             }).Start();
@@ -5798,6 +5803,9 @@ namespace MahAppsExample
                                 {
                                     loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
+                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                    customMessageBox.Message = "Sustancia neutralizada correctamente";
+                                    customMessageBox.ShowDialog();
                                 });
 
                     }).Start();
@@ -5823,6 +5831,9 @@ namespace MahAppsExample
                         Dispatcher.Invoke((ThreadStart)delegate
                                 {
                                     function_activa = false;
+                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                    customMessageBox.Message = "Impresión realizada correctamente";
+                                    customMessageBox.ShowDialog();
 
                                 });
 
@@ -5849,6 +5860,9 @@ namespace MahAppsExample
                         Dispatcher.Invoke((ThreadStart)delegate
                                 {
                                     function_activa = false;
+                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                    customMessageBox.Message = "Sustancia copiada correctamente";
+                                    customMessageBox.ShowDialog();
                                 });
 
                     }).Start();
@@ -5874,6 +5888,9 @@ namespace MahAppsExample
                                 {
                                     loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
+                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                    customMessageBox.Message = "Código de la tarjeta ECS borrado correctamente";
+                                    customMessageBox.ShowDialog();
                                 });
 
                     }).Start();
@@ -5901,6 +5918,9 @@ namespace MahAppsExample
                                     loaderBack.Visibility = Visibility.Hidden;
                                     lblProgresRemedy.Visibility = Visibility.Hidden;
                                     function_activa = false;
+                                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                                    customMessageBox.Message = "Código guardado en la tarjeta ECS correctamente";
+                                    customMessageBox.ShowDialog();
                                 });
 
                     }).Start();
@@ -6046,7 +6066,9 @@ namespace MahAppsExample
                     cmdTerminarDiag.Visibility = Visibility.Hidden;
                     function_activa = false;
                     opcionesHomoeonic.IsEnabled = true;
-
+                    HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
+                    customMessageBox.Message = "Tratamiento terminado";
+                    customMessageBox.ShowDialog();
                 });
 
             }).Start();
@@ -6088,7 +6110,7 @@ namespace MahAppsExample
                 }).Start();
 
                 cmdTerminarDiagnostico();
-                MessageBox.Show("Tu mensaje aquí", "Título del mensaje", MessageBoxButton.OK);
+                
 
             }
         }
