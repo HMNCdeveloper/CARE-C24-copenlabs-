@@ -373,8 +373,8 @@
 
                                          <!--progress bar to PGR-->
                                         <ProgressBar x:Name="progressBar1" Visibility="Hidden" HorizontalAlignment="Left"  Height="50" Margin="20,490,0,0" VerticalAlignment="Top" Width="1000" Style="{StaticResource CustomProgressBarStyle}"/>
-                                        <Label x:Name="lblProgress1" Content="jaja" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="45,498,389,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
-                                        <Label x:Name="lblPorcentProgress1" Content="%" Visibility="Hidden" Margin="100,493,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
+                                        <Label x:Name="lblProgress1" Content="jaja" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="45,499,389,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
+                                        <Label x:Name="lblPorcentProgress1" Content="%" Visibility="Hidden" Margin="100,498,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
                                     </Grid>
                                 </TabItem>
 
