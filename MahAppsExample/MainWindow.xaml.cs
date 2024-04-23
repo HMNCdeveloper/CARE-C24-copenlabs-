@@ -107,12 +107,13 @@ namespace MahAppsExample
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
 
             //this condition is used to perform the backup loading in the db in an automated way
-            if (File.Exists(RutaInstalacion() + "\\db\\code.sql"))
+            if (File.Exists(RutaInstalacion() + "\\db\\rad_es.sql")  || File.Exists(RutaInstalacion() + "\\db\\rad_en.sql"))
             {
 
                 MessageBox.Show("You need to restore  the bckup to your local database before proceeding!.... Then it will be installed!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 HacerConexion();
-                obj2.UploadBackup(RutaInstalacion() + "\\db\\code.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
+                obj2.UploadBackup(RutaInstalacion() + "\\db\\rad_en.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
+                obj2.UploadBackup(RutaInstalacion() + "\\db\\rad_es.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
                 CerrarConexion();
                 var window = Application.Current.Windows[0];
                 window.Close();
@@ -5748,7 +5749,7 @@ namespace MahAppsExample
                                                     lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                     function_activa = false;
                                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                                    customMessageBox.Message = "Autosimil realizado correctamente";
+                                                    customMessageBox.Message = obtenerRecurso("messageBox1");
                                                     customMessageBox.ShowDialog();
                                                 });
 
@@ -5771,7 +5772,7 @@ namespace MahAppsExample
                                                 lblContCodigosRemedios.Content = ListaRemedios.Items.Count;
                                                 function_activa = false;
                                                 HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                                customMessageBox.Message = "Autosimil realizado correctamente";
+                                                customMessageBox.Message = obtenerRecurso("messageBox1");
                                                 customMessageBox.ShowDialog();
                                             });
 
@@ -5804,7 +5805,7 @@ namespace MahAppsExample
                                     loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                    customMessageBox.Message = "Sustancia neutralizada correctamente";
+                                    customMessageBox.Message = obtenerRecurso("messageBox2");
                                     customMessageBox.ShowDialog();
                                 });
 
@@ -5832,7 +5833,7 @@ namespace MahAppsExample
                                 {
                                     function_activa = false;
                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                    customMessageBox.Message = "Impresión realizada correctamente";
+                                    customMessageBox.Message = obtenerRecurso("messageBox3");
                                     customMessageBox.ShowDialog();
 
                                 });
@@ -5861,7 +5862,7 @@ namespace MahAppsExample
                                 {
                                     function_activa = false;
                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                    customMessageBox.Message = "Sustancia copiada correctamente";
+                                    customMessageBox.Message = obtenerRecurso("messageBox4");
                                     customMessageBox.ShowDialog();
                                 });
 
@@ -5889,7 +5890,7 @@ namespace MahAppsExample
                                     loaderBack.Visibility = Visibility.Hidden;
                                     function_activa = false;
                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                    customMessageBox.Message = "Código de la tarjeta ECS borrado correctamente";
+                                    customMessageBox.Message = obtenerRecurso("messageBox5");
                                     customMessageBox.ShowDialog();
                                 });
 
@@ -5919,7 +5920,7 @@ namespace MahAppsExample
                                     lblProgresRemedy.Visibility = Visibility.Hidden;
                                     function_activa = false;
                                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                                    customMessageBox.Message = "Código guardado en la tarjeta ECS correctamente";
+                                    customMessageBox.Message = obtenerRecurso("messageBox6");
                                     customMessageBox.ShowDialog();
                                 });
 
@@ -6069,7 +6070,7 @@ namespace MahAppsExample
                     function_activa = false;
                     opcionesHomoeonic.IsEnabled = true;
                     HS5.CustomMessageBox customMessageBox = new HS5.CustomMessageBox();
-                    customMessageBox.Message = "Tratamiento terminado";
+                    customMessageBox.Message = obtenerRecurso("messageBox7");
                     customMessageBox.ShowDialog();
                 });
 

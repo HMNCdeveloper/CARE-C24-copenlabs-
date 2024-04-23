@@ -801,6 +801,27 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedies and Homoepathy </value>
   </data>
+  <data name="messageBox1" xml:space="preserve">
+    <value>Autosimil  successfully  completed</value>
+  </data>
+  <data name="messageBox2" xml:space="preserve">
+    <value>Substance was  successfully neutralized.</value>
+  </data>
+  <data name="messageBox3" xml:space="preserve">
+    <value>Priting was successful</value>
+  </data>
+  <data name="messageBox4" xml:space="preserve">
+    <value>Substance  succesfully copied </value>
+  </data>
+  <data name="messageBox5" xml:space="preserve">
+    <value> The code of ECS card was succesfully erased.</value>
+  </data>
+  <data name="messageBox6" xml:space="preserve">
+    <value>The  code of ECS card was succesfully saved.</value>
+  </data>
+  <data name="messageBox7" xml:space="preserve">
+    <value>Treatment finished </value>
+  </data>
   <data name="messageError" xml:space="preserve">
     <value>Only Numbers are allowed</value>
   </data>

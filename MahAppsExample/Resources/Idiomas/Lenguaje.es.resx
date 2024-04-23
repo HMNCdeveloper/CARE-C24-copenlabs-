@@ -807,6 +807,27 @@
   <data name="MenuRemedies" xml:space="preserve">
     <value>Remedios y Homoepatia</value>
   </data>
+  <data name="messageBox1" xml:space="preserve">
+    <value>Autosimil realizado correctamente</value>
+  </data>
+  <data name="messageBox2" xml:space="preserve">
+    <value>Sustancia neutralizada correctamente</value>
+  </data>
+  <data name="messageBox3" xml:space="preserve">
+    <value>Impresión realizada correctamente</value>
+  </data>
+  <data name="messageBox4" xml:space="preserve">
+    <value>Sustancia copiada correctamente </value>
+  </data>
+  <data name="messageBox5" xml:space="preserve">
+    <value>Código de la tarjeta ECS borrado correctamente</value>
+  </data>
+  <data name="messageBox6" xml:space="preserve">
+    <value>Código guardado en la tarjeta ECS correctamente</value>
+  </data>
+  <data name="messageBox7" xml:space="preserve">
+    <value>Tratamiento terminado</value>
+  </data>
   <data name="messageError" xml:space="preserve">
     <value>Solo se permite numeros </value>
   </data>

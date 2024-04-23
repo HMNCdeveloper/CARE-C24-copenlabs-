@@ -2077,6 +2077,69 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Autosimil  successfully  completed.
+        /// </summary>
+        public static string messageBox1 {
+            get {
+                return ResourceManager.GetString("messageBox1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Substance was  successfully neutralized..
+        /// </summary>
+        public static string messageBox2 {
+            get {
+                return ResourceManager.GetString("messageBox2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priting was successful.
+        /// </summary>
+        public static string messageBox3 {
+            get {
+                return ResourceManager.GetString("messageBox3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Substance  succesfully copied .
+        /// </summary>
+        public static string messageBox4 {
+            get {
+                return ResourceManager.GetString("messageBox4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The code of ECS card was succesfully erased..
+        /// </summary>
+        public static string messageBox5 {
+            get {
+                return ResourceManager.GetString("messageBox5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The  code of ECS card was succesfully saved..
+        /// </summary>
+        public static string messageBox6 {
+            get {
+                return ResourceManager.GetString("messageBox6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treatment finished .
+        /// </summary>
+        public static string messageBox7 {
+            get {
+                return ResourceManager.GetString("messageBox7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Only Numbers are allowed.
         /// </summary>
         public static string messageError {
