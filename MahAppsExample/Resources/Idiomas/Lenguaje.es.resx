@@ -1029,6 +1029,9 @@
   <data name="messageHeadQ4" xml:space="preserve">
     <value>Rango de caracterisiticas </value>
   </data>
+  <data name="messageHeadQ7" xml:space="preserve">
+    <value>Tratamiento Directo</value>
+  </data>
   <data name="messageHeadWarning" xml:space="preserve">
     <value>Advertencia</value>
   </data>
@@ -1064,6 +1067,9 @@
   </data>
   <data name="messageQuestion10" xml:space="preserve">
     <value>¿Deseas eliminar este usuario?</value>
+  </data>
+  <data name="messageQuestion11" xml:space="preserve">
+    <value>¿Cuanto minutos deseas  que dure el tratamiento?</value>
   </data>
   <data name="messageQuestion2" xml:space="preserve">
     <value>Nombre de la tarjeta ECS para guardar</value>
@@ -1166,6 +1172,9 @@
   </data>
   <data name="progressBar2" xml:space="preserve">
     <value>Obteniendo PGR ...</value>
+  </data>
+  <data name="progressBar3" xml:space="preserve">
+    <value>TRATAMIENTO DIRECTO</value>
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
@@ -1362,11 +1371,11 @@
   <data name="tableValue" xml:space="preserve">
     <value>Valor</value>
   </data>
-  <data name="textMessage" xml:space="preserve">
-    <value>EJECUTANDO AUTOSIMILE...</value>
-  </data>
   <data name="Throat" xml:space="preserve">
     <value>Garganta</value>
+  </data>
+  <data name="txtMessage1" xml:space="preserve">
+    <value>EJECUTANDO AUTOSIMILE...</value>
   </data>
   <data name="txtMessage2" xml:space="preserve">
     <value>NEUTRALIZANDO SUSTANCIA...</value>

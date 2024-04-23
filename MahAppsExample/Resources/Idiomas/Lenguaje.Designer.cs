@@ -2752,6 +2752,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Direct Treatment.
+        /// </summary>
+        public static string messageHeadQ7 {
+            get {
+                return ResourceManager.GetString("messageHeadQ7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Warning.
         /// </summary>
         public static string messageHeadWarning {
@@ -2856,6 +2865,15 @@ namespace HS5.Resources.Idiomas {
         public static string messageQuestion10 {
             get {
                 return ResourceManager.GetString("messageQuestion10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How many minutes do you want?.
+        /// </summary>
+        public static string messageQuestion11 {
+            get {
+                return ResourceManager.GetString("messageQuestion11", resourceCulture);
             }
         }
         
@@ -3162,6 +3180,15 @@ namespace HS5.Resources.Idiomas {
         public static string progressBar2 {
             get {
                 return ResourceManager.GetString("progressBar2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DIRECT TREATMENT.
+        /// </summary>
+        public static string progressBar3 {
+            get {
+                return ResourceManager.GetString("progressBar3", resourceCulture);
             }
         }
         

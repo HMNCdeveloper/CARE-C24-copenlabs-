@@ -5962,20 +5962,13 @@ namespace MahAppsExample
             function_activa = true;
             if (function_activa == true)
             {
-<<<<<<< HEAD
-                function_activa = true;
-      
-||||||| 58b7157
-                function_activa = true;
-=======
-                
->>>>>>> bb20a9088beb6176166b8276180030aea0463067
+
                 if (ListaRemedios.Items.Count != 0)
                 {
                     try
                     {
 
-                        minutos_tratamiento = Double.Parse(Interaction.InputBox("How many minutes do you want?", "Direct Treatment", "", 300, 300));
+                        minutos_tratamiento = Double.Parse(Interaction.InputBox(obtenerRecurso("messageQuestion11"), obtenerRecurso("messageHeadQ7")," ", 300, 300));
                         //minutos_tratamiento -= 1; //Baja un minuto para coincidir valor
                         //Mostrar tiempo
 
@@ -5998,7 +5991,7 @@ namespace MahAppsExample
 
                             //Barra de progreso
                             int tratamientoenms = Convert.ToInt32(minutos_tratamiento) * 60 * 1000;
-                            progressBarAnimationDT(tratamientoenms, "DIRECT TREATMENT", "#8ED6FF");
+                            progressBarAnimationDT(tratamientoenms, obtenerRecurso("progressBar3"), "#8ED6FF");
                             cmdTerminarDiag.Visibility = Visibility.Visible;
                             obj.Diagnostic();
                             //Lo inicia
@@ -6014,13 +6007,8 @@ namespace MahAppsExample
                             // Detener y reiniciar Timer_minutos
                             Timer_minutos.Stop();
                             Timer_minutos.Interval = TimeSpan.Zero;
-<<<<<<< HEAD
-||||||| 58b7157
+
                             function_activa = false;
-=======
-                            function_activa = false;
-                            
->>>>>>> bb20a9088beb6176166b8276180030aea0463067
                         }
 
                         function_activa = false;

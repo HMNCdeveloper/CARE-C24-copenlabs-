@@ -1032,6 +1032,9 @@
   <data name="messageHeadQ5" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="messageHeadQ7" xml:space="preserve">
+    <value>Direct Treatment</value>
+  </data>
   <data name="messageHeadWarning" xml:space="preserve">
     <value>Warning</value>
   </data>
@@ -1067,6 +1070,9 @@
   </data>
   <data name="messageQuestion10" xml:space="preserve">
     <value>Do you want   to delete the user?</value>
+  </data>
+  <data name="messageQuestion11" xml:space="preserve">
+    <value>How many minutes do you want?</value>
   </data>
   <data name="messageQuestion2" xml:space="preserve">
     <value>Name of the ECS Card to Save</value>
@@ -1169,6 +1175,9 @@
   </data>
   <data name="progressBar2" xml:space="preserve">
     <value>Getting PGR ...</value>
+  </data>
+  <data name="progressBar3" xml:space="preserve">
+    <value>DIRECT TREATMENT</value>
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>PAUSED</value>
