@@ -3,7 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\radionica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\johng\\AppData\\Local\\Temp\\.vsdbgsrc\\622a902f63a3b39e0f5c0e2b90c9751d0e203efd428d6de980b95d3c8364c257\\MainWindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\homoeonic-software-v6\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\mahappsexample\\radionica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\radionica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +26,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "C:\\Users\\johng\\AppData\\Local\\Temp\\.vsdbgsrc\\622a902f63a3b39e0f5c0e2b90c9751d0e203efd428d6de980b95d3c8364c257\\MainWindow.cs",
+              "RelativeDocumentMoniker": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\622a902f63a3b39e0f5c0e2b90c9751d0e203efd428d6de980b95d3c8364c257\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\johng\\AppData\\Local\\Temp\\.vsdbgsrc\\622a902f63a3b39e0f5c0e2b90c9751d0e203efd428d6de980b95d3c8364c257\\MainWindow.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\622a902f63a3b39e0f5c0e2b90c9751d0e203efd428d6de980b95d3c8364c257\\MainWindow.cs [Read Only]",
+              "ViewState": "AQIAANcjAAAAAAAAAAAcwNYjAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T18:00:40.707Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MahAppsExample\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAEUXAAAAAAAAAAAIwFoXAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-23T16:58:20.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Radionica.cs",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Radionica.cs",
               "RelativeDocumentMoniker": "MahAppsExample\\Radionica.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\Homoeonic-Software-V6\\MahAppsExample\\Radionica.cs",
               "RelativeToolTip": "MahAppsExample\\Radionica.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAA9wHwAAAAAAAAA",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAgwHwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T15:49:03.384Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T15:49:03.384Z"
             }
           ]
         }

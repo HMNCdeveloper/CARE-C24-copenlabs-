@@ -5658,7 +5658,7 @@ namespace MahAppsExample
             {
                 if (function_activa == false)
                 {
-                    function_activa = true; //Activa la bandera
+                    //function_activa = true; //Activa la bandera
 
                     
 
@@ -5931,6 +5931,7 @@ namespace MahAppsExample
             if (function_activa == false)
             {
                 function_activa = true;
+      
                 if (ListaRemedios.Items.Count != 0)
                 {
                     try
@@ -5973,8 +5974,9 @@ namespace MahAppsExample
                             // Detener y reiniciar Timer_minutos
                             Timer_minutos.Stop();
                             Timer_minutos.Interval = TimeSpan.Zero;
-                            function_activa = false;
                         }
+
+                        function_activa = false;
 
                     }
                     catch (FormatException)
