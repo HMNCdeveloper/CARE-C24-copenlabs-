@@ -218,6 +218,9 @@
     <Compile Include="CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CutomMessageBoxYesNo.xaml.cs">
+      <DependentUpon>CutomMessageBoxYesNo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Machine.xaml.cs">
       <DependentUpon>Machine.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CutomMessageBoxYesNo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -981,9 +988,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="agif.gif" />
     <Content Include="Resources\1493.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\agif.gif" />
     <Content Include="Resources\analisis-hombre.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

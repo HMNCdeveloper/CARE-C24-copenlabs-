@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows;
+using HS5;
 
 namespace MahAppsExample
 {
@@ -142,7 +143,7 @@ namespace MahAppsExample
         //Funcion para obtener los analisis recientemente de acuerdo a nombre del paciente
         public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(string paciente_nombre)
         {
-            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where nombrepaciente=$$"+paciente_nombre+"$$";
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where nombrepaciente=$$" + paciente_nombre + "$$";
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -151,9 +152,9 @@ namespace MahAppsExample
         }
 
         //Funcion para obtener los analisis recientemente de acuerdo a nombre del paciente
-        public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente2(string paciente_nombre,string nombre_analisis)
+        public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente2(string paciente_nombre, string nombre_analisis)
         {
-            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where UPPER(nombre) like '$$"+nombre_analisis+"$$' and nombrepaciente=$$" + paciente_nombre + "$$";
+            sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where UPPER(nombre) like '$$" + nombre_analisis + "$$' and nombrepaciente=$$" + paciente_nombre + "$$";
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -190,7 +191,7 @@ namespace MahAppsExample
         //Funcion para buscar terapia de color en las registradas
         public DataTable Buscar_Terapia(string nombre)
         {
-            sql = "select nombre,fechac from rad_remedios where nombre like '%Color%' and nombre like '%"+nombre+"%'";
+            sql = "select nombre,fechac from rad_remedios where nombre like '%Color%' and nombre like '%" + nombre + "%'";
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -225,7 +226,7 @@ namespace MahAppsExample
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
-        
+
         //Funcion para validar analisis
         public object Validar_Analisis(string paciente, string nombre_analisis)
         {
@@ -246,15 +247,15 @@ namespace MahAppsExample
         //Funcion para obtener ida del analisis para obtener sus codigos de analisis en base a id analisis
         public object Obtener_Id_Analisis(string nombre)
         {
-            sql = "select ida from rad_analisis where nombre=$$"+ nombre + "$$";
+            sql = "select ida from rad_analisis where nombre=$$" + nombre + "$$";
             command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar(); 
+            return command.ExecuteScalar();
         }
 
         //Funcion para obtener codigos del analisis
         public DataTable Obtener_CodigosAnalisis(string id_analisis)
         {
-            sql = "select * from rad_codigosdeanalisis where ida=$$"+id_analisis+"$$";
+            sql = "select * from rad_codigosdeanalisis where ida=$$" + id_analisis + "$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -267,7 +268,7 @@ namespace MahAppsExample
         public DataTable Buscar_Paciente(string paciente)
         {
             //sql = "SELECT idp, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes where UPPER((nombre || ' ' || apellido1 || ' ' || apellido2)) like $$%" + paciente + "%$$ order by nombre";
-            sql = "SELECT idp, CONCAT(nombre, ' ', apellido1, ' ', apellido2) AS nombrepaciente FROM rad_pacientes WHERE UPPER(CONCAT(nombre, ' ', apellido1, ' ', apellido2)) LIKE '%" + paciente +  "%'ORDER BY nombre";
+            sql = "SELECT idp, CONCAT(nombre, ' ', apellido1, ' ', apellido2) AS nombrepaciente FROM rad_pacientes WHERE UPPER(CONCAT(nombre, ' ', apellido1, ' ', apellido2)) LIKE '%" + paciente + "%'ORDER BY nombre";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -303,7 +304,7 @@ namespace MahAppsExample
         //Funcion que despliega los nombres de los pacientes
         public DataTable Mostrar_Pacientes_Listado_Sencillo_2(string nombre_paciente)
         {
-            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where UPPER(nombre) like $$%"+nombre_paciente+"%$$";
+            sql = "select concat(nombre,' ',apellido1,' ',apellido2) as nombre from rad_pacientes where UPPER(nombre) like $$%" + nombre_paciente + "%$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -419,7 +420,7 @@ namespace MahAppsExample
         //Funcion para buscar paciente de acuerdo a su nombre completo
         public DataTable Buscar_IdPaciente_Nombre(string nombre)
         {
-            sql = "Select idp from(SELECT idp, fpg, CONCAT(nombre, ' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes) as Tabla where nombrepaciente like $$%" + nombre+"%$$";
+            sql = "Select idp from(SELECT idp, fpg, CONCAT(nombre, ' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes) as Tabla where nombrepaciente like $$%" + nombre + "%$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -475,7 +476,7 @@ namespace MahAppsExample
         //Funcion para cargar los tratamientos asociados
         public DataTable Obtener_Tratamientos_Asociados(string id_tratamiento)
         {
-            sql = "select * from rad_tratamientosadistancia where idpadre=$$"+id_tratamiento+"$$";
+            sql = "select * from rad_tratamientosadistancia where idpadre=$$" + id_tratamiento + "$$";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -487,7 +488,7 @@ namespace MahAppsExample
         //Funcion para eliminar tratamiento padre  
         public void Eliminar_Tratamiento(string nombreTratamiento, string Fecha)
         {
-            sql = "delete from rad_tratamientosadistancia where estado=0 and (nombre=$$" + nombreTratamiento + "$$ and inicio=$$"+Fecha+"$$)";
+            sql = "delete from rad_tratamientosadistancia where estado=0 and (nombre=$$" + nombreTratamiento + "$$ and inicio=$$" + Fecha + "$$)";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -495,7 +496,7 @@ namespace MahAppsExample
         //Funcion para eliminar tratamiento padre
         public void Eliminar_TratamientoPadre(string nombreTratamientoP)
         {
-            sql = "delete from rad_tratamientosadistancia where estado=1 and nombre=$$"+nombreTratamientoP+ "$$ and idpadre=''";
+            sql = "delete from rad_tratamientosadistancia where estado=1 and nombre=$$" + nombreTratamientoP + "$$ and idpadre=''";
             command = new NpgsqlCommand(sql, conn);
             int i = command.ExecuteNonQuery();
             //Console.WriteLine(i);
@@ -571,7 +572,7 @@ namespace MahAppsExample
 
 
         //Funcion para registrar domicilios del paciente
-        public void  RegistrarDomicilios(string calle, string numero, string colonia, string cp, string municipio, string estado, string pais, string id_paciente)
+        public void RegistrarDomicilios(string calle, string numero, string colonia, string cp, string municipio, string estado, string pais, string id_paciente)
         {
             sql = "INSERT INTO rad_domicilios(calle,numero,colonia,cp,municipio,estado,pais,idpaciente) VALUES($$" + calle + "$$,$$" + numero + "$$,$$" + colonia + "$$,$$" + cp + "$$,$$" + municipio + "$$,$$" + estado + "$$,$$" + pais + "$$,$$" + id_paciente + "$$)";
             command = new NpgsqlCommand(sql, conn);
@@ -597,7 +598,7 @@ namespace MahAppsExample
         //Funcion para consultar elementos del remedio a duplicar
         public DataTable Consultar_Remedio_Duplicar(string nombre_remedio)
         {
-            sql = "SELECT * FROM rad_remedios where nombre=$$"+ nombre_remedio +"$$";
+            sql = "SELECT * FROM rad_remedios where nombre=$$" + nombre_remedio + "$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -672,7 +673,7 @@ namespace MahAppsExample
         }
 
         //Funcion para registrar categoria nueva
-        public void Registrar_SubCategoriaNueva(string id_generado, string nombre,string idcp)
+        public void Registrar_SubCategoriaNueva(string id_generado, string nombre, string idcp)
         {
             sql = "INSERT INTO rad_categorias(idcategoria,categoria,idcp) VALUES($$" + id_generado + "$$,$$" + nombre + "$$,$$" + idcp + "$$)";
             command = new NpgsqlCommand(sql, conn);
@@ -705,15 +706,15 @@ namespace MahAppsExample
         //Funcion para registrar contenido del tratamiento a distancia
         public void Registrar_ContenidoTratamiento(string idt, string descripcion, string tipo)
         {
-            sql = "INSERT INTO rad_codigosdetratamientos(idcr,descripcion,tipo) VALUES($$" + idt + "$$,$$" + descripcion +"$$,$$" + tipo + "$$)";
+            sql = "INSERT INTO rad_codigosdetratamientos(idcr,descripcion,tipo) VALUES($$" + idt + "$$,$$" + descripcion + "$$,$$" + tipo + "$$)";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
 
         //Funcion para obtener Id del tratamiento
-        public object Obtener_IDTratamiento(string id_paciente,string nombre_paciente,string nombre_tratamiento)
+        public object Obtener_IDTratamiento(string id_paciente, string nombre_paciente, string nombre_tratamiento)
         {
-            sql = "SELECT idt FROM rad_tratamientosadistancia where idpaciente=$$" + id_paciente + "$$ and nombrepaciente=$$"+nombre_paciente+"$$ and nombre=$$"+nombre_tratamiento+"$$";
+            sql = "SELECT idt FROM rad_tratamientosadistancia where idpaciente=$$" + id_paciente + "$$ and nombrepaciente=$$" + nombre_paciente + "$$ and nombre=$$" + nombre_tratamiento + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
@@ -721,7 +722,7 @@ namespace MahAppsExample
         //Funcion para obtener los codigos de un tratamiento 
         public DataTable CodigosTratamiento(string idt)
         {
-            sql = "select * from rad_codigosdetratamientos where idcr=$$"+idt+"$$";
+            sql = "select * from rad_codigosdetratamientos where idcr=$$" + idt + "$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -732,7 +733,7 @@ namespace MahAppsExample
         //Funcion para comprobar si el nombre del tratamiento ya esta en uso!...
         public object Comprobar_NombreTratamiento(string nombre_tratamiento)
         {
-            sql = "SELECT count(*) FROM rad_tratamientosadistancia where nombre like $$%"+nombre_tratamiento+"%$$";
+            sql = "SELECT count(*) FROM rad_tratamientosadistancia where nombre like $$%" + nombre_tratamiento + "%$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
@@ -740,7 +741,7 @@ namespace MahAppsExample
         //Funcion para eliminar una categoria
         public void Eliminar_Categoria(string nombre)
         {
-            sql = "DELETE FROM rad_categorias WHERE categoria=$$"+nombre+"$$";
+            sql = "DELETE FROM rad_categorias WHERE categoria=$$" + nombre + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -754,9 +755,9 @@ namespace MahAppsExample
         }
 
         //Funcion para eliminar una sub-categoria
-        public void Eliminar_SubCategoria(string nombre,string idcp)
+        public void Eliminar_SubCategoria(string nombre, string idcp)
         {
-            sql = "DELETE FROM rad_categorias WHERE categoria=$$" + nombre + "$$ and idcp=$$"+idcp+"$$";
+            sql = "DELETE FROM rad_categorias WHERE categoria=$$" + nombre + "$$ and idcp=$$" + idcp + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -764,13 +765,13 @@ namespace MahAppsExample
         //Funcion para eliminar un código
         public void Eliminar_Codigo(string nombre)
         {
-            sql = "DELETE FROM rad_codigos where codigo LIKE'"+nombre+"'";
+            sql = "DELETE FROM rad_codigos where codigo LIKE'" + nombre + "'";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
 
         //Funcion para guardar tarjeta en categorias
-        public void Registrar_Tarjeta_Categorias(string id_generado,string nombre_tarjeta,string codigo_generado)
+        public void Registrar_Tarjeta_Categorias(string id_generado, string nombre_tarjeta, string codigo_generado)
         {
             sql = "INSERT INTO rad_codigos(idcodigo,nombre,codigo,idcat,genero) VALUES($$" + id_generado + "$$,$$" + nombre_tarjeta + "$$,$$" + codigo_generado + "$$,$$" + "-tarjetas-" + "$$,$$" + "0" + "$$)";
             command = new NpgsqlCommand(sql, conn);
@@ -844,7 +845,7 @@ namespace MahAppsExample
         //Funcion que modifica el estado del analisis
         public void Modificar_Estado_Analisis_Analizado(string id_analisis)
         {
-            sql = "UPDATE rad_analisis SET analizado = '1' WHERE ida = $$"+id_analisis+"$$";
+            sql = "UPDATE rad_analisis SET analizado = '1' WHERE ida = $$" + id_analisis + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -887,7 +888,7 @@ namespace MahAppsExample
 
         //Funcion que elimina el registro de un analisis de acuerdo a su nombre
         public void EliminarAnalisisPorNombre(string nombre_analisis)
-        {           
+        {
             object id_analisis = Obtener_Id_Analisis(nombre_analisis);
             command.CommandText = "DELETE FROM rad_codigosdeanalisis where ida=$$" + id_analisis.ToString() + "$$";
             command.ExecuteNonQuery();
@@ -928,7 +929,7 @@ namespace MahAppsExample
         //Funcion que elimina un remedio elegido por idr (id_remedio)
         public void Eliminar_remedio_Id(string id_rem)
         {
-           //Elimina los colores de codigosderemedios
+            //Elimina los colores de codigosderemedios
             sql = "DELETE FROM rad_codigosderemedios WHERE idr=$$" + id_rem + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
@@ -1265,21 +1266,21 @@ namespace MahAppsExample
         //Buscar genero en base a id_subcategoria y id_categoria 
         public object Buscar_Genero(string id_subcategoria, string id_categoria)
         {
-            sql = "select genero from rad_codigos where idcat=$$"+id_subcategoria+"$$ or idcatp=$$"+id_categoria+"$$ limit 1;";
+            sql = "select genero from rad_codigos where idcat=$$" + id_subcategoria + "$$ or idcatp=$$" + id_categoria + "$$ limit 1;";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
 
         //Guardar el registro en rad_codigosdeanalisis
-        public void Registrar_Codigo_de_Analisis(string id_analisis,string id_codigo,string codigo, string nombrecodigo,string valor,string niveles,string sugerido,string potencia,string potenciaSugeridad)
+        public void Registrar_Codigo_de_Analisis(string id_analisis, string id_codigo, string codigo, string nombrecodigo, string valor, string niveles, string sugerido, string potencia, string potenciaSugeridad)
         {
-            sql = "INSERT INTO rad_codigosdeanalisis(ida,idcodigo,codigo,nombrecodigo,nivel,nivelsugerido,valor,potencia,potenciasugerida) VALUES($$" + id_analisis + "$$,$$" + id_codigo + "$$,$$" + codigo + "$$,$$" + nombrecodigo + "$$,$$" + niveles + "$$,$$" + sugerido + "$$,$$" + valor + "$$,$$"+potencia+"$$,$$"+potenciaSugeridad+"$$)";
+            sql = "INSERT INTO rad_codigosdeanalisis(ida,idcodigo,codigo,nombrecodigo,nivel,nivelsugerido,valor,potencia,potenciasugerida) VALUES($$" + id_analisis + "$$,$$" + id_codigo + "$$,$$" + codigo + "$$,$$" + nombrecodigo + "$$,$$" + niveles + "$$,$$" + sugerido + "$$,$$" + valor + "$$,$$" + potencia + "$$,$$" + potenciaSugeridad + "$$)";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
 
         //Funcion que actualiza rad_analisis agregando lo de la informacion biologica
-        public void Registrar_Informacion_Biologica(double [] infobio,string nombre_analisis)
+        public void Registrar_Informacion_Biologica(double[] infobio, string nombre_analisis)
         {
             /*
              * estatura
@@ -1303,7 +1304,7 @@ namespace MahAppsExample
                     infobiologica[8] = Double.Parse(txtTemp.Text);
              */
 
-            sql = "UPDATE rad_analisis SET estatura=$$" + infobio[0].ToString() + "$$, presionsisto=$$" + infobio[1].ToString() + "$$, imc=$$"+ infobio[2].ToString() + "$$, fr=$$"+ infobio[3].ToString() + "$$, ta=$$"+ infobio[4].ToString() + "$$, peso=$$"+ infobio[5].ToString() + "$$, presiondias=$$"+ infobio[6].ToString() + "$$, fc=$$" + infobio[7].ToString() + "$$, valorini=$$" + infobio[8].ToString() + "$$ WHERE nombre=$$" + nombre_analisis + "$$";
+            sql = "UPDATE rad_analisis SET estatura=$$" + infobio[0].ToString() + "$$, presionsisto=$$" + infobio[1].ToString() + "$$, imc=$$" + infobio[2].ToString() + "$$, fr=$$" + infobio[3].ToString() + "$$, ta=$$" + infobio[4].ToString() + "$$, peso=$$" + infobio[5].ToString() + "$$, presiondias=$$" + infobio[6].ToString() + "$$, fc=$$" + infobio[7].ToString() + "$$, valorini=$$" + infobio[8].ToString() + "$$ WHERE nombre=$$" + nombre_analisis + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -1329,7 +1330,7 @@ namespace MahAppsExample
         //Funcion para visualizar los analisis de acuerdo al sexo del paciente y buscar los codigos de acuerdo a el
         public DataTable VisualizarAnalisisPorGenero2(string nombre_paciente)
         {
-            sql = "select * from (SELECT sexo, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes) as tabla where nombrepaciente like $$%"+nombre_paciente+"%$$";
+            sql = "select * from (SELECT sexo, CONCAT(nombre,' ', apellido1, ' ', apellido2) as nombrepaciente from rad_pacientes) as tabla where nombrepaciente like $$%" + nombre_paciente + "%$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1387,7 +1388,7 @@ namespace MahAppsExample
         //Funcion para obtener padecimiento de un analisis
         public DataTable Obtener_InfoPadecimiento(string nombre_analisis)
         {
-            sql = "select padecimientoactual,intporaparatos from rad_analisis where nombre=$$"+nombre_analisis+"$$";
+            sql = "select padecimientoactual,intporaparatos from rad_analisis where nombre=$$" + nombre_analisis + "$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1450,7 +1451,7 @@ namespace MahAppsExample
         //Funcion para obtener el id del remedio en base al nombre y a la fecha
         public object Obtener_IdRemedio_ConFecha(string nombre, string fecha)
         {
-            sql = "SELECT idr from rad_remedios where nombre=$$" + nombre + "$$ and fechac=$$"+fecha+"$$";
+            sql = "SELECT idr from rad_remedios where nombre=$$" + nombre + "$$ and fechac=$$" + fecha + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
@@ -1458,7 +1459,7 @@ namespace MahAppsExample
         //Funcion para obtener el id del paciente en base al nombre completo
         public object Obtener_IdPaciente_NombreCompleto(string nombre)
         {
-            sql = "select idp from (select idp,concat(nombre,' ',apellido1,' ',apellido2) from rad_pacientes) as tabla where concat like $$"+nombre+"%$$";
+            sql = "select idp from (select idp,concat(nombre,' ',apellido1,' ',apellido2) from rad_pacientes) as tabla where concat like $$" + nombre + "%$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -1466,7 +1467,7 @@ namespace MahAppsExample
         //Funcion para obtener el id del tratamiento para utilizarlo como Padre
         public object Obtener_IdTratamiento(string id_paciente, string nombre_paciente, string nombre_tratamiento)
         {
-            sql = "select idt from rad_tratamientosadistancia where idpaciente=$$"+id_paciente+"$$ and nombrepaciente=$$"+nombre_paciente+"$$ and nombre=$$"+nombre_tratamiento+"$$";
+            sql = "select idt from rad_tratamientosadistancia where idpaciente=$$" + id_paciente + "$$ and nombrepaciente=$$" + nombre_paciente + "$$ and nombre=$$" + nombre_tratamiento + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -1474,7 +1475,7 @@ namespace MahAppsExample
         //Funcion para visualizar los codigos del remedio directamente dependiendo del id_remedio
         public DataTable VisualizarCodigos_Remedios_IdRemedio(string id_remedio)
         {
-            sql = "select codigo,nombrecodigo,potencia,metodo,codigocomplementario,nivel from rad_codigosderemedios where idr=$$"+ id_remedio + "$$";
+            sql = "select codigo,nombrecodigo,potencia,metodo,codigocomplementario,nivel from rad_codigosderemedios where idr=$$" + id_remedio + "$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1557,7 +1558,7 @@ namespace MahAppsExample
         public void Eliminar_CodigosCategorias(string nombre_rate, string categoria)
         {
             //INSERT INTO rad_telefonos(numero,extension,idobj) VALUES('
-            sql = "DELETE FROM rad_codigos where nombre=$$"+nombre_rate+"$$ and idcat=$$"+categoria+ "$$";
+            sql = "DELETE FROM rad_codigos where nombre=$$" + nombre_rate + "$$ and idcat=$$" + categoria + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -1585,7 +1586,7 @@ namespace MahAppsExample
             return command.ExecuteScalar();
         }
 
-       
+
 
         //Guardar remedio para terapia de color
         public void Registrar_Remedio_Color(string idr, string nombre, DateTime fecha)
@@ -1605,23 +1606,30 @@ namespace MahAppsExample
         //Obtiene codigo del color en base a tabla y color elegido
         public object Obtener_Color_ParteTerapia(string color)
         {
-            sql = "select codigo from rad_colordeterapia where upper(texto)=$$"+color+"$$";
+            sql = "select codigo from rad_colordeterapia where upper(texto)=$$" + color + "$$";
             command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar(); 
+            return command.ExecuteScalar();
         }
 
         //Obtiene codigo de la parte elegida en la terapia de color
         public object Obtener_CodigoParte_Color_ParteTerapia(string parte)
         {
-            sql = "select codigo from rad_codigos where nombre like $$%"+parte+"%$$ order by length(codigo) desc";
+            sql = "select codigo from rad_codigos where nombre like $$%" + parte + "%$$ order by length(codigo) desc";
             command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar(); 
+            return command.ExecuteScalar();
         }
 
         //Funcion para registrar codigo nuevo paciente
-        public void Registrar_Codigo_Categorias(string id_codigo,string nombre,string codigo, string description,string id_subcategoria, string id_categoria, string genero)
+        public void Registrar_Codigo_Categorias(string id_codigo, string nombre, string codigo, string description, string id_subcategoria, string id_categoria, string genero)
         {
             sql = "INSERT INTO rad_codigos(idcodigo,nombre,codigo,descripcion,idcat,idcatp,genero) values($$" + id_codigo + "$$,$$" + nombre + "$$,$$" + codigo + "$$,$$" + description + "$$,$$" + id_subcategoria + "$$,$$" + id_categoria + "$$,$$" + genero + "$$)";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
+        public void CancelarTratamientoADistancia()
+        {
+            sql = "TRUNCATE TABLE rad_tratamientosadistancia";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }

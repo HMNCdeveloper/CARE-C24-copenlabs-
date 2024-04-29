@@ -306,6 +306,12 @@
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
   </data>
+  <data name="CancelarTratamiento" xml:space="preserve">
+    <value>CANCEL TREATMENT</value>
+  </data>
+  <data name="CancelarTratamientoDistancia" xml:space="preserve">
+    <value>¿Esta seguro que desea cancelar el tratamiento?</value>
+  </data>
   <data name="Categories" xml:space="preserve">
     <value>Categorias</value>
   </data>
@@ -1169,6 +1175,9 @@
   </data>
   <data name="Neck" xml:space="preserve">
     <value>Cuello</value>
+  </data>
+  <data name="NoHayTratamiento" xml:space="preserve">
+    <value>No existe un tratamiento para cancelar</value>
   </data>
   <data name="Nose" xml:space="preserve">
     <value>Nariz</value>
