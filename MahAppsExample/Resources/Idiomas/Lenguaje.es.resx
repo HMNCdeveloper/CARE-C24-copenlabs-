@@ -453,11 +453,20 @@
   <data name="headScchedule" xml:space="preserve">
     <value>PROGRAMAR</value>
   </data>
+  <data name="headSubT" xml:space="preserve">
+    <value>DETALLE DEL TRATAMIENTO</value>
+  </data>
+  <data name="headT" xml:space="preserve">
+    <value>Tretamientos relacionados </value>
+  </data>
   <data name="headTR" xml:space="preserve">
     <value>  Tramientos relacionados</value>
   </data>
   <data name="headTRD" xml:space="preserve">
     <value>DETALLE DEL TRATAMIENTO</value>
+  </data>
+  <data name="headTRem" xml:space="preserve">
+    <value>Indices indiviaduales </value>
   </data>
   <data name="inputAll" xml:space="preserve">
     <value>TODO</value>
@@ -1083,6 +1092,9 @@
   <data name="messageInfo8" xml:space="preserve">
     <value>Paciente Eliminado!</value>
   </data>
+  <data name="messageProcess" xml:space="preserve">
+    <value>Archivo creado exitosamente</value>
+  </data>
   <data name="messageQuestion1" xml:space="preserve">
     <value>¿Tu quieres incluir la secuencia en proceso de borrado ?  </value>
   </data>
@@ -1184,6 +1196,42 @@
   </data>
   <data name="PatientList" xml:space="preserve">
     <value>Lista de Paciente</value>
+  </data>
+  <data name="pdfParr" xml:space="preserve">
+    <value>Nombre del paciente:</value>
+  </data>
+  <data name="pdfParr2" xml:space="preserve">
+    <value>Paciente:</value>
+  </data>
+  <data name="pdfParr3" xml:space="preserve">
+    <value>Fecha:</value>
+  </data>
+  <data name="pdfParr4" xml:space="preserve">
+    <value>Duracion:</value>
+  </data>
+  <data name="pdfParr5" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="pdfParr6" xml:space="preserve">
+    <value>Periodico</value>
+  </data>
+  <data name="pdfParr7" xml:space="preserve">
+    <value>Remedio</value>
+  </data>
+  <data name="pdfParr8" xml:space="preserve">
+    <value>Analisis</value>
+  </data>
+  <data name="pdfParr9" xml:space="preserve">
+    <value>Códigos Individuales</value>
+  </data>
+  <data name="pdfReport" xml:space="preserve">
+    <value>Reporte del tratamiento- HS6</value>
+  </data>
+  <data name="pdfRepSub1" xml:space="preserve">
+    <value>Datos generales</value>
+  </data>
+  <data name="pdfRepSub2" xml:space="preserve">
+    <value>Detalle del tratamiento</value>
   </data>
   <data name="Penis" xml:space="preserve">
     <value>Pene (término médico)</value>
@@ -1322,6 +1370,9 @@
   </data>
   <data name="Stomach" xml:space="preserve">
     <value>Estómago</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>Reporte del Tratamiento - HS6</value>
   </data>
   <data name="tableBegTime" xml:space="preserve">
     <value>INICIANDO TIEMPO</value>

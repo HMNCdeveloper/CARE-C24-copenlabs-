@@ -1,0 +1,24 @@
+﻿<Window x:Class="HS5.Remedio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HS5.Resources.Idiomas"   
+        mc:Ignorable="d"
+        Title="Remedio" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="ListaRemedios" Visibility="Visible" HorizontalAlignment="Center" Width="760" BorderThickness="0.8"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableRate}" DisplayMemberBinding="{Binding codigo}" Width="100px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombrecodigo}" Width="250px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tablePotency}" DisplayMemberBinding="{Binding potencia}" Width="100px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableMethod}" DisplayMemberBinding="{Binding metodo}" Width="70px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableLevel}" DisplayMemberBinding="{Binding nivel}" Width="90px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableComp}" DisplayMemberBinding="{Binding codigocomplementario}" Width="150px"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

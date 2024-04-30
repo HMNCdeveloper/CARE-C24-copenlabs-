@@ -1,0 +1,33 @@
+﻿<Window x:Class="HS5.TableAnalisis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HS5.Resources.Idiomas" 
+        mc:Ignorable="d"
+        Title="Analisys" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="ListaCodigos"  HorizontalAlignment="Left"  Width="742" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" Margin="19,10,0,10" >
+            <ListView.View >
+                <GridView >
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style TargetType="GridViewColumnHeader">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Height" Value="30px"/>
+                            <EventSetter Event="Loaded" Handler="GridViewColumn_Loaded"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableRate}" DisplayMemberBinding="{Binding rates}"  Width="130px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableName}" DisplayMemberBinding="{Binding nombre}" Width="170px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableValue}" DisplayMemberBinding="{Binding ftester}" Width="60px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableLevels}" DisplayMemberBinding="{Binding niveles}" Width="100px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableSlevels}" DisplayMemberBinding="{Binding nsugerido}" Width="100px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.headP}" DisplayMemberBinding="{Binding potencia}" Width="100px"/>
+                    <GridViewColumn Header="{x:Static local:Lenguaje.tableSugestP}" DisplayMemberBinding="{Binding potenciaSugeridad}" Width="100px"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

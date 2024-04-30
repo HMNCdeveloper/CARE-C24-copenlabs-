@@ -33,6 +33,7 @@ using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.Reflection;
+using HS5;
 
 
 
@@ -97,7 +98,11 @@ namespace MahAppsExample
 
 
 
-
+        //this variable is used  in functions  cmdGenerarReporte_Click and ListadoDiagActivos_MouseDoubleClick
+        nuevoTratamiento Gendiagnosticos_items;
+        
+        
+        
         string tipo_nivel_codigo;
         string nivel_potencia;
         //string puertoCOM;
@@ -810,7 +815,7 @@ namespace MahAppsExample
             cmdPausar.IsEnabled = true;
             cmdReanudar.IsEnabled = true;
             comboTipoTratamiento.SelectedIndex = -1;
-            // comboTipoProg.SelectedIndex = -1;
+            comboTipoProg.SelectedIndex = 0;
             tiempo1.SelectedIndex = -1;
 
             //Panel de elementos agregados
@@ -821,9 +826,11 @@ namespace MahAppsExample
             //Limpiando cajas de texto;
             txtcantidad1.Text = "";
             txtcantidad2.Text = "";
-            txtHoras.Text = "";
-            txtMinutos.Text = "";
-
+            txtNombreTratamiento.Text= string.Empty;
+            txtHoras.Value = 0;
+            txtMinutos.Value = 0;
+            Remedy1.Visibility = Visibility.Hidden;
+            Trata.Header=obtenerRecurso("labelAdd");            
         }
 
         void Mostrar_TratamientoDirecto()
@@ -4649,7 +4656,6 @@ namespace MahAppsExample
 
                 HacerConexion();
                 string nombre = listadoRemedios.SelectedItem.ToString(); //Nombre seleccionado
-
                 object id_remedio = obj2.Obtener_IdRemedio(nombre); //Id remedio
 
                 //Verifica si el remedio no proviene de un analisis
@@ -10849,6 +10855,9 @@ namespace MahAppsExample
 
         private void cmdNuevoTratamiento_Click(object sender, RoutedEventArgs e)
         {
+            if (groupBox3_Copy3.Visibility == Visibility.Visible)
+                Ocultar_Detalle_Tratamiento();
+
             Ocultar_TratamientoDiag();
             Mostrar_TratamientoDirecto();
         }
@@ -10908,13 +10917,11 @@ namespace MahAppsExample
         void MostrarRemedy()
         {
             Remedy1.Visibility = Visibility.Visible;
-            Remedy2.Visibility = Visibility.Visible;
         }
 
         void CerrarRemedy()
         {
             Remedy1.Visibility = Visibility.Hidden;
-            Remedy2.Visibility = Visibility.Hidden;
         }
 
         List<string> Rates_Codigos = new List<string>();
@@ -11116,8 +11123,6 @@ namespace MahAppsExample
         void Iniciar_Tratamiento(object sender, RoutedEventArgs e)
         {
             Remedy1.Visibility = Visibility.Hidden;
-            Remedy2.Visibility = Visibility.Hidden;
-            //(((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Usando un Análisis")
             try
             {
                 HacerConexion();
@@ -11223,7 +11228,7 @@ namespace MahAppsExample
 
                                     }
                                 }
-                                else if (selectedItem.Content.ToString() == "Periodic")
+                                else if (selectedItem.Content.ToString() == obtenerRecurso("valPe"))
                                 {
                                     List<DateTime> fechas = new List<DateTime>();
                                     List<DateTime> fecha_origen = new List<DateTime>();
@@ -11379,6 +11384,12 @@ namespace MahAppsExample
                                 {
                                     MessageBox.Show(obtenerRecurso("messageError11"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
+
+                                //clear the list 
+                                lista_remedios.Clear();
+                                lista_analisis.Clear();
+                                lista_codigos.Clear();
+
                             }
                             else
                             {
@@ -11407,7 +11418,7 @@ namespace MahAppsExample
         private void comboTipoProg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (((ComboBoxItem)comboTipoProg.SelectedItem).Content.ToString() == "Periodic")
+            if (((ComboBoxItem)comboTipoProg.SelectedItem).Content.ToString() == obtenerRecurso("valPe"))
             {
                 lblNombreTratamiento_Copy7.Visibility = Visibility.Visible;
                 txtcantidad1.Visibility = Visibility.Visible;
@@ -11430,36 +11441,52 @@ namespace MahAppsExample
             }
         }
 
-        //Variables para el tratamiento directo en elementos agregados
+        //list variables to save the elements will be  in the broadcasting in the section of new broadcasting
         List<string> lista_remedios = new List<string>();
         List<string> lista_analisis = new List<string>();
         List<string> lista_codigos = new List<string>();
 
+
+        //This function is used to save every analisys in the broadcasting 
         private void listgenerico_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                if (listelemagregados.Items.Count != 0 || listelemagregados.Items.Count == 0)
+
+                if (listgenerico.SelectedItem != null)
                 {
-                    if (listgenerico.SelectedItem != null)
+                    string nameAna = listgenerico.SelectedItem.ToString();
+                    var DuplicateAnalisys = lista_analisis.Where(value => value == nameAna);
+
+                    if (!DuplicateAnalisys.Any())
                     {
-                        listelemagregados.Items.Add(listgenerico.SelectedItem.ToString());
-                        //Si son remedios 
-                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
-                        {
-                            //Almacenar en lista
-                            lista_remedios.Add(listgenerico.SelectedItem.ToString());
-                        }
-
-                        //Si son analisis
-                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Analysis")
-                        {
-                            // Almacenar en lista
-                            lista_analisis.Add(listgenerico.SelectedItem.ToString());
-                        }
+                        lista_analisis.Add(nameAna);
+                        listelemagregados.Items.Add(nameAna);
                     }
+                }
 
-                   
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show(obtenerRecurso("messageError8"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        //This function is used to save every remedy in the broadcasting
+        private void Remedy_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+               if(Remedy1.SelectedItems != null)
+                {
+                    string selectedItemText = Remedy1.SelectedItem.ToString(); 
+                     var findDupRemedy= lista_remedios.Where(val=>val==selectedItemText);
+
+                    if(!findDupRemedy.Any() ) {
+                        listelemagregados.Items.Add(selectedItemText);
+                        lista_remedios.Add(selectedItemText);
+                    }
                 }
             }
             catch (NullReferenceException)
@@ -11467,6 +11494,33 @@ namespace MahAppsExample
                 MessageBox.Show(obtenerRecurso("messageError8"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        //This function is used to clear the list the remedies when the user changes the combox tag
+  
+        //This function is used to save the every rate in the broadcasting
+        private void listCodigosTrat_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (listCodigosTrat.SelectedItem != null)
+                {
+                    string nameCode = listCodigosTrat.SelectedItem.ToString();
+                    var DupNameCode = lista_codigos.Where(name=>name==nameCode);
+
+                    if (!DupNameCode.Any())
+                    {
+                        listelemagregados.Items.Add(nameCode);
+                        lista_codigos.Add(nameCode);
+                    }
+                }
+
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show(obtenerRecurso("messageWarning3"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
 
         private void txtNombreTratamiento_Copy_SelectionChanged(object sender, RoutedEventArgs e)
         {
@@ -11592,35 +11646,6 @@ namespace MahAppsExample
             }
         }
 
-
-
-        private void Remedy2_MouseDoubleClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (listelemagregados.Items.Count != 0 || listelemagregados.Items.Count == 0)
-                {
-                    if (Remedy2.SelectedItem != null)
-                    {
-                        string selectedItemText = ((ListBoxItem)Remedy2.SelectedItem).Content.ToString();
-                        listelemagregados.Items.Add(selectedItemText);
-
-                        //Si son remedios 
-                        if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
-                        {
-                            //Almacenar en lista
-                            lista_remedios.Add(selectedItemText);
-                        }
-                    }
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show(obtenerRecurso("messageError8"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-
         private void listSubCategoriasTrat_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             listCodigosTrat.Items.Clear();
@@ -11702,34 +11727,6 @@ namespace MahAppsExample
             catch (NullReferenceException)
             {
                 MessageBox.Show(obtenerRecurso("messageInf1"), obtenerRecurso("messageHeadInf"), MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        private void listCodigosTrat_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                if (listelemagregados.Items.Count == 0)
-                {
-                    listelemagregados.Items.Clear();
-                    listelemagregados.Items.Add(listCodigosTrat.SelectedItem.ToString());
-                    lista_codigos.Add(listCodigosTrat.SelectedItem.ToString());
-                }
-                else
-                {
-                    int index = listelemagregados.Items.IndexOf(listCodigosTrat.SelectedItem.ToString());
-
-                    if (index == -1)
-                    {
-                        listelemagregados.Items.Add(listCodigosTrat.SelectedItem.ToString());
-
-                        lista_codigos.Add(listCodigosTrat.SelectedItem.ToString());
-                    }
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show(obtenerRecurso("messageWarning3"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -11908,6 +11905,7 @@ namespace MahAppsExample
 
                 //Extraemos elementos de la lista antes de borrar los seleccionados
                 IEnumerable diagnosticos_items = ListadoDiagActivos.SelectedItems;
+              
 
                 //if(diagnosticos_items)
                 foreach (nuevoTratamiento tratamiento in diagnosticos_items)
@@ -11915,6 +11913,7 @@ namespace MahAppsExample
                     nombrepaciente = tratamiento.paciente;
                     nombre = tratamiento.tratamiento;
                     fecha = tratamiento.inicio;
+                    Gendiagnosticos_items = tratamiento;
                 }
 
                 //Obtiene el numero de veces para ver si es periodico..
@@ -11926,7 +11925,7 @@ namespace MahAppsExample
                 //obtener id tratamiento
                 object id = obj2.Obtener_IDTratamiento(id_paciente.ToString(), nombrepaciente, nombre);
 
-                // MessageBox.Show(id.ToString());
+  
 
                 //Obtiene los codigos del tratamiento almacenados..
                 DataTable codigos_tratamiento = obj2.CodigosTratamiento(id.ToString());
@@ -11975,7 +11974,6 @@ namespace MahAppsExample
                 CerrarConexion();
 
                 Mostrar_Detalle_Tratamiento();
-                // Ocultar_Detalle_Tratamiento();
             }
         }
 
@@ -12013,27 +12011,12 @@ namespace MahAppsExample
             groupBox3_Copy4.Visibility = Visibility.Hidden;
             detalleAsociados.Visibility = Visibility.Hidden;
             lblDiagActivo_Copy.Visibility = Visibility.Hidden;
+      
         }
 
         //Funcion para generar reporte de un analisis en particular
         private void cmdGenerarReporte_Click(object sender, RoutedEventArgs e)
         {
-            //Obtenemos datos del listview para generar el reporte..
-            string nombre_tratamiento = "";
-            string nombre_paciente = "";
-            string fecha_inicio = "";
-            string duracion = "";
-
-            IEnumerable diagnosticos_items = ListadoDiagActivos.SelectedItems;
-
-            foreach (nuevoTratamiento tratamiento in diagnosticos_items)
-            {
-                nombre_tratamiento = tratamiento.tratamiento;
-                nombre_paciente = tratamiento.paciente;
-                fecha_inicio = tratamiento.inicio;
-                duracion = tratamiento.duracion;
-            }
-
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "PDF Document|*.pdf";
             saveFileDialog1.Title = "Guardar - Reporte del Tratamiento";
@@ -12046,9 +12029,9 @@ namespace MahAppsExample
                 PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(saveFileDialog1.FileName.ToString(), FileMode.Create));
 
                 reporte.Open();
-                reporte.AddTitle("Reporte del Tratamiento - HS5");
-                reporte.AddCreator("Homoeonic Software 5");
-                reporte.AddAuthor("HS5");
+                reporte.AddTitle(obtenerRecurso("pdfReport"));
+                reporte.AddCreator("Homoeonic Software 6");
+                reporte.AddAuthor("Homoeonic Instrument");
 
                 iTextSharp.text.Font titulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 14, iTextSharp.text.Font.BOLD);
                 iTextSharp.text.Font subtitulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 12, iTextSharp.text.Font.BOLD);
@@ -12059,54 +12042,50 @@ namespace MahAppsExample
                 iTextSharp.text.Paragraph linebreak = new iTextSharp.text.Paragraph("\n", LineBreak);
 
                 //Documento titulo
-                iTextSharp.text.Paragraph parrafo = new iTextSharp.text.Paragraph("Reporte del Tratamiento - HS5", titulos);
+                iTextSharp.text.Paragraph parrafo = new iTextSharp.text.Paragraph(obtenerRecurso("pdfReport"), titulos);
                 reporte.Add(parrafo);
 
                 reporte.Add(linebreak);
 
-                iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph("Datos generales", subtitulos);
+                iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph(obtenerRecurso("pdfRepSub1"), subtitulos);
                 reporte.Add(parrafo2);
                 reporte.Add(linebreak);
 
-                /*nombre_tratamiento = tratamiento.tratamiento;
-                nombre_paciente = tratamiento.paciente;
-                fecha_inicio = tratamiento.inicio;
-                duracion = tratamiento.duracion;*/
-
-                Chunk parrafo3 = new Chunk("Nombre: ", texto2);
-                Chunk parrafo3_1 = new Chunk(nombre_tratamiento, texto);
+                Chunk parrafo3 = new Chunk(obtenerRecurso("pdfParr")+" ", texto2);
+                Chunk parrafo3_1 = new Chunk(Gendiagnosticos_items.tratamiento, texto);
                 reporte.Add(parrafo3);
                 reporte.Add(parrafo3_1);
                 reporte.Add(Chunk.NEWLINE);
 
-                Chunk parrafo4 = new Chunk("Paciente: ", texto2);
-                Chunk parrafo4_1 = new Chunk(nombre_paciente, texto);
+                Chunk parrafo4 = new Chunk(obtenerRecurso("pdfParr2") +" ", texto2);
+                Chunk parrafo4_1 = new Chunk(Gendiagnosticos_items.paciente, texto);
                 reporte.Add(parrafo4);
                 reporte.Add(parrafo4_1);
                 reporte.Add(Chunk.NEWLINE);
 
-                Chunk parrafo5 = new Chunk("Fecha: ", texto2);
-                Chunk parrafo5_1 = new Chunk(fecha_inicio, texto);
+                Chunk parrafo5 = new Chunk(obtenerRecurso("pdfParr3")+" ", texto2);
+                Chunk parrafo5_1 = new Chunk(Gendiagnosticos_items.inicio, texto);
                 reporte.Add(parrafo5);
                 reporte.Add(parrafo5_1);
                 reporte.Add(Chunk.NEWLINE);
 
                 //string duracion_reloj = CalcularTiempo_FormatoReloj(Int32.Parse(duracion));
-                Chunk parrafo6 = new Chunk("Duración: ", texto2);
-                Chunk parrafo6_1 = new Chunk(duracion, texto);
+                Chunk parrafo6 = new Chunk( obtenerRecurso("pdfParr4") +" ", texto2);
+                Chunk parrafo6_1 = new Chunk(Gendiagnosticos_items.duracion, texto);
                 reporte.Add(parrafo6);
                 reporte.Add(parrafo6_1);
                 reporte.Add(Chunk.NEWLINE);
 
-                if (detalleAsociados.Items.Count != 0)
+               
+                if (!detalleAsociados.Items.Contains(obtenerRecurso("contentMessage")))
                 {
-                    Chunk parrafo7 = new Chunk("Tipo: ", texto2);
-                    Chunk parrafo7_1 = new Chunk("Periódico", texto);
+                    Chunk parrafo7 = new Chunk(obtenerRecurso("pdfParr5"), texto2);
+                    Chunk parrafo7_1 = new Chunk(obtenerRecurso("pdfParr6"), texto);
                     reporte.Add(parrafo7);
                     reporte.Add(parrafo7_1);
                     reporte.Add(linebreak);
 
-                    iTextSharp.text.Paragraph parrafod = new iTextSharp.text.Paragraph("Período", texto2);
+                    iTextSharp.text.Paragraph parrafod = new iTextSharp.text.Paragraph(obtenerRecurso("pdfParr6"), texto2);
                     reporte.Add(parrafod);
 
                     //Si es periodico carga sus asociados..
@@ -12118,41 +12097,65 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    Chunk parrafo7 = new Chunk("Tipo: ", texto2);
-                    Chunk parrafo7_1 = new Chunk("Sencillo", texto);
+                    Chunk parrafo7 = new Chunk(obtenerRecurso("pdfParr5"), texto2);
+                    Chunk parrafo7_1 = new Chunk("Simple", texto);
                     reporte.Add(parrafo7);
                     reporte.Add(parrafo7_1);
                     reporte.Add(linebreak);
                 }
                 reporte.Add(linebreak);
 
-                iTextSharp.text.Paragraph detalles = new iTextSharp.text.Paragraph("Detalle del tratamiento", subtitulos);
+                iTextSharp.text.Paragraph detalles = new iTextSharp.text.Paragraph(obtenerRecurso("pdfRepSub2"), subtitulos);
                 reporte.Add(detalles);
                 reporte.Add(linebreak);
 
-                //  iTextSharp.text.Paragraph detallesremedios = new iTextSharp.text.Paragraph("Remedios", texto2);
-                //  reporte.Add(detallesremedios);
-                //  reporte.Add(linebreak);
-
-                //Agregar el contenido de los remedios
+                
 
                 //Si hay remedios agregar
                 if (detalleRemedios.Items.Count != 0)
                 {
                     //Cantidad de columnas
-                    PdfPTable table_remedios = new PdfPTable(1);
-                    table_remedios.TotalWidth = 144;
-                    //table_codigos.AddCell(new Phrase("Código",texto2));
-                    table_remedios.AddCell(new Phrase("Remedios", texto2));
+                    PdfPTable table_remedios = new PdfPTable(2);
+                    table_remedios.WidthPercentage = 110;
+                    table_remedios.SetWidths(new int[] { 10, 90 });
+                    table_remedios.HeaderRows=1;
 
-                    table_remedios.HeaderRows = 1;
 
+                    table_remedios.AddCell(new Phrase(obtenerRecurso("pdfParr7"), texto2));
+                    table_remedios.AddCell(new Phrase(obtenerRecurso("tableRate")+"s", texto2));
+                    
+
+                    PdfPTable table_rates=new PdfPTable(6);
+                    
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableRate"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableName"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tablePotency"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableMethod"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableLevel"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableComp"), texto2));
+
+                    
+                    HacerConexion();
                     for (int i = 0; i <= detalleRemedios.Items.Count - 1; i++)
                     {
-                        //ListaCodigos.Items.RemoveAt(ListaCodigos.Items.IndexOf(codigo.nombre.ToString()));
-                        //table_codigos.AddCell(new Phrase(codigo.rates.ToString()));
+
                         table_remedios.AddCell(new Phrase(detalleRemedios.Items[i].ToString(), texto));
+                        object id_remedio = obj2.Obtener_IdRemedio(detalleRemedios.Items[i].ToString());
+                        DataTable CodigosdeRemedios = obj2.VisualizarCodigos_Remedios_IdRemedio(id_remedio.ToString());
+
+                        for (int y = 0; y <= CodigosdeRemedios.Rows.Count - 1; y++)
+                        {
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][0].ToString(),texto));
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][1].ToString(),texto));
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][2].ToString(), texto));
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][3].ToString(), texto));
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][5].ToString(), texto));
+                            table_rates.AddCell(new Phrase(CodigosdeRemedios.Rows[y][5].ToString(), texto));
+                        }
+                        table_remedios.AddCell(table_rates);
                     }
+
+                    CerrarConexion();
 
                     reporte.Add(table_remedios);
                     reporte.Add(linebreak);
@@ -12166,19 +12169,46 @@ namespace MahAppsExample
                 if (detalleAnalisis.Items.Count != 0)
                 {
                     //Cantidad de columnas
-                    PdfPTable table_analisis = new PdfPTable(1);
-                    table_analisis.TotalWidth = 144;
-                    //table_codigos.AddCell(new Phrase("Código",texto2));
-                    table_analisis.AddCell(new Phrase("Análisis", texto2));
-
+                    PdfPTable table_analisis = new PdfPTable(2);
+                    table_analisis.WidthPercentage =110;
+                    table_analisis.SetWidths(new int[] { 10, 90 });
+                    table_analisis.AddCell(new Phrase(obtenerRecurso("pdfParr8"), texto2));
+                    table_analisis.AddCell(new Phrase(obtenerRecurso("tableRate") + "s", texto2));
                     table_analisis.HeaderRows = 1;
 
+                    PdfPTable table_rates =new PdfPTable(7);
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableRate"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableName"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableValue"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableLevels"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableSlevels"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("headP"), texto2));
+                    table_rates.AddCell(new Phrase(obtenerRecurso("tableSugestP"), texto2));
+                   
+                    
+
+                    HacerConexion();
                     for (int i = 0; i <= detalleAnalisis.Items.Count - 1; i++)
                     {
-                        //ListaCodigos.Items.RemoveAt(ListaCodigos.Items.IndexOf(codigo.nombre.ToString()));
-                        //table_codigos.AddCell(new Phrase(codigo.rates.ToString()));
                         table_analisis.AddCell(new Phrase(detalleAnalisis.Items[i].ToString(), texto));
+                        object idAnalisis = obj2.Buscar_IdAnalisis_Nombre(detalleAnalisis.Items[i].ToString());
+                        DataTable codigoAnalisis = obj2.Obtener_CodigosAnalisis(idAnalisis.ToString());
+
+                        for (int p = 0; p <= codigoAnalisis.Rows.Count - 1; p++)
+                        {
+                           
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][3].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][4].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][5].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][6].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][7].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][12].ToString(), texto));
+                            table_rates.AddCell(new Phrase(codigoAnalisis.Rows[p][13].ToString(), texto));
+
+                        }
+                        table_analisis.AddCell(table_rates);
                     }
+                    CerrarConexion();
 
                     reporte.Add(table_analisis);
                     reporte.Add(linebreak);
@@ -12192,16 +12222,15 @@ namespace MahAppsExample
                 {
                     //Cantidad de columnas
                     PdfPTable table_codigos = new PdfPTable(1);
-                    table_codigos.TotalWidth = 144;
+                    table_codigos.WidthPercentage = 110;
                     //table_codigos.AddCell(new Phrase("Código",texto2));
-                    table_codigos.AddCell(new Phrase("Códigos Individuales", texto2));
+                    table_codigos.AddCell(new Phrase(obtenerRecurso("pdfParr9"), texto2));
 
                     table_codigos.HeaderRows = 1;
 
                     for (int i = 0; i <= detalleCodigosIndiv.Items.Count - 1; i++)
                     {
-                        //ListaCodigos.Items.RemoveAt(ListaCodigos.Items.IndexOf(codigo.nombre.ToString()));
-                        //table_codigos.AddCell(new Phrase(codigo.rates.ToString()));
+       
                         table_codigos.AddCell(new Phrase(detalleCodigosIndiv.Items[i].ToString(), texto));
                     }
 
@@ -12210,6 +12239,7 @@ namespace MahAppsExample
                 }
 
                 reporte.Close();
+                MessageBox.Show(obtenerRecurso("messageProcess"));
             }
             else
             {
@@ -13765,44 +13795,53 @@ namespace MahAppsExample
             }
         }
 
-        private void Remedy1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+       
+        private void ShowTableAna(object sender,MouseButtonEventArgs e)
         {
-            ClearDataLb(Remedy2);
-            Remedy2.SelectedIndex = -1;
-            HacerConexion();
-            string nombreR = Remedy1.SelectedItem.ToString();
-            string idr = obj2.ObtenerIdr(nombreR);
 
-
-            if (Remedy1.SelectedItem != null)
+            if(sender is ListBox tabItem)
             {
-                // Busqueda activada
-                Remedy2.Items.Clear();
+                string name = tabItem.SelectedItem.ToString();
+                HacerConexion();
+                object idAnalisis = obj2.Buscar_IdAnalisis_Nombre(name.Split(',')[0].Trim());
+                DataTable tabla_codigosanalisis = obj2.Obtener_CodigosAnalisis(idAnalisis.ToString());
+                CerrarConexion();
 
-                
+                TableAnalisis analisisTab = new TableAnalisis(tabla_codigosanalisis);
+                analisisTab.Show();
+            }
+           
+        }
 
-                DataTable Codigos = obj2.BuscarCodigoRem1(idr);
+        private void ShowTableRemedy(object sender,MouseButtonEventArgs e)
+        {
 
-                for (int y = 0; y < Codigos.Rows.Count; y++)
+            if (sender is ListBox remedySelected)
+            {
+                string remedy = remedySelected.SelectedItem.ToString();
+                Remedio table;
+                HacerConexion();
+                object id_remedio = obj2.Obtener_IdRemedio(remedy);
+                verificacion_remedio_de_analisis = obj2.Obtener_IdRemediosCodigos(id_remedio.ToString());
+
+
+
+                if (verificacion_remedio_de_analisis.ToString() != "")
                 {
-                    if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
-                    {
-                        string id = Codigos.Rows[y][0].ToString();
-                        string nombre = Codigos.Rows[y][1].ToString();
-
-                        // Crear un nuevo objeto ListBoxItem con la concatenación de id y nombre
-                        ListBoxItem item = new ListBoxItem();
-                        item.Content = id + ", " + nombre;
-
-                        // Agregar el ListBoxItem a la ListBox
-                        Remedy2.Items.Add(item);
-                    }
+                    DataTable CodigosdeRemedio_Analisis = obj2.VisualizarCodigos_Remedios_de_Analisis(verificacion_remedio_de_analisis.ToString());
+                    table = new Remedio(CodigosdeRemedio_Analisis);
+                }
+                else
+                {
+                    //Obtener codigos de remedios en base a id remedio
+                    DataTable CodigosdeRemedios = obj2.VisualizarCodigos_Remedios_IdRemedio(id_remedio.ToString());
+                    table = new Remedio(CodigosdeRemedios);
                 }
 
-                lblCodigosCont.Content = Remedy2.Items.Count + " " + obtenerRecurso("labelRate");
+                table.Show();
                 CerrarConexion();
+
             }
-        
         }
 
         private void ListaPacientes_Recientes1_SelectionChanged(object sender, SelectionChangedEventArgs e)

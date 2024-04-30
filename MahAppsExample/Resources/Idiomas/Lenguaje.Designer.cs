@@ -1060,6 +1060,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TREATMENT&apos;S DETAIL.
+        /// </summary>
+        public static string headSubT {
+            get {
+                return ResourceManager.GetString("headSubT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Related Treatments.
+        /// </summary>
+        public static string headT {
+            get {
+                return ResourceManager.GetString("headT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Related Treatments.
         /// </summary>
         public static string headTR {
@@ -1074,6 +1092,15 @@ namespace HS5.Resources.Idiomas {
         public static string headTRD {
             get {
                 return ResourceManager.GetString("headTRD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Individual Rates.
+        /// </summary>
+        public static string headTRem {
+            get {
+                return ResourceManager.GetString("headTRem", resourceCulture);
             }
         }
         
@@ -2914,6 +2941,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File successflly created.
+        /// </summary>
+        public static string messageProcess {
+            get {
+                return ResourceManager.GetString("messageProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to include the &apos;Sequence&apos; in the erasing process?.
         /// </summary>
         public static string messageQuestion1 {
@@ -3216,6 +3252,114 @@ namespace HS5.Resources.Idiomas {
         public static string PatientList {
             get {
                 return ResourceManager.GetString("PatientList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the treatment:.
+        /// </summary>
+        public static string pdfParr {
+            get {
+                return ResourceManager.GetString("pdfParr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient:.
+        /// </summary>
+        public static string pdfParr2 {
+            get {
+                return ResourceManager.GetString("pdfParr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date:.
+        /// </summary>
+        public static string pdfParr3 {
+            get {
+                return ResourceManager.GetString("pdfParr3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration:.
+        /// </summary>
+        public static string pdfParr4 {
+            get {
+                return ResourceManager.GetString("pdfParr4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type:.
+        /// </summary>
+        public static string pdfParr5 {
+            get {
+                return ResourceManager.GetString("pdfParr5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Periodic.
+        /// </summary>
+        public static string pdfParr6 {
+            get {
+                return ResourceManager.GetString("pdfParr6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remedy.
+        /// </summary>
+        public static string pdfParr7 {
+            get {
+                return ResourceManager.GetString("pdfParr7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Analisys.
+        /// </summary>
+        public static string pdfParr8 {
+            get {
+                return ResourceManager.GetString("pdfParr8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to individal Rates.
+        /// </summary>
+        public static string pdfParr9 {
+            get {
+                return ResourceManager.GetString("pdfParr9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treatment Report- HS6.
+        /// </summary>
+        public static string pdfReport {
+            get {
+                return ResourceManager.GetString("pdfReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Data.
+        /// </summary>
+        public static string pdfRepSub1 {
+            get {
+                return ResourceManager.GetString("pdfRepSub1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treatment Detail .
+        /// </summary>
+        public static string pdfRepSub2 {
+            get {
+                return ResourceManager.GetString("pdfRepSub2", resourceCulture);
             }
         }
         
