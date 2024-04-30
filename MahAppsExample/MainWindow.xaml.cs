@@ -30,18 +30,18 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using Application = System.Windows.Application;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
-<<<<<<< HEAD
+
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.Reflection;
 using HS5;
-||||||| 1da41f9
+
 using System.Windows.Media;
 using System.Windows.Controls;
 using System.Reflection;
-=======
+
 using System.Windows.Threading;
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
+
 
 
 
@@ -11614,7 +11614,7 @@ namespace MahAppsExample
                     }
                 }
 
-<<<<<<< HEAD
+
             }
             catch (NullReferenceException)
             {
@@ -11637,11 +11637,7 @@ namespace MahAppsExample
                         listelemagregados.Items.Add(selectedItemText);
                         lista_remedios.Add(selectedItemText);
                     }
-||||||| 1da41f9
-                   
-=======
 
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
                 }
             }
             catch (NullReferenceException)
@@ -13964,17 +13960,13 @@ namespace MahAppsExample
                 DataTable tabla_codigosanalisis = obj2.Obtener_CodigosAnalisis(idAnalisis.ToString());
                 CerrarConexion();
 
-<<<<<<< HEAD
+
                 TableAnalisis analisisTab = new TableAnalisis(tabla_codigosanalisis);
                 analisisTab.Show();
             }
            
         }
-||||||| 1da41f9
-                
-=======
 
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
 
         private void ShowTableRemedy(object sender,MouseButtonEventArgs e)
         {
@@ -14005,12 +13997,7 @@ namespace MahAppsExample
                 CerrarConexion();
 
             }
-<<<<<<< HEAD
-||||||| 1da41f9
-        
-=======
 
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
         }
 
         private void ListaPacientes_Recientes1_SelectionChanged(object sender, SelectionChangedEventArgs e)

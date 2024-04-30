@@ -1078,7 +1078,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-<<<<<<< HEAD
+
         ///   Looks up a localized string similar to TREATMENT&apos;S DETAIL.
         /// </summary>
         public static string headSubT {
@@ -1098,11 +1098,7 @@ namespace HS5.Resources.Idiomas {
         
         /// <summary>
         ///   Looks up a localized string similar to Related Treatments.
-||||||| 1da41f9
-        ///   Looks up a localized string similar to Related Treatments.
-=======
-        ///   Busca una cadena traducida similar a Related Treatments.
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
+
         /// </summary>
         public static string headTR {
             get {
@@ -1120,7 +1116,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-<<<<<<< HEAD
+
         ///   Looks up a localized string similar to Individual Rates.
         /// </summary>
         public static string headTRem {
@@ -1131,11 +1127,11 @@ namespace HS5.Resources.Idiomas {
         
         /// <summary>
         ///   Looks up a localized string similar to ALL.
-||||||| 1da41f9
+
         ///   Looks up a localized string similar to ALL.
-=======
+
         ///   Busca una cadena traducida similar a ALL.
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
+
         /// </summary>
         public static string inputAll {
             get {
@@ -2971,7 +2967,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-<<<<<<< HEAD
+
         ///   Looks up a localized string similar to File successflly created.
         /// </summary>
         public static string messageProcess {
@@ -2982,11 +2978,10 @@ namespace HS5.Resources.Idiomas {
         
         /// <summary>
         ///   Looks up a localized string similar to Do you want to include the &apos;Sequence&apos; in the erasing process?.
-||||||| 1da41f9
         ///   Looks up a localized string similar to Do you want to include the &apos;Sequence&apos; in the erasing process?.
-=======
+
         ///   Busca una cadena traducida similar a Do you want to include the &apos;Sequence&apos; in the erasing process?.
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
+
         /// </summary>
         public static string messageQuestion1 {
             get {
@@ -3301,7 +3296,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-<<<<<<< HEAD
+
         ///   Looks up a localized string similar to Name of the treatment:.
         /// </summary>
         public static string pdfParr {
@@ -3411,11 +3406,7 @@ namespace HS5.Resources.Idiomas {
         
         /// <summary>
         ///   Looks up a localized string similar to Penis.
-||||||| 1da41f9
-        ///   Looks up a localized string similar to Penis.
-=======
-        ///   Busca una cadena traducida similar a Penis.
->>>>>>> 96d4049200da0bd5a65dc404b015f06b21a48307
+
         /// </summary>
         public static string Penis {
             get {
