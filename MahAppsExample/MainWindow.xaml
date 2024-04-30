@@ -151,6 +151,7 @@
             </Button>
             <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
                 <!--view of the patients-->
+                
                 <TabItem x:Name="Patients" Margin="0,0,-5,0">
                     <TabItem.Header>
                         <Border Padding="3">
@@ -372,7 +373,7 @@
                                             </TextBox.Effect>
                                         </TextBox>
 
-                                         <!--progress bar to PGR-->
+                                        <!--progress bar to PGR-->
                                         <ProgressBar x:Name="progressBar1" Visibility="Hidden" HorizontalAlignment="Left"  Height="50" Margin="20,490,0,0" VerticalAlignment="Top" Width="1000" Style="{StaticResource CustomProgressBarStyle}"/>
                                         <Label x:Name="lblProgress1" Content="jaja" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="45,499,389,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
                                         <Label x:Name="lblPorcentProgress1" Content="%" Visibility="Hidden" Margin="100,498,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
@@ -1113,9 +1114,12 @@
                                     </Button>
 
 
-                                    <MediaElement Visibility="Hidden" x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="file://C:\Users\Raul Zavala\Desktop\Homoeonic Software\MahAppsExample\img\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="215,0,994,0"/>
-                                    <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="file://C:\Users\Raul Zavala\Desktop\Homoeonic Software\MahAppsExample\img\analisis-mujer.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
-                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="520,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
+                                    <MediaElement Visibility="Hidden" x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="Resources\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="215,0,994,0"/>
+                                    <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="Resources\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
+
+                                    <Image x:Name="progreso" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="520,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
+                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\agif.gif" Margin="570,30,0,0" HorizontalAlignment="Left" Width="900" Height="500"  VerticalAlignment="Top"/>
+
                                     <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 </Grid>
@@ -1293,9 +1297,13 @@
                     </TabItem.Header>
 
                     <Grid GotFocus="Grid_GotFocus" LostFocus="Grid_LostFocus" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="265*"/>
+                            <ColumnDefinition Width="1267*"/>
+                        </Grid.ColumnDefinitions>
 
-                        <Border x:Name="borderInfobasica_Copy5" BorderBrush="#FF3CB3DF" BorderThickness="1" Background="{StaticResource boxBack}" HorizontalAlignment="Left" Height="110" Margin="12,207,0,0" VerticalAlignment="Top" Width="367"/>
-                        <GroupBox x:Name="groupBox_Copy" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Margin="12,0,0,525" VerticalAlignment="Bottom" Height="173" HorizontalAlignment="Left" Width="368" FontWeight="Bold">
+                        <Border x:Name="borderInfobasica_Copy5" BorderBrush="#FF3CB3DF" BorderThickness="1" Background="{StaticResource boxBack}" HorizontalAlignment="Left" Height="110" Margin="12,207,0,0" VerticalAlignment="Top" Width="367" Grid.ColumnSpan="2"/>
+                        <GroupBox x:Name="groupBox_Copy" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Margin="12,0,0,525" VerticalAlignment="Bottom" Height="173" HorizontalAlignment="Left" Width="368" FontWeight="Bold" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Potion" Foreground="#FFFDFDFD" />
@@ -1319,7 +1327,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewRem}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="205,122,0,0" VerticalAlignment="Top" Width="140" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click">
+                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="205,122,0,0" VerticalAlignment="Top" Width="140" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click" Grid.ColumnSpan="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1329,7 +1337,7 @@
                             </StackPanel>
                         </Button>
                         <Label x:Name="lblCategoriasRemedios" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="75,249,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ComboBox x:Name="comboCategoriasRemedios" HorizontalAlignment="Left" Margin="160,251,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged">
+                        <ComboBox x:Name="comboCategoriasRemedios" HorizontalAlignment="Left" Margin="160,251,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Grid.ColumnSpan="2">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>
@@ -1363,12 +1371,12 @@
 
                         <RadioButton x:Name="checkOpcion1" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="54,214,0,0" VerticalAlignment="Top" Checked="checkOpcion1_Checked" ToolTip="Remedies based on an analysis"/>
                         <RadioButton x:Name="checkOpcion2" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="184,215,0,0" VerticalAlignment="Top" Checked="checkOpcion2_Checked" ToolTip="All the Remedies"/>
-                        <ListBox x:Name="listadoRemedios" HorizontalAlignment="Left" Height="384" Margin="12,330,0,0" VerticalAlignment="Top" Width="368" BorderBrush="{StaticResource section}" Background="{StaticResource boxBack}" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoRemedios_MouseDoubleClick" SelectionChanged="listadoRemedios_SelectionChanged" Initialized="listadoRemedios_Initialized"/>
-                        <Label x:Name="lblNombreRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="506,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="471"/>
-                        <Label x:Name="lblNombreRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="416,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Label x:Name="lblFechaRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="416,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Label x:Name="lblFechaRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="506,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="427"/>
-                        <TabControl x:Name="ControlRemedios" Visibility="Visible" HorizontalAlignment="Left" Height="619" Margin="408,95,0,0" VerticalAlignment="Top" Width="1116" Background="#CCF7F7F7">
+                        <ListBox x:Name="listadoRemedios" HorizontalAlignment="Left" Height="384" Margin="12,330,0,0" VerticalAlignment="Top" Width="368" BorderBrush="{StaticResource section}" Background="{StaticResource boxBack}" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoRemedios_MouseDoubleClick" SelectionChanged="listadoRemedios_SelectionChanged" Initialized="listadoRemedios_Initialized" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblNombreRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="241,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="471" Grid.Column="1"/>
+                        <Label x:Name="lblNombreRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="151,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                        <Label x:Name="lblFechaRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="151,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                        <Label x:Name="lblFechaRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="241,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="427" Grid.Column="1"/>
+                        <TabControl x:Name="ControlRemedios" Visibility="Visible" HorizontalAlignment="Left" Height="619" Margin="143,95,0,0" VerticalAlignment="Top" Width="1116" Background="#CCF7F7F7" Grid.Column="1">
                             <TabItem >
                                 <TabItem.Header>
                                     <StackPanel Orientation="Horizontal">
@@ -1606,17 +1614,17 @@
 
                         </TabControl>
 
-                        
 
-                        <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="268,216,0,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked"/>
-                        <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="799,326,0,0" VerticalAlignment="Top" Height="125" Width="300">
+
+                        <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="3,216,0,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked" Grid.Column="1"/>
+                        <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="534,326,0,0" VerticalAlignment="Top" Height="125" Width="300" Grid.Column="1">
                             <Label x:Name="lblMultiples_Copy1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelMultiRates}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headApply}" HorizontalAlignment="Left" Margin="1120,326,0,0" VerticalAlignment="Top" Height="125" Width="116"/>
-                        <GroupBox x:Name="cmdCodigo_Copy1" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headP}" HorizontalAlignment="Left" Margin="797,473,0,0" VerticalAlignment="Top" Height="115" Width="174">
+                        <GroupBox x:Name="cmdCodigo_Copy" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headApply}" HorizontalAlignment="Left" Margin="855,326,0,0" VerticalAlignment="Top" Height="125" Width="116" Grid.Column="1"/>
+                        <GroupBox x:Name="cmdCodigo_Copy1" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headP}" HorizontalAlignment="Left" Margin="532,473,0,0" VerticalAlignment="Top" Height="115" Width="174" Grid.Column="1">
                             <TextBox x:Name="txtPotencia" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="1"/>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy2" Visibility="Hidden"  Background="{StaticResource section}" BorderBrush="{StaticResource section}"  Header="{x:Static local:Lenguaje.tableMethod}" HorizontalAlignment="Left" Margin="991,474,0,0" VerticalAlignment="Top" Height="115" Width="116">
+                        <GroupBox x:Name="cmdCodigo_Copy2" Visibility="Hidden"  Background="{StaticResource section}" BorderBrush="{StaticResource section}"  Header="{x:Static local:Lenguaje.tableMethod}" HorizontalAlignment="Left" Margin="726,474,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1">
                             <ComboBox x:Name="comboMetodo" Visibility="Hidden" HorizontalAlignment="Left" Margin="7,23,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True">
                                 <ComboBoxItem Content="R"/>
                                 <ComboBoxItem Content="X"/>
@@ -1641,8 +1649,8 @@
                                 <ComboBoxItem Content="QTDCL 10*90"/>
                             </ComboBox>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy3" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.tableLevel}" HorizontalAlignment="Left" Margin="1129,475,0,0" VerticalAlignment="Top" Height="115" Width="116"/>
-                        <Button x:Name="cmdAplicar" Visibility="Hidden" Background="{StaticResource section}" BorderThickness="0"  HorizontalAlignment="Left" Margin="817,607,0,0" VerticalAlignment="Top" Width="187" Height="48" Click="cmdAplicar_Click">
+                        <GroupBox x:Name="cmdCodigo_Copy3" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.tableLevel}" HorizontalAlignment="Left" Margin="864,475,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1"/>
+                        <Button x:Name="cmdAplicar" Visibility="Hidden" Background="{StaticResource section}" BorderThickness="0"  HorizontalAlignment="Left" Margin="552,607,0,0" VerticalAlignment="Top" Width="187" Height="48" Click="cmdAplicar_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1651,10 +1659,10 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnApp}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="lblMultiples_Copy" Visibility="Hidden" Content="There are [N] rates selected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="829,388,0,0" FontSize="16" FontWeight="Bold"/>
-                        <RadioButton x:Name="checkBox" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputSelect}" HorizontalAlignment="Left" Margin="1142,374,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-                        <RadioButton x:Name="checkBox_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="1142,405,0,0" VerticalAlignment="Top" Checked="checkBox_Copy_Checked"/>
-                        <ComboBox x:Name="cmdNivel" Visibility="Hidden" HorizontalAlignment="Left" Margin="1142,530,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True">
+                        <Label x:Name="lblMultiples_Copy" Visibility="Hidden" Content="There are [N] rates selected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="564,388,0,0" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                        <RadioButton x:Name="checkBox" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputSelect}" HorizontalAlignment="Left" Margin="877,374,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" Grid.Column="1"/>
+                        <RadioButton x:Name="checkBox_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="877,405,0,0" VerticalAlignment="Top" Checked="checkBox_Copy_Checked" Grid.Column="1"/>
+                        <ComboBox x:Name="cmdNivel" Visibility="Hidden" HorizontalAlignment="Left" Margin="877,530,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True" Grid.Column="1">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -1669,11 +1677,11 @@
                             <ComboBoxItem Content="12"/>
 
                         </ComboBox>
-                        <Button x:Name="cmdCerrarRemedio" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="1446,104,0,0" VerticalAlignment="Top" Width="42" Background="#FFDEDCDC" Click="cmdCerrarRemedio_Click"/>
-                        <Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="416,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden"/>
-                        <ListBox x:Name="listaDetecciones" HorizontalAlignment="Left" Height="199" Margin="416,144,0,0" VerticalAlignment="Top" Width="574" BorderThickness="1" Visibility="Hidden"/>
-                        <Label x:Name="label8" Content="DISEASES AND SYMPTOMS" HorizontalAlignment="Left" Margin="427,111,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-                        <Button x:Name="cmdDuplicarRemedio_Copy" Background="#FF3CB3DF" HorizontalAlignment="Left" Height="39" Margin="1320,94,0,0" VerticalAlignment="Top" Width="165" ToolTip="Save Changes"  BorderThickness="0" Click="cmdDuplicarRemedio_Copy_Click">
+                        <Button x:Name="cmdCerrarRemedio" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="1181,104,0,0" VerticalAlignment="Top" Width="42" Background="#FFDEDCDC" Click="cmdCerrarRemedio_Click" Grid.Column="1"/>
+                        <Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="151,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden" Grid.Column="1"/>
+                        <ListBox x:Name="listaDetecciones" HorizontalAlignment="Left" Height="199" Margin="151,144,0,0" VerticalAlignment="Top" Width="574" BorderThickness="1" Visibility="Hidden" Grid.Column="1"/>
+                        <Label x:Name="label8" Content="DISEASES AND SYMPTOMS" HorizontalAlignment="Left" Margin="162,111,0,0" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="1"/>
+                        <Button x:Name="cmdDuplicarRemedio_Copy" Background="#FF3CB3DF" HorizontalAlignment="Left" Height="39" Margin="1055,94,0,0" VerticalAlignment="Top" Width="165" ToolTip="Save Changes"  BorderThickness="0" Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1682,9 +1690,9 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.brnSC}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <ProgressBar x:Name="progressBar" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="723,30,0,0" VerticalAlignment="Top" Width="764" Style="{StaticResource CustomProgressBarStyle}"/>
-                        <Label x:Name="lblProgress" Content="" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="730,32,203,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000"/>
-                        <Label x:Name="lblPorcentProgress" Content="" Visibility="Hidden" Margin="1377,33,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right"/>
+                        <ProgressBar x:Name="progressBar" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="458,30,0,0" VerticalAlignment="Top" Width="764" Style="{StaticResource CustomProgressBarStyle}" Grid.Column="1"/>
+                        <Label x:Name="lblProgress" Content="" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="465,32,203,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000" Grid.Column="1"/>
+                        <Label x:Name="lblPorcentProgress" Content="" Visibility="Hidden" Margin="1112,33,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right" Grid.Column="1"/>
                     </Grid>
                 </TabItem>
 
@@ -2374,7 +2382,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewBroad}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdReanudar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="52,115,0,0" VerticalAlignment="Top" Width="125" Height="45" Click="cmdReanudar_Click">
+                        <Button x:Name="cmdReanudar" Visibility="Hidden" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="52,115,0,0" VerticalAlignment="Top" Width="125" Height="45" Click="cmdReanudar_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2383,7 +2391,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnResume}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdPausar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="190,115,0,0" VerticalAlignment="Top" Width="134" Height="45" Click="cmdPausar_Click">
+                        <Button x:Name="cmdPausar" Visibility="Hidden" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="190,115,0,0" VerticalAlignment="Top" Width="134" Height="45" Click="cmdPausar_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2404,7 +2412,7 @@
                                 <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headHold}"/>
                             </StackPanel>
                         </Label>
-                        <Button x:Name="cmdBorrarDiagactivo" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="753,211,0,0" VerticalAlignment="Top" Width="145" Click="cmdBorrarDiagactivo_Click" Height="31">
+                        <Button x:Name="cmdBorrarDiagactivo" BorderThickness="0" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="753,211,0,0" VerticalAlignment="Top" Width="145" Click="cmdBorrarDiagactivo_Click" Height="31">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2413,7 +2421,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEraseNorm}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="213" Margin="22,0,0,0" VerticalAlignment="Center" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
+                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="113" Margin="22,-100,0,0" VerticalAlignment="Center" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tablePat}" DisplayMemberBinding="{Binding paciente}" Width="180px" />
@@ -2633,7 +2641,18 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-
+                        <ProgressBar x:Name="progressBarTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="22,382,0,0" VerticalAlignment="Top" Width="893" Style="{StaticResource CustomProgressBarStyle}"/>
+                        <Label x:Name="lblProgressTratamiento" Content="Tiempo Restante" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="28,383,617,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000" Height="38"/>
+                        <Label x:Name="lblPorcentProgressTratamiento" Content="" Visibility="Hidden" Margin="610,383,334,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right" Width="300" Height="38"/>
+                        <Button x:Name="cmdCancelarTratamiento" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Height="47" Margin="50,113,0,0" VerticalAlignment="Top" Width="274" Click="cmdCancelarTratamiento_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconModern Width="20" Height="20" Kind="Close" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.CancelarTratamiento}" Foreground="#FFFAFAFA"/>
+                            </StackPanel>
+                        </Button>
                     </Grid>
                 </TabItem>
 
