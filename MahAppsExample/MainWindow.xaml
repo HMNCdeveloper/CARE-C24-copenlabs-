@@ -200,7 +200,7 @@
                                 <TextBlock x:Name="EliminarLetrero" Margin="4 0 0 0" VerticalAlignment="Center" Foreground="#FFFAFAFA" Text="{x:Static local:Lenguaje.TablePDelete}"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdModificar" Visibility="Hidden" Content="Modificar" HorizontalAlignment="Left" Margin="46,139,0,0" VerticalAlignment="Top" Width="30" Height="32" ToolTip="Modificar un registro de paciente" Click="cmdModificar_Click"/>
+                        <Button x:Name="cmdModificar" Visibility="Hidden" Content="Modificar" HorizontalAlignment="Left" Margin="46,139,0,0" VerticalAlignment="Top" Width="30" Height="32" ToolTip="Modificar un registro de paciente"/>
                         <ListView x:Name="ListaPacientes" HorizontalAlignment="Left" Margin="45,197,0,135" Width="341" BorderThickness="0.8" BorderBrush="{StaticResource borderSection}" SelectionMode="Single" ToolTip="" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListaPacientes_SelectionChanged" MouseDoubleClick="ListaPacientes_MouseDoubleClick" Initialized="ListaPacientes_Initialized" Loaded="ListaPacientes_Loaded" Background="White" Grid.ColumnSpan="2">
                             <ListView.RenderTransform>
                                 <TransformGroup>

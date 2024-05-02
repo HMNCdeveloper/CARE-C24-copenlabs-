@@ -124,12 +124,19 @@ namespace MahAppsExample
             {
 
                 MessageBox.Show("You need to restore  the bckup to your local database before proceeding!.... Then it will be installed!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                Database.db = "rad_en";
                 HacerConexion();
                 obj2.UploadBackup(RutaInstalacion() + "\\db\\rad_en.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
+                CerrarConexion();
+
+
+                Database.db = "rad_es";
+                HacerConexion();
                 obj2.UploadBackup(RutaInstalacion() + "\\db\\rad_es.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
                 CerrarConexion();
-                var window = Application.Current.Windows[0];
-                window.Close();
+
+                //var window = Application.Current.Windows[0];
+                //window.Close();
             }
             else
             {
@@ -1409,60 +1416,7 @@ namespace MahAppsExample
             }
         }
 
-        //Funcion para modificar el paciente
-        private void cmdModificar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void listaTelefonos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cmdTelEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            /*try
-            {
-                if (cmdModificar.IsEnabled == false)
-                {
-                    string eliminarelem = listaTelefonos.SelectedItem.ToString(); //Elemento elegido
-                    HacerConexion(); //Conexion
-                    for (int d = 0; d <= ListaTelefonos.Count - 1; d++)
-                    {
-                        if (listaTelefonos.SelectedItem.ToString() == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
-                        {
-                            //Eliminar numero de telefono
-                            obj2.EliminarTelefonosPaciente(ListaTelefonos[d].ToString(), ListaExtensiones[d].ToString());
-
-                            ListaTelefonos.RemoveAt(d);
-                            ListaExtensiones.RemoveAt(d);
-                            //MessageBox.Show("Llego");
-                            listaTelefonos.Items.Remove(eliminarelem); //Remueve del listbox
-                        }
-                    }
-                    CerrarConexion(); //Cerrar conexion
-                }
-                else
-                {
-                    string eliminarelem = listaTelefonos.SelectedItem.ToString(); //Elemento elegido
-                    for (int d = 0; d <= ListaTelefonos.Count - 1; d++)
-                    {
-                        if (listaTelefonos.SelectedItem.ToString() == ListaTelefonos[d].ToString() + " , Ext: " + ListaExtensiones[d].ToString())
-                        {
-                            ListaTelefonos.RemoveAt(d);
-                            ListaExtensiones.RemoveAt(d);
-                            //MessageBox.Show("Llego");
-                            listaTelefonos.Items.Remove(eliminarelem); //Remueve del listbox
-                        }
-                    }
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("No se ha seleccionado ningun telefono a eliminar!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
-        }
+       
 
 
 
@@ -3617,12 +3571,12 @@ namespace MahAppsExample
             /*this line of code should be rewied  in a future moment*/
             if (comboNiveles.SelectedIndex == -1)
             {
-                comboNiveles.SelectedIndex = 0;
+                tipo_nivel_codigo="-";
             }
 
-            if (comboNiveles.SelectedIndex == -1)
+            if (comboP.SelectedIndex == -1)
             {
-                comboP.SelectedIndex = 0;
+               nivel_potencia="-";
             }
 
             //Selectiva con el tipo de analisis
@@ -4511,8 +4465,8 @@ namespace MahAppsExample
             if (comboNiveles.SelectedIndex != -1)
             {
                 tipo_nivel_codigo = ((ComboBoxItem)comboNiveles.SelectedItem).Content.ToString();
-
             }
+          
         }
 
         private void comboPontency_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -4521,7 +4475,7 @@ namespace MahAppsExample
             {
                 nivel_potencia = ((ComboBoxItem)comboP.SelectedItem).Content.ToString();
             }
-
+          
         }
 
 
