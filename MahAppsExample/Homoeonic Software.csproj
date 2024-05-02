@@ -1018,6 +1018,7 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="agif.gif" />
+    <Resource Include="Resources\gif.gif" />
     <Content Include="Resources\1493.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
