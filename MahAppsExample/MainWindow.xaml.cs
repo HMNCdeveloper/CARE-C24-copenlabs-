@@ -3502,12 +3502,6 @@ namespace MahAppsExample
         void Panel_opcion2()
         {
             progreso1.Visibility = Visibility.Hidden;
-            cmdProcesarAnalisis.Visibility = Visibility.Visible;
-            cmdBorrar.Visibility = Visibility.Visible;
-            cmdRango.Visibility = Visibility.Visible;
-            ListaCodigos.Visibility = Visibility.Visible;
-            lblContador.Visibility = Visibility.Visible;
-            lblContCodigos.Visibility = Visibility.Visible;
             ListaCodigos.Items.Clear();
         }
 
@@ -3591,12 +3585,7 @@ namespace MahAppsExample
                     Limpiar_Listas();
 
                     progreso1.Visibility = Visibility.Visible;
-                    cmdProcesarAnalisis.Visibility = Visibility.Hidden;
-                    cmdBorrar.Visibility = Visibility.Hidden;
-                    cmdRango.Visibility = Visibility.Hidden;
-                    ListaCodigos.Visibility = Visibility.Hidden;
-                    lblContador.Visibility = Visibility.Hidden;
-                    lblContCodigos.Visibility = Visibility.Hidden;
+                    
 
                     new Thread((ThreadStart)delegate
                     {
@@ -3641,12 +3630,7 @@ namespace MahAppsExample
                     Limpiar_Listas();
 
                     progreso1.Visibility = Visibility.Visible;
-                    cmdProcesarAnalisis.Visibility = Visibility.Hidden;
-                    cmdBorrar.Visibility = Visibility.Hidden;
-                    cmdRango.Visibility = Visibility.Hidden;
-                    ListaCodigos.Visibility = Visibility.Hidden;
-                    lblContador.Visibility = Visibility.Hidden;
-                    lblContCodigos.Visibility = Visibility.Hidden;
+                    
 
                     new Thread((ThreadStart)delegate
                     {
@@ -3708,12 +3692,7 @@ namespace MahAppsExample
                     IEnumerable items5 = this.ListaCodigos.Items;
                     Limpiar_Listas();
                     progreso1.Visibility = Visibility.Visible;
-                    cmdProcesarAnalisis.Visibility = Visibility.Hidden;
-                    cmdBorrar.Visibility = Visibility.Hidden;
-                    cmdRango.Visibility = Visibility.Hidden;
-                    ListaCodigos.Visibility = Visibility.Hidden;
-                    lblContador.Visibility = Visibility.Hidden;
-                    lblContCodigos.Visibility = Visibility.Hidden;
+                    
 
                     new Thread((ThreadStart)delegate
                     {
@@ -10898,7 +10877,6 @@ namespace MahAppsExample
         void Mostrar_TratamientoDiag()
         {
             lblDiagActivo.Visibility = Visibility.Visible;
-            cmdBorrarDiagactivo.Visibility = Visibility.Visible;
             //  cmdBorrarDiagActSec.Visibility = Visibility.Visible;
             ListadoDiagActivos.Visibility = Visibility.Visible;
             lblDiagEnEspera.Visibility = Visibility.Visible;
