@@ -31,27 +31,19 @@ using Application = System.Windows.Application;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
-using System.Windows.Media;
-using System.Windows.Controls;
-using System.Reflection;
+
 using HS5;
-
-using System.Windows.Media;
-using System.Windows.Controls;
-using System.Reflection;
-
+using System.ComponentModel;
 using System.Windows.Threading;
-
-
-
-
+using System.Windows.Forms;
+using iTextSharp.text.pdf.codec;
 
 namespace MahAppsExample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
         Machine obj = new Machine(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
@@ -108,9 +100,25 @@ namespace MahAppsExample
 
         //this variable is used  in functions  cmdGenerarReporte_Click and ListadoDiagActivos_MouseDoubleClick
         nuevoTratamiento Gendiagnosticos_items;
-        
-        
-        
+
+        private string _gifImage;
+        public string GifImage
+        {
+            get { return _gifImage; }
+            set
+            {
+                _gifImage = value;
+                OnPropertyChanged("GifImage");
+            }
+        }
+
+        // Implementación de INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         string tipo_nivel_codigo;
         string nivel_potencia;
         //string puertoCOM;
@@ -155,7 +163,7 @@ namespace MahAppsExample
                 dateProg.SelectedDate = DateTime.Today;
                 comboTipoProg.SelectedIndex = 0;
                 Console.WriteLine(Settings.Default.Lenguaje.ToString());
-
+                DataContext = this;
                 //Deteccion de la maquina o dispositivo
                 string id_maquina = obj.Machine_Detection(puerto);
                 IDs_maquinas_aceptados(id_maquina);
@@ -3450,11 +3458,13 @@ namespace MahAppsExample
             listadoSubcategorias.SelectedIndex = -1;
             listadoCodigos.SelectedIndex = -1;
             Desactivar_Iniciar_AgregarCodigo();
+            extra = 0;
         }
-
+        
         void Panel_opcion2()
         {
             progreso1.Visibility = Visibility.Hidden;
+            extra = 0;
             ListaCodigos.Items.Clear();
         }
 
@@ -3493,6 +3503,20 @@ namespace MahAppsExample
         private void cmdIniciarDiag_Click(object sender, RoutedEventArgs e)
         {
             //Tipo de opciones
+            DataTable dtgen = new DataTable();
+            dtgen = obj2.BuscarGenero(lblNombre_Anal1.Content.ToString());
+            string genero = dtgen.Rows[0]["sexo"].ToString();
+            if(genero == "Male" || genero == "Masculino")
+            {
+                GifImage = "Resources/male.gif";
+            }else if (genero == "Female" || genero == "Femenino")
+            {
+                GifImage = "Resources/female.gif";
+            }
+            else
+            {
+                GifImage = "Resources/dna.gif";
+            }
             string tipo = "";
             
 
@@ -10189,7 +10213,7 @@ namespace MahAppsExample
             try
             {
                 HacerConexion();
-
+                
                 //Revisar si el nombre del analisis ya esta en uso ...
                 object id_analisis = obj2.Obtener_Id_Analisis(cmdAnalisisPaciente_Copy.Text);
 
@@ -10630,7 +10654,7 @@ namespace MahAppsExample
         private void cmdReanalizarr_Click(object sender, RoutedEventArgs e)
         {
             HacerConexion();
-
+            
             //Revisar si el nombre del analisis ya esta en uso ...
             object id_reanalisis2 = obj2.Obtener_Id_Analisis(comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis");
             try
@@ -13814,7 +13838,7 @@ namespace MahAppsExample
         private void ShowTableAna(object sender,MouseButtonEventArgs e)
         {
 
-            if(sender is ListBox tabItem)
+            if(sender is System.Windows.Controls.ListBox tabItem)
             {
                 string name = tabItem.SelectedItem.ToString();
                 HacerConexion();
@@ -13833,7 +13857,7 @@ namespace MahAppsExample
         private void ShowTableRemedy(object sender,MouseButtonEventArgs e)
         {
 
-            if (sender is ListBox remedySelected)
+            if (sender is System.Windows.Controls.ListBox remedySelected)
             {
                 string remedy = remedySelected.SelectedItem.ToString();
                 Remedio table;

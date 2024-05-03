@@ -1118,8 +1118,16 @@
                                     <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="Resources\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
 
                                     <Image x:Name="progreso" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
+<<<<<<< HEAD
                                     <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\gif.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
 
+||||||| 3260539
+                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\gif.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
+                                    
+=======
+                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="{Binding GifImage}"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
+                                    
+>>>>>>> c63b5bfc981fc6e604f1ce645e95b27d88402a96
                                     <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 </Grid>
@@ -2668,6 +2676,7 @@
                         <Image x:Name="imagelogo" HorizontalAlignment="Left" Height="209" Margin="42,10,0,0" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4"/>
                     </Grid>
                 </TabItem>
+                
 
 
             </TabControl>
