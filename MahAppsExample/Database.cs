@@ -133,6 +133,7 @@ namespace MahAppsExample
         public DataTable Obtener_Analisis_Pacientes_Recientes()
         {
             sql = "SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text)) ORDER BY fecha";
+            
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -144,6 +145,7 @@ namespace MahAppsExample
         public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(string paciente_nombre)
         {
             sql = "SELECT * FROM (SELECT rad_analisis.nombre,rad_analisis.fecha,CONCAT(rad_pacientes.nombre,' ',rad_pacientes.apellido1,' ',rad_pacientes.apellido2) as nombrepaciente from rad_analisis INNER JOIN rad_pacientes ON (rad_analisis.idpaciente=cast(rad_pacientes.idp as text))) as tabla where nombrepaciente=$$" + paciente_nombre + "$$";
+            Console.WriteLine(sql);
             NpgsqlDataAdapter da2 = new NpgsqlDataAdapter(sql, conn);
             ds2.Reset();
             da2.Fill(ds2);
@@ -248,6 +250,7 @@ namespace MahAppsExample
         public object Obtener_Id_Analisis(string nombre)
         {
             sql = "select ida from rad_analisis where nombre=$$" + nombre + "$$";
+            Console.WriteLine(sql);
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -292,8 +295,7 @@ namespace MahAppsExample
         //Funcion que despliega los nombres de los pacientes
         public DataTable Mostrar_Pacientes_Listado_Sencillo()
         {
-            sql = "select nombre,apellido1,apellido2,sexo from rad_pacientes order by nombre";
-            //command = new NpgsqlCommand(sql, conn);
+            sql = "select nombre,apellido1,apellido2 from rad_pacientes order by nombre";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);

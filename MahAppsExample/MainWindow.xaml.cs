@@ -135,8 +135,8 @@ namespace MahAppsExample
                 obj2.UploadBackup(RutaInstalacion() + "\\db\\rad_es.sql", "Successful restoration!!, Right Now the System will close, you have to open the system to use it again", "Informacion");
                 CerrarConexion();
 
-                //var window = Application.Current.Windows[0];
-                //window.Close();
+                var window = Application.Current.Windows[0];
+                window.Close();
             }
             else
             {
@@ -165,7 +165,8 @@ namespace MahAppsExample
                 MostrarPrincipalAnalisis();
                 Cargar_TerapiaDefault();
                 Mostrar_TerapiaColor();
-                Desactivar_Diagnostico();
+                Cargar_Pacientes_Diagnostico();
+
 
                 //Solo si no existe copia la carpeta de fotos de HS 4.9
                 if (!Directory.Exists(RutaInstalacion() + "//fotos"))
@@ -1193,6 +1194,8 @@ namespace MahAppsExample
                         //MessageBox.Show("El paciente ya se encuentra registrado!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                     }
+
+                    Cargar_Pacientes_Diagnostico();
                 }
                 else
                 {
@@ -1330,14 +1333,14 @@ namespace MahAppsExample
             CerrarConexion();
         }
 
-        public void CargarRegistrosPacientesRecientes()
-        {
-            //Carga el listado de pacientes
-            HacerConexion();
-            DataTable ListadoRecientesPacientes = obj2.Obtener_Analisis_Pacientes_Recientes();
-            ListaPacientes_Recientes1.ItemsSource = ListadoRecientesPacientes.DefaultView;
-            CerrarConexion();
-        }
+        //public void CargarRegistrosPacientesRecientes()
+        //{
+        //    //Carga el listado de pacientes
+        //    HacerConexion();
+        //    DataTable ListadoRecientesPacientes = obj2.Obtener_Analisis_Pacientes_Recientes();
+        //    ListaPacientes_Recientes1.ItemsSource = ListadoRecientesPacientes.DefaultView;
+        //    CerrarConexion();
+        //}
 
         private void txtBuscarPaciente_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -2412,20 +2415,7 @@ namespace MahAppsExample
             }
         }
 
-        void Desactivar_Diagnostico()
-        {
-            BusquedaReanalisis.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis2.Visibility = Visibility.Hidden;
-            cmdAnalisisPaciente.Visibility = Visibility.Hidden;
-            listadoPacientes.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis.Visibility = Visibility.Hidden;
-            cmdAnalisisPaciente_Copy.Visibility = Visibility.Hidden;
-            cmdAnalizarr.Visibility = Visibility.Hidden;
-            cmdReanalizarr.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis_Copy.Visibility = Visibility.Hidden;
-            comboOtrosAnal.Visibility = Visibility.Hidden;
-            cmdAnalisisReanalisisCerrar.Visibility = Visibility.Hidden;
-        }
+     
 
         /*
           This function is  used to save a address from the patient
@@ -2602,38 +2592,6 @@ namespace MahAppsExample
 
         }
 
-        private void txtBuscarPaciente1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (txtBuscarPaciente2.Text != "")
-            {
-                HacerConexion();
-                //Llama y obtiene posibles matches
-                DataTable PacientesAnalisisBuscado = new DataTable();
-                PacientesAnalisisBuscado = obj2.Buscar_Analisis(txtBuscarPaciente2.Text);
-                ListaPacientes_Recientes1.ItemsSource = PacientesAnalisisBuscado.DefaultView;
-                CerrarConexion();
-            }
-            else
-            {
-                if (txtBuscarPaciente2.Text == "")
-                {
-                    CargarRegistrosPacientesRecientes();
-                }
-                else
-                {
-                    // MessageBox.Show("Introduzca el nombre del paciente a buscar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    txtBuscarPaciente2.Focus();
-                }
-            }
-        }
-
-
-
-        //Guarda en listas
-        /*List<string> Pac_nombre = new List<string>();
-        List<string> Pac_apell1 = new List<string>();
-        List<string> Pac_apell2 = new List<string>();
-        List<string> Pac_sexo = new List<string>();*/
 
         void Cargar_Pacientes_Diagnostico()
         {
@@ -2645,53 +2603,30 @@ namespace MahAppsExample
             //Pasarlo al listado de pacientes
             for (int j = 0; j <= pacientes.Rows.Count - 1; j++)
             {
-                /* Pac_nombre.Add(pacientes.Rows[j][0].ToString());
-                  Pac_apell1.Add(pacientes.Rows[j][1].ToString());
-                  Pac_apell2.Add(pacientes.Rows[j][2].ToString());
-                  Pac_sexo.Add(pacientes.Rows[j][3].ToString()); */
                 listadoPacientes.Items.Add(pacientes.Rows[j][0].ToString() + " " + pacientes.Rows[j][1].ToString() + " " + pacientes.Rows[j][2].ToString());
             }
-
-        }
-
-        private void cmdNuevoAnalisis_Click(object sender, RoutedEventArgs e)
-        {
-            //Mostrar elementos del panel analisis/reanalisis
-            listadoPacientes.Visibility = Visibility.Visible;
-            BusquedaReanalisis.Visibility = Visibility.Visible;
-            lblPacienteAnalisis2.Visibility = Visibility.Visible;
-            cmdAnalisisPaciente.Visibility = Visibility.Visible;
-            cmdAnalisisPaciente_Copy.Visibility = Visibility.Visible;
-            cmdAnalizarr.Visibility = Visibility.Visible;
-            cmdReanalizarr.Visibility = Visibility.Visible;
-            lblPacienteAnalisis_Copy.Visibility = Visibility.Visible;
-            comboOtrosAnal.Visibility = Visibility.Visible;
-            lblPacienteAnalisis.Visibility = Visibility.Visible;
-            cmdAnalisisReanalisisCerrar.Visibility = Visibility.Visible;
-
-            //Desactivar
-            cmdNuevoAnalisis1.IsEnabled = false;
             cmdAnalisisPaciente.Focus();
-            comboOtrosAnal.Items.Clear();
-
-            Cargar_Pacientes_Diagnostico();
         }
+
 
         private void cmdListaDiagnos_Click(object sender, RoutedEventArgs e)
         {
+
+
+     
+            UpdateAnalysis(lblNombre_Anal1.Content.ToString());
             HacerConexion();
             object id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
             object cant_codigos_analisis = obj2.Obtener_Codigos_Cantidad_Analisis(id_analisis.ToString());
             int cant_num_codigo = Convert.ToInt32(cant_codigos_analisis);
             CerrarConexion();
 
+     
+
             if ((ListaCodigos.Items.Count != 0 || cant_num_codigo != 0) || ListaCodigos.Items.Count == 0 || cant_num_codigo == 0)
             {
-                BusquedaAnalisisGroup1.Visibility = Visibility.Visible;
                 Lista_Analisis_Group1.Visibility = Visibility.Visible;
-                lblBusqueda_Copy1.Visibility = Visibility.Visible;
-                txtBuscarPaciente2.Visibility = Visibility.Visible;
-                cmdNuevoAnalisis1.Visibility = Visibility.Visible;
+         
                 cmdEliminar_Copy1.Visibility = Visibility.Visible;
                 ListaPacientes_Recientes1.Visibility = Visibility.Visible;
 
@@ -2727,13 +2662,26 @@ namespace MahAppsExample
                 comboP.SelectedIndex = -1;
 
                 OcultarDiag2();
-                CargarRegistrosPacientesRecientes();
+                //CargarRegistrosPacientesRecientes();
             }
             else
             {
 
                 //MessageBox.Show("Perform an analysis first in order to save it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+     
+
+            BusquedaReanalisis.Visibility = Visibility.Visible;
+            lblPacienteAnalisis2.Visibility=Visibility.Visible;
+            cmdAnalisisPaciente.Visibility = Visibility.Visible;
+            cmdAnalisisPaciente_Copy.Visibility = Visibility.Visible;
+            cmdAnalizarr.Visibility = Visibility.Visible;
+            listadoPacientes.Visibility = Visibility.Visible;
+            lblPacienteAnalisis.Visibility = Visibility.Visible;
+            lblPacienteAnalisis_Copy.Visibility = Visibility.Visible;
+            comboOtrosAnal.Visibility=Visibility.Visible;
+            cmdReanalizarr.Visibility = Visibility.Visible;
         }
 
         void OcultarDiag2()
@@ -2803,11 +2751,7 @@ namespace MahAppsExample
         void MostrarPrincipalAnalisis()
         {
             //Controles al elegir un analisis
-            BusquedaAnalisisGroup1.Visibility = Visibility.Visible;
             Lista_Analisis_Group1.Visibility = Visibility.Visible;
-            lblBusqueda_Copy1.Visibility = Visibility.Visible;
-            txtBuscarPaciente2.Visibility = Visibility.Visible;
-            cmdNuevoAnalisis1.Visibility = Visibility.Visible;
             cmdEliminar_Copy1.Visibility = Visibility.Visible;
             ListaPacientes_Recientes1.Visibility = Visibility.Visible;
 
@@ -3039,6 +2983,15 @@ namespace MahAppsExample
 
             public string nombre { get; set; }
             public string fecha { get; set; }
+
+        }
+
+        public class Analisis
+        {
+
+            public string nombre { get; set; }
+            public string fecha { get; set; }
+            public string nombrepaciente {  get; set; }
 
         }
 
@@ -10190,6 +10143,8 @@ namespace MahAppsExample
         private void listadoPacientes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             comboOtrosAnal.Items.Clear();
+            ListaPacientes_Recientes1.Items.Clear();
+
 
             try
             {
@@ -10198,13 +10153,30 @@ namespace MahAppsExample
                 lblPacienteAnalisis_Copy.Content = obtenerRecurso("labelRAN") + ":";
                 lblPacienteAnalisis_Copy.Content = lblPacienteAnalisis_Copy.Content + "  " + listadoPacientes.SelectedItem.ToString();
 
-                //Llenar el combobox con analisis relacionados
-                for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
+
+
+                Console.WriteLine(AnalisisPaciente_Seleccionado.Rows.ToString());
+                if (AnalisisPaciente_Seleccionado.Rows.Count != 0)
                 {
-                    //Agregar solo nombre del analisis
-                    comboOtrosAnal.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
+                   
+                    for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
+                    {
+                        //Agregar solo nombre del analisis
+                        comboOtrosAnal.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
+                        ListaPacientes_Recientes1.Items.Add(new Analisis { 
+                            nombre = AnalisisPaciente_Seleccionado.Rows[i][0].ToString(), 
+                            fecha = AnalisisPaciente_Seleccionado.Rows[i][1].ToString(),
+                            nombrepaciente= AnalisisPaciente_Seleccionado.Rows[i][2].ToString()
+                        });
+                    }
                 }
-                CargarRegistrosPacientesRecientes();
+                else
+                {
+                    ListaPacientes_Recientes1.Items.Clear();
+                    comboOtrosAnal.Items.Clear();
+                }
+
+         
             }
             catch (NullReferenceException)
             {
@@ -10237,7 +10209,7 @@ namespace MahAppsExample
 
                             cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
                             A_Diagnosticar(pac);
-                            cmdNuevoAnalisis1.IsEnabled = true; //Activa el boton de nuevo analisis o reanalisis
+                            
                             cmdReanalizarr.IsEnabled = true;
 
                         }
@@ -10270,11 +10242,7 @@ namespace MahAppsExample
 
             //Controles al elegir un analisis los oculta
             //Principales
-            BusquedaAnalisisGroup1.Visibility = Visibility.Hidden;
             Lista_Analisis_Group1.Visibility = Visibility.Hidden;
-            lblBusqueda_Copy1.Visibility = Visibility.Hidden;
-            txtBuscarPaciente2.Visibility = Visibility.Hidden;
-            cmdNuevoAnalisis1.Visibility = Visibility.Hidden;
             cmdEliminar_Copy1.Visibility = Visibility.Hidden;
             ListaPacientes_Recientes1.Visibility = Visibility.Hidden;
 
@@ -10289,7 +10257,6 @@ namespace MahAppsExample
             lblPacienteAnalisis_Copy.Visibility = Visibility.Hidden;
             comboOtrosAnal.Visibility = Visibility.Hidden;
             lblPacienteAnalisis.Visibility = Visibility.Hidden;
-            cmdAnalisisReanalisisCerrar.Visibility = Visibility.Hidden;
             ventana1.Visibility = Visibility.Hidden;
         }
 
@@ -10533,50 +10500,48 @@ namespace MahAppsExample
 
         void A_Diagnosticar(string[] datos_paciente = null)
         {
-            try
+
+           try
             {
+                 //Si es un analisis nuevo
+                 if (datos_paciente != null)
+                 {
+                     lblPacienteAnalisis_P1.Content = datos_paciente[1];
+                     lblNombre_Anal1.Content = datos_paciente[0];
+                     string date;
+                     date = DateTime.Now.ToString();
+                
+                     //Fecha actual para el analisis
+                     lblFechaAnalisis3.Content = date;
+                
+                     Ocultar_Diag();
+                     Checar_SiYaFueAnalizado("");
+                
+                 }
+                 else
+                 {
+                     //Si se selecciona uno en vez de crear el analisis...
+                
+                     //Agarra
+                     Analisis paciente_seleccionado_reciente = (Analisis)ListaPacientes_Recientes1.SelectedItem;
+                     lblPacienteAnalisis_P1.Content = paciente_seleccionado_reciente.nombre;//0
+                     lblNombre_Anal1.Content = paciente_seleccionado_reciente.nombrepaciente;//2
+                     lblFechaAnalisis3.Content = paciente_seleccionado_reciente.fecha;//1
+                
+                
+                     //Revisar si ya fue analizado
+                     HacerConexion();
+                     object validacion_analisis = obj2.Validar_Analisis_Analizado(paciente_seleccionado_reciente.nombre);
+                     CerrarConexion();
+                
+                     // MessageBox.Show(validacion_analisis.ToString());
+                     Ocultar_Diag();
+                
+                     Checar_SiYaFueAnalizado(validacion_analisis.ToString());
+                
+                 }
 
-                //Si es un analisis nuevo
-                if (datos_paciente != null)
-                {
-                    lblPacienteAnalisis_P1.Content = datos_paciente[1];
-                    lblNombre_Anal1.Content = datos_paciente[0];
-                    string date;
-                    date = DateTime.Now.ToString();
-
-                    //Fecha actual para el analisis
-                    lblFechaAnalisis3.Content = date;
-
-                    Ocultar_Diag();
-                    Checar_SiYaFueAnalizado("");
-
-                }
-                else
-                {
-                    //Si se selecciona uno en vez de crear el analisis...
-
-                    //Agarra
-                    DataRowView paciente_seleccionado_reciente = (DataRowView)ListaPacientes_Recientes1.SelectedItem;
-                    lblPacienteAnalisis_P1.Content = paciente_seleccionado_reciente[0].ToString();
-                    lblNombre_Anal1.Content = paciente_seleccionado_reciente[2].ToString();
-                    lblFechaAnalisis3.Content = paciente_seleccionado_reciente[1].ToString();
-
-                    Console.WriteLine(paciente_seleccionado_reciente[0].ToString());
-
-                    //Revisar si ya fue analizado
-                    HacerConexion();
-                    object validacion_analisis = obj2.Validar_Analisis_Analizado(paciente_seleccionado_reciente[0].ToString());
-                    CerrarConexion();
-
-                    // MessageBox.Show(validacion_analisis.ToString());
-                    Ocultar_Diag();
-
-                    Checar_SiYaFueAnalizado(validacion_analisis.ToString());
-
-                }
-
-            }
-            catch (Exception) {
+           }catch (Exception) {
                 MessageBox.Show(obtenerRecurso("messageError70"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
@@ -10588,18 +10553,43 @@ namespace MahAppsExample
             A_Diagnosticar();
         }
 
+
+        void UpdateAnalysis(string namePatient)
+        {
+
+           ListaPacientes_Recientes1.Items.Clear();
+           DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(namePatient);
+           
+            if (AnalisisPaciente_Seleccionado.Rows.Count != 0)
+            {
+
+                for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
+                {
+                    ListaPacientes_Recientes1.Items.Add(new Analisis
+                    {
+                        nombre = AnalisisPaciente_Seleccionado.Rows[i][0].ToString(),
+                        fecha = AnalisisPaciente_Seleccionado.Rows[i][1].ToString(),
+                        nombrepaciente = AnalisisPaciente_Seleccionado.Rows[i][2].ToString()
+                    });
+                }
+            }
+
+
+        }
+
         private void cmdEliminar_Copy1_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                DataRowView paciente_seleccionado_reciente = (DataRowView)ListaPacientes_Recientes1.SelectedItem;
+                Analisis paciente_seleccionado_reciente = (Analisis)ListaPacientes_Recientes1.SelectedItem;
 
                 //Abrir conexion
                 HacerConexion();
                 //Eliminar analisis elegido
-                obj2.EliminarAnalisisPorNombre(paciente_seleccionado_reciente[0].ToString());
+                obj2.EliminarAnalisisPorNombre(paciente_seleccionado_reciente.nombre);
                 CerrarConexion();
-                CargarRegistrosPacientesRecientes();
+                
+                UpdateAnalysis(paciente_seleccionado_reciente.nombrepaciente);
                 CargarListadoCompletoPacientes();
             }
             catch (NullReferenceException)
@@ -10791,7 +10781,6 @@ namespace MahAppsExample
 
                     cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
                     A_Diagnosticar(pac);
-                    cmdNuevoAnalisis1.IsEnabled = true; //Activa el boton de nuevo analisis o reanalisis
                     cmdReanalizarr.IsEnabled = true;
                 }
             }
@@ -10809,23 +10798,7 @@ namespace MahAppsExample
 
         }
 
-        private void cmdAnalisisReanalisisCerrar_Click(object sender, RoutedEventArgs e)
-        {
-            //Parte del reanalisis
-            listadoPacientes.Visibility = Visibility.Hidden;
-            BusquedaReanalisis.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis2.Visibility = Visibility.Hidden;
-            cmdAnalisisPaciente.Visibility = Visibility.Hidden;
-            cmdAnalisisPaciente_Copy.Visibility = Visibility.Hidden;
-            cmdAnalizarr.Visibility = Visibility.Hidden;
-            cmdReanalizarr.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis_Copy.Visibility = Visibility.Hidden;
-            comboOtrosAnal.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis.Visibility = Visibility.Hidden;
-            cmdNuevoAnalisis1.IsEnabled = true;
-            cmdAnalisisReanalisisCerrar.Visibility = Visibility.Hidden;
-            lblPacienteAnalisis_Copy.Content = "Otros análisis";
-        }
+     
 
         private void Pacientes_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -12549,51 +12522,8 @@ namespace MahAppsExample
             path = saveFileDialog.FileName;
             PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(path, FileMode.Create));
 
-            /*
-            //Comprobamos si la version esta registrada
-            HacerConexion();
-
-            DataTable Version = obj2.Consultar_Version();
-            //Campos para los datos de registro de la version
-            string nombre = "";
-            string descripcion = "";
-
-            //Recorremos valores
-            for (int i = 0; i <= Version.Rows.Count - 1; i++)
-            {
-                nombre = Version.Rows[i][1].ToString();
-                descripcion = Version.Rows[i][2].ToString();
-            }
-
-            //En caso de que no este registrada
-            if (Version.Rows.Count == 0)
-            {
-                nombre = "<REGISTRE VERSION PARA PERSONALIZAR>";
-                descripcion = "<REGISTRE VERSION PARA PERSONALIZAR>";
-            }
-
-            CerrarConexion();
-            CargarListadoCompletoPacientes();
-            
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "PDF Document|*.pdf";
-            saveFileDialog1.Title = "Save - Patient's Report";
-            saveFileDialog1.ShowDialog();
-
-            //Si se eligio ruta haz...
-            if (saveFileDialog1.FileName != "")
-            {
-                Document reporte = new Document();
-                PdfWriter.GetInstance(reporte, new FileStream("prueba.pdf",FileMode.Create));
-            
-                //Mandamos datos del registro de version
-                //buffer.PageEvent = new HS5.reporte_ext("Patient's Report", nombre, descripcion); //Agrega el encabezado y pie de pagina
-                */
+           
             reporte.Open();
-            // reporte.AddTitle("Expediente del Paciente - HS5");
-            //reporte.AddCreator("Homoeonic Software 5");
-            // reporte.AddAuthor("HS5");
-
             iTextSharp.text.Font titulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 14, iTextSharp.text.Font.BOLD);
             iTextSharp.text.Font subtitulos = iTextSharp.text.FontFactory.GetFont("HELVETICA", 12, iTextSharp.text.Font.BOLD);
             iTextSharp.text.Font texto = iTextSharp.text.FontFactory.GetFont("HELVETICA", 10, iTextSharp.text.Font.NORMAL);
@@ -12631,29 +12561,29 @@ namespace MahAppsExample
                 reporte.Add(jpg);
             }
 
-            iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph("Personal Details", subtitulos);
+            iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph(obtenerRecurso("reportP"), subtitulos);
             reporte.Add(parrafo2);
             reporte.Add(linebreak);
 
-            Chunk parrafo3 = new Chunk("Patient's Name: ", texto2);
+            Chunk parrafo3 = new Chunk(obtenerRecurso("reportPname") +" ", texto2);
             Chunk parrafo3_1 = new Chunk(txtNombre1.Text + " " + txtApellidoPat1.Text + " " + txtApellidoMat1.Text, texto);
             reporte.Add(parrafo3);
             reporte.Add(parrafo3_1);
             reporte.Add(Chunk.NEWLINE);
 
-            Chunk parrafo4 = new Chunk("Birthday: ", texto2);
+            Chunk parrafo4 = new Chunk(obtenerRecurso("reportPbirt") +" ", texto2);
             Chunk parrafo4_1 = new Chunk(txtFecha1.Text, texto);
             reporte.Add(parrafo4);
             reporte.Add(parrafo4_1);
             reporte.Add(Chunk.NEWLINE);
 
-            Chunk parrafo5 = new Chunk("Gender: ", texto2);
+            Chunk parrafo5 = new Chunk(obtenerRecurso("reportPGen") +" ", texto2);
             Chunk parrafo5_1 = new Chunk(txtSexo1.Text, texto);
             reporte.Add(parrafo5);
             reporte.Add(parrafo5_1);
             reporte.Add(Chunk.NEWLINE);
 
-            Chunk parrafo6 = new Chunk("E-mail: ", texto2);
+            Chunk parrafo6 = new Chunk(obtenerRecurso("LabelEmail") +" ", texto2);
             Chunk parrafo6_1 = new Chunk(txtEmail1.Text, texto);
             reporte.Add(parrafo6);
             reporte.Add(parrafo6_1);
@@ -12663,7 +12593,7 @@ namespace MahAppsExample
             if (listadodomicilios1_Copy.Items.Count != 0)
             {
                 reporte.Add(linebreak);
-                iTextSharp.text.Paragraph parrafod = new iTextSharp.text.Paragraph("Addresses", texto2);
+                iTextSharp.text.Paragraph parrafod = new iTextSharp.text.Paragraph(obtenerRecurso("headerAddresses"), texto2);
                 reporte.Add(parrafod);
 
                 //Se cargan los domicilios asociados
@@ -12678,7 +12608,7 @@ namespace MahAppsExample
             if (listaTelefonos1.Items.Count != 0)
             {
                 reporte.Add(linebreak);
-                iTextSharp.text.Paragraph parrafod2 = new iTextSharp.text.Paragraph("Phones", texto2);
+                iTextSharp.text.Paragraph parrafod2 = new iTextSharp.text.Paragraph(obtenerRecurso("labelPhones"), texto2);
                 reporte.Add(parrafod2);
 
                 //Se cargan los teléfonos asociados
@@ -12692,7 +12622,7 @@ namespace MahAppsExample
             reporte.Add(linebreak);
             reporte.Add(linebreak);
 
-            iTextSharp.text.Paragraph parrafoante = new iTextSharp.text.Paragraph("Background", subtitulos);
+            iTextSharp.text.Paragraph parrafoante = new iTextSharp.text.Paragraph(obtenerRecurso("reportPB"), subtitulos);
             reporte.Add(parrafoante);
             reporte.Add(linebreak);
 
@@ -12701,7 +12631,7 @@ namespace MahAppsExample
             //Heredo
             if (ListadoHeredo1_Copy.Items.Count != 0)
             {
-                iTextSharp.text.Paragraph parrafoh = new iTextSharp.text.Paragraph("Hereditary", texto2);
+                iTextSharp.text.Paragraph parrafoh = new iTextSharp.text.Paragraph(obtenerRecurso("headeHedit"), texto2);
                 reporte.Add(parrafoh);
 
                 //Se cargan los teléfonos asociados
@@ -12716,7 +12646,7 @@ namespace MahAppsExample
             //Patologicos
             if (listadoPatologicos1_Copy.Items.Count != 0)
             {
-                iTextSharp.text.Paragraph parrafop = new iTextSharp.text.Paragraph("Pathological", texto2);
+                iTextSharp.text.Paragraph parrafop = new iTextSharp.text.Paragraph(obtenerRecurso("headPatho"), texto2);
                 reporte.Add(parrafop);
 
                 //Se cargan los teléfonos asociados
@@ -12731,7 +12661,7 @@ namespace MahAppsExample
             //No Patologicos
             if (listadoNoPatologicos1_Copy.Items.Count != 0)
             {
-                iTextSharp.text.Paragraph parrafonp = new iTextSharp.text.Paragraph("Non Pathological", texto2);
+                iTextSharp.text.Paragraph parrafonp = new iTextSharp.text.Paragraph(obtenerRecurso("headNonPath"), texto2);
                 reporte.Add(parrafonp);
 
                 //Se cargan los teléfonos asociados
@@ -12746,7 +12676,7 @@ namespace MahAppsExample
             //Comentarios
             if (listadoComentarios1_Copy.Items.Count != 0)
             {
-                iTextSharp.text.Paragraph parrafonc = new iTextSharp.text.Paragraph("Comments", texto2);
+                iTextSharp.text.Paragraph parrafonc = new iTextSharp.text.Paragraph(obtenerRecurso("headComments"), texto2);
                 reporte.Add(parrafonc);
 
                 //Se cargan los teléfonos asociados
@@ -13569,10 +13499,10 @@ namespace MahAppsExample
             CargarListadoRemedios();
         }
 
-        private void ListaPacientes_Recientes1_Initialized(object sender, EventArgs e)
-        {
-            CargarRegistrosPacientesRecientes();
-        }
+        //private void ListaPacientes_Recientes1_Initialized(object sender, EventArgs e)
+        //{
+        //    CargarRegistrosPacientesRecientes();
+        //}
 
         private void ListadoDiagActivos_Initialized(object sender, EventArgs e)
         {
@@ -13929,11 +13859,6 @@ namespace MahAppsExample
                 CerrarConexion();
 
             }
-
-        }
-
-        private void ListaPacientes_Recientes1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
         }
 

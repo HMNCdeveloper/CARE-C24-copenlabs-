@@ -1257,6 +1257,21 @@
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
   </data>
+  <data name="reportP" xml:space="preserve">
+    <value>Detalle del paciente </value>
+  </data>
+  <data name="reportPB" xml:space="preserve">
+    <value>Fondo </value>
+  </data>
+  <data name="reportPbirt" xml:space="preserve">
+    <value>Cumpleaños</value>
+  </data>
+  <data name="reportPGen" xml:space="preserve">
+    <value>Gender:</value>
+  </data>
+  <data name="reportPname" xml:space="preserve">
+    <value>Nombre del paciente:</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>REINICIAR COLORES</value>
   </data>

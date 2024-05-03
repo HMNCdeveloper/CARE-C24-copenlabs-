@@ -1251,6 +1251,21 @@
   <data name="PUASED" xml:space="preserve">
     <value>PAUSED</value>
   </data>
+  <data name="reportP" xml:space="preserve">
+    <value>Patient's Detail </value>
+  </data>
+  <data name="reportPB" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="reportPbirt" xml:space="preserve">
+    <value>Birthday:</value>
+  </data>
+  <data name="reportPGen" xml:space="preserve">
+    <value>Gender:</value>
+  </data>
+  <data name="reportPname" xml:space="preserve">
+    <value>Patient's Name:</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>RESET COLORS</value>
   </data>

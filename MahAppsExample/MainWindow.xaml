@@ -151,7 +151,7 @@
             </Button>
             <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
                 <!--view of the patients-->
-                
+
                 <TabItem x:Name="Patients" Margin="0,0,-5,0">
                     <TabItem.Header>
                         <Border Padding="3">
@@ -912,7 +912,7 @@
                             <ColumnDefinition Width="58*"/>
                             <ColumnDefinition Width="689*"/>
                         </Grid.ColumnDefinitions>
-                        <Border x:Name="ventana1" Visibility="Visible"  BorderThickness="0" HorizontalAlignment="Left" Height="141" Margin="27,57,0,0" VerticalAlignment="Top" Width="358" Background="{StaticResource boxBack}" Grid.ColumnSpan="2"/>
+                        <Border x:Name="ventana1" Visibility="Visible"  BorderThickness="0.8" BorderBrush="Silver" HorizontalAlignment="Left" Height="607" Margin="27,57,0,0" VerticalAlignment="Top" Width="367" Background="{StaticResource boxBack}" Grid.ColumnSpan="2"/>
 
                         <Label x:Name="lblPacienteAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
                         <Label x:Name="lblPacienteAnalisis_P1" Visibility="Hidden" Content="------------" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="325" Grid.Column="1"/>
@@ -1119,7 +1119,7 @@
 
                                     <Image x:Name="progreso" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
                                     <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\gif.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
-                                    
+
                                     <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                 </Grid>
@@ -1185,40 +1185,7 @@
                             </GroupBox.Header>
                         </GroupBox>
 
-                        <GroupBox x:Name="BusquedaAnalisisGroup1" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Visibility="Visible" Margin="13,0,0,516" VerticalAlignment="Bottom" Height="193" HorizontalAlignment="Left" Width="389" Grid.ColumnSpan="2">
-                            <GroupBox.Header>
-                                <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="PageSearch" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headerAnalysisearch}" Foreground="#FFFDFCFC" FontWeight="Bold"/>
-                                </StackPanel>
-                            </GroupBox.Header>
-                        </GroupBox>
-
-                        <TextBox x:Name="txtBuscarPaciente2"  CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="32" Margin="45,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" FontSize="16" TextChanged="txtBuscarPaciente1_TextChanged" Grid.ColumnSpan="2">
-                            <TextBox.Effect>
-                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                            </TextBox.Effect>
-                        </TextBox>
-                        <Label x:Name="lblBusqueda_Copy1"  Visibility="Visible" Content="{x:Static local:Lenguaje.Search}" HorizontalAlignment="Left" Margin="44,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdNuevoAnalisis1" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="43,145,0,0" VerticalAlignment="Top" Width="191" Height="36" ToolTip="NEW ANALYSIS | RE-ANALYSIS" Click="cmdNuevoAnalisis_Click" Grid.ColumnSpan="2">
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                            <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconModern Width="15" Height="15" Kind="New" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewAnal}" Foreground="#FFFAFAFA"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="cmdEliminar_Copy1" Background="#FF3CB3DF" BorderThickness="0" Visibility="Visible" HorizontalAlignment="Left" Margin="133,145,0,0" VerticalAlignment="Top" Width="114" Height="36" ToolTip="DELETE ANALYSIS" Click="cmdEliminar_Copy1_Click" Grid.Column="1">
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                            <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconModern Width="15" Height="15" Kind="Delete" Foreground="#FFFAFAFA"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
-                            </StackPanel>
-                        </Button>
-                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" HorizontalAlignment="Left" Margin="322,57,0,51" Width="1037" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick" Initialized="ListaPacientes_Recientes1_Initialized" Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}" SelectionChanged="ListaPacientes_Recientes1_SelectionChanged">
+                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" HorizontalAlignment="Left" Margin="322,57,0,51" Width="1037" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick"  Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tableNameAna}" DisplayMemberBinding="{Binding nombre}" Width="300px" />
@@ -1229,7 +1196,7 @@
                         </ListView>
 
 
-                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="14,0,0,33" VerticalAlignment="Bottom" Height="467" HorizontalAlignment="Left" Width="389" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="14,0,0,33" VerticalAlignment="Bottom" Height="679" HorizontalAlignment="Left" Width="392" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="UndoPoint" Foreground="#FFFBF9F9" />
@@ -1237,25 +1204,34 @@
                                 </StackPanel>
                             </GroupBox.Header>
 
-                            <ListBox x:Name="listadoPacientes" HorizontalAlignment="Left" Height="182" Margin="32,67,0,0" VerticalAlignment="Top" Width="324" BorderBrush="#FFCCCCCC" BorderThickness="1" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listadoPacientes_MouseDoubleClick" >
+                            <ListBox x:Name="listadoPacientes" HorizontalAlignment="Left" Height="290" Margin="27,60,0,0" VerticalAlignment="Top" Width="324" BorderBrush="#FFCCCCCC" BorderThickness="1" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listadoPacientes_MouseDoubleClick" >
                                 <ListBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                 </ListBox.Effect>
                             </ListBox>
                         </GroupBox>
-                        <Label x:Name="lblPacienteAnalisis2" Visibility="Visible" Content="{x:Static local:Lenguaje.HeaderPatientSearch}" HorizontalAlignment="Left" Margin="45,286,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="cmdAnalisisPaciente" CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="40,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="1">
+                        <Button x:Name="cmdEliminar_Copy1" Background="#FF3CB3DF" BorderThickness="0" Visibility="Visible" HorizontalAlignment="Left" Margin="40,414,0,0" VerticalAlignment="Top" Width="345" Height="36" ToolTip="DELETE ANALYSIS" Click="cmdEliminar_Copy1_Click" Grid.ColumnSpan="2">
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconModern Width="15" Height="15" Kind="Delete" Foreground="#FFFAFAFA"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
+                            </StackPanel>
+                        </Button>
+                        <Label x:Name="lblPacienteAnalisis2" Visibility="Visible" Content="{x:Static local:Lenguaje.HeaderPatientSearch}" HorizontalAlignment="Left" Margin="40,67,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="cmdAnalisisPaciente" CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="25,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="1">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="40,532,0,0"  VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="cmdAnalisisPaciente_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="41,558,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2">
+                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="40,465,0,0"  VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="cmdAnalisisPaciente_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="40,512,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Button x:Name="cmdAnalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="146,554,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="cmdAnalizarr_Click" Grid.Column="1">
+                        <Button x:Name="cmdAnalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="143,512,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="cmdAnalizarr_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1264,7 +1240,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCAna}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdReanalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="146,628,0,0" VerticalAlignment="Top" Width="123" Height="36" Click="cmdReanalizarr_Click" Grid.Column="1">
+                        <Button x:Name="cmdReanalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="143,594,0,0" VerticalAlignment="Top" Width="123" Height="36" Click="cmdReanalizarr_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1273,15 +1249,13 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnReana}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="lblPacienteAnalisis_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRAN}" HorizontalAlignment="Left" Margin="43,604,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="41,633,0,0" VerticalAlignment="Top" Width="204" SelectionChanged="comboOtrosAnal_SelectionChanged" Grid.ColumnSpan="2">
+                        <Label x:Name="lblPacienteAnalisis_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRAN}" HorizontalAlignment="Left" Margin="40,555,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="40,594,0,0" VerticalAlignment="Top" Width="204" SelectionChanged="comboOtrosAnal_SelectionChanged" Grid.ColumnSpan="2">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
 
                             </ComboBox.Effect>
                         </ComboBox>
-                        <Button x:Name="cmdAnalisisReanalisisCerrar" Visibility="Visible" Content="X" HorizontalAlignment="Left" Margin="254,225,0,0" VerticalAlignment="Top" Width="27" Click="cmdAnalisisReanalisisCerrar_Click" Grid.Column="1" Height="26" RenderTransformOrigin="0.494,0.7"/>
-
                     </Grid>
                 </TabItem>
 
