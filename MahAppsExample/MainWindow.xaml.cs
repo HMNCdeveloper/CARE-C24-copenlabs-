@@ -162,7 +162,6 @@ namespace MahAppsExample
                 //Condiciona al control de fechas para que solo use la fecha apartir de hoy...
                 dateProg.SelectedDate = DateTime.Today;
                 comboTipoProg.SelectedIndex = 0;
-                Console.WriteLine(Settings.Default.Lenguaje.ToString());
                 DataContext = this;
                 //Deteccion de la maquina o dispositivo
                 string id_maquina = obj.Machine_Detection(puerto);
@@ -2678,8 +2677,8 @@ namespace MahAppsExample
                 //MessageBox.Show("Perform an analysis first in order to save it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-     
 
+            ventana1.Visibility = Visibility.Visible;
             BusquedaReanalisis.Visibility = Visibility.Visible;
             lblPacienteAnalisis2.Visibility=Visibility.Visible;
             cmdAnalisisPaciente.Visibility = Visibility.Visible;

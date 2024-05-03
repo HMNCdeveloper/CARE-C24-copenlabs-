@@ -187,7 +187,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Analysis.
+        ///   Looks up a localized string similar to New Analysis.
         /// </summary>
         public static string btnCAna {
             get {
@@ -696,6 +696,15 @@ namespace HS5.Resources.Idiomas {
         public static string date {
             get {
                 return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Analysis .
+        /// </summary>
+        public static string deleteAna {
+            get {
+                return ResourceManager.GetString("deleteAna", resourceCulture);
             }
         }
         

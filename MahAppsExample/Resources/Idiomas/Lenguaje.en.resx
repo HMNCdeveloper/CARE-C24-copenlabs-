@@ -160,7 +160,7 @@
     <value>AUTOSIMILE</value>
   </data>
   <data name="btnCAna" xml:space="preserve">
-    <value>Create Analysis</value>
+    <value>New Analysis</value>
   </data>
   <data name="btnCancel" xml:space="preserve">
     <value>Cancel</value>
@@ -326,6 +326,9 @@
   </data>
   <data name="date" xml:space="preserve">
     <value>DATE</value>
+  </data>
+  <data name="deleteAna" xml:space="preserve">
+    <value>Delete Analysis </value>
   </data>
   <data name="Esophagus" xml:space="preserve">
     <value>Esophagus</value>
