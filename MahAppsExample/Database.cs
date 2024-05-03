@@ -416,7 +416,7 @@ namespace MahAppsExample
 
             command.ExecuteNonQuery();
         }
-
+        
         //Funcion para buscar paciente de acuerdo a su nombre completo
         public DataTable Buscar_IdPaciente_Nombre(string nombre)
         {
@@ -1537,6 +1537,16 @@ namespace MahAppsExample
         public DataTable VisualizarCodigos_Remedios_de_Analisis(string id_analisis)
         {
             sql = "select codigo,nombrecodigo,nivel from rad_codigosdeanalisis where ida=$$" + id_analisis + "$$";
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            ds.Reset();
+            da.Fill(ds);
+            dt = ds.Tables[0];
+            return dt;
+        }
+
+        public DataTable BuscarGenero(string nombre)
+        {
+            sql = "SELECT * FROM rad_pacientes WHERE (nombre || ' ' || apellido1 || ' ' || apellido2) = '" + nombre +"'";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);

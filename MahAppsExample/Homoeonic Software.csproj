@@ -1017,7 +1017,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="agif.gif" />
     <Resource Include="Resources\gif.gif" />
     <Content Include="Resources\1493.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1026,6 +1025,9 @@
     <Content Include="Resources\analisis-hombre.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\dna.gif" />
+    <Resource Include="Resources\female.gif" />
+    <Resource Include="Resources\male.gif" />
     <Content Include="Resources\Timer.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
