@@ -191,7 +191,7 @@
                             </TextBox>
                         </GroupBox>
                         <Label x:Name="lblBusqueda" Content="{x:Static local:Lenguaje.Search}" HorizontalAlignment="Left" Margin="46,79,0,0" VerticalAlignment="Top" FontWeight="Bold" ToolTip="" Height="26" Width="47"/>
-                        <Button x:Name="cmdEliminar" HorizontalAlignment="Left" Margin="40,597,0,0" VerticalAlignment="Top" Width="126" Height="37" ToolTip="Delete selected patient" BorderThickness="0" Background="{StaticResource btn}" Click="cmdEliminar_Click">
+                        <Button x:Name="cmdEliminar" HorizontalAlignment="Left" Margin="40,597,0,0" VerticalAlignment="Top" Width="126" Height="37" ToolTip="Delete selected patient" BorderThickness="0" Background="#ff0000"  Click="cmdEliminar_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -346,7 +346,7 @@
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" EDIT" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
-                                        <Button x:Name="cmdGuardarPaciente" BorderThickness="0" HorizontalAlignment="Left" Margin="841,280,0,0" VerticalAlignment="Top" Width="152" Height="48" Background="{StaticResource btn}" Click="cmdGuardarPaciente_Click" >
+                                        <Button x:Name="cmdGuardarPaciente" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="841,280,0,0" VerticalAlignment="Top" Width="152" Height="48"  Click="cmdGuardarPaciente_Click" >
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                             </Button.Effect>
@@ -533,7 +533,7 @@
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                                         </TextBox.Effect>
                                                     </TextBox>
-                                                    <Button x:Name="cmdGuardarHeredo" HorizontalAlignment="Left" Margin="577,370,0,0" BorderThickness="0" Background="{StaticResource btn}" VerticalAlignment="Top" Width="156" Height="39" Click="cmdGuardarHeredo_Click"  Grid.Column="3">
+                                                    <Button x:Name="cmdGuardarHeredo" HorizontalAlignment="Left" Margin="577,370,0,0" BorderThickness="0" Background="#FF6D33B1" VerticalAlignment="Top" Width="156" Height="39" Click="cmdGuardarHeredo_Click"  Grid.Column="3">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -542,7 +542,7 @@
                                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
-                                                    <Button x:Name="cmdEliminarHeredo" HorizontalAlignment="Left" Margin="80,380,0,0" BorderThickness="0" Background="{StaticResource btn}" VerticalAlignment="Top" Width="129" Height="33"  Click="cmdEliminarHeredo_Click" Grid.Column="3">
+                                                    <Button x:Name="cmdEliminarHeredo" HorizontalAlignment="Left" Margin="80,380,0,0" BorderThickness="0" Background="#ff0000" VerticalAlignment="Top" Width="129" Height="33"  Click="cmdEliminarHeredo_Click" Grid.Column="3">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -590,7 +590,7 @@
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                                         </TextBox.Effect>
                                                     </TextBox>
-                                                    <Button x:Name="cmdGuardarPat" HorizontalAlignment="Left" BorderThickness="0" Background="#FF3CB3DF" Margin="274,348,-34.6,0" VerticalAlignment="Top" Width="159" Height="42" Click="cmdGuardarPat_Click_1" ToolTip="Add Record" Grid.Column="1">
+                                                    <Button x:Name="cmdGuardarPat" HorizontalAlignment="Left" BorderThickness="0" Background="#FF6D33B1" Margin="274,348,-34.6,0" VerticalAlignment="Top" Width="159" Height="42" Click="cmdGuardarPat_Click_1" ToolTip="Add Record" Grid.Column="1">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -599,7 +599,7 @@
                                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
-                                                    <Button x:Name="cmdEliminarPatologicos" Background="#FF3CB3DF" BorderThickness="0" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="132" Height="33" ToolTip="Delete Record" Click="cmdEliminarPatologicos_Click" Grid.ColumnSpan="2">
+                                                    <Button x:Name="cmdEliminarPatologicos" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="291,373,0,0" VerticalAlignment="Top" Width="132" Height="33" ToolTip="Delete Record" Click="cmdEliminarPatologicos_Click" Grid.ColumnSpan="2">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -649,7 +649,7 @@
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                                         </TextBox.Effect>
                                                     </TextBox>
-                                                    <Button x:Name="cmdGuardarNoPat" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="574,365,0,0" VerticalAlignment="Top" Width="161" Height="40" ToolTip="Add Record" Click="cmdGuardarNoPat_Click" Grid.Column="1">
+                                                    <Button x:Name="cmdGuardarNoPat" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="574,365,0,0" VerticalAlignment="Top" Width="161" Height="40" ToolTip="Add Record" Click="cmdGuardarNoPat_Click" Grid.Column="1">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -658,7 +658,7 @@
                                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
-                                                    <Button x:Name="cmdEliminarNoPat" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="73,372,0,0" VerticalAlignment="Top" Width="136" Height="33" ToolTip="Delete Record" Click="cmdEliminarNoPat_Click" Grid.Column="1">
+                                                    <Button x:Name="cmdEliminarNoPat" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="73,372,0,0" VerticalAlignment="Top" Width="136" Height="33" ToolTip="Delete Record" Click="cmdEliminarNoPat_Click" Grid.Column="1">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -703,7 +703,7 @@
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                                         </TextBox.Effect>
                                                     </TextBox>
-                                                    <Button x:Name="cmdGuardarComent" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="787,360,-225,0" VerticalAlignment="Top" Width="167" Height="41" ToolTip="Add Record" Click="cmdGuardarComent_Click">
+                                                    <Button x:Name="cmdGuardarComent" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="787,360,-225,0" VerticalAlignment="Top" Width="167" Height="41" ToolTip="Add Record" Click="cmdGuardarComent_Click">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -712,7 +712,7 @@
                                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAdd}" Foreground="#FFFAFAFA"/>
                                                         </StackPanel>
                                                     </Button>
-                                                    <Button x:Name="cmdEliminarComent" BorderThickness="0"  Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="292,368,0,0" VerticalAlignment="Top" Width="139" Height="33" ToolTip="Delete Record" Click="cmdEliminarComent_Click">
+                                                    <Button x:Name="cmdEliminarComent" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="292,368,0,0" VerticalAlignment="Top" Width="139" Height="33" ToolTip="Delete Record" Click="cmdEliminarComent_Click">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -876,7 +876,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" REGISTRAR VERSIÓN" Foreground="#FF0C0C0C"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdImprimirListado" HorizontalAlignment="Left" Margin="188,597,0,0" VerticalAlignment="Top" Width="199" Height="37"  BorderThickness="0" Background="{StaticResource btn}" Click="cmdImprimirListado_Click" Grid.ColumnSpan="2">
+                        <Button x:Name="cmdImprimirListado" HorizontalAlignment="Left" Margin="188,597,0,0" VerticalAlignment="Top" Width="199" Height="37"  BorderThickness="0" Background="#FF6D33B1" Click="cmdImprimirListado_Click" Grid.ColumnSpan="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1294,7 +1294,7 @@
                             </TextBox>
                         </GroupBox>
                         <Label x:Name="lblbusquedaremedio" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="46,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdNuevoRemedio" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="46,122,0,0" VerticalAlignment="Top" Width="142" Height="29" ToolTip="Create a new Remedy" Click="cmdNuevoRemedio_Click">
+                        <Button x:Name="cmdNuevoRemedio" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="46,122,0,0" VerticalAlignment="Top" Width="142" Height="29" ToolTip="Create a new Remedy" Click="cmdNuevoRemedio_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1303,7 +1303,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewRem}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="205,122,0,0" VerticalAlignment="Top" Width="140" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click" Grid.ColumnSpan="2">
+                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="205,122,0,0" VerticalAlignment="Top" Width="140" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click" Grid.ColumnSpan="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1411,7 +1411,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCopy}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdBorrarCodigo" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,308,0,0" VerticalAlignment="Top" Width="100" Height="47" Click="cmdBorrarCodigo_Click">
+                                    <Button x:Name="cmdBorrarCodigo" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="37,308,0,0" VerticalAlignment="Top" Width="100" Height="47" Click="cmdBorrarCodigo_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1421,7 +1421,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnErase}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdGuardarCodigo" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="151,308,0,0" VerticalAlignment="Top" Width="112" Height="47" Click="cmdGuardarCodigo_Click">
+                                    <Button x:Name="cmdGuardarCodigo" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="151,308,0,0" VerticalAlignment="Top" Width="112" Height="47" Click="cmdGuardarCodigo_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1448,7 +1448,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" COMPLEMENTARY RATE" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdAlmacenartarjetaCat" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,432,0,0" VerticalAlignment="Top" Width="226" Height="47" Click="cmdAlmacenartarjetaCat_Click">
+                                    <Button x:Name="cmdAlmacenartarjetaCat" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="37,432,0,0" VerticalAlignment="Top" Width="226" Height="47" Click="cmdAlmacenartarjetaCat_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1657,7 +1657,7 @@
                         <Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="151,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden" Grid.Column="1"/>
                         <ListBox x:Name="listaDetecciones" HorizontalAlignment="Left" Height="199" Margin="151,144,0,0" VerticalAlignment="Top" Width="574" BorderThickness="1" Visibility="Hidden" Grid.Column="1"/>
                         <Label x:Name="label8" Content="DISEASES AND SYMPTOMS" HorizontalAlignment="Left" Margin="162,111,0,0" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="1"/>
-                        <Button x:Name="cmdDuplicarRemedio_Copy" Background="#FF3CB3DF" HorizontalAlignment="Left" Height="39" Margin="1055,94,0,0" VerticalAlignment="Top" Width="165" ToolTip="Save Changes"  BorderThickness="0" Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">
+                        <Button x:Name="cmdDuplicarRemedio_Copy" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Height="39" Margin="1055,94,0,0" VerticalAlignment="Top" Width="165" ToolTip="Save Changes"  Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1728,7 +1728,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.resetC}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button Visibility="Hidden" BorderThickness="0" Background="#FF3CB3DF"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Left" Margin="203,91,0,0" VerticalAlignment="Top" Width="191" Height="41" Click="cmdGuardarTratamiento_Click" Grid.Column="2">
+                        <Button Visibility="Hidden" BorderThickness="0" Background="#FF6D33B1"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Left" Margin="203,91,0,0" VerticalAlignment="Top" Width="191" Height="41" Click="cmdGuardarTratamiento_Click" Grid.Column="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2237,7 +2237,7 @@
                         <Label x:Name="label7_Copy" Content="{x:Static local:Lenguaje.tableRate}" HorizontalAlignment="Left" Margin="311,18,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
                         <Label x:Name="lblCategoriasCont" Visibility="Visible" Content="0 Categories" HorizontalAlignment="Left" Margin="188,331,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="103" Grid.Column="1"/>
                         <Label x:Name="lblSubcategoriasCont" Visibility="Visible" Content="0 Sub-Categories" HorizontalAlignment="Left" Margin="172,692,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="129" Grid.Column="1"/>
-                        <Button x:Name="cmdNuevo" BorderThickness="0" Background="#FF3CB3DF" ToolTip="{x:Static local:Lenguaje.btnNewCat}" HorizontalAlignment="Left" Margin="165,16,0,0" VerticalAlignment="Top" Width="120" Click="cmdNuevo_Click" Height="28" Grid.Column="1">
+                        <Button x:Name="cmdNuevo" BorderThickness="0" Background="#FF6D33B1" ToolTip="{x:Static local:Lenguaje.btnNewCat}" HorizontalAlignment="Left" Margin="165,16,0,0" VerticalAlignment="Top" Width="120" Click="cmdNuevo_Click" Height="28" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2247,7 +2247,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button x:Name="cmdNueva" BorderThickness="0" Background="#FF3CB3DF" ToolTip="{x:Static local:Lenguaje.btnNewSubCat}" HorizontalAlignment="Left" Margin="118,362,0,0" VerticalAlignment="Top" Width="167" Click="cmdNueva_Click" Grid.Column="1">
+                        <Button x:Name="cmdNueva" BorderThickness="0" Background="#FF6D33B1" ToolTip="{x:Static local:Lenguaje.btnNewSubCat}" HorizontalAlignment="Left" Margin="118,362,0,0" VerticalAlignment="Top" Width="167" Click="cmdNueva_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>

@@ -448,7 +448,7 @@
     <value>Analisis  | Reanalisis </value>
   </data>
   <data name="headRecentListAna" xml:space="preserve">
-    <value>LISTA DE LOS ANALISIS RECIENTES</value>
+    <value>LISTA DE LOS ANALISIS </value>
   </data>
   <data name="headRecordP" xml:space="preserve">
     <value>Historial del Paciente</value>

@@ -1042,7 +1042,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LIST OF RECENT ANALYSIS.
+        ///   Looks up a localized string similar to LIST OF THE  ANALYSIS.
         /// </summary>
         public static string headRecentListAna {
             get {
