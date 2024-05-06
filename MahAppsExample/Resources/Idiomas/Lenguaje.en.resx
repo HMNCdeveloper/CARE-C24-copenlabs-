@@ -817,7 +817,7 @@
     <value>Patient</value>
   </data>
   <data name="MenuRemedies" xml:space="preserve">
-    <value>Remedies and Homoepathy </value>
+    <value>Remedies</value>
   </data>
   <data name="messageBox1" xml:space="preserve">
     <value>Autosimil  successfully  completed</value>

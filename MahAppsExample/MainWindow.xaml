@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:HS5.Resources.Idiomas"       
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Name="window" x:Class="MahAppsExample.MainWindow"       
         GlowBrush="{DynamicResource BlackBrush}"
-        Title="Homoeonic Software V6" WindowState="Maximized" Height="495.588"  WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF"  Closing="window_Closing" Closed="window_Closed">
+        Title="Copen Software" WindowState="Maximized" Height="495.588"  WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF"  Closing="window_Closing" Closed="window_Closed">
 
     <Window.Resources>
         <SolidColorBrush x:Key="background" Color="#F5FEFF" />
@@ -46,31 +46,36 @@
 
 
         <!-- Estilo para el Header del TabItem -->
-        <Style TargetType="TabItem">
+        <Style TargetType="TabControl">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Border Name="Border" BorderBrush="#FF3CB3DF"
-                        Background="{TemplateBinding Background}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="10,10,10,10">
-                            <ContentPresenter ContentSource="Header"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#C3F4FF"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <!-- Definir columna para la barra lateral -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- Definir columna para el contenido -->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Sidebar con color azul -->
+                            <Border Background="#0069CC" Grid.Column="0">
+                                <!-- Contenedor para los TabItems -->
+                                <TabPanel x:Name="HeaderPanel" Grid.Column="0" IsItemsHost="True"
+                                          Margin="2,2,2,2"
+                                          KeyboardNavigation.TabIndex="1"/>
+                            </Border>
+                            <!-- Contenido de los TabItems -->
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    Grid.Column="1">
+                                <ContentPresenter x:Name="PART_SelectedContentHost"
+                                                  ContentSource="SelectedContent"/>
+                            </Border>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <!-- Trigger para cambiar el color de fondo cuando el TabItem está seleccionado -->
-                <Trigger Property="IsEnabled" Value="True">
-                    <Setter Property="Background" Value="#F5FEFF"/>
-                    <Setter Property="BorderBrush" Value="#F5FEFF"/>
-                </Trigger>
-            </Style.Triggers>
         </Style>
         <Style x:Key="CustomProgressBarStyle" TargetType="ProgressBar">
             <Setter Property="Foreground" Value="#FFF" />
@@ -149,21 +154,20 @@
                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="CANCEL TREATMENT" Foreground="#FFFAFAFA"/>
                 </StackPanel>
             </Button>
-            <TabControl x:Name="opcionesHomoeonic" Margin="10,10,16,19" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" >
+            <TabControl x:Name="opcionesHomoeonic" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" TabStripPlacement="Left">
                 <!--view of the patients-->
-
-                <TabItem x:Name="Patients" Margin="0,0,-5,0">
+                <TabItem x:Name="Patients">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Width="150" Height="36" >
-                                <iconPacks:PackIconMaterial Width="29" Height="38" Kind="AccountMultiple" Margin="0,0,5,0">
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial  Kind="AccountMultiple" Width="30"  Height="30" VerticalAlignment="Center">
                                     <iconPacks:PackIconMaterial.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#FFF3A10B" Offset="0"/>
+                                            <GradientStop Color="#FFF" Offset="0"/>
                                         </LinearGradientBrush>
                                     </iconPacks:PackIconMaterial.Foreground>
                                 </iconPacks:PackIconMaterial>
-                                <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="Black" FontFamily="Segoe UI" FontSize="28" />
+                                <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"/>
                             </StackPanel>
 
                         </Border>
@@ -891,19 +895,19 @@
 
 
                 <!--analysis view-->
-                <TabItem x:Name="AnalisisTab"   Margin="6,0,-6,0"  >
+                <TabItem x:Name="AnalisisTab">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Width="129" Height="36" >
-                                <iconPacks:PackIconModern Width="29" Height="38" Kind="MathPlusMinus" Margin="0,0,5,0">
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconModern Width="30"  Height="30" VerticalAlignment="Center" Kind="MathPlusMinus">
                                     <iconPacks:PackIconModern.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#FFEE1313" Offset="0"/>
+                                            <GradientStop Color="#FFF" Offset="0"/>
                                             <GradientStop Color="#FF0E97EA" Offset="1"/>
                                         </LinearGradientBrush>
                                     </iconPacks:PackIconModern.Foreground>
                                 </iconPacks:PackIconModern>
-                                <TextBlock Text="{x:Static local:Lenguaje.MenuAnalysis}" Foreground="Black" FontFamily="Segoe UI" FontSize="25" />
+                                <TextBlock Text="{x:Static local:Lenguaje.MenuAnalysis}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"/>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
@@ -1262,12 +1266,12 @@
                 </TabItem>
 
                 <!--remedie view-->
-                <TabItem x:Name="RemediosTab"  VerticalAlignment="Center" HorizontalAlignment="Left"   Margin="6,0,-10,0"  >
+                <TabItem x:Name="RemediosTab">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Width="340" Height="36">
-                                <iconPacks:PackIconModern  Width="29" Height="38" Kind="Potion" Foreground="#FF6D33B1" Margin="0,0,5,0"></iconPacks:PackIconModern>
-                                <TextBlock Text="{x:Static local:Lenguaje.MenuRemedies}" Foreground="Black" FontFamily="Segoe UI" FontSize="25"></TextBlock>
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconModern  Width="25"  Height="25" VerticalAlignment="Center" Kind="Potion" Foreground="#FFF"></iconPacks:PackIconModern>
+                                <TextBlock Text="{x:Static local:Lenguaje.MenuRemedies}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"></TextBlock>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
@@ -1673,21 +1677,13 @@
                 </TabItem>
 
                 <!--chromotherapy view-->
-                <TabItem x:Name="ColorTab"  Margin="13,0,-14,2">
+                <TabItem x:Name="ColorTab">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Width="220"   Height="36">
-                                <Viewbox Width="31" Height="30" Margin="0,0,5,0">
-                                    <Canvas Width="24" Height="24" Canvas.Left="0" Canvas.Top="0">
-                                        <!-- Rojo -->
-                                        <Ellipse Width="14" Height="14" Canvas.Left="-2" Canvas.Top="-2" Fill="#FFEA2828"/>
-                                        <!-- Verde -->
-                                        <Ellipse Width="15" Height="14" Canvas.Left="10" Canvas.Top="-2" Fill="#FF29E629" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                        <!-- Azul -->
-                                        <Ellipse Width="16" Height="13" Canvas.Left="4" Canvas.Top="8" Fill="#FF3B3BF7" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                                    </Canvas>
-                                </Viewbox>
-                                <TextBlock  Text="{x:Static local:Lenguaje.MenuChromo}" Foreground="Black" FontFamily="Segoe UI" FontSize="25"/>
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconModern Width="25"  Height="25" VerticalAlignment="Center" Kind="" Foreground="White">
+                                </iconPacks:PackIconModern>
+                                <TextBlock Text="{x:Static local:Lenguaje.MenuChromo}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,20,0"></TextBlock>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
@@ -2208,18 +2204,18 @@
                 </TabItem>
 
                 <!--categoria view-->
-                <TabItem x:Name="CategoriasTab"  Visibility="Visible" Margin="19,2,-20,2" >
+                <TabItem x:Name="CategoriasTab">
                     <TabItem.Header>
-                        <Border Padding="10,3">
-                            <StackPanel Orientation="Horizontal"   Width="180"  Height="36">
-                                <iconPacks:PackIconMaterial  Width="29" Height="38" Kind="FolderMultiple" Margin="0,0,5,0">
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Width="30"  Height="30" VerticalAlignment="Center" Kind="FolderMultiple">
                                     <iconPacks:PackIconMaterial.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#FF139FE7" Offset="1"/>
+                                            <GradientStop Color="#FFF" Offset="1"/>
                                         </LinearGradientBrush>
                                     </iconPacks:PackIconMaterial.Foreground>
                                 </iconPacks:PackIconMaterial>
-                                <TextBlock Text="{x:Static local:Lenguaje.Categories}" Foreground="Black" FontFamily="Segoe UI" FontSize="25" />
+                                <TextBlock Text="{x:Static local:Lenguaje.Categories}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"/>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
@@ -2319,19 +2315,20 @@
                 </TabItem>
 
                 <!--broadcasting view-->
-                <TabItem x:Name="tratamientos" Margin="25,1,-29,2">
+                <TabItem x:Name="tratamientos">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Height="36">
-                                <iconPacks:PackIconMaterial Width="29" Height="38" Kind="AccessPoint" Margin="0,0,5,0">
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Width="25" Height="25" VerticalAlignment="Center" Kind="AccessPoint">
                                     <iconPacks:PackIconMaterial.Foreground>
-                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFDFB411" Offset="0"/>
                                             <GradientStop Color="#FFF07E0B" Offset="1"/>
-                                        </LinearGradientBrush>
+                                        </LinearGradientBrush>-->
+                                        <SolidColorBrush Color="White"></SolidColorBrush>
                                     </iconPacks:PackIconMaterial.Foreground>
                                 </iconPacks:PackIconMaterial>
-                                <TextBlock Text="{x:Static local:Lenguaje.MenuBroad}" Foreground="Black" FontFamily="Segoe UI" FontSize="25" />
+                                <TextBlock Text="{x:Static local:Lenguaje.MenuBroad}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"/>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
@@ -2634,23 +2631,23 @@
                 </TabItem>
 
                 <!--language view-->
-                <TabItem   x:Name="setting" Margin="32,0,-35,2" >
+                <TabItem x:Name="setting">
                     <TabItem.Header>
-                        <Border Padding="3">
-                            <StackPanel Orientation="Horizontal" Width="180" Margin="7,0,-7,0">
-                                <iconPacks:PackIconMaterial  Width="29" Height="38" Kind="Translate" Margin="0,0,5,0">
+                        <Border Padding="15">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial  Height="25" VerticalAlignment="Center" Kind="Translate">
                                     <iconPacks:PackIconMaterial.Foreground>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#FF545454" Offset="0"/>
+                                            <GradientStop Color="#fff" Offset="0"/>
                                         </LinearGradientBrush>
                                     </iconPacks:PackIconMaterial.Foreground>
                                 </iconPacks:PackIconMaterial>
-                                <TextBlock Text="{x:Static local:Lenguaje.Language}"  Foreground="Black" FontFamily="Segoe UI" FontSize="25"/>
+                                <TextBlock Text="{x:Static local:Lenguaje.Language}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="20,0,0,0"/>
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
                     <!--here  is the  content-->
-                    <Grid Background="{StaticResource boxBack}" Height="609" Margin="104,0,104,0">
+                    <Grid Background="{StaticResource boxBack}" Margin="0,2,0,-2" Width="1206">
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="67*"/>

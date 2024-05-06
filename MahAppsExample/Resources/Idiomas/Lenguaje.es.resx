@@ -823,7 +823,7 @@
     <value>Paciente</value>
   </data>
   <data name="MenuRemedies" xml:space="preserve">
-    <value>Remedios y Homoepatia</value>
+    <value>Remedios</value>
   </data>
   <data name="messageBox1" xml:space="preserve">
     <value>Autosimil realizado correctamente</value>
