@@ -1028,6 +1028,7 @@
     <Resource Include="Resources\dna.gif" />
     <Resource Include="Resources\female.gif" />
     <Resource Include="Resources\male.gif" />
+    <Content Include="Resources\palette.svg" />
     <Content Include="Resources\Timer.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
