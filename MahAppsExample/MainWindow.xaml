@@ -1545,8 +1545,8 @@
                                         <iconPacks:PackIconModern Margin="10,0,0,0" Width="23" Height="35" Kind="Database">
                                             <iconPacks:PackIconModern.Foreground>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                    <GradientStop Color="Black" Offset="0"/>
-                                                    <GradientStop Color="#FF939090" Offset="1"/>
+                                                    <GradientStop Color="#FFFFF504" Offset="0"/>
+                                                    <GradientStop Color="#FF060606" Offset="1"/>
                                                 </LinearGradientBrush>
                                             </iconPacks:PackIconModern.Foreground>
                                         </iconPacks:PackIconModern>

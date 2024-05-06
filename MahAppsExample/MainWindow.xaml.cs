@@ -3555,8 +3555,6 @@ namespace MahAppsExample
                 // PRO
                 case "100":
                     cmdRango.IsEnabled = true;
-                    optionSugerirNiv.IsChecked = true;
-                    optionSugerirPot.IsChecked = true;
                     IEnumerable items1 = this.ListaCodigos.Items;
                     Limpiar_Listas();
 
