@@ -13915,7 +13915,10 @@ namespace MahAppsExample
             }
         }
 
-        
+        private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
  

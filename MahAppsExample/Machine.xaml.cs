@@ -37,29 +37,8 @@ namespace HS5
             }
          
 
-            BitmapImage img_logo = ToBitmapImage(HS5.Properties.Resources.HS5);
-            imagelogo.Source = img_logo;
+         
         }
-
-
-        //this function is used to reload the logo in the first window
-        public static BitmapImage ToBitmapImage(Bitmap bitmap)
-        {
-            using (var memory = new MemoryStream())
-            {
-                bitmap.Save(memory, ImageFormat.Png);
-                memory.Position = 0;
-
-                var bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = memory;
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.EndInit();
-
-                return bitmapImage;
-            }
-        }
-
 
         //this function is used to check if there are ports to start the Mainwindow
         private void button_Click(object sender, RoutedEventArgs e)
