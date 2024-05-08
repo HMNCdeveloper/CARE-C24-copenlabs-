@@ -13,23 +13,22 @@
         <SolidColorBrush x:Key="CustomAccentColorBrush" Color="#00C1D6" />
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="221*"/>
-            <ColumnDefinition Width="62*"/>
-            <ColumnDefinition Width="321*"/>
-        </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="{x:Static local:Lenguaje.labelSelectPort}" HorizontalAlignment="Left" Margin="159,90,0,0" FontWeight="Bold" VerticalAlignment="Top" Width="348" Grid.ColumnSpan="3" RenderTransformOrigin="0.373,0.348"/>
-        <Label x:Name="label1" Content="{x:Static local:Lenguaje.labelPorts}" HorizontalAlignment="Left" Margin="159,121,0,0" VerticalAlignment="Top" Width="62" />
-        <ComboBox x:Name="cmbPorts" HorizontalAlignment="Left" Margin="11,121,0,0" VerticalAlignment="Top" Width="212" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="button"     BorderThickness="2" BorderBrush="#8D0801"  HorizontalAlignment="Left" Height="38" Margin="41,178,0,0" VerticalAlignment="Top" Width="152" Click="button_Click" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button.Effect>
-                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-            </Button.Effect>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnUse}" Foreground="#8D0801"/>
-            </StackPanel>
-        </Button>
-        <Image x:Name="imagelogo" Source="Resources\logocopen.png" HorizontalAlignment="Left"  Margin="208,19,0,0" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="3" RenderTransformOrigin="0.589,0.532"/>
+        <StackPanel>
+            <Image x:Name="imagelogo" Source="Resources\logocopen.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="3" RenderTransformOrigin="0.589,0.532" Margin="0 10 0 10"/>
+            <Label x:Name="label" Content="{x:Static local:Lenguaje.labelSelectPort}" HorizontalContentAlignment="Center"  Margin="0 0 0 0" FontWeight="Bold" VerticalAlignment="Top" Width="330" Grid.ColumnSpan="3" RenderTransformOrigin="0.373,0.348"/>
+            
+                <Label x:Name="label1" Content="{x:Static local:Lenguaje.labelPorts}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="62" Margin="0 10 0 3"/>
+                <ComboBox x:Name="cmbPorts" HorizontalAlignment="Center" VerticalAlignment="Top" Width="212" Grid.Column="1" Grid.ColumnSpan="2"/>
+            
+            <Button x:Name="button" BorderThickness="2" BorderBrush="#8D0801"  HorizontalAlignment="Center" Height="38"  VerticalAlignment="Top" Width="152" Click="button_Click" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 10 0 0">
+                <Button.Effect>
+                    <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                </Button.Effect>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnUse}" Foreground="#8D0801"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
 
     </Grid>
 </Window>

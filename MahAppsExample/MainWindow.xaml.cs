@@ -2678,7 +2678,7 @@ namespace MahAppsExample
             }
 
 
-            ventana1.Visibility = Visibility.Visible;
+            
             BusquedaReanalisis.Visibility = Visibility.Visible;
             lblPacienteAnalisis2.Visibility=Visibility.Visible;
             cmdAnalisisPaciente.Visibility = Visibility.Visible;
@@ -10278,7 +10278,7 @@ namespace MahAppsExample
             lblPacienteAnalisis_Copy.Visibility = Visibility.Hidden;
             comboOtrosAnal.Visibility = Visibility.Hidden;
             lblPacienteAnalisis.Visibility = Visibility.Hidden;
-            ventana1.Visibility = Visibility.Hidden;
+            
         }
 
         //Lista con id's de referencia
