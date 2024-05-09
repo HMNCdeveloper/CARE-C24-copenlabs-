@@ -1177,7 +1177,7 @@
     <value>Mouth</value>
   </data>
   <data name="nameAnalysis" xml:space="preserve">
-    <value>Name of the Analysis:</value>
+    <value>Analysis name:</value>
   </data>
   <data name="NavItem" xml:space="preserve">
     <value>Manuel</value>

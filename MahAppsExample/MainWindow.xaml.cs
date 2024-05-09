@@ -3151,7 +3151,7 @@ namespace MahAppsExample
 
 
                 //Siempre visible
-                borderInfobasica_Copy2.Visibility = Visibility.Visible;
+                //borderInfobasica_Copy2.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.Visibility = Visibility.Visible;
                 cmdBorrar.Visibility = Visibility.Visible;
                 cmdRango.Visibility = Visibility.Visible;
@@ -3215,7 +3215,7 @@ namespace MahAppsExample
             {
 
                 //Siempre visible
-                borderInfobasica_Copy2.Visibility = Visibility.Visible;
+                //borderInfobasica_Copy2.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.Visibility = Visibility.Visible;
                 cmdBorrar.Visibility = Visibility.Visible;
                 cmdRango.Visibility = Visibility.Visible;
@@ -3822,25 +3822,25 @@ namespace MahAppsExample
 
         void Hombre()
         {
-            myGif.Visibility = Visibility.Visible;
+            //myGif.Visibility = Visibility.Visible;
             //progreso.Visibility = Visibility.Visible;
         }
 
         void Hombre_Esconder()
         {
-            myGif.Visibility = Visibility.Hidden;
+            //myGif.Visibility = Visibility.Hidden;
             //progreso.Visibility = Visibility.Hidden;
         }
 
         void Mujer()
         {
-            myGif2.Visibility = Visibility.Visible;
+            //myGif2.Visibility = Visibility.Visible;
             //progreso.Visibility = Visibility.Visible;
         }
 
         void Mujer_Esconder()
         {
-            myGif2.Visibility = Visibility.Hidden;
+            //myGif2.Visibility = Visibility.Hidden;
             //progreso.Visibility = Visibility.Hidden;
         }
 
@@ -4283,14 +4283,14 @@ namespace MahAppsExample
 
         private void myGif_MediaEnded(object sender, RoutedEventArgs e)
         {
-            myGif.Position = new TimeSpan(0, 0, 1);
-            myGif.Play();
+            //myGif.Position = new TimeSpan(0, 0, 1);
+            //myGif.Play();
         }
 
         private void myGif2_MediaEnded(object sender, RoutedEventArgs e)
         {
-            myGif2.Position = new TimeSpan(0, 0, 1);
-            myGif2.Play();
+            //myGif2.Position = new TimeSpan(0, 0, 1);
+            //myGif2.Play();
         }
 
         private void cmdGuardarTarjeta_Click(object sender, RoutedEventArgs e)
@@ -7252,12 +7252,12 @@ namespace MahAppsExample
             DataTable terapiasrecientes = obj2.VisualizarTerapiasdeColor(); //nombre y fecha
 
             //Limpiamos el listview
-            ListaPacientes_Recientes1_Copy.Items.Clear();
+            //ListaPacientes_Recientes1_Copy.Items.Clear();
 
             //Las metemos al listview
             for (int i = 0; i <= terapiasrecientes.Rows.Count - 1; i++)
             {
-                ListaPacientes_Recientes1_Copy.Items.Add(new nuevaTerapia { nombre = terapiasrecientes.Rows[i][0].ToString(), fecha = terapiasrecientes.Rows[i][1].ToString() });
+               // ListaPacientes_Recientes1_Copy.Items.Add(new nuevaTerapia { nombre = terapiasrecientes.Rows[i][0].ToString(), fecha = terapiasrecientes.Rows[i][1].ToString() });
             }
 
             CerrarConexion();
@@ -10334,7 +10334,7 @@ namespace MahAppsExample
                 Panel_opciones();
 
                 //Siempre visible
-                borderInfobasica_Copy2.Visibility = Visibility.Visible;
+                //borderInfobasica_Copy2.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.Visibility = Visibility.Visible;
                 cmdBorrar.Visibility = Visibility.Visible;
                 cmdRango.Visibility = Visibility.Visible;
@@ -10510,7 +10510,7 @@ namespace MahAppsExample
                 cmdNinguno.Visibility = Visibility.Visible;
 
                 //Siempre visible
-                borderInfobasica_Copy2.Visibility = Visibility.Visible;
+                //borderInfobasica_Copy2.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.Visibility = Visibility.Visible;
                 cmdBorrar.Visibility = Visibility.Visible;
                 cmdRango.Visibility = Visibility.Visible;
@@ -13128,14 +13128,14 @@ namespace MahAppsExample
             // cmdRegresarTerapia.Visibility = Visibility.Visible;
 
             //Oculta panel anterior
-            BusquedaTerapia.Visibility = Visibility.Hidden;
-            lblBusqueda_Copy.Visibility = Visibility.Hidden;
+            //BusquedaTerapia.Visibility = Visibility.Hidden;
+            /*lblBusqueda_Copy.Visibility = Visibility.Hidden;
             txtBuscarPaciente2_Copy.Visibility = Visibility.Hidden;
             cmdNuevoAnalisis1_Copy.Visibility = Visibility.Hidden;
             cmdEliminar_Copy.Visibility = Visibility.Hidden;
             Lista_Analisis_Group1_Copy.Visibility = Visibility.Hidden;
             ListaPacientes_Recientes1_Copy.Visibility = Visibility.Hidden;
-            cmdReporteTerapia.Visibility = Visibility.Hidden;
+            cmdReporteTerapia.Visibility = Visibility.Hidden;*/
 
         }
 
@@ -13221,17 +13221,17 @@ namespace MahAppsExample
             listaSecciones.Visibility = Visibility.Hidden;
             lblVista2_Copy2.Visibility = Visibility.Hidden;
             listadoCodigosComb.Visibility = Visibility.Hidden;
-            cmdRegresarTerapia.Visibility = Visibility.Hidden;
+            /*cmdRegresarTerapia.Visibility = Visibility.Hidden;
 
             //Muestra panel anterior
-            BusquedaTerapia.Visibility = Visibility.Visible;
+            //BusquedaTerapia.Visibility = Visibility.Visible;
             lblBusqueda_Copy.Visibility = Visibility.Visible;
             txtBuscarPaciente2_Copy.Visibility = Visibility.Visible;
             cmdNuevoAnalisis1_Copy.Visibility = Visibility.Visible;
             cmdEliminar_Copy.Visibility = Visibility.Visible;
             Lista_Analisis_Group1_Copy.Visibility = Visibility.Visible;
             ListaPacientes_Recientes1_Copy.Visibility = Visibility.Visible;
-            cmdReporteTerapia.Visibility = Visibility.Visible;
+            cmdReporteTerapia.Visibility = Visibility.Visible;*/
         }
 
         private void cmdNuevoAnalisis1_Copy_Click(object sender, RoutedEventArgs e)
@@ -13240,7 +13240,7 @@ namespace MahAppsExample
         }
 
         //PENDIENTE TERAPIA DE COLOR BUSQUEDA Y REPORTE DE TERAPIA DE COLOR
-        private void txtBuscarPaciente2_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        /*private void txtBuscarPaciente2_Copy_TextChanged(object sender, TextChangedEventArgs e)
         {
 
             if (txtBuscarPaciente2_Copy.Text != "")
@@ -13275,10 +13275,10 @@ namespace MahAppsExample
                     txtBuscarPaciente2_Copy.Focus();
                 }
             }
-        }
+        }*/
 
         //Funcion que elimina la terapia de color elegida
-        private void cmdEliminar_Copy_Click(object sender, RoutedEventArgs e)
+        /*private void cmdEliminar_Copy_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -13303,7 +13303,7 @@ namespace MahAppsExample
             {
                 MessageBox.Show(obtenerRecurso("messageError2"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }*/
 
         private void cmdRegresarTerapia_Click(object sender, RoutedEventArgs e)
         {
@@ -13348,13 +13348,13 @@ namespace MahAppsExample
             }
 
             //Terapia seleccionada
-            IEnumerable items = this.ListaPacientes_Recientes1_Copy.SelectedItems;
+            //IEnumerable items = this.ListaPacientes_Recientes1_Copy.SelectedItems;
 
-            foreach (nuevaTerapia terapia in items)
+            /*foreach (nuevaTerapia terapia in items)
             {
                 nombret = terapia.nombre;
                 fechat = terapia.fecha;
-            }
+            }*/
 
             //Obtener Id Remedio es para las terapias tambien
             object id_terapia = obj2.Obtener_IdRemedio_ConFecha(nombret, fechat);

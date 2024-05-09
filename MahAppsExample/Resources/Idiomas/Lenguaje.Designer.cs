@@ -3211,7 +3211,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Name of the   Analysis:.
+        ///   Busca una cadena traducida similar a Analysis name:.
         /// </summary>
         public static string nameAnalysis {
             get {

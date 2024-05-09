@@ -933,172 +933,191 @@
                             </StackPanel>
                         </Border>
                     </TabItem.Header>
-                    <Grid Margin="-1,0,1,-7" >
+                    <Grid Margin="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="58*"/>
-                            <ColumnDefinition Width="689*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label x:Name="lblPacienteAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="50,68,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblPacienteAnalisis_P1" Visibility="Hidden" Content="------------" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="325" Grid.Column="1"/>
-                        <Label x:Name="lblNombreAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblNombre_Anal1" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="63,67,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="330" Grid.Column="1"/>
-                        <Label x:Name="lblFechaAnalisis2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="50,38,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Label x:Name="lblFechaAnalisis3" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="61,38,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="323" Grid.Column="1"/>
-                        <Button x:Name="cmdGuardarDiagnostico" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="411,26,0,0" VerticalAlignment="Top" Width="169" Click="cmdGuardarDiagnostico_Click" Grid.Column="1">
+                        <Label x:Name="lblPacienteAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="10 70" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblPacienteAnalisis_P1" Visibility="Hidden" Content="------------" HorizontalAlignment="Left" Margin="100 70" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="325" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblNombreAnalisis1" Visibility="Hidden" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="10 10" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblNombre_Anal1" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="100 40" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="330" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblFechaAnalisis2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="10 40" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblFechaAnalisis3" Visibility="Hidden" Content="---------------" HorizontalAlignment="Left" Margin="150 10" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="323" Grid.ColumnSpan="2"/>
+                        <Button x:Name="cmdGuardarDiagnostico" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="411,26,0,0" VerticalAlignment="Top" Width="169" Click="cmdGuardarDiagnostico_Click" Grid.ColumnSpan="2">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" SAVE" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdListaDiagnos" Visibility="Hidden" Background="#FF3CB3DF" HorizontalAlignment="Left" Height="39" Margin="411,27,0,0" VerticalAlignment="Top" Width="174" Click="cmdListaDiagnos_Click" Grid.Column="1">
+                        <Button x:Name="cmdListaDiagnos" Visibility="Hidden" Background="#FF3CB3DF" HorizontalAlignment="Right" Height="39" Margin="0 50 50 0" VerticalAlignment="Top" Width="174" Click="cmdListaDiagnos_Click" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowLeft" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavRet}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Left" Height="548" Margin="50,116,0,0" VerticalAlignment="Top" Width="1475" Grid.ColumnSpan="2">
-                            <TabItem Width="125" Height="29"   FontSize="15" Header="{x:Static local:Lenguaje.headRatAn}">
-                                <Grid Background="#FFF7F7F7" Margin="-18,0,-22.4,-58.8">
-                                    <Border x:Name="borderInfobasica_Copy2" BorderBrush="#CCF7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="778,7,0,0" VerticalAlignment="Top" Width="496"/>
-                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" HorizontalAlignment="Left" Margin="20,28,0,0" VerticalAlignment="Top" Height="192" Width="450"/>
-                                    <!--<RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>-->
-                                    <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
-                                    <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" Checked="option100_Checked"/>
-                                    <!--<RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPolat}" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>-->
-                                    <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
-                                    <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="100,110,0,0" VerticalAlignment="Top" Width="117" FontWeight="Bold"/>
-                                    <CheckBox x:Name="optionSugerirPot"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="220,110,0,0" VerticalAlignment="Top" Width="170" FontWeight="Bold"/>
-                                    <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="258,80,0,0" VerticalAlignment="Top" Width="83" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
-                                    <!--the next tag is used to show the comboBox-->
-                                    <Label x:Name="nivelP" Visibility="Hidden" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-                                    <ComboBox x:Name="comboP"  HorizontalAlignment="Left" Margin="90,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
-                                        <ComboBox.Effect>
-                                            <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                                        </ComboBox.Effect>
-                                        <ComboBoxItem Content="1X"/>
-                                        <ComboBoxItem Content="3x"/>
-                                        <ComboBoxItem Content="6x"/>
-                                        <ComboBoxItem Content="10x"/>
-                                        <ComboBoxItem Content="2x"/>
-                                        <ComboBoxItem Content="12x"/>
-                                        <ComboBoxItem Content="8x"/>
-                                        <ComboBoxItem Content="24x"/>
-                                        <ComboBoxItem Content="30x"/>
-                                        <ComboBoxItem Content="50x"/>
-                                        <ComboBoxItem Content="100x"/>
-                                        <ComboBoxItem Content="200x"/>
-                                        <ComboBoxItem Content="20c"/>
-                                        <ComboBoxItem Content="30c"/>
-                                        <ComboBoxItem Content="10c"/>
-                                        <ComboBoxItem Content="200c"/>
-                                        <ComboBoxItem Content="100c"/>
-                                        <ComboBoxItem Content="3c"/>
-                                        <ComboBoxItem Content="6C"/>
-                                        <ComboBoxItem Content="20c"/>
-                                        <ComboBoxItem Content="40c"/>
-                                        <ComboBoxItem Content="50c"/>
-                                        <ComboBoxItem Content="200c"/>
-                                        <ComboBoxItem Content="1 LMCM"/>
-                                        <ComboBoxItem Content="2 LM"/>
-                                        <ComboBoxItem Content="3 LM"/>
-                                        <ComboBoxItem Content="6 LM"/>
-                                        <ComboBoxItem Content="10 LM"/>
-                                        <ComboBoxItem Content="16 LM"/>
-                                        <ComboBoxItem Content="20 LM"/>
-                                        <ComboBoxItem Content="30 LM"/>
-                                        <ComboBoxItem Content="1 M"/>
-                                        <ComboBoxItem Content="2 M"/>
-                                        <ComboBoxItem Content="5 M"/>
-                                        <ComboBoxItem Content="10 M"/>
-                                        <ComboBoxItem Content="50 M"/>
-                                        <ComboBoxItem Content="500 M"/>
-                                        <ComboBoxItem Content="1 MM"/>
-                                        <ComboBoxItem Content="2 MM"/>
-                                        <ComboBoxItem Content="5 MM"/>
-                                        <ComboBoxItem Content="10 MM"/>
-                                    </ComboBox>
+                        <TabControl x:Name="Diagnosticos_Tabs" Visibility="Hidden" HorizontalAlignment="Stretch" Margin="10 120 10 10" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                            <TabItem HorizontalAlignment="Stretch" FontSize="15" Header="{x:Static local:Lenguaje.headRatAn}" Margin="10 0 -10 0">
+                                <Grid Background="#FFF7F7F7" Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50*"/>
+                                        <ColumnDefinition Width="299*"/>
+                                        <ColumnDefinition Width="233*"/>
+                                        <ColumnDefinition Width="698*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                    <Label x:Name="nivellabel" Content="{x:Static local:Lenguaje.valLev}" Visibility="Hidden" HorizontalAlignment="Left" Margin="254,140,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
-                                    <ComboBox x:Name="comboNiveles" Visibility="Hidden" HorizontalAlignment="Left" Margin="300,143,0,0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboNiveles_SelectionChanged" RenderTransformOrigin="0.5,0.5">
-                                        <ComboBox.Effect>
-                                            <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                                        </ComboBox.Effect>
-                                        <ComboBoxItem Content="1 - PHYSICAL"/>
-                                        <ComboBoxItem Content="2 - EMOTIONAL"/>
-                                        <ComboBoxItem Content="3 - MENTAL"/>
-                                        <ComboBoxItem Content="4 - SPIRITUAL 1"/>
-                                        <ComboBoxItem Content="5 - SPIRITUAL 2"/>
-                                        <ComboBoxItem Content="6 - SPIRITUAL 3"/>
-                                        <ComboBoxItem Content="7 - SPIRITUAL 4"/>
-                                        <ComboBoxItem Content="8 - SPIRITUAL 5"/>
-                                        <ComboBoxItem Content="9 - SPIRITUAL 6"/>
-                                        <ComboBoxItem Content="10 - SPIRITUAL 7"/>
-                                        <ComboBoxItem Content="11 - SPIRITUAL 8"/>
-                                        <ComboBoxItem Content="12 - SPIRITUAL 9"/>
-                                        <ComboBoxItem Content="13 - AUTOMATIC"/>
-                                    </ComboBox>
-                                    <Button x:Name="cmdIniciarDiag" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdIniciarDiag_Click">
+                                    <GroupBox x:Name="TipoAnalisis_Group" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.MenuAnalysis}" Margin="10,10,10,0" VerticalAlignment="Top" Height="180" Grid.ColumnSpan="2"/>
+                                    <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,10,233,0" Grid.ColumnSpan="3">
+                                        <!--<RadioButton x:Name="optionProbabilidad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valProba}" HorizontalAlignment="Left" Margin="161,121,0,0" VerticalAlignment="Top" Width="98" FontWeight="Bold" Checked="optionProbabilidad_Checked"/>-->
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 40 0 0">
+                                            <RadioButton x:Name="optionPorcentaje"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPorcent}" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Top" FontWeight="Bold" Checked="optionPorcentaje_Checked"/>
+                                            <RadioButton x:Name="option100"  Visibility="Hidden" Content="PRO" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Top" FontWeight="Bold" Checked="option100_Checked"/>
+                                            <RadioButton x:Name="optionradionico"  Visibility="Hidden" Content="-100/100" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Top" FontWeight="Bold" Checked="optionradionico_Checked_1"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+                                            <CheckBox x:Name="optionSugerirNiv"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggLev}" HorizontalAlignment="Left" Margin="10 0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                            <CheckBox x:Name="optionSugerirPot"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valSuggPot}" HorizontalAlignment="Left" Margin="10 0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 10">
+                                            <Label x:Name="nivelP" Visibility="Hidden" Content="{x:Static local:Lenguaje.headP}"  HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+                                            <ComboBox x:Name="comboP" Visibility="Hidden" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboPontency_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+                                                <ComboBox.Effect>
+                                                    <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                                                </ComboBox.Effect>
+                                                <ComboBoxItem Content="1X"/>
+                                                <ComboBoxItem Content="3x"/>
+                                                <ComboBoxItem Content="6x"/>
+                                                <ComboBoxItem Content="10x"/>
+                                                <ComboBoxItem Content="2x"/>
+                                                <ComboBoxItem Content="12x"/>
+                                                <ComboBoxItem Content="8x"/>
+                                                <ComboBoxItem Content="24x"/>
+                                                <ComboBoxItem Content="30x"/>
+                                                <ComboBoxItem Content="50x"/>
+                                                <ComboBoxItem Content="100x"/>
+                                                <ComboBoxItem Content="200x"/>
+                                                <ComboBoxItem Content="20c"/>
+                                                <ComboBoxItem Content="30c"/>
+                                                <ComboBoxItem Content="10c"/>
+                                                <ComboBoxItem Content="200c"/>
+                                                <ComboBoxItem Content="100c"/>
+                                                <ComboBoxItem Content="3c"/>
+                                                <ComboBoxItem Content="6C"/>
+                                                <ComboBoxItem Content="20c"/>
+                                                <ComboBoxItem Content="40c"/>
+                                                <ComboBoxItem Content="50c"/>
+                                                <ComboBoxItem Content="200c"/>
+                                                <ComboBoxItem Content="1 LMCM"/>
+                                                <ComboBoxItem Content="2 LM"/>
+                                                <ComboBoxItem Content="3 LM"/>
+                                                <ComboBoxItem Content="6 LM"/>
+                                                <ComboBoxItem Content="10 LM"/>
+                                                <ComboBoxItem Content="16 LM"/>
+                                                <ComboBoxItem Content="20 LM"/>
+                                                <ComboBoxItem Content="30 LM"/>
+                                                <ComboBoxItem Content="1 M"/>
+                                                <ComboBoxItem Content="2 M"/>
+                                                <ComboBoxItem Content="5 M"/>
+                                                <ComboBoxItem Content="10 M"/>
+                                                <ComboBoxItem Content="50 M"/>
+                                                <ComboBoxItem Content="500 M"/>
+                                                <ComboBoxItem Content="1 MM"/>
+                                                <ComboBoxItem Content="2 MM"/>
+                                                <ComboBoxItem Content="5 MM"/>
+                                                <ComboBoxItem Content="10 MM"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Label x:Name="nivellabel" Content="{x:Static local:Lenguaje.valLev}" Visibility="Hidden" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" FontWeight="Bold" Background="{x:Null}" Foreground="#FF444141"/>
+                                            <ComboBox x:Name="comboNiveles" Visibility="Hidden" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="156" IsReadOnly="True" ToolTip="Levels" FontSize="14" SelectionChanged="comboNiveles_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+                                                <ComboBox.Effect>
+                                                    <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                                                </ComboBox.Effect>
+                                                <ComboBoxItem Content="1 - PHYSICAL"/>
+                                                <ComboBoxItem Content="2 - EMOTIONAL"/>
+                                                <ComboBoxItem Content="3 - MENTAL"/>
+                                                <ComboBoxItem Content="4 - SPIRITUAL 1"/>
+                                                <ComboBoxItem Content="5 - SPIRITUAL 2"/>
+                                                <ComboBoxItem Content="6 - SPIRITUAL 3"/>
+                                                <ComboBoxItem Content="7 - SPIRITUAL 4"/>
+                                                <ComboBoxItem Content="8 - SPIRITUAL 5"/>
+                                                <ComboBoxItem Content="9 - SPIRITUAL 6"/>
+                                                <ComboBoxItem Content="10 - SPIRITUAL 7"/>
+                                                <ComboBoxItem Content="11 - SPIRITUAL 8"/>
+                                                <ComboBoxItem Content="12 - SPIRITUAL 9"/>
+                                                <ComboBoxItem Content="13 - AUTOMATIC"/>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <!--<RadioButton x:Name="optionPolaridad"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPolat}" HorizontalAlignment="Left" Margin="346,80,0,0" VerticalAlignment="Top" Width="79" FontWeight="Bold" Checked="optionPolaridad_Checked"/>-->
+                                    <Button x:Name="cmdIniciarDiag" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" Margin="10,0,10,370" VerticalAlignment="Bottom" Height="50" Click="cmdIniciarDiag_Click" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="ArrowRight" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnStartAna}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdAgregarCodigos" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" HorizontalAlignment="Left" Margin="250,246,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdAgregarCodigos_Click" RenderTransformOrigin="0.528,0.014">
+                                    <Button x:Name="cmdAgregarCodigos" Background="#FF3CB3DF" IsEnabled="true"  Visibility="Hidden" Margin="10,0,10,310" VerticalAlignment="Bottom" Height="50" Click="cmdAgregarCodigos_Click" RenderTransformOrigin="0.528,0.014" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerAdd" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAddRates}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdHacerRemedios" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdHacerRemedios_Click">
+                                    <Button x:Name="cmdHacerRemedios" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" Margin="10,0,10,250" VerticalAlignment="Bottom" Height="50" Click="cmdHacerRemedios_Click" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Potion" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSavCRemed}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdGuardarTarjeta" Background="#FF3CB3DF" IsEnabled="false" Visibility="Hidden" HorizontalAlignment="Left" Margin="250,321,0,0" VerticalAlignment="Top" Width="219" Height="56" Click="cmdGuardarTarjeta_Click">
+                                    <Button x:Name="cmdGuardarTarjeta" Background="#FF3CB3DF" IsEnabled="false" Visibility="Hidden" Margin="10,0,10,190" VerticalAlignment="Bottom" Height="50" Click="cmdGuardarTarjeta_Click" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="Save" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendToEcs}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdEnviarFrecuencia" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" HorizontalAlignment="Left" Margin="20,397,0,0" VerticalAlignment="Top" Width="219" Height="56" RenderTransformOrigin="0.168,1.803" Click="cmdEnviarFrecuencia_Click">
+                                    <Button x:Name="cmdEnviarFrecuencia" Background="#FF3CB3DF" IsEnabled="false"  Visibility="Hidden" Margin="10 0 10 130" VerticalAlignment="Bottom" Height="50" RenderTransformOrigin="0.168,1.803" Click="cmdEnviarFrecuencia_Click" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="CameraSend" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSendD}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdDocumento" Background="#FF3CB3DF"  IsEnabled="false" Visibility="Hidden" ToolTip="Create an Analysis Report"  HorizontalAlignment="Left" Margin="250,397,0,0" VerticalAlignment="Top" Width="218" Height="56" Click="GenerarDocumento">
+                                    <Button x:Name="cmdDocumento" Background="#FF3CB3DF"  IsEnabled="false" Visibility="Hidden" ToolTip="Create an Analysis Report" Margin="10,0,10,70" VerticalAlignment="Bottom" Height="50" Click="GenerarDocumento" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCreatRep}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdProcesarAnalisis" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="810,25,0,0" VerticalAlignment="Top" Width="136" Height="30" Click="cmdProcesarAnalisis_Click" ToolTip="Start Processing the Analysis">
-                                        <StackPanel Orientation="Horizontal">
-                                            <iconPacks:PackIconModern Width="15" Height="15" Kind="CameraFlash" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSanalysis}" Foreground="#FFFAFAFA"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button x:Name="cmdBorrar" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="977,25,0,0" VerticalAlignment="Top" Width="114" Height="30" Click="cmdBorrar_Click" ToolTip="Delete one or multiple rates added">
-                                        <StackPanel Orientation="Horizontal">
-                                            <iconPacks:PackIconModern Width="15" Height="15" Kind="Close" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelete}" Foreground="#FFFAFAFA"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button x:Name="cmdRango" Background="#FF3CB3DF" IsEnabled="False" HorizontalAlignment="Left" Margin="1122,25,0,0" VerticalAlignment="Top" Width="112" Height="30" Click="cmdRango_Click" RenderTransformOrigin="0.821,0.617">
-                                        <StackPanel Orientation="Horizontal">
-                                            <iconPacks:PackIconModern Width="15" Height="15" Kind="Console" Foreground="#FFFAFAFA"/>
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRange}" Foreground="#FFFAFAFA"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button x:Name="cmdEliminarCodigosNoSensados" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="20,470,0,0" VerticalAlignment="Top" Width="450" Height="56" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click">
+
+                                    <Button x:Name="cmdEliminarCodigosNoSensados" Background="#FF3CB3DF" Visibility="Hidden" Margin="10 0 10 10" VerticalAlignment="Bottom" Height="50" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click" Grid.ColumnSpan="2">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerDelete" Foreground="#FFFAFAFA"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE NON RATES USED" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <ListView x:Name="ListaCodigos"  HorizontalAlignment="Left" Margin="733,80,0,33" Width="725" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" >
+
+                                    <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
+                                    <!--the next tag is used to show the comboBox-->
+                                    <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="0,10,0,582" HorizontalAlignment="Center">
+                                        <Button x:Name="cmdProcesarAnalisis" Visibility="Hidden" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="136" Height="30" Click="cmdProcesarAnalisis_Click" ToolTip="Start Processing the Analysis">
+                                            <StackPanel Orientation="Horizontal">
+                                                <iconPacks:PackIconModern Width="15" Height="15" Kind="CameraFlash" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSanalysis}" Foreground="#FFFAFAFA"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button x:Name="cmdBorrar" Background="#FF3CB3DF" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="114" Height="30" Click="cmdBorrar_Click" ToolTip="Delete one or multiple rates added">
+                                            <StackPanel Orientation="Horizontal">
+                                                <iconPacks:PackIconModern Width="15" Height="15" Kind="Close" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelete}" Foreground="#FFFAFAFA"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button x:Name="cmdRango" Background="#FF3CB3DF" IsEnabled="False" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="112" Height="30" Click="cmdRango_Click" RenderTransformOrigin="0.821,0.617">
+                                            <StackPanel Orientation="Horizontal">
+                                                <iconPacks:PackIconModern Width="15" Height="15" Kind="Console" Foreground="#FFFAFAFA"/>
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRange}" Foreground="#FFFAFAFA"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                    <ListView x:Name="ListaCodigos" Margin="10,50,10,10" Visibility="Hidden" Grid.Column="3" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" >
                                         <ListView.View >
                                             <GridView >
                                                 <GridView.ColumnHeaderContainerStyle>
@@ -1120,35 +1139,36 @@
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
-                                    <ListBox x:Name="listadoCategorias" Visibility="Visible" HorizontalAlignment="Left" Height="253" Margin="21,50,0,0" VerticalAlignment="Top" Width="346" BorderBrush="Silver" BorderThickness="1" SelectionChanged="listadoCategorias_SelectionChanged" MouseDoubleClick="listadoCategorias_MouseDoubleClick" MouseRightButtonDown="listadoCategorias_MouseRightButtonDown" FontSize="14"/>
-                                    <ListBox x:Name="listadoSubcategorias" Visibility="Visible" HorizontalAlignment="Left" Height="181" Margin="23,350,0,0" VerticalAlignment="Top" Width="344" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoSubcategorias_MouseDoubleClick" FontSize="14" SelectionChanged="listadoSubcategorias_SelectionChanged_1"/>
-                                    <ListBox x:Name="listadoCodigos" Visibility="Visible" HorizontalAlignment="Left" Height="481" Margin="385,50,0,0" VerticalAlignment="Top" Width="335" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" />
-                                    <Label x:Name="lblCategorias" Visibility="Visible" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="26,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblSubCategorias" Visibility="Visible" Content="Sub-Categories" HorizontalAlignment="Left" Margin="27,319,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblCodigoBuscar" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="250,13,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <TextBox x:Name="txtCodigoBuscar" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="398,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
-                                    <Button x:Name="cmdTodos" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="598,15,0,0" VerticalAlignment="Top" Width="53" ToolTip="Select All Rates" Click="cmdTodos_Click">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.inputAll}" Foreground="#FFFAFAFA"/>
-                                        </StackPanel>
-                                    </Button>
-                                    <Button x:Name="cmdNinguno" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="661,16,0,0" VerticalAlignment="Top" Width="63" ToolTip="Select none of them" Click="cmdNinguno_Click" RenderTransformOrigin="0.489,-0.042">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNone}" Foreground="#FFFAFAFA"/>
-                                        </StackPanel>
-                                    </Button>
-
-
-                                    <MediaElement Visibility="Hidden" x:Name="myGif" MediaEnded="myGif_MediaEnded" UnloadedBehavior="Manual" Source="Resources\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="215,0,994,0"/>
-                                    <MediaElement Visibility="Hidden" x:Name="myGif2" UnloadedBehavior="Manual" Source="Resources\analisis-hombre.gif" LoadedBehavior="Play" Stretch="None" Margin="238,0,971,0" MediaEnded="myGif2_MediaEnded"/>
-
-                                    <Image x:Name="progreso" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="Resources\analisis-hombre.gif"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
-
-                                    <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="{Binding GifImage}"  Margin="500,30,0,0" HorizontalAlignment="Left" Width="350" Height="500"  VerticalAlignment="Top"></Image>
-
-
-                                    <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="1306,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Left" Margin="1427,531,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <ListBox x:Name="listadoCategorias" Visibility="Hidden" Height="280" Margin="10,40,10,0" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" SelectionChanged="listadoCategorias_SelectionChanged" MouseDoubleClick="listadoCategorias_MouseDoubleClick" MouseRightButtonDown="listadoCategorias_MouseRightButtonDown" FontSize="14" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <ListBox x:Name="listadoSubcategorias" Visibility="Hidden" Height="260" Margin="10,350,10,0" VerticalAlignment="Top" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoSubcategorias_MouseDoubleClick" FontSize="14" SelectionChanged="listadoSubcategorias_SelectionChanged_1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <ListBox x:Name="listadoCodigos" Visibility="Hidden" Margin="10 40 10 10" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="2"/>
+                                    <Label x:Name="lblCategorias" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <Label x:Name="lblSubCategorias" Visibility="Hidden" Content="Sub-Categories" HorizontalAlignment="Left" Margin="10 320 0 0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <Label x:Name="lblCodigoBuscar" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                    <TextBox x:Name="txtCodigoBuscar" Visibility="Hidden" HorizontalAlignment="Stretch" Height="20" Grid.Column="2" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Button x:Name="cmdTodos" Background="#FF3CB3DF" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0" ToolTip="Select All Rates" Click="cmdTodos_Click">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.inputAll}" Foreground="#FFFAFAFA"/>
+                                            </StackPanel>
+                                        </Button>
+                                        <Button x:Name="cmdNinguno" Background="#FF3CB3DF" Visibility="Hidden" Grid.Column="3" HorizontalAlignment="Stretch" Margin="0" ToolTip="Select none of them" Click="cmdNinguno_Click" RenderTransformOrigin="0.489,-0.042">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNone}" Foreground="#FFFAFAFA"/>
+                                            </StackPanel>
+                                        </Button>
+                                        
+                                    </Grid>
+                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="{Binding GifImage}" Width="350" Height="500"></Image>
+                                    </Grid>
+                                    <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Right" Margin="0,0,50,-10" VerticalAlignment="Bottom" FontWeight="Bold" Grid.Column="3" Visibility="Hidden"/>
+                                    <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Bottom" FontWeight="Bold" Grid.Column="3" Visibility="Hidden"/>
                                 </Grid>
                             </TabItem>
                             <TabItem Visibility="Collapsed" Header="Información Biológica" Margin="2,0,-2,0">
@@ -1180,7 +1200,7 @@
                                     </Button>
                                 </Grid>
                             </TabItem>
-                            <TabItem Header="{x:Static local:Lenguaje.headHis}"   Width="70" Height="29"   FontSize="15" Margin="10,0,-10,0">
+                            <TabItem Header="{x:Static local:Lenguaje.headHis}" FontSize="15" Margin="10 0 -10 0">
                                 <Grid Background="#FFF7F7F7" Margin="0,0,-0.4,-18.8">
                                     <Label x:Name="lblPadecimiento" Content="{x:Static local:Lenguaje.labelSuff}" HorizontalAlignment="Left" Margin="33,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                                     <TextBox x:Name="txtPadecimiento" HorizontalAlignment="Left" Height="135" Margin="37,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="937" FontSize="14">
@@ -1203,7 +1223,7 @@
                                 </Grid>
                             </TabItem>
                         </TabControl>
-                        <GroupBox x:Name="Lista_Analisis_Group1" Visibility="Visible" Margin="325,0,0,0" VerticalAlignment="Center" Height="740" HorizontalAlignment="Left" Width="865" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.Column="1">
+                        <GroupBox x:Name="Lista_Analisis_Group1" Visibility="Visible" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.Column="1">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Clock" Foreground="#FFFDFDFD" />
@@ -1212,7 +1232,7 @@
                             </GroupBox.Header>
                         </GroupBox>
 
-                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" HorizontalAlignment="Left" Margin="326,60,0,40" Width="862" BorderThickness="0" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick"  Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}" >
+                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="16 40 16 16" BorderThickness="0" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick"  Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tableNameAna}" DisplayMemberBinding="{Binding nombre}" Width="300px" />
@@ -1223,7 +1243,7 @@
                         </ListView>
 
 
-                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="14,0,0,33" VerticalAlignment="Bottom" Height="740" HorizontalAlignment="Left" Width="392" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Grid.Column="0">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="UndoPoint" Foreground="#FFFBF9F9" />
@@ -1231,14 +1251,14 @@
                                 </StackPanel>
                             </GroupBox.Header>
 
-                            <ListBox x:Name="listadoPacientes" Height="400" Margin="11,60,11,0" VerticalAlignment="Top" Width="358" BorderBrush="#FFCCCCCC" BorderThickness="1" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listadoPacientes_MouseDoubleClick" >
+                            <ListBox x:Name="listadoPacientes" Height="400" Margin="10,40,10,0" VerticalAlignment="Top" BorderBrush="#FFCCCCCC" BorderThickness="1" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listadoPacientes_MouseDoubleClick" >
                                 <ListBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                                </ListBox.Effect>
+                               </ListBox.Effect>
                             </ListBox>
                         </GroupBox>
-                        <Label x:Name="lblPacienteAnalisis2" Visibility="Visible" Content="{x:Static local:Lenguaje.HeaderPatientSearch}" HorizontalAlignment="Left" Margin="31,79,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <Button x:Name="cmdEliminar_Copy1" BorderThickness="0" Background="#ff0000"  Visibility="Visible" HorizontalAlignment="Left" Margin="31,546,0,0" VerticalAlignment="Top" Width="358" Height="37" ToolTip="DELETE ANALYSIS" Click="cmdEliminar_Copy1_Click" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                        <Label x:Name="lblPacienteAnalisis2" Grid.Column="0" Visibility="Visible" Content="{x:Static local:Lenguaje.HeaderPatientSearch}" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Button x:Name="cmdEliminar_Copy1" BorderThickness="0" Background="#ff0000"  Visibility="Visible" HorizontalAlignment="Stretch" Margin="30,500,30,0" VerticalAlignment="Top" Height="40" ToolTip="DELETE ANALYSIS" Click="cmdEliminar_Copy1_Click" Grid.Column="0" RenderTransformOrigin="0.5,0.5">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -1255,18 +1275,18 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.deleteAna}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <TextBox x:Name="cmdAnalisisPaciente" CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="30,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="1">
+                        <TextBox x:Name="cmdAnalisisPaciente" CharacterCasing="Upper" Visibility="Visible" HorizontalAlignment="Stretch" Height="20" Margin="200,50,30,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="cmdAnalisisPaciente_TextChanged" Grid.Column="0">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="32,597,0,0"  VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <TextBox x:Name="cmdAnalisisPaciente_Copy" Visibility="Visible" HorizontalAlignment="Left" Height="37" Margin="32,624,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Grid.ColumnSpan="2">
+                        <Label x:Name="lblPacienteAnalisis" Visibility="Visible" Content="{x:Static local:Lenguaje.nameAnalysis}" HorizontalAlignment="Left" Margin="30,550,0,0"  VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="cmdAnalisisPaciente_Copy" Visibility="Visible" HorizontalAlignment="Stretch" Grid.Column="0" Height="40" Margin="30 580 30 0" TextWrapping="Wrap" VerticalAlignment="Top">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Button x:Name="cmdAnalizarr" BorderThickness="0" Background="#FF6D33B1" Visibility="Visible" HorizontalAlignment="Left" Margin="169,625,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="cmdAnalizarr_Click" Grid.Column="1">
+                        <Button x:Name="cmdAnalizarr" BorderThickness="0" Background="#FF6D33B1" Visibility="Visible" HorizontalAlignment="Stretch" Grid.Column="0" Margin="30,625,30,0" VerticalAlignment="Top" Height="40" Click="cmdAnalizarr_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1275,7 +1295,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCAna}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdReanalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Left" Margin="170,710,0,0" VerticalAlignment="Top" Width="123" Height="37" Click="cmdReanalizarr_Click" Grid.Column="1">
+                        <Button x:Name="cmdReanalizarr" BorderThickness="0" Background="#FF3CB3DF" Visibility="Visible" HorizontalAlignment="Right" Margin="0,710,30,0" VerticalAlignment="Top" Width="120" Height="40" Click="cmdReanalizarr_Click" Grid.Column="0">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1284,11 +1304,10 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnReana}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="lblPacienteAnalisis_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRAN}" HorizontalAlignment="Left" Margin="32,682,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="31,709,0,0" VerticalAlignment="Top" Width="220" SelectionChanged="comboOtrosAnal_SelectionChanged" Grid.ColumnSpan="2" Height="37">
+                        <Label x:Name="lblPacienteAnalisis_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRAN}" HorizontalAlignment="Left" Margin="30,680,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0"/>
+                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="30,710,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="comboOtrosAnal_SelectionChanged" Grid.Column="0" Height="40">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-
                             </ComboBox.Effect>
                         </ComboBox>
                     </Grid>
@@ -1307,12 +1326,12 @@
 
                     <Grid GotFocus="Grid_GotFocus" LostFocus="Grid_LostFocus" >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="265*"/>
-                            <ColumnDefinition Width="1267*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border x:Name="borderInfobasica_Copy5" BorderBrush="#FF3CB3DF" BorderThickness="1" Background="{StaticResource boxBack}" HorizontalAlignment="Left" Height="163" Margin="12,217,0,0" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="2"/>
-                        <GroupBox x:Name="groupBox_Copy" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Margin="10,0,0,592" VerticalAlignment="Bottom" Height="187" HorizontalAlignment="Left" Width="300" FontWeight="Bold" Grid.ColumnSpan="2">
+                        <Border x:Name="borderInfobasica_Copy5" BorderBrush="#FF3CB3DF" BorderThickness="1" Background="{StaticResource boxBack}" HorizontalAlignment="Stretch" Height="150" Margin="10,210,10,0" VerticalAlignment="Top" Grid.Column="0"/>
+                        <GroupBox x:Name="groupBox_Copy" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Margin="10,10,10,0" VerticalAlignment="Top" Height="190" HorizontalAlignment="Stretch" FontWeight="Bold" Grid.Column="0">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Potion" Foreground="#FFFDFDFD" />
@@ -1320,14 +1339,14 @@
                                 </StackPanel>
                             </GroupBox.Header>
 
-                            <TextBox x:Name="txtbusquedaremedio" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" FontSize="16" TextChanged="txtbusquedaremedio_TextChanged" Margin="4 20 0 0">
+                            <TextBox x:Name="txtbusquedaremedio" HorizontalAlignment="Stretch" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" TextChanged="txtbusquedaremedio_TextChanged" Margin="0 25 0 0" Grid.Column="0">
                                 <TextBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                 </TextBox.Effect>
                             </TextBox>
                         </GroupBox>
-                        <Label x:Name="lblbusquedaremedio" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="18,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdNuevoRemedio" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="21,124,0,0" VerticalAlignment="Top" Width="279" Height="29" ToolTip="Create a new Remedy" Click="cmdNuevoRemedio_Click" Grid.ColumnSpan="2">
+                        <Label x:Name="lblbusquedaremedio" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="15,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Button x:Name="cmdNuevoRemedio" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Stretch" Margin="15 125 15 0" VerticalAlignment="Top" Height="29" ToolTip="Create a new Remedy" Click="cmdNuevoRemedio_Click" Grid.Column="0">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1336,7 +1355,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewRem}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="21,163,0,0" VerticalAlignment="Top" Width="279" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click" Grid.ColumnSpan="2">
+                        <Button x:Name="cmdBorrarRemedio" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Stretch" Margin="15,160,15,0" VerticalAlignment="Top" Height="29" ToolTip="Delete a remedy" RenderTransformOrigin="0.5,0.5" Click="cmdBorrarRemedio_Click" Grid.Column="0">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1345,51 +1364,53 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelRem}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="lblCategoriasRemedios" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="51,332,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ComboBox x:Name="comboCategoriasRemedios" HorizontalAlignment="Left" Margin="136,334,0,0" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Grid.ColumnSpan="2">
-                            <ComboBox.Effect>
-                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                            </ComboBox.Effect>
-                            <ComboBoxItem Content="A"/>
-                            <ComboBoxItem Content="B"/>
-                            <ComboBoxItem Content="C"/>
-                            <ComboBoxItem Content="D"/>
-                            <ComboBoxItem Content="E"/>
-                            <ComboBoxItem Content="F"/>
-                            <ComboBoxItem Content="G"/>
-                            <ComboBoxItem Content="H"/>
-                            <ComboBoxItem Content="I"/>
-                            <ComboBoxItem Content="J"/>
-                            <ComboBoxItem Content="K"/>
-                            <ComboBoxItem Content="L"/>
-                            <ComboBoxItem Content="M"/>
-                            <ComboBoxItem Content="N"/>
-                            <ComboBoxItem Content="O"/>
-                            <ComboBoxItem Content="P"/>
-                            <ComboBoxItem Content="Q"/>
-                            <ComboBoxItem Content="R"/>
-                            <ComboBoxItem Content="S"/>
-                            <ComboBoxItem Content="T"/>
-                            <ComboBoxItem Content="U"/>
-                            <ComboBoxItem Content="V"/>
-                            <ComboBoxItem Content="W"/>
-                            <ComboBoxItem Content="X"/>
-                            <ComboBoxItem Content="Y"/>
-                            <ComboBoxItem Content="Z"/>
-                        </ComboBox>
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Stretch" Margin="18 320 18 0" Height="30" VerticalAlignment="Top">
+                            <Label x:Name="lblCategoriasRemedios" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <ComboBox x:Name="comboCategoriasRemedios" Margin="10 0 10 0" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Width="145">
+                                <ComboBox.Effect>
+                                    <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                                </ComboBox.Effect>
+                                <ComboBoxItem Content="A"/>
+                                <ComboBoxItem Content="B"/>
+                                <ComboBoxItem Content="C"/>
+                                <ComboBoxItem Content="D"/>
+                                <ComboBoxItem Content="E"/>
+                                <ComboBoxItem Content="F"/>
+                                <ComboBoxItem Content="G"/>
+                                <ComboBoxItem Content="H"/>
+                                <ComboBoxItem Content="I"/>
+                                <ComboBoxItem Content="J"/>
+                                <ComboBoxItem Content="K"/>
+                                <ComboBoxItem Content="L"/>
+                                <ComboBoxItem Content="M"/>
+                                <ComboBoxItem Content="N"/>
+                                <ComboBoxItem Content="O"/>
+                                <ComboBoxItem Content="P"/>
+                                <ComboBoxItem Content="Q"/>
+                                <ComboBoxItem Content="R"/>
+                                <ComboBoxItem Content="S"/>
+                                <ComboBoxItem Content="T"/>
+                                <ComboBoxItem Content="U"/>
+                                <ComboBoxItem Content="V"/>
+                                <ComboBoxItem Content="W"/>
+                                <ComboBoxItem Content="X"/>
+                                <ComboBoxItem Content="Y"/>
+                                <ComboBoxItem Content="Z"/>
+                            </ComboBox>
+                        </StackPanel>
 
-                        <RadioButton x:Name="checkOpcion1" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="50,235,0,0" VerticalAlignment="Top" Checked="checkOpcion1_Checked" ToolTip="Remedies based on an analysis"/>
-                        <RadioButton x:Name="checkOpcion2" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="50,264,0,0" VerticalAlignment="Top" Checked="checkOpcion2_Checked" ToolTip="All the Remedies"/>
-                        <ListBox x:Name="listadoRemedios" HorizontalAlignment="Left" Height="335" Margin="12,394,0,0" VerticalAlignment="Top" Width="300" BorderBrush="{StaticResource section}" Background="{StaticResource boxBack}" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoRemedios_MouseDoubleClick" SelectionChanged="listadoRemedios_SelectionChanged" Initialized="listadoRemedios_Initialized" Grid.ColumnSpan="2"/>
-                        <Label x:Name="lblNombreRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="241,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="471" Grid.Column="1"/>
-                        <Label x:Name="lblNombreRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="105,19,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
-                        <Label x:Name="lblFechaRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="105,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
-                        <Label x:Name="lblFechaRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Left" Margin="241,47,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Width="427" Grid.Column="1"/>
-                        <TabControl x:Name="ControlRemedios" Visibility="Visible" HorizontalAlignment="Left" Height="680" Margin="105,95,0,0" VerticalAlignment="Top" Width="979" Background="#CCF7F7F7" Grid.Column="1">
+                        <RadioButton x:Name="checkOpcion1" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="18,230,18,0" VerticalAlignment="Top" Checked="checkOpcion1_Checked" ToolTip="Remedies based on an analysis" Grid.Column="0"/>
+                        <RadioButton x:Name="checkOpcion2" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="18,260,0,0" VerticalAlignment="Top" Checked="checkOpcion2_Checked" ToolTip="All the Remedies" Grid.Column="0"/>
+                        <ListBox x:Name="listadoRemedios" HorizontalAlignment="Stretch" Margin="10,370,10,10" VerticalAlignment="Stretch" BorderBrush="{StaticResource section}" Background="{StaticResource boxBack}" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoRemedios_MouseDoubleClick" SelectionChanged="listadoRemedios_SelectionChanged" Initialized="listadoRemedios_Initialized" Grid.Column="0"/>
+                        <Label x:Name="lblNombreRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Stretch" Margin="100,10,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Grid.Column="1"/>
+                        <Label x:Name="lblNombreRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRM}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                        <Label x:Name="lblFechaRemedio" Visibility="Visible" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+                        <Label x:Name="lblFechaRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Stretch" Margin="100,40,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Grid.Column="1"/>
+                        <TabControl x:Name="ControlRemedios" Visibility="Visible" HorizontalAlignment="Stretch" Margin="10,100,10,10" VerticalAlignment="Stretch" Background="#CCF7F7F7" Grid.Column="1">
                             <TabItem >
                                 <TabItem.Header>
-                                    <StackPanel Orientation="Horizontal">
-                                        <iconPacks:PackIconMaterial Width="25" Margin="20,0,0,0" Height="35" Kind="MedicalBag">
+                                    <StackPanel Orientation="Horizontal" Margin="0 0 40 0">
+                                        <iconPacks:PackIconMaterial Width="25" Margin="0,0,05,10" Height="25" Kind="MedicalBag" VerticalAlignment="Center">
                                             <iconPacks:PackIconMaterial.Foreground>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                     <GradientStop Color="#FFA5A2A2" Offset="0"/>
@@ -1397,13 +1418,17 @@
                                                 </LinearGradientBrush>
                                             </iconPacks:PackIconMaterial.Foreground>
                                         </iconPacks:PackIconMaterial>
-                                        <TextBlock Text="{x:Static local:Lenguaje.labelRemedy}"  Foreground="Black" FontFamily="Segoe UI"   FontSize="25" Height="42" Width="105" RenderTransformOrigin="0.783,0.553"/>
+                                        <TextBlock Text="{x:Static local:Lenguaje.labelRemedy}"  Foreground="Black" FontFamily="Segoe UI" VerticalAlignment="Center" FontSize="25" Height="42" Width="105" RenderTransformOrigin="0.783,0.553"/>
                                     </StackPanel>
                                 </TabItem.Header>
-                                <Grid Background="{StaticResource boxBack}" Height="626" Margin="0,0,5,0">
-                                    <Border x:Name="borderInfobasica_Copy8" BorderBrush="{StaticResource borderSection}" BorderThickness="1" Height="96" Margin="214,19,31,0" VerticalAlignment="Top"/>
-                                    <Border x:Name="borderInfobasica_Copy7" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="566" Margin="12,19,0,0" VerticalAlignment="Top" Width="175"/>
-                                    <Button x:Name="cmdAutosimile" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,55,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdAutosimile_Click" BorderThickness="0" Foreground="{x:Null}">
+                                <Grid Background="{StaticResource boxBack}" Height="626" Margin="0,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="4*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="borderInfobasica_Copy8" BorderBrush="{StaticResource borderSection}" BorderThickness="1" Height="90" Margin="10,10,250,0" VerticalAlignment="Top" Grid.Column="1"/>
+                                    <Border x:Name="borderInfobasica_Copy7" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Stretch" Margin="10,10,10,30" VerticalAlignment="Stretch" Grid.Column="0"/>
+                                    <Button x:Name="cmdAutosimile" Background="#FF3CB3DF" HorizontalAlignment="Stretch" Margin="20 30" VerticalAlignment="Top" Height="50" Click="cmdAutosimile_Click" BorderThickness="0" Foreground="{x:Null}" Grid.Column="0">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1413,7 +1438,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnAutoSM}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdNeutralizar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,120,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdNeutralizar_Click">
+                                    <Button x:Name="cmdNeutralizar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Stretch" Margin="20,100,20,0" VerticalAlignment="Top" Height="50" Click="cmdNeutralizar_Click" Grid.Column="0">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1423,7 +1448,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNeutralize}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdImprint" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,185,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdImprint_Click">
+                                    <Button x:Name="cmdImprint" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Stretch" Margin="20 170 20 0" VerticalAlignment="Top" Height="50" Click="cmdImprint_Click" Grid.Column="0">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1433,7 +1458,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnImp}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdCopiar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,250,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdCopiar_Click">
+                                    <Button x:Name="cmdCopiar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Stretch"  Margin="20,240,20,0" VerticalAlignment="Top" Height="50" Click="cmdCopiar_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1444,7 +1469,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCopy}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdBorrarCodigo" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Left" Margin="37,315,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdBorrarCodigo_Click">
+                                    <Button x:Name="cmdBorrarCodigo" BorderThickness="0" Background="#ff0000" HorizontalAlignment="Stretch" Margin="20,310,20,0" VerticalAlignment="Top" Height="50" Click="cmdBorrarCodigo_Click" Grid.Column="0">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1454,7 +1479,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnErase}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdGuardarCodigo" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="38,380,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdGuardarCodigo_Click">
+                                    <Button x:Name="cmdGuardarCodigo" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Stretch" Grid.Column="0" Margin="20,380,20,0" VerticalAlignment="Top" Height="50" Click="cmdGuardarCodigo_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1464,7 +1489,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveEcs}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdTratamientoDirecto" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="37,445,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdTratamientoDirecto_Click">
+                                    <Button x:Name="cmdTratamientoDirecto" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Stretch" Margin="20,450,20,0" VerticalAlignment="Top" Grid.Column="0" Height="50" Click="cmdTratamientoDirecto_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1481,7 +1506,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" COMPLEMENTARY RATE" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdAlmacenartarjetaCat" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Margin="37,510,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdAlmacenartarjetaCat_Click">
+                                    <Button x:Name="cmdAlmacenartarjetaCat" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Stretch" Margin="20,520,20,0" VerticalAlignment="Top" Height="50" Click="cmdAlmacenartarjetaCat_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1491,9 +1516,9 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveEcsDB}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Label x:Name="lblCodigoBuscar_Copy" Visibility="Hidden" Content="Buscar:" HorizontalAlignment="Left" Margin="334,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblCodigoBuscar_Copy" Grid.Column="1" Visibility="Hidden" Content="Buscar:" HorizontalAlignment="Left" Margin="334,49,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <TextBox x:Name="txtBuscarCodigo1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="390,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="483" FontSize="14" ToolTip="Introduzca el código a buscar" TextChanged="txtBuscarCodigo1_TextChanged"/>
-                                    <Button x:Name="cmdPotenciacionAvanzada" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="244,50,0,0" VerticalAlignment="Top" Width="135" Height="36" Click="cmdPotenciacionAvanzada_Click">
+                                    <Button x:Name="cmdPotenciacionAvanzada" Grid.Column="1" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdPotenciacionAvanzada_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1502,7 +1527,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnPotent}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdDuplicar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="396,50,0,0" VerticalAlignment="Top" Width="117" Height="36" Click="cmdDuplicar_Click">
+                                    <Button x:Name="cmdDuplicar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Grid.Column="1" Margin="150,30,0,0" VerticalAlignment="Top" Width="120" Height="50" Click="cmdDuplicar_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1511,7 +1536,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnD}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmdQuitar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="530,50,0,0" VerticalAlignment="Top" Width="102" Height="36" Click="cmdQuitar_Click">
+                                    <Button x:Name="cmdQuitar" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="280,30,0,0" VerticalAlignment="Top" Width="120" Height="50" Grid.Column="1" Click="cmdQuitar_Click">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1520,7 +1545,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.TablePDelete}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <ListView x:Name="ListaRemedios" Visibility="Visible" HorizontalAlignment="Left" Margin="214,142,0,41" Width="725" BorderThickness="0.8" BorderBrush="{StaticResource borderSection}" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" SelectionChanged="ListaRemedios_SelectionChanged" >
+                                    <ListView x:Name="ListaRemedios" Grid.Column="1" Visibility="Visible" HorizontalAlignment="Stretch" Margin="10,120,10,30" BorderThickness="0.8" BorderBrush="{StaticResource borderSection}" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" SelectionChanged="ListaRemedios_SelectionChanged" >
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="{x:Static local:Lenguaje.tableRate}" DisplayMemberBinding="{Binding codigo}" Width="100px"/>
@@ -1533,10 +1558,10 @@
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
-                                    <Label x:Name="lblContador_Copy" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Left" Margin="817,602,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <Label x:Name="lblContador_Copy" Content="{x:Static local:Lenguaje.labelInclude}" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 50 0" VerticalAlignment="Bottom" FontWeight="Bold"/>
                                     <Label x:Name="lblContCodigosRemedios" Content="" HorizontalAlignment="Left" Margin="1015,535,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <Label x:Name="lblOrdenarRem" Visibility="Visible" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="977,70,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                                    <ComboBox x:Name="comboOrdenarRemedios" Visibility="Visible" HorizontalAlignment="Left" Margin="967,101,0,0" VerticalAlignment="Top" Width="103" SelectionChanged="comboOrdenarRemedios_SelectionChanged" IsReadOnly="True">
+                                    <Label x:Name="lblOrdenarRem" Grid.Column="1" Visibility="Visible" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Right" Margin="0 70 120 0" VerticalAlignment="Top" FontWeight="Bold"/>
+                                    <ComboBox x:Name="comboOrdenarRemedios" Visibility="Visible" HorizontalAlignment="Right" Margin="0 70 10 0" Grid.Column="1" VerticalAlignment="Top" Width="100" SelectionChanged="comboOrdenarRemedios_SelectionChanged" IsReadOnly="True">
                                         <ComboBoxItem Content="{x:Static local:Lenguaje.tableName}"/>
                                         <ComboBoxItem Content="{x:Static local:Lenguaje.tablePotency}"/>
                                         <ComboBoxItem Content="{x:Static local:Lenguaje.tableMethod}"/>
@@ -1560,7 +1585,7 @@
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDupli}" Foreground="#FFFAFAFA"/>
                                         </StackPanel>
                                     </Button>
-                                    <Button x:Name="cmd_QR" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="651,50,0,0" VerticalAlignment="Top" Width="102" Height="36" Click="cmdQuitar_Click_1">
+                                    <Button x:Name="cmd_QR" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="410,30,0,0" Grid.Column="1" VerticalAlignment="Top" Width="120" Height="50" Click="cmdQuitar_Click_1">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
@@ -1572,10 +1597,10 @@
 
                                 </Grid>
                             </TabItem>
-                            <TabItem Width="150" Margin="40,1,-39,-1">
+                            <TabItem Width="150">
                                 <TabItem.Header>
-                                    <StackPanel Orientation="Horizontal" Margin="2,0,-1,0">
-                                        <iconPacks:PackIconModern Margin="10,0,0,0" Width="23" Height="35" Kind="Database">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                                        <iconPacks:PackIconModern Margin="10,0,0,0" Width="25" Height="35" Kind="Database">
                                             <iconPacks:PackIconModern.Foreground>
                                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                                     <GradientStop Color="#FFFFF504" Offset="0"/>
@@ -1625,7 +1650,7 @@
 
 
 
-                        <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="50,295,0,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked"/>
+                        <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="18,290,18,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked" Grid.Column="0"/>
                         <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="534,326,0,0" VerticalAlignment="Top" Height="125" Width="300" Grid.Column="1">
                             <Label x:Name="lblMultiples_Copy1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelMultiRates}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </GroupBox>
@@ -1690,7 +1715,7 @@
                         <Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="151,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden" Grid.Column="1"/>
                         <ListBox x:Name="listaDetecciones" HorizontalAlignment="Left" Height="199" Margin="151,144,0,0" VerticalAlignment="Top" Width="574" BorderThickness="1" Visibility="Hidden" Grid.Column="1"/>
                         <Label x:Name="label8" Content="DISEASES AND SYMPTOMS" HorizontalAlignment="Left" Margin="162,111,0,0" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="1"/>
-                        <Button x:Name="cmdDuplicarRemedio_Copy" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Height="39" Margin="918,98,0,0" VerticalAlignment="Top" Width="134" ToolTip="Save Changes"  Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">
+                        <Button x:Name="cmdDuplicarRemedio_Copy" BorderThickness="0" Background="#FF6D33B1" HorizontalAlignment="Left" Height="39" Margin="866,98,0,0" VerticalAlignment="Top" Width="134" ToolTip="Save Changes"  Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1699,9 +1724,9 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.brnSC}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <ProgressBar x:Name="progressBar" Visibility="Hidden" HorizontalAlignment="Left" Height="40" Margin="458,30,0,0" VerticalAlignment="Top" Width="764" Style="{StaticResource CustomProgressBarStyle}" Grid.Column="1"/>
-                        <Label x:Name="lblProgress" Content="" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="465,32,203,0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000" Grid.Column="1"/>
-                        <Label x:Name="lblPorcentProgress" Content="" Visibility="Hidden" Margin="1112,33,50,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right" Grid.Column="1"/>
+                        <ProgressBar x:Name="progressBar" Visibility="Hidden" HorizontalAlignment="Stretch" Height="40" Margin="400 40 40 0" VerticalAlignment="Top" Style="{StaticResource CustomProgressBarStyle}" Grid.Column="1"/>
+                        <Label x:Name="lblProgress" Content="" Visibility="Hidden" HorizontalContentAlignment="Left" Margin="410 40 40 0" VerticalAlignment="Top" Width="599" FontSize="18" FontWeight="Bold" Foreground="#000" Grid.Column="1"/>
+                        <Label x:Name="lblPorcentProgress" Content="" Visibility="Hidden" Margin="0 40 40 0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Foreground="#000" HorizontalContentAlignment="Right" Grid.Column="1"/>
                     </Grid>
                 </TabItem>
 
@@ -1720,11 +1745,11 @@
 
                     <Grid x:Name="TerapiaColor" GotFocus="TerapiaColor_GotFocus"  MouseDown="TerapiaColor_MouseDown" Margin="0,0,0,0" >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="223*"/>
-                            <ColumnDefinition Width="845*"/>
-                            <ColumnDefinition Width="426*"/>
+                            <ColumnDefinition Width="90*"/>
+                            <ColumnDefinition Width="210*"/>
+                            <ColumnDefinition Width="100*"/>
                         </Grid.ColumnDefinitions>
-                        <GroupBox x:Name="groupBox3" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="181" Width="268" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="groupBox3" Background="{StaticResource section}" BorderBrush="{StaticResource section}" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Height="181" Width="268" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="UserTie" Foreground="#FFFDFDFD" />
@@ -1732,12 +1757,12 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <ListBox Visibility="Hidden" x:Name="listVista" HorizontalAlignment="Left" Height="53" Margin="43,121,0,0" VerticalAlignment="Top" Width="195" BorderBrush="{StaticResource section}"  BorderThickness="1" SelectionChanged="listVista_SelectionChanged" Grid.ColumnSpan="2"/>
+                        <ListBox x:Name="listVista" HorizontalAlignment="Left" Height="53" Margin="43,121,0,0" VerticalAlignment="Top" Width="195" BorderBrush="{StaticResource section}"  BorderThickness="1" SelectionChanged="listVista_SelectionChanged" Grid.ColumnSpan="2"/>
 
-                        <RadioButton Visibility="Hidden"  x:Name="radioMasculino" Content="{x:Static local:Lenguaje.valMale}" HorizontalAlignment="Left" Margin="45,64,0,0" VerticalAlignment="Top" Checked="radioButton_Checked" Click="radioMasculino_Click"/>
-                        <RadioButton Visibility="Hidden"  x:Name="radioFemenino" Content="{x:Static local:Lenguaje.valFemale}" HorizontalAlignment="Left" Margin="156,65,0,0" VerticalAlignment="Top" Checked="radioFemenino_Checked" Click="radioFemenino_Click" Grid.ColumnSpan="2"/>
-                        <Label Visibility="Hidden" x:Name="lblVista" Content="{x:Static local:Lenguaje.labelView}" HorizontalAlignment="Left" Margin="44,95,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <GroupBox Visibility="Hidden" x:Name="groupBox3_Copy" HorizontalAlignment="Left" Margin="10,205,0,0" Background="{StaticResource section}" BorderBrush="{StaticResource section}" VerticalAlignment="Top" Height="509" Width="268" Grid.ColumnSpan="2">
+                        <RadioButton  x:Name="radioMasculino" Content="{x:Static local:Lenguaje.valMale}" HorizontalAlignment="Left" Margin="45,64,0,0" VerticalAlignment="Top" Checked="radioButton_Checked" Click="radioMasculino_Click"/>
+                        <RadioButton  x:Name="radioFemenino" Content="{x:Static local:Lenguaje.valFemale}" HorizontalAlignment="Left" Margin="156,65,0,0" VerticalAlignment="Top" Checked="radioFemenino_Checked" Click="radioFemenino_Click" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblVista" Content="{x:Static local:Lenguaje.labelView}" HorizontalAlignment="Left" Margin="44,95,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <GroupBox x:Name="groupBox3_Copy" HorizontalAlignment="Left" Margin="10,205,0,0" Background="{StaticResource section}" BorderBrush="{StaticResource section}" VerticalAlignment="Top" Height="509" Width="268" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Barcode" Foreground="#FFFDFDFD" />
@@ -1745,7 +1770,7 @@
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <Button  Visibility="Hidden" BorderThickness="0" Background="#FF3CB3DF"  x:Name="cmdQuitarColores" HorizontalAlignment="Left" Margin="203,42,0,0" VerticalAlignment="Top" Width="191" Height="40" Click="cmdQuitarColores_Click" Grid.Column="2">
+                        <Button BorderThickness="0" Background="#FF3CB3DF"  x:Name="cmdQuitarColores" HorizontalAlignment="Stretch" Margin="10,0,10,10" VerticalAlignment="Bottom" Height="30" Click="cmdQuitarColores_Click" Grid.Column="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1754,7 +1779,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.resetC}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button Visibility="Hidden" BorderThickness="0" Background="#FF6D33B1"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Left" Margin="203,91,0,0" VerticalAlignment="Top" Width="191" Height="41" Click="cmdGuardarTratamiento_Click" Grid.Column="2">
+                        <Button BorderThickness="0" Background="#FF6D33B1"  x:Name="cmdGuardarTratamiento" HorizontalAlignment="Stretch" Margin="10 0 10 45" VerticalAlignment="Bottom" Height="40" Click="cmdGuardarTratamiento_Click" Grid.Column="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1763,13 +1788,13 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveT}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Button Visibility="Hidden" Background="#FF3CB3DF" x:Name="cmdRegresarTerapia" HorizontalAlignment="Left" Margin="364,134,0,0" VerticalAlignment="Top" Width="43" Height="32" Click="cmdRegresarTerapia_Click" Grid.Column="2" >
+                        <!--<Button Background="#FF3CB3DF" x:Name="cmdRegresarTerapia" HorizontalAlignment="Left" Margin="201,137,0,0" VerticalAlignment="Top" Width="104" Height="32" Click="cmdRegresarTerapia_Click" Grid.Column="2" >
                             <StackPanel Orientation="Horizontal">
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="ArrowLeft" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.returnTheRecent}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
-                        </Button>
-                        <Canvas  Visibility="Hidden"  x:Name="canvas" HorizontalAlignment="Left" Height="692" Margin="103,10,0,0" VerticalAlignment="Top" Width="541" Grid.Column="1">
+                        </Button>-->
+                        <Canvas x:Name="canvas" HorizontalAlignment="Center" Height="692" VerticalAlignment="Center" Width="541" Grid.Column="1">
                             <Image x:Name="part1" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
                             <Image x:Name="part2" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
                             <Image x:Name="part3" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
@@ -1834,334 +1859,334 @@
                             <Image x:Name="part62" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
 
                         </Canvas>
-                        <ListBox Visibility="Hidden"  x:Name="listaSecciones"  HorizontalAlignment="Left" Height="328" Margin="694,154,0,0" VerticalAlignment="Top" Width="511" BorderBrush="{StaticResource section}" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" Grid.ColumnSpan="2" Grid.Column="1" />
-                        <Label Visibility="Hidden"  x:Name="lblVista2_Copy" Content="{x:Static local:Lenguaje.availSect}" HorizontalAlignment="Left" Margin="694,123,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
-                        <Button BorderThickness="1" Visibility="Hidden" x:Name="color3" Content="" HorizontalAlignment="Left" Height="29" Margin="70,248,0,0" VerticalAlignment="Top" Width="45" Background="Lime" Click="color3_Click">
+                        <ListBox  x:Name="listaSecciones" Height="328" VerticalAlignment="Top" BorderBrush="{StaticResource section}" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" Grid.Column="2" Margin="10,120,10,0"/>
+                        <Label  x:Name="lblVista2_Copy" Content="{x:Static local:Lenguaje.availSect}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2" Margin="10,90,0,0"/>
+                        <Button BorderThickness="1" x:Name="color3" Content="" HorizontalAlignment="Left" Height="29" Margin="70,248,0,0" VerticalAlignment="Top" Width="45" Background="Lime" Click="color3_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden" x:Name="color1" Content="" HorizontalAlignment="Left" Height="29" Margin="20,248,0,0" VerticalAlignment="Top" Width="45" Background="Red" Click="color1_Click">
+                        <Button BorderThickness="0" x:Name="color1" Content="" HorizontalAlignment="Left" Height="29" Margin="20,248,0,0" VerticalAlignment="Top" Width="45" Background="Red" Click="color1_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy1" Content="" HorizontalAlignment="Left" Height="29" Margin="120,248,0,0" VerticalAlignment="Top" Width="45" Background="Blue" Click="color1_Copy1_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy2" Content="" HorizontalAlignment="Left" Height="29" Margin="170,248,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFBF00" Click="color1_Copy2_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy3" Content="" HorizontalAlignment="Left" Height="29" Margin="220,248,0,0" VerticalAlignment="Top" Width="45" Background="#FF007FFF" Click="color1_Copy3_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2" Content="" HorizontalAlignment="Left" Height="29" Margin="20,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFEF00" Click="color2_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy1" Content="" HorizontalAlignment="Left" Height="29" Margin="120,284,0,0" VerticalAlignment="Top" Width="45" Background="#FF960018" Click="color2_Copy1_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy2" Content="" HorizontalAlignment="Left" Height="29" Margin="170,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFDE3163" Click="color2_Copy2_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy3" Content="" HorizontalAlignment="Left" Height="29" Margin="220,283,0,0" VerticalAlignment="Top" Width="45" Background="#FF954535" Click="color2_Copy3_Click" Grid.ColumnSpan="2">
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy4" Content="" HorizontalAlignment="Left" Height="29" Margin="70,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFC41E26" Click="color1_Copy4_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy" Content="" HorizontalAlignment="Left" Height="29" Margin="20,317,0,0" VerticalAlignment="Top" Width="45" Background="Chocolate" Click="color2_Copy_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy4" Content="" HorizontalAlignment="Left" Height="29" Margin="120,318,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF4040" Click="color2_Copy4_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy5" Content="" HorizontalAlignment="Left" Height="29" Margin="170,317,0,0" VerticalAlignment="Top" Width="45" Background="CornflowerBlue" Click="color2_Copy5_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy6" Content="" HorizontalAlignment="Left" Height="29" Margin="220,317,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFFDD0" Click="color2_Copy6_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy5" Content="" HorizontalAlignment="Left" Height="29" Margin="70,317,0,0" VerticalAlignment="Top" Width="45" Background="#FF0047AB" Click="color1_Copy5_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy7" Content="" HorizontalAlignment="Left" Height="29" Margin="20,351,0,0" VerticalAlignment="Top" Width="45" Background="#FFDB80C3" Click="color2_Copy7_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy8" Content="" HorizontalAlignment="Left" Height="29" Margin="120,352,0,0" VerticalAlignment="Top" Width="45" Background="#FF1C60F0" Click="color2_Copy8_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy9" Content="" HorizontalAlignment="Left" Height="29" Margin="170,351,0,0" VerticalAlignment="Top" Width="45" Background="#FFC2B280" Click="color2_Copy9_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy10" Content="" HorizontalAlignment="Left" Height="29" Margin="220,351,0,0" VerticalAlignment="Top" Width="45" Background="#FF7DF9FF" Click="color2_Copy10_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy6" Content="" HorizontalAlignment="Left" Height="29" Margin="70,351,0,0" VerticalAlignment="Top" Width="45" Background="#FF654321" Click="color1_Copy6_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy11" Content="" HorizontalAlignment="Left" Height="29" Margin="20,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF50C878" Click="color2_Copy11_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy12" Content="" HorizontalAlignment="Left" Height="29" Margin="120,386,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF230A" Click="color2_Copy12_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy13" Content="" HorizontalAlignment="Left" Height="29" Margin="170,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF9D53B0" Click="color2_Copy13_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy14" Content="" HorizontalAlignment="Left" Height="29" Margin="220,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF498716" Click="color2_Copy14_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy7" Content="" HorizontalAlignment="Left" Height="29" Margin="70,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF486030" Click="color1_Copy7_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy15" Content="" HorizontalAlignment="Left" Height="29" Margin="20,419,0,0" VerticalAlignment="Top" Width="45" Background="#FF996515" Click="color2_Copy15_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy16" Content="" HorizontalAlignment="Left" Height="29" Margin="120,420,0,0" VerticalAlignment="Top" Width="45" Background="#FF68A900" Click="color2_Copy16_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy17" Content="" HorizontalAlignment="Left" Height="29" Margin="170,419,0,0" VerticalAlignment="Top" Width="45" Background="Gray" Click="color2_Copy17_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy18" Content="" HorizontalAlignment="Left" Height="29" Margin="220,419,0,0" VerticalAlignment="Top" Width="45" Background="Indigo" Click="color2_Copy18_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy8" Content="" HorizontalAlignment="Left" Height="29" Margin="70,419,0,0" VerticalAlignment="Top" Width="45" Background="#FFFDE336" Click="color1_Copy8_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy19" Content="" HorizontalAlignment="Left" Height="29" Margin="20,453,0,0" VerticalAlignment="Top" Width="45" Background="#FF00A86B" Click="color2_Copy19_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy20" Content="" HorizontalAlignment="Left" Height="29" Margin="120,454,0,0" VerticalAlignment="Top" Width="45" Background="#FF678D5E" Click="color2_Copy20_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy21" Content="" HorizontalAlignment="Left" Height="29" Margin="170,453,0,0" VerticalAlignment="Top" Width="45" Background="#FFC8A2C8" Click="color2_Copy21_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy22" Content="" HorizontalAlignment="Left" Height="29" Margin="220,453,0,0" VerticalAlignment="Top" Width="45" Background="Linen" Click="color2_Copy22_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy9" Content="" HorizontalAlignment="Left" Height="29" Margin="70,453,0,0" VerticalAlignment="Top" Width="45" Background="#FFB1A3FC" Click="color1_Copy9_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy23" Content="" HorizontalAlignment="Left" Height="29" Margin="20,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFBF321E" Click="color2_Copy23_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy24" Content="" HorizontalAlignment="Left" Height="29" Margin="120,490,0,0" VerticalAlignment="Top" Width="45" Background="#FFF3D005" Click="color2_Copy24_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy25" Content="" HorizontalAlignment="Left" Height="29" Margin="170,489,0,0" VerticalAlignment="Top" Width="45" Background="#FF455CC4" Click="color2_Copy25_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy26" Content="" HorizontalAlignment="Left" Height="29" Margin="220,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFDBAD1C" Click="color2_Copy26_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy10" Content="" HorizontalAlignment="Left" Height="29" Margin="70,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFA41A" Click="color1_Copy10_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy27" Content="" HorizontalAlignment="Left" Height="29" Margin="20,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFBE8F5F" Click="color2_Copy27_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy28" Content="" HorizontalAlignment="Left" Height="29" Margin="120,524,0,0" VerticalAlignment="Top" Width="45" Background="Olive" Click="color2_Copy28_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy29" Content="" HorizontalAlignment="Left" Height="29" Margin="170,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFFB9902" Click="color2_Copy29_Click" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy30" Content="" HorizontalAlignment="Left" Height="29" Margin="220,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFFADADD" Click="color2_Copy30_Click" Grid.ColumnSpan="2" >
-                            <Button.Effect>
-                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                            </Button.Effect>
-                        </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy11" Content="" HorizontalAlignment="Left" Height="29" Margin="70,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFC08081" Click="color1_Copy11_Click"  >
+                        <Button BorderThickness="0"  x:Name="color1_Copy1" Content="" HorizontalAlignment="Left" Height="29" Margin="120,248,0,0" VerticalAlignment="Top" Width="45" Background="Blue" Click="color1_Copy1_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
 
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy31" Content="" HorizontalAlignment="Left" Height="29" Margin="20,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFE84141" Click="color2_Copy31_Click" >
+                        <Button BorderThickness="0"  x:Name="color1_Copy2" Content="" HorizontalAlignment="Left" Height="29" Margin="170,248,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFBF00" Click="color1_Copy2_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy32" Content="" HorizontalAlignment="Left" Height="29" Margin="120,559,0,0" VerticalAlignment="Top" Width="45" Background="#FF93DC69" Click="color2_Copy32_Click" >
+                        <Button BorderThickness="0"  x:Name="color1_Copy3" Content="" HorizontalAlignment="Left" Height="29" Margin="220,248,0,0" VerticalAlignment="Top" Width="45" Background="#FF007FFF" Click="color1_Copy3_Click" Grid.ColumnSpan="2" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy33" Content="" HorizontalAlignment="Left" Height="29" Margin="170,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF2400" Click="color2_Copy33_Click" >
+                        <Button BorderThickness="0"  x:Name="color2" Content="" HorizontalAlignment="Left" Height="29" Margin="20,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFEF00" Click="color2_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy34" Content="" HorizontalAlignment="Left" Height="29" Margin="220,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFBA4A09" Click="color2_Copy34_Click" Grid.ColumnSpan="2" >
+                        <Button BorderThickness="0"  x:Name="color2_Copy1" Content="" HorizontalAlignment="Left" Height="29" Margin="120,284,0,0" VerticalAlignment="Top" Width="45" Background="#FF960018" Click="color2_Copy1_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy12" Content="" HorizontalAlignment="Left" Height="29" Margin="70,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFEFB3F2" Click="color1_Copy12_Click" >
+                        <Button BorderThickness="0"  x:Name="color2_Copy2" Content="" HorizontalAlignment="Left" Height="29" Margin="170,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFDE3163" Click="color2_Copy2_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy35" Content="" HorizontalAlignment="Left" Height="29" Margin="20,594,0,0" VerticalAlignment="Top" Width="45" Background="#FF8F00FF" Click="color2_Copy35_Click" >
+                        <Button BorderThickness="0"  x:Name="color2_Copy3" Content="" HorizontalAlignment="Left" Height="29" Margin="220,283,0,0" VerticalAlignment="Top" Width="45" Background="#FF954535" Click="color2_Copy3_Click" Grid.ColumnSpan="2">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy36" Content="" HorizontalAlignment="Left" Height="29" Margin="120,595,0,0" VerticalAlignment="Top" Width="45" Background="Yellow" Click="color2_Copy36_Click">
+                        <Button BorderThickness="0"  x:Name="color1_Copy4" Content="" HorizontalAlignment="Left" Height="29" Margin="70,283,0,0" VerticalAlignment="Top" Width="45" Background="#FFC41E26" Click="color1_Copy4_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy37" Content="" HorizontalAlignment="Left" Height="29" Margin="170,594,0,0" VerticalAlignment="Top" Width="45"  Background="Red"       Click="color2_Copy37_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy" Content="" HorizontalAlignment="Left" Height="29" Margin="20,317,0,0" VerticalAlignment="Top" Width="45" Background="Chocolate" Click="color2_Copy_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy38" Content="" HorizontalAlignment="Left" Height="29" Margin="220,594,0,0" VerticalAlignment="Top" Width="45"  Background="Lime"      Click="color2_Copy38_Click" Grid.ColumnSpan="2">
+                        <Button BorderThickness="0"  x:Name="color2_Copy4" Content="" HorizontalAlignment="Left" Height="29" Margin="120,318,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF4040" Click="color2_Copy4_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy13" Content="" HorizontalAlignment="Left" Height="29" Margin="70,594,0,0"  VerticalAlignment="Top" Width="45"  Background="White"     Click="color1_Copy13_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy5" Content="" HorizontalAlignment="Left" Height="29" Margin="170,317,0,0" VerticalAlignment="Top" Width="45" Background="CornflowerBlue" Click="color2_Copy5_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy39" Content="" HorizontalAlignment="Left" Height="29" Margin="20,628,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFFFFF96" Click="color2_Copy39_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy6" Content="" HorizontalAlignment="Left" Height="29" Margin="220,317,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFFDD0" Click="color2_Copy6_Click" Grid.ColumnSpan="2" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy40" Content="" HorizontalAlignment="Left" Height="29" Margin="120,629,0,0" VerticalAlignment="Top" Width="45"  Background="#FF8F00FF" Click="color2_Copy40_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color1_Copy5" Content="" HorizontalAlignment="Left" Height="29" Margin="70,317,0,0" VerticalAlignment="Top" Width="45" Background="#FF0047AB" Click="color1_Copy5_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy41" Content="" HorizontalAlignment="Left" Height="29" Margin="170,629,0,0" VerticalAlignment="Top" Width="45"  Background="#FFFAFA96" Click="color2_Copy41_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy7" Content="" HorizontalAlignment="Left" Height="29" Margin="20,351,0,0" VerticalAlignment="Top" Width="45" Background="#FFDB80C3" Click="color2_Copy7_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy42" Content="" HorizontalAlignment="Left" Height="29" Margin="220,629,0,0" VerticalAlignment="Top" Width="45"  Background="White"     Click="color2_Copy42_Click" Grid.ColumnSpan="2">
+                        <Button BorderThickness="0"  x:Name="color2_Copy8" Content="" HorizontalAlignment="Left" Height="29" Margin="120,352,0,0" VerticalAlignment="Top" Width="45" Background="#FF1C60F0" Click="color2_Copy8_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy14" Content="" HorizontalAlignment="Left" Height="29" Margin="70,628,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFFFBF00" Click="color1_Copy14_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy9" Content="" HorizontalAlignment="Left" Height="29" Margin="170,351,0,0" VerticalAlignment="Top" Width="45" Background="#FFC2B280" Click="color2_Copy9_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy43" Content="" HorizontalAlignment="Left" Height="29" Margin="20,663,0,0"  VerticalAlignment="Top" Width="45"  Background="#FF131313"                                                >
+                        <Button BorderThickness="0"  x:Name="color2_Copy10" Content="" HorizontalAlignment="Left" Height="29" Margin="220,351,0,0" VerticalAlignment="Top" Width="45" Background="#FF7DF9FF" Click="color2_Copy10_Click" Grid.ColumnSpan="2" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy44" Content="" HorizontalAlignment="Left" Height="29" Margin="120,663,0,0" VerticalAlignment="Top" Width="45"  Background="#FFB1A3FC" Click="color2_Copy44_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color1_Copy6" Content="" HorizontalAlignment="Left" Height="29" Margin="70,351,0,0" VerticalAlignment="Top" Width="45" Background="#FF654321" Click="color1_Copy6_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color2_Copy45" Content="" HorizontalAlignment="Left" Height="29" Margin="170,664,0,0" VerticalAlignment="Top" Width="45"  Background="Yellow" Click="color2_Copy45_Click"                       >
+                        <Button BorderThickness="0"  x:Name="color2_Copy11" Content="" HorizontalAlignment="Left" Height="29" Margin="20,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF50C878" Click="color2_Copy11_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Button BorderThickness="0" Visibility="Hidden"  x:Name="color1_Copy15" Content="" HorizontalAlignment="Left" Height="29" Margin="70,663,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFEFB3F2" Click="color1_Copy15_Click"                    >
+                        <Button BorderThickness="0"  x:Name="color2_Copy12" Content="" HorizontalAlignment="Left" Height="29" Margin="120,386,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF230A" Click="color2_Copy12_Click" >
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                         </Button>
-                        <Label Visibility="Hidden"  x:Name="lblVista2_Copy1" Content="{x:Static local:Lenguaje.labelColSel}" HorizontalAlignment="Left" Margin="693,30,0,0"  VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
-                        <Button Visibility="Hidden"  x:Name="color_elegido" Content="" HorizontalAlignment="Left" Height="36" Margin="698,61,0,0" VerticalAlignment="Top" Width="258" Background="#FFF7F7F6" FontSize="12" Grid.ColumnSpan="2" Grid.Column="1"/>
-                        <Label Visibility="Hidden"  x:Name="lblVista2_Copy2" Content="{x:Static local:Lenguaje.labelCombiRate}" HorizontalAlignment="Left" Margin="694,511,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
-                        <ListView Visibility="Hidden"   x:Name="listadoCodigosComb" HorizontalAlignment="Left" Height="160" Margin="694,542,0,0" VerticalAlignment="Top" Width="511" SelectionMode="Single" Grid.ColumnSpan="2" Grid.Column="1">
+                        <Button BorderThickness="0"  x:Name="color2_Copy13" Content="" HorizontalAlignment="Left" Height="29" Margin="170,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF9D53B0" Click="color2_Copy13_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy14" Content="" HorizontalAlignment="Left" Height="29" Margin="220,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF498716" Click="color2_Copy14_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color1_Copy7" Content="" HorizontalAlignment="Left" Height="29" Margin="70,385,0,0" VerticalAlignment="Top" Width="45" Background="#FF486030" Click="color1_Copy7_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy15" Content="" HorizontalAlignment="Left" Height="29" Margin="20,419,0,0" VerticalAlignment="Top" Width="45" Background="#FF996515" Click="color2_Copy15_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy16" Content="" HorizontalAlignment="Left" Height="29" Margin="120,420,0,0" VerticalAlignment="Top" Width="45" Background="#FF68A900" Click="color2_Copy16_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy17" Content="" HorizontalAlignment="Left" Height="29" Margin="170,419,0,0" VerticalAlignment="Top" Width="45" Background="Gray" Click="color2_Copy17_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy18" Content="" HorizontalAlignment="Left" Height="29" Margin="220,419,0,0" VerticalAlignment="Top" Width="45" Background="Indigo" Click="color2_Copy18_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color1_Copy8" Content="" HorizontalAlignment="Left" Height="29" Margin="70,419,0,0" VerticalAlignment="Top" Width="45" Background="#FFFDE336" Click="color1_Copy8_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy19" Content="" HorizontalAlignment="Left" Height="29" Margin="20,453,0,0" VerticalAlignment="Top" Width="45" Background="#FF00A86B" Click="color2_Copy19_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy20" Content="" HorizontalAlignment="Left" Height="29" Margin="120,454,0,0" VerticalAlignment="Top" Width="45" Background="#FF678D5E" Click="color2_Copy20_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy21" Content="" HorizontalAlignment="Left" Height="29" Margin="170,453,0,0" VerticalAlignment="Top" Width="45" Background="#FFC8A2C8" Click="color2_Copy21_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy22" Content="" HorizontalAlignment="Left" Height="29" Margin="220,453,0,0" VerticalAlignment="Top" Width="45" Background="Linen" Click="color2_Copy22_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color1_Copy9" Content="" HorizontalAlignment="Left" Height="29" Margin="70,453,0,0" VerticalAlignment="Top" Width="45" Background="#FFB1A3FC" Click="color1_Copy9_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy23" Content="" HorizontalAlignment="Left" Height="29" Margin="20,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFBF321E" Click="color2_Copy23_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy24" Content="" HorizontalAlignment="Left" Height="29" Margin="120,490,0,0" VerticalAlignment="Top" Width="45" Background="#FFF3D005" Click="color2_Copy24_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy25" Content="" HorizontalAlignment="Left" Height="29" Margin="170,489,0,0" VerticalAlignment="Top" Width="45" Background="#FF455CC4" Click="color2_Copy25_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy26" Content="" HorizontalAlignment="Left" Height="29" Margin="220,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFDBAD1C" Click="color2_Copy26_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color1_Copy10" Content="" HorizontalAlignment="Left" Height="29" Margin="70,489,0,0" VerticalAlignment="Top" Width="45" Background="#FFFFA41A" Click="color1_Copy10_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy27" Content="" HorizontalAlignment="Left" Height="29" Margin="20,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFBE8F5F" Click="color2_Copy27_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy28" Content="" HorizontalAlignment="Left" Height="29" Margin="120,524,0,0" VerticalAlignment="Top" Width="45" Background="Olive" Click="color2_Copy28_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy29" Content="" HorizontalAlignment="Left" Height="29" Margin="170,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFFB9902" Click="color2_Copy29_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color2_Copy30" Content="" HorizontalAlignment="Left" Height="29" Margin="220,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFFADADD" Click="color2_Copy30_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0"  x:Name="color1_Copy11" Content="" HorizontalAlignment="Left" Height="29" Margin="70,523,0,0" VerticalAlignment="Top" Width="45" Background="#FFC08081" Click="color1_Copy11_Click"  >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+
+                        <Button BorderThickness="0"  x:Name="color2_Copy31" Content="" HorizontalAlignment="Left" Height="29" Margin="20,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFE84141" Click="color2_Copy31_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy32" Content="" HorizontalAlignment="Left" Height="29" Margin="120,559,0,0" VerticalAlignment="Top" Width="45" Background="#FF93DC69" Click="color2_Copy32_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy33" Content="" HorizontalAlignment="Left" Height="29" Margin="170,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFFF2400" Click="color2_Copy33_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy34" Content="" HorizontalAlignment="Left" Height="29" Margin="220,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFBA4A09" Click="color2_Copy34_Click" Grid.ColumnSpan="2" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color1_Copy12" Content="" HorizontalAlignment="Left" Height="29" Margin="70,558,0,0" VerticalAlignment="Top" Width="45" Background="#FFEFB3F2" Click="color1_Copy12_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy35" Content="" HorizontalAlignment="Left" Height="29" Margin="20,594,0,0" VerticalAlignment="Top" Width="45" Background="#FF8F00FF" Click="color2_Copy35_Click" >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy36" Content="" HorizontalAlignment="Left" Height="29" Margin="120,595,0,0" VerticalAlignment="Top" Width="45" Background="Yellow" Click="color2_Copy36_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy37" Content="" HorizontalAlignment="Left" Height="29" Margin="170,594,0,0" VerticalAlignment="Top" Width="45"  Background="Red"       Click="color2_Copy37_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy38" Content="" HorizontalAlignment="Left" Height="29" Margin="220,594,0,0" VerticalAlignment="Top" Width="45"  Background="Lime"      Click="color2_Copy38_Click" Grid.ColumnSpan="2">
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color1_Copy13" Content="" HorizontalAlignment="Left" Height="29" Margin="70,594,0,0"  VerticalAlignment="Top" Width="45"  Background="White"     Click="color1_Copy13_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy39" Content="" HorizontalAlignment="Left" Height="29" Margin="20,628,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFFFFF96" Click="color2_Copy39_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy40" Content="" HorizontalAlignment="Left" Height="29" Margin="120,629,0,0" VerticalAlignment="Top" Width="45"  Background="#FF8F00FF" Click="color2_Copy40_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy41" Content="" HorizontalAlignment="Left" Height="29" Margin="170,629,0,0" VerticalAlignment="Top" Width="45"  Background="#FFFAFA96" Click="color2_Copy41_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy42" Content="" HorizontalAlignment="Left" Height="29" Margin="220,629,0,0" VerticalAlignment="Top" Width="45"  Background="White"     Click="color2_Copy42_Click" Grid.ColumnSpan="2">
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color1_Copy14" Content="" HorizontalAlignment="Left" Height="29" Margin="70,628,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFFFBF00" Click="color1_Copy14_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy43" Content="" HorizontalAlignment="Left" Height="29" Margin="20,663,0,0"  VerticalAlignment="Top" Width="45"  Background="#FF131313"                                                >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy44" Content="" HorizontalAlignment="Left" Height="29" Margin="120,663,0,0" VerticalAlignment="Top" Width="45"  Background="#FFB1A3FC" Click="color2_Copy44_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color2_Copy45" Content="" HorizontalAlignment="Left" Height="29" Margin="170,664,0,0" VerticalAlignment="Top" Width="45"  Background="Yellow" Click="color2_Copy45_Click"                       >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button BorderThickness="0" Visibility="Visible"  x:Name="color1_Copy15" Content="" HorizontalAlignment="Left" Height="29" Margin="70,663,0,0"  VerticalAlignment="Top" Width="45"  Background="#FFEFB3F2" Click="color1_Copy15_Click"                    >
+                            <Button.Effect>
+                                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                            </Button.Effect>
+                        </Button>
+                        <Label Visibility="Visible"  x:Name="lblVista2_Copy1" Content="{x:Static local:Lenguaje.labelColSel}" HorizontalAlignment="Left" Margin="10 10 0 0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
+                        <Button Visibility="Visible"  x:Name="color_elegido" Content="" HorizontalAlignment="Stretch" Height="36" Margin="10,40,10,0" VerticalAlignment="Top" Background="#FFF7F7F6" FontSize="12" Grid.ColumnSpan="2" Grid.Column="2"/>
+                        <Label Visibility="Visible"  x:Name="lblVista2_Copy2" Content="{x:Static local:Lenguaje.labelCombiRate}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2" Margin="10,455,0,0"/>
+                        <ListView Visibility="Visible"   x:Name="listadoCodigosComb" Height="218" VerticalAlignment="Top" Margin="10,485,10,0" SelectionMode="Single" Grid.Column="2">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tableRateTip}" DisplayMemberBinding="{Binding codigocomp}" Width="120px"/>
@@ -2169,8 +2194,8 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <Button x:Name="cmdEliminarCodComp" Content="Delete" Visibility="Hidden" HorizontalAlignment="Left" Height="29" Margin="374,559,0,0" VerticalAlignment="Top" Width="69" Click="cmdEliminarCodComp_Click" Grid.Column="2"/>
-                        <GroupBox x:Name="BusquedaTerapia" Background="{StaticResource section}"  BorderBrush="{StaticResource section}" Visibility="Visible" Margin="12,0,0,464" VerticalAlignment="Bottom" Height="242" HorizontalAlignment="Left" Width="389" FontWeight="Bold" Grid.ColumnSpan="2">
+                        <Button x:Name="cmdEliminarCodComp" Content="Delete" Visibility="Visible" HorizontalAlignment="Left" Height="29" Margin="374,559,0,0" VerticalAlignment="Top" Width="69" Click="cmdEliminarCodComp_Click" Grid.Column="2"/>
+                        <!--<GroupBox x:Name="BusquedaTerapia" Background="{StaticResource section}"  BorderBrush="{StaticResource section}" Visibility="Visible" Margin="12,0,0,464" VerticalAlignment="Bottom" Height="242" HorizontalAlignment="Left" Width="389" FontWeight="Bold" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="PageSearch" Foreground="#FFFDFDFD" />
@@ -2180,6 +2205,7 @@
                             <Border Background="{StaticResource boxBack}" BorderThickness="0"/>
                         </GroupBox>
 
+                        
                         <TextBox x:Name="txtBuscarPaciente2_Copy"  Visibility="Visible" HorizontalAlignment="Left" Height="32" Margin="45,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" ToolTip="Introduzca (Nombre de la Terapia) que desea buscar" FontSize="16" TextChanged="txtBuscarPaciente2_Copy_TextChanged" Grid.ColumnSpan="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -2228,7 +2254,7 @@
                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="PageFilePdf" Foreground="#FFFAFAFA"/>
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRepTherap}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
-                        </Button>
+                        </Button>-->
 
                     </Grid>
                 </TabItem>
