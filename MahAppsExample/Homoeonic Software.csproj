@@ -103,6 +103,9 @@
     <Reference Include="AdonisUI.ClassicTheme, Version=1.17.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AdonisUI.ClassicTheme.1.17.1\lib\net45\AdonisUI.ClassicTheme.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
@@ -1028,6 +1031,9 @@
     <Resource Include="Resources\dna.gif" />
     <Resource Include="Resources\female.gif" />
     <Resource Include="Resources\male.gif" />
+    <Resource Include="Resources\palette.png" />
+    <Resource Include="Resources\image %281%29.png" />
+    <Resource Include="Resources\image %281%29.ico" />
     <Content Include="Resources\logocopen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

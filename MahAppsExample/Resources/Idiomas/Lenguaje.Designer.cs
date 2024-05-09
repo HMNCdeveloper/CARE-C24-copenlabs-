@@ -3247,7 +3247,11 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Looks up a localized string similar to Name of the   Analysis:.
+=======
+        ///   Busca una cadena traducida similar a Analysis name:.
+>>>>>>> a0d202a0c6d7187687f8fa6b3f8b99a1bf264b08
         /// </summary>
         public static string nameAnalysis {
             get {
