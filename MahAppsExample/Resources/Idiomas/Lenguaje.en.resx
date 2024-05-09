@@ -171,6 +171,9 @@
   <data name="btnCreatRep" xml:space="preserve">
     <value>CREATE REPORT</value>
   </data>
+  <data name="btnCReport" xml:space="preserve">
+    <value>CREATE REPORT</value>
+  </data>
   <data name="btnDelete" xml:space="preserve">
     <value>DELETE</value>
   </data>
@@ -570,14 +573,23 @@
   <data name="labelDate" xml:space="preserve">
     <value>Date:</value>
   </data>
+  <data name="labelDay" xml:space="preserve">
+    <value>Day(s)</value>
+  </data>
   <data name="labelDescrip" xml:space="preserve">
     <value>Description:</value>
+  </data>
+  <data name="labelDuring" xml:space="preserve">
+    <value>During</value>
   </data>
   <data name="labelEditP" xml:space="preserve">
     <value>EDIT PATIENT'S  PROFILE</value>
   </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>E-mail:</value>
+  </data>
+  <data name="labelEvery" xml:space="preserve">
+    <value>Every</value>
   </data>
   <data name="labelExt" xml:space="preserve">
     <value>Ext:</value>

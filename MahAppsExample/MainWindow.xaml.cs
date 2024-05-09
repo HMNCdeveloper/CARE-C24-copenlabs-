@@ -1096,7 +1096,7 @@ namespace MahAppsExample
                     cmdGuardarPaciente.Content = obtenerRecurso("btnSaveP");
                     PacienteGroup.Header = obtenerRecurso("HeaderRP");
                     cmdGuardarPaciente.ToolTip = obtenerRecurso("HeaderRP");
-                    SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(60, 179, 223));
+                    SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 255, 255));
                     PacienteGroup.Background = brush;
                     tabControl.Foreground = brush;
                     cmdModificar.IsEnabled = true;
@@ -4232,7 +4232,7 @@ namespace MahAppsExample
                 PacienteGroup.Header = obtenerRecurso("labelEditP");
                 cmdGuardarPaciente.Content = obtenerRecurso("brnSC");
                 //cmdGuardarPaciente.ToolTip = "Modificar el registro del paciente";
-                SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(105, 185, 126));
+                SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(112, 141, 129));
                 PacienteGroup.Background = brush;
                 tabControl.Foreground = brush;
 

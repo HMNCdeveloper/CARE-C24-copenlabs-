@@ -171,6 +171,9 @@
   <data name="btnCreatRep" xml:space="preserve">
     <value>CREAR REPORTE</value>
   </data>
+  <data name="btnCReport" xml:space="preserve">
+    <value>CREAR REPORTE</value>
+  </data>
   <data name="btnD" xml:space="preserve">
     <value>DUPLICAR</value>
   </data>
@@ -466,7 +469,7 @@
     <value>DETALLE DEL TRATAMIENTO</value>
   </data>
   <data name="headT" xml:space="preserve">
-    <value>Tretamientos relacionados </value>
+    <value>Tratamientos relacionados </value>
   </data>
   <data name="headTR" xml:space="preserve">
     <value>  Tramientos relacionados</value>
@@ -579,14 +582,23 @@
   <data name="labelDate" xml:space="preserve">
     <value>Fecha:</value>
   </data>
+  <data name="labelDay" xml:space="preserve">
+    <value>Dia(s)</value>
+  </data>
   <data name="labelDescrip" xml:space="preserve">
     <value>Descripcion:</value>
+  </data>
+  <data name="labelDuring" xml:space="preserve">
+    <value>Duracion</value>
   </data>
   <data name="labelEditP" xml:space="preserve">
     <value>Editar  perfil del paciente </value>
   </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>Correo</value>
+  </data>
+  <data name="labelEvery" xml:space="preserve">
+    <value>Cada</value>
   </data>
   <data name="labelExt" xml:space="preserve">
     <value>Ext:</value>

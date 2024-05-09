@@ -1673,7 +1673,7 @@ namespace MahAppsExample
         public bool ConexionBD(string user, string password)
         {
             //Conexion
-            constring = String.Format("Server=localhost;Port=5433;" +
+            constring = String.Format("Server=localhost;Port=5432;" +
             "User Id={0};Password={1};Database={2}", user, password, Database.db);
             conn = new NpgsqlConnection(constring);
             conn.Open();
