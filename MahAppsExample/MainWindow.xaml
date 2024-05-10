@@ -1884,7 +1884,7 @@
                             <Image x:Name="part62" Height="692" Canvas.Top="1" Width="541" Panel.ZIndex="2" MouseMove="part1_MouseMove"/>
 
                         </Canvas>
-                        <ListBox  x:Name="listaSecciones" Height="328" VerticalAlignment="Top" BorderBrush="{StaticResource section}" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" Grid.Column="2" Margin="10,120,10,0"/>
+                        <ListBox  x:Name="listaSecciones" Height="328" VerticalAlignment="Top" BorderBrush="{StaticResource borderSection}" Background="#FFFDFDFD" BorderThickness="1" FontSize="16" MouseDoubleClick="listaSecciones_MouseDoubleClick" SelectionChanged="listaSecciones_SelectionChanged_1" Grid.Column="2" Margin="10,120,10,0"/>
                         <Label  x:Name="lblVista2_Copy" Content="{x:Static local:Lenguaje.availSect}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2" Margin="10,90,0,0"/>
                         <Button BorderThickness="1" x:Name="color3" Content="" HorizontalAlignment="Left" Height="29" Margin="70,248,0,0" VerticalAlignment="Top" Width="45" Background="Lime" Click="color3_Click">
                             <Button.Effect>
@@ -2537,20 +2537,20 @@
                             </GroupBox.Header>
                         </GroupBox>
                         <Label x:Name="lblNombreTratamiento_Copy2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTypeSh}" HorizontalAlignment="Left" Margin="985,320,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="3"/>
-                        <Label x:Name="lblNombreTratamiento_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelBeg}" HorizontalAlignment="Left" Margin="985,364,-10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblNombreTratamiento_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelBeg}" HorizontalAlignment="Left" Margin="985,364,-60,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Border x:Name="borderInfobasica_Copy1" Visibility="Hidden" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="64" Margin="990,392,0,0" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
-                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="20,411,0,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
+                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="50,411,0,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
                             <DatePicker.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </DatePicker.Effect>
                         </DatePicker>
-                        <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="{x:Static local:Lenguaje.tableDuration}" HorizontalAlignment="Left" Margin="985,471,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="{x:Static local:Lenguaje.tableDuration}" HorizontalAlignment="Left" Margin="985,471,-20,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Border x:Name="borderInfobasica_Copy10" Visibility="Hidden" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="990,497,0,0" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
-                        <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content=" H                 M" HorizontalAlignment="Left" Margin="990,502,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-                        <xctk:IntegerUpDown x:Name="txtHoras" Visibility="Hidden" Value="0" Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="995,530,0,0" Grid.ColumnSpan="2"  />
-                        <xctk:IntegerUpDown x:Name="txtMinutos" Visibility="Hidden" Value="0"  Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,530,0,0" Grid.Column="1" Grid.ColumnSpan="2"  />
+                        <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content=" H                   M" HorizontalAlignment="Left" Margin="990,502,-40,0" VerticalAlignment="Top" FontWeight="Bold" Width="500" Grid.ColumnSpan="2"/>
+                        <xctk:IntegerUpDown x:Name="txtHoras" Visibility="Hidden" Value="0" Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="995,530,-10,0" Grid.ColumnSpan="2"  />
+                        <xctk:IntegerUpDown x:Name="txtMinutos" Visibility="Hidden" Value="0"  Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,530,0,0" Grid.Column="1" Grid.ColumnSpan="2"  />
 
-                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="67,320,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged" Grid.Column="2">
+                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged" Grid.Column="2">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>
@@ -2575,7 +2575,7 @@
                         </TextBox>
                         <Label x:Name="tiempo2" Content="{x:Static local:Lenguaje.labelDay}" Visibility="Hidden" HorizontalAlignment="Left" Margin="143,613,0,0" VerticalAlignment="Top" Width="85" Grid.Column="2"/>
                         <Border x:Name="borderInfobasica_Copy11" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="371,40,0,0" VerticalAlignment="Top" Width="466"/>
-                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="170,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="2"/>
+                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="190,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="2"/>
                         <Label x:Name="lblPaciente" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ComboBox x:Name="comboPacientesTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="259"/>
                         <Label x:Name="lblNombreTratamiento_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTreatNam}" HorizontalAlignment="Left" Margin="49,397,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -2600,7 +2600,7 @@
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="lblNombreTratamiento_Copy4" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="990,412,-40,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="lblNombreTratamiento_Copy4" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDate}" HorizontalAlignment="Left" Margin="990,412,-50,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="listCategoriasTrat" Visibility="Hidden" HorizontalAlignment="Left" Height="163" Margin="353,342,0,0" VerticalAlignment="Top" Width="322" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listCategoriasTrat_MouseDoubleClick"/>
                         <ListBox x:Name="listSubCategoriasTrat" Visibility="Hidden" HorizontalAlignment="Left" Height="151" Margin="353,510,0,0" VerticalAlignment="Top" Width="322" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listSubCategoriasTrat_MouseDoubleClick"/>
                         <ListBox x:Name="listCodigosTrat" Visibility="Hidden" HorizontalAlignment="Left" Height="319" Margin="685,342,0,0" VerticalAlignment="Top" Width="270" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listCodigosTrat_MouseDoubleClick"/>
