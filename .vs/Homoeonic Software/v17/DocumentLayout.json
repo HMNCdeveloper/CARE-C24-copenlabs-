@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\machine.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\copensoft\\mahappsexample\\resources\\idiomas\\lenguaje.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\resources\\idiomas\\lenguaje.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -62,8 +62,7 @@
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.Designer.cs",
               "ViewState": "AQIAAJ8MAAAAAAAAAAApwLEMAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T21:02:03.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T21:02:03.315Z"
             },
             {
               "$type": "Document",
@@ -99,8 +98,7 @@
               "RelativeToolTip": "MahAppsExample\\Machine.xaml.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAgwCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T21:01:44.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-06T21:01:44.734Z"
             },
             {
               "$type": "Document",
@@ -145,8 +143,7 @@
               "ToolTip": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "RelativeToolTip": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-04-29T19:28:35.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T19:28:35.121Z"
             },
             {
               "$type": "Document",
@@ -169,8 +166,7 @@
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml.cs",
               "ViewState": "AQIAALkaAAAAAAAAAAAlwMkaAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-23T16:58:20.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T16:58:20.307Z"
             }
           ]
         }
