@@ -1034,6 +1034,7 @@
     <Resource Include="Resources\palette.png" />
     <Resource Include="Resources\image %281%29.png" />
     <Resource Include="Resources\image %281%29.ico" />
+    <Resource Include="Resources\CopenIcon.ico" />
     <Content Include="Resources\logocopen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

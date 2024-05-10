@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HS5"
         mc:Ignorable="d"
+        Icon="Resources/CopenIcon.ico"
         Title="Info" Height="150" Width="300">
     <Grid>
         <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0"/>
-        <Button Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Width="100" Click="OK_Click" Background="#FF3CB3DF" Foreground="#FFF"/>
+        <Button Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Width="100" Click="OK_Click" Background="#5CA4" Foreground="#FFF"/>
         
     </Grid>
 </Window>
