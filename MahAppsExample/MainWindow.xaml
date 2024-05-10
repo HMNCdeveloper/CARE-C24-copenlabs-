@@ -99,6 +99,30 @@
             </Setter>
         </Style>
 
+        <Style TargetType="TabControl" x:Key="Custom1TabItemStyle">
+
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+                                    <Border Name="Border" BorderThickness="0" Background="#708D81">
+                                        <ContentPresenter ContentSource="Header" Margin="8 6"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#CC181919"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="CustomProgressBarStyle" TargetType="ProgressBar">
             <Setter Property="Foreground" Value="#FFF" />
             <!-- Otros setters según tus necesidades -->
@@ -203,11 +227,11 @@
                         </Grid.ColumnDefinitions>
                         <Border  Visibility="Visible" BorderThickness="0" HorizontalAlignment="Left" Height="685" Margin="11,46,0,0" VerticalAlignment="Top" Width="393" Background="{StaticResource boxBack}" Grid.ColumnSpan="2" />
 
-                        <GroupBox x:Name="groupBox" Margin="10,0,0,65" VerticalAlignment="Bottom" Height="713" HorizontalAlignment="Left" Width="394" BorderBrush="Black" Background="White" Grid.ColumnSpan="2">
+                        <GroupBox x:Name="groupBox" Margin="10,0,0,65" VerticalAlignment="Bottom" Height="713" HorizontalAlignment="Left" Width="394" BorderBrush="Black" Background="#5A5C5D" Grid.ColumnSpan="2">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="Magnify" Foreground="Black" />
-                                    <TextBlock x:Name="PacienteNombreletrero" Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderPatientSearch}" Foreground="Black" FontWeight="Bold"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="Magnify" Foreground="White" />
+                                    <TextBlock x:Name="PacienteNombreletrero" Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderPatientSearch}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
                             <TextBox x:Name="txtBuscarPaciente" HorizontalAlignment="Left" Height="32" Margin="26,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="325" ToolTip="Type the name of the patient to look for it" TextChanged="txtBuscarPaciente_TextChanged" FontSize="16" BorderBrush="{StaticResource borderSection}" Background="White" CharacterCasing="Upper">
@@ -244,23 +268,23 @@
                             </ListView.View>
                         </ListView>
                         <Label x:Name="lblPacientes" Content="{x:Static local:Lenguaje.PatientList}" HorizontalAlignment="Left" Margin="46,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.211,-0.077" FontWeight="Bold" Height="26" Width="114"/>
-                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="168,18,0,0"  BorderBrush="Black" Background="White"  Width="867" Height="713" VerticalAlignment="Top"  Grid.ColumnSpan="3" Grid.Column="1">
+                        <GroupBox x:Name="PacienteGroup" Visibility="Visible" HorizontalAlignment="Left" Margin="168,18,0,0"  BorderBrush="Black" Background="#5A5C5D" Foreground="White" Width="867" Height="713" VerticalAlignment="Top"  Grid.ColumnSpan="3" Grid.Column="1">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="User" Foreground="Black" VerticalAlignment="Center"/>
-                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderRP}" Foreground="Black" FontWeight="Bold"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="User" VerticalAlignment="Center"/>
+                                    <TextBlock Margin="10 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.HeaderRP}" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
-                            <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged" Margin="0,0,186,0">
-                                <TabItem  Foreground="#CC181919"  Background="{StaticResource boxBack}" IsSelected="True" >
+                            <TabControl x:Name="tabControl" SelectionChanged="tabControl_SelectionChanged" Style="{StaticResource Custom1TabItemStyle}">
+                                <TabItem  Foreground="#CC181919" IsSelected="True">
                                     <TabItem.Header>
-                                        <StackPanel Orientation="Horizontal">
-                                            <iconPacks:PackIconMaterial Width="25" Height="25" Kind="Account" Foreground="#FFF4CB06"/>
-                                            <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="Black" FontFamily="Segoe UI" FontSize="24"/>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0">
+                                            <iconPacks:PackIconMaterial Width="25" Height="35" Kind="Account" Foreground="#FFF4CB06" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.MenuPatient}" Foreground="White" FontFamily="Segoe UI" FontSize="24" Margin="8 0 8 0"/>
                                         </StackPanel>
                                     </TabItem.Header>
 
-                                    <Grid  Margin="-4,-200,-184,-190"  Background="{StaticResource boxBack}" Height="640">
+                                    <Grid  Margin="-4,0,-3,0"  Background="{StaticResource boxBack}" Height="640">
 
                                         <Border x:Name="borderInfobasica_Copy4" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="170" Margin="50,15,0,0" VerticalAlignment="Top" Width="172" Background="#FFA8C3C9">
                                             <Image x:Name="image" HorizontalAlignment="Left" Height="150" Margin="9,9,0,0" VerticalAlignment="Top" Width="152" ToolTip="Patient Profile Image" Stretch="Fill"/>
@@ -295,7 +319,7 @@
                                         <RadioButton x:Name="optionSexoM" Content="{x:Static local:Lenguaje.valMale}" HorizontalAlignment="Left" Margin="654,58,0,0" VerticalAlignment="Top" Width="96" Checked="optionSexoM_Checked" />
                                         <RadioButton x:Name="optionSexoF" Content="{x:Static local:Lenguaje.valFemale}" HorizontalAlignment="Left" Margin="758,58,0,0" VerticalAlignment="Top" Width="104"  RenderTransformOrigin="0.782,0.653"/>
                                         <RadioButton x:Name="optionSexoAn" Visibility="Visible" Content="Animal" HorizontalAlignment="Left" Margin="654,93,0,0" VerticalAlignment="Top" Width="63"/>
-                                        <RadioButton x:Name="optionSexoPl" Visibility="Visible"  Content="{x:Static local:Lenguaje.valPlant}" HorizontalAlignment="Left" Margin="762,85,0,0" VerticalAlignment="Top" Width="72"/>
+                                        <RadioButton x:Name="optionSexoPl" Visibility="Visible"  Content="{x:Static local:Lenguaje.valPlant}" HorizontalAlignment="Left" Margin="758,95,0,0" VerticalAlignment="Top" Width="147"/>
                                         <Label x:Name="label1_Copy3" Content="{x:Static local:Lenguaje.LabelEmail}" HorizontalAlignment="Left" Margin="62,328,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="181,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" FontSize="14" TextChanged="txtEmail_TextChanged"/>
                                         <Label x:Name="lblProfesion" Content="{x:Static local:Lenguaje.LabelSchool}" HorizontalAlignment="Left" Margin="50,249,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -407,14 +431,14 @@
                                     </Grid>
                                 </TabItem>
 
-                                <TabItem x:Name="domicilios"  Background="{StaticResource boxBack}" Margin="1,0,-4,0">
+                                <TabItem x:Name="domicilios"  Background="{StaticResource boxBack}">
                                     <TabItem.Header>
-                                        <StackPanel Orientation="Horizontal" Margin="3,0,1,0">
-                                            <iconPacks:PackIconMaterial Width="23" Height="34" Kind="Contacts" Foreground="#ff0000" Margin="0,0,3,0"/>
-                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderAdreess}" Foreground="Black" FontFamily="Segoe UI" FontSize="23" Height="42" Width="103"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <iconPacks:PackIconMaterial Width="25" Height="25" Kind="Contacts" Foreground="#ff0000" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderAdreess}" Foreground="White" FontFamily="Segoe UI" FontSize="23" Margin="8 0 8 0"/>
                                         </StackPanel>
                                     </TabItem.Header>
-                                    <Grid Background="{StaticResource boxBack}" Margin="-4,-204,-187,-190" Height="579">
+                                    <Grid Background="{StaticResource boxBack}" Margin="-4,0,-4,0" Height="579">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition/>
                                             <ColumnDefinition Width="0*"/>
@@ -512,21 +536,21 @@
                                     </Grid>
                                 </TabItem>
 
-                                <TabItem  Background="{StaticResource boxBack}" HorizontalAlignment="Left" Width="157" Margin="6,0,0,0">
+                                <TabItem  Background="{StaticResource boxBack}">
                                     <TabItem.Header>
-                                        <StackPanel Orientation="Horizontal" Margin="4,0,-4,0">
-                                            <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountCardDetails" Foreground="Black"/>
-                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderRecords}" Foreground="Black" FontFamily="Segoe UI" FontSize="23"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountCardDetails" Foreground="Black" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{x:Static local:Lenguaje.HeaderRecords}" Foreground="White" FontFamily="Segoe UI" FontSize="23" Margin="8 0 8 0"/>
                                         </StackPanel>
                                     </TabItem.Header>
-                                    <Grid Background="{StaticResource boxBack}" Margin="-4,-204,-178,-190" Height="628">
+                                    <Grid Background="{StaticResource boxBack}" Height="628">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="353*"/>
                                             <ColumnDefinition Width="682*"/>
                                             <ColumnDefinition Width="0*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TabControl x:Name="Antecedentesgroup" HorizontalAlignment="Left" Height="442" Margin="10,0,0,0" VerticalAlignment="Top" Width="928" Grid.ColumnSpan="2">
-                                            <TabItem >
+                                        <TabControl x:Name="Antecedentesgroup" HorizontalAlignment="Left" Height="620" Style="{StaticResource Custom1TabItemStyle}" VerticalAlignment="Top" Width="928" Grid.ColumnSpan="3">
+                                            <TabItem>
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal">
                                                         <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountNetwork" Margin="0,0,3,0">
@@ -537,7 +561,7 @@
                                                                 </LinearGradientBrush>
                                                             </iconPacks:PackIconMaterial.Foreground>
                                                         </iconPacks:PackIconMaterial>
-                                                        <TextBlock Text="{x:Static local:Lenguaje.headeHedit}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="29" Width="103"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headeHedit}" Foreground="White" FontFamily="Segoe UI" FontSize="21" Height="29" Width="103"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid  Margin="0,0,-91.6,-102">
@@ -591,11 +615,11 @@
                                                     <ListBox x:Name="ListadoHeredo" HorizontalAlignment="Left" Height="382" Margin="14,65,0,0" VerticalAlignment="Top" Width="236" SelectionChanged="ListadoHeredo_SelectionChanged" FontSize="14" Grid.ColumnSpan="5"/>
                                                 </Grid>
                                             </TabItem>
-                                            <TabItem Margin="5,1,-6,-1">
+                                            <TabItem>
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal" Margin="7,0,-8,0">
                                                         <iconPacks:PackIconMaterial Width="23" Height="35" Kind="WheelchairAccessibility" Foreground="Black" Margin="0,0,3,0"/>
-                                                        <TextBlock Text="{x:Static local:Lenguaje.headPatho}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="28" Width="128"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headPatho}" Foreground="White" FontFamily="Segoe UI" FontSize="21" Height="28" Width="128"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid Background="white"  Margin="0,0,-10,-97">
@@ -650,11 +674,11 @@
                                                     </Button>
                                                 </Grid>
                                             </TabItem>
-                                            <TabItem Margin="5,1,-5,-1">
+                                            <TabItem>
                                                 <TabItem.Header>
                                                     <StackPanel Orientation="Horizontal" Margin="7,0,-7,0">
                                                         <iconPacks:PackIconMaterial Width="23" Height="35" Kind="AccountSwitch" Foreground="#FF0681F4" Margin="0,0,3,0"/>
-                                                        <TextBlock Text="{x:Static local:Lenguaje.headNonPath}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="32" Width="181"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headNonPath}" Foreground="White" FontFamily="Segoe UI" FontSize="21" Height="32" Width="181"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid  Margin="0,0,-93,-104">
@@ -708,11 +732,11 @@
                                                     </Button>
                                                 </Grid>
                                             </TabItem>
-                                            <TabItem Margin="13,4,-11,-4">
+                                            <TabItem>
                                                 <TabItem.Header>
-                                                    <StackPanel Orientation="Horizontal" Margin="5,0,-6,0">
-                                                        <iconPacks:PackIconMaterial Width="30" Height="31" Kind="CommentAccount" Foreground="#708D81" Margin="0,0,3,0"/>
-                                                        <TextBlock Text="{x:Static local:Lenguaje.headComments}" Foreground="Black" FontFamily="Segoe UI" FontSize="21" Height="25" Width="126"/>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <iconPacks:PackIconMaterial Width="30" Height="31" Kind="CommentAccount" Foreground="DarkOrchid" Margin="0,0,3,0"/>
+                                                        <TextBlock Text="{x:Static local:Lenguaje.headComments}" Foreground="White" FontFamily="Segoe UI" FontSize="21" Height="25" Width="126"/>
                                                     </StackPanel>
                                                 </TabItem.Header>
                                                 <Grid  Margin="0,0,0.4,-111">
@@ -1224,11 +1248,11 @@
                                 </Grid>
                             </TabItem>
                         </TabControl>
-                        <GroupBox x:Name="Lista_Analisis_Group1" Visibility="Visible" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" Grid.Column="1">
+                        <GroupBox x:Name="Lista_Analisis_Group1" Visibility="Visible" Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#5A5C5D" BorderBrush="Black" Grid.Column="1">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="Clock" Foreground="Black" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headRecentListAna}" Foreground="Black" FontWeight="Bold"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="Clock" Foreground="White" />
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headRecentListAna}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
@@ -1244,11 +1268,11 @@
                         </ListView>
 
 
-                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" BorderBrush="Black" Grid.Column="0">
+                        <GroupBox x:Name="BusquedaReanalisis" Visibility="Visible"  Margin="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#5A5C5D" BorderBrush="Black" Grid.Column="0">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="UndoPoint" Foreground="Black" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headReana}" Foreground="Black" FontWeight="Bold"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="UndoPoint" Foreground="White" />
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headReana}" Foreground="White" FontWeight="Bold"/>
                                 </StackPanel>
                             </GroupBox.Header>
 
