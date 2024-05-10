@@ -10,7 +10,7 @@
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Name="window" x:Class="MahAppsExample.MainWindow"       
         GlowBrush="{DynamicResource BlackBrush}"
         Icon="Resources/CopenIcon.ico"
-        Title="Copen Software" WindowState="Maximized" Height="487"  WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#F3FCFF"  Closing="window_Closing" Closed="window_Closed">
+        Title="Copen Software" WindowState="Maximized" Height="487"  WindowStartupLocation="CenterScreen"  Background="White"  Closing="window_Closing" Closed="window_Closed">
 
     <Window.Resources>
         <SolidColorBrush x:Key="background" Color="#F5FEFF" />
@@ -180,7 +180,7 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </Viewbox.OpacityMask>
-        <Grid Height="798" VerticalAlignment="Top" Width="1564" Background="{StaticResource background}">
+        <Grid Height="798" VerticalAlignment="Top" Width="1564" Background="White">
             <!--This tag is used to -->
             <Border x:Name="loaderBack"  Visibility="Hidden" Panel.ZIndex="99"  >
                 <Border.Background>
@@ -201,7 +201,7 @@
                     <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="CANCEL TREATMENT" Foreground="#FFFAFAFA"/>
                 </StackPanel>
             </Button>
-            <TabControl x:Name="opcionesHomoeonic" Background="#FFF" Style="{StaticResource CustomTabItemStyle}" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" TabStripPlacement="Left" Margin="0" VerticalAlignment="Top">
+            <TabControl x:Name="opcionesHomoeonic" Background="#FFF" Style="{StaticResource CustomTabItemStyle}" Initialized="opcionesHomoeonic_Initialized" SelectionChanged="opcionesHomoeonic_SelectionChanged" TabStripPlacement="Left" VerticalAlignment="Top" Height="788">
                 <!--view of the patients-->
                 <TabItem x:Name="Patients">
                     <TabItem.Header>
