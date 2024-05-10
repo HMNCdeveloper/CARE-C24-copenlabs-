@@ -1124,19 +1124,19 @@
                                     <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
                                     <!--the next tag is used to show the comboBox-->
                                     <StackPanel Orientation="Horizontal" Grid.Column="3" Margin="0,10,0,582" HorizontalAlignment="Center">
-                                        <Button x:Name="cmdProcesarAnalisis" Visibility="Hidden" Background="#708D81" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="136" Height="30" Click="cmdProcesarAnalisis_Click" ToolTip="Start Processing the Analysis">
+                                        <Button x:Name="cmdProcesarAnalisis" Visibility="Hidden" Background="#708D81" HorizontalAlignment="Left" Margin="20 -5" VerticalAlignment="Top" Width="136" Height="30" Click="cmdProcesarAnalisis_Click" ToolTip="Start Processing the Analysis">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="CameraFlash" Foreground="Black"/>
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSanalysis}" Foreground="Black"/>
                                             </StackPanel>
                                         </Button>
-                                        <Button x:Name="cmdBorrar" Background="#BF0603" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="114" Height="30" Click="cmdBorrar_Click" ToolTip="Delete one or multiple rates added">
+                                        <Button x:Name="cmdBorrar" Background="#BF0603" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 -5" VerticalAlignment="Top" Width="114" Height="30" Click="cmdBorrar_Click" ToolTip="Delete one or multiple rates added">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Close" Foreground="#FFFAFAFA"/>
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelete}" Foreground="#FFFAFAFA"/>
                                             </StackPanel>
                                         </Button>
-                                        <Button x:Name="cmdRango" Background="#0069CC" IsEnabled="False" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 0" VerticalAlignment="Top" Width="112" Height="30" Click="cmdRango_Click" RenderTransformOrigin="0.821,0.617">
+                                        <Button x:Name="cmdRango" Background="#0069CC" IsEnabled="False" Visibility="Hidden" HorizontalAlignment="Left" Margin="20 -5" VerticalAlignment="Top" Width="112" Height="30" Click="cmdRango_Click" RenderTransformOrigin="0.821,0.617">
                                             <StackPanel Orientation="Horizontal">
                                                 <iconPacks:PackIconModern Width="15" Height="15" Kind="Console" Foreground="#FFFAFAFA"/>
                                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnRange}" Foreground="#FFFAFAFA"/>
