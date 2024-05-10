@@ -340,7 +340,7 @@
                                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                             </TextBox.Effect>
                                         </TextBox>
-                                        <Button x:Name="cmdObtenerPGR" HorizontalAlignment="Left" Margin="707,326,0,0" VerticalAlignment="Top" Width="149" ToolTip="Find out the PGR" Click="cmdObtenerPGR_Click"  BorderThickness="0" Background="#F4D58D" Height="39">
+                                        <Button x:Name="cmdObtenerPGR" HorizontalAlignment="Left" Margin="586,316,0,0" VerticalAlignment="Top" Width="242" ToolTip="Find out the PGR" Click="cmdObtenerPGR_Click"  BorderThickness="0" Background="#F4D58D" Height="39">
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                             </Button.Effect>
@@ -350,7 +350,7 @@
                                             </StackPanel>
                                         </Button>
 
-                                        <Button x:Name="cmdGuardarMemoria"  BorderThickness="0"  HorizontalAlignment="Left" Margin="568,326,0,0" VerticalAlignment="Top" Width="134"  Click="cmdGuardarMemoria_Click"   Background="#708D81" Height="39">
+                                        <Button x:Name="cmdGuardarMemoria"  BorderThickness="0"  HorizontalAlignment="Left" Margin="586,365,0,0" VerticalAlignment="Top" Width="242"  Click="cmdGuardarMemoria_Click"   Background="#708D81" Height="39">
                                             <Button.Effect>
                                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                             </Button.Effect>
@@ -701,7 +701,7 @@
                                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                                         </TextBox.Effect>
                                                     </TextBox>
-                                                    <Button x:Name="cmdGuardarNoPat" BorderThickness="0" Background="#708D81" HorizontalAlignment="Left" Margin="453,364,0,0" VerticalAlignment="Top" Width="161" Height="40" ToolTip="Add Record" Click="cmdGuardarNoPat_Click" Grid.Column="1">
+                                                    <Button x:Name="cmdGuardarNoPat" BorderThickness="0" Background="#708D81" HorizontalAlignment="Left" Margin="434,364,0,0" VerticalAlignment="Top" Width="161" Height="40" ToolTip="Add Record" Click="cmdGuardarNoPat_Click" Grid.Column="1">
                                                         <Button.Effect>
                                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                                         </Button.Effect>
@@ -1389,9 +1389,9 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnDelRem}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Stretch" Margin="18 320 18 0" Height="30" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Stretch" Margin="20 320 20 0" Height="30" VerticalAlignment="Top">
                             <Label x:Name="lblCategoriasRemedios" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
-                            <ComboBox x:Name="comboCategoriasRemedios" Margin="10 0 10 0" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Width="145">
+                            <ComboBox x:Name="comboCategoriasRemedios" Margin="10 0 0 0" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Width="140">
                                 <ComboBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                 </ComboBox.Effect>
@@ -2419,12 +2419,12 @@
                             <ColumnDefinition Width="35*"/>
                             <ColumnDefinition Width="144*"/>
                         </Grid.ColumnDefinitions>
-                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top" Height="170" Width="342" Background="White" BorderBrush="White" FontWeight="Bold">
+                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top" Height="170" Width="342" Background="#5A5C5D" BorderBrush="#5A5C5D" FontWeight="Bold">
                             <Border Background="{StaticResource boxBack}" Height="200"   />
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="ControlGuide" Foreground="Black" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headBroad}" Foreground="Black"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="ControlGuide" Foreground="White" />
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headBroad}" Foreground="White"/>
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
@@ -2433,8 +2433,8 @@
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconModern Width="20" Height="20" Kind="Timer" Foreground="Black"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewBroad}" Foreground="Black"/>
+                                <iconPacks:PackIconModern Width="20" Height="20" Kind="Timer" Foreground="White"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnNewBroad}" Foreground="White"/>
                             </StackPanel>
                         </Button>
                         <Button x:Name="cmdReanudar" Visibility="Hidden" BorderThickness="0" Background="#FF3CB3DF" HorizontalAlignment="Left" Margin="52,115,0,0" VerticalAlignment="Top" Width="125" Height="45" Click="cmdReanudar_Click">
