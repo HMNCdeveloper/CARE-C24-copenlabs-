@@ -709,7 +709,10 @@
     <value>Codigo Postal:</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Lenguaje</value>
+    <value>Configuración</value>
+  </data>
+  <data name="lblAnalysis" xml:space="preserve">
+    <value>Ejecutando analisis</value>
   </data>
   <data name="Left Big Toe" xml:space="preserve">
     <value>Dedo gordo del pie izquierdo</value>

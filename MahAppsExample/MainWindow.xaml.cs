@@ -37,6 +37,7 @@ using System.ComponentModel;
 using System.Windows.Threading;
 using System.Windows.Forms;
 using iTextSharp.text.pdf.codec;
+using System.Numerics;
 
 namespace MahAppsExample
 {
@@ -429,7 +430,6 @@ namespace MahAppsExample
                     {
                         Animacion = true;
                         int tiempoI = (int)diffA.TotalMilliseconds;
-                        StartProgressBarAnimation(tiempoI);
                     }
                     if ((int)diffA.TotalMilliseconds < 10)
                     {
@@ -459,8 +459,12 @@ namespace MahAppsExample
                             duracion = CalcularTiempo_FormatoReloj(Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString()))
                        ,
                             tfaltante = tfaltanteA
+                       ,
+                            progreso = emitido
+                       ,
+                            maximo = Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString())
                         });
-
+                        
 
                         emitido = emitido + 1;
 
@@ -846,9 +850,6 @@ namespace MahAppsExample
             tiempo2.Visibility = Visibility.Hidden;
             Remedy1.Visibility = Visibility.Hidden;
             Remedy2.Visibility = Visibility.Hidden;
-            progressBarTratamiento.Visibility = Visibility.Hidden;
-            lblProgressTratamiento.Visibility = Visibility.Hidden;
-            lblPorcentProgressTratamiento.Visibility = Visibility.Hidden;
 
             //Limpiar listas
             listgenerico.Items.Clear();
@@ -3499,22 +3500,27 @@ namespace MahAppsExample
         }
 
         int extra = 0;
+        bool extrabool = false;
         private void cmdIniciarDiag_Click(object sender, RoutedEventArgs e)
         {
             //Tipo de opciones
             DataTable dtgen = new DataTable();
             dtgen = obj2.BuscarGenero(lblNombre_Anal1.Content.ToString());
             string genero = dtgen.Rows[0]["sexo"].ToString();
+            string gen = null;
             if(genero == "Male" || genero == "Masculino")
             {
                 GifImage = "Resources/male.gif";
+                gen = "Resources/analisis-hombre.gif";
             }else if (genero == "Female" || genero == "Femenino")
             {
                 GifImage = "Resources/female.gif";
+                gen = "Resources/analisis-mujer.gif";
             }
             else
             {
-                GifImage = "Resources/dna.gif";
+                gen = "Resources/bc-anim.gif";
+                
             }
             string tipo = "";
             
@@ -3522,6 +3528,7 @@ namespace MahAppsExample
             if(ListaCodigos.Items.Count > 500)
             {
                 extra = 4000;
+                extrabool = true;
             }
 
             if (option100.IsChecked == true)
@@ -3549,6 +3556,8 @@ namespace MahAppsExample
                nivel_potencia="-";
             }
 
+
+
             //Selectiva con el tipo de analisis
             switch (tipo)
             {
@@ -3557,8 +3566,8 @@ namespace MahAppsExample
                     cmdRango.IsEnabled = true;
                     IEnumerable items1 = this.ListaCodigos.Items;
                     Limpiar_Listas();
-
-                    progreso1.Visibility = Visibility.Visible;
+                    Analysis analysisWindow = new Analysis(extrabool);
+                    analysisWindow.Show();
                     
 
                     new Thread((ThreadStart)delegate
@@ -3590,7 +3599,7 @@ namespace MahAppsExample
                             {
                                 ListaCodigos.Items.Add(new nuevoCodigo { nombre = nombrecodigo[w], rates = codigos_rates[w], potencia = "-", potenciaSugeridad = "-", niveles = "-", ftester = Convert.ToInt32(ftester[w]), nsugerido = nivel[w] });
                             }
-
+                            analysisWindow.Close();
                             Panel_opciones();
                         });
 
@@ -3604,7 +3613,8 @@ namespace MahAppsExample
                     Limpiar_Listas();
 
                     progreso1.Visibility = Visibility.Visible;
-                    
+                    Analysis analysisWindow2 = new Analysis(extrabool);
+                    analysisWindow2.Show();
 
                     new Thread((ThreadStart)delegate
                     {
@@ -3654,7 +3664,7 @@ namespace MahAppsExample
                                     nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-"
                                 });
                             }
-
+                            analysisWindow2.Close();
                             Panel_opciones();
                         });
 
@@ -3667,6 +3677,8 @@ namespace MahAppsExample
                     Limpiar_Listas();
                     progreso1.Visibility = Visibility.Visible;
                     
+                    Analysis analysisWindow3 = new Analysis(extrabool);
+                    analysisWindow3.Show();
 
                     new Thread((ThreadStart)delegate
                     {
@@ -3714,7 +3726,7 @@ namespace MahAppsExample
                                     nsugerido = Sniveles.Count > 0 ? Sniveles[w] : "-"
                                 });
                             }
-
+                            analysisWindow3.Close();
                             Panel_opciones();
                         });
 
@@ -10340,6 +10352,8 @@ namespace MahAppsExample
                 cmdRango.Visibility = Visibility.Visible;
                 cmdProcesarAnalisis.IsEnabled = false;
                 ListaCodigos.Visibility = Visibility.Visible;
+                lblContador.Visibility = Visibility.Visible;
+                lblContCodigos.Visibility = Visibility.Visible;
 
                 HacerConexion();
 
@@ -10515,6 +10529,8 @@ namespace MahAppsExample
                 cmdBorrar.Visibility = Visibility.Visible;
                 cmdRango.Visibility = Visibility.Visible;
                 ListaCodigos.Visibility = Visibility.Visible;
+                lblContador.Visibility = Visibility.Visible;
+                lblContCodigos.Visibility = Visibility.Visible;
             }
         }
 
@@ -10863,9 +10879,6 @@ namespace MahAppsExample
             ListadoDiagNoActiv.Visibility = Visibility.Hidden;
             //  tratamientoencola.Visibility = Visibility.Hidden;
             lblNoEnEspera.Visibility = Visibility.Hidden;
-            progressBarTratamiento.Visibility = Visibility.Hidden;
-            lblProgressTratamiento.Visibility = Visibility.Hidden;
-            lblPorcentProgressTratamiento.Visibility = Visibility.Hidden;
         }
 
         void Mostrar_TratamientoDiag()
@@ -10878,9 +10891,6 @@ namespace MahAppsExample
             //   cmdBorrarDiagActSec_Copy.Visibility = Visibility.Visible;
             ListadoDiagNoActiv.Visibility = Visibility.Visible;
             lblDiagEnEspera.Visibility = Visibility.Visible;
-            progressBarTratamiento.Visibility = Visibility.Visible;
-            lblProgressTratamiento.Visibility = Visibility.Visible;
-            lblPorcentProgressTratamiento.Visibility = Visibility.Visible;
             //tratamientoencola.Visibility = Visibility.Visible;
         }
 
@@ -11106,7 +11116,8 @@ namespace MahAppsExample
             public string inicio { get; set; }
             public string duracion { get; set; }
             public string tfaltante { get; set; }
-
+            public int progreso { get; set; }
+            public int maximo { get; set; }
         }
 
 
@@ -11114,80 +11125,10 @@ namespace MahAppsExample
 
         DateTime fecha_selec;
 
-        private DispatcherTimer timer;
-        private int totalMilliseconds;
-        private DateTime startTime;
-
-        private void StartProgressBarAnimation(int duration)
-        {
-            progressBarTratamiento.Visibility = Visibility.Visible;
-            lblPorcentProgressTratamiento.Visibility = Visibility.Visible;
-            lblProgressTratamiento.Visibility = Visibility.Visible;
-            progressBarTratamiento.Foreground = new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF3CB3DF"));
-            totalMilliseconds = duration;
-            startTime = DateTime.Now;
-
-            // Configuramos el temporizador para actualizar la barra de progreso
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(50); // Intervalo de actualización de la barra de progreso
-            timer.Tick += Timer_Tick;
-            timer.Start();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            double elapsedTimeMilliseconds = (DateTime.Now - startTime).TotalMilliseconds;
-            double progressPercentage = (elapsedTimeMilliseconds / totalMilliseconds) * 100;
-            progressBarTratamiento.Value = progressPercentage;
-
-            // Calcular el tiempo restante
-            double remainingMilliseconds = totalMilliseconds - elapsedTimeMilliseconds;
-            TimeSpan remainingTime = TimeSpan.FromMilliseconds(remainingMilliseconds);
-            lblPorcentProgressTratamiento.Content = remainingTime.ToString(@"hh\:mm\:ss");
-
-            if (elapsedTimeMilliseconds >= totalMilliseconds)
-            {
-                // Detener el temporizador cuando la animación está completa
-                timer.Stop();
-                progressBarTratamiento.Visibility = Visibility.Hidden;
-                lblPorcentProgressTratamiento.Visibility = Visibility.Hidden;
-                lblProgressTratamiento.Visibility = Visibility.Hidden;
-            }
-        }
+        
 
         private bool isPaused = false;
         private double remainingMillisecondsAtPause = 0;
-
-        private void PauseProgressBarAnimation()
-        {
-            if (timer != null && timer.IsEnabled)
-            {
-                // Detener el temporizador
-                timer.Stop();
-
-                // Calcular el tiempo restante en milisegundos al pausar
-                remainingMillisecondsAtPause = totalMilliseconds - (DateTime.Now - startTime).TotalMilliseconds;
-
-                // Marcar como pausado
-                isPaused = true;
-            }
-        }
-
-        private void ResumeProgressBarAnimation()
-        {
-            if (isPaused)
-            {
-                // Calcular el tiempo transcurrido desde el inicio de la animación hasta la pausa
-                double elapsedTimeMilliseconds = totalMilliseconds - remainingMillisecondsAtPause;
-
-                // Reanudar el temporizador
-                startTime = DateTime.Now.AddMilliseconds(-elapsedTimeMilliseconds);
-                timer.Start();
-
-                // Restablecer la marca de pausa
-                isPaused = false;
-            }
-        }
 
         void Iniciar_Tratamiento(object sender, RoutedEventArgs e)
         {
@@ -12324,24 +12265,7 @@ namespace MahAppsExample
             }
         }
 
-        private void cmdReanudar_Click(object sender, RoutedEventArgs e)
-        {
-            ResumeProgressBarAnimation();
-            try
-            {
-                if (ListadoDiagActivos.Items.Count != 0)
-                {
-                    obj.BroadcastON();
-                    _timer.Start();
-
-                }
-
-            }
-            catch (NullReferenceException)
-            {
-
-            }
-        }
+        
 
         private void tratamientoencola_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -12438,7 +12362,7 @@ namespace MahAppsExample
 
         private void cmdPausar_Click(object sender, RoutedEventArgs e)
         {
-            PauseProgressBarAnimation();
+            
             try
             {
                 if (ListadoDiagActivos.Items.Count != 0)
@@ -13896,9 +13820,6 @@ namespace MahAppsExample
                     HacerConexion();
                     obj2.CancelarTratamientoADistancia();
                     obj.BroadcastOFF();
-                    progressBarTratamiento.Visibility = Visibility.Hidden;
-                    lblProgressTratamiento.Visibility = Visibility.Hidden;
-                    lblPorcentProgressTratamiento.Visibility = Visibility.Hidden;
                     CerrarConexion();
                 }
                 else
