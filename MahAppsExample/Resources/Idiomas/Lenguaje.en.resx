@@ -703,7 +703,10 @@
     <value>Zip Code:</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Language</value>
+    <value>Settings</value>
+  </data>
+  <data name="lblAnalysis" xml:space="preserve">
+    <value>Running analysis</value>
   </data>
   <data name="Left Big Toe" xml:space="preserve">
     <value>Left Big Toe</value>

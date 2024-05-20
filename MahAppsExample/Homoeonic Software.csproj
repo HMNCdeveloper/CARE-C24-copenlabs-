@@ -230,6 +230,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analysis.xaml.cs">
+      <DependentUpon>Analysis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Codigo.xaml.cs">
       <DependentUpon>Codigo.xaml</DependentUpon>
     </Compile>
@@ -266,6 +269,10 @@
     <Compile Include="Analisis.xaml.cs">
       <DependentUpon>Analisis.xaml</DependentUpon>
     </Compile>
+    <Page Include="Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Codigo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1035,6 +1042,161 @@
     <Resource Include="Resources\image %281%29.png" />
     <Resource Include="Resources\image %281%29.ico" />
     <Resource Include="Resources\CopenIcon.ico" />
+    <Resource Include="Resources\iconos\128x128\colores.png" />
+    <Resource Include="Resources\iconos\128x128\tareas.png" />
+    <Resource Include="Resources\iconos\22x22\absl-22.png" />
+    <Resource Include="Resources\iconos\22x22\adisco.png" />
+    <Resource Include="Resources\iconos\22x22\amberlight-22.png" />
+    <Resource Include="Resources\iconos\22x22\apagar.png" />
+    <Resource Include="Resources\iconos\22x22\atomo.png" />
+    <Resource Include="Resources\iconos\22x22\BCarpeta.png" />
+    <Resource Include="Resources\iconos\22x22\Borrar.png" />
+    <Resource Include="Resources\iconos\22x22\BSCarpeta.png" />
+    <Resource Include="Resources\iconos\22x22\Buscar Carpeta 22x22.png" />
+    <Resource Include="Resources\iconos\22x22\calculadora.png" />
+    <Resource Include="Resources\iconos\22x22\camara.png" />
+    <Resource Include="Resources\iconos\22x22\casa.png" />
+    <Resource Include="Resources\iconos\22x22\config.png" />
+    <Resource Include="Resources\iconos\22x22\configuracion.png" />
+    <Resource Include="Resources\iconos\22x22\dayl-22.png" />
+    <Resource Include="Resources\iconos\22x22\editor.png" />
+    <Resource Include="Resources\iconos\22x22\engrane-arriba.png" />
+    <Resource Include="Resources\iconos\22x22\engrane.png" />
+    <Resource Include="Resources\iconos\22x22\engranes.png" />
+    <Resource Include="Resources\iconos\22x22\equalizador.png" />
+    <Resource Include="Resources\iconos\22x22\flecha-abajo.png" />
+    <Resource Include="Resources\iconos\22x22\flecha-arriba.png" />
+    <Resource Include="Resources\iconos\22x22\flecha-derecha.png" />
+    <Resource Include="Resources\iconos\22x22\flecha-izq.png" />
+    <Resource Include="Resources\iconos\22x22\flechas-laterales.png" />
+    <Resource Include="Resources\iconos\22x22\fls-22.png" />
+    <Resource Include="Resources\iconos\22x22\Foto.png" />
+    <Resource Include="Resources\iconos\22x22\GColor.png" />
+    <Resource Include="Resources\iconos\22x22\grafica.png" />
+    <Resource Include="Resources\iconos\22x22\Guardar.png" />
+    <Resource Include="Resources\iconos\22x22\i.png" />
+    <Resource Include="Resources\iconos\22x22\importante.png" />
+    <Resource Include="Resources\iconos\22x22\infrared-22.png" />
+    <Resource Include="Resources\iconos\22x22\Iuser.png" />
+    <Resource Include="Resources\iconos\22x22\logo120.png" />
+    <Resource Include="Resources\iconos\22x22\logo16x16.png" />
+    <Resource Include="Resources\iconos\22x22\logo22x22.png" />
+    <Resource Include="Resources\iconos\22x22\logo2424.png" />
+    <Resource Include="Resources\iconos\22x22\logo7070.png" />
+    <Resource Include="Resources\iconos\22x22\logo9090.png" />
+    <Resource Include="Resources\iconos\22x22\lupa.png" />
+    <Resource Include="Resources\iconos\22x22\lupa2.png" />
+    <Resource Include="Resources\iconos\22x22\lupa3.png" />
+    <Resource Include="Resources\iconos\22x22\mail.png" />
+    <Resource Include="Resources\iconos\22x22\mas.png" />
+    <Resource Include="Resources\iconos\22x22\menu.png" />
+    <Resource Include="Resources\iconos\22x22\monitor-con-grafica.png" />
+    <Resource Include="Resources\iconos\22x22\mundo.png" />
+    <Resource Include="Resources\iconos\22x22\NCarpeta.png" />
+    <Resource Include="Resources\iconos\22x22\nueva-ventana.png" />
+    <Resource Include="Resources\iconos\22x22\nuevo-folder.png" />
+    <Resource Include="Resources\iconos\22x22\Obtener.png" />
+    <Resource Include="Resources\iconos\22x22\paloma.png" />
+    <Resource Include="Resources\iconos\22x22\pausa.png" />
+    <Resource Include="Resources\iconos\22x22\pdf.png" />
+    <Resource Include="Resources\iconos\22x22\pelicula.png" />
+    <Resource Include="Resources\iconos\22x22\postit.png" />
+    <Resource Include="Resources\iconos\22x22\Ppdf.png" />
+    <Resource Include="Resources\iconos\22x22\prohibido.png" />
+    <Resource Include="Resources\iconos\22x22\punto-rojo.png" />
+    <Resource Include="Resources\iconos\22x22\recargar-b.png" />
+    <Resource Include="Resources\iconos\22x22\recargar.png" />
+    <Resource Include="Resources\iconos\22x22\rehacer.png" />
+    <Resource Include="Resources\iconos\22x22\reloj.png" />
+    <Resource Include="Resources\iconos\22x22\reproducir.png" />
+    <Resource Include="Resources\iconos\22x22\reticula.png" />
+    <Resource Include="Resources\iconos\22x22\salir.png" />
+    <Resource Include="Resources\iconos\22x22\senstl-22.png" />
+    <Resource Include="Resources\iconos\22x22\sun-22.png" />
+    <Resource Include="Resources\iconos\22x22\sunlight-22.png" />
+    <Resource Include="Resources\iconos\22x22\tache.png" />
+    <Resource Include="Resources\iconos\22x22\tache2.png" />
+    <Resource Include="Resources\iconos\22x22\terminal.png" />
+    <Resource Include="Resources\iconos\22x22\ultrasound.png" />
+    <Resource Include="Resources\iconos\22x22\USB-22.png" />
+    <Resource Include="Resources\iconos\22x22\usuarios.png" />
+    <Resource Include="Resources\iconos\22x22\uv-22.png" />
+    <Resource Include="Resources\iconos\22x22\volumen.png" />
+    <Resource Include="Resources\iconos\22x22\wl-22.png" />
+    <Resource Include="Resources\iconos\40x40\BD 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\broadcast 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Color-0240x40.png" />
+    <Resource Include="Resources\iconos\40x40\Config Copen PNG-0240x40.png" />
+    <Resource Include="Resources\iconos\40x40\Diagnostico V2-40x40.png" />
+    <Resource Include="Resources\iconos\40x40\DiagnosticoBlack40x40.png" />
+    <Resource Include="Resources\iconos\40x40\DiagOrange-40x40.png" />
+    <Resource Include="Resources\iconos\40x40\HCategorias40x40.png" />
+    <Resource Include="Resources\iconos\40x40\HColor40x40.png" />
+    <Resource Include="Resources\iconos\40x40\HPacientes40x40.png" />
+    <Resource Include="Resources\iconos\40x40\HRemedios40x40.png" />
+    <Resource Include="Resources\iconos\40x40\HTDistancia40x40.png" />
+    <Resource Include="Resources\iconos\40x40\memorias 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Memories 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\pacientes 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Remedios 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Reportes 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Seguimiento 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\Sistemas V3 40x40.png" />
+    <Resource Include="Resources\iconos\40x40\SistemasV140x40.png" />
+    <Resource Include="Resources\iconos\40x40\SistemasV2 40x04.png" />
+    <Resource Include="Resources\iconos\C22x22\Analisis Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\BD 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Borrar 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Borrar carpeta-22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Borrar Paciente-22.png" />
+    <Resource Include="Resources\iconos\C22x22\broadcast 40x40.png" />
+    <Resource Include="Resources\iconos\C22x22\broadcast Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Burn 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Buscar Carpeta 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Camera 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\cards 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Care graydesk-22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Care white 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Cat Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\clip 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Color Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Color Profile 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\ColorSync 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Comple 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Config Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Error 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\mariposin 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Memorias Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Nueva Carpeta-22.png" />
+    <Resource Include="Resources\iconos\C22x22\Nuevo Paciente-22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\pacientes 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Pacientes Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\pause 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\pdf_icon 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\play 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Pot-22.png" />
+    <Resource Include="Resources\iconos\C22x22\power 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\ReAnalisis 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Reload 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Remedios Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\repeat 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Reportes Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Save %282%29 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Save 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Search 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Sistemas Copen 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Tag 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\TD 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\TD-22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Tools 22x22.png" />
+    <Resource Include="Resources\iconos\C22x22\Trash 22x22.png" />
+    <Resource Include="Resources\iconos\logo120.png" />
+    <Resource Include="Resources\iconos\logo16x16.png" />
+    <Resource Include="Resources\iconos\logo2424.png" />
+    <Resource Include="Resources\iconos\logo7070.png" />
+    <Resource Include="Resources\iconos\welcome.jpg" />
+    <Resource Include="Resources\iconos\welcome1.jpg" />
+    <Resource Include="Resources\analisis-mujer.gif" />
     <Content Include="Resources\logocopen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
