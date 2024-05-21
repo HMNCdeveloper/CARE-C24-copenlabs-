@@ -1701,6 +1701,22 @@ namespace MahAppsExample
             byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
             return xByte; //Regresa imagen convertida
         }
+        public DataTable ExisteCodigo(string numero)
+        {
+            sql = "SELECT * FROM rad_codigos WHERE codigo = '" + numero + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
 
         public static bool ExisteCodigo(string codigo, NpgsqlConnection conn)
         {

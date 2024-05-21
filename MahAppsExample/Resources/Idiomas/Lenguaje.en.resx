@@ -342,6 +342,9 @@
   <data name="Forehead" xml:space="preserve">
     <value>Forehead</value>
   </data>
+  <data name="genRate" xml:space="preserve">
+    <value>Generate a id from the instrument</value>
+  </data>
   <data name="Glans" xml:space="preserve">
     <value>Glans</value>
   </data>
@@ -1407,6 +1410,12 @@
   <data name="Stomach" xml:space="preserve">
     <value>Stomach</value>
   </data>
+  <data name="tabDec" xml:space="preserve">
+    <value>Decree</value>
+  </data>
+  <data name="tabIns" xml:space="preserve">
+    <value>Instrument</value>
+  </data>
   <data name="tableBegTime" xml:space="preserve">
     <value>BEGGING TIME</value>
   </data>
@@ -1476,6 +1485,9 @@
   <data name="tableValue" xml:space="preserve">
     <value>Value</value>
   </data>
+  <data name="tabText" xml:space="preserve">
+    <value>Text</value>
+  </data>
   <data name="textMessage" xml:space="preserve">
     <value>RUNNING AUTOSIMILE...</value>
   </data>
@@ -1496,6 +1508,12 @@
   </data>
   <data name="txtMessage6" xml:space="preserve">
     <value>SAVING TO ECS CARD...</value>
+  </data>
+  <data name="typeDec" xml:space="preserve">
+    <value>Type a Decrete here..</value>
+  </data>
+  <data name="typeText" xml:space="preserve">
+    <value>Type a text here...</value>
   </data>
   <data name="Umbilicus" xml:space="preserve">
     <value>Umbilicus</value>

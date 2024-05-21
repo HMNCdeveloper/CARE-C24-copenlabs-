@@ -20,7 +20,7 @@
         <SolidColorBrush x:Key="iconColor" Color="#01997E"/>
         <SolidColorBrush x:Key="borderSection" Color="#5A5C5D"/>
         <SolidColorBrush x:Key="letra" Color="Black"/>
-        <SolidColorBrush x:Key="TabColor" Color="#CCC"/>
+        <SolidColorBrush x:Key="TabColor" Color="#EEE"/>
         <SolidColorBrush x:Key="TabColorSelec" Color="#307F"/>
         <SolidColorBrush x:Key="Boton" Color="#0A3D6E"/>
         <SolidColorBrush x:Key="Boton2" Color="#2ecc71"/>

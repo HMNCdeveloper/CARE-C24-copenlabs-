@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,8 +18,8 @@ namespace HS5
     public partial class CustomMessageBoxYesNo : Window
     {
         public string Message { get; set; }
-
-        public CustomMessageBoxYesNo(string message)
+        public string Titulo { get; set; }
+        public CustomMessageBoxYesNo(string message, string Titulo)
         {
             InitializeComponent();
             Message = message;

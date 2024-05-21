@@ -745,6 +745,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Generate a id from the instrument.
+        /// </summary>
+        public static string genRate {
+            get {
+                return ResourceManager.GetString("genRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Glans.
         /// </summary>
         public static string Glans {
@@ -3850,6 +3859,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Decree.
+        /// </summary>
+        public static string tabDec {
+            get {
+                return ResourceManager.GetString("tabDec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Instrument.
+        /// </summary>
+        public static string tabIns {
+            get {
+                return ResourceManager.GetString("tabIns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a BEGGING TIME.
         /// </summary>
         public static string tableBegTime {
@@ -4057,6 +4084,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Text.
+        /// </summary>
+        public static string tabText {
+            get {
+                return ResourceManager.GetString("tabText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Throat.
         /// </summary>
         public static string Throat {
@@ -4116,6 +4152,24 @@ namespace HS5.Resources.Idiomas {
         public static string txtMessage6 {
             get {
                 return ResourceManager.GetString("txtMessage6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type a Decrete here...
+        /// </summary>
+        public static string typeDec {
+            get {
+                return ResourceManager.GetString("typeDec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Type a text here....
+        /// </summary>
+        public static string typeText {
+            get {
+                return ResourceManager.GetString("typeText", resourceCulture);
             }
         }
         

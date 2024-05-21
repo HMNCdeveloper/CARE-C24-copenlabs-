@@ -46,7 +46,7 @@ namespace MahAppsExample
     /// </summary>
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
-        Machine obj = new Machine(); //Objeto clase Machine
+        MachineP obj = new MachineP(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
 
         //Listado Heredo
