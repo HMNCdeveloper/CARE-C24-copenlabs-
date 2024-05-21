@@ -204,13 +204,7 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to Cancel.
-=======
-        ///   Busca una cadena traducida similar a CANCEL.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
-        /// </summary>
+
         public static string btnCancel {
             get {
                 return ResourceManager.GetString("btnCancel", resourceCulture);
@@ -677,9 +671,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to Chest.
-=======
+
         ///   Busca una cadena traducida similar a Close details.
         /// </summary>
         public static string CerrarDetalles {
@@ -690,7 +682,7 @@ namespace HS5.Resources.Idiomas {
         
         /// <summary>
         ///   Busca una cadena traducida similar a Chest.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
+
         /// </summary>
         public static string Chest {
             get {
@@ -770,22 +762,14 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to Glans.
-=======
-        ///   Busca una cadena traducida similar a Generate a id from the instrument.
-        /// </summary>
+
         public static string genRate {
             get {
                 return ResourceManager.GetString("genRate", resourceCulture);
             }
         }
         
-        /// <summary>
-        ///   Busca una cadena traducida similar a Glans.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
-        /// </summary>
+
         public static string Glans {
             get {
                 return ResourceManager.GetString("Glans", resourceCulture);
@@ -3969,12 +3953,7 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to BEGGING TIME.
-=======
-        ///   Busca una cadena traducida similar a Decree.
-        /// </summary>
+
         public static string tabDec {
             get {
                 return ResourceManager.GetString("tabDec", resourceCulture);
@@ -3990,10 +3969,6 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-        ///   Busca una cadena traducida similar a BEGGING TIME.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
-        /// </summary>
         public static string tableBegTime {
             get {
                 return ResourceManager.GetString("tableBegTime", resourceCulture);
@@ -4197,11 +4172,7 @@ namespace HS5.Resources.Idiomas {
                 return ResourceManager.GetString("tableValue", resourceCulture);
             }
         }
-        
-        /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to Throat.
-=======
+
         ///   Busca una cadena traducida similar a Text.
         /// </summary>
         public static string tabText {
@@ -4210,9 +4181,6 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-        ///   Busca una cadena traducida similar a Throat.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
         /// </summary>
         public static string Throat {
             get {
@@ -4274,12 +4242,7 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-        /// <summary>
-<<<<<<< HEAD
-        ///   Looks up a localized string similar to Umbilicus.
-=======
-        ///   Busca una cadena traducida similar a Type a Decrete here...
-        /// </summary>
+
         public static string typeDec {
             get {
                 return ResourceManager.GetString("typeDec", resourceCulture);
@@ -4296,8 +4259,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Umbilicus.
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
+
         /// </summary>
         public static string Umbilicus {
             get {

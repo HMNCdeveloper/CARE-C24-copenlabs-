@@ -20,11 +20,7 @@
         <SolidColorBrush x:Key="iconColor" Color="#01997E"/>
         <SolidColorBrush x:Key="borderSection" Color="#5A5C5D"/>
         <SolidColorBrush x:Key="letra" Color="Black"/>
-<<<<<<< HEAD
         <SolidColorBrush x:Key="TabColor" Color="#FFF7F5F5"/>
-=======
-        <SolidColorBrush x:Key="TabColor" Color="#EEE"/>
->>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
         <SolidColorBrush x:Key="TabColorSelec" Color="#307F"/>
         <SolidColorBrush x:Key="Boton" Color="#0A3D6E"/>
         <SolidColorBrush x:Key="Boton2" Color="#2ecc71"/>
@@ -2740,6 +2736,7 @@
                                         <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                     </Button.Effect>
                                     <StackPanel Orientation="Horizontal">
+                                        <iconPacks:PackIconModern Width="20" Height="20" Kind="Upload"/>
                                         <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" FontSize="15" Text="{x:Static local:Lenguaje.restoreDatabase}" />
                                     </StackPanel>
                                 </Button>
@@ -2750,7 +2747,8 @@
                                         <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                     </Button.Effect>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{x:Static local:Lenguaje.backupDatabase}" FontSize="15" Height="26" Width="217" />
+                                        <iconPacks:PackIconModern Width="20" Height="20" Kind="Download"/>
+                                        <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{x:Static local:Lenguaje.backupDatabase}" FontSize="15"/>
                                     </StackPanel>
                                 </Button>
 
