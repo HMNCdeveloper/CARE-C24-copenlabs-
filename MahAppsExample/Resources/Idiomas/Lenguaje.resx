@@ -132,6 +132,9 @@
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="backupDatabase" xml:space="preserve">
+    <value>Make a backup from Database</value>
+  </data>
   <data name="Bladder" xml:space="preserve">
     <value>Bladder</value>
   </data>
@@ -368,6 +371,9 @@
   </data>
   <data name="headBA" xml:space="preserve">
     <value>Background and Analysis</value>
+  </data>
+  <data name="headBackDatabase" xml:space="preserve">
+    <value>successfully</value>
   </data>
   <data name="headBroad" xml:space="preserve">
     <value>BROADCASTING CONTROL</value>
@@ -831,6 +837,9 @@
   <data name="Left-Wrist" xml:space="preserve">
     <value>Left Wrist</value>
   </data>
+  <data name="lengOpt" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="MenuAnalysis" xml:space="preserve">
     <value>Analysis</value>
   </data>
@@ -866,6 +875,9 @@
   </data>
   <data name="messageBox7" xml:space="preserve">
     <value>Treatment finished </value>
+  </data>
+  <data name="messageDel" xml:space="preserve">
+    <value>All data deleted successfully.</value>
   </data>
   <data name="messageError" xml:space="preserve">
     <value>Only Numbers are allowed</value>
@@ -1200,8 +1212,20 @@
   <data name="messageWarning9" xml:space="preserve">
     <value>Press (OK) to continue..</value>
   </data>
+  <data name="messBackDatabase" xml:space="preserve">
+    <value>Backup created successfully.</value>
+  </data>
+  <data name="messErrBacDatabase" xml:space="preserve">
+    <value>Backup failed. Check the output for details..</value>
+  </data>
+  <data name="messErrRestDatabase" xml:space="preserve">
+    <value>Restore failed. Check the output for details.</value>
+  </data>
   <data name="messOptLan" xml:space="preserve">
     <value>Please select the language to the  system:</value>
+  </data>
+  <data name="messRestDatabase" xml:space="preserve">
+    <value>Database restored successfully</value>
   </data>
   <data name="Mouth" xml:space="preserve">
     <value>Mouth</value>
@@ -1284,6 +1308,9 @@
   <data name="PUASED" xml:space="preserve">
     <value>PAUSED</value>
   </data>
+  <data name="rbOpt" xml:space="preserve">
+    <value>RESTORE AND BACKUP</value>
+  </data>
   <data name="reportP" xml:space="preserve">
     <value>Patient's Detail </value>
   </data>
@@ -1301,6 +1328,9 @@
   </data>
   <data name="resetC" xml:space="preserve">
     <value>RESET COLORS</value>
+  </data>
+  <data name="restoreDatabase" xml:space="preserve">
+    <value>Restore Database</value>
   </data>
   <data name="returnTheRecent" xml:space="preserve">
     <value>RETURN  TO RECENT THERAPIES</value>
