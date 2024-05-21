@@ -196,7 +196,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Cancel.
+        ///   Busca una cadena traducida similar a CANCEL.
         /// </summary>
         public static string btnCancel {
             get {
@@ -660,6 +660,15 @@ namespace HS5.Resources.Idiomas {
         public static string Categories {
             get {
                 return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Close details.
+        /// </summary>
+        public static string CerrarDetalles {
+            get {
+                return ResourceManager.GetString("CerrarDetalles", resourceCulture);
             }
         }
         

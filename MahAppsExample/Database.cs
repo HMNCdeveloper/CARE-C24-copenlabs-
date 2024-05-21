@@ -14,7 +14,7 @@ using HS5;
 
 namespace MahAppsExample
 {
-    class Database
+    public class Database
     {
         //Globals
         NpgsqlConnection conn; //Conexion
@@ -765,9 +765,9 @@ namespace MahAppsExample
         }
 
         //Funcion para eliminar un código
-        public void Eliminar_Codigo(string nombre)
+        public void Eliminar_Codigo(string cod, string nombre)
         {
-            sql = "DELETE FROM rad_codigos where codigo LIKE'" + nombre + "'";
+            sql = "DELETE FROM rad_codigos WHERE UPPER(codigo) LIKE '%" + cod + "%' AND UPPER(nombre) LIKE '%" + nombre + "%'";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }

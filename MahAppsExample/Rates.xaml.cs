@@ -27,7 +27,7 @@ namespace HS5
         string[] placeholderValues;
         int index = 0;
 
-        private Database obj;
+        Database obj;
         MachineP obj2 = new MachineP();
         public Func<string, string> obtenerRecurso;
 

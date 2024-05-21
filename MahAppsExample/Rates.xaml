@@ -57,7 +57,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />-->
-                        <TextBlock FontSize="20" Text="" Foreground="Black" />
+                        <TextBlock FontSize="20" Text="{x:Static local:Lenguaje.tabIns}" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
                 <Button Click="generateRate" Content="{x:Static local:Lenguaje.genRate}" Height="50" Margin="40,0,29,0"></Button>
@@ -68,17 +68,17 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />-->
-                        <TextBlock Text="" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="{x:Static local:Lenguaje.tabDec}" FontSize="20" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Margin="0 0 0 10">
-                    <Button Click="_generateRate" Content="" Margin="10" HorizontalAlignment="Stretch" Height="50"></Button>
+                    <Button Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10" HorizontalAlignment="Stretch" Height="50"></Button>
                     <TextBox
                         x:Name="textDesc"
                         Background="White" 
                         HorizontalAlignment="Stretch"
                         Height="282"
-                        Text=""
+                        Text="{x:Static local:Lenguaje.typeDec}"
                         Foreground="Gray"
                         BorderBrush="#5A5C5D"
                         Margin="10"
@@ -93,16 +93,16 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="{x:Static local:Lenguaje.tabText}" FontSize="20" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <Button Click="_generateRate" Content="" Margin="10,10,0,0" HorizontalAlignment="Left" Height="50" Width="744"/>
+                    <Button Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10,10,0,0" HorizontalAlignment="Left" Height="50" Width="744"/>
                     <TextBox
                         x:Name="decretDesc"
                         Background="White"
                         HorizontalAlignment="Left"
-                        Text=""
+                        Text="{x:Static local:Lenguaje.typeText}"
                         Foreground="Gray"
                         BorderBrush="#5A5C5D"
                         Margin="10,10,0,0"
@@ -132,7 +132,7 @@
                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
             </Button.Effect>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="" Foreground="#FFFAFAFA"/>
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCancel}" Foreground="#FFFAFAFA"/>
             </StackPanel>
         </Button>
     </Grid>

@@ -12,7 +12,7 @@ using System.Threading;
 namespace MahAppsExample
 {
     //Uso de la maquina
-    class MachineP
+    public class MachineP
     {
         string[] ports; //COMs (Puertos)
         SerialPort port; //Puerto

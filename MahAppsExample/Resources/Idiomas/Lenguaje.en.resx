@@ -163,7 +163,7 @@
     <value>New Analysis</value>
   </data>
   <data name="btnCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>CANCEL</value>
   </data>
   <data name="btnCopy" xml:space="preserve">
     <value>COPY</value>
@@ -314,6 +314,9 @@
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories </value>
+  </data>
+  <data name="CerrarDetalles" xml:space="preserve">
+    <value>Close details</value>
   </data>
   <data name="Chest" xml:space="preserve">
     <value>Chest</value>
