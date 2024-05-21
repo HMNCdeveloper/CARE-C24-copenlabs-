@@ -10,7 +10,7 @@
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Name="window" x:Class="MahAppsExample.MainWindow"       
         GlowBrush="{DynamicResource BlackBrush}"
         Icon="Resources/CopenIcon.ico"
-        Title="Copen Software" WindowState="Maximized" Height="487"  WindowStartupLocation="CenterScreen"  Background="White"  Closing="window_Closing" Closed="window_Closed">
+        Title="" WindowState="Maximized" Height="487"  WindowStartupLocation="CenterScreen"  Background="White"  Closing="window_Closing" Closed="window_Closed">
 
     <Window.Resources>
         <SolidColorBrush x:Key="background" Color="#F5FEFF" />
@@ -20,7 +20,7 @@
         <SolidColorBrush x:Key="iconColor" Color="#01997E"/>
         <SolidColorBrush x:Key="borderSection" Color="#5A5C5D"/>
         <SolidColorBrush x:Key="letra" Color="Black"/>
-        <SolidColorBrush x:Key="TabColor" Color="#CCC"/>
+        <SolidColorBrush x:Key="TabColor" Color="#FFF7F5F5"/>
         <SolidColorBrush x:Key="TabColorSelec" Color="#307F"/>
         <SolidColorBrush x:Key="Boton" Color="#0A3D6E"/>
         <SolidColorBrush x:Key="Boton2" Color="#2ecc71"/>
@@ -2712,25 +2712,50 @@
                         </Border>
                     </TabItem.Header>
                     <!--here  is the  content-->
-                    <Grid Background="{StaticResource boxBack}" Margin="0,2,0,-2" Width="1206">
-
+                    <Grid Background="{StaticResource boxBack}" Margin="0,2,0,14" Width="1206">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="67*"/>
-                            <ColumnDefinition Width="177*"/>
-                            <ColumnDefinition Width="19*"/>
-                            <ColumnDefinition Width="148*"/>
-                            <ColumnDefinition Width="1083*"/>
+                            <ColumnDefinition Width="683*"/>
+                            <ColumnDefinition Width="38*"/>
+                            <ColumnDefinition Width="11*"/>
+                            <ColumnDefinition Width="474*"/>
                         </Grid.ColumnDefinitions>
-                        <Border  BorderBrush="Black" BorderThickness="120" HorizontalAlignment="Left" Height="170" Margin="836,21,0,0" VerticalAlignment="Top" Width="172" Background="#FFA8C3C9"></Border>
-                        <Label x:Name="label10" Content="{x:Static local:Lenguaje.messOptLan}" HorizontalAlignment="Left" Margin="70,141,0,0" VerticalAlignment="Top" Grid.Column="4" Width="522" FontWeight="Bold" FontSize="20" Height="54"/>
-                        <ComboBox x:Name="languageOption" HorizontalAlignment="Left"   Margin="206,220,0,0" VerticalAlignment="Top" Width="212"  Grid.Column="4" SelectionChanged="ChangeLanguage">
-                            <ComboBox.Effect>
-                                <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
-                            </ComboBox.Effect>
-                            <ComboBoxItem Content="{x:Static local:Lenguaje.optLangEs}"/>
-                            <ComboBoxItem Content="{x:Static local:Lenguaje.optLangEn}"/>
-                        </ComboBox>
-                        <Image x:Name="imagelogo" HorizontalAlignment="Left" Height="209" Margin="42,10,0,0" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="4"/>
+                        <GroupBox Margin="0,10,3,25" Header="{x:Static local:Lenguaje.lengOpt}"   Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}">
+                            <StackPanel  Height="258">
+                                <TextBlock Text="{x:Static local:Lenguaje.messOptLan}" Margin="50,65,0,0" TextAlignment="Center" Width="512"  FontWeight="Bold" FontSize="20" Height="54" ></TextBlock>
+                                <ComboBox x:Name="languageOption" Margin="0,10,0,0" Width="212" SelectionChanged="ChangeLanguage">
+                                    <ComboBox.Effect>
+                                        <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
+                                    </ComboBox.Effect>
+                                    <ComboBoxItem Content="{x:Static local:Lenguaje.optLangEs}"/>
+                                    <ComboBoxItem Content="{x:Static local:Lenguaje.optLangEn}"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox  Grid.Column="3"  Header="{x:Static local:Lenguaje.rbOpt}"  Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}"  Margin="0,10,0,29">
+                            <StackPanel>
+                                <!--this btn is used to make a rostore -->
+                                <Button  Margin="0,165,0,0" Width="337" Height="57" BorderThickness="0" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" Click="MakeRestore">
+                                    <Button.Effect>
+                                        <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                                    </Button.Effect>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" FontSize="15" Text="{x:Static local:Lenguaje.restoreDatabase}" />
+                                    </StackPanel>
+                                </Button>
+
+                                <!--this btn is used to backup-->
+                                <Button   Margin="0,10,0,0" Width="340" Height="62" ToolTip="Find out the PGR" Click="MakeBackup"  BorderThickness="0" Background="#ff0000" Foreground="{StaticResource letraBoton}">
+                                    <Button.Effect>
+                                        <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+                                    </Button.Effect>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{x:Static local:Lenguaje.backupDatabase}" FontSize="15" Height="26" Width="217" />
+                                    </StackPanel>
+                                </Button>
+
+                            </StackPanel>
+                        </GroupBox>
                     </Grid>
                 </TabItem>
 

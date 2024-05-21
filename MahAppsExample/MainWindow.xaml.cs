@@ -13840,6 +13840,49 @@ namespace MahAppsExample
         {
 
         }
+
+
+        private void MakeBackup(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Backup Files (*.backup)|*.backup|All Files (*.*)|*.*";
+            saveFileDialog.FileName = "BackupDatabase.backup";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                obj2.Backup("postgres", "radionica", saveFileDialog.FileName, obtenerRecurso);
+            }
+        }
+
+        private void MakeRestore(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Backup Files (*.backup)|*.backup|All Files (*.*)|*.*";
+            openFileDialog.Title = "Select PostgreSQL Backup File";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                HacerConexion();
+                obj2.clearToDB(obtenerRecurso);
+                CerrarConexion();
+
+                obj2.Restore("postgres", "radionica", openFileDialog.FileName.ToString(), obtenerRecurso);
+
+
+                HacerConexion();
+                obj2.adddColumn("rad_codigosdeanalisis", "potencia", "text");
+                obj2.adddColumn("rad_codigosdeanalisis", "potenciasugerida", "text");
+                CerrarConexion();
+
+                // Iniciar una nueva instancia de la aplicación
+                System.Diagnostics.Process.Start(System.AppDomain.CurrentDomain.FriendlyName);
+                // Cerrar la instancia actual de la aplicación
+                System.Windows.Application.Current.Shutdown();
+            }
+        }
+
+
+
     }
 }
  

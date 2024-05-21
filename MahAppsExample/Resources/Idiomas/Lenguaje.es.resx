@@ -132,6 +132,9 @@
   <data name="Back" xml:space="preserve">
     <value>Espalda</value>
   </data>
+  <data name="backupDatabase" xml:space="preserve">
+    <value>Respaldar  Base de datos</value>
+  </data>
   <data name="Bladder" xml:space="preserve">
     <value>Vejiga</value>
   </data>
@@ -365,6 +368,9 @@
   </data>
   <data name="headBA" xml:space="preserve">
     <value>Antecedentes y Analisis</value>
+  </data>
+  <data name="headBackDatabase" xml:space="preserve">
+    <value>Exitosamente</value>
   </data>
   <data name="headBroad" xml:space="preserve">
     <value>CONTROL DE EMISIONES</value>
@@ -822,6 +828,9 @@
   <data name="Left-Wrist" xml:space="preserve">
     <value>Muñeca izquierda</value>
   </data>
+  <data name="lengOpt" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
   <data name="MenuAnalysis" xml:space="preserve">
     <value>Analisis</value>
   </data>
@@ -860,6 +869,9 @@
   </data>
   <data name="messageBox7" xml:space="preserve">
     <value>Tratamiento terminado</value>
+  </data>
+  <data name="messageDel" xml:space="preserve">
+    <value>Los datos fueron eliminados exitosamente!</value>
   </data>
   <data name="messageError" xml:space="preserve">
     <value>Solo se permite numeros </value>
@@ -1191,8 +1203,20 @@
   <data name="messageWarning9" xml:space="preserve">
     <value>Presione (OK) para  continuar..</value>
   </data>
+  <data name="messBackDatabase" xml:space="preserve">
+    <value>Respaldo creado exitosamente!</value>
+  </data>
+  <data name="messErrBacDatabase" xml:space="preserve">
+    <value>Respaldo fallo,  vuelve a intentarlo</value>
+  </data>
+  <data name="messErrRestDatabase" xml:space="preserve">
+    <value> Fallo la restauracion, vuelve intentarlo!</value>
+  </data>
   <data name="messOptLan" xml:space="preserve">
     <value>Por faver selecciona  un idioma para el sistema:</value>
+  </data>
+  <data name="messRestDatabase" xml:space="preserve">
+    <value>Restauracion de la base de datos exitosamente!</value>
   </data>
   <data name="Mouth" xml:space="preserve">
     <value>Boca</value>
@@ -1275,6 +1299,9 @@
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
   </data>
+  <data name="rbOpt" xml:space="preserve">
+    <value>Restauracion y Resplado </value>
+  </data>
   <data name="reportP" xml:space="preserve">
     <value>Detalle del paciente </value>
   </data>
@@ -1292,6 +1319,9 @@
   </data>
   <data name="resetC" xml:space="preserve">
     <value>REINICIAR COLORES</value>
+  </data>
+  <data name="restoreDatabase" xml:space="preserve">
+    <value>Restaurar Base de datos</value>
   </data>
   <data name="returnTheRecent" xml:space="preserve">
     <value>VOLVER A TERAPIAS RECIENTES</value>

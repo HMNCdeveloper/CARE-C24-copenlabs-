@@ -11,6 +11,7 @@ using System.IO;
 using System.Windows.Controls;
 using System.Windows;
 using HS5;
+using System.Diagnostics;
 
 namespace MahAppsExample
 {
@@ -1779,6 +1780,168 @@ namespace MahAppsExample
             }
 
         }
+
+        public void Backup(string user, string password, string backupfile, Func<string, string> getMessage)
+        {
+            string host = "localhost";
+            string port = "5432";
+            string pgDumpPath = @"C:\Program Files\PostgreSQL\9.4\bin\pg_dump.exe";
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+
+            processStartInfo.FileName = pgDumpPath;
+            processStartInfo.Arguments = $"-h {host} -p {port} -U {user}   -F c -b -v -f \"{backupfile}\" {Database.db}";
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.RedirectStandardError = true;
+            processStartInfo.UseShellExecute = false;
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.EnvironmentVariables["PGPASSWORD"] = password;
+
+
+            try
+            {
+                using (Process process = new Process())
+                {
+                    process.StartInfo = processStartInfo;
+                    process.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
+                    process.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
+
+                    process.Start();
+                    process.BeginErrorReadLine();
+                    process.BeginOutputReadLine();
+                    process.WaitForExit();
+
+                    if (process.ExitCode == 0)
+                    {
+                        MessageBox.Show(getMessage("messBackDatabase"), getMessage("headBackDatabase"), MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(getMessage("messErrBacDatabase"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+
+        public void clearToDB(Func<string, string> getMessage)
+        {
+
+            try
+            {
+
+                string deleteDataCommand = @"
+                        DO $$ DECLARE
+                        r RECORD;
+                        BEGIN
+                            -- Eliminar triggers
+                            DROP FUNCTION IF EXISTS ajustar_longitud_codigo();
+
+                            -- Eliminar tablas
+                            FOR r IN (SELECT tablename 
+                                      FROM pg_tables 
+                                      WHERE schemaname = 'public') LOOP
+                                EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
+                            END LOOP;
+                        END $$;";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(deleteDataCommand, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                MessageBox.Show(getMessage("messageDel"), getMessage("headBackDatabase"), MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+
+        public void Restore(string user, string password, string backupfile, Func<string, string> getMessage)
+        {
+            string host = "localhost";
+            string port = "5432";
+            string pgRestorePath = @"C:\Program Files\PostgreSQL\9.4\bin\pg_restore.exe";
+            ProcessStartInfo processStartInfo = new ProcessStartInfo();
+
+            // Comando para ejecutar pg_restore
+            Console.WriteLine(backupfile);
+            processStartInfo.FileName = pgRestorePath;
+            processStartInfo.Arguments = $"-h {host} -p {port} -U {user} -d {Database.db}   -v \"{backupfile}\"";
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.RedirectStandardError = true;
+            processStartInfo.UseShellExecute = false;
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.EnvironmentVariables["PGPASSWORD"] = password;
+
+
+
+            try
+            {
+                using (Process process = new Process())
+                {
+                    process.StartInfo = processStartInfo;
+                    //process.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
+                    //process.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
+
+                    process.Start();
+                    process.BeginErrorReadLine();
+                    process.BeginOutputReadLine();
+                    process.WaitForExit();
+
+                    if (process.ExitCode == 0)
+                    {
+                        MessageBox.Show(getMessage("messRestDatabase"), getMessage("headBackDatabase"), MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(getMessage("messErrRestDatabase"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+        }
+
+
+        public void adddColumn(string nameTable, string columnName, string typeValue)
+        {
+            try
+            {
+
+                string deleteDataCommand = $@"
+                        DO $$ DECLARE
+                        r RECORD;
+                        BEGIN
+                             ALTER TABLE {nameTable} ADD {columnName} {typeValue};
+                        END $$;";
+
+                using (NpgsqlCommand command = new NpgsqlCommand(deleteDataCommand, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            { }
+
+        }
+
+
+
+
 
     }
 }
