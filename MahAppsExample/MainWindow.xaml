@@ -2396,8 +2396,8 @@
                         </Border>
                     </TabItem.Header>
                     <Grid >
-                        
-                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="170" Width="340" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="#5A5C5D" FontWeight="Bold">
+
+                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="170" Width="340" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="#FFDCDADA" FontWeight="Bold">
                             <Border Background="{StaticResource boxBack}" Height="200"   />
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -2472,7 +2472,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <GroupBox x:Name="Broadcast" Visibility="Hidden" HorizontalAlignment="Left" Margin="13,210,0,0" VerticalAlignment="Top" Height="491" Width="1289" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3">
+                        <GroupBox x:Name="Broadcast" Visibility="Hidden" HorizontalAlignment="Stretch" Margin="13,210,10,0" VerticalAlignment="Top" Height="491" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="TvRemote"/>
@@ -2513,7 +2513,7 @@
                             <ComboBoxItem Content="{x:Static local:Lenguaje.labelRemedy}"/>
                             <ComboBoxItem Content="{x:Static local:Lenguaje.labelRate}"/>
                         </ComboBox>
-                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Left" Margin="980,258,0,0" VerticalAlignment="Top" Height="422" Width="294" Background="{StaticResource TabColor}" BorderBrush="{StaticResource borderSection}" Foreground="{StaticResource letra}" Grid.ColumnSpan="3">
+                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,258,20,0" VerticalAlignment="Top" Height="422" Width="294" Background="{StaticResource TabColor}" BorderBrush="{StaticResource borderSection}" Foreground="{StaticResource letra}" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Timer"/>
@@ -2524,7 +2524,7 @@
                         <Label x:Name="lblNombreTratamiento_Copy2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTypeSh}" HorizontalAlignment="Left" Margin="985,320,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="3"/>
                         <Label x:Name="lblNombreTratamiento_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelBeg}" HorizontalAlignment="Left" Margin="985,364,-60,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Border x:Name="borderInfobasica_Copy1" Visibility="Hidden" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="64" Margin="990,392,0,0" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
-                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="50,411,0,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
+                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Right" Margin="50,411,40,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
                             <DatePicker.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </DatePicker.Effect>
@@ -2532,10 +2532,10 @@
                         <Label x:Name="lblNombreTratamiento_Copy5" Visibility="Hidden" Content="{x:Static local:Lenguaje.tableDuration}" HorizontalAlignment="Left" Margin="985,471,-20,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
                         <Border x:Name="borderInfobasica_Copy10" Visibility="Hidden" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="990,497,0,0" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
                         <Label x:Name="lblNombreTratamiento_Copy6" Visibility="Hidden" Content=" H                   M" HorizontalAlignment="Left" Margin="990,502,-40,0" VerticalAlignment="Top" FontWeight="Bold" Width="500" Grid.ColumnSpan="2"/>
-                        <xctk:IntegerUpDown x:Name="txtHoras" Visibility="Hidden" Value="0" Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="995,530,-10,0" Grid.ColumnSpan="2"  />
-                        <xctk:IntegerUpDown x:Name="txtMinutos" Visibility="Hidden" Value="0"  Height="23" Width="54" Minimum="0" Maximum="99" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,530,0,0" Grid.Column="1" Grid.ColumnSpan="2"  />
+                        <xctk:IntegerUpDown x:Name="txtHoras" Visibility="Hidden" Value="0" Height="23" Width="54" Minimum="0" Maximum="999" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="995,530,-10,0"/>
+                        <xctk:IntegerUpDown x:Name="txtMinutos" Visibility="Hidden" Value="0"  Height="23" Width="54" Minimum="0" Maximum="59" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1070,530,0,0"/>
 
-                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Left" Margin="90,320,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged" Grid.Column="2">
+                        <ComboBox x:Name="comboTipoProg" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,320,30,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboTipoProg_SelectionChanged">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>
@@ -2560,7 +2560,7 @@
                         </TextBox>
                         <Label x:Name="tiempo2" Content="{x:Static local:Lenguaje.labelDay}" Visibility="Hidden" HorizontalAlignment="Left" Margin="143,613,0,0" VerticalAlignment="Top" Width="85" Grid.Column="2"/>
                         <Border x:Name="borderInfobasica_Copy11" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="371,40,0,0" VerticalAlignment="Top" Width="466"/>
-                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="190,211,0,0" VerticalAlignment="Top" Width="47" Height="22" Click="Cerrar_Broadcast" Grid.Column="2"/>
+                        <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Right" Margin="0,210,10,0" VerticalAlignment="Top" Width="50" Height="28" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" BorderThickness="0" Click="Cerrar_Broadcast"/>
                         <Label x:Name="lblPaciente" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ComboBox x:Name="comboPacientesTratamiento" Visibility="Hidden" HorizontalAlignment="Left" Margin="46,291,0,0" VerticalAlignment="Top" Width="259"/>
                         <Label x:Name="lblNombreTratamiento_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTreatNam}" HorizontalAlignment="Left" Margin="49,397,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -2608,32 +2608,32 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEraseNorm}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <GroupBox x:Name="groupBox3_Copy3" Visibility="Hidden" HorizontalAlignment="Left"   Height="473" Margin="950,210,0,0" VerticalAlignment="Top"  Width="370" Background="{StaticResource borderSection}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3">
+                        <GroupBox x:Name="groupBox3_Copy3" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="920,70,10,68" Foreground="{StaticResource letra}" Background="{StaticResource TabColor}" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="PageUpload" Foreground="#FFFDFDFD" />
-                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headSubT}" Foreground="#FFFDFCFC"/>
+                                    <iconPacks:PackIconModern Width="15" Height="15" Kind="PageUpload"/>
+                                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.headSubT}"/>
                                 </StackPanel>
                             </GroupBox.Header>
                         </GroupBox>
-                        <Label x:Name="lblDiagActivo_Copy1"  Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="965,269,-60,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleRemedios" Visibility="Hidden" HorizontalAlignment="Left" Height="87" Margin="965,301,0,0" VerticalAlignment="Top" Width="335" BorderThickness="1" BorderBrush="#FFDCDADA" MouseDoubleClick="ShowTableRemedy" Grid.ColumnSpan="3"/>
-                        <Label x:Name="lblDiagActivo_Copy2" Visibility="Hidden" Content="Analysis" HorizontalAlignment="Left" Margin="965,408,-150,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="965,438,0,0"  VerticalAlignment="Top" Width="335" MouseDoubleClick="ShowTableAna" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
-                        <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="965,543,-60,0" Width="200" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="965,574,0,0"  VerticalAlignment="Top" Width="335" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
-                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="{x:Static local:Lenguaje.headT}" HorizontalAlignment="Left" Margin="380,10,0,0" VerticalAlignment="Top" Height="170" Width="530" Background="{StaticResource borderSection}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3"/>
-                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="{x:Static local:Lenguaje.CerrarDetalles}" HorizontalAlignment="Left" Height="26" Margin="205,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="2"/>
+                        <Label x:Name="lblDiagActivo_Copy1"  Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="930,120,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <ListBox x:Name="detalleRemedios" Visibility="Hidden" HorizontalAlignment="Left" Height="160" Margin="930,150,0,0" VerticalAlignment="Top" Width="335" BorderThickness="1" BorderBrush="#FFDCDADA" MouseDoubleClick="ShowTableRemedy" Grid.ColumnSpan="3"/>
+                        <Label x:Name="lblDiagActivo_Copy2" Visibility="Hidden" Content="Analysis" HorizontalAlignment="Left" Margin="930,320,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="160" Margin="930,350,0,0"  VerticalAlignment="Top" Width="335" MouseDoubleClick="ShowTableAna" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
+                        <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="930,520,0,0" Width="200" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="160" Margin="930,550,0,0"  VerticalAlignment="Top" Width="335" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
+                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="{x:Static local:Lenguaje.headT}" HorizontalAlignment="Left" Margin="380,10,0,0" VerticalAlignment="Top" Height="170" Width="530" Background="{StaticResource TabColor}" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
+                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="{x:Static local:Lenguaje.CerrarDetalles}" HorizontalAlignment="Stretch" Background="{StaticResource Boton2}" Foreground="{StaticResource letraBoton}" Height="50" Margin="920,10,10,0" VerticalAlignment="Top" Click="Cerrar_Detalle"/>
                         <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="400,80,0,0" VerticalAlignment="Top" Width="300" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
                         <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPeriod}" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdGenerarReporte" BorderThickness="0" Background="#708D81" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="75" Margin="740,80,0,0"  VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click">
+                        <Button x:Name="cmdGenerarReporte" BorderThickness="0" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="75" Margin="740,80,0,0"  VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
 
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf" Foreground="Black"/>
-                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCReport}" Foreground="Black"/>
+                                <iconPacks:PackIconModern Width="20" Height="20" Kind="PageFilePdf"/>
+                                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCReport}"/>
                             </StackPanel>
                         </Button>
                         <GroupBox x:Name="tratamencola" Visibility="Hidden" Header="Treatments on hold" HorizontalAlignment="Left" Margin="940,207,0,0" VerticalAlignment="Top" Height="316" Width="542" Background="#CC0050EF" BorderBrush="Silver" Grid.ColumnSpan="3"/>
@@ -2670,7 +2670,7 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <ListView x:Name="ListadoDiagNoActiv" Visibility="Visible" HorizontalAlignment="Left" Height="198" Margin="21,510,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListadoDiagNoActiv_SelectionChanged">
+                        <ListView x:Name="ListadoDiagNoActiv" Visibility="Visible" HorizontalAlignment="Left" Margin="20,510,0,68" VerticalAlignment="Stretch" Width="890" BorderBrush="#FFDCDADA" BorderThickness="1" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListadoDiagNoActiv_SelectionChanged">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tablePat}" DisplayMemberBinding="{Binding paciente}" Width="180px" />
