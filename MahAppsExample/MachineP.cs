@@ -12,7 +12,7 @@ using System.Threading;
 namespace MahAppsExample
 {
     //Uso de la maquina
-    class Machine
+    public class MachineP
     {
         string[] ports; //COMs (Puertos)
         SerialPort port; //Puerto
@@ -23,7 +23,7 @@ namespace MahAppsExample
         //List<string> Copen = new List<string>(); //Listado Copen
 
         //Constructor (Machine)
-        public Machine()
+        public MachineP()
         {
             //Obtiene todos los puertos COM
             ports = SerialPort.GetPortNames();

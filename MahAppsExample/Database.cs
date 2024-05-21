@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace MahAppsExample
 {
-    class Database
+    public class Database
     {
         //Globals
         NpgsqlConnection conn; //Conexion
@@ -766,9 +766,9 @@ namespace MahAppsExample
         }
 
         //Funcion para eliminar un código
-        public void Eliminar_Codigo(string nombre)
+        public void Eliminar_Codigo(string cod, string nombre)
         {
-            sql = "DELETE FROM rad_codigos where codigo LIKE'" + nombre + "'";
+            sql = "DELETE FROM rad_codigos WHERE UPPER(codigo) LIKE '%" + cod + "%' AND UPPER(nombre) LIKE '%" + nombre + "%'";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
@@ -1701,6 +1701,22 @@ namespace MahAppsExample
             ImageConverter _imageConverter = new ImageConverter();
             byte[] xByte = (byte[])_imageConverter.ConvertTo(x, typeof(byte[]));
             return xByte; //Regresa imagen convertida
+        }
+        public DataTable ExisteCodigo(string numero)
+        {
+            sql = "SELECT * FROM rad_codigos WHERE codigo = '" + numero + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
         }
 
         public static bool ExisteCodigo(string codigo, NpgsqlConnection conn)

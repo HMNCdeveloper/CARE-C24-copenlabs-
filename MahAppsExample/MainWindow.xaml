@@ -20,7 +20,11 @@
         <SolidColorBrush x:Key="iconColor" Color="#01997E"/>
         <SolidColorBrush x:Key="borderSection" Color="#5A5C5D"/>
         <SolidColorBrush x:Key="letra" Color="Black"/>
+<<<<<<< HEAD
         <SolidColorBrush x:Key="TabColor" Color="#FFF7F5F5"/>
+=======
+        <SolidColorBrush x:Key="TabColor" Color="#EEE"/>
+>>>>>>> f7bc8d2ab98535bf8df86e16707847bdc5944a8f
         <SolidColorBrush x:Key="TabColorSelec" Color="#307F"/>
         <SolidColorBrush x:Key="Boton" Color="#0A3D6E"/>
         <SolidColorBrush x:Key="Boton2" Color="#2ecc71"/>
@@ -2364,7 +2368,7 @@
 
 
 
-                        <Button x:Name="cmdNuevoCod_Copy" BorderThickness="0" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" ToolTip="{x:Static local:Lenguaje.btnGetRate}" HorizontalAlignment="Center" Height="32" Margin="0 123" VerticalAlignment="Top" Width="137" Click="cmdNuevoCod_Copy_Click" Grid.Column="1">
+                        <Button x:Name="cmdNuevoCod_Copy" BorderThickness="0" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" ToolTip="{x:Static local:Lenguaje.btnGetRate}" HorizontalAlignment="Center" Height="32" Margin="0 123" VerticalAlignment="Top" Width="137" Click="ShowRate" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -2396,12 +2400,8 @@
                         </Border>
                     </TabItem.Header>
                     <Grid >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="587*"/>
-                            <ColumnDefinition Width="35*"/>
-                            <ColumnDefinition Width="144*"/>
-                        </Grid.ColumnDefinitions>
-                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top" Height="170" Width="342" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="#5A5C5D" FontWeight="Bold">
+                        
+                        <GroupBox x:Name="groupBox3_Copy1" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Height="170" Width="340" Background="{StaticResource TabColor}" Foreground="{StaticResource letra}" BorderBrush="#5A5C5D" FontWeight="Bold">
                             <Border Background="{StaticResource boxBack}" Height="200"   />
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
@@ -2458,7 +2458,7 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEraseNorm}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="215" Margin="22,253,0,0" VerticalAlignment="Top" Width="893" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
+                        <ListView x:Name="ListadoDiagActivos" Visibility="Visible" HorizontalAlignment="Left" Height="215" Margin="20,250,0,0" VerticalAlignment="Top" Width="890" BorderBrush="#FFDCDADA" BorderThickness="1" MouseDoubleClick="ListadoDiagActivos_MouseDoubleClick" RenderTransformOrigin="0.5,0.5" Initialized="ListadoDiagActivos_Initialized" GotFocus="ListadoDiagActivos_GotFocus" >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Paciente" DisplayMemberBinding="{Binding paciente}" Width="150px" />
@@ -2626,11 +2626,11 @@
                         <ListBox x:Name="detalleAnalisis" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="965,438,0,0"  VerticalAlignment="Top" Width="335" MouseDoubleClick="ShowTableAna" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
                         <Label x:Name="lblDiagActivo_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.headRemedies}" HorizontalAlignment="Left" Margin="965,543,-60,0" Width="200" VerticalAlignment="Top" FontWeight="Bold"/>
                         <ListBox x:Name="detalleCodigosIndiv" Visibility="Hidden" HorizontalAlignment="Left" Height="85" Margin="965,574,0,0"  VerticalAlignment="Top" Width="335" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
-                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="{x:Static local:Lenguaje.headT}" HorizontalAlignment="Left" Margin="950,45,0,0" VerticalAlignment="Top" Height="170" Width="370" Background="{StaticResource borderSection}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3"/>
-                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Height="26" Margin="205,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="2"/>
-                        <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="965,116,0,0" VerticalAlignment="Top" Width="200" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
-                        <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Width="300" Content="{x:Static local:Lenguaje.labelPeriod}" HorizontalAlignment="Left" Margin="965,86,-500,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Button x:Name="cmdGenerarReporte" BorderThickness="0" Background="#708D81" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="55" Margin="92,135,0,0"  VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click" Grid.Column="2">
+                        <GroupBox x:Name="groupBox3_Copy4" Visibility="Hidden" Header="{x:Static local:Lenguaje.headT}" HorizontalAlignment="Left" Margin="380,10,0,0" VerticalAlignment="Top" Height="170" Width="530" Background="{StaticResource borderSection}" BorderBrush="{StaticResource borderSection}" Grid.ColumnSpan="3"/>
+                        <Button x:Name="cerrarDetalle" Visibility="Hidden" Content="{x:Static local:Lenguaje.CerrarDetalles}" HorizontalAlignment="Left" Height="26" Margin="205,46,0,0" VerticalAlignment="Top" Width="32" Click="Cerrar_Detalle" Grid.Column="2"/>
+                        <ListBox x:Name="detalleAsociados" Visibility="Hidden" HorizontalAlignment="Left" Height="75" Margin="400,80,0,0" VerticalAlignment="Top" Width="300" BorderThickness="1" BorderBrush="#FFDCDADA" Grid.ColumnSpan="3"/>
+                        <Label x:Name="lblDiagActivo_Copy"  Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPeriod}" HorizontalAlignment="Left" Margin="400,50,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Button x:Name="cmdGenerarReporte" BorderThickness="0" Background="#708D81" Visibility="Hidden" ToolTip="Create Broadcasting Report" HorizontalAlignment="Left" Height="75" Margin="740,80,0,0"  VerticalAlignment="Top" Width="135" Click="cmdGenerarReporte_Click">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>

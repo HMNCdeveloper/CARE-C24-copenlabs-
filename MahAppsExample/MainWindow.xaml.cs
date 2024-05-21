@@ -46,7 +46,7 @@ namespace MahAppsExample
     /// </summary>
     public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
-        Machine obj = new Machine(); //Objeto clase Machine
+        MachineP obj = new MachineP(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
 
         //Listado Heredo
@@ -10008,15 +10008,84 @@ namespace MahAppsExample
             }
         }
 
+        public void CargarCodigos()
+        {
+            ClearData(listadoCodigos_Copy);
+            listadoCodigos_Copy.Items.Clear();
+            Categorias_Codigos2.Clear(); //Limpia los codigos guardados
+
+            if (listadoSubcategorias_Copy.SelectedItem != null)
+            {
+                try
+                {
+                    HacerConexion();
+                    object id_categoria = obj2.BuscarCategoriasCodigos(listadoCategorias_Copy.SelectedItem.ToString());
+
+                    object id_subcategoria = obj2.BuscarCategoriasCodigosSub(listadoSubcategorias_Copy.SelectedItem.ToString(), id_categoria.ToString());
+
+                    DataTable Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
+
+                    if (Codigos.Rows.Count == 0)
+                    {
+                        Codigos = obj2.VisualizarSubCategoriasCodigosListado(id_subcategoria.ToString(), "T");
+                    }
+
+                    // Crear un nuevo DataTable
+                    DataTable dtc = new DataTable();
+                    dtc.Columns.Add("Id", typeof(string));
+                    dtc.Columns.Add("Nombre", typeof(string));
+                    dtc.Columns.Add("Categoria", typeof(string));
+                    dtc.Columns.Add("SubCategoria", typeof(string));
+
+                    // Llenar el DataTable con los datos de Codigos
+                    for (int y = 0; y < Codigos.Rows.Count; y++)
+                    {
+                        if (!string.IsNullOrEmpty(Codigos.Rows[y][1].ToString()))
+                        {
+                            string id = Codigos.Rows[y][1].ToString();
+                            string nombre = Codigos.Rows[y][2].ToString();
+                            string catego = obj2.Categoria(id_categoria.ToString());
+                            string subcat = listadoSubcategorias_Copy.SelectedItem.ToString();
+                            // Agregar una nueva fila al DataTable
+                            dtc.Rows.Add(nombre, id, catego, subcat);
+
+                            // Guardar el código
+                            Categorias_Codigos2.Add(id);
+                        }
+                    }
+
+                    // Establecer el DataTable como origen de datos para la ListView
+                    listadoCodigos_Copy.ItemsSource = dtc.DefaultView;
+
+                    // Asignar el DataTable como origen de datos para la ListView
+                    listadoCodigos_Copy.ItemsSource = dtc.AsDataView();
+
+                    lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " + obtenerRecurso("labelSubCat");
+                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
+
+
+                    CerrarConexion();
+                }
+                catch (NullReferenceException)
+                {
+                    // MessageBox.Show("Por favor seleccione una categoría primero!", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
         private void cmdNuevoCod_Click(object sender, RoutedEventArgs e)
         {
             //Duplicar el remedio
+            string codigo; int codigo_num;
+            //string description;
             string nombre_codigo = Interaction.InputBox(obtenerRecurso("inputMessage2"), obtenerRecurso("inputHeadMessage1"), "", 300, 300);
 
             if (nombre_codigo != "")
             {
                 try
                 {
+                    codigo = Interaction.InputBox("Rate", "New Rate", "", 300, 300);
+                    codigo_num = Int32.Parse(codigo);
 
                     // description = Interaction.InputBox("Description - (OPTIONAL)", "New Rate", "", 300, 300);
                     HacerConexion();
@@ -10029,31 +10098,55 @@ namespace MahAppsExample
 
                     if (listadoSubcategorias_Copy.SelectedItem != null)
                     {
-
-                        Console.WriteLine(listadoSubcategorias_Copy.SelectedItem.ToString());
                         //Categoria padre
                         string id_cat_pad = obj2.Obtener_IDCategoria(listadoCategorias_Copy.SelectedItem.ToString()).ToString();
 
                         //Subcategoria
                         string id_subcat = obj2.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
-                        Console.WriteLine(id_subcat);
+
+
 
                         object genero_para_codigo = "T";
 
-                        obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, obj2.Generarcodigo(), "-", id_subcat, id_cat_pad, genero_para_codigo.ToString());
+                        DataTable codigoRepetido = obj2.ExisteCodigo(codigo);
 
-                        //Cargar_Codigos(id_categoria_padre, id_categoria_cop); //Carga los codigos actualizados con el agregado
-                        listadoSubcategorias_Copy.Items.Clear();
-                        ClearData(listadoCodigos_Copy);
-                        listadoCodigos_Copy.Items.Clear();
-                        Categorias_Codigos2.Clear();
+                        if (codigoRepetido.Rows.Count == 0)
+                        {
+                            obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "-", id_subcat, id_cat_pad, genero_para_codigo.ToString());
+                            CargarCodigos();
+                            CustomMessageBox custom = new CustomMessageBox();
+                            custom.Message = obtenerRecurso("rateRegistrado");
+                            custom.ShowDialog();
+                        }
+                        else
+                        {
+                            HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CodigoDuplicado"), obtenerRecurso("TituloCreacion"));
+
+                            bool? result = customMessageBoxYesNo.ShowDialog();
+
+                            if (result.HasValue && result.Value)
+                            {
+                                obj2.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), "-", id_subcat, id_cat_pad, genero_para_codigo.ToString());
+                                CargarCodigos();
+                                CustomMessageBox custom = new CustomMessageBox();
+                                custom.Message = obtenerRecurso("rateRegistrado");
+                                custom.ShowDialog();
+                            }
+                            else
+                            {
+                                CustomMessageBox custom = new CustomMessageBox();
+                                custom.Message = obtenerRecurso("rateNoRegistrado");
+                                custom.ShowDialog();
+                            }
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show(obtenerRecurso("messageError25"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
                     }
-                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
+                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
                     CerrarConexion();
                 }
                 catch (FormatException)
@@ -10066,43 +10159,72 @@ namespace MahAppsExample
                 MessageBox.Show(obtenerRecurso("messageError24"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void ShowRate(object sender, RoutedEventArgs e)
+        {
+
+            if (listadoSubcategorias_Copy.SelectedItem != null)
+            {
+                Rates rate = new Rates(obj2, obj, CargarCodigos, obtenerRecurso, listadoCategorias_Copy, listadoSubcategorias_Copy, listadoCodigos_Copy, lblCodigosCont);
+                rate.Owner = this;
+                rate.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+
+            }
+
+        }
 
         private void cmdBorrarCod_Click(object sender, RoutedEventArgs e)
         {
-            //Seleccionar el elemento a eliminar
-            try
+            HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("EraseRateContent"), obtenerRecurso("EraseRateTitle"));
+
+            bool? result = customMessageBoxYesNo.ShowDialog();
+
+            if (result.HasValue && result.Value)
             {
-                DataRowView rowView = (DataRowView)listadoCodigos_Copy.SelectedItem;
-
-                DataTable dataTable = new DataTable();
-
-                // Agregar columnas al DataTable
-                foreach (DataColumn column in rowView.Row.Table.Columns)
+                try
                 {
-                    dataTable.Columns.Add(column.ColumnName, column.DataType);
+                    DataRowView rowView = (DataRowView)listadoCodigos_Copy.SelectedItem;
+
+                    DataTable dataTable = new DataTable();
+
+                    // Agregar columnas al DataTable
+                    foreach (DataColumn column in rowView.Row.Table.Columns)
+                    {
+                        dataTable.Columns.Add(column.ColumnName, column.DataType);
+                    }
+
+                    // Agregar la fila de DataRowView al DataTable
+                    dataTable.ImportRow(rowView.Row);
+
+                    string cod_borrar = dataTable.Rows[0][0].ToString().ToUpper();
+                    string nom_borrar = dataTable.Rows[0][1].ToString().ToUpper();
+
+
+                    //Eliminar objeto
+                    HacerConexion();
+
+                    obj2.Eliminar_Codigo(cod_borrar, nom_borrar);
+                    //obj2.Eliminar_CodigosCategorias()
+
+                    CerrarConexion();
+                    CargarCodigos();
+                }
+                catch (NullReferenceException)
+                {
+                    //MessageBox.Show("Please select a!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 }
 
-                // Agregar la fila de DataRowView al DataTable
-                dataTable.ImportRow(rowView.Row);
-
-                string elemento_borrar = dataTable.Rows[0][0].ToString();
-                Console.WriteLine(elemento_borrar);
-
-
-                //Eliminar objeto
-                HacerConexion();
-
-                obj2.Eliminar_Codigo(elemento_borrar);
-                //obj2.Eliminar_CodigosCategorias()
-
-                CerrarConexion();
-                Cargar_Codigos(id_categoria_padre, id_categoria_cop);
             }
-            catch (NullReferenceException)
+            else
             {
-                //MessageBox.Show("Please select a!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+
+
         }
 
         private void cmdEliminarCodComp_Click(object sender, RoutedEventArgs e)
@@ -13811,7 +13933,7 @@ namespace MahAppsExample
         {
             if(ListadoDiagActivos.Items.Count != 0 || ListadoDiagNoActiv.Items.Count != 0)
             {
-                HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CancelarTratamientoDistancia"));
+                HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CancelarTratamientoDistancia"),"");
 
                 bool? result = customMessageBoxYesNo.ShowDialog();
 

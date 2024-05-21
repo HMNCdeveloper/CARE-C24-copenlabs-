@@ -251,6 +251,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Radionica.cs" />
+    <Compile Include="Rates.xaml.cs">
+      <DependentUpon>Rates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Remedio.xaml.cs">
       <DependentUpon>Remedio.xaml</DependentUpon>
     </Compile>
@@ -298,12 +301,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Database.cs" />
-    <Compile Include="Machine.cs" />
+    <Compile Include="MachineP.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Analisis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

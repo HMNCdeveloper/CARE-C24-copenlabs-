@@ -166,7 +166,7 @@
     <value>Nuevo  Analisis</value>
   </data>
   <data name="btnCancel" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>CANCELAR</value>
   </data>
   <data name="btnCopy" xml:space="preserve">
     <value>COPIAR</value>
@@ -321,6 +321,9 @@
   <data name="Categories" xml:space="preserve">
     <value>Categorias</value>
   </data>
+  <data name="CerrarDetalles" xml:space="preserve">
+    <value>Cerrar detalles</value>
+  </data>
   <data name="Chest" xml:space="preserve">
     <value>Pecho</value>
   </data>
@@ -350,6 +353,9 @@
   </data>
   <data name="Forehead" xml:space="preserve">
     <value>Frente</value>
+  </data>
+  <data name="genRate" xml:space="preserve">
+    <value>Generate Id desde el instrument</value>
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Glande (término médico)</value>
@@ -1446,6 +1452,12 @@
   <data name="String" xml:space="preserve">
     <value>Reporte del Tratamiento - HS6</value>
   </data>
+  <data name="tabDec" xml:space="preserve">
+    <value>Decreto</value>
+  </data>
+  <data name="tabIns" xml:space="preserve">
+    <value>Instrumento</value>
+  </data>
   <data name="tableBegTime" xml:space="preserve">
     <value>INICIANDO TIEMPO</value>
   </data>
@@ -1515,6 +1527,9 @@
   <data name="tableValue" xml:space="preserve">
     <value>Valor</value>
   </data>
+  <data name="tabText" xml:space="preserve">
+    <value>Texto</value>
+  </data>
   <data name="Throat" xml:space="preserve">
     <value>Garganta</value>
   </data>
@@ -1535,6 +1550,12 @@
   </data>
   <data name="txtMessage6" xml:space="preserve">
     <value>GUADANDO TARJETA ECS...</value>
+  </data>
+  <data name="typeDec" xml:space="preserve">
+    <value>Escribe el decreto aqui...</value>
+  </data>
+  <data name="typeText" xml:space="preserve">
+    <value>Escribe el texto aqui...</value>
   </data>
   <data name="Umbilicus" xml:space="preserve">
     <value>Ombligo</value>
