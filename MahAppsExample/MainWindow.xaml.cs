@@ -762,6 +762,7 @@ namespace MahAppsExample
 
                 reporte.Add(table_codigos);
                 reporte.Close();
+                MessageBox.Show("The report was created successfully","Information",MessageBoxButton.OK,MessageBoxImage.None);
 
             }
         }
@@ -2706,10 +2707,9 @@ namespace MahAppsExample
             cmdGuardarTarjeta.IsEnabled = true;
             cmdEnviarFrecuencia.IsEnabled = true;
             cmdDocumento.IsEnabled = true;
-<<<<<<< HEAD
+
             //cmdEliminarCodigosNoSensados.IsEnabled = true;
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
+
 
             //SECCION DE LOS CODIGOS
             lblCategorias.Visibility = Visibility.Hidden;
@@ -2743,10 +2743,8 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
-<<<<<<< HEAD
+
             //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -3349,10 +3347,9 @@ namespace MahAppsExample
                 cmdGuardarTarjeta.Visibility = Visibility.Visible;
                 cmdEnviarFrecuencia.Visibility = Visibility.Visible;
                 cmdDocumento.Visibility = Visibility.Visible;
-<<<<<<< HEAD
+
                 //cmdEliminarCodigosNoSensados.Visibility = Visibility.Visible;
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
+
                 optionSugerirNiv.Visibility = Visibility.Visible;
                 optionSugerirPot.Visibility = Visibility.Visible;
 
@@ -3435,10 +3432,8 @@ namespace MahAppsExample
         void Panel_opciones()
         {
             //Desactivar boton de (Codigos no sensados)
-<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.IsEnabled = true;
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
+
             listadoCategorias.SelectedIndex = -1;
             listadoSubcategorias.SelectedIndex = -1;
             listadoCodigos.SelectedIndex = -1;
@@ -3876,10 +3871,8 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
-<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
+
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -4500,10 +4493,8 @@ namespace MahAppsExample
 
             lblContCodigos.Content = ListaCodigos.Items.Count.ToString(); //Actualizamos el contador
 
-<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.IsEnabled = false; //Desactivar el boton
-=======
->>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
+
         }
 
         //Cargar los remedios
@@ -4532,7 +4523,7 @@ namespace MahAppsExample
                 }
                 else
                 {
-                    checkOpcion1.IsChecked = false;
+                    
                     checkOpcion2.IsChecked = false;
                     checkOpcion3.IsChecked = false;
                     letra = ((ComboBoxItem)comboCategoriasRemedios.SelectedItem).Content.ToString();
@@ -4795,6 +4786,7 @@ namespace MahAppsExample
 
                     //opcionesHomoeonic.SelectedIndex = 2; 
                     CerrarConexion();
+                    MessageBox.Show(nombre_remedio_diagnostico+" was saved such as a remedy", "Information", MessageBoxButton.OK,MessageBoxImage.Information);
                 }
                 else
                 {
@@ -5965,7 +5957,7 @@ namespace MahAppsExample
                         //minutos_tratamiento -= 1; //Baja un minuto para coincidir valor
                         //Mostrar tiempo
 
-                        if (minutos_tratamiento != 0 || minutos_tratamiento != -1)
+                        if (minutos_tratamiento != 0 && minutos_tratamiento != -1)
                         {
                             //cmdTratamientoDirecto.IsEnabled = false;
                             opcionesHomoeonic.IsEnabled = false;
@@ -6011,7 +6003,7 @@ namespace MahAppsExample
                     }
                     catch (FormatException)
                     {
-                        //MessageBox.Show("Please type a numeric value only!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Please type a numeric value only!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -11625,7 +11617,7 @@ namespace MahAppsExample
         {
             try
             {
-                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Analysis")
+                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == obtenerRecurso("MenuAnalysis"))
                 {
                     if (txtNombreTratamiento_Copy.Text != "")
                     {
@@ -11663,7 +11655,7 @@ namespace MahAppsExample
                     }
                 }
 
-                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Remedy")
+                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == obtenerRecurso("labelRemedy"))
                 {
                     ClearDataLb(Remedy2);
                     Remedy2.SelectedIndex = -1;
@@ -11673,7 +11665,7 @@ namespace MahAppsExample
                         // Busqueda activada
                         busqueda = true;
 
-                        Remedy2.Items.Clear();
+                        Remedy1.Items.Clear();
 
                         HacerConexion();
 
@@ -11683,15 +11675,8 @@ namespace MahAppsExample
                         {
                             if (!string.IsNullOrEmpty(Codigos.Rows[y][0].ToString()))
                             {
-                                string id = Codigos.Rows[y][0].ToString();
-                                string nombre = Codigos.Rows[y][1].ToString();
-
-                                // Crear un nuevo objeto ListBoxItem con la concatenación de id y nombre
-                                ListBoxItem item = new ListBoxItem();
-                                item.Content = id + ", " + nombre;
-
                                 // Agregar el ListBoxItem a la ListBox
-                                Remedy2.Items.Add(item);
+                                Remedy1.Items.Add(Codigos.Rows[y][0].ToString());
                             }
                         }
 
@@ -11701,7 +11686,7 @@ namespace MahAppsExample
                     }
                 }
 
-                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == "Rate")
+                if (((ComboBoxItem)comboTipoTratamiento.SelectedItem).Content.ToString() == obtenerRecurso("labelRate"))
                 {
 
                     listCategoriasTrat.SelectedIndex = -1;
@@ -13631,10 +13616,20 @@ namespace MahAppsExample
                     id_generado = obj_1.Generar_Id();
                 }
                 CerrarConexion();
+                MessageBox.Show(
+                    "All changes were saved succesfully",
+                    "Information",
+                     MessageBoxButton.OK,
+                     MessageBoxImage.Information);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //MessageBox.Show(ex.ToString());
+                MessageBox.Show(
+                    "first you must asign value to potency, method or level if every rate don't have it",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
             }
         }
 
