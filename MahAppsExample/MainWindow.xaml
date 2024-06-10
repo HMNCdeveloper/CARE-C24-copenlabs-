@@ -2455,10 +2455,17 @@
                                     <GridViewColumn Header="Fecha de Inicio" DisplayMemberBinding="{Binding inicio}" Width="150px"/>
                                     <GridViewColumn Header="Duración" DisplayMemberBinding="{Binding duracion}" Width="130px"/>
                                     <GridViewColumn Header="Tiempo Restante" DisplayMemberBinding="{Binding tfaltante}" Width="150px"/>
-                                    <GridViewColumn Header="Progreso" Width="150">
+                                    <GridViewColumn Header="Progreso" Width="160">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <ProgressBar Value="{Binding progreso}" Width="140" Height="20" Maximum="{Binding maximo}"/>
+                                                <ProgressBar Value="{Binding progreso}" Width="140" Height="20" Maximum="{Binding maximo}">
+                                                    <ProgressBar.Style>
+                                                        <Style TargetType="ProgressBar">
+                                                            <Setter Property="Foreground" Value="Red"/>
+                                                            <!-- Aquí puedes establecer el color que desees -->
+                                                        </Style>
+                                                    </ProgressBar.Style>
+                                                </ProgressBar>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -2535,23 +2542,23 @@
                             <ComboBoxItem Content="Simple"/>
                             <ComboBoxItem Content="{x:Static local:Lenguaje.valPe}"/>
                         </ComboBox>
-                        <Label x:Name="lblNombreTratamiento_Copy7" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelEvery}" HorizontalAlignment="Left" Margin="1000,587,-50,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBox x:Name="txtcantidad1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="999,613,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54" Grid.ColumnSpan="2">
+                        <Label x:Name="lblNombreTratamiento_Copy7" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelEvery}" HorizontalAlignment="Left" Margin="990,587,-50,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBox x:Name="txtcantidad1" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="990,613,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54" Grid.ColumnSpan="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <ComboBox x:Name="tiempo1" Visibility="Hidden" HorizontalAlignment="Left" Margin="45,613,0,0" VerticalAlignment="Top" Width="85" Grid.ColumnSpan="2" Grid.Column="1">
+                        <ComboBox x:Name="tiempo1" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,613,150,0" VerticalAlignment="Top" Width="85" Grid.Column="1">
                             <ComboBoxItem Content="Minute(s)"/>
                             <ComboBoxItem Content="Hour(s)"/>
                         </ComboBox>
-                        <Label x:Name="lblNombreTratamiento_Copy8" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDuring}" HorizontalAlignment="Left" Margin="74,587,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
-                        <TextBox x:Name="txtcantidad2" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="80,613,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54" Grid.Column="2">
+                        <Label x:Name="lblNombreTratamiento_Copy8" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelDuring}" HorizontalAlignment="Right" Margin="0,587,90,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="2"/>
+                        <TextBox x:Name="txtcantidad2" Visibility="Hidden" HorizontalAlignment="Right" Height="23" Margin="80,613,80,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="54" Grid.Column="2">
                             <TextBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </TextBox.Effect>
                         </TextBox>
-                        <Label x:Name="tiempo2" Content="{x:Static local:Lenguaje.labelDay}" Visibility="Hidden" HorizontalAlignment="Left" Margin="143,613,0,0" VerticalAlignment="Top" Width="85" Grid.Column="2"/>
+                        <Label x:Name="tiempo2" Content="{x:Static local:Lenguaje.labelDay}" Visibility="Hidden" HorizontalAlignment="Right" Margin="143,613,-10,0" VerticalAlignment="Top" Width="85" Grid.Column="2"/>
                         <Border x:Name="borderInfobasica_Copy11" Visibility="Hidden" BorderBrush="#FFE4E0E0" BorderThickness="1" HorizontalAlignment="Left" Height="143" Margin="371,40,0,0" VerticalAlignment="Top" Width="466"/>
                         <Button x:Name="cmdCerrarBroadcast" Visibility="Hidden" Content="X" HorizontalAlignment="Right" Margin="0,210,10,0" VerticalAlignment="Top" Width="50" Height="28" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" BorderThickness="0" Click="Cerrar_Broadcast"/>
                         <Label x:Name="lblPaciente" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelPmin}" HorizontalAlignment="Left" Margin="45,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
