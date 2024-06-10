@@ -721,6 +721,12 @@ namespace MahAppsExample
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
+        public object Obtener_IDPadre(string id_paciente, string nombre_paciente, string nombre_tratamiento)
+        {
+            sql = "SELECT idpadre FROM rad_tratamientosadistancia where idpaciente=$$" + id_paciente + "$$ and nombrepaciente=$$" + nombre_paciente + "$$ and nombre=$$" + nombre_tratamiento + "$$";
+            command = new NpgsqlCommand(sql, conn);
+            return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
+        }
 
         //Funcion para obtener los codigos de un tratamiento 
         public DataTable CodigosTratamiento(string idt)
@@ -1666,6 +1672,151 @@ namespace MahAppsExample
             // connect grid to DataTable
             return dt;
         }
+
+        public DataTable ExisteRemedio(string columnName, string value)
+        {
+            // Lista de nombres de columnas permitidos
+            var validColumns = new HashSet<string> { "idr", "nombre", "codigo" }; // Agrega los nombres de columna válidos
+
+            if (!validColumns.Contains(columnName))
+                throw new ArgumentException("Nombre de columna no válido");
+
+            // Construir la consulta SQL de forma segura
+            string sql = $"SELECT * FROM rad_remedios WHERE UPPER({columnName}) LIKE @value";
+
+            using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+            {
+                // Agregar el valor del parámetro con comodines para el LIKE
+                cmd.Parameters.Add(new NpgsqlParameter("@value", "%" + value.ToUpper() + "%"));
+
+                using (NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd))
+                {
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    return ds.Tables[0];
+                }
+            }
+        }
+        public DataTable Obtener_Remedios(string nombre)
+        {
+            sql = "SELECT idr FROM rad_remedios WHERE nombre = '" + nombre + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
+        public DataTable Obtener_CodRemedios(string nombre)
+        {
+            sql = "SELECT * FROM rad_codigosderemedios WHERE idr = '" + nombre + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
+        public DataTable ExisteCodigoRemedio(string codigo)
+        {
+            sql = "SELECT idcr FROM rad_codigosderemedios WHERE idcr = '" + codigo + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
+        public DataTable idPaciente(string nombre)
+        {
+            sql = "SELECT idp FROM rad_pacientes WHERE nombre || ' ' || apellido1 || ' ' || apellido2 = '" + nombre + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
+        public void RegistrarRemedio(string idr, string nombre, string idpaciente, string nombrepaciente, string idanalisis, string nombreanalisis, DateTime fechac, string codigo)
+        {
+            string sql = "INSERT INTO rad_remedios(idr, nombre, idpaciente, nombrepaciente, idanalisis, nombreanalisis, fechac, codigo) " +
+                         "VALUES (@idr, @nombre, @idpaciente, @nombrepaciente, @idanalisis, @nombreanalisis, @fechac, @codigo)";
+
+            using (NpgsqlCommand command = new NpgsqlCommand(sql, conn))
+            {
+                command.Parameters.AddWithValue("@idr", idr);
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@idpaciente", idpaciente);
+                command.Parameters.AddWithValue("@nombrepaciente", nombrepaciente);
+                command.Parameters.AddWithValue("@idanalisis", idanalisis);
+                command.Parameters.AddWithValue("@nombreanalisis", nombreanalisis);
+                command.Parameters.AddWithValue("@fechac", fechac);
+                command.Parameters.AddWithValue("@codigo", codigo);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        public void RegistrarCodigoRemedio(string idcr, string idr, string codigo, string codigocomplementario, string nombrecodigo, string idcodigo, double potencia, string metodo, string nivel)
+        {
+            string sql = "INSERT INTO rad_codigosderemedios(idcr, idr, codigo, codigocomplementario, nombrecodigo, idcodigo, potencia, metodo, nivel) VALUES (@idcr, @idr, @codigo, @codigocomplementario, @nombrecodigo, @idcodigo, @potencia, @metodo, @nivel)";
+
+            using (NpgsqlCommand command = new NpgsqlCommand(sql, conn))
+            {
+                command.Parameters.AddWithValue("@idcr", idcr);
+                command.Parameters.AddWithValue("@idr", idr);
+                command.Parameters.AddWithValue("@codigo", codigo);
+                command.Parameters.AddWithValue("@codigocomplementario", codigocomplementario);
+                command.Parameters.AddWithValue("@nombrecodigo", nombrecodigo);
+                command.Parameters.AddWithValue("@idcodigo", idcodigo);
+                command.Parameters.AddWithValue("@potencia", potencia);
+                command.Parameters.AddWithValue("@metodo", metodo);
+                command.Parameters.AddWithValue("@nivel", nivel);
+
+
+                command.ExecuteNonQuery();
+            }
+        }
+        public DataTable ExisteIdCodigoRemedio(string codigo)
+        {
+            sql = "SELECT idcr FROM rad_codigosderemedios WHERE idcodigo = '" + codigo + "'";
+
+            // data adapter making request from our connection
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
+            // i always reset DataSet before i do
+            // something with it.... i don't know why :-)
+            ds.Reset();
+            // filling DataSet with result from NpgsqlDataAdapter
+            da.Fill(ds);
+            // since it C# DataSet can handle multiple tables, we will select first
+            dt = ds.Tables[0];
+            // connect grid to DataTable
+            return dt;
+        }
+
 
 
         public static string db = "rad_es";

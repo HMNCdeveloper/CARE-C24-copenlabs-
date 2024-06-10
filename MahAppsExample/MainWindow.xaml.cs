@@ -4617,24 +4617,7 @@ namespace MahAppsExample
 
                 //Verifica si el remedio no proviene de un analisis
 
-                verificacion_remedio_de_analisis = obj2.Obtener_IdRemediosCodigos(id_remedio.ToString());
-
-                if (verificacion_remedio_de_analisis.ToString() != "")
-                {
-                    DataTable CodigosdeRemedio_Analisis = obj2.VisualizarCodigos_Remedios_de_Analisis(verificacion_remedio_de_analisis.ToString());
-                    for (int i = 0; i <= CodigosdeRemedio_Analisis.Rows.Count - 1; i++)
-                    {
-                        ListaRemedios.Items.Add(new nuevoRemedio { nombrecodigo = CodigosdeRemedio_Analisis.Rows[i][1].ToString(), codigo = CodigosdeRemedio_Analisis.Rows[i][0].ToString(), nivel = CodigosdeRemedio_Analisis.Rows[i][2].ToString(), metodo = "R", potencia = "1", codigocomplementario = "-" });
-
-                    }
-
-                    //Borramos de codigos de analisis
-                    //obj2.Eliminar_CodigosAnalisis(verificacion_remedio_de_analisis.ToString());
-                    obj2.Alterar_IdAnalisis("", nombre);
-                    Salvar_Remedio(); //Salvar remedio
-                }
-                else
-                {
+                
                     //Obtener codigos de remedios en base a id remedio
                     DataTable CodigosdeRemedios = obj2.VisualizarCodigos_Remedios_IdRemedio(id_remedio.ToString());
 
@@ -4645,7 +4628,7 @@ namespace MahAppsExample
                     }
 
                     // ListaRemedios.ItemsSource = CodigosdeRemedios.DefaultView; //Carga los codigos
-                }
+               
                 //Introduce detalles de los remedios
                 lblNombreRemedioResp.Content = listadoRemedios.SelectedItem.ToString();
                 lblFechaRemedioResp.Content = obj2.Buscar_Fecha_Remedio(listadoRemedios.SelectedItem.ToString()).ToString(); //Introduce fecha del remedio
@@ -4745,54 +4728,180 @@ namespace MahAppsExample
         //Crear remedio en base a diagnostico
         private void cmdHacerRemedios_Click(object sender, RoutedEventArgs e)
         {
-            //Mandamos salvar lo de la ListaCodigos
-            Guarda_Diagnostico();
-
-            //Nombre del remedio
             string nombre_remedio_diagnostico;
-
-            nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), "Name", obtenerRecurso("messageHeadQ3") + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
-
-            if (nombre_remedio_diagnostico == "")
+            nombre_remedio_diagnostico = Interaction.InputBox(obtenerRecurso("messageQuestion3"), "Name", obtenerRecurso("messageHeadQ3") + " " + lblPacienteAnalisis_P1.Content.ToString(), 300, 300);
+            List<string> columnas = new List<string> { "idr", "nombre", "codigo" };
+            if (string.IsNullOrWhiteSpace(nombre_remedio_diagnostico))
             {
                 MessageBox.Show(obtenerRecurso("messageError39"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                //Grabar registro en bd del inicio del remedio va a tabla rad_remedios
                 HacerConexion();
-
-                object val_remedio = obj2.Obtener_Id_Remedio(nombre_remedio_diagnostico);
-
-                //Si no esta continuar..
-                if (val_remedio == null)
+                DataTable remedios = obj2.ExisteRemedio(columnas[1], nombre_remedio_diagnostico);
+                if (remedios.Rows.Count == 0)
                 {
-                    Random rdm = new Random();
+                    string fecha = lblFechaAnalisis3.Content.ToString();
+                    fecha = fecha.Replace("a. m.", "AM").Replace("p. m.", "PM");
+                    DateTime dateTime = DateTime.ParseExact(fecha, "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                    DataTable dataTable = obj2.idPaciente(lblNombre_Anal1.Content.ToString());
+                    Console.WriteLine(dataTable.Rows[0][0].ToString());
+                    string idr_temporal = idrRepetido();
+                    obj2.RegistrarRemedio(idr_temporal, nombre_remedio_diagnostico, dataTable.Rows[0][0].ToString(), lblNombre_Anal1.Content.ToString(), lblPacientes.Content.ToString(), lblPacienteAnalisis_P1.Content.ToString(), dateTime, codigoRepetidoRemedio());
+                    CargarListadoRemedios();
 
-                    object id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
-                    object id_paciente_nombrecompleto = obj2.Obtener_IdPaciente_NombreCompleto(lblNombre_Anal1.Content.ToString());
+                    // Crear DataTable con las mismas columnas que el ListView
+                    DataTable dataTableCodigos = new DataTable();
+                    dataTableCodigos.Columns.Add("Rate", typeof(string));
+                    dataTableCodigos.Columns.Add("Nombre", typeof(string));
+                    dataTableCodigos.Columns.Add("Value", typeof(string));
+                    dataTableCodigos.Columns.Add("Levels", typeof(string));
+                    dataTableCodigos.Columns.Add("SLevels", typeof(string));
+                    dataTableCodigos.Columns.Add("Potencia", typeof(string));
+                    dataTableCodigos.Columns.Add("SugestP", typeof(string));
 
-                    string id_remedio_generado = rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
-                         rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
-                          rdm.Next(0, 9).ToString() + "-" + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
-                         rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
-                          rdm.Next(0, 9).ToString();
+                    // Pasar los elementos de la ListView al DataTable
+                    foreach (var item in ListaCodigos.Items)
+                    {
+                        // Suponiendo que item es del tipo correspondiente a los elementos que agregas a tu ListView
+                        DataRow row = dataTableCodigos.NewRow();
+                        row["Rate"] = ObtenerValor(item, "rates");
+                        row["Nombre"] = ObtenerValor(item, "nombre");
+                        row["Value"] = ObtenerValor(item, "ftester");
+                        row["Levels"] = ObtenerValor(item, "niveles");
+                        row["SLevels"] = ObtenerValor(item, "nsugerido");
+                        row["Potencia"] = ObtenerValor(item, "potencia");
+                        row["SugestP"] = ObtenerValor(item, "potenciaSugeridad");
+                        dataTableCodigos.Rows.Add(row);
+                    }
 
-                    //Crear registro de remedio proveniente de diagnostico
-                    obj2.Registrar_Remedio_Diagnostico(id_remedio_generado, nombre_remedio_diagnostico, id_paciente_nombrecompleto.ToString(), lblPacienteAnalisis_P1.Content.ToString(), id_analisis.ToString(), lblNombre_Anal1.Content.ToString(), DateTime.Now, "");
+                    for (int i = 0; i < dataTableCodigos.Rows.Count; i++)
+                    {
+                        string potenciaStr = dataTableCodigos.Rows[i]["Potencia"].ToString();
 
-                    //Ir a remedios y homeopatia
-                    CargarListadoRemedios(); //Actualiza el listado de remedios por aquello que se agregarara uno
+                        // Utilizar una expresión regular para separar los números y las letras
+                        System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(potenciaStr, @"(\d+)(\D+)");
+                        if (match.Success)
+                        {
+                            // Obtener los números y las letras
+                            string numerosStr = match.Groups[1].Value;
+                            string letrasStr = match.Groups[2].Value;
 
+                            // Convertir los números a double
+                            double numeros;
+                            if (double.TryParse(numerosStr, out numeros))
+                            {
+                                // Utilizar los valores obtenidos
+                                Console.WriteLine("Números: " + numeros);
+                                Console.WriteLine("Letras: " + letrasStr);
+                            }
+                            HacerConexion();
+                            obj2.RegistrarCodigoRemedio(idcrNoRepetido(), idr_temporal, dataTableCodigos.Rows[i][0].ToString(), "", dataTableCodigos.Rows[i][1].ToString(), idCodigoRemedioRepetido(), numeros, letrasStr, "");
+                            Console.Write("Registrao principal");
+                            CerrarConexion();
+                        }
+                        else
+                        {
+                            HacerConexion();
+                            obj2.RegistrarCodigoRemedio(idcrNoRepetido(), idr_temporal, dataTableCodigos.Rows[i][0].ToString(), "", dataTableCodigos.Rows[i][1].ToString(), idCodigoRemedioRepetido(), 1, "X", "");
+                            Console.Write("Registrao asdad");
+                            CerrarConexion();
+                        }
+                    }
+
+<<<<<<< HEAD
                     //opcionesHomoeonic.SelectedIndex = 2; 
                     CerrarConexion();
                     MessageBox.Show(nombre_remedio_diagnostico+" was saved such as a remedy", "Information", MessageBoxButton.OK,MessageBoxImage.Information);
+=======
+>>>>>>> 5828301f2de2a90c3e914b93b48392e3e0ff5199
                 }
                 else
                 {
-                    MessageBox.Show(string.Join(nombre_remedio_diagnostico, obtenerRecurso("messageError41").Split('-')), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError73"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private string ObtenerValor(object obj, string propertyName)
+        {
+            var propertyInfo = obj.GetType().GetProperty(propertyName);
+            return propertyInfo?.GetValue(obj)?.ToString() ?? "";
+        }
+
+        private string NumRandom()
+        {
+            Random rdm = new Random();
+            string numero_random = rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
+            rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
+            rdm.Next(0, 9).ToString() + "-" + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
+            rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() + rdm.Next(0, 9).ToString() +
+            rdm.Next(0, 9).ToString();
+            return numero_random;
+        }
+
+        private string idCodigoRemedioRepetido()
+        {
+            string rdm = NumRandom();
+            DataTable dt = obj2.ExisteIdCodigoRemedio(rdm);
+            if (dt.Rows.Count == 0)
+            {
+                return rdm;
+
+            }
+            else
+            {
+                return idCodigoRemedioRepetido();
+            }
+        }
+        private string idrRepetido()
+        {
+
+
+            DataTable dataTable = obj2.ExisteRemedio("idr", NumRandom());
+
+            if (dataTable.Rows.Count == 0)
+            {
+                return NumRandom();
+            }
+            else
+            {
+                return idrRepetido(); // Devuelve el valor retornado por la llamada recursiva
+            }
+        }
+
+        private string codigoRepetidoRemedio()
+        {
+            Random rdm = new Random();
+            string id = rdm.Next(1000000, 9999999).ToString();
+
+            DataTable dataTable = obj2.ExisteRemedio("codigo", id);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                return id;
+            }
+            else
+            {
+                return codigoRepetidoRemedio(); // Devuelve el valor retornado por la llamada recursiva
+            }
+        }
+
+        public string idcrNoRepetido()
+        {
+            string idcr = NumRandom();
+
+            DataTable dataTable = obj2.ExisteCodigoRemedio(idcr);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                return idcr;
+            }
+            else
+            {
+                return idcrNoRepetido();
+            }
+
         }
 
         private void txtbusquedaremedio_TextChanged(object sender, TextChangedEventArgs e)
@@ -12008,8 +12117,13 @@ namespace MahAppsExample
 
                 //obtener id tratamiento
                 object id = obj2.Obtener_IDTratamiento(id_paciente.ToString(), nombrepaciente, nombre);
+                object idpadre = obj2.Obtener_IDPadre(id_paciente.ToString(), nombrepaciente, nombre);
+                if (idpadre.ToString() != "")
+                {
+                    id = idpadre;
+                }
 
-  
+
 
                 //Obtiene los codigos del tratamiento almacenados..
                 DataTable codigos_tratamiento = obj2.CodigosTratamiento(id.ToString());
