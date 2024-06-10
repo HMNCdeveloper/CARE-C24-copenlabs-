@@ -612,6 +612,10 @@ namespace MahAppsExample
             //MessageBox.Show(id);
             switch (id)
             {
+
+                case "223c-pn33-hj77-13%@-34H&C":
+                    break;
+
                 case "395a-0s11-hj34-13%&-33w+W":
                     //MessageBox.Show("SOY UNA MANTRA!");
                     break;
@@ -2702,7 +2706,10 @@ namespace MahAppsExample
             cmdGuardarTarjeta.IsEnabled = true;
             cmdEnviarFrecuencia.IsEnabled = true;
             cmdDocumento.IsEnabled = true;
+<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.IsEnabled = true;
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
 
             //SECCION DE LOS CODIGOS
             lblCategorias.Visibility = Visibility.Hidden;
@@ -2736,7 +2743,10 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
+<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -2767,7 +2777,7 @@ namespace MahAppsExample
 
         private void listadoCategorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Console.WriteLine("xx");
         }
 
         private void listadoCategorias_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -2833,6 +2843,7 @@ namespace MahAppsExample
             }
         }
 
+
         private void listadoCodigos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (listadoCodigos.SelectedItem != null)
@@ -2857,7 +2868,6 @@ namespace MahAppsExample
                     }
 
                     lblContCodigos.Content = ListaCodigos.Items.Count;
-
                 }
                 catch (Exception)
                 {
@@ -3242,6 +3252,7 @@ namespace MahAppsExample
 
         private void cmdCodigoBuscar_Click(object sender, RoutedEventArgs e)
         {
+            listadoSubcategorias.Items.Clear();
             if (txtCodigoBuscar.Text != "")
             {
                 listadoCodigos.Items.Clear();
@@ -3273,13 +3284,14 @@ namespace MahAppsExample
             listadoCategorias.SelectedIndex = -1;
             listadoSubcategorias.SelectedIndex = -1;
             listadoCodigos.SelectedIndex = -1;
-
+            listadoSubcategorias.Items.Clear();
             if (txtCodigoBuscar.Text != "")
             {
                 //Busqueda on
                 busqueda = true;
 
                 listadoCodigos.Items.Clear();
+                Categorias_Codigos.Clear();
 
                 HacerConexion();
 
@@ -3303,20 +3315,7 @@ namespace MahAppsExample
             }
         }
 
-        private void hideProgressBar()
-        {
-            this.Dispatcher.Invoke((Action)(() =>
-            {
-                progreso1.Visibility = Visibility.Hidden;
-            }));
-        }
-        private void showProgressBar()
-        {
-            this.Dispatcher.Invoke((Action)(() =>
-            {
-                progreso1.Visibility = Visibility.Visible;
-            }));
-        }
+
 
         private void cmdProcesarAnalisis_Click(object sender, RoutedEventArgs e)
         {
@@ -3350,7 +3349,10 @@ namespace MahAppsExample
                 cmdGuardarTarjeta.Visibility = Visibility.Visible;
                 cmdEnviarFrecuencia.Visibility = Visibility.Visible;
                 cmdDocumento.Visibility = Visibility.Visible;
+<<<<<<< HEAD
                 //cmdEliminarCodigosNoSensados.Visibility = Visibility.Visible;
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
                 optionSugerirNiv.Visibility = Visibility.Visible;
                 optionSugerirPot.Visibility = Visibility.Visible;
 
@@ -3433,7 +3435,10 @@ namespace MahAppsExample
         void Panel_opciones()
         {
             //Desactivar boton de (Codigos no sensados)
+<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.IsEnabled = true;
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
             listadoCategorias.SelectedIndex = -1;
             listadoSubcategorias.SelectedIndex = -1;
             listadoCodigos.SelectedIndex = -1;
@@ -3443,7 +3448,6 @@ namespace MahAppsExample
         
         void Panel_opcion2()
         {
-            progreso1.Visibility = Visibility.Hidden;
             extra = 0;
             ListaCodigos.Items.Clear();
         }
@@ -3592,7 +3596,6 @@ namespace MahAppsExample
                     IEnumerable items7 = this.ListaCodigos.Items;
                     Limpiar_Listas();
 
-                    progreso1.Visibility = Visibility.Visible;
                     Analysis analysisWindow2 = new Analysis(extrabool);
                     analysisWindow2.Show();
 
@@ -3655,7 +3658,6 @@ namespace MahAppsExample
                 case "Porcentaje":
                     IEnumerable items5 = this.ListaCodigos.Items;
                     Limpiar_Listas();
-                    progreso1.Visibility = Visibility.Visible;
                     
                     Analysis analysisWindow3 = new Analysis(extrabool);
                     analysisWindow3.Show();
@@ -3874,7 +3876,10 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
+<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -4495,7 +4500,10 @@ namespace MahAppsExample
 
             lblContCodigos.Content = ListaCodigos.Items.Count.ToString(); //Actualizamos el contador
 
+<<<<<<< HEAD
             //cmdEliminarCodigosNoSensados.IsEnabled = false; //Desactivar el boton
+=======
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
         }
 
         //Cargar los remedios

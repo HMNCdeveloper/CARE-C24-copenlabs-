@@ -1112,12 +1112,16 @@
                                         </StackPanel>
                                     </Button>
 
+<<<<<<< HEAD
                                     <!--<Button x:Name="cmdEliminarCodigosNoSensados" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" Visibility="Hidden" Margin="10 0 10 0" VerticalAlignment="Bottom" Height="50" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click" Grid.ColumnSpan="3">
                                         <StackPanel Orientation="Horizontal">
                                             <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerDelete"/>
                                             <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE NON RATES USED"/>
                                         </StackPanel>
                                     </Button>-->
+=======
+                                    
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
 
                                     <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
                                     <!--the next tag is used to show the comboBox-->
@@ -1169,7 +1173,11 @@
                                     <Label x:Name="lblCategorias" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
                                     <Label x:Name="lblSubCategorias" Visibility="Hidden" Content="Sub-Categories" HorizontalAlignment="Left" Margin="10 320 0 0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
                                     <Label x:Name="lblCodigoBuscar" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+<<<<<<< HEAD
                                     <TextBox x:Name="txtCodigoBuscar"  CharacterCasing="Upper"  Visibility="Hidden" HorizontalAlignment="Stretch" Height="20" Grid.Column="2" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
+=======
+                                    <TextBox x:Name="txtCodigoBuscar" Visibility="Hidden" HorizontalAlignment="Stretch" Height="20" CharacterCasing="Upper" Grid.Column="2" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
+>>>>>>> 90383417c9b6e8843779c5ced43ad3026f6c1e72
                                     <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10 50 10 10">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="10*"></ColumnDefinition>
@@ -1188,9 +1196,7 @@
                                         </Button>
 
                                     </Grid>
-                                    <Grid Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Image x:Name="progreso1" Visibility="Hidden" wag:ImageBehavior.AnimatedSource="{Binding GifImage}" Width="350" Height="500"></Image>
-                                    </Grid>
+               
                                     <Label x:Name="lblContador" Content="{x:Static local:Lenguaje.labelInclude}" HorizontalAlignment="Right" Margin="0,0,50,-15" VerticalAlignment="Bottom" FontWeight="Bold" Grid.Column="3" Visibility="Hidden"/>
                                     <Label x:Name="lblContCodigos" Content="" HorizontalAlignment="Right" Margin="0,0,30,-15" VerticalAlignment="Bottom" FontWeight="Bold" Grid.Column="3" Visibility="Hidden"/>
                                 </Grid>
