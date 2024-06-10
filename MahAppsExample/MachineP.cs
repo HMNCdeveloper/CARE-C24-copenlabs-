@@ -53,7 +53,7 @@ namespace MahAppsExample
                     try
                     {
 
-                        port = new SerialPort(puerto, 115200); //Puerto
+                        port = new SerialPort(puerto, 2400); //Puerto
                         port.ReadTimeout = 5; //Tiempo de respuesta
                         port.DataReceived += new SerialDataReceivedEventHandler(read_serialport); //Manejo de la lectura
                         buffer = String.Empty; //Buffer vacio
@@ -64,7 +64,7 @@ namespace MahAppsExample
                             port.Write("W"); // Codigo de Identificacion de la maquina
 
                             //Le da tiempo al buffer para ser copiado a buffercopy
-                            System.Threading.Thread.Sleep(1000);
+                            System.Threading.Thread.Sleep(1800);
                         }
                         //port.Close(); //Cierra
                         //MessageBox.Show(ports.Length.ToString());
@@ -94,7 +94,7 @@ namespace MahAppsExample
                 //Determina que tipo de maquina es.. (Identificacion)
                 //Cacheo de la respuesta
 
-                // MessageBox.Show(buffer);
+                 //MessageBox.Show(buffer);
 
             }
             catch (IOException) { }

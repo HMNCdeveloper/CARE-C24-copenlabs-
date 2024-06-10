@@ -103,7 +103,9 @@ namespace HS5
                     string id_cat_pad = obj.Obtener_IDCategoria(listadoCategorias_Copy.SelectedItem.ToString()).ToString();
 
                     //Subcategoria
-                    string id_subcat = obj.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
+                    string id_subcat = string.IsNullOrEmpty(listadoSubcategorias_Copy.SelectedItem?.ToString()) ? id_cat_pad : obj.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
+
+
 
                     object genero_para_codigo = "T";
 
@@ -119,7 +121,7 @@ namespace HS5
                     }
                     else
                     {
-                        HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CodigoDuplicado"), obtenerRecurso("TituloCreacion"));
+                        HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CodigoDuplicado"), obtenerRecurso("btnNewRate"));
 
                         bool? result = customMessageBoxYesNo.ShowDialog();
 

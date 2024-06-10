@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Width="450"
         Height="350"
-        Title="Analysis">
+        Title="{x:Static local:Lenguaje.pdfParr8}">
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>

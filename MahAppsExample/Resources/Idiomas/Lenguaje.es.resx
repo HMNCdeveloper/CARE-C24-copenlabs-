@@ -330,6 +330,9 @@
   <data name="Chest1" xml:space="preserve">
     <value>Pecho</value>
   </data>
+  <data name="CodigoDuplicado" xml:space="preserve">
+    <value>Este indice ya existe ¿Deseas  continuar? </value>
+  </data>
   <data name="Column" xml:space="preserve">
     <value>Columna vertebral</value>
   </data>
@@ -355,7 +358,7 @@
     <value>Frente</value>
   </data>
   <data name="genRate" xml:space="preserve">
-    <value>Generate Id desde el instrument</value>
+    <value>Generar indice desde el instrumento</value>
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Glande (término médico)</value>
@@ -934,7 +937,7 @@
     <value>Por favor Escribe el nombre del indice!</value>
   </data>
   <data name="messageError25" xml:space="preserve">
-    <value> Para Añadir  un indice  a la base de datos primero seleccione una primer  categoria principal   y sub categoria.</value>
+    <value> Para Añadir  un indice  a la base de datos primero seleccionar una   categoria principal.</value>
   </data>
   <data name="messageError26" xml:space="preserve">
     <value>Por favor selecciona  un color antes para continuar</value>
@@ -1254,6 +1257,9 @@
   <data name="PatientList" xml:space="preserve">
     <value>Lista de Paciente</value>
   </data>
+  <data name="pdf1" xml:space="preserve">
+    <value>Detalle del analisis</value>
+  </data>
   <data name="pdfParr" xml:space="preserve">
     <value>Nombre del paciente:</value>
   </data>
@@ -1304,6 +1310,12 @@
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
+  </data>
+  <data name="rateNoRegistrado" xml:space="preserve">
+    <value>Indice no registrado </value>
+  </data>
+  <data name="rateRegistrado" xml:space="preserve">
+    <value>Indice registrado exitosamente</value>
   </data>
   <data name="rbOpt" xml:space="preserve">
     <value>Restauracion y Resplado </value>

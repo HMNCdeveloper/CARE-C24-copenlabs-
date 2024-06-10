@@ -608,6 +608,8 @@ namespace MahAppsExample
 
         void IDs_maquinas_aceptados(string id)
         {
+            //Console.WriteLine(id);
+            //MessageBox.Show(id);
             switch (id)
             {
                 case "395a-0s11-hj34-13%&-33w+W":
@@ -616,10 +618,13 @@ namespace MahAppsExample
 
                 case "173c-ar22-hj33-18%@-21H+C":
                     break;
-
-                case "284b-ar45-hj34-13%#-20w+Q":
+//284a-er45-FG34-09%#-12w+q
+                case "284a-er45-FG34-09%#-12w+q":
+                     MessageBox.Show("SOY UNA MANTRA!");
                     break;
-
+                case "284b-ar45-hj34-13%#-20w+Q":
+                   break;
+                //284b-ar45-hj34-13%#-20w+Q
                 default:
                     var window = Application.Current.Windows[0];
                     window.Close();
@@ -667,7 +672,7 @@ namespace MahAppsExample
                 Document reporte = new Document(iTextSharp.text.PageSize.LETTER, 40, 40, 80, 80);
                 PdfWriter buffer = PdfWriter.GetInstance(reporte, new FileStream(saveFileDialog1.FileName.ToString(), FileMode.Create));
                 //Mandamos datos del registro de version
-                buffer.PageEvent = new HS5.reporte_ext("Analysis Report", nombre, descripcion); //Agrega el encabezado y pie de pagina
+                buffer.PageEvent = new HS5.reporte_ext(obtenerRecurso("btnAnaReport"), nombre, descripcion); //Agrega el encabezado y pie de pagina
 
                 reporte.Open();
                 // reporte.AddTitle("Expediente del Paciente - HS5");
@@ -692,29 +697,24 @@ namespace MahAppsExample
                 //FONDO DEL DOCUMENTO
                 string path = RutaInstalacion() + "//fotos//portada_hoja.png";
 
-                //Fondo del documento
-                iTextSharp.text.Image fondodoc = iTextSharp.text.Image.GetInstance(path);
-                fondodoc.ScaleToFit(reporte.PageSize);
-                fondodoc.Alignment = iTextSharp.text.Image.UNDERLYING;
-                fondodoc.SetAbsolutePosition(0, 0);
-                reporte.Add(fondodoc);
+               
 
-                iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph("Personal Details", subtitulos);
+                iTextSharp.text.Paragraph parrafo2 = new iTextSharp.text.Paragraph(obtenerRecurso("reportP"), subtitulos);
                 reporte.Add(parrafo2);
 
-                Chunk parrafo3 = new Chunk("Analysis Name: ", texto2);
+                Chunk parrafo3 = new Chunk(obtenerRecurso("nameAnalysis") + " ", texto2);
                 Chunk parrafo3_1 = new Chunk(lblPacienteAnalisis_P1.Content.ToString(), texto);
                 reporte.Add(parrafo3);
                 reporte.Add(parrafo3_1);
                 reporte.Add(Chunk.NEWLINE);
 
-                Chunk parrafo4 = new Chunk("Patient's Name: ", texto2);
+                Chunk parrafo4 = new Chunk(obtenerRecurso("pdfParr2") + " ", texto2);
                 Chunk parrafo4_1 = new Chunk(lblNombre_Anal1.Content.ToString(), texto);
                 reporte.Add(parrafo4);
                 reporte.Add(parrafo4_1);
                 reporte.Add(Chunk.NEWLINE);
 
-                Chunk parrafo5 = new Chunk("Date: ", texto2);
+                Chunk parrafo5 = new Chunk(obtenerRecurso("pdfParr3") + " ", texto2);
                 Chunk parrafo5_1 = new Chunk(lblFechaAnalisis3.Content.ToString(), texto);
                 reporte.Add(parrafo5);
                 reporte.Add(parrafo5_1);
@@ -726,7 +726,7 @@ namespace MahAppsExample
                  reporte.Add(linebreak);*/
                 reporte.Add(linebreak);
 
-                iTextSharp.text.Paragraph detalles = new iTextSharp.text.Paragraph("Overview", subtitulos);
+                iTextSharp.text.Paragraph detalles = new iTextSharp.text.Paragraph(obtenerRecurso("pdf1"), subtitulos);
                 reporte.Add(detalles);
                 reporte.Add(linebreak);
 
@@ -736,10 +736,10 @@ namespace MahAppsExample
                 PdfPTable table_codigos = new PdfPTable(4);
                 table_codigos.TotalWidth = 144;
                 //table_codigos.AddCell(new Phrase("Código",texto2));
-                table_codigos.AddCell(new Phrase("Name", texto2));
-                table_codigos.AddCell(new Phrase("Value", texto2));
-                table_codigos.AddCell(new Phrase("Levels", texto2));
-                table_codigos.AddCell(new Phrase("S.Level", texto2));
+                table_codigos.AddCell(new Phrase(obtenerRecurso("inputMessage5"), texto2));
+                table_codigos.AddCell(new Phrase(obtenerRecurso("tableValue"), texto2));
+                table_codigos.AddCell(new Phrase(obtenerRecurso("tableLevels"), texto2));
+                table_codigos.AddCell(new Phrase(obtenerRecurso("tableSlevels"), texto2));
 
                 table_codigos.HeaderRows = 1;
 
@@ -2702,7 +2702,7 @@ namespace MahAppsExample
             cmdGuardarTarjeta.IsEnabled = true;
             cmdEnviarFrecuencia.IsEnabled = true;
             cmdDocumento.IsEnabled = true;
-            cmdEliminarCodigosNoSensados.IsEnabled = true;
+            //cmdEliminarCodigosNoSensados.IsEnabled = true;
 
             //SECCION DE LOS CODIGOS
             lblCategorias.Visibility = Visibility.Hidden;
@@ -2736,7 +2736,7 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
-            cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
+            //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -2851,31 +2851,11 @@ namespace MahAppsExample
                         codigos_rates.Add(codigo.rates.ToString());
                     }
 
-                    if (ListaCodigos.Items.Count != 0)
+                    if (nombrecodigo.Contains(listadoCodigos.SelectedItem.ToString()) == false)
                     {
-
-                        if (nombrecodigo.Contains(listadoCodigos.SelectedItem.ToString()) == false)
-                        {
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", potencia = "-", potenciaSugeridad = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-                        }
+                        ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", potencia = "-", potenciaSugeridad = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
                     }
-                    else
-                    {
 
-                        if (busqueda == true)
-                        {
-                            HacerConexion();
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = obj2.BuscarCodigoPorNombreCategoria(listadoCodigos.SelectedItem.ToString()).ToString() });
-                            busqueda = false;
-                            CerrarConexion();
-
-                        }
-                        else
-                        {
-                            ListaCodigos.Items.Add(new nuevoCodigo { nombre = listadoCodigos.SelectedItem.ToString(), rates = Categorias_Codigos[index], niveles = "-", potencia = "-", potenciaSugeridad = "-", ftester = Convert.ToInt32(0), nsugerido = "-" });
-                        }
-
-                    }
                     lblContCodigos.Content = ListaCodigos.Items.Count;
 
                 }
@@ -3309,8 +3289,8 @@ namespace MahAppsExample
                 {
                     if (Codigos.Rows[y][0].ToString() != "")
                     {
-                        //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                        listadoCodigos.Items.Add(Codigos.Rows[y][0].ToString());
+                        listadoCodigos.Items.Add(Codigos.Rows[y][1].ToString());
+                        Categorias_Codigos.Add(Codigos.Rows[y][0].ToString());
                     }
                 }
 
@@ -3370,7 +3350,7 @@ namespace MahAppsExample
                 cmdGuardarTarjeta.Visibility = Visibility.Visible;
                 cmdEnviarFrecuencia.Visibility = Visibility.Visible;
                 cmdDocumento.Visibility = Visibility.Visible;
-                cmdEliminarCodigosNoSensados.Visibility = Visibility.Visible;
+                //cmdEliminarCodigosNoSensados.Visibility = Visibility.Visible;
                 optionSugerirNiv.Visibility = Visibility.Visible;
                 optionSugerirPot.Visibility = Visibility.Visible;
 
@@ -3453,7 +3433,7 @@ namespace MahAppsExample
         void Panel_opciones()
         {
             //Desactivar boton de (Codigos no sensados)
-            cmdEliminarCodigosNoSensados.IsEnabled = true;
+            //cmdEliminarCodigosNoSensados.IsEnabled = true;
             listadoCategorias.SelectedIndex = -1;
             listadoSubcategorias.SelectedIndex = -1;
             listadoCodigos.SelectedIndex = -1;
@@ -3894,7 +3874,7 @@ namespace MahAppsExample
             cmdGuardarTarjeta.Visibility = Visibility.Hidden;
             cmdEnviarFrecuencia.Visibility = Visibility.Hidden;
             cmdDocumento.Visibility = Visibility.Hidden;
-            cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
+            //cmdEliminarCodigosNoSensados.Visibility = Visibility.Hidden;
 
             listadoCodigos.Items.Clear();
             listadoSubcategorias.Items.Clear();
@@ -4515,7 +4495,7 @@ namespace MahAppsExample
 
             lblContCodigos.Content = ListaCodigos.Items.Count.ToString(); //Actualizamos el contador
 
-            cmdEliminarCodigosNoSensados.IsEnabled = false; //Desactivar el boton
+            //cmdEliminarCodigosNoSensados.IsEnabled = false; //Desactivar el boton
         }
 
         //Cargar los remedios
@@ -5122,7 +5102,7 @@ namespace MahAppsExample
                     if (Codigos.Rows[y][0].ToString() != "")
                     {
                         //listadoCodigos.Items.Add(new CheckBox { Content = Codigos.Rows[y][1].ToString() });
-                        listadoCodigos_Remedios.Items.Add(Codigos.Rows[y][0].ToString());
+                        listadoCodigos_Remedios.Items.Add(Codigos.Rows[y][1].ToString());
                     }
                 }
 
@@ -6667,78 +6647,48 @@ namespace MahAppsExample
                 {
 
                     HacerConexion();
-                    DataTable CategoriasCodigos;
-
                     //Buscar id_categoria para encontrar las subcategorias
                     object id_categoria = obj2.BuscarCategoriasCodigos(listadoCategorias_Copy.SelectedItem.ToString());
                     // MessageBox.Show(id_categoria.ToString());
                     id_categoria_padre = id_categoria.ToString(); //Guarda la categoria padre para el nuevo codigo
                     DataTable SubCategorias = obj2.VisualizarSubCategoriasCodigos(id_categoria.ToString());
 
-                    //Si no tienen subcategoria mostrarlos como codigos ya
-                    if (SubCategorias.Rows.Count == 0)
+                    for (int y = 0; y <= SubCategorias.Rows.Count - 1; y++)
                     {
-                        CategoriasCodigos = obj2.VisualizarSubCategoriasCodigos2(id_categoria.ToString());
-                        DataTable dtc = new DataTable();
-                        dtc.Columns.Add("Id", typeof(string));
-                        dtc.Columns.Add("Nombre", typeof(string));
-                        dtc.Columns.Add("Categoria", typeof(string));
-                        dtc.Columns.Add("SubCategoria", typeof(string));
-
-                        // Llenar el DataTable con los datos de CategoriasCodigos
-                        for (int y = 0; y < CategoriasCodigos.Rows.Count; y++)
-                        {
-                            if (!string.IsNullOrEmpty(CategoriasCodigos.Rows[y][1].ToString()))
-                            {
-                                string id = (CategoriasCodigos.Rows[y][1].ToString());
-                                string nombre = CategoriasCodigos.Rows[y][2].ToString();
-                                string categoria = listadoCategorias_Copy.SelectedItem.ToString();
-                                string subcategoria = null;
-                                dtc.Rows.Add(nombre, id, categoria, subcategoria);
-                                Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
-                            }
-                        }
-
-                        // Asignar el DataTable como origen de datos para la ListView
-                        listadoCodigos_Copy.ItemsSource = dtc.AsDataView();
-
-                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " + obtenerRecurso("labelSubCat");
-                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
-
+                       //Agrega las categorias
+                       if (SubCategorias.Rows[y][0].ToString() != "")
+                       {
+                           listadoSubcategorias_Copy.Items.Add(SubCategorias.Rows[y][0].ToString());
+                       }
+                         
                     }
-                    else
+
+                    DataTable CategoriasCodigos = obj2.VisualizarSubCategoriasCodigos2(id_categoria.ToString());
+                    DataTable dtc = new DataTable();
+                    dtc.Columns.Add("Id", typeof(string));
+                    dtc.Columns.Add("Nombre", typeof(string));
+                    dtc.Columns.Add("Categoria", typeof(string));
+                    dtc.Columns.Add("SubCategoria", typeof(string));
+
+                    // Llenar el DataTable con los datos de CategoriasCodigos
+                    for (int y = 0; y < CategoriasCodigos.Rows.Count; y++)
                     {
-                        //Agrega las categorias
-                        for (int y = 0; y <= SubCategorias.Rows.Count - 1; y++)
+                        if (!string.IsNullOrEmpty(CategoriasCodigos.Rows[y][1].ToString()))
                         {
-                            if (SubCategorias.Rows[y][0].ToString() != "")
-                            {
-                                listadoSubcategorias_Copy.Items.Add(SubCategorias.Rows[y][0].ToString());
-                            }
+                            string id = (CategoriasCodigos.Rows[y][1].ToString());
+                            string nombre = CategoriasCodigos.Rows[y][2].ToString();
+                            string categoria = listadoCategorias_Copy.SelectedItem.ToString();
+                            string subcategoria = null;
+                            dtc.Rows.Add(nombre, id, categoria, subcategoria);
+                            Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
                         }
-
-                        lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " + obtenerRecurso("labelSubCat");
-
-                        // IMPORTANTE: categorias con subcategorias y codigos en su categoria
-
-                        //Tambien puede haber categorias con subcategorias y codigos en su categoria...
-                        CategoriasCodigos = obj2.VisualizarSubCategoriasCodigos2(id_categoria.ToString());
-
-                        for (int y = 0; y <= CategoriasCodigos.Rows.Count - 1; y++)
-                        {
-                            if (CategoriasCodigos.Rows[y][1].ToString() != "")
-                            {
-                                //listadoCodigos.Items.Add(new CheckBox { Content = SubCategorias.Rows[y][1].ToString() });
-
-                                //listadoCodigos_Copy.Items.Add(CategoriasCodigos.Rows[y][1].ToString() + " , " + CategoriasCodigos.Rows[y][2].ToString());
-
-                                Categorias_Codigos2.Add(CategoriasCodigos.Rows[y][2].ToString() + " , " + CategoriasCodigos.Rows[y][2].ToString()); //Guarda el codigo
-                            }
-                        }
-
-                        lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
-
                     }
+
+
+                    // Asignar el DataTable como origen de datos para la ListView
+                    listadoCodigos_Copy.ItemsSource = dtc.AsDataView();
+                    lblSubcategoriasCont.Content = listadoSubcategorias_Copy.Items.Count + " " + obtenerRecurso("labelSubCat");
+                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " " + obtenerRecurso("labelRate");
                     CerrarConexion();
                 }
                 catch (NullReferenceException)
@@ -10096,13 +10046,14 @@ namespace MahAppsExample
                     //Genero
                     //object genero_para_codigo = obj2.Buscar_Genero(id_categoria_cop, id_categoria_padre);
 
-                    if (listadoSubcategorias_Copy.SelectedItem != null)
+                    if (listadoCategorias_Copy.SelectedItem != null)
                     {
                         //Categoria padre
                         string id_cat_pad = obj2.Obtener_IDCategoria(listadoCategorias_Copy.SelectedItem.ToString()).ToString();
 
                         //Subcategoria
-                        string id_subcat = obj2.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
+                        string id_subcat = string.IsNullOrEmpty(listadoSubcategorias_Copy.SelectedItem?.ToString()) ? id_cat_pad : obj2.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
+
 
 
 
@@ -10143,7 +10094,7 @@ namespace MahAppsExample
                     }
                     else
                     {
-                        MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        MessageBox.Show(obtenerRecurso("messageError25"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
                     }
                     lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
@@ -10162,7 +10113,7 @@ namespace MahAppsExample
         private void ShowRate(object sender, RoutedEventArgs e)
         {
 
-            if (listadoSubcategorias_Copy.SelectedItem != null)
+            if (listadoCategorias_Copy.SelectedItem != null)
             {
                 Rates rate = new Rates(obj2, obj, CargarCodigos, obtenerRecurso, listadoCategorias_Copy, listadoSubcategorias_Copy, listadoCodigos_Copy, lblCodigosCont);
                 rate.Owner = this;
@@ -10170,7 +10121,7 @@ namespace MahAppsExample
             }
             else
             {
-                MessageBox.Show(obtenerRecurso("messageError25"), "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show(obtenerRecurso("messageError25"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
 
