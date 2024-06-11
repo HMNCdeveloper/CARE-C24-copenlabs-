@@ -4726,6 +4726,7 @@ namespace MahAppsExample
 
         string id_paciente_global;
         //Crear remedio en base a diagnostico
+
         private void cmdHacerRemedios_Click(object sender, RoutedEventArgs e)
         {
             string nombre_remedio_diagnostico;
@@ -4742,8 +4743,12 @@ namespace MahAppsExample
                 if (remedios.Rows.Count == 0)
                 {
                     string fecha = lblFechaAnalisis3.Content.ToString();
-                    fecha = fecha.Replace("a. m.", "AM").Replace("p. m.", "PM");
-                    DateTime dateTime = DateTime.ParseExact(fecha, "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+                    fecha = Settings.Default.Lenguaje.ToString() == "es-MX" ? fecha.Replace("a. m.", "AM").Replace("p. m.", "PM"):fecha;
+                    string format = Settings.Default.Lenguaje.ToString() == "es-MX" ? "MM/dd/yyyy hh:mm:ss tt" : "dd/MM/yyyy hh:mm:ss tt";
+
+
+
+                    DateTime dateTime = DateTime.ParseExact(fecha, format, CultureInfo.InvariantCulture);
                     DataTable dataTable = obj2.idPaciente(lblNombre_Anal1.Content.ToString());
                     Console.WriteLine(dataTable.Rows[0][0].ToString());
                     string idr_temporal = idrRepetido();
@@ -4809,12 +4814,8 @@ namespace MahAppsExample
                         }
                     }
 
-<<<<<<< HEAD
-                    //opcionesHomoeonic.SelectedIndex = 2; 
-                    CerrarConexion();
                     MessageBox.Show(nombre_remedio_diagnostico+" was saved such as a remedy", "Information", MessageBoxButton.OK,MessageBoxImage.Information);
-=======
->>>>>>> 5828301f2de2a90c3e914b93b48392e3e0ff5199
+
                 }
                 else
                 {
@@ -10373,14 +10374,20 @@ namespace MahAppsExample
                 Console.WriteLine(AnalisisPaciente_Seleccionado.Rows.ToString());
                 if (AnalisisPaciente_Seleccionado.Rows.Count != 0)
                 {
+                    DateTime fechaDateTime;
+                    string fechaFormatted;
                    
                     for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
                     {
+                        string format = Settings.Default.Lenguaje.ToString() == "es-MX" ? "dd/MM/yyyy hh:mm:ss tt" : "MM/dd/yyyy hh:mm:ss tt";
+                        DateTime.TryParse(AnalisisPaciente_Seleccionado.Rows[i][1].ToString(), out fechaDateTime);
+                        fechaFormatted = fechaDateTime.ToString(format, CultureInfo.InvariantCulture);
+
                         //Agregar solo nombre del analisis
                         comboOtrosAnal.Items.Add(AnalisisPaciente_Seleccionado.Rows[i][0].ToString());
                         ListaPacientes_Recientes1.Items.Add(new Analisis { 
                             nombre = AnalisisPaciente_Seleccionado.Rows[i][0].ToString(), 
-                            fecha = AnalisisPaciente_Seleccionado.Rows[i][1].ToString(),
+                            fecha = fechaFormatted,
                             nombrepaciente= AnalisisPaciente_Seleccionado.Rows[i][2].ToString()
                         });
                     }
@@ -10728,7 +10735,8 @@ namespace MahAppsExample
                      lblPacienteAnalisis_P1.Content = datos_paciente[1];
                      lblNombre_Anal1.Content = datos_paciente[0];
                      string date;
-                     date = DateTime.Now.ToString();
+                     string format = Settings.Default.Lenguaje.ToString() == "es-MX" ? "dd/MM/yyyy hh:mm:ss tt" : "MM/dd/yyyy hh:mm:ss tt";
+                     date = DateTime.Now.ToString(format);
                 
                      //Fecha actual para el analisis
                      lblFechaAnalisis3.Content = date;
@@ -10777,17 +10785,24 @@ namespace MahAppsExample
         {
 
            ListaPacientes_Recientes1.Items.Clear();
-           DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(namePatient);
            
+            DataTable AnalisisPaciente_Seleccionado = obj2.Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(namePatient);
+            DateTime fechaDateTime;
+            string fechaFormatted = "";
+
             if (AnalisisPaciente_Seleccionado.Rows.Count != 0)
             {
 
                 for (int i = 0; i <= AnalisisPaciente_Seleccionado.Rows.Count - 1; i++)
                 {
+                    string format = Settings.Default.Lenguaje.ToString() == "es-MX" ? "dd/MM/yyyy hh:mm:ss tt" : "MM/dd/yyyy hh:mm:ss tt";
+                    DateTime.TryParse(AnalisisPaciente_Seleccionado.Rows[i][1].ToString(), out fechaDateTime);
+                    fechaFormatted = fechaDateTime.ToString(format, CultureInfo.InvariantCulture);
+
                     ListaPacientes_Recientes1.Items.Add(new Analisis
                     {
                         nombre = AnalisisPaciente_Seleccionado.Rows[i][0].ToString(),
-                        fecha = AnalisisPaciente_Seleccionado.Rows[i][1].ToString(),
+                        fecha = fechaFormatted,
                         nombrepaciente = AnalisisPaciente_Seleccionado.Rows[i][2].ToString()
                     });
                 }
@@ -13667,8 +13682,6 @@ namespace MahAppsExample
                 HacerConexion();
 
                 //Borramos los resultados de un analisis en caso de venir de ahi
-                obj2.Eliminar_CodigosAnalisis(verificacion_remedio_de_analisis.ToString());
-
                 string nombre_s = listadoRemedios.SelectedItem.ToString(); //Nombre seleccionado
 
                 object id_remedio_s = obj2.Obtener_IdRemedio(nombre_s); //Id remedio
@@ -13736,8 +13749,10 @@ namespace MahAppsExample
                      MessageBoxButton.OK,
                      MessageBoxImage.Information);
             }
-            catch (Exception)
+            catch (Exception er)
             {
+
+                MessageBox.Show(er.ToString());
                 MessageBox.Show(
                     "first you must asign value to potency, method or level if every rate don't have it",
                     "Error",
