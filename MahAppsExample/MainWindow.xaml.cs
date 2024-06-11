@@ -864,6 +864,7 @@ namespace MahAppsExample
             cmdNuevoTratamiento.IsEnabled = true;
             cmdPausar.IsEnabled = true;
             cmdReanudar.IsEnabled = true;
+            cmdCancelarTratamiento.IsEnabled = true;
             comboTipoTratamiento.SelectedIndex = -1;
             comboTipoProg.SelectedIndex = 0;
             tiempo1.SelectedIndex = -1;
@@ -886,6 +887,7 @@ namespace MahAppsExample
         void Mostrar_TratamientoDirecto()
         {
             cmdNuevoTratamiento.IsEnabled = false;
+            cmdCancelarTratamiento.IsEnabled = false;
             cmdReanudar.IsEnabled = false;
             cmdPausar.IsEnabled = false;
             cmdBorrarElemento.Visibility = Visibility.Visible;
