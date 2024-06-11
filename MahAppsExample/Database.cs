@@ -1102,7 +1102,7 @@ namespace MahAppsExample
 
         public DataTable BuscarCodigoRem(string nombre_codigo)
         {
-            sql = "SELECT nombrecodigo,codigo FROM rad_codigosderemedios WHERE UPPER(nombrecodigo) LIKE $$%" + nombre_codigo + "%$$";
+            sql = "SELECT nombre,codigo FROM rad_remedios WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);

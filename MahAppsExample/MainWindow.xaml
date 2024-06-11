@@ -1112,7 +1112,13 @@
                                         </StackPanel>
                                     </Button>
 
-                                    
+
+                                    <!--<Button x:Name="cmdEliminarCodigosNoSensados" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" Visibility="Hidden" Margin="10 0 10 0" VerticalAlignment="Bottom" Height="50" IsEnabled="False" Click="cmdEliminarCodigosNoSensados_Click" Grid.ColumnSpan="3">
+                                        <StackPanel Orientation="Horizontal">
+                                            <iconPacks:PackIconModern Width="20" Height="20" Kind="LayerDelete"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text=" ERASE NON RATES USED"/>
+                                        </StackPanel>
+                                    </Button>-->
 
                                     <!--<RadioButton x:Name="optionPronunciamiento"  Visibility="Hidden" Content="{x:Static local:Lenguaje.valPronun}" HorizontalAlignment="Left" Margin="282,122,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold" Checked="optionPronunciamiento_Checked"/>-->
                                     <!--the next tag is used to show the comboBox-->
@@ -1163,8 +1169,9 @@
                                     <ListBox x:Name="listadoCodigos" Visibility="Hidden" Margin="10 80 10 10" BorderBrush="Silver" BorderThickness="1" MouseDoubleClick="listadoCodigos_MouseDoubleClick" SelectionChanged="listadoCodigos_SelectionChanged" FontSize="14" Grid.Column="2"/>
                                     <Label x:Name="lblCategorias" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
                                     <Label x:Name="lblSubCategorias" Visibility="Hidden" Content="Sub-Categories" HorizontalAlignment="Left" Margin="10 320 0 0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0" Grid.ColumnSpan="2"/>
-                                    <Label x:Name="lblCodigoBuscar" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
-                                    <TextBox x:Name="txtCodigoBuscar" Visibility="Hidden" HorizontalAlignment="Stretch" Height="20" CharacterCasing="Upper" Grid.Column="2" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
+                                        <Label x:Name="lblCodigoBuscar" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                        <TextBox x:Name="txtCodigoBuscar"  CharacterCasing="Upper"  Visibility="Hidden" HorizontalAlignment="Stretch" Height="20" Grid.Column="2" Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="txtCodigoBuscar_TextChanged" FontSize="14"/>
+
                                     <Grid Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10 50 10 10">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="10*"></ColumnDefinition>
@@ -1249,7 +1256,7 @@
                             </GroupBox.Header>
                         </GroupBox>
 
-                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" Margin="1 38 11 11" BorderThickness="0" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick"  Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}" >
+                        <ListView x:Name="ListaPacientes_Recientes1"  Visibility="Visible" Margin="1,40,11,9" BorderThickness="0" BorderBrush="Silver" SelectionMode="Single" RenderTransformOrigin="0.5,0.5" MouseDoubleClick="ListaPacientes_Recientes1_MouseDoubleClick"  Grid.Column="1" av:ItemsSource="{av:SampleData ItemCount=5}"  >
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="{x:Static local:Lenguaje.tableNameAna}" DisplayMemberBinding="{Binding nombre}" Width="300px" />
@@ -1382,7 +1389,7 @@
                             </StackPanel>
                         </Button>
                         <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Stretch" Margin="20 320 20 0" Height="30" VerticalAlignment="Top">
-                            <Label x:Name="lblCategoriasRemedios" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
+                            <Label x:Name="lblCategoriasRemedios" Content="Order by" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>
                             <ComboBox x:Name="comboCategoriasRemedios" Margin="10 0 0 0" RenderTransformOrigin="0.5,0.5" IsReadOnly="True" SelectionChanged="comboCategoriasRemedios_SelectionChanged" Width="135">
                                 <ComboBox.Effect>
                                     <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
@@ -1416,7 +1423,7 @@
                             </ComboBox>
                         </StackPanel>
 
-                        <RadioButton x:Name="checkOpcion1" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="18,230,18,0" VerticalAlignment="Top" Checked="checkOpcion1_Checked" ToolTip="Remedies based on an analysis" Grid.Column="0"/>
+                        <!--<RadioButton x:Name="checkOpcion1" Content="{x:Static local:Lenguaje.labelOrder}" HorizontalAlignment="Left" Margin="18,230,18,0" VerticalAlignment="Top" Checked="checkOpcion1_Checked" ToolTip="Remedies based on an analysis" Grid.Column="0"/>-->
                         <RadioButton x:Name="checkOpcion2" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="18,260,0,0" VerticalAlignment="Top" Checked="checkOpcion2_Checked" ToolTip="All the Remedies" Grid.Column="0"/>
                         <ListBox x:Name="listadoRemedios" HorizontalAlignment="Stretch" Margin="10,370,10,10" VerticalAlignment="Stretch" BorderBrush="{StaticResource borderSection}" Background="{StaticResource boxBack}" BorderThickness="1" FontSize="14" MouseDoubleClick="listadoRemedios_MouseDoubleClick" SelectionChanged="listadoRemedios_SelectionChanged" Initialized="listadoRemedios_Initialized" Grid.Column="0"/>
                         <Label x:Name="lblNombreRemedioResp" Visibility="Visible" Content="" HorizontalAlignment="Stretch" Margin="100,10,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="#FFCD4C4C" Grid.Column="1"/>
@@ -1583,13 +1590,13 @@
                                         <ComboBoxItem Content="{x:Static local:Lenguaje.tablePotency}"/>
                                         <ComboBoxItem Content="{x:Static local:Lenguaje.tableMethod}"/>
                                     </ComboBox>
-                                    <Button x:Name="cmdCancelar" Visibility="Hidden" Background="{StaticResource btn}" HorizontalAlignment="Left" Margin="620,466,0,0" VerticalAlignment="Top" Width="197" Height="48" Click="cmdCancelar_Click">
+                                    <Button x:Name="cmdCancelar" Visibility="Hidden"  Background="#ff0000" Foreground="{StaticResource letraBoton}" HorizontalAlignment="Left" Margin="232,437,0,0" VerticalAlignment="Top" Width="187" Height="48" Click="cmdCancelar_Click" Grid.Column="1">
                                         <Button.Effect>
                                             <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                                         </Button.Effect>
 
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCancel}" Foreground="#FFFAFAFA"/>
+                                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Cancel" />
                                         </StackPanel>
                                     </Button>
                                     <Label x:Name="lblLeyenda" Visibility="Hidden" Content="It isn't recommend the use of complementary rates use them under your own risk" HorizontalAlignment="Left" Margin="339,539,0,0" VerticalAlignment="Top"/>
@@ -1635,7 +1642,7 @@
                                     <Label x:Name="lblCategorias_Remedios" Visibility="Visible" Content="{x:Static local:Lenguaje.labelCat}" HorizontalAlignment="Left" Margin="19,11,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblSubCategorias_Remedios" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSubCat}" HorizontalAlignment="Left" Margin="19,319,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                                     <Label x:Name="lblCodigoBuscar_Remedios" Visibility="Visible" Content="{x:Static local:Lenguaje.labelSearchRate}" HorizontalAlignment="Left" Margin="349,11,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="130"/>
-                                    <TextBox x:Name="txtCodigoBuscar_Remedios" Visibility="Visible" HorizontalAlignment="Left" Height="23" Margin="484,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontSize="14" TextChanged="txtCodigoBuscar_Remedios_TextChanged">
+                                    <TextBox x:Name="txtCodigoBuscar_Remedios" Visibility="Visible"  CharacterCasing="Upper"  HorizontalAlignment="Left" Height="23" Margin="484,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" FontSize="14" TextChanged="txtCodigoBuscar_Remedios_TextChanged">
                                         <TextBox.Effect>
                                             <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                                         </TextBox.Effect>
@@ -1668,14 +1675,14 @@
 
 
                         <RadioButton x:Name="checkOpcion3" Content="{x:Static local:Lenguaje.inputByUser}" HorizontalAlignment="Left" Margin="18,290,18,0" VerticalAlignment="Top"  ToolTip="Remedies created by the user" Checked="checkOpcion3_Checked" Grid.Column="0"/>
-                        <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="534,326,0,0" VerticalAlignment="Top" Height="125" Width="300" Grid.Column="1">
+                        <GroupBox x:Name="cmdCodigo" Visibility="Hidden" Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}" Header="{x:Static local:Lenguaje.headRate}" HorizontalAlignment="Left" Margin="224,276,0,0" VerticalAlignment="Top" Height="125" Width="300" Grid.Column="1">
                             <Label x:Name="lblMultiples_Copy1" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelMultiRates}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headApply}" HorizontalAlignment="Left" Margin="855,326,0,0" VerticalAlignment="Top" Height="125" Width="116" Grid.Column="1"/>
-                        <GroupBox x:Name="cmdCodigo_Copy1" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.headP}" HorizontalAlignment="Left" Margin="532,473,0,0" VerticalAlignment="Top" Height="115" Width="174" Grid.Column="1">
+                        <GroupBox x:Name="cmdCodigo_Copy" Visibility="Hidden" Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}"  Header="{x:Static local:Lenguaje.headApply}" HorizontalAlignment="Left" Margin="555,276,0,0" VerticalAlignment="Top" Height="125" Width="116" Grid.Column="1"/>
+                        <GroupBox x:Name="cmdCodigo_Copy1" Visibility="Hidden" Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}" Header="{x:Static local:Lenguaje.headP}" HorizontalAlignment="Left" Margin="224,420,0,0" VerticalAlignment="Top" Height="115" Width="174" Grid.Column="1">
                             <TextBox x:Name="txtPotencia" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="22,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="1"/>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy2" Visibility="Hidden"  Background="{StaticResource section}" BorderBrush="{StaticResource section}"  Header="{x:Static local:Lenguaje.tableMethod}" HorizontalAlignment="Left" Margin="726,474,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1">
+                        <GroupBox x:Name="cmdCodigo_Copy2" Visibility="Hidden" Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}"  Header="{x:Static local:Lenguaje.tableMethod}" HorizontalAlignment="Left" Margin="424,420,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1">
                             <ComboBox x:Name="comboMetodo" Visibility="Hidden" HorizontalAlignment="Left" Margin="7,23,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True">
                                 <ComboBoxItem Content="R"/>
                                 <ComboBoxItem Content="X"/>
@@ -1700,8 +1707,8 @@
                                 <ComboBoxItem Content="QTDCL 10*90"/>
                             </ComboBox>
                         </GroupBox>
-                        <GroupBox x:Name="cmdCodigo_Copy3" Visibility="Hidden" Background="{StaticResource section}" BorderBrush="{StaticResource section}" Header="{x:Static local:Lenguaje.tableLevel}" HorizontalAlignment="Left" Margin="864,475,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1"/>
-                        <Button x:Name="cmdAplicar" Visibility="Hidden" Background="{StaticResource section}" BorderThickness="0"  HorizontalAlignment="Left" Margin="552,607,0,0" VerticalAlignment="Top" Width="187" Height="48" Click="cmdAplicar_Click" Grid.Column="1">
+                        <GroupBox x:Name="cmdCodigo_Copy3" Visibility="Hidden" Background="{StaticResource TabColor}" BorderBrush="{StaticResource letra}" Foreground="{StaticResource letra}" Header="{x:Static local:Lenguaje.tableLevel}" HorizontalAlignment="Left" Margin="564,420,0,0" VerticalAlignment="Top" Height="115" Width="116" Grid.Column="1"/>
+                        <Button x:Name="cmdAplicar" Visibility="Hidden"  Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" BorderThickness="0"  HorizontalAlignment="Left" Margin="232,587,0,0" VerticalAlignment="Top" Width="187" Height="48" Click="cmdAplicar_Click" Grid.Column="1">
                             <Button.Effect>
                                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
                             </Button.Effect>
@@ -1710,10 +1717,10 @@
                                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnApp}" Foreground="#FFFAFAFA"/>
                             </StackPanel>
                         </Button>
-                        <Label x:Name="lblMultiples_Copy" Visibility="Hidden" Content="There are [N] rates selected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="564,388,0,0" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
-                        <RadioButton x:Name="checkBox" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputSelect}" HorizontalAlignment="Left" Margin="877,374,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" Grid.Column="1"/>
-                        <RadioButton x:Name="checkBox_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="877,405,0,0" VerticalAlignment="Top" Checked="checkBox_Copy_Checked" Grid.Column="1"/>
-                        <ComboBox x:Name="cmdNivel" Visibility="Hidden" HorizontalAlignment="Left" Margin="877,530,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True" Grid.Column="1">
+                        <Label x:Name="lblMultiples_Copy" Visibility="Hidden" Content="There are [N] rates selected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,338,0,0" FontSize="16" FontWeight="Bold" Grid.Column="1"/>
+                        <RadioButton x:Name="checkBox" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputSelect}" HorizontalAlignment="Left" Margin="577,324,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" Grid.Column="1"/>
+                        <RadioButton x:Name="checkBox_Copy" Visibility="Hidden" Content="{x:Static local:Lenguaje.inputAll}" HorizontalAlignment="Left" Margin="577,350,0,0" VerticalAlignment="Top" Checked="checkBox_Copy_Checked" Grid.Column="1"/>
+                        <ComboBox x:Name="cmdNivel" Visibility="Hidden" HorizontalAlignment="Left" Margin="578,475,0,0" VerticalAlignment="Top" Width="91" IsReadOnly="True" Grid.Column="1">
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
@@ -2513,7 +2520,7 @@
                             <ComboBoxItem Content="{x:Static local:Lenguaje.labelRemedy}"/>
                             <ComboBoxItem Content="{x:Static local:Lenguaje.labelRate}"/>
                         </ComboBox>
-                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,258,20,0" VerticalAlignment="Top" Height="422" Width="294" Background="{StaticResource TabColor}" BorderBrush="{StaticResource borderSection}" Foreground="{StaticResource letra}" Grid.ColumnSpan="3">
+                        <GroupBox x:Name="ProgramacionTrata" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,258,20,0" VerticalAlignment="Top" Height="422" Width="310" Background="{StaticResource TabColor}" BorderBrush="{StaticResource borderSection}" Foreground="{StaticResource letra}" Grid.ColumnSpan="3">
                             <GroupBox.Header>
                                 <StackPanel Orientation="Horizontal">
                                     <iconPacks:PackIconModern Width="15" Height="15" Kind="Timer"/>
@@ -2524,7 +2531,7 @@
                         <Label x:Name="lblNombreTratamiento_Copy2" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelTypeSh}" HorizontalAlignment="Left" Margin="985,320,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="3"/>
                         <Label x:Name="lblNombreTratamiento_Copy3" Visibility="Hidden" Content="{x:Static local:Lenguaje.labelBeg}" HorizontalAlignment="Left" Margin="985,364,-60,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <Border x:Name="borderInfobasica_Copy1" Visibility="Hidden" BorderBrush="{StaticResource borderSection}" BorderThickness="1" HorizontalAlignment="Left" Height="64" Margin="990,392,0,0" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
-                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Right" Margin="50,411,40,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
+                        <DatePicker x:Name="dateProg" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,411,70,0" VerticalAlignment="Top" Width="198" DisplayDateStart="2016-12-26" SelectedDateFormat="Short" Grid.ColumnSpan="2" Grid.Column="1">
                             <DatePicker.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </DatePicker.Effect>

@@ -204,7 +204,9 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-
+        /// <summary>
+        ///   Looks up a localized string similar to CANCEL.
+        /// </summary>
         public static string btnCancel {
             get {
                 return ResourceManager.GetString("btnCancel", resourceCulture);
@@ -671,8 +673,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-
-        ///   Busca una cadena traducida similar a Close details.
+        ///   Looks up a localized string similar to Close details.
         /// </summary>
         public static string CerrarDetalles {
             get {
@@ -681,12 +682,20 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Chest.
-
+        ///   Looks up a localized string similar to Chest.
         /// </summary>
         public static string Chest {
             get {
                 return ResourceManager.GetString("Chest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This code already exists. Do you want to register it anyway?.
+        /// </summary>
+        public static string CodigoDuplicado {
+            get {
+                return ResourceManager.GetString("CodigoDuplicado", resourceCulture);
             }
         }
         
@@ -762,14 +771,18 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-
+        /// <summary>
+        ///   Looks up a localized string similar to Generate a rate from the instrument.
+        /// </summary>
         public static string genRate {
             get {
                 return ResourceManager.GetString("genRate", resourceCulture);
             }
         }
         
-
+        /// <summary>
+        ///   Looks up a localized string similar to Glans.
+        /// </summary>
         public static string Glans {
             get {
                 return ResourceManager.GetString("Glans", resourceCulture);
@@ -2451,7 +2464,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please select a main category first and a sub-category in order to add a new rate on the database!.
+        ///   Looks up a localized string similar to Please select a main category first !.
         /// </summary>
         public static string messageError25 {
             get {
@@ -3423,6 +3436,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analyisis&apos;s Detail .
+        /// </summary>
+        public static string pdf1 {
+            get {
+                return ResourceManager.GetString("pdf1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name of the treatment:.
         /// </summary>
         public static string pdfParr {
@@ -3572,6 +3594,24 @@ namespace HS5.Resources.Idiomas {
         public static string PUASED {
             get {
                 return ResourceManager.GetString("PUASED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate not registered.
+        /// </summary>
+        public static string rateNoRegistrado {
+            get {
+                return ResourceManager.GetString("rateNoRegistrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code registered successfully.
+        /// </summary>
+        public static string rateRegistrado {
+            get {
+                return ResourceManager.GetString("rateRegistrado", resourceCulture);
             }
         }
         
@@ -3953,7 +3993,9 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-
+        /// <summary>
+        ///   Looks up a localized string similar to Decree.
+        /// </summary>
         public static string tabDec {
             get {
                 return ResourceManager.GetString("tabDec", resourceCulture);
@@ -3961,7 +4003,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Instrument.
+        ///   Looks up a localized string similar to Instrument.
         /// </summary>
         public static string tabIns {
             get {
@@ -3969,6 +4011,9 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to BEGGING TIME.
+        /// </summary>
         public static string tableBegTime {
             get {
                 return ResourceManager.GetString("tableBegTime", resourceCulture);
@@ -4172,8 +4217,9 @@ namespace HS5.Resources.Idiomas {
                 return ResourceManager.GetString("tableValue", resourceCulture);
             }
         }
-
-        ///   Busca una cadena traducida similar a Text.
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text.
         /// </summary>
         public static string tabText {
             get {
@@ -4181,6 +4227,8 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Throat.
         /// </summary>
         public static string Throat {
             get {
@@ -4242,7 +4290,9 @@ namespace HS5.Resources.Idiomas {
             }
         }
         
-
+        /// <summary>
+        ///   Looks up a localized string similar to Type a Decrete here...
+        /// </summary>
         public static string typeDec {
             get {
                 return ResourceManager.GetString("typeDec", resourceCulture);
@@ -4250,7 +4300,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Type a text here....
+        ///   Looks up a localized string similar to Type a text here....
         /// </summary>
         public static string typeText {
             get {
@@ -4259,7 +4309,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-
+        ///   Looks up a localized string similar to Umbilicus.
         /// </summary>
         public static string Umbilicus {
             get {

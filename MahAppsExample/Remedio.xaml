@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HS5.Resources.Idiomas"   
         Icon="Resources/CopenIcon.ico"
         mc:Ignorable="d"
-        Title="Remedio" Height="450" Width="800">
+        Title="{x:Static local:Lenguaje.headRemedies}" Height="450" Width="800">
     <Grid>
         <ListView x:Name="ListaRemedios" Visibility="Visible" HorizontalAlignment="Center" Width="760" BorderThickness="0.8"  >
             <ListView.View>

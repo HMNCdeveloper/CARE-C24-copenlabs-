@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homoeonic Software", "MahAp
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalador Homoeonic Software", "Instalador Homoeonic Software\Instalador Homoeonic Software.vdproj", "{0F11579B-6BED-4A01-8ADE-C8D319899F57}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CopenSoft", "CopenSoft\CopenSoft.vdproj", "{BA14B795-4558-4327-80AA-99F218910990}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.DefaultBuild|x86.ActiveCfg = Debug
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Release|Any CPU.ActiveCfg = Release
 		{0F11579B-6BED-4A01-8ADE-C8D319899F57}.Release|x86.ActiveCfg = Release
+		{BA14B795-4558-4327-80AA-99F218910990}.Debug|Any CPU.ActiveCfg = Debug
+		{BA14B795-4558-4327-80AA-99F218910990}.Debug|x86.ActiveCfg = Debug
+		{BA14B795-4558-4327-80AA-99F218910990}.DefaultBuild|Any CPU.ActiveCfg = Debug
+		{BA14B795-4558-4327-80AA-99F218910990}.DefaultBuild|x86.ActiveCfg = Debug
+		{BA14B795-4558-4327-80AA-99F218910990}.Release|Any CPU.ActiveCfg = Release
+		{BA14B795-4558-4327-80AA-99F218910990}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

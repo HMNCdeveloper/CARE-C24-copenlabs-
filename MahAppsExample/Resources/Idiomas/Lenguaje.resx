@@ -327,6 +327,9 @@
   <data name="Chest" xml:space="preserve">
     <value>Chest</value>
   </data>
+  <data name="CodigoDuplicado" xml:space="preserve">
+    <value>This code already exists. Do you want to register it anyway?</value>
+  </data>
   <data name="Column" xml:space="preserve">
     <value>Column</value>
   </data>
@@ -352,7 +355,7 @@
     <value>Forehead</value>
   </data>
   <data name="genRate" xml:space="preserve">
-    <value>Generate a id from the instrument</value>
+    <value>Generate a rate from the instrument</value>
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Glans</value>
@@ -934,7 +937,7 @@
     <value>Please write the Rate's name!</value>
   </data>
   <data name="messageError25" xml:space="preserve">
-    <value>Please select a main category first and a sub-category in order to add a new rate on the database!</value>
+    <value>Please select a main category first !</value>
   </data>
   <data name="messageError26" xml:space="preserve">
     <value>Please select a color before continuing</value>
@@ -1257,6 +1260,9 @@
   <data name="PatientList" xml:space="preserve">
     <value> Patient's list</value>
   </data>
+  <data name="pdf1" xml:space="preserve">
+    <value>Analyisis's Detail </value>
+  </data>
   <data name="pdfParr" xml:space="preserve">
     <value>Name of the treatment:</value>
   </data>
@@ -1307,6 +1313,12 @@
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>PAUSED</value>
+  </data>
+  <data name="rateNoRegistrado" xml:space="preserve">
+    <value>Rate not registered</value>
+  </data>
+  <data name="rateRegistrado" xml:space="preserve">
+    <value>Code registered successfully</value>
   </data>
   <data name="rbOpt" xml:space="preserve">
     <value>RESTORE AND BACKUP</value>
