@@ -3359,8 +3359,46 @@ namespace MahAppsExample
 
         private void cmdRango_Click(object sender, RoutedEventArgs e)
         {
+            string rangomin, rangomax;
+
+            rangomin = Interaction.InputBox(obtenerRecurso("messageQuestion5"), obtenerRecurso("messageHeadQ4"), "", 300, 300);
+            rangomax = Interaction.InputBox(obtenerRecurso("messageQuestion4"), obtenerRecurso("messageHeadQ4"), "", 300, 300);
+
+            if (rangomin == "" || rangomax == "")
+            {
+                MessageBox.Show(obtenerRecurso("messageError46"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                double rangominvalor = Convert.ToDouble(rangomin);
+                double rangomaxvalor = Convert.ToDouble(rangomax);
+
+                IEnumerable itemsCodigos = this.ListaCodigos.Items;
+
+                List<nuevoCodigo> objetos_Codigos = new List<nuevoCodigo>();
+
+                foreach (nuevoCodigo codigo in itemsCodigos)
+                {
+                    objetos_Codigos.Add(codigo);
+                }
+
+                objetos_Codigos.RemoveAll(codigo => (codigo.ftester >= rangominvalor && codigo.ftester <= rangomaxvalor));
+
+                ListaCodigos.Items.Clear();
+
+                foreach (nuevoCodigo codigo in objetos_Codigos)
+                {
+                    ListaCodigos.Items.Add(codigo);
+                }
+
+                lblContCodigos.Content = ListaCodigos.Items.Count;
+            }
+        }
+
+        /*private void cmdRango_Click(object sender, RoutedEventArgs e)
+        {
             /*if (option100.IsChecked != true)
-          {*/
+          {
             string rangomin, rangomax;
 
             rangomin = Interaction.InputBox(obtenerRecurso("messageQuestion5"), obtenerRecurso("messageHeadQ4"), "", 300, 300);
@@ -3416,7 +3454,7 @@ namespace MahAppsExample
                 //Actualiza el contador de los codigos.
                 lblContCodigos.Content = ListaCodigos.Items.Count;
             }
-        }
+        }*/
 
         private void listadoCodigos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -4312,13 +4350,12 @@ namespace MahAppsExample
 
         }
 
-        void Guarda_Diagnostico()
+        public void Guarda_Diagnostico()
         {
             try
             {
                 HacerConexion();
 
-                //Listas para los objetos
                 List<string> codigos_s = new List<string>();
                 List<string> nombres_s = new List<string>();
                 List<string> valor_s = new List<string>();
@@ -4330,10 +4367,8 @@ namespace MahAppsExample
                 object id_codigo;
                 object id_analisis;
 
-                //Obtenemos elementos del analisis en base a lo que se eligio
                 IEnumerable items6 = this.ListaCodigos.Items;
 
-                //De objetos los pasamos a listas
                 foreach (nuevoCodigo codigo in items6)
                 {
                     nombres_s.Add(codigo.nombre.ToString());
@@ -4343,35 +4378,22 @@ namespace MahAppsExample
                     sugeridos.Add(codigo.nsugerido.ToString());
                     potencia.Add(codigo.potencia.ToString());
                     potenciaSugeridad.Add(codigo.potenciaSugeridad.ToString());
-
                 }
 
                 if (valor_s.Count == 0 || ListaCodigos.Items.Count == 0)
                 {
                     MessageBox.Show(obtenerRecurso("messageError43"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                if (valor_s.Count != 0 || ListaCodigos.Items.Count != 0)
+                else
                 {
-                    //Buscar el id_analisis
                     id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
-
-                    // MessageBox.Show(id_analisis.ToString());
-                    //Actualizar estado del analisis ha analizado
                     obj2.Modificar_Estado_Analisis_Analizado(id_analisis.ToString());
 
-                    //Guardar cada uno de los codigos de analisis
                     for (int i = 0; i <= nombres_s.Count - 1; i++)
                     {
-                        //Buscar el id_codigo
                         id_codigo = obj2.Buscar_IdCodigo_Codigo(codigos_s[i]);
-
-                        //MessageBox.Show(id_codigo.ToString());
-                        //Guarda cada uno de los codigos analizados en base
                         obj2.Registrar_Codigo_de_Analisis(id_analisis.ToString(), id_codigo.ToString(), codigos_s[i], nombres_s[i], valor_s[i], niveles_s[i], sugeridos[i], potencia[i], potenciaSugeridad[i]);
                     }
-
-                    //MessageBox.Show("Analysis Saved!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
                 CerrarConexion();
@@ -4381,6 +4403,7 @@ namespace MahAppsExample
                 MessageBox.Show(obtenerRecurso("messageError42"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -7283,6 +7306,7 @@ namespace MahAppsExample
 
                     CerrarConexion();
                 }
+                CargarListadoRemedios();
             }
             else
             {
