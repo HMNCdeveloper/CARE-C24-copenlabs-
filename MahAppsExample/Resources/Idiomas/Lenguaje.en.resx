@@ -1077,6 +1077,9 @@
   <data name="messageError70" xml:space="preserve">
     <value>you must choose a patient to continue</value>
   </data>
+  <data name="MessageError74" xml:space="preserve">
+    <value>The analysis is empty or has not been conducted.</value>
+  </data>
   <data name="messageError8" xml:space="preserve">
     <value>Please select an element to continue!</value>
   </data>

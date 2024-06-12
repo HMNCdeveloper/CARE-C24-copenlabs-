@@ -2628,7 +2628,7 @@ namespace MahAppsExample
         {
 
 
-     
+
             UpdateAnalysis(lblNombre_Anal1.Content.ToString());
             HacerConexion();
             object id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
@@ -2636,67 +2636,85 @@ namespace MahAppsExample
             int cant_num_codigo = Convert.ToInt32(cant_codigos_analisis);
             CerrarConexion();
 
-     
 
-            if ((ListaCodigos.Items.Count != 0 || cant_num_codigo != 0) || ListaCodigos.Items.Count == 0 || cant_num_codigo == 0)
+            int temp = 0;
+            foreach (nuevoCodigo item in ListaCodigos.Items)
             {
-                Lista_Analisis_Group1.Visibility = Visibility.Visible;
-         
-                cmdEliminar_Copy1.Visibility = Visibility.Visible;
-                ListaPacientes_Recientes1.Visibility = Visibility.Visible;
-
-                OcultarDiag();
-                //Autoguardar
-                Guarda_Diagnostico();
+                if (item.ftester > temp)
+                {
+                    temp = item.ftester;
+                }
+            }
 
 
-                ListaCodigos.Items.Clear();
-                txtEstatura.Text = "";
-                txtPresionSist.Text = "";
-                txtIMC.Text = "";
-                txtFR.Text = "";
-                txtTA.Text = "";
-                txtPeso.Text = "";
-                txtPresionDistolica.Text = "";
-                txtFC.Text = "";
-                txtTemp.Text = "";
+            if (temp > 0)
+            {
+                if ((ListaCodigos.Items.Count != 0 || cant_num_codigo != 0) || ListaCodigos.Items.Count == 0 || cant_num_codigo == 0)
+                {
+                    Lista_Analisis_Group1.Visibility = Visibility.Visible;
 
-                txtPadecimiento.Text = "";
-                txtInterrogatorio.Text = "";
+                    cmdEliminar_Copy1.Visibility = Visibility.Visible;
+                    ListaPacientes_Recientes1.Visibility = Visibility.Visible;
 
-                //optionProbabilidad.IsChecked = false;
-                optionPorcentaje.IsChecked = false;
-                option100.IsChecked = false;
-                //optionPolaridad.IsChecked = false;
-                //optionPronunciamiento.IsChecked = false;
-                optionradionico.IsChecked = false;
-                optionSugerirNiv.IsChecked = false;
-                optionSugerirPot.IsChecked = false;
+                    OcultarDiag();
+                    //Autoguardar
+                    Guarda_Diagnostico();
 
-                comboNiveles.SelectedIndex = -1;
-                comboP.SelectedIndex = -1;
 
-                OcultarDiag2();
-                //CargarRegistrosPacientesRecientes();
+                    ListaCodigos.Items.Clear();
+                    txtEstatura.Text = "";
+                    txtPresionSist.Text = "";
+                    txtIMC.Text = "";
+                    txtFR.Text = "";
+                    txtTA.Text = "";
+                    txtPeso.Text = "";
+                    txtPresionDistolica.Text = "";
+                    txtFC.Text = "";
+                    txtTemp.Text = "";
+
+                    txtPadecimiento.Text = "";
+                    txtInterrogatorio.Text = "";
+
+                    //optionProbabilidad.IsChecked = false;
+                    optionPorcentaje.IsChecked = false;
+                    option100.IsChecked = false;
+                    //optionPolaridad.IsChecked = false;
+                    //optionPronunciamiento.IsChecked = false;
+                    optionradionico.IsChecked = false;
+                    optionSugerirNiv.IsChecked = false;
+                    optionSugerirPot.IsChecked = false;
+
+                    comboNiveles.SelectedIndex = -1;
+                    comboP.SelectedIndex = -1;
+
+                    OcultarDiag2();
+                    //CargarRegistrosPacientesRecientes();
+                }
+                else
+                {
+
+                    //MessageBox.Show("Perform an analysis first in order to save it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+
+                BusquedaReanalisis.Visibility = Visibility.Visible;
+                lblPacienteAnalisis2.Visibility = Visibility.Visible;
+                cmdAnalisisPaciente.Visibility = Visibility.Visible;
+                cmdAnalisisPaciente_Copy.Visibility = Visibility.Visible;
+                cmdAnalizarr.Visibility = Visibility.Visible;
+                listadoPacientes.Visibility = Visibility.Visible;
+                lblPacienteAnalisis.Visibility = Visibility.Visible;
+                lblPacienteAnalisis_Copy.Visibility = Visibility.Visible;
+                comboOtrosAnal.Visibility = Visibility.Visible;
+                cmdReanalizarr.Visibility = Visibility.Visible;
+
             }
             else
             {
-
-                //MessageBox.Show("Perform an analysis first in order to save it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                CustomMessageBox customMessageBox = new CustomMessageBox();
+                customMessageBox.Message = obtenerRecurso("MessageError74");
+                customMessageBox.ShowDialog();
             }
-
-
-            
-            BusquedaReanalisis.Visibility = Visibility.Visible;
-            lblPacienteAnalisis2.Visibility=Visibility.Visible;
-            cmdAnalisisPaciente.Visibility = Visibility.Visible;
-            cmdAnalisisPaciente_Copy.Visibility = Visibility.Visible;
-            cmdAnalizarr.Visibility = Visibility.Visible;
-            listadoPacientes.Visibility = Visibility.Visible;
-            lblPacienteAnalisis.Visibility = Visibility.Visible;
-            lblPacienteAnalisis_Copy.Visibility = Visibility.Visible;
-            comboOtrosAnal.Visibility=Visibility.Visible;
-            cmdReanalizarr.Visibility = Visibility.Visible;
         }
 
         void OcultarDiag2()
