@@ -613,18 +613,18 @@ namespace MahAppsExample
             switch (id)
             {
 
-                case "223c-pn33-hj77-13%@-34H&C":
-                    break;
+                //case "223c-pn33-hj77-13%@-34H&C":
+                //    break;
 
-                case "395a-0s11-hj34-13%&-33w+W":
-                    //MessageBox.Show("SOY UNA MANTRA!");
-                    break;
+                //case "395a-0s11-hj34-13%&-33w+W":
+                //    //MessageBox.Show("SOY UNA MANTRA!");
+                //    break;
 
-                case "173c-ar22-hj33-18%@-21H+C":
-                    break;
+                //case "173c-ar22-hj33-18%@-21H+C":
+                //    break;
 //284a-er45-FG34-09%#-12w+q
                 case "284a-er45-FG34-09%#-12w+q":
-                     MessageBox.Show("SOY UNA MANTRA!");
+                     
                     break;
                 case "284b-ar45-hj34-13%#-20w+Q":
                    break;
@@ -13775,10 +13775,10 @@ namespace MahAppsExample
                      MessageBoxButton.OK,
                      MessageBoxImage.Information);
             }
-            catch (Exception er)
+            catch (Exception)
             {
 
-                MessageBox.Show(er.ToString());
+               //MessageBox.Show(er.ToString());
                 MessageBox.Show(
                     "first you must asign value to potency, method or level if every rate don't have it",
                     "Error",
