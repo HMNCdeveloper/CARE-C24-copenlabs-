@@ -1092,6 +1092,9 @@
   <data name="messageError9" xml:space="preserve">
     <value>Por favor  Escribe un nombre del analisis antes de continuar  </value>
   </data>
+  <data name="messageErrorApp" xml:space="preserve">
+    <value>The device was disconnected from the port, The system will shut down.</value>
+  </data>
   <data name="messageHead1" xml:space="preserve">
     <value>ELIMINAR USUARIO</value>
   </data>

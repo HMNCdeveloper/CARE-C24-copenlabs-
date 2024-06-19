@@ -414,6 +414,16 @@ namespace MahAppsExample
             string nombretratamiento, tfaltante, nombretratamientoA, tfaltanteA;
             TimeSpan diff, diffA;
             int emitido;
+            if (!obj.isOpen())
+            {
+                _timer.Stop(); // Detener el temporizador
+                MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                var window = Application.Current.Windows[0];
+                window.Close();
+
+            }
+
+
             HacerConexion();
             if (cant_activos > 0)
             {
@@ -442,7 +452,14 @@ namespace MahAppsExample
                         cant_activos--;
                         if (cant_activos == 0)
                         {
-                            obj.BroadcastOFF();
+                            if (!obj.BroadcastOFF())
+                            {
+                                _timer.Stop(); // Detener el temporizador
+                                MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                var window = Application.Current.Windows[0];
+                                window.Close();
+
+                            }
                         }
                         Console.WriteLine("ELIMINADO " + Tratamientos_Activos.Rows[j][0].ToString());
                     }
@@ -478,7 +495,14 @@ namespace MahAppsExample
             }
             else
             {
-                obj.BroadcastOFF();
+                if (!obj.BroadcastOFF())
+                {
+                    _timer.Stop(); // Detener el temporizador
+                    MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    var window = Application.Current.Windows[0];
+                    window.Close();
+
+                }
             }
             ListadoDiagNoActiv.Items.Clear();
             DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
@@ -613,21 +637,24 @@ namespace MahAppsExample
             switch (id)
             {
 
-                //case "223c-pn33-hj77-13%@-34H&C":
-                //    break;
+                case "223c-pn33-hj77-13%@-34H&C":
+                    break;
 
-                //case "395a-0s11-hj34-13%&-33w+W":
-                //    //MessageBox.Show("SOY UNA MANTRA!");
-                //    break;
+                case "395a-0s11-hj34-13%&-33w+W":
+                    //MessageBox.Show("SOY UNA MANTRA!");
+                    break;
 
-                //case "173c-ar22-hj33-18%@-21H+C":
-                //    break;
-//284a-er45-FG34-09%#-12w+q
+                case "173c-ar22-hj33-18%@-21H+C":
+                    break;
+                //284a-er45-FG34-09%#-12w+q
                 case "284a-er45-FG34-09%#-12w+q":
                      
                     break;
+
                 case "284b-ar45-hj34-13%#-20w+Q":
                    break;
+
+  
                 //284b-ar45-hj34-13%#-20w+Q
                 default:
                     var window = Application.Current.Windows[0];

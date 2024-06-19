@@ -101,6 +101,43 @@ namespace MahAppsExample
 
         }
 
+
+        public bool isOpen()
+        {
+            try
+            {
+                if (port.IsOpen)
+                {
+
+                    return true; // La escritura fue exitosa
+                }
+                else
+                {
+                    return false; // El puerto no está abierto
+                }
+            }
+            catch (IOException)
+            {
+                return false; // Hubo un problema con el puerto
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return false; // Hubo un problema con el acceso al puerto
+            }
+            catch (InvalidOperationException)
+            {
+                return false; // Hubo un problema con la operación en el puerto
+            }
+            catch (TimeoutException)
+            {
+                return false; // Hubo un problema con el tiempo de espera del puerto
+            }
+            catch (Exception)
+            {
+                return false; // Hubo algún otro problema
+            }
+        }
+
         //Funcion de diagnostico
         public bool Diagnostic()
         {
@@ -159,10 +196,35 @@ namespace MahAppsExample
         }
 
         //Funcion para Broadcast OFF
-        public void BroadcastOFF()
+        public bool BroadcastOFF()
         {
             port.Write("D");
+            try
+            {
+                port.Write("D");
+                return true; // La escritura fue exitosa
+            }
+            catch (IOException)
+            {
+                return false; // Hubo un problema con el puerto
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return false; // Hubo un problema con el acceso al puerto
+            }
+            catch (InvalidOperationException)
+            {
+                return false; // Hubo un problema con la operación en el puerto
+            }
+            catch (TimeoutException)
+            {
+                return false; // Hubo un problema con el tiempo de espera del puerto
+            }
+            catch (Exception)
+            {
+                return false; // Hubo algún otro problema
+            }
         }
-       
+
     }
 }
