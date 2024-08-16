@@ -6,31 +6,38 @@
         xmlns:local="clr-namespace:HS5.Resources.Idiomas"  
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="{x:Static local:Lenguaje.btnNewRate}" Height="620" Width="800" MaxHeight="620" MaxWidth="800"  Background="White" >
+        Title="Rates" Height="620" Width="800" MaxHeight="620" MaxWidth="800"  Background="#FFF7F5F5" >
 
 
 
 
     <Grid VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="47*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="121*"></RowDefinition>
-            <RowDefinition Height="426*"></RowDefinition>
-            <RowDefinition Height="57*"></RowDefinition>
+            <RowDefinition Height="214*"></RowDefinition>
+            <RowDefinition Height="327*"></RowDefinition>
+            <RowDefinition Height="63*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <!--on this line, there are some elemenets for the first column-->
-        <TextBlock Text="{x:Static local:Lenguaje.headRate}" Grid.Row="0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="27" Width="63" Grid.ColumnSpan="2"  />
-        <TextBox x:Name="rateId" Grid.Row="0" Width="370" FontSize="20" VerticalAlignment="Top"  HorizontalAlignment="Left" Height="35" Margin="62,10,0,0" IsReadOnly="True" Grid.Column="1" ></TextBox>
-        <TextBlock Text="{x:Static local:Lenguaje.tableName}" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="10 60 0 0" Height="27" Width="87" Grid.ColumnSpan="2" />
-        <TextBox x:Name="rateName" Grid.Row="0" Width="400" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,60,0,0" Grid.Column="1" />
+        <!--The first part is used to rate-->
+        <TextBlock Text="RATE" Grid.Row="0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="27" Width="48"  />
+        <TextBox x:Name="rateId" Grid.Row="0" Width="378" FontSize="20" VerticalAlignment="Top"  HorizontalAlignment="Left" Height="35" Margin="102,10,0,0"  ></TextBox>
+        <!--checks to verify if the user wants to generate automatic rates when the user will create a rate-->
+        <CheckBox x:Name="checkBoxRate" Grid.Row="0" Content="generar ID automatico" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,15,0,0" Click="CheckBox_Click"></CheckBox>
+        <!--The second part is used to rate name -->
+        <TextBlock Text="{x:Static local:Lenguaje.tableName}" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="10 60 0 0" Height="27" Width="87" />
+        <TextBox x:Name="rateName" Width="378" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="102,56,0,0" />
 
+        <!--The third part is used to Categorie-->
+        <TextBlock Text="{x:Static local:Lenguaje.Categories}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="97,114,0,0" Height="27" Width="119" />
+        <ComboBox x:Name="Categorias" Width="303" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,156,0,0" SelectionChanged="selected_subcategorie" >
+        </ComboBox>
 
+        <!--The third part is used to Categorie-->
+        <TextBlock Text="{x:Static local:Lenguaje.labelSubCat}" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="442,114,0,0" Height="27" Width="158" />
+        <ComboBox x:Name="Subcategorias" Width="334" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="430,156,0,0"></ComboBox>
         <!--on this line, there are some elements for the second column-->
-        <TabControl Margin="10,121,10,6" Background="#FFF7F5F5" BorderBrush="#5A5C5D"  Grid.RowSpan="2" SelectionChanged="TabControl_SelectionChanged" Grid.ColumnSpan="2">
+        <TabControl Margin="10,10,10,6" Background="White" BorderBrush="#5A5C5D" SelectionChanged="TabControl_SelectionChanged" Grid.Row="1">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -45,10 +52,10 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="#307F" />
+                                        <Setter TargetName="Border" Property="Background" Value="#FF3CB3DF" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
-                                        <Setter TargetName="Border" Property="Background" Value="#FFF7F5F5" />
+                                        <Setter TargetName="Border" Property="Background" Value="White" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -64,40 +71,25 @@
                         <TextBlock FontSize="20" Text="{x:Static local:Lenguaje.tabIns}" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
-                <Button Click="generateRate" Background="#2ecc71" BorderThickness="0"  FontSize="20" Height="50" Margin="40,0,29,0">
-                    <Button.Effect>
-                        <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                    </Button.Effect>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Static local:Lenguaje.genRate}" Foreground="#FFFAFAFA" Width="364"/>
-                    </StackPanel>
-                </Button>
+                <Button x:Name="btnGenRate1" Click="generateRate" Content="{x:Static local:Lenguaje.genRate}" Height="50" Margin="40,0,29,0"></Button>
             </TabItem>
 
             <!--This tabitem is to the text section-->
-            <TabItem>
+            <TabItem Visibility="Hidden">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <!--<Image Source="/WpfTutorialSamples;component/Images/bullet_blue.png" />-->
-                        <TextBlock Text="{x:Static local:Lenguaje.tabDec}" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="{x:Static local:Lenguaje.tabText}" FontSize="20" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Margin="0 0 0 10">
-                    <Button Click="_generateRate" Background="#2ecc71" BorderThickness="0"  FontSize="20" Margin="10" HorizontalAlignment="Stretch" Height="50">
-                        <Button.Effect>
-                            <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                        </Button.Effect>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.genRate}" Foreground="#FFFAFAFA"/>
-                        </StackPanel>
-                    </Button>
-
+                    <Button x:Name="btnGenRate2" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10" HorizontalAlignment="Stretch" Height="50"></Button>
                     <TextBox
                         x:Name="textDesc"
                         Background="White" 
                         HorizontalAlignment="Stretch"
                         Height="282"
-                        Text="{x:Static local:Lenguaje.typeDec}"
+                        Text="{x:Static local:Lenguaje.typeText}"
                         Foreground="Gray"
                         BorderBrush="#5A5C5D"
                         Margin="10"
@@ -109,31 +101,24 @@
             </TabItem>
 
             <!--This tabitme is to decrete section -->
-            <TabItem>
+            <TabItem Visibility="Hidden">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Static local:Lenguaje.tabText}" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="{x:Static local:Lenguaje.tabDec}" FontSize="20" Foreground="Black" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <Button Click="_generateRate" Background="#2ecc71" BorderThickness="0"  FontSize="20" Margin="10" HorizontalAlignment="Stretch" Height="50">
-                        <Button.Effect>
-                            <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
-                        </Button.Effect>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.genRate}" Foreground="#FFFAFAFA"/>
-                        </StackPanel>
-                    </Button>
+                    <Button x:Name="btnGenRate3" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10,10,0,0" HorizontalAlignment="Left" Height="50" Width="744"/>
                     <TextBox
                         x:Name="decretDesc"
                         Background="White"
                         HorizontalAlignment="Left"
-                        Text="{x:Static local:Lenguaje.typeText}"
+                        Text="{x:Static local:Lenguaje.typeDec}"
                         Foreground="Gray"
                         BorderBrush="#5A5C5D"
                         Margin="10,10,0,0"
                         Height="295"
-                        Width="736"
+                        Width="741"
                         FontSize="20"
                         GotFocus="TextBox_GotFocus" 
                         LostFocus="TextBox_LostFocus" 
@@ -145,7 +130,7 @@
 
 
 
-        <Button Grid.Row="2" Width="100" Click="saveRate" BorderThickness="0" Background="#0A3D6E" HorizontalAlignment="Left" Margin="597,10,0,10" Grid.Column="1">
+        <Button Grid.Row="2" Width="100" Click="saveRate" BorderThickness="0" Background="#0A3D6E" HorizontalAlignment="Left" Margin="642,6,0,14">
             <Button.Effect>
                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
             </Button.Effect>
@@ -153,12 +138,12 @@
                 <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveN}" Foreground="#FFFAFAFA"/>
             </StackPanel>
         </Button>
-        <Button Grid.Row="2" Width="100"  Background="#ff0000" BorderThickness="0" Click="closeWindow" HorizontalAlignment="Left" Margin="466,10,0,10" Grid.Column="1">
+        <Button Grid.Row="2" Width="100"  Background="#F00" BorderThickness="0" Click="closeWindow" HorizontalAlignment="Left" Margin="521,6,0,14">
             <Button.Effect>
                 <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
             </Button.Effect>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnCancel}" Foreground="#FFFAFAFA"/>
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.cancel}" Foreground="#FFFAFAFA"/>
             </StackPanel>
         </Button>
     </Grid>

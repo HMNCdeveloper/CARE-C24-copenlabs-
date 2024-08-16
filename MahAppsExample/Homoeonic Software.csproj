@@ -242,6 +242,9 @@
     <Compile Include="CutomMessageBoxYesNo.xaml.cs">
       <DependentUpon>CutomMessageBoxYesNo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DuplicarRemedio.xaml.cs">
+      <DependentUpon>DuplicarRemedio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Machine.xaml.cs">
       <DependentUpon>Machine.xaml</DependentUpon>
     </Compile>
@@ -285,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CutomMessageBoxYesNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DuplicarRemedio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -332,6 +339,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Idiomas\Lenguaje.bg.resx" />
     <EmbeddedResource Include="Resources\Idiomas\Lenguaje.es.resx" />
     <EmbeddedResource Include="Resources\Idiomas\Lenguaje.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -1036,6 +1044,7 @@
   <ItemGroup>
     <Resource Include="Resources\gif.gif" />
     <Resource Include="CopenIcon.ico" />
+    <Resource Include="Resources\imageCopenLabs-removebg-preview.png" />
     <Content Include="Resources\1493.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

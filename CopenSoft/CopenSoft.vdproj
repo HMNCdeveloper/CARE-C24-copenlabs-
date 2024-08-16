@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:CopenSoft"
+"ProjectName" = "8:QuanCareSoft"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -107,6 +107,12 @@
         {
         "MsmKey" = "8:_2AB91598C64E5260D2C2A122F1737275"
         "OwnerKey" = "8:_ACCB1E2486B84779A784F255677A14B5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2F63EB4FAB1A4AC48AA6A210B6748E17"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -605,6 +611,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_8CCB08470A4E402587F6A2027A8A25B9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2F63EB4FAB1A4AC48AA6A210B6748E17"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1275,6 +1287,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2F63EB4FAB1A4AC48AA6A210B6748E17"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CopenSoft.resources, Version=1.0.0.0, Culture=bg, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_2F63EB4FAB1A4AC48AA6A210B6748E17"
+                    {
+                    "Name" = "8:CopenSoft.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\bg\\CopenSoft.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4DA5BD59A008416C926B157257ACF4DF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_45E30BF8132782497E4FDB95088D7F47"
@@ -2427,6 +2470,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_4DA5BD59A008416C926B157257ACF4DF"
+                    {
+                    "Name" = "8:bg"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_275A1211FF6F419B842B6B5FC45595F1"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_9831AF01F53F4C058EF6286A8762E547"
                     {
                     "Name" = "8:Resources"
@@ -2477,9 +2531,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:CopenSoft"
+        "ProductName" = "8:QuanCareSoft"
         "ProductCode" = "8:{180F3CF1-9869-4D72-9EC7-1A655E7E4D94}"
-        "PackageCode" = "8:{FA7EBB80-9FA3-4503-AE26-CF40C2DE4ADA}"
+        "PackageCode" = "8:{A8FDADDC-4314-4D62-9B65-BC263E0E7D69}"
         "UpgradeCode" = "8:{3951E5F5-20B4-459E-A8A3-9DA3A6DF3DDF}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -2490,9 +2544,9 @@
         "Manufacturer" = "8:CopenLabs"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:CopenSoft"
+        "Title" = "8:QuanCareSoft"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:CopenLabs"
+        "ARPCONTACT" = "8:Chris & Manuel "
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -2601,7 +2655,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EC355D8C2FF94EFCAD3699652097BD7E"
             {
-            "Name" = "8:CopenSoft"
+            "Name" = "8:Q2C24"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

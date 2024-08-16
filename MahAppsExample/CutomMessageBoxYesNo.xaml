@@ -10,8 +10,8 @@
     <Grid>
         <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
-            <Button Content="Aceptar" Width="100" Click="Aceptar_Click" Background="#FF3CB3DF" Foreground="#FFF" Margin="0,0,10,0"/>
-            <Button Content="Cancelar" Width="100" Click="Cancelar_Click" Background="#FF3CB3DF" Foreground="#FFF"/>
+            <Button Content="Aceptar" Width="100" Click="Aceptar_Click" Background="#5CA4" Foreground="#FFF" Margin="0,0,10,0"/>
+            <Button Content="Cancelar" Width="100" Click="Cancelar_Click" Background="#5CA4" Foreground="#FFF"/>
         </StackPanel>
     </Grid>
 </Window>

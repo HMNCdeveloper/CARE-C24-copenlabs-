@@ -1,0 +1,67 @@
+﻿<Window x:Class="HS5.DuplicarRemedio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        xmlns:local="clr-namespace:HS5.Resources.Idiomas"  
+        ResizeMode="NoResize"
+        Title="Duplicar Remedio" Height="620" Width="800" MaxHeight="620" MaxWidth="800"  Background="#FFF7F5F5" >
+    <Grid VerticalAlignment="Stretch" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="306*"></RowDefinition>
+            <RowDefinition Height="235*"></RowDefinition>
+            <RowDefinition Height="63*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--LIST OF CATEGORIE  -->
+        <ListBox x:Name="listCategorias" Grid.Row="0" HorizontalAlignment="Left" Height="125" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listCategorias_MouseDoubleClick"/>
+
+        <!--LIST OF SUBCATEGORIES-->
+        <ListBox x:Name="listSubCategorias" Grid.Row="0"  HorizontalAlignment="Left" Height="137" Margin="10,146,0,0" VerticalAlignment="Top" Width="341" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listSubCategorias_MouseDoubleClick"/>
+
+        <!--LIST OF REMEDIES-->
+        <ListBox x:Name="listCodigos" Grid.Row="0"  HorizontalAlignment="Left" Height="273" Margin="365,10,0,0" VerticalAlignment="Top" Width="409" BorderBrush="#FFCCCCCC" BorderThickness="1" FontSize="14" MouseDoubleClick="listCodigos_MouseDoubleClick" />
+
+        <!--The third part is used to Categorie-->
+        <TextBlock Text="{x:Static local:Lenguaje.Categories}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="34,72,0,0" Height="27" Width="118" />
+        <ComboBox x:Name="Categorias" Grid.Row="1" Width="186" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,112,0,0" SelectionChanged="selected_subcategorie" ></ComboBox>
+
+        <!--The third part is used to Categorie-->
+        <TextBlock Text="{x:Static local:Lenguaje.labelSubCat}" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Margin="14,152,0,0" Height="27" Width="158" />
+        <ComboBox x:Name="Subcategorias" Grid.Row="1" Width="186" Height="35"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,190,0,0"></ComboBox>
+
+        <ListBox x:Name="listelemagregados" Grid.Row="1" HorizontalAlignment="Left" Height="205" Margin="219,0,0,0" VerticalAlignment="Center" Width="555" BorderBrush="Silver" BorderThickness="1,0,1,1" />
+
+        <Button x:Name="cmdBorrarElemento" Grid.Row="1" BorderThickness="0" Background="#ff0000" ToolTip="Erase an element" HorizontalAlignment="Left" Height="41" Margin="14,18,0,0" VerticalAlignment="Top" Width="172" Click="cmdBorrarElemento_Click" >
+            <Button.Effect>
+                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+            </Button.Effect>
+
+            <StackPanel Orientation="Horizontal">
+                <iconPacks:PackIconModern Width="15" Height="15" Kind="Delete" Foreground="#FFFAFAFA"/>
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnEraseNorm}" Foreground="#FFFAFAFA"/>
+            </StackPanel>
+        </Button>
+
+
+        <!--btn to close  or save -->
+        <Button Grid.Row="2" Width="100"  BorderThickness="0" Background="#0A3D6E" HorizontalAlignment="Left" Click="Button_Click" Margin="642,6,0,14" >
+            <Button.Effect>
+                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+            </Button.Effect>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.btnSaveN}" Foreground="#FFFAFAFA"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Width="100"  Background="#F00" BorderThickness="0" Click="closeWindow" HorizontalAlignment="Left" Margin="521,6,0,14">
+            <Button.Effect>
+                <DropShadowEffect Direction="300" Opacity="0.25" RenderingBias="Quality" ShadowDepth="4"/>
+            </Button.Effect>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{x:Static local:Lenguaje.cancel}" Foreground="#FFFAFAFA"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

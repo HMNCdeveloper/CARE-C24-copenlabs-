@@ -211,7 +211,7 @@
     <value>Encontrar PGR</value>
   </data>
   <data name="btnGetRate" xml:space="preserve">
-    <value>OBTENER INDICE</value>
+    <value>Duplicar Rate</value>
   </data>
   <data name="btnImp" xml:space="preserve">
     <value>IMPRIMIR</value>
@@ -312,6 +312,9 @@
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
   </data>
+  <data name="cancel" xml:space="preserve">
+    <value>cancelar</value>
+  </data>
   <data name="CancelarTratamiento" xml:space="preserve">
     <value>CANCEL TREATMENT</value>
   </data>
@@ -323,6 +326,15 @@
   </data>
   <data name="CerrarDetalles" xml:space="preserve">
     <value>Cerrar detalles</value>
+  </data>
+  <data name="checkCustCategorie" xml:space="preserve">
+    <value>Mostrar  Categorias Personales </value>
+  </data>
+  <data name="checkCustomRate" xml:space="preserve">
+    <value>Mastrar Rates personales</value>
+  </data>
+  <data name="checkDefCategorie" xml:space="preserve">
+    <value>Mostrar Categorias por Defecto</value>
   </data>
   <data name="Chest" xml:space="preserve">
     <value>Pecho</value>
@@ -347,6 +359,12 @@
   </data>
   <data name="deleteAna" xml:space="preserve">
     <value>Eliminar analisis</value>
+  </data>
+  <data name="EraseRateContent" xml:space="preserve">
+    <value>¿Deseas Eliminar este rate  ?</value>
+  </data>
+  <data name="EraseRateTitle" xml:space="preserve">
+    <value>Borrar Rate</value>
   </data>
   <data name="Esophagus" xml:space="preserve">
     <value>Esófago</value>
@@ -426,6 +444,9 @@
   <data name="headerTherapSearch" xml:space="preserve">
     <value>BUSCAR TERAPIA</value>
   </data>
+  <data name="headerTreat" xml:space="preserve">
+    <value>Cancelar Tratamiento</value>
+  </data>
   <data name="headHis" xml:space="preserve">
     <value>Historico</value>
   </data>
@@ -461,6 +482,9 @@
   </data>
   <data name="headRate" xml:space="preserve">
     <value>Indice</value>
+  </data>
+  <data name="headRates" xml:space="preserve">
+    <value>Indices</value>
   </data>
   <data name="headReana" xml:space="preserve">
     <value>Analisis  | Reanalisis </value>
@@ -1093,13 +1117,22 @@
     <value>Por favor  Escribe un nombre del analisis antes de continuar  </value>
   </data>
   <data name="messageErrorApp" xml:space="preserve">
-    <value>The device was disconnected from the port, The system will shut down.</value>
+    <value>El equipo fue desconectado, el sistema va a cerrar</value>
+  </data>
+  <data name="messageErrorCatSub" xml:space="preserve">
+    <value>Debes seleccionar una categoria o subcategoria</value>
+  </data>
+  <data name="messageErrorCode" xml:space="preserve">
+    <value>El campo Rate  no debe estar vacio</value>
   </data>
   <data name="messageHead1" xml:space="preserve">
     <value>ELIMINAR USUARIO</value>
   </data>
   <data name="messageHeadInf" xml:space="preserve">
     <value>informacion</value>
+  </data>
+  <data name="messageHeadInfCancelT" xml:space="preserve">
+    <value>Proceso exitoso </value>
   </data>
   <data name="messageHeadQ" xml:space="preserve">
     <value>Pregunta</value>
@@ -1143,6 +1176,12 @@
   <data name="messageInfo8" xml:space="preserve">
     <value>Paciente Eliminado!</value>
   </data>
+  <data name="messageInfo9" xml:space="preserve">
+    <value>Los cambios fueron registrado exitosamente</value>
+  </data>
+  <data name="messageInfoReport" xml:space="preserve">
+    <value>El reporte fue creado exitosamente </value>
+  </data>
   <data name="messageProcess" xml:space="preserve">
     <value>Archivo creado exitosamente</value>
   </data>
@@ -1173,6 +1212,9 @@
   <data name="messageQuestion7" xml:space="preserve">
     <value>Compruebe si ha colocado la muestra del paciente en el recipiente correcto.</value>
   </data>
+  <data name="messageRemedyAna" xml:space="preserve">
+    <value>EL remedio fue creado existosamente</value>
+  </data>
   <data name="messageWarnig11" xml:space="preserve">
     <value>No hay indices para agregar, utiliza la opcion de busqueda  o opcion de categorias.</value>
   </data>
@@ -1193,6 +1235,9 @@
   </data>
   <data name="messageWarning15" xml:space="preserve">
     <value>Seleccione el sexo del paciente antes de obtener el PGR.</value>
+  </data>
+  <data name="messageWarning17" xml:space="preserve">
+    <value>Ya existe un reanalisis con este analisis</value>
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Por favor selecciona una primera categoria principal y sub categoria para obtener a un nuevo tipo en la base de datos! </value>
@@ -1217,6 +1262,12 @@
   </data>
   <data name="messageWarning9" xml:space="preserve">
     <value>Presione (OK) para  continuar..</value>
+  </data>
+  <data name="messageWarningCat" xml:space="preserve">
+    <value> Existe una categoria con este nombre</value>
+  </data>
+  <data name="messageWarningPGR" xml:space="preserve">
+    <value>sólo puede generar el PGR una vez por paciente</value>
   </data>
   <data name="messBackDatabase" xml:space="preserve">
     <value>Respaldo creado exitosamente!</value>
@@ -1250,6 +1301,9 @@
   </data>
   <data name="Nose" xml:space="preserve">
     <value>Nariz</value>
+  </data>
+  <data name="optLangBG" xml:space="preserve">
+    <value>Bulgaro</value>
   </data>
   <data name="optLangEn" xml:space="preserve">
     <value>Ingles</value>
@@ -1316,6 +1370,9 @@
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>DETENIDO</value>
+  </data>
+  <data name="QuestionHeaderTreat" xml:space="preserve">
+    <value>Nombre del tratamiento</value>
   </data>
   <data name="rateNoRegistrado" xml:space="preserve">
     <value>Indice no registrado </value>
@@ -1479,6 +1536,9 @@
   <data name="tableBegTime" xml:space="preserve">
     <value>INICIANDO TIEMPO</value>
   </data>
+  <data name="tableCategory" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
   <data name="tableComp" xml:space="preserve">
     <value>COMPLEMENTO</value>
   </data>
@@ -1524,6 +1584,9 @@
   <data name="tablePotency" xml:space="preserve">
     <value>POTENCIA</value>
   </data>
+  <data name="tableProgress" xml:space="preserve">
+    <value>progress</value>
+  </data>
   <data name="tableRate" xml:space="preserve">
     <value>Indice</value>
   </data>
@@ -1536,8 +1599,14 @@
   <data name="tableStartDate" xml:space="preserve">
     <value>INICIO FECHA</value>
   </data>
+  <data name="tableSubcategory" xml:space="preserve">
+    <value>Subcategoria</value>
+  </data>
   <data name="tableSugestP" xml:space="preserve">
     <value>Potencia sugeridas</value>
+  </data>
+  <data name="tableTimeLeft" xml:space="preserve">
+    <value>Tiempo Restante</value>
   </data>
   <data name="tableTreat" xml:space="preserve">
     <value>TRATAMIENTO</value>

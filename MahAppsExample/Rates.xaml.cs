@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using HS5.Resources.Idiomas;
+//using MathNet.Numerics.Distributions;
+using System.Windows.Forms.VisualStyles;
 
 
 namespace HS5
@@ -27,7 +29,7 @@ namespace HS5
         string[] placeholderValues;
         int index = 0;
 
-        Database obj;
+        private Database obj;
         MachineP obj2 = new MachineP();
         public Func<string, string> obtenerRecurso;
 
@@ -39,18 +41,36 @@ namespace HS5
 
         Action CargarCodigos;
 
-        public Rates(Database obj, MachineP obj2, Action CargarCodigos, Func<string, string> obtenerRecurso, ListBox listadoCategorias_Copy, ListBox listadoSubcategorias_Copy, ListView listadoCodigos_Copy, Label lblCodigosCont)
+        public Rates(Database obj, MachineP obj2, Action CargarCodigos, Func<string, string> obtenerRecurso)
         {
             InitializeComponent();
             this.obj = obj;
             this.obj2 = obj2;
             this.obtenerRecurso = obtenerRecurso;
-            this.listadoCategorias_Copy = listadoCategorias_Copy;
-            this.listadoSubcategorias_Copy = listadoSubcategorias_Copy;
-            this.CargarCodigos = CargarCodigos;
-            this.lblCodigosCont = lblCodigosCont;
-            this.listadoCodigos_Copy = listadoCodigos_Copy;
             placeholderValues = new string[] { this.obtenerRecurso("typeText"), this.obtenerRecurso("typeDec") };
+
+
+            //cargar categorias
+            HacerConexion();
+            DataTable categorias = obj.VisualizarCategoriasCodigosPersonalizada();
+            for (int i = 0; i <= categorias.Rows.Count - 1; i++)
+            {
+                Categorias.Items.Add(categorias.Rows[i][1].ToString());
+            }
+            CerrarConexion();
+
+
+            //check if the user will be generate rate to enable or  disaenable abour btn generate rate id
+            List<Button> list = new List<Button>
+            {
+                btnGenRate1,
+                btnGenRate2,
+                btnGenRate3,
+            };
+            foreach (Button button in list)
+            {
+                button.IsEnabled = checkBoxRate.IsChecked == true ? true : false;
+            }
         }
 
         public bool HacerConexion()
@@ -88,63 +108,12 @@ namespace HS5
             }
 
 
-            if (!string.IsNullOrEmpty(nombre_codigo) && !string.IsNullOrEmpty(codigo))
+            if (!string.IsNullOrEmpty(nombre_codigo) && !string.IsNullOrEmpty(codigo) && (Categorias.SelectedItem != null || Subcategorias.SelectedItem != null))
             {
                 try
                 {
-
-                    int codigo_num = Int32.Parse(codigo);
-                    HacerConexion();
-
-                    //Objeto
-                    Radionica obj_new = new Radionica();
-
-                    //Categoria padre
-                    string id_cat_pad = obj.Obtener_IDCategoria(listadoCategorias_Copy.SelectedItem.ToString()).ToString();
-
-                    //Subcategoria
-                    string id_subcat = string.IsNullOrEmpty(listadoSubcategorias_Copy.SelectedItem?.ToString()) ? id_cat_pad : obj.Obtener_IDCategoria(listadoSubcategorias_Copy.SelectedItem.ToString()).ToString();
-
-
-
-                    object genero_para_codigo = "T";
-
-                    DataTable codigoRepetido = obj.ExisteCodigo(codigo);
-
-                    if (codigoRepetido.Rows.Count == 0)
-                    {
-                        obj.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), descripiton, id_subcat, id_cat_pad, genero_para_codigo.ToString());
-                        CargarCodigos?.Invoke();
-                        CustomMessageBox custom = new CustomMessageBox();
-                        custom.Message = obtenerRecurso("rateRegistrado");
-                        custom.ShowDialog();
-                    }
-                    else
-                    {
-                        HS5.CustomMessageBoxYesNo customMessageBoxYesNo = new HS5.CustomMessageBoxYesNo(obtenerRecurso("CodigoDuplicado"), obtenerRecurso("btnNewRate"));
-
-                        bool? result = customMessageBoxYesNo.ShowDialog();
-
-                        if (result.HasValue && result.Value)
-                        {
-                            obj.Registrar_Codigo_Categorias(obj_new.Generar_Id(), nombre_codigo, codigo_num.ToString(), descripiton, id_subcat, id_cat_pad, genero_para_codigo.ToString());
-                            CargarCodigos?.Invoke(); ;
-                            CustomMessageBox custom = new CustomMessageBox();
-                            custom.Message = obtenerRecurso("rateRegistrado");
-                            custom.ShowDialog();
-                        }
-                        else
-                        {
-                            CustomMessageBox custom = new CustomMessageBox();
-                            custom.Message = obtenerRecurso("rateNoRegistrado");
-                            custom.ShowDialog();
-                        }
-                    }
-
-
-                    lblCodigosCont.Content = listadoCodigos_Copy.Items.Count + " Rates";
-                    CerrarConexion();
-                    // Lógica para el botón "Aceptar"
+                    registerRate();
+                    // logic to btn when the user click to btn Acept 
                     DialogResult = true;
                     Close();
                 }
@@ -153,10 +122,51 @@ namespace HS5
                     MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+
+            if (string.IsNullOrEmpty(nombre_codigo))
+                MessageBox.Show(obtenerRecurso("messageError24"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if (string.IsNullOrEmpty(codigo))
+                MessageBox.Show(obtenerRecurso("messageErrorCode"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if(Categorias.SelectedItem == null &&  Subcategorias.SelectedItem == null)
+                MessageBox.Show(obtenerRecurso("messageErrorCatSub"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+            void registerRate()
+        {      
+            string codigo = rateId.Text;
+            string nombre_codigo = rateName.Text;
+            HacerConexion();
+
+            // Obtiene id de la subcategoria por el nombre en la tabla categoriaCustom
+            object id_subcategoria = obj.GetIdSubcategorieByNameCustom(Subcategorias.SelectedItem != null ? Subcategorias.SelectedItem.ToString() : Categorias.SelectedItem.ToString());
+
+            if (id_subcategoria != null)
+            {
+                //valida si existe la frecuencia  para no duplicar
+                if (!obj.validarExisteFrecuencia(codigo))
+                {
+                    Guid idCodigo = Guid.NewGuid();
+                    //registra el rate 
+                    obj.Registrar_Codigo(idCodigo, codigo, Guid.Parse(id_subcategoria.ToString()));
+                    //registra el codigo
+                    obj.Registrar_CodigoPersonalizado(nombre_codigo, idCodigo);
+                }
+                else
+                {
+                    MessageBox.Show("La frecuencia "+codigo+" , ya esta en uso por un rate","Advertencia",MessageBoxButton.OK,MessageBoxImage.Warning);
+                }
+            }
             else
             {
-                MessageBox.Show(obtenerRecurso("messageError24"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                //here we  defined the categories
+                object id_categoria_p =obj.BuscarCategoriasCodigosPersonalizadas(Categorias.SelectedItem.ToString());
+                Guid SubCategoriaID = Guid.NewGuid();
+                obj.Registrar_Subcategoria(SubCategoriaID, Guid.Parse(id_categoria_p.ToString()));
+                obj.Registrar_SubcategoriaPersonalizada(Categorias.SelectedItem.ToString(), SubCategoriaID);
+                registerRate();
+
             }
+            CerrarConexion();
         }
 
 
@@ -172,8 +182,9 @@ namespace HS5
         private async void generateRate(object sender, RoutedEventArgs e)
         {
 
-            HacerConexion();
+
             await Esperar();
+            HacerConexion();
             string randomRate = obj.Generarcodigo();
             CerrarConexion();
             rateId.Text = randomRate;
@@ -233,10 +244,46 @@ namespace HS5
                 textBox.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
+
+        private void selected_subcategorie(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+
+            //clear subcategorie when the change the categorie 
+            Subcategorias.Items.Clear();
+
+            HacerConexion();
+            object id_categoria =obj.BuscarCategoriasCodigosPersonalizadas(comboBox.SelectedItem.ToString());
+            DataTable subCategorias =obj.VisualizarSubCategoriasCodigosPerosnalizadas(id_categoria.ToString());
+            for (int y = 0; y <= subCategorias.Rows.Count - 1; y++)
+            {
+                if (subCategorias.Rows[y][0].ToString() != "" && comboBox.SelectedItem.ToString() != subCategorias.Rows[y][0].ToString())
+                {
+                    Subcategorias.Items.Add(subCategorias.Rows[y][0].ToString());
+                }
+            }
+            CerrarConexion();
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            List<Button> list = new List<Button>
+            {
+                btnGenRate1,
+                btnGenRate2,
+                btnGenRate3,
+            };
+
+            rateId.IsReadOnly = checkBox.IsChecked == true ? true : false;
+            foreach (Button button in list)
+            {
+                button.IsEnabled = checkBox.IsChecked == true ? true : false;
+            }
+        }
     }
 
 }
-
 
 
 

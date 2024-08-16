@@ -32,9 +32,11 @@ namespace MahAppsExample
         //Funcion revisar COMS para la deteccion de la maquina (Mantra, MXP, MXD, etc)
         public string Machine_Detection(string puerto)
         {
+            
             //Reconoce que hay maquina COM conectada
             if (ports.Length == 0)
             {
+                
                MessageBoxResult result= MessageBox.Show("There's no instrument connected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 if (result == MessageBoxResult.OK)
@@ -53,7 +55,8 @@ namespace MahAppsExample
                     try
                     {
 
-                        port = new SerialPort(puerto, 2400); //Puerto
+                   
+                        port = new SerialPort(puerto, 9600); //Puerto
                         port.ReadTimeout = 5; //Tiempo de respuesta
                         port.DataReceived += new SerialDataReceivedEventHandler(read_serialport); //Manejo de la lectura
                         buffer = String.Empty; //Buffer vacio
@@ -67,12 +70,11 @@ namespace MahAppsExample
                             System.Threading.Thread.Sleep(1800);
                         }
                         //port.Close(); //Cierra
-                        //MessageBox.Show(ports.Length.ToString());
-                        //MessageBox.Show(buffercopy);
 
                     }
                     catch (IOException)
                     {
+                      
                         MessageBox.Show("There was an issue with a COM Port!");
                     }
                 //}
@@ -97,7 +99,9 @@ namespace MahAppsExample
                  //MessageBox.Show(buffer);
 
             }
-            catch (IOException) { }
+            catch (IOException err) {
+              MessageBox.Show(err.ToString());
+            }
 
         }
 

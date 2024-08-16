@@ -96,7 +96,7 @@ namespace MahAppsExample
         //Radionico - Sugerir niveles
         public string RadionicoSugerirNiveles()
         {
-            string[] niveles = { "01 - FISICO", "02 - EMOCIONAL", "03 - MENTAL", "04 - ESPIRITUAL 1", "05 - ESPIRITUAL 2", "06 - ESPIRITUAL 3", "07 - ESPIRITUAL 4", "08 - ESPIRITUAL 5", "09 - ESPIRITUAL 6", "10 - ESPIRITUAL 7", "11 - ESPIRITUAL 8", "12 - ESPIRITUAL 9" }; //Niveles  
+            string[] niveles = { "1 - FISICO", "2 - EMOCIONAL", "3 - MENTAL", "4 - ESPIRITUAL 1", "5 - ESPIRITUAL 2", "6 - ESPIRITUAL 3", "7 - ESPIRITUAL 4", "8 - ESPIRITUAL 5", "9 - ESPIRITUAL 6", "10 - ESPIRITUAL 7", "11 - ESPIRITUAL 8", "12 - ESPIRITUAL 9" }; //Niveles  
             return niveles[random.Next(0,11)]; //Regresa valor random (nivel)
         }
 
@@ -120,7 +120,7 @@ namespace MahAppsExample
         public string RadionicaSurgerirPotencia()
         {
 
-            string[] levelPotencies = { "1 MM", "2 MM", "5 MM", "10 MM" ,"cm", "1 LM", "2 LM", "5 LM", "10 LM", "50 LM", "1 M", "2 M", "5 M", "10 M", "50 M", "500 M", "1 MM", "2 MM", "5 MM", "10 MM", "20c", "30c", "10c", "200c", "100c", "3c", "6c", "20c", "40c", "50c", "1x", "3x", "6x", "10x", "2x", "12x", "8x", "24x", "30x", "50x", "100x", "200x" };
+            string[] levelPotencies = { "1MM", "2MM", "5MM", "10MM", "1cm", "1LM", "2LM", "5LM", "10LM", "50LM", "1M", "2M", "5M", "10M", "50M", "500M", "1MM", "2MM", "5MM", "10MM", "20c", "30c", "10c", "200c", "100c", "3c", "6c", "20c", "40c", "50c", "1x", "3x", "6x", "10x", "2x", "12x", "8x", "24x", "30x", "50x", "100x", "200x" };
             return levelPotencies[getProbabilyNumb(levelPotencies)];
         }
        

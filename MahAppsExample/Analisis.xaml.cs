@@ -29,7 +29,7 @@ namespace HS5
             {  // 3
                // idscodigos.Add(tabla_codigosanalisis.Rows[p][2].ToString()); //Guarda idcodigo del analisis
                //codigo,nombrecodigo,nivel,nivelsugerido,valor,vinicial,vfinal,decimales,tipo
-                ListaCodigos.Items.Add(new nuevoCodigo { rates = codigoAnalisis.Rows[p][3].ToString(), nombre = codigoAnalisis.Rows[p][4].ToString(), niveles = codigoAnalisis.Rows[p][5].ToString(), nsugerido = codigoAnalisis.Rows[p][6].ToString(), ftester = Convert.ToInt32(codigoAnalisis.Rows[p][7].ToString()), potencia = codigoAnalisis.Rows[p][12].ToString(), potenciaSugeridad = codigoAnalisis.Rows[p][13].ToString() });
+                ListaCodigos.Items.Add(new nuevoCodigo { rates = codigoAnalisis.Rows[p][1].ToString(), nombre = codigoAnalisis.Rows[p][2].ToString(), niveles = codigoAnalisis.Rows[p][4].ToString(), nsugerido = codigoAnalisis.Rows[p][5].ToString(), ftester = Convert.ToInt32(codigoAnalisis.Rows[p][3].ToString()), potencia = codigoAnalisis.Rows[p][6].ToString(), potenciaSugeridad = codigoAnalisis.Rows[p][7].ToString() });
 
             }
         }

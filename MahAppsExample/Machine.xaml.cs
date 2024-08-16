@@ -52,7 +52,9 @@ namespace HS5
                     Application.Current.Windows[0].Close();//this setences is used to close the recent window
                 }
             }
-            catch (Exception){}
+            catch (Exception err){
+                MessageBox.Show(err.ToString());
+            }
         }
     }
 }

@@ -340,7 +340,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GET RATE.
+        ///   Looks up a localized string similar to Duplicate Rate.
         /// </summary>
         public static string btnGetRate {
             get {
@@ -646,6 +646,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cancel.
+        /// </summary>
+        public static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CANCEL TREATMENT.
         /// </summary>
         public static string CancelarTratamiento {
@@ -678,6 +687,33 @@ namespace HS5.Resources.Idiomas {
         public static string CerrarDetalles {
             get {
                 return ResourceManager.GetString("CerrarDetalles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show customer rates.
+        /// </summary>
+        public static string checkCustCategorie {
+            get {
+                return ResourceManager.GetString("checkCustCategorie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Customer Rates.
+        /// </summary>
+        public static string checkCustomRate {
+            get {
+                return ResourceManager.GetString("checkCustomRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show default rates.
+        /// </summary>
+        public static string checkDefCategorie {
+            get {
+                return ResourceManager.GetString("checkDefCategorie", resourceCulture);
             }
         }
         
@@ -741,6 +777,24 @@ namespace HS5.Resources.Idiomas {
         public static string deleteAna {
             get {
                 return ResourceManager.GetString("deleteAna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to  erase this rate ?.
+        /// </summary>
+        public static string EraseRateContent {
+            get {
+                return ResourceManager.GetString("EraseRateContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erase Rate.
+        /// </summary>
+        public static string EraseRateTitle {
+            get {
+                return ResourceManager.GetString("EraseRateTitle", resourceCulture);
             }
         }
         
@@ -979,6 +1033,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel Treatment.
+        /// </summary>
+        public static string headerTreat {
+            get {
+                return ResourceManager.GetString("headerTreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Historical.
         /// </summary>
         public static string headHis {
@@ -1083,6 +1146,15 @@ namespace HS5.Resources.Idiomas {
         public static string headRate {
             get {
                 return ResourceManager.GetString("headRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rates.
+        /// </summary>
+        public static string headRates {
+            get {
+                return ResourceManager.GetString("headRates", resourceCulture);
             }
         }
         
@@ -2932,6 +3004,33 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The device was disconnected from the port, The system will shut down..
+        /// </summary>
+        public static string messageErrorApp {
+            get {
+                return ResourceManager.GetString("messageErrorApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must choose a category or subcategory.
+        /// </summary>
+        public static string messageErrorCatSub {
+            get {
+                return ResourceManager.GetString("messageErrorCatSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate field must not be empty.
+        /// </summary>
+        public static string messageErrorCode {
+            get {
+                return ResourceManager.GetString("messageErrorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DELETE  USER.
         /// </summary>
         public static string messageHead1 {
@@ -2946,6 +3045,15 @@ namespace HS5.Resources.Idiomas {
         public static string messageHeadInf {
             get {
                 return ResourceManager.GetString("messageHeadInf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success Process.
+        /// </summary>
+        public static string messageHeadInfCancelT {
+            get {
+                return ResourceManager.GetString("messageHeadInfCancelT", resourceCulture);
             }
         }
         
@@ -3081,6 +3189,24 @@ namespace HS5.Resources.Idiomas {
         public static string messageInfo8 {
             get {
                 return ResourceManager.GetString("messageInfo8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The changes was saved succesfully.
+        /// </summary>
+        public static string messageInfo9 {
+            get {
+                return ResourceManager.GetString("messageInfo9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The report was  created successfully.
+        /// </summary>
+        public static string messageInfoReport {
+            get {
+                return ResourceManager.GetString("messageInfoReport", resourceCulture);
             }
         }
         
@@ -3238,6 +3364,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A reanalysis already exists with this analysis.
+        /// </summary>
+        public static string messageWarning17 {
+            get {
+                return ResourceManager.GetString("messageWarning17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a main category first and a sub-category in order to get a new rate on the database!.
         /// </summary>
         public static string messageWarning2 {
@@ -3306,6 +3441,24 @@ namespace HS5.Resources.Idiomas {
         public static string messageWarning9 {
             get {
                 return ResourceManager.GetString("messageWarning9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a category  with this name.
+        /// </summary>
+        public static string messageWarningCat {
+            get {
+                return ResourceManager.GetString("messageWarningCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to can only generate the PGR once per patient..
+        /// </summary>
+        public static string messageWarningPGR {
+            get {
+                return ResourceManager.GetString("messageWarningPGR", resourceCulture);
             }
         }
         
@@ -3405,6 +3558,15 @@ namespace HS5.Resources.Idiomas {
         public static string Nose {
             get {
                 return ResourceManager.GetString("Nose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bulgarian.
+        /// </summary>
+        public static string optLangBG {
+            get {
+                return ResourceManager.GetString("optLangBG", resourceCulture);
             }
         }
         
@@ -3603,6 +3765,15 @@ namespace HS5.Resources.Idiomas {
         public static string PUASED {
             get {
                 return ResourceManager.GetString("PUASED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the treatment.
+        /// </summary>
+        public static string QuestionHeaderTreat {
+            get {
+                return ResourceManager.GetString("QuestionHeaderTreat", resourceCulture);
             }
         }
         
@@ -4030,6 +4201,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category .
+        /// </summary>
+        public static string tableCategory {
+            get {
+                return ResourceManager.GetString("tableCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to COMPLEMENTARY.
         /// </summary>
         public static string tableComp {
@@ -4165,6 +4345,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to progress.
+        /// </summary>
+        public static string tableProgress {
+            get {
+                return ResourceManager.GetString("tableProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RATE.
         /// </summary>
         public static string tableRate {
@@ -4201,11 +4390,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SubCategory.
+        /// </summary>
+        public static string tableSubcategory {
+            get {
+                return ResourceManager.GetString("tableSubcategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Suggested potency.
         /// </summary>
         public static string tableSugestP {
             get {
                 return ResourceManager.GetString("tableSugestP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time Left.
+        /// </summary>
+        public static string tableTimeLeft {
+            get {
+                return ResourceManager.GetString("tableTimeLeft", resourceCulture);
             }
         }
         
