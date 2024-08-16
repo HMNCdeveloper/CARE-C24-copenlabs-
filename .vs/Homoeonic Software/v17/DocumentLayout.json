@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\johng\\Documents\\copenSoft\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|c:\\users\\johng\\documents\\copensoft\\mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\resources\\idiomas\\lenguaje.bg.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
@@ -21,14 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\resources\\idiomas\\lenguaje.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
       "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\resources\\idiomas\\lenguaje.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|C:\\Users\\johng\\Documents\\copenSoft\\mahappsexample\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{133EC58A-45B8-48F2-99C8-3E1C3DF45337}|MahAppsExample\\Homoeonic Software.csproj|solutionrelative:mahappsexample\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,47 +38,49 @@
       "DocumentGroups": [
         {
           "DockedHeight": 411,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\MainWindow.xaml.cs",
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAJUrAAAAAAAAAAAAwB4qAABEAAAA",
+              "ViewState": "AQIAAAYBAAAAAAAAAAAcwJEAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-18T22:08:30.373Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MahAppsExample\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\MainWindow.xaml",
               "RelativeToolTip": "MahAppsExample\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-03T18:27:28.492Z"
+              "WhenOpened": "2024-05-03T18:27:28.492Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Database.cs",
               "RelativeDocumentMoniker": "MahAppsExample\\Database.cs",
               "ToolTip": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Database.cs",
               "RelativeToolTip": "MahAppsExample\\Database.cs",
-              "ViewState": "AQIAAMoDAAAAAAAAAAA5wNcDAAAJAAAA",
+              "ViewState": "AQIAAFEBAAAAAAAAAIA9wF0BAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T16:02:17.393Z"
+              "WhenOpened": "2024-08-13T16:02:17.393Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Lenguaje.bg.resx",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.bg.resx",
               "RelativeDocumentMoniker": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.bg.resx",
@@ -89,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Lenguaje.es.resx",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
               "RelativeDocumentMoniker": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.es.resx",
@@ -100,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Lenguaje.en.resx",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.en.resx",
               "RelativeDocumentMoniker": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.en.resx",
@@ -111,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Lenguaje.resx",
               "DocumentMoniker": "C:\\Users\\johng\\Documents\\copenSoft\\MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",
               "RelativeDocumentMoniker": "MahAppsExample\\Resources\\Idiomas\\Lenguaje.resx",

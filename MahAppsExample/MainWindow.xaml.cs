@@ -143,7 +143,7 @@ namespace MahAppsExample
                
 
                 InitializeComponent();
-
+                this.Closed += MainWindow_Closed;
                 //Condiciona al control de fechas para que solo use la fecha apartir de hoy...
                 dateProg.SelectedDate = DateTime.Today;
                 comboTipoProg.SelectedIndex = 0;
@@ -409,7 +409,6 @@ namespace MahAppsExample
                 MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 var window = Application.Current.Windows[0];
                 window.Close();
-
             }
 
 
@@ -441,6 +440,7 @@ namespace MahAppsExample
                         cant_activos--;
                         if (cant_activos == 0)
                         {
+                           
                             if (!obj.BroadcastOFF())
                             {
                                 _timer.Stop(); // Detener el temporizador
@@ -470,7 +470,7 @@ namespace MahAppsExample
                        ,
                             maximo = Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString())
                         });
-                        
+
 
                         emitido = emitido + 1;
 
@@ -480,6 +480,12 @@ namespace MahAppsExample
                         }
 
                     }
+                }
+
+
+                if (Tratamientos_Activos.Rows.Count == 0)
+                {
+                    obj.BroadcastOFF();
                 }
             }
             else
@@ -492,6 +498,7 @@ namespace MahAppsExample
                     window.Close();
 
                 }
+              
             }
             ListadoDiagNoActiv.Items.Clear();
             DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
@@ -518,6 +525,7 @@ namespace MahAppsExample
 
                         obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
                         Cargar_Tratamientos_Pendientes_Y_Activos();
+                     
                         break;
                     }
                     if (diff.Seconds > 0)
@@ -558,8 +566,8 @@ namespace MahAppsExample
                         Empezar_Temporizador();
                     }
                     obj.BroadcastON();
-
                 }
+               
                 ListadoDiagInactivos.Items.Clear();
                 DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
                 if (Tratamiento_Inactivos.Rows.Count > 0)
@@ -579,14 +587,7 @@ namespace MahAppsExample
                             string idTratamiento = Tratamiento_Inactivos.Rows[j][0].ToString();
                             obj2.ModificarEstadoTratamientoVencido(idTratamiento);
                             Console.WriteLine("Entraron como pasados");
-                        }
-                        ////Es la misma fecha y hora
-                        //else if(resultadoComparacion == 0)
-                        //{
-                        //    obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
-                        //}
-                        ////Si la fecha aun no ha pasado
-                        else
+                        }else
                         {
                             Console.WriteLine("No estan pasados");
                             string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
@@ -13952,6 +13953,20 @@ namespace MahAppsExample
             {
                 MessageBox.Show(err.ToString());
             }
+
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            HacerConexion();
+            DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
+
+            if (Tratamientos_Activos.Rows.Count > 0)
+            {
+                obj.BroadcastOFF();
+            }
+
+            CerrarConexion();
 
         }
     }
