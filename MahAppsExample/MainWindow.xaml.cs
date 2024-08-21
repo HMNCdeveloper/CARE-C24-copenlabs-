@@ -132,7 +132,7 @@ namespace MahAppsExample
 
         string tipo_nivel_codigo;
         string nivel_potencia;
-        //string puertoCOM;
+        bool updateAnalysis = false;
 
         public MainWindow(string puerto)
         {
@@ -171,6 +171,7 @@ namespace MahAppsExample
 
                 //Categorias Remedios y Categorias
                 HacerConexion();
+                obj2.limpiart_Tratamientos_Pasados();
                 DataTable Categorias = obj2.VisualizarCategoriasCodigos();
                 for (int i = 0; i <= Categorias.Rows.Count - 1; i++)
                 {
@@ -417,6 +418,8 @@ namespace MahAppsExample
             {
                 ListadoDiagActivos.Items.Clear();
                 DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
+                bool changeColor = true;
+
                 for (int j = 0; j < Tratamientos_Activos.Rows.Count; j++)
                 {
                     nombretratamientoA = Tratamientos_Activos.Rows[j][4].ToString();
@@ -468,10 +471,13 @@ namespace MahAppsExample
                        ,
                             progreso = emitido
                        ,
+                            colorprogress=changeColor? "RED":"BLUE"
+                            
+                       ,
                             maximo = Int32.Parse(Tratamientos_Activos.Rows[j][5].ToString())
                         });
 
-
+                        changeColor = !changeColor;
                         emitido = emitido + 1;
 
                         if (Tratamientos_Activos.Rows.Count > 0)
@@ -2621,11 +2627,13 @@ namespace MahAppsExample
 
 
             UpdateAnalysis(lblNombre_Anal1.Content.ToString());
-            HacerConexion();
-            object id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
-            object cant_codigos_analisis = obj2.Obtener_Codigos_Cantidad_Analisis(id_analisis.ToString());
-            int cant_num_codigo = Convert.ToInt32(cant_codigos_analisis);
-            CerrarConexion();
+
+
+            //HacerConexion();
+            //object id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
+            //object cant_codigos_analisis = obj2.Obtener_Codigos_Cantidad_Analisis(id_analisis.ToString());
+            //int cant_num_codigo = Convert.ToInt32(cant_codigos_analisis);
+            //CerrarConexion();
 
 
             int temp = 0;
@@ -2638,61 +2646,41 @@ namespace MahAppsExample
             }
 
 
-            if (temp > 0)
+            if (temp > 0 && ListaCodigos.Items.Count != 0)
             {
-                if ((ListaCodigos.Items.Count != 0 || cant_num_codigo != 0) || ListaCodigos.Items.Count == 0 || cant_num_codigo == 0)
-                {
-                    Lista_Analisis_Group1.Visibility = Visibility.Visible;
+               
+                Lista_Analisis_Group1.Visibility = Visibility.Visible;
 
-                    cmdEliminar_Copy1.Visibility = Visibility.Visible;
-                    ListaPacientes_Recientes1.Visibility = Visibility.Visible;
+                cmdEliminar_Copy1.Visibility = Visibility.Visible;
+                ListaPacientes_Recientes1.Visibility = Visibility.Visible;
 
-                    OcultarDiag();
-                    //guardar si es la primera vez que se crea
-                    if (cant_num_codigo == 0)
-                    {
-                        Guarda_Diagnostico();
-                    }
+                OcultarDiag();
+                //guardar si es la primera vez que se crea
+                Guarda_Diagnostico();
 
+                ListaCodigos.Items.Clear();
+                txtEstatura.Text = "";
+                txtPresionSist.Text = "";
+                txtIMC.Text = "";
+                txtFR.Text = "";
+                txtTA.Text = "";
+                txtPeso.Text = "";
+                txtPresionDistolica.Text = "";
+                txtFC.Text = "";
+                txtTemp.Text = "";
 
+                optionPorcentaje.IsChecked = false;
+                option100.IsChecked = false;
+                    
+                optionradionico.IsChecked = false;
+                optionSugerirNiv.IsChecked = false;
+                optionSugerirPot.IsChecked = false;
 
+                comboNiveles.SelectedIndex = -1;
+                comboP.SelectedIndex = -1;
 
-                    ListaCodigos.Items.Clear();
-                    txtEstatura.Text = "";
-                    txtPresionSist.Text = "";
-                    txtIMC.Text = "";
-                    txtFR.Text = "";
-                    txtTA.Text = "";
-                    txtPeso.Text = "";
-                    txtPresionDistolica.Text = "";
-                    txtFC.Text = "";
-                    txtTemp.Text = "";
-
-                    //txtPadecimiento.Text = "";
-                    //txtInterrogatorio.Text = "";
-
-                    //optionProbabilidad.IsChecked = false;
-                    optionPorcentaje.IsChecked = false;
-                    option100.IsChecked = false;
-                    //optionPolaridad.IsChecked = false;
-                    //optionPronunciamiento.IsChecked = false;
-                    optionradionico.IsChecked = false;
-                    optionSugerirNiv.IsChecked = false;
-                    optionSugerirPot.IsChecked = false;
-
-                    comboNiveles.SelectedIndex = -1;
-                    comboP.SelectedIndex = -1;
-
-                    OcultarDiag2();
-                    //CargarRegistrosPacientesRecientes();
-                }
-                else
-                {
-
-                    //MessageBox.Show("Perform an analysis first in order to save it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
-
+                OcultarDiag2();
+                    
                 //ventana1.Visibility = Visibility.Visible;
                 BusquedaReanalisis.Visibility = Visibility.Visible;
                 lblPacienteAnalisis2.Visibility = Visibility.Visible;
@@ -3485,7 +3473,10 @@ namespace MahAppsExample
             Radionica objF = new Radionica();
             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
             {
-                Sniveles.Add(objF.RadionicoSugerirNiveles());
+                if (updateAnalysis || Sniveles[i]=="-")
+                {
+                    Sniveles[i] = objF.RadionicoSugerirNiveles();
+                }
             }
             CerrarConexion();
         }
@@ -3496,7 +3487,10 @@ namespace MahAppsExample
             Radionica objF = new Radionica();
             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
             {
-                potenciasugeridad.Add(objF.RadionicaSurgerirPotencia());
+                if (updateAnalysis || potenciasugeridad[i]=="-")
+                {
+                    potenciasugeridad[i] = objF.RadionicaSurgerirPotencia();
+                }
             }
             CerrarConexion();
         }
@@ -3594,14 +3588,20 @@ namespace MahAppsExample
                         {
                             nombrecodigo.Add(codigo.nombre.ToString());
                             codigos_rates.Add(codigo.rates.ToString());
+                            ftester.Add(codigo.ftester.ToString());
+                            nivel.Add(codigo.niveles.ToString());
                             codigouuidrate.Add(codigo.idrate.ToString());
                         }
 
                         Radionica obj1 = new Radionica(); //Utilizando numeros random para el valor
                         for (int i = 0; i <= nombrecodigo.Count - 1; i++)
                         {
-                            ftester.Add(obj1.ValorSugerido());
-                            nivel.Add(obj1.SugerirNiveles());
+
+                            if (updateAnalysis || ftester[i]=="0")
+                            {
+                                ftester[i]=obj1.ValorSugerido();
+                                nivel[i]=obj1.RadionicoSugerirNiveles();
+                            }
                         }
 
                         Dispatcher.Invoke((ThreadStart)delegate
@@ -3616,6 +3616,7 @@ namespace MahAppsExample
                             }
                             analysisWindow.Close();
                             Panel_opciones();
+                            updateAnalysis = false;
                         });
 
                     }).Start();
@@ -3643,14 +3644,20 @@ namespace MahAppsExample
                             foreach (nuevoCodigo codigo in items7)
                             {
                                 nombrecodigo.Add(codigo.nombre.ToString());
+                                ftester.Add(codigo.ftester.ToString());
                                 codigos_rates.Add(codigo.rates.ToString());
                                 codigouuidrate.Add(codigo.idrate.ToString());
+                                potenciasugeridad.Add(codigo.potenciaSugeridad.ToString());
+                                Sniveles.Add(codigo.nsugerido.ToString());
                             }
 
                             Radionica obj1 = new Radionica(); //Utilizando numeros random para el valor
                             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
                             {
-                                ftester.Add(obj1.ValorSugerido());
+                                if (updateAnalysis || ftester[i]=="0")
+                                {
+                                    ftester[i]=obj1.ValorSugerido();
+                                }
                                 nivel.Add(tipo_nivel_codigo);
                                 potencia.Add(nivel_potencia);
                             }
@@ -3660,10 +3667,11 @@ namespace MahAppsExample
                                 obj.Diagnostic();
                                 Panel_opcion2();
 
-                                if (optionSugerirNiv.IsChecked == true)
+                                if (optionSugerirNiv.IsChecked == true )
                                 {
                                     NivelSugerido();
                                 }
+                               
 
                                 if (optionSugerirPot.IsChecked == true)
                                 {
@@ -3687,13 +3695,14 @@ namespace MahAppsExample
                                 }
                                 analysisWindow2.Close();
                                 Panel_opciones();
+                                updateAnalysis = false;
                             });
 
                         }).Start();
                     }
                     else
                     {
-                        MessageBox.Show("como minimo debes seleccionar algunso de los campos de potencia y nivel", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(obtenerRecurso("messageWarning19"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
 
 
@@ -3717,14 +3726,22 @@ namespace MahAppsExample
                             foreach (nuevoCodigo codigo in items5)
                             {
                                 nombrecodigo.Add(codigo.nombre.ToString());
+                                ftester.Add(codigo.ftester.ToString());
                                 codigos_rates.Add(codigo.rates.ToString());
                                 codigouuidrate.Add(codigo.idrate.ToString());
+                                potenciasugeridad.Add(codigo.potenciaSugeridad.ToString());
+                                Sniveles.Add(codigo.nsugerido.ToString());
                             }
 
                             Radionica obj6 = new Radionica(); //Utilizando numeros random para el valor
                             for (int i = 0; i <= nombrecodigo.Count - 1; i++)
                             {
-                                ftester.Add(obj6.Porcentaje());
+                                
+                                if (updateAnalysis || ftester[i] == "0")
+                                {
+                                    ftester[i]=obj6.Porcentaje();
+                                }
+
                                 nivel.Add(tipo_nivel_codigo);
                                 potencia.Add(nivel_potencia);
                             }
@@ -3734,12 +3751,12 @@ namespace MahAppsExample
                                 obj.Diagnostic();
                                 Panel_opcion2();
 
-                                if (optionSugerirNiv.IsChecked == true)
+                                if (optionSugerirNiv.IsChecked == true )
                                 {
                                     NivelSugerido();
                                 }
 
-                                if (optionSugerirPot.IsChecked == true)
+                                if (optionSugerirPot.IsChecked == true )
                                 {
                                     NivelSugerirPotencia();
                                 }
@@ -3761,13 +3778,16 @@ namespace MahAppsExample
                                 }
                                 analysisWindow3.Close();
                                 Panel_opciones();
+                                updateAnalysis = false;
                             });
 
                         }).Start();
+
+                         
                     }
                     else
                     {
-                        MessageBox.Show("como minimo debes seleccionar algunso de los campos de potencia y nivel", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("como minimo debes seleccionar algunos de los campos de potencia y nivel", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
 
                     break;
@@ -4428,10 +4448,18 @@ namespace MahAppsExample
                 {
                     id_analisis = obj2.Buscar_IdAnalisis_Nombre(lblPacienteAnalisis_P1.Content.ToString());
                     obj2.Modificar_Estado_Analisis_Analizado(id_analisis.ToString());
-
+                   
                     for (int i = 0; i <= nombres_s.Count - 1; i++)
                     {
-                        obj2.Registrar_Codigo_de_Analisis(Convert.ToInt32(id_analisis.ToString()), id_s[i], valor_s[i], niveles_s[i], sugeridos[i], potencia[i], potenciaSugeridad[i]);
+                        if (obj2.checkExistCode(id_analisis.ToString(), id_s[i]))
+                        {
+                            obj2.Actualizar_codigo_de_analisis(Convert.ToInt32(id_analisis.ToString()), id_s[i], valor_s[i], niveles_s[i], sugeridos[i], potencia[i], potenciaSugeridad[i]);
+                        }
+                        else
+                        {
+                            obj2.Registrar_Codigo_de_Analisis(Convert.ToInt32(id_analisis.ToString()), id_s[i], valor_s[i], niveles_s[i], sugeridos[i], potencia[i], potenciaSugeridad[i]);
+                        }
+                        
                     }
                 }
 
@@ -10367,34 +10395,27 @@ namespace MahAppsExample
             try
             {
                 HacerConexion();
-                try
+                object id_padre = obj2.Obtener_Id_Analisis(cmdAnalisisPaciente_Copy.Text);
+                if (!string.IsNullOrEmpty(cmdAnalisisPaciente_Copy.Text) && !string.IsNullOrWhiteSpace(cmdAnalisisPaciente_Copy.Text) &&  id_padre == null)
                 {
-                    if (cmdAnalisisPaciente_Copy.Text != "")
-                    {
-                        string[] pac = new string[2] { listadoPacientes.SelectedItem.ToString(), cmdAnalisisPaciente_Copy.Text };
+                    string[] pac = new string[2] { listadoPacientes.SelectedItem.ToString(), cmdAnalisisPaciente_Copy.Text };
 
 
-                        //Registrar analisis con el nombre elegido en bd
-                        DataTable pacientes = obj2.Buscar_IdPaciente_Nombre(listadoPacientes.SelectedItem.ToString());
+                    //Registrar analisis con el nombre elegido en bd
+                    DataTable pacientes = obj2.Buscar_IdPaciente_Nombre(listadoPacientes.SelectedItem.ToString());
 
-                        obj2.RegistrarAnalisisPaciente_Diag(Convert.ToInt32(pacientes.Rows[0][0].ToString()), cmdAnalisisPaciente_Copy.Text, DateTime.Now, false, false);
-                        cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
-                        A_Diagnosticar(pac);
-
-                        cmdReanalizarr.IsEnabled = true;
-
-                    }
-                    else
-                    {
-                        MessageBox.Show(obtenerRecurso("messageError21"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        cmdAnalisisPaciente_Copy.Focus();
-                    }
+                    obj2.RegistrarAnalisisPaciente_Diag(Convert.ToInt32(pacientes.Rows[0][0].ToString()), cmdAnalisisPaciente_Copy.Text, DateTime.Now, false, false);
+                    cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
+                    A_Diagnosticar(pac);
+                    cmdReanalizarr.IsEnabled = true;
                 }
-                catch (NullReferenceException)
-                {
-                    MessageBox.Show(obtenerRecurso("messageError20"));
-                }
+                else if (string.IsNullOrEmpty(cmdAnalisisPaciente_Copy.Text) && string.IsNullOrWhiteSpace(cmdAnalisisPaciente_Copy.Text)) 
+                   MessageBox.Show(obtenerRecurso("messageError21"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else if (id_padre != null)
+                   MessageBox.Show(obtenerRecurso("messageWarning18"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Warning);
+                
 
+                cmdAnalisisPaciente_Copy.Focus();
                 CerrarConexion();
             }
             catch (Exception mx)
@@ -10616,7 +10637,6 @@ namespace MahAppsExample
                 
                      Ocultar_Diag();
                      Checar_SiYaFueAnalizado("");
-                
                  }
                  else
                  {
@@ -10708,81 +10728,44 @@ namespace MahAppsExample
             }
         }
 
-        private void comboOtrosAnal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        public static int CalculateTimeDifference(int timeStart, int timeEnd)
         {
-            if (comboOtrosAnal.Items.Count != 0)
-            {
-                //Revisar si ya fue reanalizado
-                //Nuevos registros sin el ultimo espacio en blanco
-                DataTable registro_validar = obj2.Validar_Reanalisis_Hecho(comboOtrosAnal.SelectedItem.ToString());
-
-                //Si no esta como el nuevo registro usar el espacio en blanco..
-                if (registro_validar.Rows.Count == 0)
-                {
-                    registro_validar = obj2.Validar_Reanalisis_Hecho(comboOtrosAnal.SelectedItem.ToString() + " ");
-                }
-
-                //Revisar si fue reanalizado para desactivar el boton
-                //  for (int q = 0; q <= registro_validar.Rows.Count - 1; q++)
-                //   {
-                if (registro_validar.Rows[0][0].ToString() == "" || registro_validar.Rows[0][0].ToString() == "False")
-                {
-                    cmdReanalizarr.IsEnabled = true;
-                }
-                else
-                {
-                    cmdReanalizarr.IsEnabled = false;
-                }
-            }
-
+            int difference = (timeEnd - timeStart + 86400) % 86400;
+            return difference;
         }
 
         private void cmdReanalizarr_Click(object sender, RoutedEventArgs e)
         {
             HacerConexion();
-
-            //Revisar si el nombre del analisis ya esta en uso ...
-
+           
             try
             {
-                object id_reanalisis2 = obj2.Obtener_Id_Analisis(comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis");
-                if (id_reanalisis2 == null)
+                object id_padre = obj2.Obtener_Id_Analisis(comboOtrosAnal.SelectedItem.ToString());
+                string[] pac = new string[2] { listadoPacientes.SelectedItem.ToString(), comboOtrosAnal.SelectedItem.ToString() };
+
+       
+                DateTime oldDate = DateTime.Parse(obj2.Obtener_Fecha_Analisis(id_padre.ToString()).ToString());
+                DateTime newDate = DateTime.Now;
+
+
+                int timeStart = oldDate.Hour * 3600 + oldDate.Minute * 60 + oldDate.Second;
+                int timeEnd= newDate.Hour * 3600 + newDate.Minute * 60 + newDate.Second;
+                updateAnalysis =int.Parse(CalculateTimeDifference(timeStart, timeEnd).ToString()) > 3600;
+
+                obj2.Actualizar_Fecha_Analisis(DateTime.Now, id_padre.ToString());
+                DataTable tabla_codigosanalisis = obj2.Obtener_CodigosAnalisis(Convert.ToInt32(id_padre.ToString()));
+
+                //Ciclo con los codigos de analisis
+                for (int p = 0; p <= tabla_codigosanalisis.Rows.Count - 1; p++)
                 {
-                    object id_padre = obj2.Obtener_Id_Analisis(comboOtrosAnal.SelectedItem.ToString());
+                    ListaCodigos.Items.Add(new nuevoCodigo { idrate = tabla_codigosanalisis.Rows[p][0].ToString(), rates = tabla_codigosanalisis.Rows[p][1].ToString(), nombre = tabla_codigosanalisis.Rows[p][2].ToString(), niveles = tabla_codigosanalisis.Rows[p][4].ToString(), nsugerido = tabla_codigosanalisis.Rows[p][5].ToString(), ftester = Convert.ToInt32(tabla_codigosanalisis.Rows[p][3].ToString()), potencia = tabla_codigosanalisis.Rows[p][6].ToString(), potenciaSugeridad = tabla_codigosanalisis.Rows[p][7].ToString() });
 
-                   
-                    string[] pac = new string[2] { listadoPacientes.SelectedItem.ToString(), comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis" };
-
-                    //Registrar analisis con el nombre elegido en bd
-                    // HacerConexion();
-                    DataTable pacientes = obj2.Buscar_IdPaciente_Nombre(listadoPacientes.SelectedItem.ToString());
-
-
-
-                    obj2.RegistrarAnalisisPaciente_Diag(Convert.ToInt32(pacientes.Rows[0][0].ToString()), comboOtrosAnal.SelectedItem.ToString() + " - Reanalysis", DateTime.Now, false, true);
-                    // CerrarConexion();
-
-
-                    DataTable tabla_codigosanalisis = obj2.Obtener_CodigosAnalisis(Convert.ToInt32(id_padre.ToString()));
-
-                    //Ciclo con los codigos de analisis
-                    for (int p = 0; p <= tabla_codigosanalisis.Rows.Count - 1; p++)
-                    {  
-                        ListaCodigos.Items.Add(new nuevoCodigo { idrate = tabla_codigosanalisis.Rows[p][0].ToString(), rates = tabla_codigosanalisis.Rows[p][1].ToString(), nombre = tabla_codigosanalisis.Rows[p][2].ToString(), niveles = "-", nsugerido = "-", ftester = Convert.ToInt32(0) });
-
-                    }
-
-                    
-
-
-                    cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
-                    A_Diagnosticar(pac);
-                    cmdReanalizarr.IsEnabled = true;
                 }
-                else
-                {
-                    MessageBox.Show(obtenerRecurso("messageWarning17"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK,MessageBoxImage.Warning);
-                }
+
+                cmdAnalisisPaciente_Copy.Clear(); //Limpia la casilla
+                A_Diagnosticar(pac);
+                cmdReanalizarr.IsEnabled = true;
             }
             catch (NullReferenceException)
             {
@@ -11050,6 +11033,8 @@ namespace MahAppsExample
             public string tfaltante { get; set; }
             public int progreso { get; set; }
             public int maximo { get; set; }
+
+            public string colorprogress { get; set; }
         }
 
 

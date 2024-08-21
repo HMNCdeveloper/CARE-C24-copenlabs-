@@ -1239,6 +1239,12 @@
   <data name="messageWarning17" xml:space="preserve">
     <value>Ya existe un reanalisis con este analisis</value>
   </data>
+  <data name="messageWarning18" xml:space="preserve">
+    <value>Este nombre ya esta en uso</value>
+  </data>
+  <data name="messageWarning19" xml:space="preserve">
+    <value>Minimo debes seleccionar los campos de potencia y nivel.</value>
+  </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Por favor selecciona una primera categoria principal y sub categoria para obtener a un nuevo tipo en la base de datos! </value>
   </data>

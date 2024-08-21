@@ -1245,6 +1245,12 @@
   <data name="messageWarning17" xml:space="preserve">
     <value>Вече има повторен анализ с този анализ.</value>
   </data>
+  <data name="messageWarning18" xml:space="preserve">
+    <value>това име вече се използва</value>
+  </data>
+  <data name="messageWarning19" xml:space="preserve">
+    <value>Минимално трябва да изберете полетата за мощност и ниво.</value>
+  </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Моля първо изберете основна категория и подкатегория за да получите нова ставка в базата данни!</value>
   </data>

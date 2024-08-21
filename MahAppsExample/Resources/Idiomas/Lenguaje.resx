@@ -1239,6 +1239,12 @@
   <data name="messageWarning17" xml:space="preserve">
     <value>A reanalysis already exists with this analysis</value>
   </data>
+  <data name="messageWarning18" xml:space="preserve">
+    <value>This name is already in use </value>
+  </data>
+  <data name="messageWarning19" xml:space="preserve">
+    <value>Minimally you must select the potency and level fields.</value>
+  </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Please select a main category first and a sub-category in order to get a new rate on the database!</value>
   </data>

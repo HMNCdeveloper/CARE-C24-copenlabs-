@@ -14,6 +14,8 @@ using HS5;
 using System.Diagnostics;
 using System.Windows.Input;
 using HS5.Resources.Idiomas;
+using System.Windows.Media;
+using System.Runtime.Serialization;
 
 namespace MahAppsExample
 {
@@ -349,7 +351,7 @@ namespace MahAppsExample
         //Funcion para cargar el listado de tratamientos activos
         public DataTable Tratamientos_Activos()
         {
-            sql = "select * from rad_tratamientosadistancia where estado=1 and duracion != tiempoemitido";
+            sql = "select * from rad_tratamientosadistancia where estado=1 and duracion != tiempoemitido  ORDER BY fechainicio DESC";
             //command = new NpgsqlCommand(sql, conn);
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -445,6 +447,23 @@ namespace MahAppsExample
 
             command.ExecuteNonQuery();
         }
+
+
+        public void Actualizar_Fecha_Analisis(DateTime fecha,string id_analisis)
+        {
+            sql = "UPDATE rad_analisis SET fecha=$$"+fecha+"$$  WHERE id=$$"+id_analisis+"$$";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
+        public object Obtener_Fecha_Analisis(string id_analisis)
+        {
+            sql = "SELECT fecha FROM  rad_analisis WHERE id=$$"+id_analisis+"$$";
+            command = new NpgsqlCommand(sql, conn);
+            return command.ExecuteScalar();
+        }
+
+        //public object Obtener_Fecha_Analisis(string id_analisis)
 
 
         //Funcion para registrar version del software
@@ -602,7 +621,6 @@ namespace MahAppsExample
         public object ObtenerIDporNomyCat(string frecuencia, Guid subcategoria)
         {
             sql = "SELECT ID FROM rad_codigo WHERE  frecuencia=$$" + frecuencia + "$$ AND SubcategoriaID=$$" + subcategoria + "$$";
-            Console.WriteLine(sql);
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -692,6 +710,14 @@ namespace MahAppsExample
             sql = "UPDATE rad_analisis SET analisado = '1' WHERE id = $$" + id_analisis + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
+        }
+
+        public bool checkExistCode(string id_analisis,string rate)
+        {
+            sql = "SELECT COUNT(*) FROM rad_codigosdeanalisis WHERE  analisis=$$" + id_analisis + "$$ AND rate=$$"+rate+"$$";
+            command = new NpgsqlCommand(sql, conn);
+            return Convert.ToInt32(command.ExecuteScalar().ToString()) > 0  ;
+
         }
 
         //Funcion para eliminar el registro de un domicilio
@@ -1008,6 +1034,14 @@ namespace MahAppsExample
             command.ExecuteNonQuery();
         }
 
+        public void limpiart_Tratamientos_Pasados()
+        {
+            //UPDATE rad_tratamientosadistancia SET tiempoemitido='25' WHERE nombrepaciente='Raul Lopez ' and nombre='prueba completa' and duracion='7200'
+            sql = "DELETE FROM rad_tratamientosadistancia where CAST(EXTRACT(DAY FROM fechainicio)as INT) < CAST(EXTRACT(DAY FROM NOW()) as INT)";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
         //Funcion para cargar el listado de tratamientos activos
         public DataTable Tratamientos_Inactivos()
         {
@@ -1053,6 +1087,13 @@ namespace MahAppsExample
         public void Registrar_Codigo_de_Analisis(int id_analisis, string codigo, string valor, string nivel, string nivelsugerido, string potencia, string potenciaSugeridad)
         {
             sql = "INSERT INTO rad_codigosdeanalisis(analisis,rate,valor,nivel,nivelsugerido,potencia,potenciasugerido) VALUES($$" + id_analisis + "$$,$$" + codigo + "$$,$$" + valor + "$$,$$" + nivel + "$$,$$" + nivelsugerido + "$$,$$" + potencia + "$$,$$" + potenciaSugeridad + "$$)";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
+        public void Actualizar_codigo_de_analisis(int id_analisis, string codigo, string valor, string nivel, string nivelsugerido, string potencia, string potenciaSugeridad)
+        {
+            sql = "UPDATE rad_codigosdeanalisis SET valor=$$"+valor+"$$, nivel=$$"+nivel+"$$, nivelsugerido=$$"+nivelsugerido+"$$, potencia=$$"+potencia+ "$$, potenciasugerido=$$"+potenciaSugeridad+"$$ WHERE analisis=$$"+id_analisis+"$$ AND rate=$$"+codigo+"$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }

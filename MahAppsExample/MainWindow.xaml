@@ -1339,7 +1339,7 @@
                             </StackPanel>
                         </Button>
                         <Label x:Name="lblPacienteAnalisis_Copy" Visibility="Visible" Content="{x:Static local:Lenguaje.labelRAN}" HorizontalAlignment="Left" Margin="30,680,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="0"/>
-                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="30,710,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="comboOtrosAnal_SelectionChanged" Grid.Column="0" Height="40">
+                        <ComboBox x:Name="comboOtrosAnal" Visibility="Visible" HorizontalAlignment="Left" Margin="30,710,0,0" VerticalAlignment="Top" Width="240"  Grid.Column="0" Height="40">
                             <ComboBox.Effect>
                                 <DropShadowEffect ShadowDepth="2" Opacity="0.35"/>
                             </ComboBox.Effect>
@@ -2507,7 +2507,7 @@
                                                 <ProgressBar Value="{Binding progreso}" Width="140" Height="20" Maximum="{Binding maximo}">
                                                     <ProgressBar.Style>
                                                         <Style TargetType="ProgressBar">
-                                                            <Setter Property="Foreground" Value="Red"/>
+                                                            <Setter Property="Foreground" Value="{Binding colorprogress}"/>
                                                             <!-- Aquí puedes establecer el color que desees -->
                                                         </Style>
                                                     </ProgressBar.Style>

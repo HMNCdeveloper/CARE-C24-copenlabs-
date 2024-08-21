@@ -3373,6 +3373,24 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This name is already in use .
+        /// </summary>
+        public static string messageWarning18 {
+            get {
+                return ResourceManager.GetString("messageWarning18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimally you must select the potency and level fields..
+        /// </summary>
+        public static string messageWarning19 {
+            get {
+                return ResourceManager.GetString("messageWarning19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a main category first and a sub-category in order to get a new rate on the database!.
         /// </summary>
         public static string messageWarning2 {
