@@ -124,7 +124,7 @@
     <value>Анус</value>
   </data>
   <data name="availRates" xml:space="preserve">
-    <value>НАЛИЧНИ ЦЕНИ</value>
+    <value>НАЛИЧНИ ЧЕСТОТИ</value>
   </data>
   <data name="availSect" xml:space="preserve">
     <value>Налични секции:</value>
@@ -144,6 +144,9 @@
   <data name="brnSC" xml:space="preserve">
     <value>ЗАПАЗИТЕ ПРОМЕНИТЕ</value>
   </data>
+  <data name="btnAcept" xml:space="preserve">
+    <value>приемете</value>
+  </data>
   <data name="btnAdd" xml:space="preserve">
     <value>Добавете</value>
   </data>
@@ -160,7 +163,7 @@
     <value>Приложи</value>
   </data>
   <data name="btnAutoSM" xml:space="preserve">
-    <value>CAR SIM</value>
+    <value>AUTOSIMILE</value>
   </data>
   <data name="btnCAna" xml:space="preserve">
     <value>Нов анализ</value>
@@ -168,8 +171,11 @@
   <data name="btnCancel" xml:space="preserve">
     <value>ОТМЕНЯНЕ</value>
   </data>
+  <data name="btnCodeComplement" xml:space="preserve">
+    <value>ДОПЪЛНИТЕЛЕН КОД</value>
+  </data>
   <data name="btnCopy" xml:space="preserve">
-    <value>КОПИЕ</value>
+    <value>КОПИРАНЕ</value>
   </data>
   <data name="btnCreatRep" xml:space="preserve">
     <value>СЪЗДАВАНЕ НА ОТЧЕТ</value>
@@ -184,13 +190,13 @@
     <value>ИЗТРИЙ</value>
   </data>
   <data name="btnDelRem" xml:space="preserve">
-    <value>ИЗТРИВАНЕ НА РЕШЕНИЕ</value>
+    <value>ИЗТРИВАНЕ НА СРЕДТСТВО</value>
   </data>
   <data name="btnDelTherap" xml:space="preserve">
     <value>ИЗТРИВАНЕ НА ТЕРАПИЯТА</value>
   </data>
   <data name="btnDirectT" xml:space="preserve">
-    <value>ДИРЕКТНО ЛЕЧЕНИЕ</value>
+    <value>ДИРЕКТНО ТРЕТИРАНЕ</value>
   </data>
   <data name="btnDupli" xml:space="preserve">
     <value>ДУБЛИРАНЕ НА ПРАВО</value>
@@ -199,7 +205,7 @@
     <value>редактиране</value>
   </data>
   <data name="btnErase" xml:space="preserve">
-    <value>ИЗТРИВАНЕ ECS</value>
+    <value>DECODE</value>
   </data>
   <data name="btnEraseElem" xml:space="preserve">
     <value>ИЗТРИВАНЕ НА ЕЛЕМЕНТ</value>
@@ -214,7 +220,7 @@
     <value>Дублиран индекс</value>
   </data>
   <data name="btnImp" xml:space="preserve">
-    <value>ОТПЕЧАТЪК</value>
+    <value>10 SEC TIMER</value>
   </data>
   <data name="btnNeutralize" xml:space="preserve">
     <value>НЕУТРАЛИЗИРАНЕ</value>
@@ -232,7 +238,7 @@
     <value>НОВА СТАВКА</value>
   </data>
   <data name="btnNewRem" xml:space="preserve">
-    <value>НОВО ЛЕЧЕНИЕ</value>
+    <value>НОВО ТЕРАПЕВТИЧНО СРЕДСТВО </value>
   </data>
   <data name="btnNewSubCat" xml:space="preserve">
     <value>НОВА ПОДКАТЕГОРИЯ</value>
@@ -277,7 +283,7 @@
     <value>ЗАПАЗЕТЕ И СЪЗДАЙТЕ ЛЕЧЕНИЕ</value>
   </data>
   <data name="btnSaveEcs" xml:space="preserve">
-    <value>ЗАПАЗЕТЕ В ECS</value>
+    <value>CODE</value>
   </data>
   <data name="btnSaveEcsDB" xml:space="preserve">
     <value>ЗАПАЗЕТЕ ECS В БАЗА ДАННИ</value>
@@ -286,13 +292,13 @@
     <value>ЗАПАЗЕТЕ</value>
   </data>
   <data name="btnSaveP" xml:space="preserve">
-    <value>Спаси пациента</value>
+    <value>Запамети пациента</value>
   </data>
   <data name="btnSavePGR" xml:space="preserve">
     <value>Запазете PGR в ECS</value>
   </data>
   <data name="btnSaveT" xml:space="preserve">
-    <value>СПЕСТИ ТЕРАПИЯ</value>
+    <value>ЗАПАЗИ ТЕРАПИЯ</value>
   </data>
   <data name="btnSavRet" xml:space="preserve">
     <value>ЗАПАЗЕТЕ И ВЪРНЕТЕ</value>
@@ -309,6 +315,9 @@
   <data name="btnStartTreat" xml:space="preserve">
     <value>ЗАПОЧНЕТЕ ЛЕЧЕНИЕ</value>
   </data>
+  <data name="btnUpdateTreat" xml:space="preserve">
+    <value>АКТУАЛИЗИРАНЕ НА СЪДЪРЖАНИЕТО</value>
+  </data>
   <data name="btnUse" xml:space="preserve">
     <value>ИЗПОЛЗВАНЕ</value>
   </data>
@@ -316,7 +325,7 @@
     <value>анулиране</value>
   </data>
   <data name="CancelarTratamiento" xml:space="preserve">
-    <value>ОТМЕНИ ЛЕЧЕНИЕТО</value>
+    <value>ОТМЕНИ ИЗЛЪЧВАНЕТО</value>
   </data>
   <data name="CancelarTratamientoDistancia" xml:space="preserve">
     <value>Сигурни ли сте че ще отмените лечението?</value>
@@ -357,6 +366,15 @@
   <data name="deleteAna" xml:space="preserve">
     <value>Изтриване на анализа</value>
   </data>
+  <data name="deleteAnalisys" xml:space="preserve">
+    <value>Изтриване на анализа</value>
+  </data>
+  <data name="deleteRate" xml:space="preserve">
+    <value>Скорост на изтриване</value>
+  </data>
+  <data name="deleteRemedy" xml:space="preserve">
+    <value>Изтриване на средствата за защита</value>
+  </data>
   <data name="EraseRateContent" xml:space="preserve">
     <value>Искате ли да изтриете тази ставка?</value>
   </data>
@@ -377,6 +395,12 @@
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Главичката</value>
+  </data>
+  <data name="groupBoxDT" xml:space="preserve">
+    <value>ПРОДЪЛЖИТЕЛНОСТ НА ТРЕТИРАНЕТО or ИЗЛЪЧВАНЕТО</value>
+  </data>
+  <data name="groupBoxPT" xml:space="preserve">
+    <value>Програмиране</value>
   </data>
   <data name="Hair" xml:space="preserve">
     <value>коса</value>
@@ -427,7 +451,7 @@
     <value>СПИСЪК НА ПОСЛЕДНИТЕ ТЕРАПИИ</value>
   </data>
   <data name="HeaderPatientSearch" xml:space="preserve">
-    <value>Търсене на пациента:</value>
+    <value>Търсене  на пациент:</value>
   </data>
   <data name="HeaderRecords" xml:space="preserve">
     <value>Записи</value>
@@ -493,10 +517,10 @@
     <value>КАРТОТЕКА НА ПАЦИЕНТА</value>
   </data>
   <data name="headRemedies" xml:space="preserve">
-    <value>Средства за защита</value>
+    <value>ТЕРАПЕВТИЧНИ СРЕДСТВА</value>
   </data>
   <data name="headRemSearch" xml:space="preserve">
-    <value>ТЪРСЕНЕ НА РЕШЕНИЕ</value>
+    <value>ТЪРСЕНЕ НА ЧЕСТОТИ</value>
   </data>
   <data name="headScchedule" xml:space="preserve">
     <value>ПЛАНИРАНЕ</value>
@@ -515,6 +539,9 @@
   </data>
   <data name="headTRem" xml:space="preserve">
     <value>Индивидуални цени</value>
+  </data>
+  <data name="headWindowUpT" xml:space="preserve">
+    <value>Обновяване на лечението</value>
   </data>
   <data name="inputAll" xml:space="preserve">
     <value>ВСИЧКО</value>
@@ -567,6 +594,9 @@
   <data name="inputSelect1" xml:space="preserve">
     <value>Избор</value>
   </data>
+  <data name="inputSystem" xml:space="preserve">
+    <value>ПО ПОДРАЗБИРАНЕ</value>
+  </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>колеж училище</value>
   </data>
@@ -595,7 +625,7 @@
     <value>Авеню:</value>
   </data>
   <data name="labelBeg" xml:space="preserve">
-    <value>Започнете</value>
+    <value>СТАРТ</value>
   </data>
   <data name="labelBithDate" xml:space="preserve">
     <value>Рождена дата:</value>
@@ -658,7 +688,7 @@
     <value>Фамилия:</value>
   </data>
   <data name="labelMayRem" xml:space="preserve">
-    <value>ЛЕЧЕНИЕ</value>
+    <value>ИЗЛЪЧВАНЕ</value>
   </data>
   <data name="labelMName" xml:space="preserve">
     <value>Презиме:</value>
@@ -685,7 +715,7 @@
     <value>телефони</value>
   </data>
   <data name="labelPmin" xml:space="preserve">
-    <value>Търпелив:</value>
+    <value>ПАЦИЕНТ </value>
   </data>
   <data name="labelPorts" xml:space="preserve">
     <value>ПРИСТАНИЩА:</value>
@@ -694,10 +724,10 @@
     <value>Свързан анализ:</value>
   </data>
   <data name="labelRate" xml:space="preserve">
-    <value>Цени</value>
+    <value>Rates</value>
   </data>
   <data name="labelRemedy" xml:space="preserve">
-    <value>средство за защита</value>
+    <value>ТЕРАПЕВТИЧНО СРЕДСТВО / ЧЕСТОТА</value>
   </data>
   <data name="labelResultMD" xml:space="preserve">
     <value>Резултати от медицински изделия:</value>
@@ -709,13 +739,13 @@
     <value>състояние:</value>
   </data>
   <data name="LabelSchool" xml:space="preserve">
-    <value>Училищна степен:</value>
+    <value>Образователна степен:</value>
   </data>
   <data name="labelSearchDatabase" xml:space="preserve">
     <value>Търсене в база данни:</value>
   </data>
   <data name="labelSearchRate" xml:space="preserve">
-    <value>ТЪРСЕНЕ (СЦЕНА):</value>
+    <value>ТЪРСЕНЕ (RATE):</value>
   </data>
   <data name="labelSelectPort" xml:space="preserve">
     <value>Моля изберете подходящия ПОРТ за да продължите:</value>
@@ -736,10 +766,10 @@
     <value>Терапия:</value>
   </data>
   <data name="LabelTitle" xml:space="preserve">
-    <value>Заглавие:</value>
+    <value>Титла:</value>
   </data>
   <data name="labelTreatNam" xml:space="preserve">
-    <value>ИМЕ НА ЛЕЧЕНИЕТО</value>
+    <value>ИМЕ НА ТРЕТИРАНЕТО</value>
   </data>
   <data name="labelTypeSh" xml:space="preserve">
     <value>ВИДОВЕ ГРАФИЦИ</value>
@@ -877,10 +907,10 @@
     <value>Хромотерапия</value>
   </data>
   <data name="MenuPatient" xml:space="preserve">
-    <value>Търпелив</value>
+    <value> ПАЦИЕНТ </value>
   </data>
   <data name="MenuRemedies" xml:space="preserve">
-    <value>Средства за защита</value>
+    <value>лекарство</value>
   </data>
   <data name="messageBox1" xml:space="preserve">
     <value>Autosimil успешно завършен</value>
@@ -1117,7 +1147,7 @@
     <value>Моля въведете име на анализ преди да продължите</value>
   </data>
   <data name="messageErrorAp" xml:space="preserve">
-    <value>   El equipo fue desconectado desde el puerto, el sistema va cerrar.</value>
+    <value>El equipo fue desconectado desde el puerto, el sistema va cerrar.</value>
   </data>
   <data name="messageErrorApp" xml:space="preserve">
     <value>Оборудването е изключено, системата ще се изключи.</value>
@@ -1150,7 +1180,7 @@
     <value>Име</value>
   </data>
   <data name="messageHeadQ7" xml:space="preserve">
-    <value>Директно лечение</value>
+    <value>ДИРЕКТНО ТРЕТИРАНЕ</value>
   </data>
   <data name="messageHeadWarning" xml:space="preserve">
     <value>Внимание</value>
@@ -1158,14 +1188,20 @@
   <data name="messageInf1" xml:space="preserve">
     <value>Моля изберете категория за да продължите!</value>
   </data>
+  <data name="messageInf10" xml:space="preserve">
+    <value>хромотерапията се съхранява в раздела за лекарствени средства.</value>
+  </data>
   <data name="messageInfo1" xml:space="preserve">
     <value>Лекарството беше дублирано успешно!</value>
+  </data>
+  <data name="messageInfo11" xml:space="preserve">
+    <value>Лечението е успешно актуализирано</value>
   </data>
   <data name="messageInfo2" xml:space="preserve">
     <value>Картата е запазена успешно!</value>
   </data>
   <data name="messageInfo3" xml:space="preserve">
-    <value>Моля създайте лекарство преди да продължите...</value>
+    <value>Тази тарифа вече е избрана</value>
   </data>
   <data name="messageInfo4" xml:space="preserve">
     <value>Анализът е запазен</value>
@@ -1242,6 +1278,9 @@
   <data name="messageWarning15" xml:space="preserve">
     <value>Моля изберете пола на пациента преди да получите PGR!</value>
   </data>
+  <data name="messageWarning16" xml:space="preserve">
+    <value>не могат да се добавят към хромотерапията или към лекарството по подразбиране.</value>
+  </data>
   <data name="messageWarning17" xml:space="preserve">
     <value>Вече има повторен анализ с този анализ.</value>
   </data>
@@ -1253,6 +1292,12 @@
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Моля първо изберете основна категория и подкатегория за да получите нова ставка в базата данни!</value>
+  </data>
+  <data name="messageWarning20" xml:space="preserve">
+    <value>Средствата за защита на системата не могат да бъдат изтрити.</value>
+  </data>
+  <data name="messageWarning21" xml:space="preserve">
+    <value>това име е запазено.</value>
   </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Моля първо изберете категория и подкатегория за да продължите!</value>
@@ -1291,7 +1336,7 @@
     <value>Възстановяването не бе успешно. Проверете изхода за подробности.</value>
   </data>
   <data name="messOptLan" xml:space="preserve">
-    <value>Моля изберете езика на системата:</value>
+    <value>МОЛЯ ИЗБЕРЕТЕ ЕЗИК НА СИСТЕМАТА:</value>
   </data>
   <data name="messRestDatabase" xml:space="preserve">
     <value>Базата данни е възстановена успешно</value>
@@ -1314,6 +1359,9 @@
   <data name="Nose" xml:space="preserve">
     <value>нос</value>
   </data>
+  <data name="optionMessage" xml:space="preserve">
+    <value>Моля, изберете опция</value>
+  </data>
   <data name="optLangBG" xml:space="preserve">
     <value>български</value>
   </data>
@@ -1322,6 +1370,12 @@
   </data>
   <data name="optLangEs" xml:space="preserve">
     <value>испански</value>
+  </data>
+  <data name="optLangFr" xml:space="preserve">
+    <value>Франсис</value>
+  </data>
+  <data name="optLangIt" xml:space="preserve">
+    <value>Италиански</value>
   </data>
   <data name="patGender" xml:space="preserve">
     <value>ПОЛ НА ПАЦИЕНТА</value>
@@ -1336,7 +1390,7 @@
     <value>Име на лечението:</value>
   </data>
   <data name="pdfParr2" xml:space="preserve">
-    <value>Търпелив:</value>
+    <value>ПАЦИЕНТ:</value>
   </data>
   <data name="pdfParr3" xml:space="preserve">
     <value>Дата:</value>
@@ -1351,7 +1405,7 @@
     <value>Периодични</value>
   </data>
   <data name="pdfParr7" xml:space="preserve">
-    <value>средство за защита</value>
+    <value>ТЕРАПЕВТИЧНО СРЕДСТВО / ЧЕСТОТА</value>
   </data>
   <data name="pdfParr8" xml:space="preserve">
     <value>Анализ</value>
@@ -1378,7 +1432,7 @@
     <value>Получаване на PGR...</value>
   </data>
   <data name="progressBar3" xml:space="preserve">
-    <value>ДИРЕКТНО ЛЕЧЕНИЕ</value>
+    <value>ДИРЕКТНО ТРЕТИРАНЕ</value>
   </data>
   <data name="PUASED" xml:space="preserve">
     <value>НА ПАУЗА</value>
@@ -1528,7 +1582,7 @@
     <value>Дясна китка</value>
   </data>
   <data name="schoolDegree" xml:space="preserve">
-    <value>Училищна степен:</value>
+    <value>Образователна степен:</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Търсене</value>
@@ -1543,7 +1597,7 @@
     <value>Инструмент</value>
   </data>
   <data name="tableBegTime" xml:space="preserve">
-    <value>ВРЕМЕ ЗА ПРОСИЯ</value>
+    <value> ВРЕМЕ ЗА ТРЕТИРАНЕ</value>
   </data>
   <data name="tableCategory" xml:space="preserve">
     <value>Категория</value>
@@ -1582,7 +1636,7 @@
     <value>ИМЕ НА ПАЦИЕНТА</value>
   </data>
   <data name="tablePat" xml:space="preserve">
-    <value>ТЪРПЕЛИВ</value>
+    <value>ПАЦИЕНТ </value>
   </data>
   <data name="TablePCreate" xml:space="preserve">
     <value>Създавайте</value>
@@ -1597,7 +1651,7 @@
     <value>прогрес</value>
   </data>
   <data name="tableRate" xml:space="preserve">
-    <value>СТАВКА</value>
+    <value> ЧЕСТОТА</value>
   </data>
   <data name="tableRateTip" xml:space="preserve">
     <value>ТИП</value>
@@ -1618,7 +1672,7 @@
     <value>Оставащо време</value>
   </data>
   <data name="tableTreat" xml:space="preserve">
-    <value>ЛЕЧЕНИЕ</value>
+    <value>ИЗЛЪЧВАНЕ</value>
   </data>
   <data name="tableValue" xml:space="preserve">
     <value>Стойност</value>
@@ -1697,6 +1751,9 @@
   </data>
   <data name="valPronun" xml:space="preserve">
     <value>Произношение</value>
+  </data>
+  <data name="valSimple" xml:space="preserve">
+    <value>прост</value>
   </data>
   <data name="valSuggLev" xml:space="preserve">
     <value>Предложете ниво</value>

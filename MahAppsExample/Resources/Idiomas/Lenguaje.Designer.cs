@@ -142,6 +142,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        public static string btnAcept {
+            get {
+                return ResourceManager.GetString("btnAcept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         public static string btnAdd {
@@ -210,6 +219,15 @@ namespace HS5.Resources.Idiomas {
         public static string btnCancel {
             get {
                 return ResourceManager.GetString("btnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to COMPLEMENTARY CODE.
+        /// </summary>
+        public static string btnCodeComplement {
+            get {
+                return ResourceManager.GetString("btnCodeComplement", resourceCulture);
             }
         }
         
@@ -304,7 +322,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ERASE ECS.
+        ///   Looks up a localized string similar to DECODE.
         /// </summary>
         public static string btnErase {
             get {
@@ -349,7 +367,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to IMPRINT.
+        ///   Looks up a localized string similar to 10 SEC TIMER.
         /// </summary>
         public static string btnImp {
             get {
@@ -538,7 +556,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SAVE TO ECS.
+        ///   Looks up a localized string similar to CODE.
         /// </summary>
         public static string btnSaveEcs {
             get {
@@ -637,6 +655,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to UPDATE CONTENT.
+        /// </summary>
+        public static string btnUpdateTreat {
+            get {
+                return ResourceManager.GetString("btnUpdateTreat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to USE.
         /// </summary>
         public static string btnUse {
@@ -646,7 +673,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to cancel.
+        ///   Looks up a localized string similar to CANCEL.
         /// </summary>
         public static string cancel {
             get {
@@ -781,6 +808,33 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete analysis.
+        /// </summary>
+        public static string deleteAnalisys {
+            get {
+                return ResourceManager.GetString("deleteAnalisys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete rate.
+        /// </summary>
+        public static string deleteRate {
+            get {
+                return ResourceManager.GetString("deleteRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete remedy.
+        /// </summary>
+        public static string deleteRemedy {
+            get {
+                return ResourceManager.GetString("deleteRemedy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to  erase this rate ?.
         /// </summary>
         public static string EraseRateContent {
@@ -840,6 +894,24 @@ namespace HS5.Resources.Idiomas {
         public static string Glans {
             get {
                 return ResourceManager.GetString("Glans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration of treatment.
+        /// </summary>
+        public static string groupBoxDT {
+            get {
+                return ResourceManager.GetString("groupBoxDT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programming.
+        /// </summary>
+        public static string groupBoxPT {
+            get {
+                return ResourceManager.GetString("groupBoxPT", resourceCulture);
             }
         }
         
@@ -1258,6 +1330,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update treatment.
+        /// </summary>
+        public static string headWindowUpT {
+            get {
+                return ResourceManager.GetString("headWindowUpT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ALL.
         /// </summary>
         public static string inputAll {
@@ -1411,6 +1492,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BY DEFAULT .
+        /// </summary>
+        public static string inputSystem {
+            get {
+                return ResourceManager.GetString("inputSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to College School.
         /// </summary>
         public static string itemCollSchool {
@@ -1492,7 +1582,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Begin.
+        ///   Looks up a localized string similar to Start.
         /// </summary>
         public static string labelBeg {
             get {
@@ -1555,7 +1645,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Database.
+        ///   Looks up a localized string similar to Rates.
         /// </summary>
         public static string labelDataBase {
             get {
@@ -2977,6 +3067,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is already a remedy with that name.
+        /// </summary>
+        public static string messageError73 {
+            get {
+                return ResourceManager.GetString("messageError73", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The analysis is empty or has not been conducted..
         /// </summary>
         public static string MessageError74 {
@@ -3121,11 +3220,29 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chromotherapy has been stored in the remedies section.
+        /// </summary>
+        public static string messageInf10 {
+            get {
+                return ResourceManager.GetString("messageInf10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The remedy was duplicated successfully!.
         /// </summary>
         public static string messageInfo1 {
             get {
                 return ResourceManager.GetString("messageInfo1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The treatment was successfully updated.
+        /// </summary>
+        public static string messageInfo11 {
+            get {
+                return ResourceManager.GetString("messageInfo11", resourceCulture);
             }
         }
         
@@ -3139,7 +3256,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please create a remedy before continue....
+        ///   Looks up a localized string similar to This rate is already selected....
         /// </summary>
         public static string messageInfo3 {
             get {
@@ -3364,6 +3481,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No rates can be added to the chromotherapy or the default remedy .
+        /// </summary>
+        public static string messageWarning16 {
+            get {
+                return ResourceManager.GetString("messageWarning16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A reanalysis already exists with this analysis.
         /// </summary>
         public static string messageWarning17 {
@@ -3396,6 +3522,24 @@ namespace HS5.Resources.Idiomas {
         public static string messageWarning2 {
             get {
                 return ResourceManager.GetString("messageWarning2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System remedies can not be deleted.
+        /// </summary>
+        public static string messageWarning20 {
+            get {
+                return ResourceManager.GetString("messageWarning20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This name is reserved for the system.
+        /// </summary>
+        public static string messageWarning21 {
+            get {
+                return ResourceManager.GetString("messageWarning21", resourceCulture);
             }
         }
         
@@ -3580,6 +3724,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, select an option.
+        /// </summary>
+        public static string optionMessage {
+            get {
+                return ResourceManager.GetString("optionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bulgarian.
         /// </summary>
         public static string optLangBG {
@@ -3603,6 +3756,24 @@ namespace HS5.Resources.Idiomas {
         public static string optLangEs {
             get {
                 return ResourceManager.GetString("optLangEs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to French.
+        /// </summary>
+        public static string optLangFr {
+            get {
+                return ResourceManager.GetString("optLangFr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italian.
+        /// </summary>
+        public static string optLangIt {
+            get {
+                return ResourceManager.GetString("optLangIt", resourceCulture);
             }
         }
         
@@ -3697,7 +3868,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Analisys.
+        ///   Looks up a localized string similar to Analysis.
         /// </summary>
         public static string pdfParr8 {
             get {
@@ -4674,6 +4845,15 @@ namespace HS5.Resources.Idiomas {
         public static string valPronun {
             get {
                 return ResourceManager.GetString("valPronun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple.
+        /// </summary>
+        public static string valSimple {
+            get {
+                return ResourceManager.GetString("valSimple", resourceCulture);
             }
         }
         

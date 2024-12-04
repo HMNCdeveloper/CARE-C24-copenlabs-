@@ -541,6 +541,16 @@ namespace HS5.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon CopenIcon {
+            get {
+                object obj = ResourceManager.GetObject("CopenIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Costillas_Der_500 {
@@ -1046,26 +1056,6 @@ namespace HS5.Properties {
         internal static System.Drawing.Bitmap Hombro_Izq_5002 {
             get {
                 object obj = ResourceManager.GetObject("Hombro_Izq_5002", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap HS5 {
-            get {
-                object obj = ResourceManager.GetObject("HS5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iconohmc {
-            get {
-                object obj = ResourceManager.GetObject("iconohmc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

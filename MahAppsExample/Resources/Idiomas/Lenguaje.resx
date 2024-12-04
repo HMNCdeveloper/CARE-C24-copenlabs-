@@ -144,6 +144,9 @@
   <data name="brnSC" xml:space="preserve">
     <value>SAVE CHANGES</value>
   </data>
+  <data name="btnAcept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
   <data name="btnAdd" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -167,6 +170,9 @@
   </data>
   <data name="btnCancel" xml:space="preserve">
     <value>CANCEL</value>
+  </data>
+  <data name="btnCodeComplement" xml:space="preserve">
+    <value>COMPLEMENTARY CODE</value>
   </data>
   <data name="btnCopy" xml:space="preserve">
     <value>COPY</value>
@@ -199,7 +205,7 @@
     <value>Edit</value>
   </data>
   <data name="btnErase" xml:space="preserve">
-    <value>ERASE ECS</value>
+    <value>DECODE</value>
   </data>
   <data name="btnEraseElem" xml:space="preserve">
     <value>ERASE A ELEMENT</value>
@@ -214,7 +220,7 @@
     <value>Duplicate Rate</value>
   </data>
   <data name="btnImp" xml:space="preserve">
-    <value>IMPRINT</value>
+    <value>10 SEC TIMER</value>
   </data>
   <data name="btnNeutralize" xml:space="preserve">
     <value>NEUTRALIZE</value>
@@ -277,7 +283,7 @@
     <value>SAVE AND CREATE A REMEDY</value>
   </data>
   <data name="btnSaveEcs" xml:space="preserve">
-    <value>SAVE TO ECS</value>
+    <value>CODE</value>
   </data>
   <data name="btnSaveEcsDB" xml:space="preserve">
     <value>SAVE ECS TO DATABASE</value>
@@ -309,11 +315,14 @@
   <data name="btnStartTreat" xml:space="preserve">
     <value>START TREATMENT</value>
   </data>
+  <data name="btnUpdateTreat" xml:space="preserve">
+    <value>UPDATE CONTENT</value>
+  </data>
   <data name="btnUse" xml:space="preserve">
     <value>USE</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>cancel</value>
+    <value>CANCEL</value>
   </data>
   <data name="CancelarTratamiento" xml:space="preserve">
     <value>CANCEL TREATMENT</value>
@@ -357,6 +366,15 @@
   <data name="deleteAna" xml:space="preserve">
     <value>Delete Analysis </value>
   </data>
+  <data name="deleteAnalisys" xml:space="preserve">
+    <value>Delete analysis</value>
+  </data>
+  <data name="deleteRate" xml:space="preserve">
+    <value>Delete rate</value>
+  </data>
+  <data name="deleteRemedy" xml:space="preserve">
+    <value>Delete remedy</value>
+  </data>
   <data name="EraseRateContent" xml:space="preserve">
     <value>Do you want to  erase this rate ?</value>
   </data>
@@ -377,6 +395,12 @@
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Glans</value>
+  </data>
+  <data name="groupBoxDT" xml:space="preserve">
+    <value>Duration of treatment</value>
+  </data>
+  <data name="groupBoxPT" xml:space="preserve">
+    <value>Programming</value>
   </data>
   <data name="Hair" xml:space="preserve">
     <value>Hair</value>
@@ -516,6 +540,9 @@
   <data name="headTRem" xml:space="preserve">
     <value>Individual Rates</value>
   </data>
+  <data name="headWindowUpT" xml:space="preserve">
+    <value>Update treatment</value>
+  </data>
   <data name="inputAll" xml:space="preserve">
     <value>ALL</value>
   </data>
@@ -567,6 +594,9 @@
   <data name="inputSelect1" xml:space="preserve">
     <value>Selection</value>
   </data>
+  <data name="inputSystem" xml:space="preserve">
+    <value>BY DEFAULT </value>
+  </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>College School</value>
   </data>
@@ -595,7 +625,7 @@
     <value>Avenue:</value>
   </data>
   <data name="labelBeg" xml:space="preserve">
-    <value>Begin</value>
+    <value>Start</value>
   </data>
   <data name="labelBithDate" xml:space="preserve">
     <value>Birth Date:</value>
@@ -616,7 +646,7 @@
     <value>Country or Shire:</value>
   </data>
   <data name="labelDataBase" xml:space="preserve">
-    <value>Database</value>
+    <value>Rates</value>
   </data>
   <data name="labelDate" xml:space="preserve">
     <value>Date:</value>
@@ -1107,6 +1137,9 @@
   <data name="messageError70" xml:space="preserve">
     <value>you must choose a patient to continue</value>
   </data>
+  <data name="messageError73" xml:space="preserve">
+    <value>There is already a remedy with that name</value>
+  </data>
   <data name="MessageError74" xml:space="preserve">
     <value>The analysis is empty or has not been conducted.</value>
   </data>
@@ -1155,14 +1188,20 @@
   <data name="messageInf1" xml:space="preserve">
     <value>Please select a category to continue!</value>
   </data>
+  <data name="messageInf10" xml:space="preserve">
+    <value>Chromotherapy has been stored in the remedies section</value>
+  </data>
   <data name="messageInfo1" xml:space="preserve">
     <value>The remedy was duplicated successfully!</value>
+  </data>
+  <data name="messageInfo11" xml:space="preserve">
+    <value>The treatment was successfully updated</value>
   </data>
   <data name="messageInfo2" xml:space="preserve">
     <value>The card has been save successfully!</value>
   </data>
   <data name="messageInfo3" xml:space="preserve">
-    <value>Please create a remedy before continue...</value>
+    <value>This rate is already selected...</value>
   </data>
   <data name="messageInfo4" xml:space="preserve">
     <value>The analysis has been saved</value>
@@ -1236,6 +1275,9 @@
   <data name="messageWarning15" xml:space="preserve">
     <value>Please select the gender of the patient before getting the PGR!</value>
   </data>
+  <data name="messageWarning16" xml:space="preserve">
+    <value>No rates can be added to the chromotherapy or the default remedy </value>
+  </data>
   <data name="messageWarning17" xml:space="preserve">
     <value>A reanalysis already exists with this analysis</value>
   </data>
@@ -1247,6 +1289,12 @@
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Please select a main category first and a sub-category in order to get a new rate on the database!</value>
+  </data>
+  <data name="messageWarning20" xml:space="preserve">
+    <value>System remedies can not be deleted</value>
+  </data>
+  <data name="messageWarning21" xml:space="preserve">
+    <value>This name is reserved for the system</value>
   </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Please select a category and subcategory first in order to continue!</value>
@@ -1308,6 +1356,9 @@
   <data name="Nose" xml:space="preserve">
     <value>Nose</value>
   </data>
+  <data name="optionMessage" xml:space="preserve">
+    <value>Please, select an option</value>
+  </data>
   <data name="optLangBG" xml:space="preserve">
     <value>Bulgarian</value>
   </data>
@@ -1316,6 +1367,12 @@
   </data>
   <data name="optLangEs" xml:space="preserve">
     <value>Spanish</value>
+  </data>
+  <data name="optLangFr" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="optLangIt" xml:space="preserve">
+    <value>Italian</value>
   </data>
   <data name="patGender" xml:space="preserve">
     <value>PATIENT'S GENDER</value>
@@ -1348,7 +1405,7 @@
     <value>Remedy</value>
   </data>
   <data name="pdfParr8" xml:space="preserve">
-    <value>Analisys</value>
+    <value>Analysis</value>
   </data>
   <data name="pdfParr9" xml:space="preserve">
     <value>individal Rates</value>
@@ -1691,6 +1748,9 @@
   </data>
   <data name="valPronun" xml:space="preserve">
     <value>Pronuntiation</value>
+  </data>
+  <data name="valSimple" xml:space="preserve">
+    <value>Simple</value>
   </data>
   <data name="valSuggLev" xml:space="preserve">
     <value>Suggest Level</value>

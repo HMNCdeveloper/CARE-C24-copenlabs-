@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Icon="Resources/CopenIcon.ico"
-        xmlns:local="clr-namespace:HS5"
+        xmlns:local="clr-namespace:HS5.Resources.Idiomas"  
         mc:Ignorable="d"
-        Title="Confirmación de cancelación" Height="150" Width="300">
+        Title="{x:Static local:Lenguaje.messageHeadInf}" Height="150" Width="300">
     <Grid>
         <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-20,0,0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
-            <Button Content="Aceptar" Width="100" Click="Aceptar_Click" Background="#5CA4" Foreground="#FFF" Margin="0,0,10,0"/>
-            <Button Content="Cancelar" Width="100" Click="Cancelar_Click" Background="#5CA4" Foreground="#FFF"/>
+            <Button Content="{x:Static local:Lenguaje.btnAcept}" Width="100" Click="Aceptar_Click" Background="#5CA4" Foreground="#FFF" Margin="0,0,10,0"/>
+            <Button Content="{x:Static local:Lenguaje.btnCancel}" Width="100" Click="Cancelar_Click" Background="#5CA4" Foreground="#FFF"/>
         </StackPanel>
     </Grid>
 </Window>

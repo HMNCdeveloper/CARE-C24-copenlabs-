@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MahAppsExample
 {
@@ -96,7 +97,7 @@ namespace MahAppsExample
         //Radionico - Sugerir niveles
         public string RadionicoSugerirNiveles()
         {
-            string[] niveles = { "1 - FISICO", "2 - EMOCIONAL", "3 - MENTAL", "4 - ESPIRITUAL 1", "5 - ESPIRITUAL 2", "6 - ESPIRITUAL 3", "7 - ESPIRITUAL 4", "8 - ESPIRITUAL 5", "9 - ESPIRITUAL 6", "10 - ESPIRITUAL 7", "11 - ESPIRITUAL 8", "12 - ESPIRITUAL 9" }; //Niveles  
+            string[] niveles = { "1 - PHYSICAL", "2 - EMOTIONAL", "3 - MENTAL", "4 - SPIRITUAL 1", "5 - SPIRITUAL 2", "6 - SPIRITUAL 3", "7 - SPIRITUAL 4", "8 - SPIRITUAL 5", "9 - SPIRITUAL 6", "10 - SPIRITUAL 7", "11 - SPIRITUAL 8", "12 - SPIRITUAL 9" }; //Niveles  
             return niveles[random.Next(0,11)]; //Regresa valor random (nivel)
         }
 

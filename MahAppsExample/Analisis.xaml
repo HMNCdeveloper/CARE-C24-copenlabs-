@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:HS5.Resources.Idiomas" 
         Icon="Resources/CopenIcon.ico"
         mc:Ignorable="d"
-        Title="{x:Static local:Lenguaje.pdfParr8}" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="{x:Static local:Lenguaje.pdfParr8}" Height="450" Width="800" MaxHeight="450" MaxWidth="800">
     <Grid>
         <ListView x:Name="ListaCodigos"  HorizontalAlignment="Left"  Width="742" BorderThickness="0.8" BorderBrush="Silver" SelectionMode="Multiple" RenderTransformOrigin="0.5,0.5" FontSize="13" Margin="19,10,0,10" >
             <ListView.View >

@@ -144,6 +144,9 @@
   <data name="brnSC" xml:space="preserve">
     <value>GUARDAR CAMBIOS</value>
   </data>
+  <data name="btnAcept" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
   <data name="btnAdd" xml:space="preserve">
     <value>Agregar</value>
   </data>
@@ -151,7 +154,7 @@
     <value>Agregar  Image </value>
   </data>
   <data name="btnAddRates" xml:space="preserve">
-    <value>AGREGAR INDICES</value>
+    <value>AGREGAR  RATES</value>
   </data>
   <data name="btnAnaReport" xml:space="preserve">
     <value>REPORTE DEL ANALISIS</value>
@@ -167,6 +170,9 @@
   </data>
   <data name="btnCancel" xml:space="preserve">
     <value>CANCELAR</value>
+  </data>
+  <data name="btnCodeComplement" xml:space="preserve">
+    <value>CODIGO COMPLEMENTARIO</value>
   </data>
   <data name="btnCopy" xml:space="preserve">
     <value>COPIAR</value>
@@ -199,7 +205,7 @@
     <value>Editar</value>
   </data>
   <data name="btnErase" xml:space="preserve">
-    <value>BORRAR ECS</value>
+    <value>DECODE</value>
   </data>
   <data name="btnEraseElem" xml:space="preserve">
     <value>BORRAR  UN ELEMENTO</value>
@@ -214,7 +220,7 @@
     <value>Duplicar Rate</value>
   </data>
   <data name="btnImp" xml:space="preserve">
-    <value>IMPRIMIR</value>
+    <value>10 SEC TIMER </value>
   </data>
   <data name="btnNeutralize" xml:space="preserve">
     <value>NEUTRALIZAR</value>
@@ -277,7 +283,7 @@
     <value>GUARDAR Y CREAR UN REMEDIO</value>
   </data>
   <data name="btnSaveEcs" xml:space="preserve">
-    <value>GUARDAR ECS</value>
+    <value>CODE</value>
   </data>
   <data name="btnSaveEcsDB" xml:space="preserve">
     <value>GUARDAR ECS A LA DATABASE</value>
@@ -309,11 +315,14 @@
   <data name="btnStartTreat" xml:space="preserve">
     <value>INICIAR TRATAMIENTO</value>
   </data>
+  <data name="btnUpdateTreat" xml:space="preserve">
+    <value>ACTUALIZAR CONTENIDO</value>
+  </data>
   <data name="btnUse" xml:space="preserve">
     <value>UTILIZAR</value>
   </data>
   <data name="cancel" xml:space="preserve">
-    <value>cancelar</value>
+    <value>CANCELAR</value>
   </data>
   <data name="CancelarTratamiento" xml:space="preserve">
     <value>CANCEL TREATMENT</value>
@@ -360,6 +369,15 @@
   <data name="deleteAna" xml:space="preserve">
     <value>Eliminar analisis</value>
   </data>
+  <data name="deleteAnalisys" xml:space="preserve">
+    <value>Eliminar analisis</value>
+  </data>
+  <data name="deleteRate" xml:space="preserve">
+    <value>Eliminar rate</value>
+  </data>
+  <data name="deleteRemedy" xml:space="preserve">
+    <value>Eliminar remedio</value>
+  </data>
   <data name="EraseRateContent" xml:space="preserve">
     <value>¿Deseas Eliminar este rate  ?</value>
   </data>
@@ -380,6 +398,12 @@
   </data>
   <data name="Glans" xml:space="preserve">
     <value>Glande (término médico)</value>
+  </data>
+  <data name="groupBoxDT" xml:space="preserve">
+    <value>Duracion  del tratamiento</value>
+  </data>
+  <data name="groupBoxPT" xml:space="preserve">
+    <value>Programacion</value>
   </data>
   <data name="Hair" xml:space="preserve">
     <value>Cabello</value>
@@ -519,6 +543,9 @@
   <data name="headTRem" xml:space="preserve">
     <value>Indices indiviaduales </value>
   </data>
+  <data name="headWindowUpT" xml:space="preserve">
+    <value>Actualizar Tratamiento</value>
+  </data>
   <data name="inputAll" xml:space="preserve">
     <value>TODO</value>
   </data>
@@ -566,6 +593,9 @@
   </data>
   <data name="inputSelect" xml:space="preserve">
     <value>Seleccion</value>
+  </data>
+  <data name="inputSystem" xml:space="preserve">
+    <value>POR DEFECTO</value>
   </data>
   <data name="itemCollSchool" xml:space="preserve">
     <value>Preparatoria</value>
@@ -616,7 +646,7 @@
     <value>Municipio:</value>
   </data>
   <data name="labelDataBase" xml:space="preserve">
-    <value>DB</value>
+    <value>Rates</value>
   </data>
   <data name="labelDate" xml:space="preserve">
     <value>Fecha:</value>
@@ -694,7 +724,7 @@
     <value>Relacion del Analisis</value>
   </data>
   <data name="labelRate" xml:space="preserve">
-    <value>Indices</value>
+    <value>Rates</value>
   </data>
   <data name="labelRemedy" xml:space="preserve">
     <value>Remedio</value>
@@ -715,7 +745,7 @@
     <value>Buscar en la Base de Datos</value>
   </data>
   <data name="labelSearchRate" xml:space="preserve">
-    <value>BUSCAR  (TARIFA):</value>
+    <value>BUSCAR  (RATE):</value>
   </data>
   <data name="labelSelectPort" xml:space="preserve">
     <value>POR FAVOR SELECCIONA EL PUERTO  PARA CONTINUAR:</value>
@@ -1024,7 +1054,7 @@
     <value>No se puede guardar el analisis porque  no hay indices agregado!</value>
   </data>
   <data name="messageError44" xml:space="preserve">
-    <value>Please select a rate before sending to the instrument</value>
+    <value>Por favor selecciona  un rate antes de enviarlo al instrumento.</value>
   </data>
   <data name="messageError45" xml:space="preserve">
     <value>No has seleccionado ningun historial del paiente para modificar!</value>
@@ -1107,6 +1137,9 @@
   <data name="messageError70" xml:space="preserve">
     <value>Debes Seleccionar un paciente para continuar</value>
   </data>
+  <data name="messageError73" xml:space="preserve">
+    <value>Hay un remedio con este nombre </value>
+  </data>
   <data name="MessageError74" xml:space="preserve">
     <value>El analisis esta vacio o no ha sido efectuado</value>
   </data>
@@ -1152,14 +1185,20 @@
   <data name="messageInf1" xml:space="preserve">
     <value>Por favor seleccione una categoria para continuar!  </value>
   </data>
+  <data name="messageInf10" xml:space="preserve">
+    <value>La terapia de color se guardo en la seccion de remedios</value>
+  </data>
   <data name="messageInfo1" xml:space="preserve">
     <value>El remedio fue duplicado exitosamente!</value>
+  </data>
+  <data name="messageInfo11" xml:space="preserve">
+    <value>El tratamiento fue actualizado exitosamente </value>
   </data>
   <data name="messageInfo2" xml:space="preserve">
     <value> La tarjeta se ha guardado exitosamente!</value>
   </data>
   <data name="messageInfo3" xml:space="preserve">
-    <value>Por favor crear  un reemedio antes para continuar...</value>
+    <value>Este rate ya esta seleccionado..</value>
   </data>
   <data name="messageInfo4" xml:space="preserve">
     <value>  El analisis esta aguardado </value>
@@ -1236,6 +1275,9 @@
   <data name="messageWarning15" xml:space="preserve">
     <value>Seleccione el sexo del paciente antes de obtener el PGR.</value>
   </data>
+  <data name="messageWarning16" xml:space="preserve">
+    <value>No puedes agregar rates a una terapia de color o remedio por defecto</value>
+  </data>
   <data name="messageWarning17" xml:space="preserve">
     <value>Ya existe un reanalisis con este analisis</value>
   </data>
@@ -1247,6 +1289,12 @@
   </data>
   <data name="messageWarning2" xml:space="preserve">
     <value>Por favor selecciona una primera categoria principal y sub categoria para obtener a un nuevo tipo en la base de datos! </value>
+  </data>
+  <data name="messageWarning20" xml:space="preserve">
+    <value>Los remedios del sistema no  se pueden eliminar.</value>
+  </data>
+  <data name="messageWarning21" xml:space="preserve">
+    <value>Este nombre esta reservado por el sistema.</value>
   </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Por favor selecciona una categoria y subcategoria primero en orden para continuar !</value>
@@ -1308,6 +1356,9 @@
   <data name="Nose" xml:space="preserve">
     <value>Nariz</value>
   </data>
+  <data name="optionMessage" xml:space="preserve">
+    <value>Por favor, selecciona una opcion </value>
+  </data>
   <data name="optLangBG" xml:space="preserve">
     <value>Bulgaro</value>
   </data>
@@ -1316,6 +1367,12 @@
   </data>
   <data name="optLangEs" xml:space="preserve">
     <value>Español</value>
+  </data>
+  <data name="optLangFr" xml:space="preserve">
+    <value>Frances</value>
+  </data>
+  <data name="optLangIt" xml:space="preserve">
+    <value>Italiano</value>
   </data>
   <data name="patGender" xml:space="preserve">
     <value>GENERO DEL PACIENTE</value>
@@ -1694,6 +1751,9 @@
   </data>
   <data name="valPronun" xml:space="preserve">
     <value>Pronuciacion</value>
+  </data>
+  <data name="valSimple" xml:space="preserve">
+    <value>Simple</value>
   </data>
   <data name="valSuggLev" xml:space="preserve">
     <value>Sugerir Niveles</value>

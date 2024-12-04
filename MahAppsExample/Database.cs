@@ -56,7 +56,7 @@ namespace MahAppsExample
         }
 
 
-       
+
 
         //Funcion para registrar el paciente y devuelve su Id_paciente
         public object RegistrarPacienteD(string nombre, string apellido1, string apellido2, string email, string sexo, string profesion, string titulo, string fechanac, string fpg)
@@ -94,7 +94,7 @@ namespace MahAppsExample
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
 
-      
+
 
         //Funcion para obtener los analisis recientemente de acuerdo a nombre del paciente
         public DataTable Obtener_Analisis_Pacientes_Recientes_PorNombrePaciente(string paciente_nombre)
@@ -119,10 +119,10 @@ namespace MahAppsExample
             return dt2; //regresa tabla con datos del paciente
         }
 
-    
 
 
-    
+
+
 
         //Funcion para obtener id del domicilio del paciente
         public object Obtener_IdDomicilio_Paciente(string calle, string numero, string colonia, string CP, string municipio, string estado, string pais, string id_paciente)
@@ -144,7 +144,7 @@ namespace MahAppsExample
             return command.ExecuteScalar(); //Valor del id_paciente lo regresa como objeto
         }
 
-      
+
 
         //Funcion para validar analisis
         public object Validar_Analisis(string paciente, string nombre_analisis)
@@ -335,7 +335,7 @@ namespace MahAppsExample
 
             command.ExecuteNonQuery();
         }
-        
+
         //Funcion para buscar paciente de acuerdo a su nombre completo
         public DataTable Buscar_IdPaciente_Nombre(string nombre)
         {
@@ -358,6 +358,39 @@ namespace MahAppsExample
             da.Fill(ds);
             dt = ds.Tables[0];
             return dt; //Valor del id_paciente lo regresa como objeto
+        }
+
+        public void EliminarTratamientosVencidos()
+        {
+            sql = "DELETE FROM rad_codigosdetratamientos USING rad_tratamientosadistancia WHERE rad_codigosdetratamientos.idcr = CAST(rad_tratamientosadistancia.idt AS text)  AND rad_tratamientosadistancia.duracion = rad_tratamientosadistancia.tiempoemitido   AND rad_tratamientosadistancia.estado = 1 AND (SELECT COUNT(*) FROM rad_tratamientosadistancia t WHERE t.idt=rad_tratamientosadistancia.idt)=1;";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+
+            command.CommandText = "DELETE FROM rad_tratamientosadistancia WHERE tiempoemitido=duracion and estado=1";
+            command.ExecuteNonQuery();
+        }
+
+        public List<string> listaTratimentos_Nombres()
+        {
+            string sql = "SELECT DISTINCT(nombre) FROM rad_tratamientosadistancia WHERE estado IN (0,1)";
+
+            // Usamos una lista para almacenar los resultados directamente
+            List<string> nombres = new List<string>();            
+           using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+           using (NpgsqlDataReader reader = cmd.ExecuteReader())
+           {
+             
+
+               while (reader.Read())
+               {
+                  nombres.Add(reader.GetString(0)); // Obtiene el valor de la primera columna
+                  
+               }
+           }
+            
+
+            return nombres;
+
         }
 
       
@@ -632,6 +665,13 @@ namespace MahAppsExample
             command.ExecuteNonQuery();
         }
 
+        public void Eliminar_Codigo_Tratamientos(string nameCode, string idpadre)
+        {
+            sql = "DELETE FROM rad_codigosdetratamientos WHERE descripcion=$$" + nameCode+"$$ AND idcr=$$"+idpadre+"$$";
+            command= new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+        }
+
 
         public void Eliminar_Codigo_Personalizado(Guid id)
         {
@@ -782,10 +822,19 @@ namespace MahAppsExample
 
         public void Eliminar_remedio_codigo(int id)
         {
-            sql = "DELETE FROM rad_codigosderemedios WHERE remedio=$$" + id + "$$";
+            //ELIMINA  AUTOSIMIL SI TIENE
+            sql = "DELETE FROM rad_codigosdeterapia WHERE  id  IN ( select terapiacolor from rad_codigosderemedios WHERE remedio=$$" + id + "$$)";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
 
+            //ELIMINAR COLOR DE LA TERAPIA SI LO TIENE
+            sql = "DELETE   FROM  rad_autosimil WHERE  id IN (SELECT autosimil FROM rad_codigosderemedios WHERE remedio=$$" + id + "$$)";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+
+            sql = "DELETE FROM rad_codigosderemedios WHERE remedio=$$" + id + "$$";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
         }
 
 
@@ -906,7 +955,7 @@ namespace MahAppsExample
         //Funcion para buscar codigo en base al nombre de la categoria
         public object BuscarCodigoPorNombreCategoria(string nombre_categoria)
         {
-            sql = "SELECT codigo FROM rad_codigo where UPPER(nombre)=$$" + nombre_categoria + "$$";
+            sql = "SELECT rate FROM rad_codigo where UPPER(nombre)=$$" + nombre_categoria + "$$";
             command = new NpgsqlCommand(sql, conn);
             return command.ExecuteScalar();
         }
@@ -924,7 +973,18 @@ namespace MahAppsExample
 
         public DataTable BuscarCodigoRem(string nombre_codigo)
         {
-            sql = "SELECT nombre,id FROM rad_remedios WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$";
+            string leng = "EN";
+
+            if (Database.table == "espanol")
+            {
+                leng = "ES";
+            }else if (Database.table== "bulgaro")
+            {
+                leng = "BG";
+            }
+
+            Console.WriteLine(leng);
+            sql = "SELECT nombre,id FROM rad_remedios WHERE UPPER(nombre) LIKE $$%" + nombre_codigo + "%$$ AND  lenguaje in ('CUS','"+leng+"')";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1176,7 +1236,7 @@ namespace MahAppsExample
         //Funcion para visualizar remedios directamente dependiendo de la categoria y la letra
         public DataTable CodigoRemedioBuscado(string nombre, string language)
         {
-            sql = "select * from rad_remedios where upper(nombre) like $$%" + nombre + "%$$ AND idioma in ($$" + language + "$$,'CUS')";
+            sql = "select * from rad_remedios where upper(nombre) like $$%" + nombre + "%$$ AND lenguaje in ($$" + language + "$$,'CUS')";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
             da.Fill(ds);
@@ -1219,9 +1279,15 @@ namespace MahAppsExample
 
         public bool isCustomRemedy(string nombre)
         {
-            sql = "SELECT lenguaje from rad_remedios where nombre=$$" + nombre + "$$";
-            command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar().ToString()=="CUS"; //Valor del id_paciente lo regresa como objeto
+            if (!string.IsNullOrEmpty(nombre))
+            {
+                sql = "SELECT lenguaje from rad_remedios where nombre=$$" + nombre + "$$";
+                command = new NpgsqlCommand(sql, conn);
+                return command.ExecuteScalar().ToString() == "CUS"; //Valor del id_paciente lo regresa como objeto
+            }
+
+            return false;
+           
         }
 
         public object Obtener_IDAnalisis(string nombre)
@@ -1362,6 +1428,7 @@ namespace MahAppsExample
 
         public DataTable BuscarGenero(string nombre)
         {
+            
             sql = "SELECT * FROM rad_pacientes WHERE (nombre || ' ' || apellido1 || ' ' || apellido2) = '" + nombre +"'";
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
             ds.Reset();
@@ -1433,25 +1500,27 @@ namespace MahAppsExample
     
 
         //Funcion para eliminar los codigos de un remedio sin borrar la raiz
-        public void Eliminar_codigos_remedio(int id_remedio, string id_codigo)
+        public void Eliminar_codigos_remedio(string id_remedy, string nameRate,string nameRemedy)
         {
-            //Elimina los colores de codigosderemedios
-            sql = "DELETE FROM rad_codigosderemedios WHERE remedio=$$" + id_remedio + "$$ AND rate=CAST($$" + id_codigo + "$$ AS uuid)";
+            if (nameRemedy.StartsWith("ChromoTherapy"))
+            {
+                sql = "DELETE FROM rad_codigosdeterapia WHERE  nombre=$$" + nameRate + "$$ and id  = (select terapiacolor from rad_codigosderemedios where id=$$" + id_remedy  + "$$)";
+                command = new NpgsqlCommand(sql, conn);
+                command.ExecuteNonQuery();
+            }
+            else if (nameRate.StartsWith("Autosimile"))
+            {
+                sql = "DELETE   FROM  rad_autosimil WHERE nombre=$$" + nameRate + "$$ and id  in (select autosimil from rad_codigosderemedios where id=$$" + id_remedy + "$$)";
+                command = new NpgsqlCommand(sql, conn);
+                command.ExecuteNonQuery();
+            }
+
+            sql = "DELETE FROM rad_codigosderemedios WHERE id=$$" + id_remedy + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
         }
 
-        public void Eliminar_color_remedio(int id_remedio,string id_codigo)
-        {
-            sql = "DELETE FROM rad_codigosderemedios WHERE remedio=$$" + id_remedio + "$$ AND terapiacolor=CAST($$" + id_codigo + "$$ AS uuid)";
-            command = new NpgsqlCommand(sql, conn);
-            command.ExecuteNonQuery();
-
-            sql = "DELETE FROM rad_codigosdeterapia WHERE id=CAST($$" + id_codigo + "$$ AS uuid)";
-            command = new NpgsqlCommand(sql, conn);
-            command.ExecuteNonQuery();
-
-        }
+       
 
         public void Eliminar_codigos_analisis(int id_analisis, string id_codigo)
         {
@@ -1464,7 +1533,7 @@ namespace MahAppsExample
         public void Eliminar_autosimilcodigos_remedio(int id_remedio, string id_autosimil)
         {
             //Elimina los colores de codigosderemedios
-            sql = "DELETE FROM rad_codigoderemedios WHERE remedio=$$" + id_remedio + "$$ AND autosimil=$$" + id_autosimil + "$$ ";
+            sql = "DELETE FROM rad_codigosderemedios WHERE remedio=$$" + id_remedio + "$$ AND autosimil=$$" + id_autosimil + "$$ ";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
 
@@ -1495,7 +1564,11 @@ namespace MahAppsExample
 
         public void CancelarTratamientoADistancia(string nombre)
         {
-            
+
+            sql = "DELETE FROM rad_codigosdetratamientos USING rad_tratamientosadistancia WHERE rad_codigosdetratamientos.idcr = CAST(rad_tratamientosadistancia.idt AS text)  AND rad_tratamientosadistancia.nombre=$$" + nombre + "$$";
+            command = new NpgsqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+
             sql = "DELETE FROM  rad_tratamientosadistancia WHERE nombre=$$" + nombre + "$$";
             command = new NpgsqlCommand(sql, conn);
             command.ExecuteNonQuery();
@@ -1663,8 +1736,6 @@ namespace MahAppsExample
 
         }
 
-
-
         public object GetCodeIDCustom(string nombre )
         {
             
@@ -1681,69 +1752,21 @@ namespace MahAppsExample
             return command.ExecuteScalar();
         }
 
-        public object GetCodeIDbyremedies(string nameRate, int idremedy,string nameRemedy)
+      
+        public void updateCodeofRemedies(string idCoderemedy, string metodo, string potencia, string nivel,string complemento)
         {
-            if (nameRemedy.StartsWith("TerapiaColor"))
-            {
-                sql = "SELECT id from rad_codigosdeterapia where  nombre=$$" + nameRate + "$$ and id  in (select terapiacolor from rad_codigosderemedios where remedio=$$" + idremedy + "$$)";
-            }
-            else if (nameRate.StartsWith("Autosimile"))
-            {
-                sql="SELECT id  FROM  rad_autosimil WHERE nombre=$$"+nameRate+ "$$ and id  in (select autosimil from rad_codigosderemedios where remedio=$$" + idremedy + "$$)";
-            }
-            else
-            {
-                sql= "SELECT codigoid from rad_codigo" + Database.table + "  where nombre=$$" + nameRate + "$$   and codigoid in (select rate from rad_codigosderemedios where remedio=$$" + idremedy + "$$)";
-            }
-         
-            command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar();
-        }
-
-        public object GetRateIDbyRemedies(string name, int idremedy)
-        {
-            sql = "SELECT codigoid from rad_codigoCustom where nombre=$$" + name + "$$   and codigoid in (select rate from rad_codigosderemedios where remedio=$$" + idremedy + "$$)";
-            command = new NpgsqlCommand(sql, conn);
-            return command.ExecuteScalar();
-
-        }
-
-        public void updateCodeofRemedies(string IDrate, string metodo, string potencia, string nivel, int IDremedy)
-        {
-            sql = "update rad_codigosderemedios set metodo=@metodo, potencia=@potencia, nivel=@nivel WHERE remedio=@remedio and rate=CAST(@rate AS uuid)";
+            sql = "update rad_codigosderemedios set metodo=@metodo, potencia=@potencia,complemento=@complemento, nivel=@nivel WHERE id=CAST(@id as integer)";
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@remedio", IDremedy);
-            cmd.Parameters.AddWithValue("@rate", IDrate);
+            
+            cmd.Parameters.AddWithValue("@id", idCoderemedy);
             cmd.Parameters.AddWithValue("@metodo", metodo);
             cmd.Parameters.AddWithValue("@potencia", potencia);
             cmd.Parameters.AddWithValue("@nivel", nivel);
+            cmd.Parameters.AddWithValue("@complemento", complemento);
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateCodeofColor(string IDrate, string metodo, string potencia, string nivel, int IDremedy)
-        {
-            sql = "update rad_codigosderemedios set metodo=@metodo, potencia=@potencia, nivel=@nivel WHERE remedio=@remedio and terapiacolor=CAST(@colorid AS uuid)";
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@remedio", IDremedy);
-            cmd.Parameters.AddWithValue("@colorid", IDrate);
-            cmd.Parameters.AddWithValue("@metodo", metodo);
-            cmd.Parameters.AddWithValue("@potencia", potencia);
-            cmd.Parameters.AddWithValue("@nivel", nivel);
-            cmd.ExecuteNonQuery();
-        }
-
-
-        public void UpdateAutoSimilCodeRemedy(string idautosimile, string metodo, string potencia, string nivel, int IDremedy)
-        {
-            sql = "update rad_codigosderemedios set metodo=@metodo, potencia=@potencia, nivel=@nivel WHERE remedio=@remedio and autosimil=@autosimileID";
-            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@remedio", IDremedy);
-            cmd.Parameters.AddWithValue("@autosimileID", idautosimile);
-            cmd.Parameters.AddWithValue("@metodo", metodo);
-            cmd.Parameters.AddWithValue("@potencia", potencia);
-            cmd.Parameters.AddWithValue("@nivel", nivel);
-            cmd.ExecuteNonQuery();
-        }
+ 
 
 
         public bool isAlreadyRegisterAutosimile(string codigo, int remedio)

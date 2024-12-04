@@ -202,7 +202,7 @@ namespace MahAppsExample
         //Funcion para Broadcast OFF
         public bool BroadcastOFF()
         {
-            port.Write("D");
+          
             try
             {
                 port.Write("D");

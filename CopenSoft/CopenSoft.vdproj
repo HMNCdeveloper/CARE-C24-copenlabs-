@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:QuanCareSoft"
+"ProjectName" = "8:CARE_C24"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -41,6 +41,12 @@
         {
         "MsmKey" = "8:_12637AB9A65FC8C0D39D2E91E18854DF"
         "OwnerKey" = "8:_ACCB1E2486B84779A784F255677A14B5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1401776046344391A2229EEF03644E1E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -111,7 +117,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2F63EB4FAB1A4AC48AA6A210B6748E17"
+        "MsmKey" = "8:_3817DC2665E247AD94CC1F044D4FE47F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -201,6 +207,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_71BA7582240A4EBC96C4521E59429077"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_72EA831891F0388C590E843AB0466E5C"
         "OwnerKey" = "8:_ED329A9DD56D3CF2DEF701A45687CA67"
         "MsmSig" = "8:_UNDEFINED"
@@ -245,6 +257,12 @@
         {
         "MsmKey" = "8:_7479314D5480B5539A03ACD19A582445"
         "OwnerKey" = "8:_8B7732B53B74602609B484B4B24EB7A7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_79AB8D4E887F4332949A7F4912EA529F"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -399,12 +417,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B06D7549ABDE4AA29BFD657E8B683867"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B3812BFE634E499E80A9276D1CCA178A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -531,6 +543,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EE0B3FDF099E406590075FBBEC0FFB88"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F590849E9BAFE3704D54C3026408A4C3"
         "OwnerKey" = "8:_ACCB1E2486B84779A784F255677A14B5"
         "MsmSig" = "8:_UNDEFINED"
@@ -551,6 +569,12 @@
         {
         "MsmKey" = "8:_FA4897990BA1DCB2635765A708318C29"
         "OwnerKey" = "8:_EB4088C2BF81A047DABD0B1368FDBF3C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FC2A95D4512F4F2791E71422B4F07BD6"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -604,6 +628,30 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EE0B3FDF099E406590075FBBEC0FFB88"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3817DC2665E247AD94CC1F044D4FE47F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1401776046344391A2229EEF03644E1E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC2A95D4512F4F2791E71422B4F07BD6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D3B2C2A07A464C48BF049B02EDF4ABCE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -616,7 +664,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2F63EB4FAB1A4AC48AA6A210B6748E17"
+        "OwnerKey" = "8:_79AB8D4E887F4332949A7F4912EA529F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1072,6 +1120,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1401776046344391A2229EEF03644E1E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.resources, Version=4.6.0.0, Culture=fr, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1401776046344391A2229EEF03644E1E"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\fr\\Xceed.Wpf.AvalonDock.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2B54A54DD134415EA92035FFA7BEA48F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15252CF8D87312051CAD941FAB2DB959"
             {
             "AssemblyRegister" = "3:1"
@@ -1289,23 +1368,23 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2F63EB4FAB1A4AC48AA6A210B6748E17"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3817DC2665E247AD94CC1F044D4FE47F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CopenSoft.resources, Version=1.0.0.0, Culture=bg, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:CopenSoft.resources, Version=1.0.0.0, Culture=it, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2F63EB4FAB1A4AC48AA6A210B6748E17"
+                    "_3817DC2665E247AD94CC1F044D4FE47F"
                     {
                     "Name" = "8:CopenSoft.resources.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\bg\\CopenSoft.resources.dll"
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\it\\CopenSoft.resources.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_4DA5BD59A008416C926B157257ACF4DF"
+            "Folder" = "8:_93AE7EDEA81F41339A8FC1CEB9A43AC3"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1515,6 +1594,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71BA7582240A4EBC96C4521E59429077"
+            {
+            "SourcePath" = "8:..\\..\\..\\Downloads\\Frame-1.ico"
+            "TargetName" = "8:CopenIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_CEAB3E8ABC1C4C038A4F3F0B822418D5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_72EA831891F0388C590E843AB0466E5C"
             {
             "AssemblyRegister" = "3:1"
@@ -1606,6 +1705,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_79AB8D4E887F4332949A7F4912EA529F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CopenSoft.resources, Version=1.0.0.0, Culture=bg, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_79AB8D4E887F4332949A7F4912EA529F"
+                    {
+                    "Name" = "8:CopenSoft.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\bg\\CopenSoft.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_80C6CC1F980745AD92C43D2A734456FB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7E5AFF8032C2DB01C7FFABB17ECB13B2"
@@ -1905,26 +2035,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B06D7549ABDE4AA29BFD657E8B683867"
-            {
-            "SourcePath" = "8:..\\MahAppsExample\\CopenIcon.ico"
-            "TargetName" = "8:CopenIcon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3812BFE634E499E80A9276D1CCA178A"
@@ -2328,6 +2438,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EE0B3FDF099E406590075FBBEC0FFB88"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Xceed.Wpf.AvalonDock.resources, Version=4.6.0.0, Culture=it, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_EE0B3FDF099E406590075FBBEC0FFB88"
+                    {
+                    "Name" = "8:Xceed.Wpf.AvalonDock.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\it\\Xceed.Wpf.AvalonDock.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_93AE7EDEA81F41339A8FC1CEB9A43AC3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F590849E9BAFE3704D54C3026408A4C3"
             {
             "AssemblyRegister" = "3:1"
@@ -2388,6 +2529,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC2A95D4512F4F2791E71422B4F07BD6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CopenSoft.resources, Version=1.0.0.0, Culture=fr, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FC2A95D4512F4F2791E71422B4F07BD6"
+                    {
+                    "Name" = "8:CopenSoft.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\fr\\CopenSoft.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2B54A54DD134415EA92035FFA7BEA48F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FDCE178D2BFC9E29C4BBF3D87C63FCC3"
@@ -2470,13 +2642,35 @@
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_4DA5BD59A008416C926B157257ACF4DF"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_2B54A54DD134415EA92035FFA7BEA48F"
+                    {
+                    "Name" = "8:fr"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_09E90FCE933A4A9A9E12BCF4D159F1EC"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_80C6CC1F980745AD92C43D2A734456FB"
                     {
                     "Name" = "8:bg"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_275A1211FF6F419B842B6B5FC45595F1"
+                    "Property" = "8:_220CF9664DCD4E0DBB05A12AB7816275"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_93AE7EDEA81F41339A8FC1CEB9A43AC3"
+                    {
+                    "Name" = "8:it"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_F06270D700DF4144BD3111BC959AD42B"
                         "Folders"
                         {
                         }
@@ -2531,26 +2725,26 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:QuanCareSoft"
+        "ProductName" = "8:CARE C24"
         "ProductCode" = "8:{180F3CF1-9869-4D72-9EC7-1A655E7E4D94}"
-        "PackageCode" = "8:{A8FDADDC-4314-4D62-9B65-BC263E0E7D69}"
+        "PackageCode" = "8:{E091A0CD-F08E-4631-AE7D-0074DAC5196E}"
         "UpgradeCode" = "8:{3951E5F5-20B4-459E-A8A3-9DA3A6DF3DDF}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:CopenLabs"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:QuanCareSoft"
+        "Title" = "8:CARE C24"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Chris & Manuel "
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_B06D7549ABDE4AA29BFD657E8B683867"
+        "ARPPRODUCTICON" = "8:_71BA7582240A4EBC96C4521E59429077"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -2653,9 +2847,23 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_483D2AE8309D4D33927325E432CD6FFB"
+            {
+            "Name" = "8:CARE C24"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_ACCB1E2486B84779A784F255677A14B5"
+            "Folder" = "8:_2F0E9D09D7714C62AF4317387945BCFD"
+            "WorkingFolder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
+            "Icon" = "8:_71BA7582240A4EBC96C4521E59429077"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EC355D8C2FF94EFCAD3699652097BD7E"
             {
-            "Name" = "8:Q2C24"
+            "Name" = "8:CARE C24"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -2664,7 +2872,7 @@
             "Target" = "8:_ACCB1E2486B84779A784F255677A14B5"
             "Folder" = "8:_777088C552204FDE949ACFD487CBBFB3"
             "WorkingFolder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
-            "Icon" = "8:_B06D7549ABDE4AA29BFD657E8B683867"
+            "Icon" = "8:_71BA7582240A4EBC96C4521E59429077"
             "Feature" = "8:"
             }
         }

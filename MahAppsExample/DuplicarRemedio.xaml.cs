@@ -48,7 +48,7 @@ namespace HS5
 
             //cargar categorias
             HacerConexion();
-            DataTable categorias = obj.VisualizarCategoriasCodigos();     
+            DataTable categorias = obj.VisualizarCategoriasCodigos();
             //this line of code is used to show default categories
             for (int i = 0; i <= categorias.Rows.Count - 1; i++)
             {
@@ -90,8 +90,8 @@ namespace HS5
             Subcategorias.Items.Clear();
 
             HacerConexion();
-            object id_categoria =obj.BuscarCategoriasCodigosPersonalizadas(comboBox.SelectedItem.ToString());
-            DataTable subCategorias =obj.VisualizarSubCategoriasCodigosPerosnalizadas(id_categoria.ToString());
+            object id_categoria = obj.BuscarCategoriasCodigosPersonalizadas(comboBox.SelectedItem.ToString());
+            DataTable subCategorias = obj.VisualizarSubCategoriasCodigosPerosnalizadas(id_categoria.ToString());
             for (int y = 0; y <= subCategorias.Rows.Count - 1; y++)
             {
                 if (subCategorias.Rows[y][0].ToString() != "" && comboBox.SelectedItem.ToString() != subCategorias.Rows[y][0].ToString())
@@ -100,6 +100,15 @@ namespace HS5
                 }
             }
             CerrarConexion();
+        }
+
+        bool isDuplicateRate(ListBox ListRates, string frecuency)
+        {
+            foreach (object rate in ListRates.Items)
+                if (rate.ToString().Contains(frecuency)) { return true; }
+
+
+            return false;
         }
 
 
@@ -139,7 +148,7 @@ namespace HS5
                         //get all rates from codigo
                         for (int i = 0; i < codigos.Rows.Count; i++)
                         {
-                            if (!string.IsNullOrEmpty(codigos.Rows[i][1].ToString()))
+                            if (!string.IsNullOrEmpty(codigos.Rows[i][1].ToString()) && !isDuplicateRate(listCodigos, codigos.Rows[i][2].ToString()))
                             {
                                 listCodigos.Items.Add(codigos.Rows[i][2].ToString() + ", " + codigos.Rows[i][1].ToString());
                                 //Categorias_Codigos.Add(codigos.Rows[i][2].ToString());
@@ -172,7 +181,7 @@ namespace HS5
                 //get all rates from codigo
                 for (int i = 0; i < codigos.Rows.Count; i++)
                 {
-                    if (!string.IsNullOrEmpty(codigos.Rows[i][1].ToString()))
+                    if (!string.IsNullOrEmpty(codigos.Rows[i][1].ToString()) && !isDuplicateRate(listCodigos, codigos.Rows[i][2].ToString()))
                     {
                         listCodigos.Items.Add(codigos.Rows[i][2].ToString() + ", " + codigos.Rows[i][1].ToString());
                         //Categorias_Codigos3.Add(codigos.Rows[i][2].ToString());
@@ -244,7 +253,7 @@ namespace HS5
 
                 if ((Categorias.SelectedItem != null || Subcategorias.SelectedItem != null) && listelemagregados.Items.Count > 0)
                 {
-                  
+
                     HacerConexion();
                     //get id subcategorie
                     object id_subcategoria = obj.GetIdSubcategorieByNameCustom(Subcategorias.SelectedItem != null ? Subcategorias.SelectedItem.ToString() : Categorias.SelectedItem.ToString());
@@ -259,7 +268,7 @@ namespace HS5
                         object codigoRate = obj.getIDCodebyFrec(rate.ToString().Split(',')[0]);
 
                         object name = obj.getNameByFrec(Guid.Parse(codigoRate.ToString()));
-                        obj.Registrar_CodigoPersonalizado(name.ToString(),idCodigo);
+                        obj.Registrar_CodigoPersonalizado(name.ToString(), idCodigo);
                     }
 
                     CerrarConexion();
