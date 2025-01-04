@@ -1758,7 +1758,7 @@
                             <ComboBoxItem Content="13 - AUTOMATIC"/>
                         </ComboBox>
                         <Button x:Name="cmdCerrarRemedio" Visibility="Hidden" Content="X" HorizontalAlignment="Left" Margin="1181,104,0,0" VerticalAlignment="Top" Width="42" Background="#FFDEDCDC" Click="cmdCerrarRemedio_Click" Grid.Column="1"/>
-                        <Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="151,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden" Grid.Column="1"/>
+                        <!--<Button x:Name="cmdEscanearGlob" Content="ANALYZE PATIENT" HorizontalAlignment="Left" Margin="151,29,0,0" VerticalAlignment="Top" Width="229" Height="50" Click="cmdEscanearGlob_Click" Visibility="Hidden" Grid.Column="1"/>-->
                         <ListBox x:Name="listaDetecciones" HorizontalAlignment="Left" Height="199" Margin="151,144,0,0" VerticalAlignment="Top" Width="574" BorderThickness="1" Visibility="Hidden" Grid.Column="1"/>
                         <Label x:Name="label8" Content="DISEASES AND SYMPTOMS" HorizontalAlignment="Left" Margin="162,111,0,0" VerticalAlignment="Top" Visibility="Hidden" Grid.Column="1"/>
                         <Button x:Name="cmdDuplicarRemedio_Copy" BorderThickness="0" Background="{StaticResource Boton}" Foreground="{StaticResource letraBoton}" HorizontalAlignment="Left" Height="39" Margin="866,98,0,0" VerticalAlignment="Top" Width="134" ToolTip="Save Changes"  Click="cmdDuplicarRemedio_Copy_Click" Grid.Column="1">

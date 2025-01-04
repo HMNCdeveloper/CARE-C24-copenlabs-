@@ -1,18 +1,11 @@
 ﻿using System;
-
 using System.Windows;
-
-using System.Windows.Media.Imaging;
-
-using System.IO;
 using System.IO.Ports;
-using System.Drawing;
-using System.Drawing.Imaging;
 using HS5.Properties;
 
 using System.Globalization;
 using System.Threading;
-using System.Windows.Media;
+
 
 namespace HS5
 {
@@ -27,18 +20,10 @@ namespace HS5
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
             InitializeComponent();
-            //Obtiene todos los puertos COM
-            ports = SerialPort.GetPortNames();
-
-            //Muestra los puertos
-            for (int i = 0; i <= ports.Length - 1; i++)
-            {
-                cmbPorts.Items.Add(ports[i].ToString());
-            }
-         
-
          
         }
+
+
 
         //this function is used to check if there are ports to start the Mainwindow
         private void button_Click(object sender, RoutedEventArgs e)
@@ -54,6 +39,19 @@ namespace HS5
             }
             catch (Exception){
                
+            }
+        }
+
+        private void cmbPorts_DropDownOpened(object sender, EventArgs e)
+        {
+            //Obtiene todos los puertos COM
+            ports = SerialPort.GetPortNames();
+            cmbPorts.Items.Clear();
+
+            //Muestra los puertos
+            for (int i = 0; i <= ports.Length - 1; i++)
+            {
+                cmbPorts.Items.Add(ports[i].ToString());
             }
         }
     }

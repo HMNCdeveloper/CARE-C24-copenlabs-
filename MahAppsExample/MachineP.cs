@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.IO.Ports;
-using System.Windows;
-using System.Windows.Threading;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+
 
 namespace MahAppsExample
 {
@@ -16,11 +13,11 @@ namespace MahAppsExample
     {
         string[] ports; //COMs (Puertos)
         SerialPort port; //Puerto
+
+        private readonly object bufferLock = new object();
         private string buffer { get; set; } //Buffer del puerto
         string buffercopy; //Global
-        //List<string> Mantras = new List<string>(); //Listado de mantras
-        //List<string> Evolution = new List<string>(); //Listado de evolution
-        //List<string> Copen = new List<string>(); //Listado Copen
+        private SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
 
         //Constructor (Machine)
         public MachineP()
@@ -32,12 +29,12 @@ namespace MahAppsExample
         //Funcion revisar COMS para la deteccion de la maquina (Mantra, MXP, MXD, etc)
         public string Machine_Detection(string puerto)
         {
-            
+
             //Reconoce que hay maquina COM conectada
             if (ports.Length == 0)
             {
-                
-               MessageBoxResult result= MessageBox.Show("There's no instrument connected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBoxResult result = MessageBox.Show("There's no instrument connected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 if (result == MessageBoxResult.OK)
                 {
@@ -48,61 +45,60 @@ namespace MahAppsExample
             }
             else //Si si hay COM's
             {
-                //Muestra los puertos
-                //for (int i = 0; i <= ports.Length - 1; i++)
-                //{
-                //    //Prueba los puertos
-                    try
+                try
+                {
+
+
+                    port = new SerialPort(puerto, 9600, Parity.None, 8, StopBits.One); //Puerto
+                    port.ReadTimeout = 5; //Tiempo de respuesta
+                    port.DataReceived += new SerialDataReceivedEventHandler(read_serialport); //Manejo de la lectura
+                    buffer = String.Empty; //Buffer vacio
+
+
+                    if (!port.IsOpen) //Sino esta abierto el COM abrelo
                     {
-
-                   
-                        port = new SerialPort(puerto, 9600); //Puerto
-                        port.ReadTimeout = 5; //Tiempo de respuesta
-                        port.DataReceived += new SerialDataReceivedEventHandler(read_serialport); //Manejo de la lectura
-                        buffer = String.Empty; //Buffer vacio
-
-                        if (!port.IsOpen) //Sino esta abierto el COM abrelo
-                        {
-                            port.Open(); //Abre
-                            port.Write("W"); // Codigo de Identificacion de la maquina
-
-                            //Le da tiempo al buffer para ser copiado a buffercopy
-                            System.Threading.Thread.Sleep(1800);
-                        }
-                        //port.Close(); //Cierra
-
+                        port.Open(); //Abre
+                        port.DiscardInBuffer();
+                        port.DiscardOutBuffer();
+                        port.Write("W"); // Codigo de Identificacion de la maquina
+                        System.Threading.Thread.Sleep(1800);
                     }
-                    catch (IOException)
-                    {
-                      
-                        MessageBox.Show("There was an issue with a COM Port!");
-                    }
-                //}
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("There was an issue with a COM Port!, If the problem persists, Disconnect the machine from the USB cable");
+                }
             }
 
             return buffercopy; //Regresa codigo de identificacion
 
         }
 
-     
+        public void closePort()
+        {
+            port.Close();
+        }
+
         //Funcion de lectura de serial
         public void read_serialport(object sender, SerialDataReceivedEventArgs e)
         {
+
             try
             {
-                buffer += port.ReadExisting(); //Lee el buffer del puerto
-                //MessageBox.Show(buffer);
-                buffercopy = buffer;
-                //Determina que tipo de maquina es.. (Identificacion)
-                //Cacheo de la respuesta
-
-                 //MessageBox.Show(buffer);
+                lock (bufferLock)
+                {
+                    buffer = port.ReadExisting(); //Lee el buffer del puerto
+                    Console.WriteLine(buffer);  
+                    Console.WriteLine("prueba en linea 89 en al archivo machinep" + string.IsNullOrEmpty(buffer).ToString());
+                    buffercopy += buffer;
+                }
 
             }
-            catch (IOException err) {
-              MessageBox.Show(err.ToString());
+            catch (Exception)
+            {
+                buffer = String.Empty;
             }
-
         }
 
 
@@ -142,12 +138,58 @@ namespace MahAppsExample
             }
         }
 
+
+        public async Task<string> checkPing()
+        {
+            await semaphore.WaitAsync();
+            try
+            {
+
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                lock (bufferLock)
+                {
+                    buffer = string.Empty; // Limpia el buffer antes de la escritura
+                }
+
+                port.Write("O");
+                await Task.Delay(2000);
+
+
+                lock (bufferLock)
+                {
+                    Console.WriteLine("se ejecuto la funcion" + buffer);
+                    return buffer; // Devuelve el contenido del buffer
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                return string.Empty;
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+
+        }
+
+
         //Funcion de diagnostico
         public bool Diagnostic()
         {
-            //Cierre
-            try {
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
                 port.Write("A");
+
                 return true;
             }
             catch (Exception)
@@ -160,51 +202,135 @@ namespace MahAppsExample
         //Funcion de guardado en tarjeta
         public void Save()
         {
-            port.Write("V");
+
+            try
+            {
+                if (!port.IsOpen)
+                    port.Open();
+
+
+                port.Write("V");
+            }
+            catch (Exception) { }
         }
 
         //Funcion para Autosimile
         public void Similie()
         {
-            port.Write("S");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                port.Write("S");
+
+            }
+            catch (Exception) { }
         }
-        
+
         //Funcion para Neutralizar
         public void Neutralizando()
         {
-            port.Write("Z");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                //port.Write("Z");
+
+                port.Write("E");
+
+            }
+            catch (Exception) { }
         }
 
         //Funcion para Imprint
         public void Imprint()
         {
-            port.Write("P");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                port.Write("P");
+            }
+            catch (Exception) { }
         }
 
         //Funcion para Copiar
         public void Copy()
         {
-            port.Write("Y");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                port.Write("Y");
+            }
+            catch (Exception) { }
         }
 
         //Funcion para Borrar
         public void Erase()
         {
-            port.Write("E");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                port.Write("E");
+            }
+            catch (Exception) { }
+
         }
 
         //Funcion para Broadcast ON
         public void BroadcastON()
         {
-            port.Write("I");
+
+            try
+            {
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+                port.Write("I");
+
+
+            }
+            catch (Exception) { }
+
         }
 
         //Funcion para Broadcast OFF
         public bool BroadcastOFF()
         {
-          
+
             try
             {
+
+                if (!port.IsOpen)
+                {
+                    port.Open();
+                }
+
+
                 port.Write("D");
                 return true; // La escritura fue exitosa
             }

@@ -83,7 +83,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Margin="0 0 0 10">
-                    <Button x:Name="btnGenRate2" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10" HorizontalAlignment="Stretch" Height="50"></Button>
+                    <!--<Button x:Name="btnGenRate2" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10" HorizontalAlignment="Stretch" Height="50"></Button>-->
                     <TextBox
                         x:Name="textDesc"
                         Background="White" 
@@ -108,7 +108,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <Button x:Name="btnGenRate3" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10,10,0,0" HorizontalAlignment="Left" Height="50" Width="744"/>
+                    <!--<Button x:Name="btnGenRate3" Click="_generateRate" Content="{x:Static local:Lenguaje.genRate}" Margin="10,10,0,0" HorizontalAlignment="Left" Height="50" Width="744"/>-->
                     <TextBox
                         x:Name="decretDesc"
                         Background="White"

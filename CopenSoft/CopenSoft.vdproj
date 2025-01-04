@@ -153,6 +153,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5F4A401BB94346A7A1C17D6EAEC7E47B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_607D8E1E5007FC205266E8042819A9FB"
         "OwnerKey" = "8:_E22F6F097F62073CAE344DAF56E5F93E"
         "MsmSig" = "8:_UNDEFINED"
@@ -262,6 +268,12 @@
         "Entry"
         {
         "MsmKey" = "8:_79AB8D4E887F4332949A7F4912EA529F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C96DC37B1D74E60BB8664E43EEDDF40"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -561,6 +573,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F75DD374C8E64731BB0EFB589AD79EA4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F9BC24A2D22F4D2DAC3CBC5EB95AE9C3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_FA4897990BA1DCB2635765A708318C29"
         "OwnerKey" = "8:_ACCB1E2486B84779A784F255677A14B5"
         "MsmSig" = "8:_UNDEFINED"
@@ -628,25 +652,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EE0B3FDF099E406590075FBBEC0FFB88"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3817DC2665E247AD94CC1F044D4FE47F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1401776046344391A2229EEF03644E1E"
+        "OwnerKey" = "8:_5F4A401BB94346A7A1C17D6EAEC7E47B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FC2A95D4512F4F2791E71422B4F07BD6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EE0B3FDF099E406590075FBBEC0FFB88"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -665,6 +683,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_79AB8D4E887F4332949A7F4912EA529F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3817DC2665E247AD94CC1F044D4FE47F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1401776046344391A2229EEF03644E1E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1512,6 +1542,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5F4A401BB94346A7A1C17D6EAEC7E47B"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5F4A401BB94346A7A1C17D6EAEC7E47B"
+                    {
+                    "Name" = "8:WpfAnimatedGif.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\WpfAnimatedGif.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_607D8E1E5007FC205266E8042819A9FB"
             {
             "AssemblyRegister" = "3:1"
@@ -1724,6 +1785,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_80C6CC1F980745AD92C43D2A734456FB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7C96DC37B1D74E60BB8664E43EEDDF40"
+            {
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\WpfAnimatedGif.xml"
+            "TargetName" = "8:WpfAnimatedGif.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2500,6 +2581,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F75DD374C8E64731BB0EFB589AD79EA4"
+            {
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\System.Buffers.xml"
+            "TargetName" = "8:System.Buffers.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F9BC24A2D22F4D2DAC3CBC5EB95AE9C3"
+            {
+            "SourcePath" = "8:..\\MahAppsExample\\bin\\Debug\\WpfAnimatedGif.pdb"
+            "TargetName" = "8:WpfAnimatedGif.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_CD8BEAD90A704A1FA72E7B308BD3A385"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FA4897990BA1DCB2635765A708318C29"
             {
             "AssemblyRegister" = "3:1"
@@ -2727,7 +2848,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CARE C24"
         "ProductCode" = "8:{180F3CF1-9869-4D72-9EC7-1A655E7E4D94}"
-        "PackageCode" = "8:{E091A0CD-F08E-4631-AE7D-0074DAC5196E}"
+        "PackageCode" = "8:{80834138-64FC-498B-B63E-B6DACCFB497E}"
         "UpgradeCode" = "8:{3951E5F5-20B4-459E-A8A3-9DA3A6DF3DDF}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"

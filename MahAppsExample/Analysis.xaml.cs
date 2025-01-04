@@ -1,10 +1,6 @@
-﻿using Npgsql.PostgresTypes;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Threading;
 
 namespace HS5
 {
@@ -19,7 +15,7 @@ namespace HS5
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (x)
             {
-                progressBarAnimation(9000);
+                progressBarAnimation(14500);
             }
             else
             {

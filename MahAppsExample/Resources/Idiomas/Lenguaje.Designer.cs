@@ -2500,7 +2500,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &apos;During&apos; and &apos;Every&apos; cannot have that values!.
+        ///   Looks up a localized string similar to &apos;During&apos; and &apos;Every&apos; cannot have zero or empty values!.
         /// </summary>
         public static string messageError12 {
             get {
@@ -2509,7 +2509,7 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Input the estimate time to continue.
+        ///   Looks up a localized string similar to Define  the duration of  treatment to continue.....
         /// </summary>
         public static string messageError13 {
             get {
@@ -3544,6 +3544,15 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The rate code N  is already in use for one rate..
+        /// </summary>
+        public static string messageWarning22 {
+            get {
+                return ResourceManager.GetString("messageWarning22", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a category and subcategory first in order to continue!.
         /// </summary>
         public static string messageWarning3 {
@@ -4039,11 +4048,56 @@ namespace HS5.Resources.Idiomas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to restart.
+        /// </summary>
+        public static string resetBTN {
+            get {
+                return ResourceManager.GetString("resetBTN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RESET COLORS.
         /// </summary>
         public static string resetC {
             get {
                 return ResourceManager.GetString("resetC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset  Warning .
+        /// </summary>
+        public static string resetHeader {
+            get {
+                return ResourceManager.GetString("resetHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The software care c24   will restart because there isn&apos;t connection to  the machine, check if there is connection to the USB port bewteen  your machine and your pc ..
+        /// </summary>
+        public static string resetText {
+            get {
+                return ResourceManager.GetString("resetText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seconds .
+        /// </summary>
+        public static string resetTIme {
+            get {
+                return ResourceManager.GetString("resetTIme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lost machine connection.
+        /// </summary>
+        public static string resetTitle {
+            get {
+                return ResourceManager.GetString("resetTitle", resourceCulture);
             }
         }
         

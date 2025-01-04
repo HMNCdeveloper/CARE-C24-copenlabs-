@@ -943,10 +943,10 @@
     <value>Selezionare il tipo di programmazione per continuare!</value>
   </data>
   <data name="messageError12" xml:space="preserve">
-    <value>Durante' e 'Ogni' non possono avere quei valori!</value>
+    <value>During” e ‘each’ non possono avere valori vuoti o zeri.</value>
   </data>
   <data name="messageError13" xml:space="preserve">
-    <value>Inserisci il tempo stimato per continuare</value>
+    <value>Definire la durata del trattamento da continuare</value>
   </data>
   <data name="messageError14" xml:space="preserve">
     <value>Selezionare il tipo di trattamento!</value>
@@ -1290,6 +1290,9 @@
   <data name="messageWarning21" xml:space="preserve">
     <value>Questo nome è riservato al sistema</value>
   </data>
+  <data name="messageWarning22" xml:space="preserve">
+    <value>Il codice tariffa N è già in uso per una tariffa.</value>
+  </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Seleziona prima una categoria e una sottocategoria per continuare!</value>
   </data>
@@ -1455,8 +1458,23 @@
   <data name="reportPname" xml:space="preserve">
     <value>Nome del paziente:</value>
   </data>
+  <data name="resetBTN" xml:space="preserve">
+    <value>riavvio</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>RESETTA COLORI</value>
+  </data>
+  <data name="resetHeader" xml:space="preserve">
+    <value>Avvertenza di reset </value>
+  </data>
+  <data name="resetText" xml:space="preserve">
+    <value>Il software care c24 si riavvia perché non c'è connessione con la macchina, controllare se c'è connessione alla porta USB tra la macchina e il pc.</value>
+  </data>
+  <data name="resetTIme" xml:space="preserve">
+    <value>Secondi </value>
+  </data>
+  <data name="resetTitle" xml:space="preserve">
+    <value>perdita di connessione alla macchina</value>
   </data>
   <data name="restoreDatabase" xml:space="preserve">
     <value>Ripristina il database</value>

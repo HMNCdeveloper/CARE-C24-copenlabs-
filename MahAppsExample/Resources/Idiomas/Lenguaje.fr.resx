@@ -943,10 +943,10 @@
     <value>Sélectionnez le type de programmation pour continuer !...</value>
   </data>
   <data name="messageError12" xml:space="preserve">
-    <value>Pendant' et 'Chaque' ne peuvent pas avoir ces valeurs !</value>
+    <value>During » et “each” ne peuvent pas avoir de valeurs vides ou de zéros.</value>
   </data>
   <data name="messageError13" xml:space="preserve">
-    <value>Entrez le temps estimé pour continuer</value>
+    <value>Définir la durée du traitement à poursuivre</value>
   </data>
   <data name="messageError14" xml:space="preserve">
     <value>Veuillez sélectionner le type de traitement !</value>
@@ -1290,6 +1290,9 @@
   <data name="messageWarning21" xml:space="preserve">
     <value>Ce nom est réservé pour le système</value>
   </data>
+  <data name="messageWarning22" xml:space="preserve">
+    <value>Le code tarifaire N est déjà utilisé pour un tarif.</value>
+  </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Veuillez d'abord sélectionner une catégorie et une sous-catégorie pour continuer !</value>
   </data>
@@ -1455,8 +1458,23 @@
   <data name="reportPname" xml:space="preserve">
     <value>Nom du patient :</value>
   </data>
+  <data name="resetBTN" xml:space="preserve">
+    <value>redémarrer</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>RÉINITIALISER LES COULEURS</value>
+  </data>
+  <data name="resetHeader" xml:space="preserve">
+    <value>Réinitialiser l'avertissement </value>
+  </data>
+  <data name="resetText" xml:space="preserve">
+    <value>Le logiciel care c24 va redémarrer car il n'y a pas de connexion à la machine, vérifiez qu'il y a bien une connexion au port USB entre votre machine et votre PC.</value>
+  </data>
+  <data name="resetTIme" xml:space="preserve">
+    <value>Secondes </value>
+  </data>
+  <data name="resetTitle" xml:space="preserve">
+    <value>perte de connexion à la machine</value>
   </data>
   <data name="restoreDatabase" xml:space="preserve">
     <value>Restaurer la base de données</value>

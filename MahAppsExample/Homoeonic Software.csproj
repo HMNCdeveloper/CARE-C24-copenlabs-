@@ -276,6 +276,9 @@
       <DependentUpon>Remedio.xaml</DependentUpon>
     </Compile>
     <Compile Include="reporte_ext.cs" />
+    <Compile Include="ResetApp.xaml.cs">
+      <DependentUpon>ResetApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Idiomas\Lenguaje.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -347,6 +350,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ResetApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TreatmentUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,6 +383,7 @@
     <EmbeddedResource Include="Resources\Idiomas\Lenguaje.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lenguaje.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest">

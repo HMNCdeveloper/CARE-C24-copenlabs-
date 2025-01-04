@@ -3,19 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using HS5.Resources.Idiomas;
-//using MathNet.Numerics.Distributions;
-using System.Windows.Forms.VisualStyles;
+
 
 
 namespace HS5
@@ -64,8 +56,8 @@ namespace HS5
             List<Button> list = new List<Button>
             {
                 btnGenRate1,
-                btnGenRate2,
-                btnGenRate3,
+                //btnGenRate2,
+                //btnGenRate3,
             };
             foreach (Button button in list)
             {
@@ -153,7 +145,8 @@ namespace HS5
                 }
                 else
                 {
-                    MessageBox.Show("La frecuencia "+codigo+" , ya esta en uso por un rate","Advertencia",MessageBoxButton.OK,MessageBoxImage.Warning);
+                   
+                    MessageBox.Show( obtenerRecurso("messageWarning22").Replace("N",codigo),obtenerRecurso("messageHeadWarning"),MessageBoxButton.OK,MessageBoxImage.Warning);
                 }
             }
             else
@@ -170,35 +163,45 @@ namespace HS5
         }
 
 
-        async Task Esperar()
+   
+        private  void generateRate(object sender, RoutedEventArgs e)
         {
-            obj2.Diagnostic();
-
-            // Esperar 2 segundos
-            await Task.Delay(5000);
-
-            obj2.Diagnostic();
-        }
-        private async void generateRate(object sender, RoutedEventArgs e)
-        {
-
-
-            await Esperar();
             HacerConexion();
-            string randomRate = obj.Generarcodigo();
+            DataTable Tratamiento_Inactivos = obj.Tratamientos_Inactivos();
             CerrarConexion();
-            rateId.Text = randomRate;
+
+            new Thread((ThreadStart)delegate {
+                obj2.Diagnostic();
+                Thread.Sleep(14500);
+
+                Dispatcher.Invoke((ThreadStart)delegate {
+                    HacerConexion();
+                    string randomRate = obj.Generarcodigo();
+                    rateId.Text = randomRate;
+                    CerrarConexion();
+                });
+            }).Start();
+            //if (Tratamiento_Inactivos.Rows.Count<=0)
+            //{
+            //    new Thread((ThreadStart)delegate {
+            //        obj2.Diagnostic();
+            //        Thread.Sleep(14500);
+
+            //        Dispatcher.Invoke((ThreadStart)delegate {
+            //            HacerConexion();
+            //            string randomRate = obj.Generarcodigo();
+            //            rateId.Text = randomRate;
+            //            CerrarConexion();
+            //        });
+            //    }).Start();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Esta funcion esta desabilitada por que tienes tratamientos pendientes","xaxasx", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
 
-        private void _generateRate(object sender, RoutedEventArgs e)
-        {
-
-            HacerConexion();
-            string randomRate = obj.Generarcodigo();
-            CerrarConexion();
-            rateId.Text = randomRate;
-        }
-
+    
         private void closeWindow(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
@@ -271,8 +274,8 @@ namespace HS5
             List<Button> list = new List<Button>
             {
                 btnGenRate1,
-                btnGenRate2,
-                btnGenRate3,
+                //btnGenRate2,
+                //btnGenRate3,
             };
 
             rateId.IsReadOnly = checkBox.IsChecked == true ? true : false;

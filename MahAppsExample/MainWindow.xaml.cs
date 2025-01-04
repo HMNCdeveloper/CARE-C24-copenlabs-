@@ -10,14 +10,12 @@ using System.Windows.Media.Imaging;
 using MahApps.Metro.Controls;
 using System.Threading;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
+
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.VisualBasic; //Interaction
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Diagnostics; //Para ejecutar el bat file
 //Libreria Qr-Codes
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -31,20 +29,11 @@ using Application = System.Windows.Application;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 using CheckBox = System.Windows.Controls.CheckBox;
-using System.Windows.Media.Media3D;
-using System.Windows.Data;
-
-
-
 
 using HS5;
 using System.ComponentModel;
 using System.Windows.Threading;
-using System.Windows.Forms;
-using iTextSharp.text.pdf.codec;
-using System.Numerics;
 using System.Text.RegularExpressions;
-using System.Linq.Expressions;
 using RadioButton = System.Windows.Controls.RadioButton;
 using Point = System.Windows.Point;
 using ListView = System.Windows.Controls.ListView;
@@ -60,6 +49,7 @@ namespace MahAppsExample
     {
         MachineP obj = new MachineP(); //Objeto clase Machine
         Database obj2 = new Database(); //Objeto clase Database
+     
 
         //Listado Heredo
         List<string> ListaHeredoTitulos = new List<string>();
@@ -143,7 +133,6 @@ namespace MahAppsExample
             try
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.Lenguaje);
-                Console.WriteLine(Settings.Default.Lenguaje.ToString());
                 
                 if (Settings.Default.Lenguaje.ToString() == "es-MX")
                 {
@@ -167,10 +156,14 @@ namespace MahAppsExample
                 }
 
 
-                //    ChoseLanguage("bg-BG");
+                //ChoseLanguage("bg-BG");
                 //Database.table = "bulgaro";
+                
                 InitializeComponent();
+
                 this.Closed += MainWindow_Closed;
+                this.Closing += MainWindow_Closed;
+
                 RenderViewsByLanguage(Settings.Default.Lenguaje.ToString());
                 //Condiciona al control de fechas para que solo use la fecha apartir de hoy...
                 dateProg.SelectedDate = DateTime.Today;
@@ -179,6 +172,11 @@ namespace MahAppsExample
                 //Deteccion de la maquina o dispositivo
                 string id_maquina = obj.Machine_Detection(puerto);
                 IDs_maquinas_aceptados(id_maquina);
+                
+                //funcion pare verificar la comunicacion del puerto
+                timerSerialPort();
+                change_array_filter_by_language(Settings.Default.Lenguaje.ToString());
+
 
                 //Oculta opciones del sistema
                 OcultarDiag();
@@ -220,9 +218,53 @@ namespace MahAppsExample
                 MessageBox.Show(err.ToString());
                 
             }
-            
-                //getVersion();
         }
+
+        void timerSerialPort()
+        {
+            var _timercheckMachine = new System.Windows.Forms.Timer
+            {
+                Interval = 25000 // Intervalo en milisegundos (10 segundos)
+            };
+
+            _timercheckMachine.Tick += async (sender, e) =>
+            {
+                try
+                {
+                    if (!function_activa)
+                    {
+                        var result = await obj.checkPing(); // Llama a tu método async
+                        Console.WriteLine($"Ping result: {result}");
+
+                        if (string.IsNullOrEmpty(result) && !Application.Current.Windows.OfType<Rates>().Any())
+                        {
+                            _timercheckMachine.Stop(); // Detén el temporizador
+                            if (_timer != null)
+                                _timer.Stop();
+
+                            // Mostrar ResetApp en el hilo de la UI
+                            ResetApp resetApp = new ResetApp();
+                            resetApp.ShowDialog();
+                        }
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    _timercheckMachine.Stop(); // Detén el temporizador
+                    if (_timer != null)
+                        _timer.Stop();
+
+                    // Mostrar ResetApp en el hilo de la UI
+                    ResetApp resetApp = new ResetApp();
+                    resetApp.ShowDialog();
+                }
+            };
+
+            _timercheckMachine.Start(); // Inicia el temporizador
+        }
+
 
         void RenderViewsByLanguage(string language)
         {
@@ -236,80 +278,7 @@ namespace MahAppsExample
 
         }
 
-        //This function is used to decrypt the version is to encrypt
-        string Decrypt(string encryptedText)
-        {
-
-            string ToReturn = "";
-            string publickey = "16345679"; // Clave pública
-            string secretkey = "97654361"; // Clave secreta
-
-            byte[] secretkeyByte = Encoding.UTF8.GetBytes(secretkey);
-            byte[] publickeybyte = Encoding.UTF8.GetBytes(publickey);
-
-            using (DESCryptoServiceProvider des = new DESCryptoServiceProvider())
-            {
-                byte[] inputbyteArray = Convert.FromBase64String(encryptedText);
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(publickeybyte, secretkeyByte), CryptoStreamMode.Write);
-                cs.Write(inputbyteArray, 0, inputbyteArray.Length);
-                cs.FlushFinalBlock();
-                ToReturn = Encoding.UTF8.GetString(ms.ToArray());
-            }
-
-            return ToReturn;
-        }
-
-        //This function is used to get the version the program after it will be execute some functions by the version
-        void getVersion()
-        {
-            try
-            {
-                string fileversion = File.ReadAllText(RutaInstalacion() + "\\version\\version.txt");
-                string value = Decrypt(fileversion);
-                switch (value)
-                {
-                    case "Basic":
-                        Patients.Margin = new Thickness(2, 6, -5, -8);
-                        CategoriasTab.Margin = new Thickness(19, 2, -19, -8);
-                        tratamientos.Margin = new Thickness(25, 1, -29, -8);
-                        setting.Margin = new Thickness(32, 0, -35, -8);
-
-
-                        AnalisisTab.Visibility = Visibility.Collapsed;
-                        RemediosTab.Visibility = Visibility.Collapsed;
-                        ColorTab.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Medium":
-                        Patients.Margin = new Thickness(2, 6, -5, -8);
-                        AnalisisTab.Margin = new Thickness(6, 4, -6, -8);
-                        CategoriasTab.Margin = new Thickness(19, 2, -19, -8);
-                        tratamientos.Margin = new Thickness(25, 1, -29, -8);
-                        setting.Margin = new Thickness(32, 0, -35, -8);
-
-                        RemediosTab.Visibility = Visibility.Collapsed;
-                        ColorTab.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Pro":
-                        break;
-                    default:
-                        MessageBox.Show("happened some error, the system didn't look for the version, notify the company about the error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        var window = Application.Current.Windows[0];
-                        window.Close();
-                        break;
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("happened some error, notify the company about the error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-
-                var window = Application.Current.Windows[0];
-                window.Close();
-            }
-
-        }
-
-
+     
         //this function is used to get the langauge resources 
         private string obtenerRecurso(string nombreCadena)
         {
@@ -411,14 +380,6 @@ namespace MahAppsExample
         List<DateTime> Fechas_Diag_Activos = new List<DateTime>();
         List<bool> Banderas_Fechas_Activos = new List<bool>();
 
-        //Paciente, Tratamiento (Nombre del tratamiento), inicio, duracion, tfaltante
-        List<string> pacientes = new List<string>();
-        List<string> nombre_tratamientos = new List<string>();
-        List<string> inicio = new List<string>();
-        List<string> duracion = new List<string>();
-        List<string> tfaltantes = new List<string>();
-        List<int> temitidos = new List<int>();
-
         static System.Windows.Forms.Timer _timer;  //Temporizador para actualizar la duracion de las fechas individuales.
         private bool temporizadorActivado = false;
         //Funcion de inicio del temporizador
@@ -431,32 +392,39 @@ namespace MahAppsExample
             _timer.Enabled = true;
             _timer.Tick += new System.EventHandler(_timer_Elapsed);
         }
+
         private int contadorSegundos = 0;
-        int i = 0;
+        
         bool Animacion = false;
+
         public void _timer_Elapsed(object sender, EventArgs e)
         {
-            i = i + 1;
-            Console.WriteLine("tic {0}", i);
+
             DateTime hora_actual = DateTime.Now;
+            //Console.WriteLine("tic, ejecutando temporizador {0}",hora_actual.Hour);
+            
             string nombretratamiento, tfaltante, nombretratamientoA, tfaltanteA;
             TimeSpan diff, diffA;
             int emitido;
-            if (!obj.isOpen())
-            {
-                _timer.Stop(); // Detener el temporizador
-                MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                var window = Application.Current.Windows[0];
-                window.Close();
-            }
+            
+            
+            //if (!obj.isOpen())
+            //{
+            //    _timer.Stop(); // Detener el temporizador
+            //    MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    var window = Application.Current.Windows[0];
+            //    window.Close();
+            //}
 
 
             HacerConexion();
+           
             if (cant_activos > 0)
             {
                 obj2.EliminarTratamientosVencidos();
                 ListadoDiagActivos.Items.Clear();
                 DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
+            
                 bool changeColor = true;
 
                 for (int j = 0; j < Tratamientos_Activos.Rows.Count; j++)
@@ -480,19 +448,21 @@ namespace MahAppsExample
                     {
                         obj2.Eliminar_TratamientoPasado(Tratamientos_Activos.Rows[j][0].ToString());
                         cant_activos--;
+                        Console.WriteLine($"se elimino un tratamiento, hay que validar linea 439, cantidad de tratamientos {cant_activos}");
                         if (cant_activos == 0)
                         {
-                           
-                            if (!obj.BroadcastOFF())
-                            {
-                                _timer.Stop(); // Detener el temporizador
-                                MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                                var window = Application.Current.Windows[0];
-                                window.Close();
+                            obj.BroadcastOFF();
+                            activated = false;
 
-                            }
+                            //if (!obj.BroadcastOFF())
+                            //{
+                            //    _timer.Stop(); // Detener el temporizador
+                            //    MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            //    var window = Application.Current.Windows[0];
+                            //    window.Close();
+
+                            //}
                         }
-                        Console.WriteLine("ELIMINADO " + Tratamientos_Activos.Rows[j][0].ToString());
                     }
                     else
                     {
@@ -523,7 +493,6 @@ namespace MahAppsExample
                         {
                             obj2.Registar_TiempoEmitido(emitido, Int32.Parse(Tratamientos_Activos.Rows[j][0].ToString()));
                         }
-
                     }
                 }
 
@@ -531,20 +500,13 @@ namespace MahAppsExample
                 if (Tratamientos_Activos.Rows.Count == 0)
                 {
                     obj.BroadcastOFF();
+                    cant_activos = 0;
+                    activated = false;
                 }
-            }
-            else
-            {
-                if (!obj.BroadcastOFF())
-                {
-                    _timer.Stop(); // Detener el temporizador
-                    MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    var window = Application.Current.Windows[0];
-                    window.Close();
 
-                }
-              
             }
+
+
             ListadoDiagNoActiv.Items.Clear();
             DataTable Tratamiento_Inactivos = obj2.Tratamientos_Inactivos();
 
@@ -562,12 +524,6 @@ namespace MahAppsExample
 
                     if (diff.Minutes == 0 && diff.Seconds == 0 && diff.Hours == 0 && diff.Days == 0)
                     {
-                       // DateTime hora_actual2 = DateTime.Now;
-                        //DateTime Fecha_nueva;
-                        //Fecha_nueva = hora_actual2.AddSeconds(seg); //Nueva Fecha
-
-                       // obj2.ModificarFechaTratamiento(int.Parse(Tratamiento_Inactivos.Rows[j][0].ToString()), Fecha_nueva);
-
                         obj2.ModificarEstadoTratamientoActivo(Tratamiento_Inactivos.Rows[j][0].ToString());
                         Cargar_Tratamientos_Pendientes_Y_Activos();
                      
@@ -591,16 +547,29 @@ namespace MahAppsExample
                 }
 
             }
+
+
+            ////Console.WriteLine("elementos activos " + cant_activos);
+            //if (ListadoDiagActivos.Items.Count == 0 && ListadoDiagNoActiv.Items.Count == 0 && cant_activos == 0)
+            //{
+            //    Console.WriteLine("se  cerraron todos los tratamientos, en la linea de 533");
+            //    obj.BroadcastOFF();
+            //    //_timer.Stop();
+            //    //temporizadorActivado = false;
+            //}
             CerrarConexion();
             contadorSegundos++;
         }
+
+
         int cant_activos;
+        bool activated=false;
         void Cargar_Tratamientos_Pendientes_Y_Activos()
         {
             try
             {
                 HacerConexion();
-
+                obj2.EliminarTratamientosVencidos();
                 DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
                 cant_activos = Tratamientos_Activos.Rows.Count;
                 Console.WriteLine(cant_activos);
@@ -610,7 +579,13 @@ namespace MahAppsExample
                     {
                         Empezar_Temporizador();
                     }
-                    obj.BroadcastON();
+               
+                    if (!activated)
+                    {
+                        obj.BroadcastON();
+                        activated = true;
+                    }
+                    
                 }
                
                 ListadoDiagInactivos.Items.Clear();
@@ -631,10 +606,10 @@ namespace MahAppsExample
                         {
                             string idTratamiento = Tratamiento_Inactivos.Rows[j][0].ToString();
                             obj2.ModificarEstadoTratamientoVencido(idTratamiento);
-                            Console.WriteLine("Entraron como pasados");
+                            //Console.WriteLine("Entraron como pasados");
                         }else
                         {
-                            Console.WriteLine("No estan pasados");
+                            //Console.WriteLine("No estan pasados");
                             string nombretratamiento = Tratamiento_Inactivos.Rows[j][4].ToString();
                             TimeSpan diferenciaTiempoInicioActual = fechaInicioTratamientoInactivo - hora_actual;
                             string tiempoFaltanteString = diferenciaTiempoInicioActual.Days.ToString() + "d, " + diferenciaTiempoInicioActual.Hours.ToString() + " h, " + diferenciaTiempoInicioActual.Minutes.ToString() + " m";
@@ -667,10 +642,9 @@ namespace MahAppsExample
 
         void IDs_maquinas_aceptados(string id)
         {
-
             switch (id)
             {
-
+                
                 case "223c-pn33-hj77-13%@-34H&C":
                     break;
 
@@ -687,11 +661,11 @@ namespace MahAppsExample
                 case "284b-ar45-hj34-13%#-20w+Q":
                    break;
 
-  
-                //284b-ar45-hj34-13%#-20w+Q
                 default:
-                    var window = Application.Current.Windows[0];
-                    window.Close();
+                    //MessageBox.Show(obtenerRecurso("messageErrorApp"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                     MessageBox.Show("There was an issue with a COM Port!, If the problem persists, Disconnect the machine from the USB cable and reconnect it", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                     var window = Application.Current.Windows[0];
+                     window.Close();
                     break;
 
             }
@@ -1092,16 +1066,20 @@ namespace MahAppsExample
                 {
                     //Respuesta SI
                     case MessageBoxResult.Yes:
-
-                        progressBarAnimationPGR(3000, obtenerRecurso("progressBar2"));
+                        function_activa = true;
+                        cmdObtenerPGR.IsEnabled = false;
+                        
+                        progressBarAnimationPGR(14500, obtenerRecurso("progressBar2"));
                         new Thread((ThreadStart)delegate
                         {
-                            //obj.Similie(); //DiagON
-                            Thread.Sleep(3000);
-
+                            obj.Diagnostic();
+                            Thread.Sleep(14500);
+                            function_activa = false;
 
                             Dispatcher.Invoke((ThreadStart)delegate
                             {
+                                cmdObtenerPGR.IsEnabled = true;
+
                                 Radionica obj2 = new Radionica();
 
                                 bool bandera = true; // 
@@ -1162,7 +1140,13 @@ namespace MahAppsExample
                     if (HacerConexion() == true)
                     {
                         //Manda modificar el registro del paciente (Area de informacion general)
-                        obj2.ModificarRegistroPaciente(id_paciente_global_modif, txtNombre.Text.Trim(), txtApellidoPat.Text.Trim(), txtApellidoMat.Text.Trim(), txtEmail.Text.Trim(), sexo2, combProfesion.Text.Trim(), txtTitulo.Text.Trim(), txtFecha.Text.Trim(), txtPGR.Text.Trim());
+                        CultureInfo culture = new CultureInfo("en-EN");
+                        DateTime selectedDate = txtFecha.SelectedDate.Value.ToUniversalTime();
+                        string usDateFormat = selectedDate.ToString("MM/dd/yyyy", culture);
+
+                        Console.WriteLine(usDateFormat);
+
+                        obj2.ModificarRegistroPaciente(id_paciente_global_modif, txtNombre.Text.Trim(), txtApellidoPat.Text.Trim(), txtApellidoMat.Text.Trim(), txtEmail.Text.Trim(), sexo2, combProfesion.Text.Trim(), txtTitulo.Text.Trim(), usDateFormat, txtPGR.Text.Trim());
 
                         //DOMICILIOS Y TELEFONOS SE MANEJAN INDEPENDIENTE ASI MISMO LOS ANTECEDENTES
 
@@ -1240,7 +1224,11 @@ namespace MahAppsExample
                         if (Vali == true)
                         {
                             //Manda registrar el paciente (Area de informacion general)
-                            id_paciente = obj2.RegistrarPacienteD(txtNombre.Text.Trim(), txtApellidoPat.Text.Trim(), txtApellidoMat.Text.Trim(), txtEmail.Text.Trim(), sexo, combProfesion.Text, txtTitulo.Text.Trim(), txtFecha.Text.Trim(), txtPGR.Text.Trim());
+                            CultureInfo culture = new CultureInfo("en-En");
+                            DateTime utcDate = txtFecha.SelectedDate.Value;
+                            string usDateFormat = utcDate.ToString("MM/dd/yyyy", culture);
+
+                            id_paciente = obj2.RegistrarPacienteD(txtNombre.Text.Trim(), txtApellidoPat.Text.Trim(), txtApellidoMat.Text.Trim(), txtEmail.Text.Trim(), sexo, combProfesion.Text, txtTitulo.Text.Trim(), usDateFormat, txtPGR.Text.Trim());
 
                             //Metodo de telefonos y antecedentes
                             Telefonos_y_Antecedentes(id_paciente);
@@ -1312,17 +1300,27 @@ namespace MahAppsExample
             else
             {
 
-                progressBarAnimationPGR(5000, obtenerRecurso("progressBar1"));
-                new Thread((ThreadStart)delegate
+                if (!function_activa)
                 {
-                    obj.Save();
-                    Thread.Sleep(5000);
-                    Dispatcher.Invoke((ThreadStart)delegate
+                    cmdGuardarMemoria.IsEnabled = false;
+                    function_activa = true;
+                    progressBarAnimationPGR(14000, obtenerRecurso("progressBar1"));
+                    new Thread((ThreadStart)delegate
                     {
-                        MessageBox.Show(obtenerRecurso("messageInfo5"), obtenerRecurso("messageHeadInf"), MessageBoxButton.OK, MessageBoxImage.Information);
-                    });
 
-                }).Start();
+                        obj.Save();
+                        Thread.Sleep(14000);
+
+                        function_activa = false;
+                        Dispatcher.Invoke((ThreadStart)delegate
+                        {
+                            cmdGuardarMemoria.IsEnabled = true;
+                            MessageBox.Show(obtenerRecurso("messageInfo5"), obtenerRecurso("messageHeadInf"), MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+
+                    }).Start();
+                }
+               
             }
         }
 
@@ -1439,18 +1437,20 @@ namespace MahAppsExample
 
         private void txtBuscarPaciente_TextChanged(object sender, TextChangedEventArgs e)
         {
+     
             if (txtBuscarPaciente.Text != "")
             {
                 HacerConexion();
                 //Llama y obtiene posibles matches
-                DataTable PacientesLista = new DataTable();
-                PacientesLista = obj2.Buscar_Paciente(txtBuscarPaciente.Text);
+                DataTable PacientesLista = obj2.Buscar_Paciente(txtBuscarPaciente.Text);
+                Console.WriteLine($"cantidad de pacientes encontrados {PacientesLista.Rows.Count}");
                 ListaPacientes.ItemsSource = PacientesLista.DefaultView;
+               
                 CerrarConexion();
             }
             else
             {
-                //MessageBox.Show("Introduzca el nombre de un paciente a buscar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
                 txtBuscarPaciente.Focus();
                 CargarListadoCompletoPacientes();
             }
@@ -3525,7 +3525,7 @@ namespace MahAppsExample
         }
 
         int extra = 0;
-        bool extrabool = false;
+        bool extrabool = true;
         private void cmdIniciarDiag_Click(object sender, RoutedEventArgs e)
         {
             //Tipo de opciones
@@ -3588,8 +3588,10 @@ namespace MahAppsExample
             //Selectiva con el tipo de analisis
             switch (tipo)
             {
+                
                 // PRO
                 case "100":
+                    function_activa = true;
                     cmdRango.IsEnabled = true;
                     IEnumerable items1 = this.ListaCodigos.Items;
                     Limpiar_Listas();
@@ -3599,9 +3601,10 @@ namespace MahAppsExample
                     new Thread((ThreadStart)delegate
                     {
                         obj.Diagnostic();
-                        Thread.Sleep(5000 + extra); //Tiempo
-
+                        Thread.Sleep(14500); //Tiempo
                         //Realizar Diagnostico
+
+                        function_activa = false;
                         foreach (nuevoCodigo codigo in items1)
                         {
                             nombrecodigo.Add(codigo.nombre.ToString());
@@ -3624,7 +3627,7 @@ namespace MahAppsExample
 
                         Dispatcher.Invoke((ThreadStart)delegate
                         {
-                            obj.Diagnostic();
+                            //obj.Diagnostic();
                             Panel_opcion2();
 
                             //Agrega valores random a la columna de valores
@@ -3646,6 +3649,7 @@ namespace MahAppsExample
                     {
                         cmdRango.IsEnabled = true;
                         IEnumerable items7 = this.ListaCodigos.Items;
+                        function_activa = true;
                         Limpiar_Listas();
                         Analysis analysisWindow2 = new Analysis(extrabool);
                         analysisWindow2.Show();
@@ -3656,8 +3660,9 @@ namespace MahAppsExample
                         {
                             obj.Diagnostic();
 
-                            Thread.Sleep(5000 + extra); //Tiempo
+                            Thread.Sleep(14500); //Tiempo
 
+                            function_activa = false;
                             //Realizar Diagnostico
                             foreach (nuevoCodigo codigo in items7)
                             {
@@ -3682,7 +3687,7 @@ namespace MahAppsExample
 
                             Dispatcher.Invoke((ThreadStart)delegate
                             {
-                                obj.Diagnostic();
+                                //obj.Diagnostic();
                                 Panel_opcion2();
 
                                 if (optionSugerirNiv.IsChecked == true )
@@ -3732,6 +3737,7 @@ namespace MahAppsExample
                     {
                         cmdRango.IsEnabled = true;
                         IEnumerable items5 = this.ListaCodigos.Items;
+                        function_activa = true;
                         Limpiar_Listas();
                         Analysis analysisWindow3 = new Analysis(extrabool);
                         analysisWindow3.Show();
@@ -3740,7 +3746,8 @@ namespace MahAppsExample
                         new Thread((ThreadStart)delegate
                         {
                             obj.Diagnostic();
-                            Thread.Sleep(6000 + extra); //Tiempo
+                            Thread.Sleep(14500); //Tiempo
+                            function_activa = false;
                             foreach (nuevoCodigo codigo in items5)
                             {
                                 nombrecodigo.Add(codigo.nombre.ToString());
@@ -3766,7 +3773,7 @@ namespace MahAppsExample
                             //then dispatch back to the UI thread to update the progress bar
                             Dispatcher.Invoke((ThreadStart)delegate
                             {
-                                obj.Diagnostic();
+                                //obj.Diagnostic();
                                 Panel_opcion2();
 
                                 if (optionSugerirNiv.IsChecked == true )
@@ -4337,20 +4344,47 @@ namespace MahAppsExample
 
         private void cmdGuardarTarjeta_Click(object sender, RoutedEventArgs e)
         {
-            obj.Save(); //Llama a la maquina
-            Thread.Sleep(5000);
-            MessageBox.Show(obtenerRecurso("messageInfo4"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (!function_activa)
+            {
+                function_activa = true;
+                cmdGuardarTarjeta.IsEnabled = false;
+                new Thread((ThreadStart)delegate
+                {
+                    obj.Save(); //Llama a la maquina
+                    Thread.Sleep(14000);
+                    function_activa = false;
+
+                    Dispatcher.Invoke((ThreadStart)delegate
+                    {
+                        cmdGuardarTarjeta.IsEnabled = true;
+                        MessageBox.Show(obtenerRecurso("messageInfo4"), "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    });
+                }).Start();
+
+            }
         }
 
         private void cmdEnviarFrecuencia_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                string prueba = ListaCodigos.SelectedItem.ToString();
-                obj.Diagnostic(); //Llama a la maquina
-                Thread.Sleep(5000);
-                MessageBox.Show(obtenerRecurso("messageWarning9"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
-                obj.Diagnostic();
+                if (!function_activa)
+                {
+                    string prueba = ListaCodigos.SelectedItem.ToString();
+                    function_activa = true;
+                    cmdEnviarFrecuencia.IsEnabled = false;
+                    new Thread((ThreadStart)delegate
+                    {
+                        obj.Diagnostic(); //Llama a la maquina
+                        Thread.Sleep(14500);
+                        function_activa = false;
+                        Dispatcher.Invoke((ThreadStart)delegate
+                        {
+                            cmdEnviarFrecuencia.IsEnabled = true;
+                            MessageBox.Show(obtenerRecurso("messageWarning9"), obtenerRecurso("messageHeadWarning"), MessageBoxButton.OK, MessageBoxImage.Information);
+                        });
+                    }).Start();
+                }
             }
             catch (NullReferenceException)
             {
@@ -5691,6 +5725,7 @@ namespace MahAppsExample
                                    obj.Similie();
                                    Thread.Sleep(10000); //Tiempo
 
+
                                    Dispatcher.Invoke((ThreadStart)delegate
                                                {
                                                    ListaRemedios.Items.Remove(lista_objetos[index]); //Elimina objeto en base a index
@@ -5742,13 +5777,11 @@ namespace MahAppsExample
             if (function_activa == false && !string.IsNullOrEmpty(lblNombreRemedioResp.Content.ToString()) && ListaRemedios.Items.Count > 0)
             {
                 function_activa = true;
-                progressBarAnimation(3000, obtenerRecurso("txtMessage2"), "#ff0000", "#ff6161");
+                progressBarAnimation(5000, obtenerRecurso("txtMessage2"), "#ff0000", "#ff6161");
                 new Thread((ThreadStart)delegate
                 {
                     obj.Neutralizando();
-                    Thread.Sleep(3000); //Tiempo
-
-                    //Thread.Sleep(15000);
+                    Thread.Sleep(5000); //Tiempo
 
                     Dispatcher.Invoke((ThreadStart)delegate
                     {
@@ -5770,13 +5803,13 @@ namespace MahAppsExample
             {
               
                 function_activa = true;
-                progressBarAnimation(15000, obtenerRecurso("txtMessage3"), "#c90076", "#c15795");
+                progressBarAnimation(22000, obtenerRecurso("txtMessage3"), "#c90076", "#c15795");
 
                 new Thread((ThreadStart)delegate
                 {
                     obj.Imprint();
-                    Thread.Sleep(15000); //Tiempo
-                
+                    Thread.Sleep(22000); //Tiempo
+
                     Dispatcher.Invoke((ThreadStart)delegate
                             {
                                 function_activa = false;
@@ -5795,11 +5828,12 @@ namespace MahAppsExample
             if (function_activa == false && ListaRemedios.Items.Count > 0 && !string.IsNullOrEmpty(lblNombreRemedioResp.Content.ToString()) )
             {
                function_activa = true;
-               progressBarAnimation(15000, obtenerRecurso("txtMessage4"), "#ff0096", "#ff8dd0");
+               progressBarAnimation(25000, obtenerRecurso("txtMessage4"), "#ff0096", "#ff8dd0");
                new Thread((ThreadStart)delegate
                {
                    obj.Copy();
-                   Thread.Sleep(15000); //Tiempo
+                   Thread.Sleep(25000); //Tiempo
+                   
 
                    Dispatcher.Invoke((ThreadStart)delegate
                            {
@@ -5819,12 +5853,12 @@ namespace MahAppsExample
             if (function_activa == false && ListaRemedios.Items.Count > 0 && !string.IsNullOrEmpty(lblNombreRemedioResp.Content.ToString()) )
             {  
               function_activa = true;
-              progressBarAnimation(5000, obtenerRecurso("txtMessage5"), "#f44336", "#fa746a");
+              progressBarAnimation(6800, obtenerRecurso("txtMessage5"), "#f44336", "#fa746a");
 
               new Thread((ThreadStart)delegate
               {
                   obj.Erase();
-                  Thread.Sleep(5000); //Tiempo
+                  Thread.Sleep(6800); //Tiempo
 
                   Dispatcher.Invoke((ThreadStart)delegate
                           {
@@ -5846,13 +5880,12 @@ namespace MahAppsExample
             {
 
               function_activa = true;
-              progressBarAnimation(5000, obtenerRecurso("txtMessage6"), "#ffc000", "#ffe599");
+              progressBarAnimation(14000, obtenerRecurso("txtMessage6"), "#ffc000", "#ffe599");
               
               new Thread((ThreadStart)delegate
               {
                   obj.Save();
-                  Thread.Sleep(5000); //Tiempo
-              
+                  Thread.Sleep(14000); //Tiempo
                   Dispatcher.Invoke((ThreadStart)delegate
                           {
                               loaderBack.Visibility = Visibility.Hidden;
@@ -5961,7 +5994,8 @@ namespace MahAppsExample
                         // Detener y reiniciar Timer_segundos
                         Timer_segundos.Stop();
                         Timer_segundos.Interval = TimeSpan.Zero;
-                
+                        function_activa = false;
+
                         // Detener y reiniciar Timer_minutos
                         Timer_minutos.Stop();
                         Timer_minutos.Interval = TimeSpan.Zero;
@@ -5969,12 +6003,14 @@ namespace MahAppsExample
                 
                     }
                 
-                    function_activa = false;
+
                 
                 }
                 catch (FormatException)
                 {
-                    MessageBox.Show("Please type a numeric value only!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(obtenerRecurso("messageError"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    function_activa = false;
+
                 }
             }
 
@@ -6038,19 +6074,20 @@ namespace MahAppsExample
                 //Elimina todo
                 new Thread((ThreadStart)delegate
                 {
-                    Dispatcher.Invoke((ThreadStart)delegate
-                    {
-                        loaderBack.Visibility = Visibility.Hidden;
-                        cmdTerminarDiag.Visibility = Visibility.Hidden;
-                        opcionesHomoeonic.IsEnabled = true;
-                        obj.Diagnostic();
-                        function_activa = true;
-                    });
+                    obj.Diagnostic();
+                    Thread.Sleep(14500);
+
+                    cmdTerminarDiagnostico();
+                    //Dispatcher.Invoke((ThreadStart)delegate
+                    //{
+
+                    //    loaderBack.Visibility = Visibility.Hidden;
+                    //    cmdTerminarDiag.Visibility = Visibility.Hidden;
+                    //    opcionesHomoeonic.IsEnabled = true;
+                    //    function_activa = false;
+                    //});
 
                 }).Start();
-
-                cmdTerminarDiagnostico();
-
 
             }
         }
@@ -10446,22 +10483,24 @@ namespace MahAppsExample
         private void cmdReanalizarr_Click(object sender, RoutedEventArgs e)
         {
             HacerConexion();
-           
+
             try
             {
                 object id_padre = obj2.Obtener_Id_Analisis(comboOtrosAnal.SelectedItem.ToString());
                 string[] pac = new string[2] { listadoPacientes.SelectedItem.ToString(), comboOtrosAnal.SelectedItem.ToString() };
 
-       
+
                 DateTime oldDate = DateTime.Parse(obj2.Obtener_Fecha_Analisis(id_padre.ToString()).ToString());
                 DateTime newDate = DateTime.Now;
-
+                
+                CultureInfo culturaEEUU = new CultureInfo("en-US");
+                string fechaEEUU = newDate.ToString(culturaEEUU);
 
                 int timeStart = oldDate.Hour * 3600 + oldDate.Minute * 60 + oldDate.Second;
-                int timeEnd= newDate.Hour * 3600 + newDate.Minute * 60 + newDate.Second;
-                updateAnalysis =int.Parse(CalculateTimeDifference(timeStart, timeEnd).ToString()) > 3600;
+                int timeEnd = newDate.Hour * 3600 + newDate.Minute * 60 + newDate.Second;
+                updateAnalysis = int.Parse(CalculateTimeDifference(timeStart, timeEnd).ToString()) > 3600;
 
-                obj2.Actualizar_Fecha_Analisis(DateTime.Now, id_padre.ToString());
+                obj2.Actualizar_Fecha_Analisis(fechaEEUU, id_padre.ToString());
                 DataTable tabla_codigosanalisis = obj2.Obtener_CodigosAnalisis(Convert.ToInt32(id_padre.ToString()));
 
                 //Ciclo con los codigos de analisis
@@ -10800,7 +10839,7 @@ namespace MahAppsExample
                                 //Parte de la programacion del tratamiento
                                 if (selectedItem.Content.ToString() == obtenerRecurso("valSimple"))
                                 {
-                                    if (txtHoras.Text == "" && txtMinutos.Text == "")
+                                    if (txtHoras.Text == "0" && txtMinutos.Text == "0" && txtMinutos.Text == "0")
                                     {
                                         MessageBox.Show(obtenerRecurso("messageError13"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                                     }
@@ -10870,9 +10909,11 @@ namespace MahAppsExample
                                         string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
 
                                         //Agregar al listado activo
-                                        ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = fecha_selec.ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
-
-
+                                        if (DateTime.Now.Date.Equals(fecha_selec.Date))
+                                        {
+                                            ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = fecha_selec.ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
+                                        }
+                                       
 
                                         Cargar_Tratamientos_Pendientes_Y_Activos();
                                         //Parte crucial de ocultar
@@ -10884,157 +10925,171 @@ namespace MahAppsExample
                                 }
                                 else if (selectedItem.Content.ToString() == obtenerRecurso("valPe"))
                                 {
-                                    List<DateTime> fechas_start = new List<DateTime>();
-                                    List<DateTime> fechas_end = new List<DateTime>();
 
-                                    int Dias = Int32.Parse(txtDias.Text);
-                                    int Horas = Int32.Parse(txtHoras.Text);
-                                    int Minutos = Int32.Parse(txtMinutos.Text);
-
-
-                                    int Horas_segundos = Horas * 3600;
-                                    int Minutos_segundos = Minutos * 60;
-                                    int dias_segundos = Dias * 24 * 3600;
-
-                                    //Agarra hora seleccionada
-                                    fecha_selec = Convert.ToDateTime(dateProg.Text); //Convertimos
-                                    DateTime hora_actual = DateTime.Now;
-                                    //hora_actual.Hour;
-
-
-
-                                    
-                                    TimeSpan ts = new TimeSpan(Dias, hora_actual.Hour + Horas, hora_actual.Minute + Minutos, hora_actual.Second);
-                                    TimeSpan ts2 = new TimeSpan(hora_actual.Hour, hora_actual.Minute, hora_actual.Second);
-                                    DateTime  sfecha_inicio = fecha_selec + ts2;
-                                    DateTime  sfecha_cierre  = fecha_selec + ts;
-
-                                    
-                                    //Duracion en segundos - Tiempo
-                                    int duracion = Horas_segundos+Minutos_segundos+dias_segundos;
-                                    int duracion_cada = 0;
-
-                                    //Agrega a un arreglo para la pausa
-                                    Fechas_Diag_Activos.Add(fecha_selec);
-                                    Banderas_Fechas_Activos.Add(true);
-
-                                    //Duracion en segundos - Cada
-                                    if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Minute(s)")
+                                    if (txtHoras.Text == "0" && txtMinutos.Text == "0" && txtMinutos.Text == "0")
                                     {
-                                        duracion_cada = Int32.Parse(txtcantidad1.Text) * 60;
-                                    }
-
-                                    if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Hour(s)")
-                                    {
-                                        duracion_cada = Int32.Parse(txtcantidad1.Text) * 3600;
-                                    }
-
-                                    if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Day(s)")
-                                    {
-                                        duracion_cada = Int32.Parse(txtcantidad1.Text) * 86400;
-                                    }
-
-                                    //Duracion en segundos - Durante
-                                    int duracion_durante;
-
-                                    duracion_durante = Int32.Parse(txtcantidad2.Text) * 86400;
-
-                                    if (txtcantidad1.Text != "0" && txtcantidad2.Text != "0")
-                                    {
-                                   
-
-                                        //Cada para adelantar los segundos y el tiempo..
-                                        int cada = duracion_cada;
-
-                                        //Calcula el numero de veces del periodo
-                                        int no_veces = duracion_durante / duracion_cada;
-
-                                        //Fecha original
-                                        fechas_start.Add(sfecha_inicio);
-                                        fechas_end.Add(sfecha_cierre);
-
-                                        //Creamos la fecha padre
-                                        obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_inicio, sfecha_cierre, fecha_selec.Date == hora_actual.Date ? 1 : 0);
-
-                                        string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
-
-                                        //Agregar al listado activo el padre y condiciona los hijos a espera
-                                        ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = sfecha_cierre.ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
-
-                                        int acum = cada;  //Acumulador para el cada
-
-                                        //Obtener id_padre del id_tratamiento
-                                        object id_padre = obj2.Obtener_IdTratamiento(id_paciente.ToString(), nombre_paciente, nombre_tratamiento);
-
-                                        //Calcula las fechas del periodo en base al numero de veces
-                                        for (int s = 1; s <= no_veces - 1; s++)
-                                        {
-                                            //cuando inicia el siguiente tratamiento 
-                                            ts = new TimeSpan(hora_actual.Hour, hora_actual.Minute, hora_actual.Second + acum);
-                                            
-                                            //cuando va a finalizar el tratatiento 
-                                             ts2 = ts.Add(new TimeSpan(Horas, Minutos, 0)); 
-
-                                            //new TimeSpan(Dias, hora_actual.Hour + Horas, hora_actual.Minute + Minutos, hora_actual.Second)
-                                            sfecha_inicio = fecha_selec + ts;
-                                            sfecha_cierre = fecha_selec + ts2;
-
-
-                                            fechas_start.Add(sfecha_inicio);
-                                            fechas_end.Add(sfecha_cierre);
-                                            acum = acum + cada;
-                                        }
-
-                                        string padre = id_padre.ToString();
-
-                                        //Crea la secuencia de registros en base a las fechas...
-                                        for (int s = 1; s <= fechas_start.Count - 1; s++)
-                                        {
-                                            //MessageBox.Show(padre);
-                                            obj2.Registrar_TratamientoNuevoSencillo(padre, id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, fechas_start[s], fechas_end[s], 0);
-                                            //MessageBox.Show(fechas[s].ToString());
-
-                                            string duracion_formatoreloj_in = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
-
-                                            //Agregar al listado activo
-                                            ListadoDiagNoActiv.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = fechas_start[s].ToString(), duracion = duracion_formatoreloj_in, tfaltante = "0" });
-
-                                        }
-
-                                        //Registro de los codigos del tratamiento periodico.....
-
-                                        //Para remedios
-                                        for (int q = 0; q <= listRemedyAdded.Items.Count - 1; q++)
-                                        {
-                                            //Registrar contenido del tratamiento sencillo
-                                            obj2.Registrar_ContenidoTratamiento(padre, listRemedyAdded.Items[q].ToString(), "R");
-                                        }
-
-                                        //Para analisis
-                                        for (int q = 0; q <= listAnalisysAdded.Items.Count - 1; q++)
-                                        {
-                                            //Registrar contenido del tratamiento sencillo
-                                            obj2.Registrar_ContenidoTratamiento(padre, listAnalisysAdded.Items[q].ToString(), "A");
-                                        }
-
-                                        //Para codigos individuales
-                                        for (int q = 0; q <= listRateAdded.Items.Count - 1; q++)
-                                        {
-                                            //Registrar contenido del tratamiento sencillo
-                                            obj2.Registrar_ContenidoTratamiento(padre, listRateAdded.Items[q].ToString(), "C");
-                                        }
-
-                                        Cargar_Tratamientos_Pendientes_Y_Activos();
-
-                                        //Parte crucial de ocultar
-                                        Mostrar_TratamientoDiag();
-                                        Ocultar_TratamientoDirecto();
+                                        MessageBox.Show(obtenerRecurso("messageError13"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                                     }
                                     else
                                     {
-                                        MessageBox.Show(obtenerRecurso("messageError12"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                                        tiempo1.Focus();
+                                        List<DateTime> fechas_start = new List<DateTime>();
+                                        List<DateTime> fechas_end = new List<DateTime>();
+
+                                        int Dias = Int32.Parse(txtDias.Text);
+                                        int Horas = Int32.Parse(txtHoras.Text);
+                                        int Minutos = Int32.Parse(txtMinutos.Text);
+
+
+                                        int Horas_segundos = Horas * 3600;
+                                        int Minutos_segundos = Minutos * 60;
+                                        int dias_segundos = Dias * 24 * 3600;
+
+                                        //Agarra hora seleccionada
+                                        fecha_selec = Convert.ToDateTime(dateProg.Text); //Convertimos
+                                        DateTime hora_actual = DateTime.Now;
+                                        //hora_actual.Hour;
+
+
+
+
+                                        TimeSpan ts = new TimeSpan(Dias, hora_actual.Hour + Horas, hora_actual.Minute + Minutos, hora_actual.Second);
+                                        TimeSpan ts2 = new TimeSpan(hora_actual.Hour, hora_actual.Minute, hora_actual.Second);
+                                        DateTime sfecha_inicio = fecha_selec + ts2;
+                                        DateTime sfecha_cierre = fecha_selec + ts;
+
+
+                                        //Duracion en segundos - Tiempo
+                                        int duracion = Horas_segundos + Minutos_segundos + dias_segundos;
+                                        int duracion_cada = 0;
+
+                                        //Agrega a un arreglo para la pausa
+                                        Fechas_Diag_Activos.Add(fecha_selec);
+                                        Banderas_Fechas_Activos.Add(true);
+
+                                        //Duracion en segundos - Cada
+                                        if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Minute(s)")
+                                        {
+                                            duracion_cada = Int32.Parse(txtcantidad1.Text) * 60;
+                                        }
+
+                                        if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Hour(s)")
+                                        {
+                                            duracion_cada = Int32.Parse(txtcantidad1.Text) * 3600;
+                                        }
+
+                                        if (((ComboBoxItem)tiempo1.SelectedItem).Content.ToString() == "Day(s)")
+                                        {
+                                            duracion_cada = Int32.Parse(txtcantidad1.Text) * 86400;
+                                        }
+
+                                        //Duracion en segundos - Durante
+                                        int duracion_durante;
+
+                                        duracion_durante = Int32.Parse(txtcantidad2.Text) * 86400;
+
+                                        if (txtcantidad1.Text != "0" && txtcantidad2.Text != "0")
+                                        {
+
+
+                                            //Cada para adelantar los segundos y el tiempo..
+                                            int cada = duracion_cada;
+
+                                            //Calcula el numero de veces del periodo
+                                            int no_veces = duracion_durante / duracion_cada;
+
+                                            //Fecha original
+                                            fechas_start.Add(sfecha_inicio);
+                                            fechas_end.Add(sfecha_cierre);
+
+                                            //Creamos la fecha padre
+                                            obj2.Registrar_TratamientoNuevoSencillo("", id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, sfecha_inicio, sfecha_cierre, fecha_selec.Date == hora_actual.Date ? 1 : 0);
+
+                                            string duracion_formatoreloj = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
+
+                                            if (DateTime.Now.Date.Equals(sfecha_inicio.Date))
+                                            {
+                                                //Agregar al listado activo el padre y condiciona los hijos a espera
+                                                ListadoDiagActivos.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = sfecha_cierre.ToString(), duracion = duracion_formatoreloj, tfaltante = "0" });
+
+                                            }
+
+
+                                            int acum = cada;  //Acumulador para el cada
+
+                                            //Obtener id_padre del id_tratamiento
+                                            object id_padre = obj2.Obtener_IdTratamiento(id_paciente.ToString(), nombre_paciente, nombre_tratamiento);
+
+                                            //Calcula las fechas del periodo en base al numero de veces
+                                            for (int s = 1; s <= no_veces - 1; s++)
+                                            {
+                                                //cuando inicia el siguiente tratamiento 
+                                                ts = new TimeSpan(hora_actual.Hour, hora_actual.Minute, hora_actual.Second + acum);
+
+                                                //cuando va a finalizar el tratatiento 
+                                                ts2 = ts.Add(new TimeSpan(Horas, Minutos, 0));
+
+                                                //new TimeSpan(Dias, hora_actual.Hour + Horas, hora_actual.Minute + Minutos, hora_actual.Second)
+                                                sfecha_inicio = fecha_selec + ts;
+                                                sfecha_cierre = fecha_selec + ts2;
+
+
+                                                fechas_start.Add(sfecha_inicio);
+                                                fechas_end.Add(sfecha_cierre);
+                                                acum = acum + cada;
+                                            }
+
+                                            string padre = id_padre.ToString();
+
+                                            //Crea la secuencia de registros en base a las fechas...
+                                            for (int s = 1; s <= fechas_start.Count - 1; s++)
+                                            {
+                                                //MessageBox.Show(padre);
+                                                obj2.Registrar_TratamientoNuevoSencillo(padre, id_paciente.ToString(), nombre_paciente, nombre_tratamiento, duracion, 0, fechas_start[s], fechas_end[s], 0);
+                                                //MessageBox.Show(fechas[s].ToString());
+
+                                                string duracion_formatoreloj_in = CalcularTiempo_FormatoReloj(Int32.Parse(duracion.ToString()));
+
+                                                //Agregar al listado activo
+                                                ListadoDiagNoActiv.Items.Add(new nuevoTratamiento { paciente = nombre_paciente, tratamiento = nombre_tratamiento, inicio = fechas_start[s].ToString(), duracion = duracion_formatoreloj_in, tfaltante = "0" });
+
+                                            }
+
+                                            //Registro de los codigos del tratamiento periodico.....
+
+                                            //Para remedios
+                                            for (int q = 0; q <= listRemedyAdded.Items.Count - 1; q++)
+                                            {
+                                                //Registrar contenido del tratamiento sencillo
+                                                obj2.Registrar_ContenidoTratamiento(padre, listRemedyAdded.Items[q].ToString(), "R");
+                                            }
+
+                                            //Para analisis
+                                            for (int q = 0; q <= listAnalisysAdded.Items.Count - 1; q++)
+                                            {
+                                                //Registrar contenido del tratamiento sencillo
+                                                obj2.Registrar_ContenidoTratamiento(padre, listAnalisysAdded.Items[q].ToString(), "A");
+                                            }
+
+                                            //Para codigos individuales
+                                            for (int q = 0; q <= listRateAdded.Items.Count - 1; q++)
+                                            {
+                                                //Registrar contenido del tratamiento sencillo
+                                                obj2.Registrar_ContenidoTratamiento(padre, listRateAdded.Items[q].ToString(), "C");
+                                            }
+
+                                            Cargar_Tratamientos_Pendientes_Y_Activos();
+
+                                            //Parte crucial de ocultar
+                                            Mostrar_TratamientoDiag();
+                                            Ocultar_TratamientoDirecto();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(obtenerRecurso("messageError12"), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                            tiempo1.Focus();
+                                        }
                                     }
+                                    
                                 }
                                 else
                                 {
@@ -13428,9 +13483,19 @@ namespace MahAppsExample
                         HacerConexion();
                         obj2.CancelarTratamientoADistancia(window.SelectedOption.Trim());
                         obj.BroadcastOFF();
+                        activated = false;
                         //progressBarTratamiento.Visibility = Visibility.Hidden;
                         //lblProgressTratamiento.Visibility = Visibility.Hidden;
                         //lblPorcentProgressTratamiento.Visibility = Visibility.Hidden;
+
+                        DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
+                        cant_activos = Tratamientos_Activos.Rows.Count;
+
+                        if (cant_activos==0)
+                        {
+                            ListadoDiagActivos.Items.Clear();
+                        }
+
                         CerrarConexion();
                         MessageBox.Show(obtenerRecurso("messageHeadInfCancelT"), obtenerRecurso("messageHeadInf"), MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -13607,6 +13672,12 @@ namespace MahAppsExample
 
         private void MainWindow_Closed(object sender, EventArgs e)
         {
+            if (obj.isOpen())
+            {
+                obj.closePort();
+            }
+
+
             HacerConexion();
             DataTable Tratamientos_Activos = obj2.Tratamientos_Activos();
 
@@ -13712,6 +13783,29 @@ namespace MahAppsExample
         private void dateProg_Loaded(object sender, RoutedEventArgs e)
         {
             dateProg.DisplayDateStart = DateTime.Now;
+        }
+
+
+        private void change_array_filter_by_language(string language)
+        {
+            if (language == "bg-BG")
+            {
+                string[] letterBulgarian = new string[]{
+                                          "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н",
+                                          "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ь", "Ю", "Я"
+                                      };
+
+                comboCategoriasRemedios.Items.Clear();
+
+                foreach (string elem in letterBulgarian)
+                {
+                    ComboBoxItem item = new ComboBoxItem();
+                    item.Content = elem;
+
+                    comboCategoriasRemedios.Items.Add(item);
+                }
+
+            }
         }
     }
 }

@@ -949,10 +949,10 @@
     <value>Select the type of scheduling to continue!...</value>
   </data>
   <data name="messageError12" xml:space="preserve">
-    <value>'During' and 'Every' cannot have that values!</value>
+    <value>'During' and 'Every' cannot have zero or empty values!</value>
   </data>
   <data name="messageError13" xml:space="preserve">
-    <value>Input the estimate time to continue</value>
+    <value>Define  the duration of  treatment to continue....</value>
   </data>
   <data name="messageError14" xml:space="preserve">
     <value>Please select the type of treatment!</value>
@@ -1296,6 +1296,9 @@
   <data name="messageWarning21" xml:space="preserve">
     <value>This name is reserved for the system</value>
   </data>
+  <data name="messageWarning22" xml:space="preserve">
+    <value>The rate code N  is already in use for one rate.</value>
+  </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Please select a category and subcategory first in order to continue!</value>
   </data>
@@ -1461,8 +1464,23 @@
   <data name="reportPname" xml:space="preserve">
     <value>Patient's Name:</value>
   </data>
+  <data name="resetBTN" xml:space="preserve">
+    <value>restart</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>RESET COLORS</value>
+  </data>
+  <data name="resetHeader" xml:space="preserve">
+    <value>Reset  Warning </value>
+  </data>
+  <data name="resetText" xml:space="preserve">
+    <value>The software care c24   will restart because there isn't connection to  the machine, check if there is connection to the USB port bewteen  your machine and your pc .</value>
+  </data>
+  <data name="resetTIme" xml:space="preserve">
+    <value>Seconds </value>
+  </data>
+  <data name="resetTitle" xml:space="preserve">
+    <value>lost machine connection</value>
   </data>
   <data name="restoreDatabase" xml:space="preserve">
     <value>Restore Database</value>

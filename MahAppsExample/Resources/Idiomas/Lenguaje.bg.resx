@@ -949,10 +949,10 @@
     <value>Изберете типа планиране за да продължите!...</value>
   </data>
   <data name="messageError12" xml:space="preserve">
-    <value>По време&amp;quot; и &amp;quot;Всеки&amp;quot; не могат да имат тези стойности!</value>
+    <value>During“ и „each“ не могат да имат празни стойности или нули.</value>
   </data>
   <data name="messageError13" xml:space="preserve">
-    <value>Въведете очакваното време за да продължите</value>
+    <value>Определяне на продължителността на лечението</value>
   </data>
   <data name="messageError14" xml:space="preserve">
     <value>Моля изберете вида лечение!</value>
@@ -1299,6 +1299,9 @@
   <data name="messageWarning21" xml:space="preserve">
     <value>това име е запазено.</value>
   </data>
+  <data name="messageWarning22" xml:space="preserve">
+    <value>Кодът на тарифата N вече се използва за една тарифа.</value>
+  </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Моля първо изберете категория и подкатегория за да продължите!</value>
   </data>
@@ -1464,8 +1467,23 @@
   <data name="reportPname" xml:space="preserve">
     <value>Име на пациента:</value>
   </data>
+  <data name="resetBTN" xml:space="preserve">
+    <value>рестартиране на</value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>НУЛИРАНЕ НА ЦВЕТОВЕ</value>
+  </data>
+  <data name="resetHeader" xml:space="preserve">
+    <value>Предупреждение за нулиране </value>
+  </data>
+  <data name="resetText" xml:space="preserve">
+    <value>Софтуерът care c24 ще се рестартира, защото няма връзка с машината, проверете дали има връзка към USB порта между машината и компютъра.</value>
+  </data>
+  <data name="resetTIme" xml:space="preserve">
+    <value>Секунди </value>
+  </data>
+  <data name="resetTitle" xml:space="preserve">
+    <value>изгубена връзка с машината</value>
   </data>
   <data name="restoreDatabase" xml:space="preserve">
     <value>Възстановяване на база данни</value>

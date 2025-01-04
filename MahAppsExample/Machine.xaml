@@ -19,7 +19,7 @@
             <Label x:Name="label" Content="{x:Static local:Lenguaje.labelSelectPort}" HorizontalContentAlignment="Center"  Margin="0 0 0 0" FontWeight="Bold" VerticalAlignment="Top" Width="330" Grid.ColumnSpan="3" RenderTransformOrigin="0.373,0.348"/>
             
                 <Label x:Name="label1" Content="{x:Static local:Lenguaje.labelPorts}" HorizontalAlignment="Center" VerticalAlignment="Top" Width="62" Margin="0 10 0 3"/>
-                <ComboBox x:Name="cmbPorts" HorizontalAlignment="Center" VerticalAlignment="Top" Width="212" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <ComboBox x:Name="cmbPorts" HorizontalAlignment="Center" VerticalAlignment="Top" Width="212" Grid.Column="1" Grid.ColumnSpan="2" DropDownOpened="cmbPorts_DropDownOpened"/>
             
             <Button x:Name="button" BorderThickness="2" BorderBrush="#8D0801"  HorizontalAlignment="Center" Height="38"  VerticalAlignment="Top" Width="152" Click="button_Click" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 10 0 0">
                 <Button.Effect>

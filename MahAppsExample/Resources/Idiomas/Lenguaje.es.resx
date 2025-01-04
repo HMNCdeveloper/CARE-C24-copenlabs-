@@ -949,10 +949,10 @@
     <value>Seleccionar el tipo de programacion para continuar!...</value>
   </data>
   <data name="messageError12" xml:space="preserve">
-    <value>'Durante' y 'cada' no puede tenere estos valores!</value>
+    <value>'Durante' y 'cada' no puede tenere valore vacios o ceros!</value>
   </data>
   <data name="messageError13" xml:space="preserve">
-    <value>Introduzca el tiempo estimado para continuar</value>
+    <value>Define la duracion del tratamiento</value>
   </data>
   <data name="messageError14" xml:space="preserve">
     <value>Por favor seleccione el tipo de tratamiento!</value>
@@ -1296,6 +1296,9 @@
   <data name="messageWarning21" xml:space="preserve">
     <value>Este nombre esta reservado por el sistema.</value>
   </data>
+  <data name="messageWarning22" xml:space="preserve">
+    <value>El codigo del rate  N  esta en uso por un rate.</value>
+  </data>
   <data name="messageWarning3" xml:space="preserve">
     <value>Por favor selecciona una categoria y subcategoria primero en orden para continuar !</value>
   </data>
@@ -1461,8 +1464,23 @@
   <data name="reportPname" xml:space="preserve">
     <value>Nombre del paciente:</value>
   </data>
+  <data name="resetBTN" xml:space="preserve">
+    <value>Reiniciar </value>
+  </data>
   <data name="resetC" xml:space="preserve">
     <value>REINICIAR COLORES</value>
+  </data>
+  <data name="resetHeader" xml:space="preserve">
+    <value>Advertencia de reinicio</value>
+  </data>
+  <data name="resetText" xml:space="preserve">
+    <value>El software care c24 va a reiniciarse porque no hay conexion con la maquina, verifica si hay conexion con el puerto USB entra la maquina y tu pc.</value>
+  </data>
+  <data name="resetTIme" xml:space="preserve">
+    <value>Segundos</value>
+  </data>
+  <data name="resetTitle" xml:space="preserve">
+    <value>Conexion de la maquina perdida</value>
   </data>
   <data name="restoreDatabase" xml:space="preserve">
     <value>Restaurar Base de datos</value>
